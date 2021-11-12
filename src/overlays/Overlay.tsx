@@ -7,11 +7,14 @@ import usePopper, {
 import useRootClose, { RootCloseOptions } from "./useRootClose";
 import mergeOptionsWithPopperConfig from "./mergeOptionsWithPopperConfig";
 import {
+  children,
   createComputed,
   createEffect,
+  createMemo,
   createSignal,
   JSX,
   Show,
+  splitProps,
 } from "solid-js";
 import { createStore, reconcile } from "solid-js/store";
 import { TransitionCallbacks, TransitionComponent } from "./types";
@@ -131,16 +134,19 @@ const Overlay = (props: OverlayProps) => {
   const [rootCloseOptions, setRootCloseOptions] = createStore<RootCloseOptions>(
     {}
   );
-  const Transition = props.transition;
+  const Transition = props.transition!;
+  const popperVisible = createMemo(
+    () => props.show || (props.transition && !exited())
+  );
 
   /** sync popper options with props */
   createComputed(() => {
     setPopperOptions(
       reconcile(
         mergeOptionsWithPopperConfig({
-          enabled: !!props.show,
+          enabled: popperVisible(),
           placement: props.placement,
-          enableEvents: !!props.show,
+          enableEvents: popperVisible(),
           containerPadding: props.containerPadding || 5,
           flip: props.flip,
           offset: props.offset,
@@ -203,28 +209,21 @@ const Overlay = (props: OverlayProps) => {
     })
   );
 
-  // if (Transition) {
-  //   const {onExit, onExiting, onEnter, onEntering, onEntered} = props;
-
-  //   child = (
-  //     <Transition
-  //       in={props.show}
-  //       appear
-  //       onExit={onExit}
-  //       onExiting={onExiting}
-  //       onExited={handleHidden}
-  //       onEnter={onEnter}
-  //       onEntering={onEntering}
-  //       onEntered={onEntered}
-  //     >
-  //       {child}
-  //     </Transition>
-  //   );
-  // }
-
   return (
-    <Show when={props.container() && (props.show || (Transition && !exited()))}>
-      <Portal mount={props.container()}>{child}</Portal>
+    <Show when={props.container() && popperVisible()}>
+      <Portal mount={props.container()}>
+        <Transition
+          appear
+          onBeforeExit={props.onBeforeExit}
+          onExit={props.onExit}
+          onAfterExit={handleHidden}
+          onBeforeEnter={props.onBeforeEnter}
+          onEnter={props.onEnter}
+          onAfterEnter={props.onAfterEnter}
+        >
+          {props.show && child}
+        </Transition>
+      </Portal>
     </Show>
   );
 };

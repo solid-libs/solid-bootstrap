@@ -3,6 +3,7 @@ import Overlay from "./overlays/Overlay";
 import { createSignal } from "solid-js";
 import { Placement } from "./overlays/usePopper";
 import styles from "./App.module.css";
+import { Transition } from "solid-transition-group";
 
 const PLACEMENTS: Placement[] = ["bottom", "left", "top", "right"];
 
@@ -13,8 +14,14 @@ const App: Component = () => {
   const [placement, setPlacement] = createSignal<Placement>();
 
   function handleClick() {
-    setPlacement(PLACEMENTS[PLACEMENTS.indexOf(placement()!) + 1]);
-    setShow(!!placement());
+    if (!show()) {
+      setPlacement("bottom");
+      setShow(true);
+    } else if (placement() === "right") {
+      setShow(false);
+    } else {
+      setPlacement(PLACEMENTS[PLACEMENTS.indexOf(placement()!) + 1]);
+    }
   }
 
   return (
@@ -24,7 +31,8 @@ const App: Component = () => {
         <h3>Overlay</h3>
         <p>
           For this example the overlay is styled to look like a tooltip (with an
-          adaptive arrow). <br />
+          adaptive arrow). It also demonstates using an optional transition.{" "}
+          <br />
           Click the button to cycle through placement options.
         </p>
         <div class="d-flex justify-content-center">
@@ -40,6 +48,21 @@ const App: Component = () => {
           placement={placement()}
           offset={[0, 5]}
           flip
+          transition={Transition}
+          onEnter={(el, done) => {
+            console.log("onenter");
+            const a = el.animate([{ opacity: 0 }, { opacity: 1 }], {
+              duration: 600,
+            });
+            a.finished.then(done);
+          }}
+          onExit={(el, done) => {
+            console.log("onexit");
+            const a = el.animate([{ opacity: 1 }, { opacity: 0 }], {
+              duration: 600,
+            });
+            a.finished.then(done);
+          }}
         >
           {/* Render overlay (tooltip) with props from popperjs */}
           {(props, more) => (
