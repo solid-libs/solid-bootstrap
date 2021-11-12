@@ -7,14 +7,12 @@ import usePopper, {
 import useRootClose, { RootCloseOptions } from "./useRootClose";
 import mergeOptionsWithPopperConfig from "./mergeOptionsWithPopperConfig";
 import {
-  children,
   createComputed,
   createEffect,
   createMemo,
   createSignal,
   JSX,
   Show,
-  splitProps,
 } from "solid-js";
 import { createStore, reconcile } from "solid-js/store";
 import { TransitionCallbacks, TransitionComponent } from "./types";

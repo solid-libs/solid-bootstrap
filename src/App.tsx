@@ -26,15 +26,14 @@ const App: Component = () => {
 
   return (
     <div class="container" ref={setContainer}>
-      <h1>Solid-Overlays</h1>
+      <h1 class="display-4">Solid-Overlays</h1>
       <header>
         <h3>Overlay</h3>
-        <p>
+        <p class="lead">
           For this example the overlay is styled to look like a tooltip (with an
           adaptive arrow). It also demonstates using an optional transition.{" "}
-          <br />
-          Click the button to cycle through placement options.
         </p>
+        <p>Click the button to cycle through placement options.</p>
         <div class="d-flex justify-content-center">
           {/* Button is the overlay target to position around */}
           <button ref={setTarget} onclick={handleClick} class="btn btn-primary">
@@ -42,8 +41,8 @@ const App: Component = () => {
           </button>
         </div>
         <Overlay
-          target={target}
           container={container}
+          target={target}
           show={show()}
           placement={placement()}
           offset={[0, 5]}
