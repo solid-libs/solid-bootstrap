@@ -16,6 +16,7 @@ import {
   onMount,
   Show,
 } from "solid-js";
+import { createStore, reconcile } from "solid-js/store";
 import { TransitionCallbacks, TransitionComponent } from "./types";
 import { Portal } from "solid-js/web";
 
@@ -128,29 +129,29 @@ export interface OverlayProps extends TransitionCallbacks {
 const Overlay = (props: OverlayProps) => {
   const [rootElement, attachRef] = createSignal<HTMLElement>();
   const [arrowElement, attachArrowRef] = createSignal<Element>();
+  const [exited, setExited] = createSignal(!props.show);
+  const [optionStore, setOptionStore] = createStore<UsePopperOptions>({});
   const Transition = props.transition;
 
-  const [exited, setExited] = createSignal(!props.show);
-
-  const popperOptions = createMemo<UsePopperOptions>(() => {
-    console.log("Options changing");
-    return mergeOptionsWithPopperConfig({
-      enabled: !!props.show,
-      placement: props.placement,
-      enableEvents: !!props.show,
-      containerPadding: props.containerPadding || 5,
-      flip: props.flip,
-      offset: props.offset,
-      arrowElement: arrowElement(),
-      popperConfig: props.popperConfig ?? {},
-    });
+  /** Merge props into popper option store */
+  createComputed(() => {
+    setOptionStore(
+      reconcile(
+        mergeOptionsWithPopperConfig({
+          enabled: !!props.show,
+          placement: props.placement,
+          enableEvents: !!props.show,
+          containerPadding: props.containerPadding || 5,
+          flip: props.flip,
+          offset: props.offset,
+          arrowElement: arrowElement(),
+          popperConfig: props.popperConfig ?? {},
+        })
+      )
+    );
   });
 
-  const popper = usePopper(props.target, rootElement, popperOptions);
-
-  createEffect(() => {
-    console.log("usePopper state changed", popper());
-  });
+  const popper = usePopper(props.target, rootElement, optionStore);
 
   createComputed(() => {
     if (props.show) {

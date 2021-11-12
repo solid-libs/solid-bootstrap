@@ -116,11 +116,11 @@ const EMPTY_MODIFIERS = [] as any;
 function usePopper(
   referenceElement: () => VirtualElement | null | undefined,
   popperElement: () => HTMLElement | null | undefined,
-  options: () => UsePopperOptions
+  options: UsePopperOptions
 ): Accessor<UsePopperState | undefined> {
   const [popperInstance, setPopperInstance] = createSignal<Instance>();
 
-  const enabled = createMemo(() => options()?.enabled ?? true);
+  const enabled = createMemo(() => options.enabled ?? true);
 
   const update = createMemo(
     on(popperInstance, (popper) => () => {
@@ -135,7 +135,7 @@ function usePopper(
   );
 
   const [popperState, setPopperState] = createSignal<UsePopperState>({
-    placement: options().placement ?? "bottom",
+    placement: options.placement ?? "bottom",
     get update() {
       return update();
     },
@@ -177,15 +177,19 @@ function usePopper(
     const instance = popperInstance();
     if (!instance || !enabled()) return;
     instance.setOptions({
-      onFirstUpdate: options().onFirstUpdate,
-      placement: options().placement ?? "bottom",
+      onFirstUpdate: options.onFirstUpdate,
+      placement: options.placement ?? "bottom",
       modifiers: [
-        ...(options().modifiers ?? EMPTY_MODIFIERS),
+        ...(options.modifiers ?? EMPTY_MODIFIERS),
         ariaDescribedByModifier,
         updateModifier,
         disabledApplyStylesModifier,
       ],
-      strategy: options().strategy ?? "absolute",
+      strategy: options.strategy ?? "absolute",
+    });
+    /** Hack to force update as popper doesn't seem to position properly after options change **/
+    queueMicrotask(() => {
+      update()();
     });
   });
 

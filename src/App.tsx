@@ -28,8 +28,9 @@ const App: Component = () => {
     <div class="container" ref={setContainer}>
       <header>
         <h2>Overlay</h2>
-        <p>Click the button to show/position an overlay</p>
+        <p>Click the button to cycle through Overlay placements</p>
         <div class="d-flex justify-content-center">
+          {/* Overlay target to position around */}
           <button ref={setTarget} onclick={handleClick} class="btn btn-primary">
             I am an overlay target
           </button>
@@ -42,9 +43,10 @@ const App: Component = () => {
           offset={[0, 10]}
           flip
         >
-          {(props, meta) => (
+          {/* Function to render overlay (tooltip) */}
+          {(props, more) => (
             <div class="tooltip bs-tooltip-auto show" {...props()}>
-              <div class="tooltip-arrow" {...meta().arrowProps}></div>
+              <div class="tooltip-arrow" {...more().arrowProps}></div>
               <div class="tooltip-inner">I am a overlay!</div>
             </div>
           )}
