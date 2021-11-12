@@ -43,17 +43,10 @@ const App: Component = () => {
           flip
         >
           {(props, meta) => (
-            console.log("Render child", meta().arrowProps),
-            (
-              <div
-                class="position-absolute tooltip show bs-tooltip-auto"
-                {...props()}
-              >
-                <div class="tooltip-arrow" {...meta().arrowProps}></div>
-                {/* <div class="tooltip-arrow"></div> */}
-                <div class="tooltip-inner">I am a overlay!</div>
-              </div>
-            )
+            <div class="tooltip bs-tooltip-auto show" {...props()}>
+              <div class="tooltip-arrow" {...meta().arrowProps}></div>
+              <div class="tooltip-inner">I am a overlay!</div>
+            </div>
           )}
         </Overlay>
       </header>

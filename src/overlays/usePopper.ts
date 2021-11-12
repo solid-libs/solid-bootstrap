@@ -1,7 +1,6 @@
 import * as Popper from "@popperjs/core";
 import {
   Accessor,
-  createComputed,
   createEffect,
   createMemo,
   createSignal,
@@ -164,7 +163,6 @@ function usePopper(
         attributes[element] = state.attributes[element];
       });
 
-      console.log("setting popper state", state);
       setPopperState((s) => ({
         ...s,
         state,
@@ -178,7 +176,6 @@ function usePopper(
   createEffect(() => {
     const instance = popperInstance();
     if (!instance || !enabled()) return;
-    console.log("setting options");
     instance.setOptions({
       onFirstUpdate: options().onFirstUpdate,
       placement: options().placement ?? "bottom",
@@ -194,21 +191,12 @@ function usePopper(
 
   onMount(() => {
     createEffect(() => {
-      setPopperInstance(undefined);
       const target = referenceElement();
       const popper = popperElement();
 
       if (target && popper && enabled()) {
-        console.log(
-          "creating popper...",
-          target,
-          (target as HTMLElement).parentNode,
-          popper,
-          popper.parentNode
-        );
         const instance = createPopper(target, popper, {});
         setPopperInstance(instance);
-        console.log("setPopperInstance", instance, target, popper);
 
         onCleanup(() => {
           instance.destroy();
