@@ -1,4 +1,4 @@
-import type { Component } from "solid-js";
+import { Component, ErrorBoundary } from "solid-js";
 import Overlay from "./overlays/Overlay";
 import { createSignal } from "solid-js";
 import { Placement } from "./overlays/usePopper";
@@ -43,11 +43,17 @@ const App: Component = () => {
           flip
         >
           {(props, meta) => (
-            <div class="position-absolute" {...props()}>
-              {/* <div class="tooltip-arrow" {...meta().arrowProps}></div> */}
-              <div class="tooltip-arrow"></div>
-              <div class="tooltip-inner">I am a overlay!</div>
-            </div>
+            console.log("Render child", meta().arrowProps),
+            (
+              <div
+                class="position-absolute tooltip show bs-tooltip-auto"
+                {...props()}
+              >
+                <div class="tooltip-arrow" {...meta().arrowProps}></div>
+                {/* <div class="tooltip-arrow"></div> */}
+                <div class="tooltip-inner">I am a overlay!</div>
+              </div>
+            )
           )}
         </Overlay>
       </header>

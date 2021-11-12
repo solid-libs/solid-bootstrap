@@ -5,7 +5,7 @@ specifiers:
   '@types/warning': ^3.0.0
   dequal: ^2.0.2
   dom-helpers: ^5.2.0
-  solid-js: ^1.2.2
+  solid-js: ^1.2.3
   solid-transition-group: 0.0.8
   typescript: ^4.4.3
   vite: ^2.5.7
@@ -17,8 +17,8 @@ dependencies:
   '@types/warning': 3.0.0
   dequal: 2.0.2
   dom-helpers: 5.2.1
-  solid-js: 1.2.2
-  solid-transition-group: 0.0.8_solid-js@1.2.2
+  solid-js: 1.2.3
+  solid-transition-group: 0.0.8_solid-js@1.2.3
   warning: 4.0.3
 
 devDependencies:
@@ -743,23 +743,23 @@ packages:
     hasBin: true
     dev: true
 
-  /solid-js/1.2.2:
-    resolution: {integrity: sha512-2FtxO+bHDzS7RwGUU/aQ36VOX81e3Cf1KE4GzbySrG1huYP51zotjqLqfWbKe89nwPjXQBoxnEK5hnBfDj0O0Q==}
+  /solid-js/1.2.3:
+    resolution: {integrity: sha512-HQv7F23wSQRIuD0gNF3L1/0MHkTEia7J9Oc4VcEeLjAenkqz89tFkztBIp0PABDqK83fxzcixhSXx0xLv4lNAQ==}
 
-  /solid-refresh/0.2.2_solid-js@1.2.2:
+  /solid-refresh/0.2.2_solid-js@1.2.3:
     resolution: {integrity: sha512-oQN3pUJ8fBd4ldMxZVqK7S4PGzAn1yx1B5bRRfANoxoqmHyY2QLfzrOzXsYnAkhh272K+W24oKgFWlmdUZ6HtQ==}
     peerDependencies:
       solid-js: ^1.0.0
     dependencies:
-      solid-js: 1.2.2
+      solid-js: 1.2.3
     dev: true
 
-  /solid-transition-group/0.0.8_solid-js@1.2.2:
+  /solid-transition-group/0.0.8_solid-js@1.2.3:
     resolution: {integrity: sha512-5cS/Ircfs/Y0J00oEToL+MWd9V07KgQlw+qRD8kpd6azb2Ri5SjXg/ocqT8U8Wgdx1VQPx45HyopQN+UumkVGQ==}
     peerDependencies:
       solid-js: ^1.0.0
     dependencies:
-      solid-js: 1.2.2
+      solid-js: 1.2.3
     dev: false
 
   /source-map-js/0.6.2:
@@ -801,8 +801,8 @@ packages:
       '@babel/preset-typescript': 7.15.0_@babel+core@7.15.0
       babel-preset-solid: 1.1.1_@babel+core@7.15.0
       merge-anything: 4.0.1
-      solid-js: 1.2.2
-      solid-refresh: 0.2.2_solid-js@1.2.2
+      solid-js: 1.2.3
+      solid-refresh: 0.2.2_solid-js@1.2.3
       vite: 2.6.14
     transitivePeerDependencies:
       - less

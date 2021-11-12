@@ -19,7 +19,7 @@
     "@types/warning": "^3.0.0",
     "dequal": "^2.0.2",
     "dom-helpers": "^5.2.0",
-    "solid-js": "^1.2.2",
+    "solid-js": "^1.2.3",
     "solid-transition-group": "0.0.8",
     "warning": "^4.0.3"
   }

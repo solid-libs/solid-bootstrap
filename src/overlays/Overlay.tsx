@@ -5,11 +5,19 @@ import usePopper, {
   UsePopperState,
   VirtualElement,
 } from "./usePopper";
-import useRootClose, {RootCloseOptions} from "./useRootClose";
+import useRootClose, { RootCloseOptions } from "./useRootClose";
 import mergeOptionsWithPopperConfig from "./mergeOptionsWithPopperConfig";
-import {createComputed, createEffect, createMemo, createSignal, JSX, Show} from "solid-js";
-import {TransitionCallbacks, TransitionComponent} from "./types";
-import {Portal} from "solid-js/web";
+import {
+  createComputed,
+  createEffect,
+  createMemo,
+  createSignal,
+  JSX,
+  onMount,
+  Show,
+} from "solid-js";
+import { TransitionCallbacks, TransitionComponent } from "./types";
+import { Portal } from "solid-js/web";
 
 export interface OverlayArrowProps extends Record<string, any> {
   ref: (e: HTMLElement) => void;
@@ -107,7 +115,10 @@ export interface OverlayProps extends TransitionCallbacks {
   /**
    * A render prop that returns an overlay element.
    */
-  children: (props: () => OverlayInjectedProps, meta: () => OverlayMetadata) => JSX.Element;
+  children: (
+    props: () => OverlayInjectedProps,
+    meta: () => OverlayMetadata
+  ) => JSX.Element;
 }
 
 /**
@@ -136,7 +147,10 @@ const Overlay = (props: OverlayProps) => {
   });
 
   const popper = usePopper(props.target, rootElement, popperOptions);
-  console.log("popper", popper());
+
+  createEffect(() => {
+    console.log("usePopper state changed", popper());
+  });
 
   createComputed(() => {
     if (props.show) {
@@ -177,11 +191,9 @@ const Overlay = (props: OverlayProps) => {
       arrowProps: {
         ...popper()?.attributes.arrow,
         style: popper()?.styles.arrow as any,
-        ref: (r) => {
-          console.log("attachArrowRef", r);
-        },
+        ref: attachArrowRef,
       },
-    }),
+    })
   );
 
   // if (Transition) {
