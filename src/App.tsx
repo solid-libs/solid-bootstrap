@@ -28,7 +28,11 @@ const App: Component = () => {
     <div class="container" ref={setContainer}>
       <header>
         <h2>Overlay</h2>
-        <p>Click the button to cycle through Overlay placements</p>
+        <p>
+          For this example the overlay is styled to look like a tooltip (with an
+          adaptive arrow). <br />
+          Click the button to cycle through placement options.
+        </p>
         <div class="d-flex justify-content-center">
           {/* Overlay target to position around */}
           <button ref={setTarget} onclick={handleClick} class="btn btn-primary">
