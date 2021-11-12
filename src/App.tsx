@@ -26,15 +26,16 @@ const App: Component = () => {
 
   return (
     <div class="container" ref={setContainer}>
+      <h1>Solid-Bootstrap</h1>
       <header>
-        <h2>Overlay</h2>
+        <h3>Overlay</h3>
         <p>
           For this example the overlay is styled to look like a tooltip (with an
           adaptive arrow). <br />
           Click the button to cycle through placement options.
         </p>
         <div class="d-flex justify-content-center">
-          {/* Overlay target to position around */}
+          {/* Button is the overlay target to position around */}
           <button ref={setTarget} onclick={handleClick} class="btn btn-primary">
             I am an overlay target
           </button>
@@ -47,7 +48,7 @@ const App: Component = () => {
           offset={[0, 10]}
           flip
         >
-          {/* Function to render overlay (tooltip) */}
+          {/* Render overlay (tooltip) with props from popperjs */}
           {(props, more) => (
             <div class="tooltip bs-tooltip-auto show" {...props()}>
               <div class="tooltip-arrow" {...more().arrowProps}></div>
