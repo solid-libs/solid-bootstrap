@@ -136,7 +136,7 @@ const Overlay = (props: OverlayProps) => {
   );
   const Transition = props.transition!;
   const popperVisible = createMemo(
-    () => props.show || (props.transition && !exited())
+    () => !!(props.show || (props.transition && !exited()))
   );
 
   /** sync popper options with props */
@@ -191,27 +191,28 @@ const Overlay = (props: OverlayProps) => {
     }
   });
 
-  let child = props.children(
-    () => ({
-      ...popper()?.attributes.popper,
-      style: popper()?.styles.popper as any,
-      ref: attachRef,
-    }),
-    () => ({
-      popper: popper()!,
-      placement: props.placement,
-      show: !!props.show,
-      arrowProps: {
-        ...popper()?.attributes.arrow,
-        style: popper()?.styles.arrow as any,
-        ref: attachArrowRef,
-      },
-    })
-  );
+  const innerChild = () =>
+    props.children(
+      () => ({
+        ...popper()?.attributes.popper,
+        style: popper()?.styles.popper as any,
+        ref: attachRef,
+      }),
+      () => ({
+        popper: popper()!,
+        placement: props.placement,
+        show: !!props.show,
+        arrowProps: {
+          ...popper()?.attributes.arrow,
+          style: popper()?.styles.arrow as any,
+          ref: attachArrowRef,
+        },
+      })
+    );
 
-  return (
-    <Show when={props.container() && popperVisible()}>
-      <Portal mount={props.container()}>
+  const child = !Transition
+    ? innerChild
+    : () => (
         <Transition
           appear
           onBeforeExit={props.onBeforeExit}
@@ -221,9 +222,13 @@ const Overlay = (props: OverlayProps) => {
           onEnter={props.onEnter}
           onAfterEnter={props.onAfterEnter}
         >
-          {props.show && child}
+          {props.show && innerChild}
         </Transition>
-      </Portal>
+      );
+
+  return (
+    <Show when={props.container() && popperVisible()}>
+      <Portal mount={props.container()}>{child}</Portal>
     </Show>
   );
 };

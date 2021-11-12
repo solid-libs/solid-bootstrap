@@ -50,16 +50,14 @@ const App: Component = () => {
           flip
           transition={Transition}
           onEnter={(el, done) => {
-            console.log("onenter");
             const a = el.animate([{ opacity: 0 }, { opacity: 1 }], {
-              duration: 600,
+              duration: 500,
             });
             a.finished.then(done);
           }}
           onExit={(el, done) => {
-            console.log("onexit");
             const a = el.animate([{ opacity: 1 }, { opacity: 0 }], {
-              duration: 600,
+              duration: 500,
             });
             a.finished.then(done);
           }}
