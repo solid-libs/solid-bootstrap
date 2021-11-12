@@ -6,7 +6,6 @@ import {
   createSignal,
   on,
   onCleanup,
-  onMount,
 } from "solid-js";
 import { createPopper } from "./popper";
 

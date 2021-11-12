@@ -1,4 +1,4 @@
-import { Component, ErrorBoundary } from "solid-js";
+import { Component } from "solid-js";
 import Overlay from "./overlays/Overlay";
 import { createSignal } from "solid-js";
 import { Placement } from "./overlays/usePopper";

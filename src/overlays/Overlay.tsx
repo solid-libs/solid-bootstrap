@@ -3,17 +3,14 @@ import usePopper, {
   Placement,
   UsePopperOptions,
   UsePopperState,
-  VirtualElement,
 } from "./usePopper";
 import useRootClose, { RootCloseOptions } from "./useRootClose";
 import mergeOptionsWithPopperConfig from "./mergeOptionsWithPopperConfig";
 import {
   createComputed,
   createEffect,
-  createMemo,
   createSignal,
   JSX,
-  onMount,
   Show,
 } from "solid-js";
 import { createStore, reconcile } from "solid-js/store";
