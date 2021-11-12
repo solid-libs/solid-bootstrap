@@ -1,8 +1,8 @@
 import contains from "dom-helpers/contains";
-import {EventHandler} from "dom-helpers/esm/addEventListener";
+import { EventHandler } from "dom-helpers/esm/addEventListener";
 import listen from "dom-helpers/listen";
 import ownerDocument from "dom-helpers/ownerDocument";
-import {createEffect, createSignal, onCleanup} from "solid-js";
+import { createEffect, createSignal, mergeProps, onCleanup } from "solid-js";
 
 import warning from "warning";
 
@@ -40,28 +40,29 @@ export interface RootCloseOptions {
  * @param {string=}  options.clickTrigger The DOM event name (click, mousedown, etc) to attach listeners on
  */
 function useRootClose(
-  ref: Element | null | undefined,
+  ref: () => Element | null | undefined,
   onRootClose: (e: Event) => void,
-  options: RootCloseOptions = {},
+  rootCloseoptions: RootCloseOptions = {}
 ) {
-  const [preventMouseRootCloseRef, setPreventMouseRootCloseRef] = createSignal(false);
+  let options = mergeProps({ clickTrigger: "click" }, rootCloseoptions);
+  const [preventMouseRootCloseRef, setPreventMouseRootCloseRef] =
+    createSignal(false);
   const onClose = onRootClose || noop;
-  options.clickTrigger = options.clickTrigger ?? "click";
 
   const handleMouseCapture: EventHandler<MouseEvents> = (e) => {
-    const currentTarget = ref;
+    const currentTarget = ref();
 
     warning(
       !!currentTarget,
       "RootClose captured a close event but does not have a ref to compare it to. " +
-        "useRootClose(), should be passed a ref that resolves to a DOM node",
+        "useRootClose(), should be passed a ref that resolves to a DOM node"
     );
 
     setPreventMouseRootCloseRef(
       !currentTarget ||
         isModifiedEvent(e) ||
         !isLeftClickEvent(e) ||
-        !!contains(currentTarget, e.target as Element),
+        !!contains(currentTarget, e.target as Element)
     );
   };
 
@@ -78,13 +79,13 @@ function useRootClose(
   };
 
   createEffect(() => {
-    if (options.disabled || ref == null) return;
+    if (options.disabled || ref() == null) return;
 
     // Store the current event to avoid triggering handlers immediately
     // https://github.com/facebook/react/issues/20074
     let currentEvent = window.event;
 
-    const doc = ownerDocument(ref!);
+    const doc = ownerDocument(ref()!);
 
     // Use capture for this listener so it fires before React's listener, to
     // avoid false positives in the contains() check below if the target DOM
@@ -93,17 +94,21 @@ function useRootClose(
       doc as any,
       options.clickTrigger!,
       handleMouseCapture,
-      true,
+      true
     );
 
-    const removeMouseListener = listen(doc as any, options.clickTrigger!, (e) => {
-      // skip if this event is the same as the one running when we added the handlers
-      if (e === currentEvent) {
-        currentEvent = undefined;
-        return;
+    const removeMouseListener = listen(
+      doc as any,
+      options.clickTrigger!,
+      (e) => {
+        // skip if this event is the same as the one running when we added the handlers
+        if (e === currentEvent) {
+          currentEvent = undefined;
+          return;
+        }
+        handleMouse(e);
       }
-      handleMouse(e);
-    });
+    );
 
     const removeKeyupListener = listen(doc as any, "keyup", (e) => {
       // skip if this event is the same as the one running when we added the handlers

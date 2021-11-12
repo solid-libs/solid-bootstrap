@@ -193,16 +193,17 @@ function usePopper(
     });
   });
 
-  onMount(() => {
-    createEffect(() => {
-      const target = referenceElement();
-      const popper = popperElement();
+  createEffect(() => {
+    const target = referenceElement();
+    const popper = popperElement();
 
-      if (target && popper && enabled()) {
-        const instance = createPopper(target, popper, {});
-        setPopperInstance(instance);
+    if (target && popper && enabled()) {
+      let instance: ReturnType<typeof createPopper>;
+      instance = createPopper(target, popper, {});
+      setPopperInstance(instance);
 
-        onCleanup(() => {
+      onCleanup(() => {
+        if (instance) {
           instance.destroy();
           setPopperInstance(undefined);
           setPopperState((s) => ({
@@ -210,9 +211,9 @@ function usePopper(
             attributes: {},
             styles: { popper: {} },
           }));
-        });
-      }
-    });
+        }
+      });
+    }
   });
 
   return popperState;

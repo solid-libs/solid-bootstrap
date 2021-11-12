@@ -4,29 +4,22 @@ import { createSignal } from "solid-js";
 import { Placement } from "./overlays/usePopper";
 import styles from "./App.module.css";
 
-const PLACEMENTS: Placement[] = ["left", "top", "right", "bottom"];
+const PLACEMENTS: Placement[] = ["bottom", "left", "top", "right"];
 
 const App: Component = () => {
   const [target, setTarget] = createSignal<HTMLElement>();
   const [container, setContainer] = createSignal<HTMLElement>();
   const [show, setShow] = createSignal(false);
-  const [placement, setPlacement] = createSignal<Placement>("bottom");
+  const [placement, setPlacement] = createSignal<Placement>();
 
   function handleClick() {
-    if (!show()) {
-      setPlacement("left");
-      setShow(true);
-    } else {
-      if (placement() === "bottom") {
-        setShow(false);
-      }
-      setPlacement(PLACEMENTS[PLACEMENTS.indexOf(placement()) + 1]);
-    }
+    setPlacement(PLACEMENTS[PLACEMENTS.indexOf(placement()!) + 1]);
+    setShow(!!placement());
   }
 
   return (
     <div class="container" ref={setContainer}>
-      <h1>Solid-Bootstrap</h1>
+      <h1>Solid-Overlays</h1>
       <header>
         <h3>Overlay</h3>
         <p>
@@ -45,7 +38,7 @@ const App: Component = () => {
           container={container}
           show={show()}
           placement={placement()}
-          offset={[0, 10]}
+          offset={[0, 5]}
           flip
         >
           {/* Render overlay (tooltip) with props from popperjs */}

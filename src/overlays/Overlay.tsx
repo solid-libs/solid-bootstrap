@@ -130,12 +130,15 @@ const Overlay = (props: OverlayProps) => {
   const [rootElement, attachRef] = createSignal<HTMLElement>();
   const [arrowElement, attachArrowRef] = createSignal<Element>();
   const [exited, setExited] = createSignal(!props.show);
-  const [optionStore, setOptionStore] = createStore<UsePopperOptions>({});
+  const [popperOptions, setPopperOptions] = createStore<UsePopperOptions>({});
+  const [rootCloseOptions, setRootCloseOptions] = createStore<RootCloseOptions>(
+    {}
+  );
   const Transition = props.transition;
 
-  /** Merge props into popper option store */
+  /** sync popper options with props */
   createComputed(() => {
-    setOptionStore(
+    setPopperOptions(
       reconcile(
         mergeOptionsWithPopperConfig({
           enabled: !!props.show,
@@ -151,7 +154,17 @@ const Overlay = (props: OverlayProps) => {
     );
   });
 
-  const popper = usePopper(props.target, rootElement, optionStore);
+  /** sync rootClose options with props */
+  createComputed(() => {
+    setRootCloseOptions(
+      reconcile({
+        disabled: !props.rootClose || props.rootCloseDisabled || !props.show,
+        clickTrigger: props.rootCloseEvent,
+      } as RootCloseOptions)
+    );
+  });
+
+  const popper = usePopper(props.target, rootElement, popperOptions);
 
   createComputed(() => {
     if (props.show) {
@@ -170,12 +183,8 @@ const Overlay = (props: OverlayProps) => {
   };
 
   createEffect(() => {
-    let root = rootElement();
-    if (root) {
-      useRootClose(root, props.onHide!, {
-        disabled: !props.rootClose || props.rootCloseDisabled,
-        clickTrigger: props.rootCloseEvent,
-      });
+    if (rootElement()) {
+      useRootClose(rootElement, props.onHide!, rootCloseOptions);
     }
   });
 
