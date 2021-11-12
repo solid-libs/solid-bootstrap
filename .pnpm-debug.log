@@ -1,0 +1,14 @@
+{
+  "0 debug pnpm:scope": {
+    "selected": 1
+  },
+  "1 error pnpm": {
+    "code": "ERR_PNPM_NO_SCRIPT",
+    "err": {
+      "name": "pnpm",
+      "message": "Missing script: dev",
+      "code": "ERR_PNPM_NO_SCRIPT",
+      "stack": "pnpm: Missing script: dev\n    at Object.handler (C:\\Users\\brend\\AppData\\Roaming\\npm\\pnpm-global\\5\\node_modules\\.pnpm\\pnpm@6.20.4\\node_modules\\pnpm\\dist\\pnpm.cjs:129764:15)\n    at async C:\\Users\\brend\\AppData\\Roaming\\npm\\pnpm-global\\5\\node_modules\\.pnpm\\pnpm@6.20.4\\node_modules\\pnpm\\dist\\pnpm.cjs:133938:20\n    at async run (C:\\Users\\brend\\AppData\\Roaming\\npm\\pnpm-global\\5\\node_modules\\.pnpm\\pnpm@6.20.4\\node_modules\\pnpm\\dist\\pnpm.cjs:133913:34)\n    at async runPnpm (C:\\Users\\brend\\AppData\\Roaming\\npm\\pnpm-global\\5\\node_modules\\.pnpm\\pnpm@6.20.4\\node_modules\\pnpm\\dist\\pnpm.cjs:134124:5)\n    at async C:\\Users\\brend\\AppData\\Roaming\\npm\\pnpm-global\\5\\node_modules\\.pnpm\\pnpm@6.20.4\\node_modules\\pnpm\\dist\\pnpm.cjs:134116:7"
+    }
+  }
+}
