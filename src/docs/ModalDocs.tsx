@@ -1,10 +1,34 @@
-import { Component, createEffect, splitProps } from "solid-js";
-import Modal, { ModalProps, RenderModalBackdropProps } from "../overlays/Modal";
+import { Component } from "solid-js";
+import Modal, { RenderModalBackdropProps } from "../overlays/Modal";
 import { createSignal } from "solid-js";
 import { Transition } from "solid-transition-group";
 
 let rand = (min: number, max: number) =>
   min + Math.floor(Math.random() * (max - min));
+
+const RandomlyPositionedModal = () => {
+  return (
+    <div
+      class="modal-dialog"
+      style={{
+        "margin-top": `${rand(5, 20)}%`,
+        "margin-left": `${rand(20, 60)}%`,
+      }}
+    >
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 id="modal-label">Text in a modal</h5>
+        </div>
+        <div class="modal-body">
+          <p>
+            Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
+          </p>
+        </div>
+        <div class="modal-footer">{<ModalExample />}</div>
+      </div>
+    </div>
+  );
+};
 
 const ModalExample = () => {
   const [show, setShow] = createSignal(false);
@@ -26,27 +50,33 @@ const ModalExample = () => {
           <div class="modal-backdrop show" {...props} />
         )}
         aria-labelledby="modal-label"
+        transition={Transition}
+        onEnter={(el, done) => {
+          const a = el.animate(
+            [
+              { transform: "scale(0.5)", opacity: 0 },
+              { transform: "scale(1.0)", opacity: 1 },
+            ],
+            {
+              duration: 150,
+            }
+          );
+          a.finished.then(done);
+        }}
+        onExit={(el, done) => {
+          const a = el.animate(
+            [
+              { transform: "scale(1.0)", opacity: 1 },
+              { transform: "scale(0.5)", opacity: 0 },
+            ],
+            {
+              duration: 150,
+            }
+          );
+          a.finished.then(done);
+        }}
       >
-        <div
-          class="modal-dialog"
-          style={{
-            "margin-top": `${rand(2, 20)}%`,
-            "margin-left": `${rand(5, 70)}%`,
-            "margin-right": `0px`,
-          }}
-        >
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 id="modal-label">Text in a modal</h5>
-            </div>
-            <div class="modal-body">
-              <p>
-                Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-              </p>
-            </div>
-            <div class="modal-footer">{<ModalExample />}</div>
-          </div>
-        </div>
+        <RandomlyPositionedModal />
       </Modal>
     </>
   );
