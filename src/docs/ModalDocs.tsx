@@ -3,17 +3,20 @@ import Modal, { ModalProps, RenderModalBackdropProps } from "../overlays/Modal";
 import { createSignal } from "solid-js";
 import { Transition } from "solid-transition-group";
 
+let rand = (min: number, max: number) =>
+  min + Math.floor(Math.random() * (max - min));
+
 const ModalExample = () => {
   const [show, setShow] = createSignal(false);
-
   return (
     <>
-      <div class="d-flex justify-content-center">
+      <div class="d-flex justify-content-center align-items-center">
         <button class="btn btn-primary" onClick={() => setShow(true)}>
           Open modal
         </button>
+        <span class="ps-2">Click to get the full Modal experience!</span>
       </div>
-      <p>Click to get the full Modal experience!</p>
+      <p></p>
 
       <Modal
         class="modal d-block pe-none"
@@ -24,7 +27,14 @@ const ModalExample = () => {
         )}
         aria-labelledby="modal-label"
       >
-        <div class="modal-dialog">
+        <div
+          class="modal-dialog"
+          style={{
+            "margin-top": `${rand(2, 20)}%`,
+            "margin-left": `${rand(5, 70)}%`,
+            "margin-right": `0px`,
+          }}
+        >
           <div class="modal-content">
             <div class="modal-header">
               <h5 id="modal-label">Text in a modal</h5>
@@ -34,7 +44,7 @@ const ModalExample = () => {
                 Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
               </p>
             </div>
-            <div class="modal-footer">{/* <ModalExample /> */}</div>
+            <div class="modal-footer">{<ModalExample />}</div>
           </div>
         </div>
       </Modal>
