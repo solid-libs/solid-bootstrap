@@ -5,7 +5,7 @@ import { Placement } from "./overlays/usePopper";
 import styles from "./App.module.css";
 import { Transition } from "solid-transition-group";
 
-const PLACEMENTS: Placement[] = ["bottom", "left", "top", "right"];
+const PLACEMENTS: Placement[] = ["top", "right", "bottom", "left"];
 
 const App: Component = () => {
   const [target, setTarget] = createSignal<HTMLElement>();
@@ -15,9 +15,9 @@ const App: Component = () => {
 
   function handleClick() {
     if (!show()) {
-      setPlacement("bottom");
+      setPlacement("top");
       setShow(true);
-    } else if (placement() === "right") {
+    } else if (placement() === "left") {
       setShow(false);
     } else {
       setPlacement(PLACEMENTS[PLACEMENTS.indexOf(placement()!) + 1]);
@@ -30,8 +30,12 @@ const App: Component = () => {
       <header>
         <h3>Overlay</h3>
         <p class="lead">
-          For this example the overlay is styled to look like a tooltip (with an
-          adaptive arrow). It also demonstates using an optional transition.{" "}
+          A powerful and flexible overlay component for showing things over, and
+          next to, other things.
+        </p>
+        <p>
+          This example is styled to look like a tooltip (with an adaptive
+          arrow). It also demonstates using an optional transition.
         </p>
         <p>Click the button to cycle through placement options.</p>
         <div class="d-flex justify-content-center">
