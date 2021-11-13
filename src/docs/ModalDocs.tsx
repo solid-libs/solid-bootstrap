@@ -109,17 +109,6 @@ export const ModalDocs: Component = () => {
           component.
         </li>
       </ul>
-      <p>
-        Note that, in the same way the backdrop element prevents users from
-        clicking or interacting with the page content underneath the Modal,
-        screen readers also need to be signaled to not to interact with page
-        content while the Modal is open. To do this, we use a common technique
-        of applying the <code>aria-hidden='true'</code> attribute to the
-        non-Modal elements in the Modal <code>container</code>. This means that
-        for a Modal to be truly modal, it should have a <code>container</code>{" "}
-        that is <em>outside</em> your app's hierarchy (such as the default:
-        document.body).
-      </p>
       <ModalExample />
     </div>
   );
