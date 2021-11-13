@@ -281,17 +281,15 @@ const Modal = (p: ModalProps) => {
   );
 
   createComputed(() => {
-    if (!props.transition && !props.show && !exited()) {
+    if (props.show) {
+      if (exited()) setExited(false);
+    } else if (!props.transition && !exited()) {
       setExited(true);
-    } else if (props.show && exited()) {
-      setExited(false);
     }
   });
 
   const handleShow = () => {
-    console.log("before modal.add", modal);
     modal.add();
-    console.log("after modal.add", modal);
 
     setRemoveKeydownListenerRef(() =>
       listen(document as any, "keydown", handleDocumentKeyDown)
@@ -353,10 +351,13 @@ const Modal = (p: ModalProps) => {
   // Hide cleanup logic when:
   //  - `exited` switches to true
   //  - component unmounts;
-  createEffect(() => {
-    if (!exited) return;
-    handleHide();
-  });
+  createEffect(
+    on(exited, (exited, prev) => {
+      if (exited && !(prev ?? exited)) {
+        handleHide();
+      }
+    })
+  );
 
   onCleanup(() => {
     handleHide();

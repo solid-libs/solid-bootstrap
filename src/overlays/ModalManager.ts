@@ -1,6 +1,6 @@
-import css from 'dom-helpers/css';
-import { dataAttr } from './DataKey';
-import getBodyScrollbarWidth from './getScrollbarWidth';
+import css from "dom-helpers/css";
+import { dataAttr } from "./DataKey";
+import getBodyScrollbarWidth from "./getScrollbarWidth";
 
 export interface ModalInstance {
   dialog: Element;
@@ -18,7 +18,7 @@ export type ContainerState = {
   [key: string]: any;
 };
 
-export const OPEN_DATA_ATTRIBUTE = dataAttr('modal-open');
+export const OPEN_DATA_ATTRIBUTE = dataAttr("modal-open");
 
 /**
  * Manages a stack of Modals as well as ensuring
@@ -59,11 +59,11 @@ class ModalManager {
   }
 
   setContainerStyle(containerState: ContainerState) {
-    const style: Partial<CSSStyleDeclaration> = { overflow: 'hidden' };
+    const style: Partial<CSSStyleDeclaration> = { overflow: "hidden" };
 
     // we are only interested in the actual `style` here
     // because we will override it
-    const paddingProp = this.isRTL ? 'paddingLeft' : 'paddingRight';
+    const paddingProp = this.isRTL ? "paddingLeft" : "paddingRight";
     const container = this.getElement();
 
     containerState.style = {
@@ -75,11 +75,11 @@ class ModalManager {
       // use computed style, here to get the real padding
       // to add our scrollbar width
       style[paddingProp] = `${
-        parseInt(css(container, paddingProp) || '0', 10) +
+        parseInt(css(container, paddingProp) || "0", 10) +
         containerState.scrollBarWidth
       }px`;
     }
-    container.setAttribute(OPEN_DATA_ATTRIBUTE, '');
+    container.setAttribute(OPEN_DATA_ATTRIBUTE, "");
 
     css(container, style as any);
   }

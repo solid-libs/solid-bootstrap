@@ -16,11 +16,11 @@ const ModalExample = () => {
       <p>Click to get the full Modal experience!</p>
 
       <Modal
-        class="modal fade show d-block"
+        class="modal d-block pe-none"
         show={show()}
         onHide={() => setShow(false)}
         renderBackdrop={(props: RenderModalBackdropProps) => (
-          <div class="modal-backdrop fade show" {...props} />
+          <div class="modal-backdrop show" {...props} />
         )}
         aria-labelledby="modal-label"
       >
