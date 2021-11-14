@@ -2,9 +2,11 @@ lockfileVersion: 5.3
 
 specifiers:
   '@popperjs/core': ^2.10.1
+  '@types/invariant': 2.2.35
   '@types/warning': ^3.0.0
   dequal: ^2.0.2
   dom-helpers: ^5.2.0
+  invariant: 2.2.4
   solid-js: ^1.2.3
   solid-transition-group: 0.0.8
   typescript: ^4.4.3
@@ -14,9 +16,11 @@ specifiers:
 
 dependencies:
   '@popperjs/core': 2.10.2
+  '@types/invariant': 2.2.35
   '@types/warning': 3.0.0
   dequal: 2.0.2
   dom-helpers: 5.2.1
+  invariant: 2.2.4
   solid-js: 1.2.3
   solid-transition-group: 0.0.8_solid-js@1.2.3
   warning: 4.0.3
@@ -329,6 +333,10 @@ packages:
     resolution: {integrity: sha512-IXf3XA7+XyN7CP9gGh/XB0UxVMlvARGEgGXLubFICsUMGz6Q+DU+i4gGlpOxTjKvXjkJDJC8YdqdKkDj9qZHEQ==}
     dev: false
 
+  /@types/invariant/2.2.35:
+    resolution: {integrity: sha512-DxX1V9P8zdJPYQat1gHyY0xj3efl8gnMVjiM9iCY6y27lj+PoQWkgjt8jDqmovPqULkKVpKRg8J36iQiA+EtEg==}
+    dev: false
+
   /@types/warning/3.0.0:
     resolution: {integrity: sha1-DSUBJorY+ZYrdA04fEZU9fjiPlI=}
     dev: false
@@ -638,6 +646,12 @@ packages:
     dependencies:
       function-bind: 1.1.1
     dev: true
+
+  /invariant/2.2.4:
+    resolution: {integrity: sha512-phJfQVBuaJM5raOpJjSfkiD6BpbCE4Ns//LaXl6wGYtUBY83nWS6Rf9tXm2e8VaK60JEjYldbPif/A2B1C2gNA==}
+    dependencies:
+      loose-envify: 1.4.0
+    dev: false
 
   /is-core-module/2.6.0:
     resolution: {integrity: sha512-wShG8vs60jKfPWpF2KZRaAtvt3a20OAn7+IJ6hLPECpSABLcKtFKTTI4ZtH5QcBruBHlq+WsdHWyz0BCZW7svQ==}

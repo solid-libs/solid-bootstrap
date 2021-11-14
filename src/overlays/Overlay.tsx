@@ -129,9 +129,7 @@ const Overlay = (props: OverlayProps) => {
   const [arrowElement, attachArrowRef] = createSignal<Element>();
   const [exited, setExited] = createSignal(!props.show);
   const [popperOptions, setPopperOptions] = createStore<UsePopperOptions>({});
-  const [rootCloseOptions, setRootCloseOptions] = createStore<RootCloseOptions>(
-    {}
-  );
+  const [rootCloseOptions, setCloseOptions] = createStore<RootCloseOptions>({});
   const Transition = props.transition!;
   const popperVisible = createMemo(
     () => !!(props.show || (props.transition && !exited()))
@@ -157,7 +155,7 @@ const Overlay = (props: OverlayProps) => {
 
   /** sync rootClose options with props */
   createComputed(() => {
-    setRootCloseOptions(
+    setCloseOptions(
       reconcile({
         disabled: !props.rootClose || props.rootCloseDisabled || !props.show,
         clickTrigger: props.rootCloseEvent,
@@ -224,9 +222,15 @@ const Overlay = (props: OverlayProps) => {
         </Transition>
       );
 
+  const portalRef = (ref: HTMLDivElement) => {
+    ref.style.position = "fixed";
+  };
+
   return (
     <Show when={props.container() && popperVisible()}>
-      <Portal mount={props.container()}>{child}</Portal>
+      <Portal mount={props.container()} ref={portalRef}>
+        {child}
+      </Portal>
     </Show>
   );
 };

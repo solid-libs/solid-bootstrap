@@ -84,32 +84,39 @@ const ModalExample = () => {
 
 export const ModalDocs: Component = () => {
   return (
-    <div>
-      <h3>Modal</h3>
-      <p class="lead">
-        Love them or hate them, <code>{"<Modal />"}</code> provides a solid
-        foundation for creating dialogs, lightboxes, or whatever else. The Modal
-        component renders its children node in front of a backdrop component.
-      </p>
-      <p>
-        The Modal offers a few helpful features over using just a{" "}
-        <code>{"<Portal />"}</code> component and some styles:
-      </p>
-      <ul>
-        <li>Manages dialog stacking when one-at-a-time just isn't enough.</li>
-        <li>Creates a backdrop, for disabling interaction below the modal.</li>
-        <li>
-          It properly manages focus; moving to the modal content, and keeping it
-          there until the modal is closed.
-        </li>
-        <li>It disables scrolling of the page content while open.</li>
-        <li>Adds the appropriate ARIA roles are automatically.</li>
-        <li>
-          Easily-pluggable animations via a <code>{"<Transition />"}</code>{" "}
+    <div class="row gy-4">
+      <div>
+        <h3>Modal</h3>
+        <p class="lead">
+          Love them or hate them, <code>{"<Modal />"}</code> provides a solid
+          foundation for creating dialogs, lightboxes, or whatever else. The
+          Modal component renders its children node in front of a backdrop
           component.
-        </li>
-      </ul>
-      <ModalExample />
+        </p>
+        <p>
+          The Modal offers a few helpful features over using just a{" "}
+          <code>{"<Portal />"}</code> component and some styles:
+        </p>
+        <ul>
+          <li>Manages dialog stacking when one-at-a-time just isn't enough.</li>
+          <li>
+            Creates a backdrop, for disabling interaction below the modal.
+          </li>
+          <li>
+            It properly manages focus; moving to the modal content, and keeping
+            it there until the modal is closed.
+          </li>
+          <li>It disables scrolling of the page content while open.</li>
+          <li>Adds the appropriate ARIA roles are automatically.</li>
+          <li>
+            Easily-pluggable animations via a <code>{"<Transition />"}</code>{" "}
+            component.
+          </li>
+        </ul>
+      </div>
+      <div>
+        <ModalExample />
+      </div>
     </div>
   );
 };

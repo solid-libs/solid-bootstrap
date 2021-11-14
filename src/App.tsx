@@ -1,4 +1,5 @@
 import { Component } from "solid-js";
+import { DropdownDocs } from "./docs/DropdownDocs";
 import { ModalDocs } from "./docs/ModalDocs";
 import { OverlayDocs } from "./docs/OverlayDocs";
 
@@ -6,7 +7,7 @@ const App: Component = () => {
   function showModalClick() {}
 
   return (
-    <div class="container">
+    <div class="container mb-5" style={{ "padding-bottom": "200px" }}>
       <div class="row gy-5">
         <h1 class="display-4">Solid Overlays</h1>
         <div>
@@ -71,6 +72,7 @@ const App: Component = () => {
         <h2 class="display-5">Components</h2>
         <OverlayDocs />
         <ModalDocs />
+        <DropdownDocs />
       </div>
     </div>
   );
