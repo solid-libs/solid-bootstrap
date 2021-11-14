@@ -19,6 +19,7 @@ import { dataAttr } from "./DataKey";
 import { Placement } from "./usePopper";
 import {
   Accessor,
+  createComputed,
   createContext,
   createEffect,
   createMemo,
@@ -31,6 +32,7 @@ import {
 } from "solid-js";
 import { createControlledProp } from "../controlled/createControlledProp";
 import { listen } from "dom-helpers";
+import { createStore, reconcile } from "solid-js/store";
 
 export type {
   DropdownMenuProps,
@@ -135,7 +137,7 @@ function Dropdown(p: DropdownProps) {
   const props = mergeProps(
     {
       itemSelector: `* [${dataAttr("dropdown-item")}]`,
-      placement: "bottom-start",
+      placement: "bottom-start" as Placement,
     },
     p
   );
@@ -178,15 +180,22 @@ function Dropdown(p: DropdownProps) {
     }
   };
 
-  const context: Accessor<DropdownContextValue> = createMemo(() => ({
-    toggle,
-    placement: props.placement,
-    show: show()!,
-    menuElement: menuRef()!,
-    toggleElement: toggleRef()!,
-    setMenu,
-    setToggle,
-  }));
+  const [context, setContext] = createStore({} as DropdownContextValue);
+
+  /** sync context with props */
+  createComputed(() => {
+    setContext(
+      reconcile({
+        toggle,
+        placement: props.placement,
+        show: show()!,
+        menuElement: menuRef(),
+        toggleElement: toggleRef(),
+        setMenu,
+        setToggle,
+      })
+    );
+  });
 
   createEffect(
     on(show, (show, prevShow) => {
@@ -317,7 +326,7 @@ function Dropdown(p: DropdownProps) {
 
   return (
     <SelectableContext.Provider value={handleSelect}>
-      <DropdownContext.Provider value={context()}>
+      <DropdownContext.Provider value={context}>
         {props.children}
       </DropdownContext.Provider>
     </SelectableContext.Provider>

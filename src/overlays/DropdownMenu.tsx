@@ -128,9 +128,9 @@ export function useDropdownMenu(o: UseDropdownMenuOptions = {}) {
     o
   );
 
-  const show = createMemo(() =>
-    context?.show == null ? !!options.show : context.show
-  );
+  const show = createMemo(() => {
+    return context?.show == null ? !!options.show : context.show;
+  });
 
   createEffect(() => {
     if (show() && !hasShownRef()) {

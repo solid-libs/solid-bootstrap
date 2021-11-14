@@ -15,7 +15,7 @@ import {
 } from "solid-js";
 import { callEventHandler } from "./utils";
 
-export interface DropdownItemProps extends JSX.HTMLAttributes<HTMLElement> {
+export interface DropdownItemProps<T> extends JSX.HTMLAttributes<T> {
   /**
    * Element used to render the component.
    */
@@ -98,24 +98,24 @@ export function useDropdownItem(options: UseDropdownItemOptions) {
 
 const DropdownItem: DynamicRefForwardingComponent<
   typeof Button,
-  DropdownItemProps
-> = (p: DropdownItemProps) => {
+  DropdownItemProps<HTMLButtonElement>
+> = (p: DropdownItemProps<HTMLButtonElement>) => {
   const [local, props] = splitProps(
     // merge in prop defaults
     mergeProps({ as: Button }, p),
     // split off local props with rest passed to Dynamic
-    ["eventKey", "disabled", "onClick", "active"]
+    ["eventKey", "disabled", "onClick", "active", "as"]
   );
 
   const [dropdownItemProps] = useDropdownItem({
     key: local.eventKey,
     href: props.href,
     disabled: local.disabled,
-    onClick: local.onClick,
+    onClick: local.onClick as any,
     active: local.active,
   });
 
-  return <Dynamic {...props} {...dropdownItemProps()} />;
+  return <Dynamic component={local.as} {...props} {...dropdownItemProps()} />;
 };
 
 DropdownItem.displayName = "DropdownItem";

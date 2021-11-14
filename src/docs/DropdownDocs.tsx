@@ -1,4 +1,9 @@
-import { Component, createEffect, createSignal } from "solid-js";
+import {
+  Component,
+  createComputed,
+  createEffect,
+  createSignal,
+} from "solid-js";
 import Dropdown, { DropdownProps } from "../overlays/Dropdown";
 import { useDropdownMenu } from "../overlays/DropdownMenu";
 import { useDropdownToggle } from "../overlays/DropdownToggle";
@@ -9,20 +14,38 @@ const DropdownMenu = () => {
     offset: [0, 8],
   });
 
-  createEffect(() => {
-    if (meta().show) meta().popper?.update();
-  });
+  // createEffect(() => {
+  //   if (meta().show) meta().popper?.update();
+  // });
 
-  createEffect(() => {
-    console.log("menuProps", menuProps(), meta());
+  createComputed(() => {
+    console.log("menuProps", meta());
+  });
+  createComputed(() => {
+    console.log("menuMeta", meta());
   });
 
   return (
-    <div {...menuProps()}>
-      Hello
-      <Dropdown.Item>Item 1</Dropdown.Item>
-      <Dropdown.Item>Item 2</Dropdown.Item>
-    </div>
+    <ul
+      classList={{ "dropdown-menu": true, show: meta().show }}
+      {...menuProps()}
+    >
+      <li>
+        <Dropdown.Item as="a" class="dropdown-item" href="#">
+          Item 1
+        </Dropdown.Item>
+      </li>
+      <li>
+        <Dropdown.Item as="a" class="dropdown-item" href="#">
+          Item 2
+        </Dropdown.Item>
+      </li>
+      <li>
+        <Dropdown.Item as="a" class="dropdown-item" href="#">
+          Item 3
+        </Dropdown.Item>
+      </li>
+    </ul>
   );
 };
 
@@ -34,7 +57,7 @@ const DropdownToggle: Component = (props) => {
   });
 
   return (
-    <button {...toggleProps()} className="btn btn-primary">
+    <button {...toggleProps()} className="btn btn-primary dropdown-toggle">
       {props.children}
     </button>
   );
