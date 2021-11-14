@@ -91,9 +91,9 @@ export type UserDropdownMenuArrowProps = Record<string, any> & {
 
 export interface UseDropdownMenuMetadata {
   show: boolean;
-  placement?: Placement;
+  placement: Placement;
   hasShown: boolean;
-  toggle?: DropdownContextValue["toggle"];
+  toggle: DropdownContextValue["toggle"];
   popper: UsePopperState | null;
   arrowProps: Partial<UserDropdownMenuArrowProps>;
 }
@@ -173,6 +173,7 @@ export function useDropdownMenu(o: UseDropdownMenuOptions = {}) {
     context?.toggle(false, e);
   };
 
+  console.log("using popper");
   const popper = usePopper(
     () => context?.toggleElement,
     () => context?.menuElement,
@@ -185,27 +186,37 @@ export function useDropdownMenu(o: UseDropdownMenuOptions = {}) {
     }
   });
 
-  const menuProps = createMemo<UserDropdownMenuProps>(() => ({
-    ref: context?.setMenu || noop,
-    "aria-labelledby": context?.toggleElement?.id,
-    ...popper()?.attributes.popper,
-    style: popper()?.styles.popper as any,
-  }));
+  const [menuProps, setMenuProps] = createStore({} as UserDropdownMenuProps);
+  createEffect(() => {
+    setMenuProps(
+      reconcile({
+        ref: context?.setMenu || noop,
+        "aria-labelledby": context?.toggleElement?.id,
+        ...popper()?.attributes.popper,
+        style: popper()?.styles.popper as any,
+      })
+    );
+  });
 
-  const metadata = createMemo<UseDropdownMenuMetadata>(() => ({
-    show: show(),
-    placement: context?.placement,
-    hasShown: hasShownRef(),
-    toggle: context?.toggle,
-    popper: options.usePopper ? popper()! : null,
-    arrowProps: options.usePopper
-      ? {
-          ref: attachArrowRef,
-          ...popper()?.attributes.arrow,
-          style: popper()?.styles.arrow as any,
-        }
-      : {},
-  }));
+  const [metadata, setMetadata] = createStore({} as UseDropdownMenuMetadata);
+  createEffect(() => {
+    setMetadata(
+      reconcile({
+        show: show(),
+        placement: context?.placement,
+        hasShown: hasShownRef(),
+        toggle: context?.toggle,
+        popper: options.usePopper ? popper()! : null,
+        arrowProps: options.usePopper
+          ? {
+              ref: attachArrowRef,
+              ...popper()?.attributes.arrow,
+              style: popper()?.styles.arrow as any,
+            }
+          : {},
+      })
+    );
+  });
 
   return [menuProps, metadata] as const;
 }
@@ -252,7 +263,7 @@ function DropdownMenu(p: DropdownMenuProps) {
   const [local, options] = splitProps(p, ["children"]);
   const [props, meta] = useDropdownMenu(options);
 
-  return <>{local.children(props(), meta())}</>;
+  return <>{local.children(props, meta)}</>;
 }
 
 DropdownMenu.displayName = "DropdownMenu";

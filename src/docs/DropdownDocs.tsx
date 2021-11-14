@@ -3,6 +3,7 @@ import {
   createComputed,
   createEffect,
   createSignal,
+  Show,
 } from "solid-js";
 import Dropdown, { DropdownProps } from "../overlays/Dropdown";
 import { useDropdownMenu } from "../overlays/DropdownMenu";
@@ -11,7 +12,7 @@ import { useDropdownToggle } from "../overlays/DropdownToggle";
 const DropdownMenu = () => {
   const [menuProps, meta] = useDropdownMenu({
     flip: true,
-    offset: [0, 8],
+    offset: [0, 20],
   });
 
   // createEffect(() => {
@@ -19,17 +20,16 @@ const DropdownMenu = () => {
   // });
 
   createComputed(() => {
-    console.log("menuProps", meta());
+    Object.keys(menuProps);
+    console.log("DropdownMenu props", menuProps);
   });
   createComputed(() => {
-    console.log("menuMeta", meta());
+    Object.keys(meta);
+    console.log("DropdownMenu meta", meta);
   });
 
   return (
-    <ul
-      classList={{ "dropdown-menu": true, show: meta().show }}
-      {...menuProps()}
-    >
+    <ul class="dropdown-menu show" {...menuProps}>
       <li>
         <Dropdown.Item as="a" class="dropdown-item" href="#">
           Item 1
@@ -52,10 +52,6 @@ const DropdownMenu = () => {
 const DropdownToggle: Component = (props) => {
   const [toggleProps] = useDropdownToggle();
 
-  createEffect(() => {
-    console.log("toggleProps", toggleProps());
-  });
-
   return (
     <button {...toggleProps()} className="btn btn-primary dropdown-toggle">
       {props.children}
@@ -69,7 +65,9 @@ const DropdownButton = (
   <Dropdown show={props.show} onToggle={props.onToggle}>
     <span>
       <DropdownToggle>{props.title}</DropdownToggle>
-      <DropdownMenu />
+      <Show when={props.show}>
+        <DropdownMenu />
+      </Show>
     </span>
   </Dropdown>
 );
