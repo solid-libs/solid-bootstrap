@@ -116,7 +116,6 @@ export function useDropdownMenu(o: UseDropdownMenuOptions = {}) {
   const [hasShownRef, setHasShownRef] = createSignal(false);
   const [popperOptions, setPopperOptions] = createStore<UsePopperOptions>({});
   const [rootCloseOptions, setCloseOptions] = createStore<RootCloseOptions>({});
-  console.log("useDropdownMenu");
 
   // merge in option defaults
   const options = mergeProps(
@@ -200,7 +199,6 @@ export function useDropdownMenu(o: UseDropdownMenuOptions = {}) {
 
   const [metadata, setMetadata] = createStore({} as UseDropdownMenuMetadata);
   createEffect(() => {
-    console.log("running");
     setMetadata(
       reconcile({
         show: show(),

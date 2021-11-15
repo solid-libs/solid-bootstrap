@@ -198,15 +198,11 @@ function usePopper(
 
     if (target && popper && enabled()) {
       let instance: ReturnType<typeof createPopper>;
-      console.log("Creating popper");
       instance = createPopper(target, popper, {});
-      console.log("Created popper");
       setPopperInstance(instance);
-      console.log("setPopperInstance");
 
       onCleanup(() => {
         if (instance) {
-          console.log("Destroying popper");
           instance.destroy();
           setPopperInstance(undefined);
           setPopperState((s) => ({

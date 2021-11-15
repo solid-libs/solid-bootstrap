@@ -15,17 +15,8 @@ const DropdownMenu = () => {
     offset: [0, 20],
   });
 
-  // createEffect(() => {
-  //   if (meta().show) meta().popper?.update();
-  // });
-
-  createComputed(() => {
-    Object.keys(menuProps);
-    console.log("DropdownMenu props", menuProps);
-  });
-  createComputed(() => {
-    Object.keys(meta);
-    console.log("DropdownMenu meta", meta);
+  createEffect(() => {
+    if (meta.show) meta.popper?.update();
   });
 
   return (

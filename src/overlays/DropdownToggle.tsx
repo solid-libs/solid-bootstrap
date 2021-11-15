@@ -41,52 +41,38 @@ export function useDropdownToggle(): [
 ] {
   const id = useSSRSafeId();
   const context = useContext(DropdownContext)!;
-  createComputed(() => {
-    Object.keys(context!);
-    console.log("useDropdownToggle context", context, { ...context });
-  });
 
   const handleClick: JSX.EventHandler<HTMLElement, MouseEvent> = (e) => {
-    console.log("clicked");
     context.toggle(!context.show, e);
   };
 
-  const [toggleProps, setToggleProps] = createStore({
-    id,
-    ref: context.setToggle || noop,
-    onClick: handleClick,
-    "aria-expanded": !!context.show,
-    "aria-haspopup": (context.menuElement && isRoleMenu(context.menuElement)
-      ? true
-      : undefined) as UseDropdownToggleProps["aria-haspopup"],
-  } as UseDropdownToggleProps);
-
-  createComputed(() => {
-    setToggleProps(
-      reconcile({
-        id,
-        ref: context.setToggle || noop,
-        onClick: handleClick,
-        "aria-expanded": !!context.show,
-        "aria-haspopup": (context.menuElement && isRoleMenu(context.menuElement)
-          ? true
-          : undefined) as UseDropdownToggleProps["aria-haspopup"],
-      })
-    );
-  });
-  console.log("toggleProps", { toggleProps, ...toggleProps });
-
-  const [metadata, setMetadata] = createStore({} as UseDropdownToggleMetadata);
-  createEffect(() => {
-    setMetadata(
-      reconcile({
-        show: context.show,
-        toggle: context.toggle,
-      })
-    );
-  });
-
-  return [toggleProps, metadata];
+  return [
+    {
+      id,
+      get ref() {
+        return context.setToggle || noop;
+      },
+      onClick: handleClick,
+      get "aria-expanded"() {
+        return !!context.show;
+      },
+      get "aria-haspopup"() {
+        return (
+          context.menuElement && isRoleMenu(context.menuElement)
+            ? true
+            : undefined
+        ) as UseDropdownToggleProps["aria-haspopup"];
+      },
+    },
+    {
+      get show() {
+        return context.show;
+      },
+      get toggle() {
+        return context.toggle;
+      },
+    },
+  ];
 }
 
 export interface DropdownToggleProps {
