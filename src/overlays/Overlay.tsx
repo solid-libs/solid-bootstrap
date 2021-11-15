@@ -129,7 +129,6 @@ const Overlay = (props: OverlayProps) => {
   const [arrowElement, attachArrowRef] = createSignal<Element>();
   const [exited, setExited] = createSignal(!props.show);
   const [popperOptions, setPopperOptions] = createStore<UsePopperOptions>({});
-  const [rootCloseOptions, setCloseOptions] = createStore<RootCloseOptions>({});
   const Transition = props.transition!;
   const popperVisible = createMemo(
     () => !!(props.show || (props.transition && !exited()))
@@ -153,16 +152,6 @@ const Overlay = (props: OverlayProps) => {
     );
   });
 
-  /** sync rootClose options with props */
-  createComputed(() => {
-    setCloseOptions(
-      reconcile({
-        disabled: !props.rootClose || props.rootCloseDisabled || !props.show,
-        clickTrigger: props.rootCloseEvent,
-      } as RootCloseOptions)
-    );
-  });
-
   const popper = usePopper(props.target, rootElement, popperOptions);
 
   createComputed(() => {
@@ -183,7 +172,14 @@ const Overlay = (props: OverlayProps) => {
 
   createEffect(() => {
     if (rootElement()) {
-      useRootClose(rootElement, props.onHide!, rootCloseOptions);
+      useRootClose(rootElement, props.onHide!, {
+        get disabled() {
+          return !props.rootClose || props.rootCloseDisabled || !props.show;
+        },
+        get clickTrigger() {
+          return props.rootCloseEvent;
+        },
+      });
     }
   });
 

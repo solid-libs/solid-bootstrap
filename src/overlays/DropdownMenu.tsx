@@ -8,7 +8,6 @@ import usePopper, {
 import useRootClose, { RootCloseOptions } from "./useRootClose";
 import mergeOptionsWithPopperConfig from "./mergeOptionsWithPopperConfig";
 import {
-  Accessor,
   createComputed,
   createEffect,
   createMemo,
@@ -115,7 +114,6 @@ export function useDropdownMenu(o: UseDropdownMenuOptions = {}) {
   const [arrowElement, attachArrowRef] = createSignal<Element>();
   const [hasShownRef, setHasShownRef] = createSignal(false);
   const [popperOptions, setPopperOptions] = createStore<UsePopperOptions>({});
-  const [rootCloseOptions, setCloseOptions] = createStore<RootCloseOptions>({});
 
   // merge in option defaults
   const options = mergeProps(
@@ -159,16 +157,6 @@ export function useDropdownMenu(o: UseDropdownMenuOptions = {}) {
     );
   });
 
-  /** sync rootClose options with props */
-  createComputed(() => {
-    setCloseOptions(
-      reconcile({
-        clickTrigger: options.rootCloseEvent,
-        disabled: !show(),
-      } as RootCloseOptions)
-    );
-  });
-
   const handleClose = (e: Event) => {
     context?.toggle(false, e);
   };
@@ -181,7 +169,14 @@ export function useDropdownMenu(o: UseDropdownMenuOptions = {}) {
 
   createEffect(() => {
     if (context?.menuElement) {
-      useRootClose(() => context.menuElement, handleClose, rootCloseOptions);
+      useRootClose(() => context.menuElement, handleClose, {
+        get clickTrigger() {
+          return options.rootCloseEvent;
+        },
+        get disabled() {
+          return !show();
+        },
+      });
     }
   });
 

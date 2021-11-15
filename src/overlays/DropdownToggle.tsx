@@ -1,15 +1,6 @@
 import { useSSRSafeId } from "./ssr";
 import DropdownContext, { DropdownContextValue } from "./DropdownContext";
-import {
-  Accessor,
-  createComputed,
-  createDeferred,
-  createEffect,
-  JSX,
-  mergeProps,
-  useContext,
-} from "solid-js";
-import { createStore, reconcile } from "solid-js/store";
+import { JSX, useContext } from "solid-js";
 
 export const isRoleMenu = (el: HTMLElement) =>
   el.getAttribute("role")?.toLowerCase() === "menu";
