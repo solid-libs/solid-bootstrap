@@ -18,11 +18,8 @@ import { SelectCallback } from "./types";
 import { dataAttr } from "./DataKey";
 import { Placement } from "./usePopper";
 import {
-  Accessor,
   createComputed,
-  createContext,
   createEffect,
-  createMemo,
   createSignal,
   JSX,
   mergeProps,

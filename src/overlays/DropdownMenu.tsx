@@ -116,6 +116,7 @@ export function useDropdownMenu(o: UseDropdownMenuOptions = {}) {
   const [hasShownRef, setHasShownRef] = createSignal(false);
   const [popperOptions, setPopperOptions] = createStore<UsePopperOptions>({});
   const [rootCloseOptions, setCloseOptions] = createStore<RootCloseOptions>({});
+  console.log("useDropdownMenu");
 
   // merge in option defaults
   const options = mergeProps(
@@ -173,7 +174,6 @@ export function useDropdownMenu(o: UseDropdownMenuOptions = {}) {
     context?.toggle(false, e);
   };
 
-  console.log("using popper");
   const popper = usePopper(
     () => context?.toggleElement,
     () => context?.menuElement,
@@ -187,7 +187,7 @@ export function useDropdownMenu(o: UseDropdownMenuOptions = {}) {
   });
 
   const [menuProps, setMenuProps] = createStore({} as UserDropdownMenuProps);
-  createEffect(() => {
+  createComputed(() => {
     setMenuProps(
       reconcile({
         ref: context?.setMenu || noop,
@@ -200,6 +200,7 @@ export function useDropdownMenu(o: UseDropdownMenuOptions = {}) {
 
   const [metadata, setMetadata] = createStore({} as UseDropdownMenuMetadata);
   createEffect(() => {
+    console.log("running");
     setMetadata(
       reconcile({
         show: show(),

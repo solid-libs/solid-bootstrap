@@ -1,6 +1,15 @@
 import { useSSRSafeId } from "./ssr";
 import DropdownContext, { DropdownContextValue } from "./DropdownContext";
-import { Accessor, createEffect, JSX, mergeProps, useContext } from "solid-js";
+import {
+  Accessor,
+  createComputed,
+  createDeferred,
+  createEffect,
+  JSX,
+  mergeProps,
+  useContext,
+} from "solid-js";
+import { createStore, reconcile } from "solid-js/store";
 
 export const isRoleMenu = (el: HTMLElement) =>
   el.getAttribute("role")?.toLowerCase() === "menu";
@@ -10,7 +19,7 @@ export interface UseDropdownToggleProps {
   ref: DropdownContextValue["setToggle"];
   onClick: JSX.EventHandler<HTMLElement, MouseEvent>;
   "aria-expanded": boolean;
-  "aria-haspopup"?: true;
+  "aria-haspopup": true | undefined;
 }
 
 export interface UseDropdownToggleMetadata {
@@ -27,37 +36,57 @@ const noop = () => {};
  * @memberOf Dropdown
  */
 export function useDropdownToggle(): [
-  Accessor<UseDropdownToggleProps>,
-  Accessor<UseDropdownToggleMetadata>
+  UseDropdownToggleProps,
+  UseDropdownToggleMetadata
 ] {
   const id = useSSRSafeId();
-  const context = mergeProps(
-    {
-      show: false,
-      toggle: noop,
-    },
-    useContext(DropdownContext)
-  );
+  const context = useContext(DropdownContext)!;
+  createComputed(() => {
+    Object.keys(context!);
+    console.log("useDropdownToggle context", context, { ...context });
+  });
 
   const handleClick: JSX.EventHandler<HTMLElement, MouseEvent> = (e) => {
+    console.log("clicked");
     context.toggle(!context.show, e);
   };
 
-  const props: Accessor<UseDropdownToggleProps> = () => ({
+  const [toggleProps, setToggleProps] = createStore({
     id,
     ref: context.setToggle || noop,
     onClick: handleClick,
     "aria-expanded": !!context.show,
-    "aria-haspopup":
-      context.menuElement && isRoleMenu(context.menuElement) ? true : undefined,
+    "aria-haspopup": (context.menuElement && isRoleMenu(context.menuElement)
+      ? true
+      : undefined) as UseDropdownToggleProps["aria-haspopup"],
+  } as UseDropdownToggleProps);
+
+  createComputed(() => {
+    setToggleProps(
+      reconcile({
+        id,
+        ref: context.setToggle || noop,
+        onClick: handleClick,
+        "aria-expanded": !!context.show,
+        "aria-haspopup": (context.menuElement && isRoleMenu(context.menuElement)
+          ? true
+          : undefined) as UseDropdownToggleProps["aria-haspopup"],
+      })
+    );
+  });
+  console.log("toggleProps", { toggleProps, ...toggleProps });
+
+  const [metadata, setMetadata] = createStore({} as UseDropdownToggleMetadata);
+  createEffect(() => {
+    setMetadata(
+      reconcile({
+        show: context.show,
+        toggle: context.toggle,
+      })
+    );
   });
 
-  const meta: Accessor<UseDropdownToggleMetadata> = () => ({
-    show: context.show,
-    toggle: context.toggle,
-  });
-
-  return [props, meta];
+  return [toggleProps, metadata];
 }
 
 export interface DropdownToggleProps {
@@ -93,7 +122,7 @@ export interface DropdownToggleProps {
 function DropdownToggle({ children }: DropdownToggleProps) {
   const [props, meta] = useDropdownToggle();
 
-  return <>{children(props(), meta())}</>;
+  return <>{children(props, meta)}</>;
 }
 
 DropdownToggle.displayName = "DropdownToggle";

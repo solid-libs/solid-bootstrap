@@ -29,7 +29,7 @@ const DropdownMenu = () => {
   });
 
   return (
-    <ul class="dropdown-menu show" {...menuProps}>
+    <ul class={`dropdown-menu ${meta.show ? "show" : ""}`} {...menuProps}>
       <li>
         <Dropdown.Item as="a" class="dropdown-item" href="#">
           Item 1
@@ -53,7 +53,7 @@ const DropdownToggle: Component = (props) => {
   const [toggleProps] = useDropdownToggle();
 
   return (
-    <button {...toggleProps()} className="btn btn-primary dropdown-toggle">
+    <button {...toggleProps} className="btn btn-primary dropdown-toggle">
       {props.children}
     </button>
   );

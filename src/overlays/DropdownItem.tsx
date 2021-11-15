@@ -84,16 +84,23 @@ export function useDropdownItem(options: UseDropdownItemOptions) {
     }
   };
 
-  const props = () => ({
-    onClick: handleClick,
-    "aria-disabled": options.disabled || undefined,
-    "aria-selected": isActive(),
-    [dataAttr("dropdown-item")]: "",
-  });
-
-  const meta = () => ({});
-
-  return [props, meta] as const;
+  return [
+    {
+      onClick: handleClick,
+      get "aria-disabled"() {
+        return options.disabled || undefined;
+      },
+      get "aria-selected"() {
+        return isActive();
+      },
+      [dataAttr("dropdown-item")]: "",
+    },
+    {
+      get isActive() {
+        return isActive();
+      },
+    },
+  ] as const;
 }
 
 const DropdownItem: DynamicRefForwardingComponent<
@@ -115,7 +122,7 @@ const DropdownItem: DynamicRefForwardingComponent<
     active: local.active,
   });
 
-  return <Dynamic component={local.as} {...props} {...dropdownItemProps()} />;
+  return <Dynamic component={local.as} {...props} {...dropdownItemProps} />;
 };
 
 DropdownItem.displayName = "DropdownItem";
