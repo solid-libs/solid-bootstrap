@@ -23,7 +23,6 @@ import {
   createSignal,
   JSX,
   mergeProps,
-  on,
   onCleanup,
   useContext,
 } from "solid-js";
@@ -194,13 +193,11 @@ function Dropdown(p: DropdownProps) {
     );
   });
 
-  createEffect(
-    on(show, (show, prevShow) => {
-      if (menuRef() && prevShow && !show) {
-        setFocusInDropdown(() => menuRef()!.contains(document.activeElement));
-      }
-    })
-  );
+  createEffect(() => {
+    if (menuRef() && show) {
+      setFocusInDropdown(() => menuRef()!.contains(document.activeElement));
+    }
+  });
 
   const focusToggle = () => {
     if (toggleRef() && toggleRef()!.focus) {
@@ -229,8 +226,9 @@ function Dropdown(p: DropdownProps) {
   };
 
   createEffect(() => {
-    if (show()) maybeFocusFirst();
-    else if (focusInDropdown()) {
+    if (show()) {
+      maybeFocusFirst();
+    } else if (focusInDropdown()) {
       setFocusInDropdown(false);
       focusToggle();
     }
