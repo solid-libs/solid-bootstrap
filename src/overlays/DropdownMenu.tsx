@@ -193,7 +193,7 @@ export function useDropdownMenu(o: UseDropdownMenuOptions = {}) {
   });
 
   const [metadata, setMetadata] = createStore({} as UseDropdownMenuMetadata);
-  createEffect(() => {
+  createComputed(() => {
     setMetadata(
       reconcile({
         show: show(),

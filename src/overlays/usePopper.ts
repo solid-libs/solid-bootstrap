@@ -162,6 +162,7 @@ function usePopper(
         attributes[element] = state.attributes[element];
       });
 
+      // console.log("Setting popper state", state);
       setPopperState((s) => ({
         ...s,
         state,
@@ -175,6 +176,7 @@ function usePopper(
   createEffect(() => {
     const instance = popperInstance();
     if (!instance || !enabled()) return;
+    // console.log("Setting popper options", options);
     instance.setOptions({
       onFirstUpdate: options.onFirstUpdate,
       placement: options.placement ?? "bottom",

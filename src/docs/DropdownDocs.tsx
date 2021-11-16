@@ -12,7 +12,7 @@ import { useDropdownToggle } from "../overlays/DropdownToggle";
 const DropdownMenu = () => {
   const [menuProps, meta] = useDropdownMenu({
     flip: true,
-    offset: [0, 20],
+    offset: [0, 5],
   });
 
   createEffect(() => {
@@ -20,7 +20,11 @@ const DropdownMenu = () => {
   });
 
   return (
-    <ul class={`dropdown-menu ${meta.show ? "show" : ""}`} {...menuProps}>
+    <ul
+      class={`dropdown-menu ${meta.show ? "show" : ""}`}
+      {...menuProps}
+      style={{ ...menuProps.style }}
+    >
       <li>
         <Dropdown.Item as="a" class="dropdown-item" href="#">
           Item 1
