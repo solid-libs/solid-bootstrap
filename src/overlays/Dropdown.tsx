@@ -18,7 +18,6 @@ import { SelectCallback } from "./types";
 import { dataAttr } from "./DataKey";
 import { Placement } from "./usePopper";
 import {
-  createComputed,
   createEffect,
   createSignal,
   JSX,
@@ -28,7 +27,6 @@ import {
 } from "solid-js";
 import { createControlledProp } from "../controlled/createControlledProp";
 import { listen } from "dom-helpers";
-import { createStore, reconcile } from "solid-js/store";
 
 export type {
   DropdownMenuProps,
@@ -176,22 +174,23 @@ function Dropdown(p: DropdownProps) {
     }
   };
 
-  const [context, setContext] = createStore({} as DropdownContextValue);
-
-  /** sync context with props */
-  createComputed(() => {
-    setContext(
-      reconcile({
-        toggle,
-        placement: props.placement,
-        show: show()!,
-        menuElement: menuRef(),
-        toggleElement: toggleRef(),
-        setMenu,
-        setToggle,
-      })
-    );
-  });
+  const context: DropdownContextValue = {
+    toggle,
+    setMenu,
+    setToggle,
+    get placement() {
+      return props.placement;
+    },
+    get show() {
+      return show()!;
+    },
+    get menuElement() {
+      return menuRef()!;
+    },
+    get toggleElement() {
+      return toggleRef()!;
+    },
+  };
 
   createEffect(() => {
     if (menuRef() && show) {
