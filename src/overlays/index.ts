@@ -5,8 +5,8 @@ import { useDropdownItem } from "./DropdownItem";
 import Modal from "./Modal";
 import Overlay from "./Overlay";
 import useRootClose from "./useRootClose";
-// import Nav from './Nav';
-// import NavItem, { useNavItem } from './NavItem';
+import Nav from "./Nav";
+import NavItem, { useNavItem } from "./NavItem";
 import Button from "./Button";
 import Tabs from "./Tabs";
 import TabPanel from "./TabPanel";
@@ -17,9 +17,9 @@ export {
   useDropdownMenu,
   useDropdownToggle,
   useDropdownItem,
-  // Nav,
-  // NavItem,
-  // useNavItem,
+  Nav,
+  NavItem,
+  useNavItem,
   Modal,
   Overlay,
   useRootClose,
@@ -37,7 +37,7 @@ export type {
   UseDropdownToggleMetadata,
   DropdownItemProps,
 } from "./Dropdown";
-// export type { NavItemProps, UseNavItemOptions, NavProps } from './Nav';
+export type { NavItemProps, UseNavItemOptions, NavProps } from "./Nav";
 export type { ModalProps } from "./Modal";
 export type { OverlayProps } from "./Overlay";
-// export type { TabsProps, TabPanelProps } from './Tabs';
+export type { TabsProps, TabPanelProps } from "./Tabs";
