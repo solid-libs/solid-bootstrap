@@ -27,6 +27,7 @@ import {
 } from "solid-js";
 import { createControlledProp } from "../controlled/createControlledProp";
 import { listen } from "dom-helpers";
+import { callEventHandler } from "./utils";
 
 export type {
   DropdownMenuProps,
@@ -160,16 +161,12 @@ function Dropdown(p: DropdownProps) {
   };
 
   const handleSelect: SelectCallback = (key: string | null, event: Event) => {
-    props.onSelect?.(key, event);
-    toggle(false, event, "select");
+    let result = callEventHandler((event) => {
+      props.onSelect?.(key, event);
+      toggle(false, event, "select");
+    }, event);
 
-    let isPropagationStopped = false;
-    const defaultFn = event.stopPropagation;
-    event.stopPropagation = () => {
-      isPropagationStopped = true;
-      defaultFn();
-    };
-    if (!isPropagationStopped) {
+    if (!result.isPropagationStopped) {
       onSelectCtx?.(key, event);
     }
   };

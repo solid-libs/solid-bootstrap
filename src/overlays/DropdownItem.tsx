@@ -70,16 +70,9 @@ export function useDropdownItem(options: UseDropdownItemOptions) {
   const handleClick: JSX.EventHandler<HTMLElement, MouseEvent> = (event) => {
     if (options.disabled) return;
 
-    let isPropagationStopped = false;
-    const defaultFn = event.stopPropagation;
-    event.stopPropagation = () => {
-      isPropagationStopped = true;
-      defaultFn();
-    };
+    let result = callEventHandler(options.onClick, event);
 
-    callEventHandler(options.onClick, event);
-
-    if (onSelectCtx && !isPropagationStopped) {
+    if (onSelectCtx && !result.isPropagationStopped) {
       onSelectCtx(eventKey, event);
     }
   };
