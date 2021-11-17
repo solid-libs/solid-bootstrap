@@ -115,11 +115,21 @@ const DropdownItem: DynamicRefForwardingComponent<
   );
 
   const [dropdownItemProps] = useDropdownItem({
-    key: local.eventKey,
-    href: props.href,
-    disabled: local.disabled,
-    onClick: local.onClick as any,
-    active: local.active,
+    get key() {
+      return local.eventKey;
+    },
+    get href() {
+      return props.href;
+    },
+    get disabled() {
+      return local.disabled;
+    },
+    get onClick() {
+      return local.onClick as any;
+    },
+    get active() {
+      return local.active;
+    },
   });
 
   return <Dynamic component={local.as} {...props} {...dropdownItemProps} />;
