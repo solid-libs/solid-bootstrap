@@ -4,8 +4,8 @@ import { EventKey } from "./types";
 interface NavContextType {
   role?: string; // used by NavItem to determine it's role
   activeKey: EventKey | null;
-  getControlledId: (key: EventKey | null) => string;
-  getControllerId: (key: EventKey | null) => string;
+  getControlledId: (key: EventKey) => string;
+  getControllerId: (key: EventKey) => string;
 }
 
 const NavContext = createContext<NavContextType | null>(null);
