@@ -22,9 +22,8 @@ const DropdownMenu = () => {
   return (
     <ul
       class={`dropdown-menu ${meta.show ? "show" : ""}`}
-      {...menuProps}
-      style={{ ...menuProps.style }}
       role="menu"
+      {...menuProps}
     >
       <li>
         <Dropdown.Item as="a" class="dropdown-item" href="#">

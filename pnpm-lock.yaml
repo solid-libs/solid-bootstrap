@@ -4,10 +4,11 @@ specifiers:
   '@popperjs/core': ^2.10.1
   '@types/invariant': 2.2.35
   '@types/warning': ^3.0.0
+  classnames: 2.3.1
   dequal: ^2.0.2
   dom-helpers: ^5.2.0
   invariant: 2.2.4
-  solid-js: ^1.2.3
+  solid-js: ^1.2.5
   solid-transition-group: 0.0.8
   typescript: ^4.4.3
   vite: ^2.5.7
@@ -18,11 +19,12 @@ dependencies:
   '@popperjs/core': 2.10.2
   '@types/invariant': 2.2.35
   '@types/warning': 3.0.0
+  classnames: 2.3.1
   dequal: 2.0.2
   dom-helpers: 5.2.1
   invariant: 2.2.4
-  solid-js: 1.2.3
-  solid-transition-group: 0.0.8_solid-js@1.2.3
+  solid-js: 1.2.5
+  solid-transition-group: 0.0.8_solid-js@1.2.5
   warning: 4.0.3
 
 devDependencies:
@@ -391,6 +393,10 @@ packages:
       supports-color: 5.5.0
     dev: true
 
+  /classnames/2.3.1:
+    resolution: {integrity: sha512-OlQdbZ7gLfGarSqxesMesDa5uz7KFbID8Kpq/SxIoNGDqY8lSYs0D+hhtBXhcdB3rcbXArFr7vlHheLk1voeNA==}
+    dev: false
+
   /color-convert/1.9.3:
     resolution: {integrity: sha512-QfAUtd+vFdAtFQcC8CCyYt1fYWxSqAiK2cSD6zDB8N3cpsEBAvRxp9zOGg6G/SHHJYAT88/az/IuDGALsNVbGg==}
     dependencies:
@@ -757,23 +763,23 @@ packages:
     hasBin: true
     dev: true
 
-  /solid-js/1.2.3:
-    resolution: {integrity: sha512-HQv7F23wSQRIuD0gNF3L1/0MHkTEia7J9Oc4VcEeLjAenkqz89tFkztBIp0PABDqK83fxzcixhSXx0xLv4lNAQ==}
+  /solid-js/1.2.5:
+    resolution: {integrity: sha512-XcPEULgqd/XbBu8LwtGWs5RGowvIpq88/ZNI/xgJ9PaxRJWwbVlSNsS+ywUWncxRdKsPoVe8vdcIsH4gBJjh3Q==}
 
-  /solid-refresh/0.2.2_solid-js@1.2.3:
+  /solid-refresh/0.2.2_solid-js@1.2.5:
     resolution: {integrity: sha512-oQN3pUJ8fBd4ldMxZVqK7S4PGzAn1yx1B5bRRfANoxoqmHyY2QLfzrOzXsYnAkhh272K+W24oKgFWlmdUZ6HtQ==}
     peerDependencies:
       solid-js: ^1.0.0
     dependencies:
-      solid-js: 1.2.3
+      solid-js: 1.2.5
     dev: true
 
-  /solid-transition-group/0.0.8_solid-js@1.2.3:
+  /solid-transition-group/0.0.8_solid-js@1.2.5:
     resolution: {integrity: sha512-5cS/Ircfs/Y0J00oEToL+MWd9V07KgQlw+qRD8kpd6azb2Ri5SjXg/ocqT8U8Wgdx1VQPx45HyopQN+UumkVGQ==}
     peerDependencies:
       solid-js: ^1.0.0
     dependencies:
-      solid-js: 1.2.3
+      solid-js: 1.2.5
     dev: false
 
   /source-map-js/0.6.2:
@@ -815,8 +821,8 @@ packages:
       '@babel/preset-typescript': 7.15.0_@babel+core@7.15.0
       babel-preset-solid: 1.1.1_@babel+core@7.15.0
       merge-anything: 4.0.1
-      solid-js: 1.2.3
-      solid-refresh: 0.2.2_solid-js@1.2.3
+      solid-js: 1.2.5
+      solid-refresh: 0.2.2_solid-js@1.2.5
       vite: 2.6.14
     transitivePeerDependencies:
       - less
