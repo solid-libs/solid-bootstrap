@@ -5,7 +5,7 @@ import { Component, ComponentProps, JSX } from "solid-js";
 
 export type Omit<T, U> = Pick<T, Exclude<keyof T, keyof U>>;
 
-type ElementType = keyof JSX.IntrinsicElements | Component<any>;
+export type ElementType = keyof JSX.IntrinsicElements | Component<any>;
 
 export type ReplaceProps<Inner extends ElementType, P> = Omit<
   ComponentProps<Inner>,

@@ -2,6 +2,7 @@ import { Component } from "solid-js";
 import { BootstrapAlertDocs } from "./docs/BootstrapAlertDocs";
 import { BootstrapAccordianDocs } from "./docs/BootstrapAccordianDocs";
 import { BootstrapBadgeDocs } from "./docs/BootstrapBadgeDocs";
+import { BootstrapBreadcrumbDocs } from "./docs/BootstrapBreadcrumbDocs";
 import { DropdownDocs } from "./docs/DropdownDocs";
 import { ModalDocs } from "./docs/ModalDocs";
 import { OverlayDocs } from "./docs/OverlayDocs";
@@ -77,6 +78,7 @@ const App: Component = () => (
       <BootstrapAlertDocs />
       <BootstrapAccordianDocs />
       <BootstrapBadgeDocs />
+      <BootstrapBreadcrumbDocs />
     </div>
   </div>
 );
