@@ -168,7 +168,7 @@ function ToggleButtonExample() {
               id={`radio2-${idx()}`}
               type="radio"
               variant={idx() % 2 ? "outline-success" : "outline-danger"}
-              name="radio"
+              name="radio2"
               value={radio.value}
               checked={radioValue() === radio.value}
               onChange={(e: any) => setRadioValue(e.currentTarget.value)}
