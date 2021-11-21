@@ -1,3 +1,5 @@
+// ported from https://github.com/react-bootstrap/react-bootstrap/blob/f11723114d532cfce840417834a73733a8436414/src/AccordionBody.tsx
+
 import classNames from "classnames";
 import { JSX, mergeProps, splitProps, useContext } from "solid-js";
 import { Dynamic } from "solid-js/web";

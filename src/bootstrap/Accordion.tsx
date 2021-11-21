@@ -1,3 +1,5 @@
+// ported from https://github.com/react-bootstrap/react-bootstrap/blob/f11723114d532cfce840417834a73733a8436414/src/Accordion.tsx
+
 import classNames from "classnames";
 import { JSX, mergeProps, splitProps } from "solid-js";
 import { SelectCallback } from "../overlays/types";

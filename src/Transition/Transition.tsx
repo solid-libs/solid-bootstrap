@@ -9,6 +9,8 @@ import {
   JSX,
 } from "solid-js";
 
+// Just using this copy of solid-transition-group for debugging - can delete.
+
 export function nextFrame(fn: () => void) {
   requestAnimationFrame(() => {
     requestAnimationFrame(fn);
@@ -71,9 +73,11 @@ export const Transition: Component<TransitionProps> = (props) => {
       onBeforeEnter && onBeforeEnter(el);
       el.classList.add(...enterClasses);
       el.classList.add(...enterActiveClasses);
+      console.log("added classes", el.classList);
       nextFrame(() => {
         el.classList.remove(...enterClasses);
         el.classList.add(...enterToClasses);
+        console.log("removed/added classes", el.classList);
         onEnter && onEnter(el, endTransition);
         if (!onEnter || onEnter.length < 2) {
           el.addEventListener("transitionend", endTransition, { once: true });
@@ -86,6 +90,7 @@ export const Transition: Component<TransitionProps> = (props) => {
         if (el) {
           el.classList.remove(...enterActiveClasses);
           el.classList.remove(...enterToClasses);
+          console.log("removed classes", el.classList);
           batch(() => {
             s1() !== el && set1(el);
             s2() === el && set2(undefined);
