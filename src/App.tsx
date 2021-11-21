@@ -1,4 +1,5 @@
 import { Component } from "solid-js";
+import { BootstrapAlertDocs } from "./docs/BootstrapAlertDocs";
 import { BootstrapAccordianDocs } from "./docs/BootstrapAccordianDocs";
 import { DropdownDocs } from "./docs/DropdownDocs";
 import { ModalDocs } from "./docs/ModalDocs";
@@ -7,7 +8,7 @@ import { OverlayDocs } from "./docs/OverlayDocs";
 const App: Component = () => (
   <div class="container mb-5" style={{ "padding-bottom": "200px" }}>
     <div class="row gy-5">
-      <h1 class="display-4">Solid Overlays</h1>
+      <h1 class="display-4">Solid Bootstrap / Overlays </h1>
       <div>
         <h3>Overview</h3>
         <p class="lead">
@@ -67,10 +68,12 @@ const App: Component = () => (
           <a href="https://react-bootstrap.github.io/">React Bootstrap</a>.
         </p>
       </div>
-      <h2 class="display-5">Components</h2>
+      <h2 class="display-5">Overlay Components</h2>
       <OverlayDocs />
       <ModalDocs />
       <DropdownDocs />
+      <h2 class="display-5">Bootstrap Components</h2>
+      <BootstrapAlertDocs />
       <BootstrapAccordianDocs />
     </div>
   </div>
