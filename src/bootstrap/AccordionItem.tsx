@@ -1,6 +1,6 @@
 // Ported from https://github.com/react-bootstrap/react-bootstrap/blob/f11723114d532cfce840417834a73733a8436414/src/AccordionItem.tsx
 
-import { JSX, splitProps } from "solid-js";
+import { JSX, mergeProps, splitProps } from "solid-js";
 import { Dynamic } from "solid-js/web";
 import classNames from "classnames";
 import { useBootstrapPrefix } from "./ThemeProvider";
@@ -15,9 +15,13 @@ export interface AccordionItemProps
   eventKey: string;
 }
 
+const defaultProps = {
+  as: "div",
+};
+
 const AccordionItem: BsPrefixRefForwardingComponent<"div", AccordionItemProps> =
   (p) => {
-    const [local, props] = splitProps(p, [
+    const [local, props] = splitProps(mergeProps(defaultProps, p), [
       "as",
       "bsPrefix",
       "className",
@@ -33,7 +37,7 @@ const AccordionItem: BsPrefixRefForwardingComponent<"div", AccordionItemProps> =
     return (
       <AccordionItemContext.Provider value={contextValue}>
         <Dynamic
-          component={local.as ?? "div"}
+          component={local.as}
           {...props}
           className={classNames(local.className, bsPrefix)}
         />

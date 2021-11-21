@@ -1,6 +1,6 @@
 // ported from https://github.com/react-bootstrap/react-bootstrap/blob/f11723114d532cfce840417834a73733a8436414/src/AccordionHeader.tsx
 
-import { JSX, splitProps } from "solid-js";
+import { JSX, mergeProps, splitProps } from "solid-js";
 import { Dynamic } from "solid-js/web";
 import classNames from "classnames";
 import { useBootstrapPrefix } from "./ThemeProvider";
@@ -11,11 +11,15 @@ export interface AccordionHeaderProps
   extends BsPrefixProps,
     JSX.HTMLAttributes<HTMLElement> {}
 
+const defaultProps = {
+  as: "h2",
+};
+
 const AccordionHeader: BsPrefixRefForwardingComponent<
   "h2",
   AccordionHeaderProps
 > = (p) => {
-  const [local, props] = splitProps(p, [
+  const [local, props] = splitProps(mergeProps(defaultProps, p), [
     "as",
     "bsPrefix",
     "className",
@@ -26,7 +30,7 @@ const AccordionHeader: BsPrefixRefForwardingComponent<
 
   return (
     <Dynamic
-      component={local.as ?? "h2"}
+      component={local.as}
       {...props}
       className={classNames(local.className, bsPrefix)}
     >

@@ -1,16 +1,16 @@
 import {
   children,
+  createEffect,
   createMemo,
+  createSignal,
   JSX,
   mergeProps,
+  Show,
   splitProps,
-  useContext,
 } from "solid-js";
-import classNames from "classnames";
 import css from "dom-helpers/css";
-import { Transition } from "solid-transition-group";
+import { Transition } from "../Transition/Transition";
 import { TransitionCallbacks } from "../overlays/types";
-import transitionEndListener from "./transitionEndListener";
 import createChainedFunction from "./createChainedFunction";
 import triggerBrowserReflow from "./triggerBrowserReflow";
 
@@ -54,35 +54,29 @@ function getDefaultDimensionValue(
   );
 }
 
+const defaultProps: Partial<CollapseProps> = {
+  in: false,
+  dimension: "height",
+  timeout: 300,
+  mountOnEnter: false,
+  unmountOnExit: false,
+  appear: false,
+  getDimensionValue: getDefaultDimensionValue,
+};
+
 const Collapse = (p: CollapseProps) => {
-  const [local, props] = splitProps(
-    mergeProps(
-      {
-        // defaults
-        in: false,
-        dimension: "height",
-        timeout: 300,
-        mountOnEnter: false,
-        unmountOnExit: false,
-        appear: false,
-        getDimensionValue: getDefaultDimensionValue,
-      } as CollapseProps,
-      p
-    ),
-    // split for local use
-    [
-      "onEnter",
-      "onBeforeEnter",
-      "onAfterEnter",
-      "onExit",
-      "onBeforeExit",
-      "className",
-      "children",
-      "dimension",
-      "getDimensionValue",
-    ]
-  );
-  const resolved = children(() => local.children);
+  const [local, props] = splitProps(mergeProps(defaultProps, p), [
+    "in",
+    "onEnter",
+    "onBeforeEnter",
+    "onAfterEnter",
+    "onExit",
+    "onBeforeExit",
+    "className",
+    "children",
+    "dimension",
+    "getDimensionValue",
+  ]);
 
   /* Compute dimension */
   const computedDimension = () =>
@@ -91,65 +85,77 @@ const Collapse = (p: CollapseProps) => {
       : (local.dimension as Dimension);
 
   /* -- Expanding -- */
-  const handleEnter = createMemo(() =>
-    createChainedFunction((elem: HTMLElement) => {
-      elem.style[computedDimension()] = "0";
-    }, local.onBeforeEnter)
-  );
+  const handleEnter = (elem: Element) => {
+    console.log("handleEnter");
+    (elem as HTMLElement).style[computedDimension()] = "0";
+    local.onBeforeEnter?.(elem);
+  };
 
-  const handleEntering = createMemo(() =>
-    createChainedFunction((elem: HTMLElement) => {
-      const scroll =
-        `scroll${computedDimension()[0].toUpperCase()}${computedDimension().slice(
-          1
-        )}` as keyof HTMLElement;
-      elem.style[computedDimension()] = `${elem[scroll]}px`;
-    }, local.onEnter)
-  );
+  const handleEntering = (elem: Element, done: () => void) => {
+    console.log("handleEntering");
+    const scroll =
+      `scroll${computedDimension()[0].toUpperCase()}${computedDimension().slice(
+        1
+      )}` as keyof HTMLElement;
+    (elem as HTMLElement).style[computedDimension()] = `${
+      (elem as HTMLElement)[scroll]
+    }px`;
+    local.onEnter?.(elem, done);
+    done();
+  };
 
-  const handleEntered = createMemo(() =>
-    createChainedFunction((elem: HTMLElement) => {
-      // @ts-ignore
-      elem.style[computedDimension()] = null;
-    }, local.onAfterEnter)
-  );
+  const handleEntered = (elem: Element) => {
+    console.log("handleEntered");
+    // @ts-ignore
+    elem.style[computedDimension()] = null;
+    local.onAfterEnter?.(elem);
+  };
 
   /* -- Collapsing -- */
-  const handleExit = createMemo(() =>
-    createChainedFunction((elem: HTMLElement) => {
-      elem.style[computedDimension()] = `${local.getDimensionValue!(
-        computedDimension(),
-        elem
-      )}px`;
-      triggerBrowserReflow(elem);
-    }, local.onBeforeExit)
-  );
-  const handleExiting = createMemo(() =>
-    createChainedFunction((elem: HTMLElement) => {
-      // @ts-ignore
-      elem.style[computedDimension()] = null;
-    }, local.onExit)
-  );
+  const handleExit = (elem: Element) => {
+    console.log("handleExit");
+    (elem as HTMLElement).style[
+      computedDimension()
+    ] = `${local.getDimensionValue!(
+      computedDimension(),
+      elem as HTMLElement
+    )}px`;
+    // @ts-ignore
+    triggerBrowserReflow(elem);
+    local.onBeforeExit?.(elem);
+  };
+
+  const handleExiting = (elem: Element, done: () => void) => {
+    console.log("handleExiting");
+    // @ts-ignore
+    elem.style[computedDimension()] = null;
+    local.onExit?.(elem, done);
+    done();
+  };
+
+  createEffect(() => {
+    console.log("local.in", local.in);
+  });
 
   return (
     <Transition
       // addEndListener={transitionEndListener}
+      // {...props}
       enterActiveClass="collapse"
       enterClass="collapsing"
       enterToClass="collapse show"
-      exitActiveClass="collapse show"
+      exitActiveClass="collapse"
       exitClass="collapsing"
       exitToClass="collapse"
-      {...props}
-      aria-expanded={props.role ? props.in : null}
-      // onEnter={handleEnter}
-      // onEntering={handleEntering}
-      // onEntered={handleEntered}
-      // onExit={handleExit}
-      // onExiting={handleExiting}
+      aria-expanded={props.role ? local.in : null}
+      onBeforeEnter={handleEnter}
+      onEnter={handleEntering}
+      onAfterEnter={handleEntered}
+      onBeforeExit={handleExit}
+      onExit={handleExiting}
       // childRef={(local.children as any).ref}
     >
-      {local.children}
+      <Show when={local.in}>{local.children}</Show>
       {/* {(state: TransitionStatus, innerProps: Record<string, unknown>) =>
         React.cloneElement(local.children, {
           ...innerProps,

@@ -2,11 +2,11 @@ import { Component } from "solid-js";
 import { createSignal } from "solid-js";
 import Accordion from "../bootstrap/Accordion";
 
-export const BoostrapAccordianDocs: Component = () => {
+export const BootstrapAccordianDocs: Component = () => {
   return (
     <div class="row gy-4">
       <div>
-        <h3>Boostrap Accordian</h3>
+        <h3>Bootstrap Accordian</h3>
         <p class="lead"></p>
         <p></p>
       </div>

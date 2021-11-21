@@ -1,5 +1,5 @@
 import classNames from "classnames";
-import { createMemo, JSX, mergeProps, splitProps, useContext } from "solid-js";
+import { JSX, mergeProps, splitProps } from "solid-js";
 import { SelectCallback } from "../overlays/types";
 import { createControlledProp } from "../controlled/createControlledProp";
 import { useBootstrapPrefix } from "./ThemeProvider";
@@ -21,10 +21,14 @@ export interface AccordionProps
   flush?: boolean;
 }
 
+const defaultProps = {
+  as: "div",
+};
+
 const Accordion: BsPrefixRefForwardingComponent<"div", AccordionProps> = (
   p
 ) => {
-  const [local, props] = splitProps(mergeProps({ as: "div" }, p), [
+  const [local, props] = splitProps(mergeProps(defaultProps, p), [
     "as",
     "activeKey",
     "bsPrefix",

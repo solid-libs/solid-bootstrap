@@ -17,37 +17,42 @@ export function useAccordionButton(
   eventKey: string,
   onClick?: EventHandler
 ): EventHandler {
-  const { activeEventKey, onSelect } = useContext(AccordionContext);
+  const context = useContext(AccordionContext);
 
   return (e) => {
     /*
       Compare the event key in context with the given event key.
       If they are the same, then collapse the component.
     */
-    const eventKeyPassed = eventKey === activeEventKey ? null : eventKey;
+    const eventKeyPassed =
+      eventKey === context.activeEventKey ? null : eventKey;
 
-    if (onSelect) onSelect(eventKeyPassed, e);
+    if (context.onSelect) context.onSelect(eventKeyPassed, e);
     callEventHandler(onClick, e);
   };
 }
 
+const defaultProps = {
+  as: "button",
+};
+
 const AccordionButton: BsPrefixRefForwardingComponent<
-  "div",
+  "button",
   AccordionButtonProps
 > = (p) => {
-  const [local, props] = splitProps(
-    mergeProps(
-      {
-        as: "button",
-      },
-      p
-    ),
-    ["as", "bsPrefix", "className", "onClick"]
-  );
+  const [local, props] = splitProps(mergeProps(defaultProps, p), [
+    "as",
+    "bsPrefix",
+    "className",
+    "onClick",
+  ]);
   const bsPrefix = useBootstrapPrefix(local.bsPrefix, "accordion-button");
-  const { eventKey } = useContext(AccordionItemContext);
-  const accordionOnClick = useAccordionButton(eventKey, local.onClick);
-  const { activeEventKey } = useContext(AccordionContext);
+  const itemContext = useContext(AccordionItemContext);
+  const accordionOnClick = useAccordionButton(
+    itemContext.eventKey,
+    local.onClick
+  );
+  const accordianContext = useContext(AccordionContext);
 
   return (
     <Dynamic
@@ -55,11 +60,11 @@ const AccordionButton: BsPrefixRefForwardingComponent<
       onClick={accordionOnClick}
       {...props}
       type={local.as === "button" ? "button" : undefined}
-      aria-expanded={eventKey === activeEventKey}
+      aria-expanded={itemContext.eventKey === accordianContext.activeEventKey}
       className={classNames(
         local.className,
         bsPrefix,
-        eventKey !== activeEventKey && "collapsed"
+        itemContext.eventKey !== accordianContext.activeEventKey && "collapsed"
       )}
     />
   );

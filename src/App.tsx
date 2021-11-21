@@ -1,5 +1,5 @@
 import { Component } from "solid-js";
-import { BoostrapAccordianDocs } from "./docs/BoostrapAccordianDocs";
+import { BootstrapAccordianDocs } from "./docs/BootstrapAccordianDocs";
 import { DropdownDocs } from "./docs/DropdownDocs";
 import { ModalDocs } from "./docs/ModalDocs";
 import { OverlayDocs } from "./docs/OverlayDocs";
@@ -71,7 +71,7 @@ const App: Component = () => (
       <OverlayDocs />
       <ModalDocs />
       <DropdownDocs />
-      <BoostrapAccordianDocs />
+      <BootstrapAccordianDocs />
     </div>
   </div>
 );

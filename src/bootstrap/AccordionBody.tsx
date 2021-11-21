@@ -10,23 +10,27 @@ export interface AccordionBodyProps
   extends BsPrefixProps,
     JSX.HTMLAttributes<HTMLElement> {}
 
+const defaultProps = {
+  as: "div",
+};
+
 const AccordionBody: BsPrefixRefForwardingComponent<"div", AccordionBodyProps> =
   (p) => {
-    const [local, props] = splitProps(
-      mergeProps(
-        {
-          as: "div",
-        },
-        p
-      ),
-      ["as", "bsPrefix", "className"]
-    );
+    const [local, props] = splitProps(mergeProps(defaultProps, p), [
+      "as",
+      "bsPrefix",
+      "className",
+    ]);
     const bsPrefix = useBootstrapPrefix(local.bsPrefix, "accordion-body");
-    const { eventKey } = useContext(AccordionItemContext);
+    const context = useContext(AccordionItemContext);
 
     return (
-      <AccordionCollapse eventKey={eventKey}>
-        <Dynamic {...props} className={classNames(local.className, bsPrefix)} />
+      <AccordionCollapse eventKey={context.eventKey}>
+        <Dynamic
+          component={local.as}
+          {...props}
+          className={classNames(local.className, bsPrefix)}
+        />
       </AccordionCollapse>
     );
   };
