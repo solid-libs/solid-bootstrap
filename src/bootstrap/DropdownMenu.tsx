@@ -1,11 +1,4 @@
-import {
-  createEffect,
-  JSX,
-  mergeProps,
-  Show,
-  splitProps,
-  useContext,
-} from "solid-js";
+import { JSX, mergeProps, Show, splitProps, useContext } from "solid-js";
 import classNames from "classnames";
 import {
   useDropdownMenu,
@@ -143,7 +136,6 @@ const DropdownMenu: BsPrefixRefForwardingComponent<"div", DropdownMenuProps> = (
   });
 
   const mergedRef = (ref: HTMLButtonElement) => {
-    debugger;
     menuProps.ref?.(ref);
     local.ref?.(ref);
   };
@@ -154,31 +146,39 @@ const DropdownMenu: BsPrefixRefForwardingComponent<"div", DropdownMenuProps> = (
   //   if (menuMeta.show) menuMeta.popper?.update();
   // });
 
-  const renderMenu = () => {
+  const extendedMenuProps = mergeProps(
+    menuProps,
     // For custom components provide additional, non-DOM, props;
-    if (typeof local.as !== "string") {
-      menuProps.show = menuMeta.show;
-      menuProps.close = () => menuMeta.toggle?.(false);
-      menuProps.align = align;
-    }
+    typeof local.as !== "string"
+      ? {
+          get show() {
+            return menuMeta.show;
+          },
+          get close() {
+            return () => menuMeta.toggle?.(false);
+          },
+          get align() {
+            return align;
+          },
+        }
+      : {}
+  );
 
-    let style = props.style;
-    if (menuMeta.popper?.placement) {
-      // we don't need the default popper style,
-      // menus are display: none when not shown.
-      style = { ...(props.style as JSX.CSSProperties), ...menuProps.style };
-      // @ts-ignore
-      props["x-placement"] = menuMeta.popper.placement;
-    }
+  // we don't need the default popper style,
+  // menus are display: none when not shown.
+  const style = () =>
+    menuMeta.popper?.placement
+      ? { ...(props.style as JSX.CSSProperties), ...menuProps.style }
+      : props.style;
 
-    return (
+  return (
+    <Show when={menuMeta.hasShown || local.renderOnMount || isInputGroup}>
       <Dynamic
         component={local.as}
         {...props}
-        {...menuProps}
+        {...extendedMenuProps}
         ref={mergedRef}
-        style={style}
-        // Bootstrap css requires this data attrib to style responsive menus.
+        style={style()}
         {...(alignClasses.length || isNavbar
           ? {
               "data-bs-popper": "static",
@@ -193,12 +193,6 @@ const DropdownMenu: BsPrefixRefForwardingComponent<"div", DropdownMenuProps> = (
           ...alignClasses
         )}
       />
-    );
-  };
-
-  return (
-    <Show when={menuMeta.hasShown || local.renderOnMount || isInputGroup}>
-      {renderMenu}
     </Show>
   );
 };

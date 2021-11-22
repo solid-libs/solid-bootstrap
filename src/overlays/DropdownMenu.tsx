@@ -120,7 +120,6 @@ export function useDropdownMenu(o: UseDropdownMenuOptions = {}) {
     {
       fixed: false,
       popperConfig: {},
-      enableEventListeners: true,
       usePopper: !!context,
     },
     o
