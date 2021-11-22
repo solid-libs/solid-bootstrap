@@ -7,6 +7,7 @@ specifiers:
   classnames: 2.3.1
   dequal: ^2.0.2
   dom-helpers: ^5.2.0
+  holderjs: 2.9.9
   invariant: 2.2.4
   solid-js: ^1.2.5
   solid-transition-group: 0.0.8
@@ -22,6 +23,7 @@ dependencies:
   classnames: 2.3.1
   dequal: 2.0.2
   dom-helpers: 5.2.1
+  holderjs: 2.9.9
   invariant: 2.2.4
   solid-js: 1.2.5
   solid-transition-group: 0.0.8_solid-js@1.2.5
@@ -652,6 +654,10 @@ packages:
     dependencies:
       function-bind: 1.1.1
     dev: true
+
+  /holderjs/2.9.9:
+    resolution: {integrity: sha512-ceWPz1MrR3dxOoZXiom+G48+l1VPG3TcjBw9fq5iwCiZAMvYX8Aia13GOxT7DoV/AcSyTH7Vvr11ygjZP9qn4w==}
+    dev: false
 
   /invariant/2.2.4:
     resolution: {integrity: sha512-phJfQVBuaJM5raOpJjSfkiD6BpbCE4Ns//LaXl6wGYtUBY83nWS6Rf9tXm2e8VaK60JEjYldbPif/A2B1C2gNA==}
