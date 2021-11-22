@@ -14,6 +14,8 @@ import {
   createEffect,
   createSignal,
   JSX,
+  mergeProps,
+  splitProps,
   useContext,
 } from "solid-js";
 import { Dynamic } from "solid-js/web";
@@ -44,7 +46,19 @@ export interface NavProps
 
 const EVENT_KEY_ATTR = dataAttr("event-key");
 
-const Nav: DynamicRefForwardingComponent<"div", NavProps> = (props) => {
+const defaultProps = {
+  as: "div",
+};
+
+const Nav = (p: NavProps) => {
+  const [local, props] = splitProps(mergeProps(defaultProps, p), [
+    "as",
+    "onSelect",
+    "activeKey",
+    "role",
+    "onKeyDown",
+  ]);
+
   // and don't want to reset the set in the effect
   const [needsRefocusRef, setNeedsRefocusRef] = createSignal(false);
   const [listNode, setListNode] = createSignal<HTMLElement | null>(null);
@@ -76,12 +90,12 @@ const Nav: DynamicRefForwardingComponent<"div", NavProps> = (props) => {
 
   const handleSelect = (key: string | null, event: Event) => {
     if (key == null) return;
-    props.onSelect?.(key, event);
+    local.onSelect?.(key, event);
     parentOnSelect?.(key, event);
   };
 
   const handleKeyDown = (event: KeyboardEvent) => {
-    callEventHandler(props.onKeyDown, event);
+    callEventHandler(local.onKeyDown, event);
 
     if (!tabContext) {
       return;
@@ -133,10 +147,10 @@ const Nav: DynamicRefForwardingComponent<"div", NavProps> = (props) => {
       <NavContext.Provider
         value={{
           get role() {
-            return props.role || "tablist";
+            return local.role || "tablist";
           }, // used by NavLink to determine it's role
           get activeKey() {
-            return makeEventKey(tabContext?.activeKey ?? props.activeKey);
+            return makeEventKey(tabContext?.activeKey ?? local.activeKey);
           },
           get getControlledId() {
             return tabContext?.getControlledId || noop;
@@ -146,11 +160,15 @@ const Nav: DynamicRefForwardingComponent<"div", NavProps> = (props) => {
           },
         }}
       >
-        <Dynamic {...props} onKeyDown={handleKeyDown} ref={mergedRef} />
+        <Dynamic
+          component={local.as}
+          {...props}
+          onKeyDown={handleKeyDown}
+          ref={mergedRef}
+        />
       </NavContext.Provider>
     </SelectableContext.Provider>
   );
 };
-Nav.displayName = "Nav";
 
 export default Object.assign(Nav, { Item: NavItem });

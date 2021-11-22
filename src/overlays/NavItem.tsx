@@ -65,8 +65,7 @@ export function useNavItem(options: UseNavItemOptions) {
     const contextControllerId = navContext.getControllerId(options.key!);
     const contextControlledId = navContext.getControlledId(options.key!);
 
-    // @ts-ignore
-    props[dataAttr("event-key")] = key;
+    props[dataAttr("event-key")] = options.key;
 
     props.id = contextControllerId || options.id;
     props["aria-controls"] = contextControlledId;
