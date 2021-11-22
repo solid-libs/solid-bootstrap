@@ -3,7 +3,7 @@ import SelectableContext, { makeEventKey } from "./SelectableContext";
 import { EventKey, DynamicRefForwardingComponent } from "./types";
 import Button from "./Button";
 import { dataAttr } from "./DataKey";
-import { JSX, mergeProps, splitProps, useContext } from "solid-js";
+import { Component, JSX, mergeProps, splitProps, useContext } from "solid-js";
 import { Dynamic } from "solid-js/web";
 import { callEventHandler } from "./utils";
 
@@ -16,7 +16,7 @@ export interface NavItemProps extends JSX.HTMLAttributes<HTMLElement> {
   /**
    * Element used to render the component.
    */
-  as?: Parameters<typeof Dynamic>[0]["component"];
+  as?: keyof JSX.IntrinsicElements | Component<any>;
 
   /**
    * Disable the NavItem, making it unselectable.

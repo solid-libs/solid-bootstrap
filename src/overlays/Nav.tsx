@@ -9,7 +9,13 @@ import {
 } from "./types";
 import { dataAttr, dataProp } from "./DataKey";
 import NavItem, { UseNavItemOptions, NavItemProps } from "./NavItem";
-import { createEffect, createSignal, JSX, useContext } from "solid-js";
+import {
+  Component,
+  createEffect,
+  createSignal,
+  JSX,
+  useContext,
+} from "solid-js";
 import { Dynamic } from "solid-js/web";
 import { callEventHandler } from "./utils";
 
@@ -28,7 +34,7 @@ export interface NavProps
   /**
    * Element used to render the component.
    */
-  as?: Parameters<typeof Dynamic>[0]["component"];
+  as?: keyof JSX.IntrinsicElements | Component<any>;
 
   /**
    * A callback fired when a NavItem has been selected.

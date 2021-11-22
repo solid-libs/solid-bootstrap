@@ -36,7 +36,7 @@ const FormCheckInput: BsPrefixRefForwardingComponent<
     "isInvalid",
   ]);
 
-  const { controlId } = useContext(FormContext);
+  const formContext = useContext(FormContext);
   const bsPrefix = useBootstrapPrefix(local.bsPrefix, "form-check-input");
 
   return (
@@ -44,7 +44,7 @@ const FormCheckInput: BsPrefixRefForwardingComponent<
       component={local.as}
       {...props}
       type={local.type}
-      id={local.id || controlId}
+      id={local.id || formContext.controlId}
       className={classNames(
         local.className,
         bsPrefix,

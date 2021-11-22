@@ -180,37 +180,48 @@ export function useDropdownMenu(o: UseDropdownMenuOptions = {}) {
     }
   });
 
-  const [menuProps, setMenuProps] = createStore({} as UserDropdownMenuProps);
-  createComputed(() => {
-    setMenuProps(
-      reconcile({
-        ref: context?.setMenu || noop,
-        "aria-labelledby": context?.toggleElement?.id,
-        ...popper()?.attributes.popper,
-        style: popper()?.styles.popper as any,
-      })
-    );
-  });
+  const menuProps = mergeProps(
+    {
+      get ref() {
+        return context?.setMenu || noop;
+      },
+      get style() {
+        return popper()?.styles.popper as any;
+      },
+      get "aria-labelledby"() {
+        return context?.toggleElement?.id;
+      },
+    },
+    popper()?.attributes.popper ?? {}
+  );
 
-  const [metadata, setMetadata] = createStore({} as UseDropdownMenuMetadata);
-  createComputed(() => {
-    setMetadata(
-      reconcile({
-        show: show(),
-        placement: context?.placement,
-        hasShown: hasShownRef(),
-        toggle: context?.toggle,
-        popper: options.usePopper ? popper()! : null,
-        arrowProps: options.usePopper
-          ? {
-              ref: attachArrowRef,
-              ...popper()?.attributes.arrow,
-              style: popper()?.styles.arrow as any,
-            }
-          : {},
-      })
-    );
-  });
+  const metadata: UseDropdownMenuMetadata = {
+    get show() {
+      console.log("show");
+      return show();
+    },
+    get placement() {
+      return context?.placement!;
+    },
+    get hasShown() {
+      return hasShownRef();
+    },
+    get toggle() {
+      return context?.toggle!;
+    },
+    get popper() {
+      return options.usePopper ? popper()! : null;
+    },
+    get arrowProps() {
+      return options.usePopper
+        ? {
+            ref: attachArrowRef,
+            ...popper()?.attributes.arrow,
+            style: popper()?.styles.arrow as any,
+          }
+        : {};
+    },
+  };
 
   return [menuProps, metadata] as const;
 }

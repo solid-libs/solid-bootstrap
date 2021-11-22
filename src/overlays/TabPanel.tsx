@@ -7,7 +7,7 @@ import {
   TransitionComponent,
 } from "./types";
 import NoopTransition from "./NoopTransition";
-import { JSX, useContext } from "solid-js";
+import { Component, JSX, useContext } from "solid-js";
 import { Dynamic } from "solid-js/web";
 import { mergeProps } from "solid-js/web/types/client";
 
@@ -17,7 +17,7 @@ export interface TabPanelProps
   /**
    * Element used to render the component.
    */
-  as?: Parameters<typeof Dynamic>[0]["component"];
+  as?: keyof JSX.IntrinsicElements | Component<any>;
 
   /**
    * A key that associates the `TabPanel` with it's controlling `NavLink`.

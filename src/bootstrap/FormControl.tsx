@@ -45,7 +45,7 @@ const FormControl: BsPrefixRefForwardingComponent<"input", FormControlProps> = (
     "plaintext",
     "readOnly",
   ]);
-  const { controlId } = useContext(FormContext);
+  const formContext = useContext(FormContext);
   const bsPrefix = useBootstrapPrefix(local.bsPrefix, "form-control");
 
   const classes = () => {
@@ -62,7 +62,7 @@ const FormControl: BsPrefixRefForwardingComponent<"input", FormControlProps> = (
   };
 
   warning(
-    controlId == null || !local.id,
+    formContext.controlId == null || !local.id,
     "`controlId` is ignored on `<FormControl>` when `id` is specified."
   );
 
@@ -73,7 +73,7 @@ const FormControl: BsPrefixRefForwardingComponent<"input", FormControlProps> = (
       type={local.type}
       size={local.htmlSize}
       readOnly={local.readOnly}
-      id={local.id || controlId}
+      id={local.id || formContext.controlId}
       className={classNames(
         local.className,
         classes(),

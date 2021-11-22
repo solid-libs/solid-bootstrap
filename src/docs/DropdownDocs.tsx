@@ -15,10 +15,6 @@ const DropdownMenu = () => {
     offset: [0, 5],
   });
 
-  createEffect(() => {
-    if (meta.show) meta.popper?.update();
-  });
-
   return (
     <ul
       class={`dropdown-menu ${meta.show ? "show" : ""}`}

@@ -112,10 +112,6 @@ function ToggleButtonExample() {
     { name: "Radio", value: "3" },
   ];
 
-  createEffect(() => {
-    console.log("radioValue", JSON.stringify(radioValue()));
-  });
-
   return (
     <>
       <ButtonGroup className="mb-2">

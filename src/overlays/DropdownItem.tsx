@@ -19,7 +19,7 @@ export interface DropdownItemProps<T> extends JSX.HTMLAttributes<T> {
   /**
    * Element used to render the component.
    */
-  as?: Parameters<typeof Dynamic>[0]["component"];
+  as?: keyof JSX.IntrinsicElements | Component<any>;
 
   /**
    * Highlight the menu item as active.

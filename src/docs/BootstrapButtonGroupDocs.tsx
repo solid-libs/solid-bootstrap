@@ -4,6 +4,8 @@ import ButtonGroup from "../bootstrap/ButtonGroup";
 import ButtonToolbar from "../bootstrap/ButtonToolbar";
 import InputGroup from "../bootstrap/InputGroup";
 import FormControl from "../bootstrap/FormControl";
+import Dropdown from "../bootstrap/Dropdown";
+import DropdownButton from "../bootstrap/DropdownButton";
 
 export const BootstrapButtonGroupDocs: Component = () => {
   return (
@@ -104,7 +106,7 @@ export const BootstrapButtonGroupDocs: Component = () => {
       </div>
       <div>
         <h5>Nesting</h5>
-        {/* <ButtonGroup>
+        <ButtonGroup>
           <Button>1</Button>
           <Button>2</Button>
 
@@ -116,7 +118,7 @@ export const BootstrapButtonGroupDocs: Component = () => {
             <Dropdown.Item eventKey="1">Dropdown link</Dropdown.Item>
             <Dropdown.Item eventKey="2">Dropdown link</Dropdown.Item>
           </DropdownButton>
-        </ButtonGroup> */}
+        </ButtonGroup>
       </div>
     </div>
   );

@@ -30,13 +30,13 @@ export function useBootstrapPrefix(
   prefix: string | undefined,
   defaultPrefix: string
 ): string {
-  const { prefixes } = useContext(ThemeContext);
-  return prefix || prefixes[defaultPrefix] || defaultPrefix;
+  const themeContext = useContext(ThemeContext);
+  return prefix || themeContext.prefixes[defaultPrefix] || defaultPrefix;
 }
 
 export function useIsRTL() {
-  const { dir } = useContext(ThemeContext);
-  return dir === "rtl";
+  const themeContext = useContext(ThemeContext);
+  return themeContext.dir === "rtl";
 }
 
 // function createBootstrapComponent(Component, opts) {

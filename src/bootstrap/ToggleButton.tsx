@@ -46,9 +46,7 @@ const ToggleButton = (p: ToggleButtonProps) => {
         value={local.value}
         ref={local.inputRef}
         autocomplete="off"
-        checked={
-          (console.log("Button", local.id, local.checked), !!local.checked)
-        }
+        checked={!!local.checked}
         disabled={!!local.disabled}
         onChange={local.onChange || noop}
         id={local.id}
