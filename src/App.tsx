@@ -4,6 +4,7 @@ import { BootstrapAccordianDocs } from "./docs/BootstrapAccordianDocs";
 import { BootstrapBadgeDocs } from "./docs/BootstrapBadgeDocs";
 import { BootstrapBreadcrumbDocs } from "./docs/BootstrapBreadcrumbDocs";
 import { BootstrapButtonDocs } from "./docs/BootstrapButtonDocs";
+import { BootstrapButtonGroupDocs } from "./docs/BootstrapButtonGroupDocs";
 import { DropdownDocs } from "./docs/DropdownDocs";
 import { ModalDocs } from "./docs/ModalDocs";
 import { OverlayDocs } from "./docs/OverlayDocs";
@@ -81,6 +82,7 @@ const App: Component = () => (
       <BootstrapBadgeDocs />
       <BootstrapBreadcrumbDocs />
       <BootstrapButtonDocs />
+      <BootstrapButtonGroupDocs />
     </div>
   </div>
 );
