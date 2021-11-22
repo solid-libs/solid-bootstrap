@@ -2,6 +2,7 @@ import { Component, createEffect, createSignal, For } from "solid-js";
 import Button from "../bootstrap/Button";
 import Card from "../bootstrap/Card";
 import ListGroup from "../bootstrap/ListGroup";
+import Nav from "../bootstrap/Nav";
 
 export const BootstrapCardsDocs: Component = () => {
   return (
@@ -139,6 +140,31 @@ export const BootstrapCardsDocs: Component = () => {
       </div>
       <div>
         <h5>Navigation</h5>
+        <Card>
+          <Card.Header>
+            <Nav variant="tabs" defaultActiveKey="#first">
+              <Nav.Item>
+                <Nav.Link href="#first">Active</Nav.Link>
+              </Nav.Item>
+              <Nav.Item>
+                <Nav.Link href="#link">Link</Nav.Link>
+              </Nav.Item>
+              <Nav.Item>
+                <Nav.Link href="#disabled" disabled>
+                  Disabled
+                </Nav.Link>
+              </Nav.Item>
+            </Nav>
+          </Card.Header>
+          <Card.Body>
+            <Card.Title>Special title treatment</Card.Title>
+            <Card.Text>
+              With supporting text below as a natural lead-in to additional
+              content.
+            </Card.Text>
+            <Button variant="primary">Go somewhere</Button>
+          </Card.Body>
+        </Card>{" "}
       </div>
     </div>
   );

@@ -3,7 +3,14 @@ import SelectableContext, { makeEventKey } from "./SelectableContext";
 import { EventKey, DynamicRefForwardingComponent } from "./types";
 import Button from "./Button";
 import { dataAttr } from "./DataKey";
-import { Component, JSX, mergeProps, splitProps, useContext } from "solid-js";
+import {
+  Component,
+  createMemo,
+  JSX,
+  mergeProps,
+  splitProps,
+  useContext,
+} from "solid-js";
 import { Dynamic } from "solid-js/web";
 import { callEventHandler } from "./utils";
 
@@ -44,51 +51,22 @@ export interface UseNavItemOptions {
 }
 
 export function useNavItem(options: UseNavItemOptions) {
-  // {
-  //   key,
-  //   onClick,
-  //   active,
-  //   id,
-  //   role,
-  //   disabled,
-  // }
-
   const parentOnSelect = useContext(SelectableContext);
   const navContext = useContext(NavContext);
 
-  let isActive = options.active;
-  const props = { role: options.role } as any;
+  const isActive = createMemo(() =>
+    options.active == null && options.key != null
+      ? navContext?.activeKey === options.key
+      : options.active
+  );
 
-  if (navContext) {
-    if (!options.role && navContext.role === "tablist") props.role = "tab";
+  const role = createMemo(() =>
+    navContext && !options.role && navContext.role === "tablist"
+      ? "tab"
+      : options.role
+  );
 
-    const contextControllerId = navContext.getControllerId(options.key!);
-    const contextControlledId = navContext.getControlledId(options.key!);
-
-    props[dataAttr("event-key")] = options.key;
-
-    props.id = contextControllerId || options.id;
-    props["aria-controls"] = contextControlledId;
-
-    isActive =
-      options.active == null && options.key != null
-        ? navContext.activeKey === options.key
-        : options.active;
-  }
-
-  if (props.role === "tab") {
-    if (options.disabled) {
-      props.tabIndex = -1;
-      props["aria-disabled"] = true;
-    }
-    if (isActive) {
-      props["aria-selected"] = isActive;
-    } else {
-      props.tabIndex = -1;
-    }
-  }
-
-  props.onClick = (e: MouseEvent) => {
+  const onClick = createMemo(() => (e: MouseEvent) => {
     if (options.disabled) return;
 
     let result = callEventHandler(options.onClick, e);
@@ -100,9 +78,44 @@ export function useNavItem(options: UseNavItemOptions) {
     if (parentOnSelect && !result.isPropagationStopped) {
       parentOnSelect(options.key, e);
     }
+  });
+
+  const props = {
+    get role() {
+      return role();
+    },
+    get [dataAttr("event-key")]() {
+      return navContext ? options.key : undefined;
+    },
+    get id() {
+      return navContext ? navContext.getControllerId(options.key!) : undefined;
+    },
+    get tabIndex() {
+      return role() === "tab" && (options.disabled || !isActive())
+        ? -1
+        : undefined;
+    },
+    get ["aria-controls"]() {
+      return navContext ? navContext.getControlledId(options.key!) : undefined;
+    },
+    get ["aria-disabled"]() {
+      return role() === "tab" && options.disabled ? true : undefined;
+    },
+    get ["aria-selected"]() {
+      return role() === "tab" && isActive() ? true : undefined;
+    },
+    get onClick() {
+      return onClick();
+    },
   };
 
-  return [props, { isActive }] as const;
+  const meta = {
+    get isActive() {
+      return isActive();
+    },
+  };
+
+  return [props, meta] as const;
 }
 
 const NavItem: DynamicRefForwardingComponent<typeof Button, NavItemProps> = (

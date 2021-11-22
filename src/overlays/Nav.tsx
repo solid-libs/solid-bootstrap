@@ -147,7 +147,7 @@ const Nav = (p: NavProps) => {
       <NavContext.Provider
         value={{
           get role() {
-            return local.role || "tablist";
+            return local.role || (tabContext ? "tablist" : undefined);
           }, // used by NavLink to determine it's role
           get activeKey() {
             return makeEventKey(tabContext?.activeKey ?? local.activeKey);
