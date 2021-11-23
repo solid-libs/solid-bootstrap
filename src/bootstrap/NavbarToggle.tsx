@@ -1,0 +1,64 @@
+import { JSX, mergeProps, splitProps, useContext } from "solid-js";
+import classNames from "classnames";
+
+import { useBootstrapPrefix } from "./ThemeProvider";
+import NavbarContext from "./NavbarContext";
+import { BsPrefixProps, BsPrefixRefForwardingComponent } from "./helpers";
+import { callEventHandler } from "../overlays/utils";
+import { Dynamic } from "solid-js/web";
+
+export interface NavbarToggleProps
+  extends BsPrefixProps,
+    JSX.HTMLAttributes<HTMLElement> {
+  label?: string;
+}
+
+const defaultProps = {
+  as: "button",
+  label: "Toggle navigation",
+};
+
+const NavbarToggle: BsPrefixRefForwardingComponent<
+  "button",
+  NavbarToggleProps
+> = (p: NavbarToggleProps) => {
+  const [local, props] = splitProps(mergeProps(defaultProps, p), [
+    "as",
+    "bsPrefix",
+    "className",
+    "children",
+    "label",
+    "onClick",
+  ]);
+  const bsPrefix = useBootstrapPrefix(local.bsPrefix, "navbar-toggler");
+
+  const { onToggle, expanded } = useContext(NavbarContext) || {};
+
+  const handleClick = (e: MouseEvent) => {
+    callEventHandler(local.onClick, e);
+    if (onToggle) onToggle();
+  };
+
+  if (local.as === "button") {
+    (props as any).type = "button";
+  }
+
+  return (
+    <Dynamic
+      component={local.as}
+      {...props}
+      type={local.as === "button" ? "button" : undefined}
+      onClick={handleClick}
+      aria-label={local.label}
+      className={classNames(
+        local.className,
+        bsPrefix,
+        !expanded && "collapsed"
+      )}
+    >
+      {local.children || <span className={`${bsPrefix}-icon`} />}
+    </Dynamic>
+  );
+};
+
+export default NavbarToggle;

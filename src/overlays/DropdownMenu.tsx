@@ -196,7 +196,6 @@ export function useDropdownMenu(o: UseDropdownMenuOptions = {}) {
 
   const metadata: UseDropdownMenuMetadata = {
     get show() {
-      console.log("show");
       return show();
     },
     get placement() {

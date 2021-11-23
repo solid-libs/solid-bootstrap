@@ -33,10 +33,6 @@ const ToggleButton = (p: ToggleButtonProps) => {
   ]);
   const bsPrefix = useBootstrapPrefix(local.bsPrefix, "btn-check");
 
-  // createEffect(() => {
-  //   console.log("Button", local.id, local.checked);
-  // });
-
   return (
     <>
       <input

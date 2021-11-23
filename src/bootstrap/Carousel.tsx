@@ -23,7 +23,7 @@ import triggerBrowserReflow from "./triggerBrowserReflow";
 import { BsPrefixProps, BsPrefixRefForwardingComponent } from "./helpers";
 import { callEventHandler } from "../overlays/utils";
 import { Dynamic } from "solid-js/web";
-import { Transition } from "../Transition/Transition";
+import { Transition } from "solid-transition-group";
 
 export type CarouselVariant = "dark";
 
@@ -137,9 +137,6 @@ const Carousel: BsPrefixRefForwardingComponent<"div", CarouselProps> = (
     () => local.defaultActiveIndex,
     local.onSelect
   );
-  createEffect(() => {
-    console.log("activeIndex", activeIndex());
-  });
 
   const prefix = useBootstrapPrefix(local.bsPrefix, "carousel");
   const isRTL = useIsRTL();

@@ -9,13 +9,3 @@ export const divWithClassName =
       <div {...p} className={classNames((p as any).className, className)} />
     );
   };
-
-// export default (className: string) => (p: ComponentProps<"div">) => {
-//   return null;
-//   // return (
-//   //   <div
-//   //     {...(console.log("running"), p)}
-//   //     className={classNames((p as any).className, className)}
-//   //   />
-//   // );
-// };

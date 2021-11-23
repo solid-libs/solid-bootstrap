@@ -1,4 +1,4 @@
-import { JSX, mergeProps, splitProps, useContext } from "solid-js";
+import { createMemo, JSX, mergeProps, splitProps, useContext } from "solid-js";
 import classNames from "classnames";
 import BaseDropdown, {
   DropdownProps as BaseDropdownProps,
@@ -88,9 +88,9 @@ const Dropdown: BsPrefixRefForwardingComponent<"div", DropdownProps> = (p) => {
       meta.originalEvent!.currentTarget === document &&
       (meta.source !== "keydown" ||
         (meta.originalEvent as any).key === "Escape")
-    )
+    ) {
       meta.source = "rootClose";
-
+    }
     if (isClosingPermitted(meta.source!)) onToggle?.(nextShow, meta);
   };
 

@@ -98,7 +98,7 @@ export interface BaseModalProps extends TransitionCallbacks {
    * renderDialog={props => <MyDialog {...props} />}
    * ```
    */
-  renderDialog?: (props: RenderModalDialogProps) => HTMLElement;
+  renderDialog?: (props: RenderModalDialogProps) => JSX.Element;
   /**
    * A function that returns a backdrop component. Useful for custom
    * backdrop rendering.
