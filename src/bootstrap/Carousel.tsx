@@ -23,7 +23,7 @@ import triggerBrowserReflow from "./triggerBrowserReflow";
 import { BsPrefixProps, BsPrefixRefForwardingComponent } from "./helpers";
 import { callEventHandler } from "../overlays/utils";
 import { Dynamic } from "solid-js/web";
-import { Transition } from "solid-transition-group";
+import { Transition } from "../Transition/Transition";
 
 export type CarouselVariant = "dark";
 
@@ -405,6 +405,20 @@ const Carousel: BsPrefixRefForwardingComponent<"div", CarouselProps> = (
     });
   });
 
+  // add effect to each child to update classes
+  createEffect(() => {
+    for (let index = 0; index < childArray().length; index++) {
+      childArray()[index].classList.add("active");
+      // createEffect(() => {
+      //   if (index === renderedActiveIndex()) {
+      //     childArray()[index].classList.add("active");
+      //   } else {
+      //     childArray()[index].classList.remove("active");
+      //   }
+      // });
+    }
+  });
+
   return (
     <Dynamic
       component={local.as}
@@ -450,30 +464,20 @@ const Carousel: BsPrefixRefForwardingComponent<"div", CarouselProps> = (
       <div className={`${prefix}-inner`}>
         <For each={childArray()}>
           {(child, index: Accessor<number>) => {
-            return createMemo(() => {
-              const isActive = index() === renderedActiveIndex();
-
-              if (isActive) {
-                child.classList.add("active");
-              } else {
-                child.classList.remove("active");
-              }
-
-              return local.slide ? (
-                <Transition
-                // enterActiveClass="fade"
-                // enterClass="fade"
-                // enterToClass="fade"
-                // exitActiveClass="fade"
-                // exitClass="fade"
-                // exitToClass="fade"
-                >
-                  {child}
-                </Transition>
-              ) : (
-                child
-              );
-            });
+            return local.slide ? (
+              <Transition
+                // enterActiveClass={orderClassName}
+                enterClass={"carousel-item-end"}
+                // enterToClass={directionalClassName}
+                // exitActiveClass={directionalClassName}
+                // exitClass={orderClassName}
+                exitToClass={directionalClassName}
+              >
+                {index() === renderedActiveIndex() && child}
+              </Transition>
+            ) : (
+              child
+            );
           }}
         </For>
       </div>
