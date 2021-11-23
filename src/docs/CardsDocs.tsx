@@ -7,7 +7,7 @@ import Nav from "../bootstrap/Nav";
 import Row from "../bootstrap/Row";
 import Col from "../bootstrap/Col";
 
-export const BootstrapCardsDocs: Component = () => {
+export const CardsDocs: Component = () => {
   return (
     <div class="row gy-4">
       <div>

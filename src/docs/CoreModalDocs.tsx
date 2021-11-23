@@ -82,7 +82,7 @@ const ModalExample = () => {
   );
 };
 
-export const ModalDocs: Component = () => {
+export const CoreModalDocs: Component = () => {
   return (
     <div class="row gy-4">
       <div>

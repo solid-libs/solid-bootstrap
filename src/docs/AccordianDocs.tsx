@@ -1,7 +1,7 @@
 import { Component } from "solid-js";
 import Accordion from "../bootstrap/Accordion";
 
-export const BootstrapAccordianDocs: Component = () => {
+export const AccordianDocs: Component = () => {
   return (
     <div class="row gy-4">
       <div>

@@ -3,7 +3,7 @@ import Button from "../bootstrap/Button";
 import ButtonGroup from "../bootstrap/ButtonGroup";
 import ToggleButton from "../bootstrap/ToggleButton";
 
-export const BootstrapButtonDocs: Component = () => {
+export const ButtonDocs: Component = () => {
   return (
     <div class="row gy-4">
       <div>

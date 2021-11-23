@@ -2,7 +2,7 @@ import { Component, For } from "solid-js";
 import Badge from "../bootstrap/Badge";
 import CloseButton from "../bootstrap/CloseButton";
 
-export const BootstrapCloseButtonDocs: Component = () => {
+export const CloseButtonDocs: Component = () => {
   return (
     <div class="row gy-4">
       <div>

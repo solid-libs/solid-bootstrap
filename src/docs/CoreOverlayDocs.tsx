@@ -6,7 +6,7 @@ import { Transition } from "solid-transition-group";
 
 const PLACEMENTS: Placement[] = ["top", "right", "bottom", "left"];
 
-export const OverlayDocs: Component = () => {
+export const CoreOverlayDocs: Component = () => {
   const [target, setTarget] = createSignal<HTMLElement>();
   const [container, setContainer] = createSignal<HTMLElement>();
   const [show, setShow] = createSignal(false);

@@ -1,7 +1,7 @@
 import { Component, For } from "solid-js";
 import Breadcrumb from "../bootstrap/Breadcrumb";
 
-export const BootstrapBreadcrumbDocs: Component = () => {
+export const BreadcrumbDocs: Component = () => {
   return (
     <div class="row gy-4">
       <div>
