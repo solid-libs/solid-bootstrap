@@ -83,14 +83,16 @@ export function useCol(o: ColProps): [any, UseColMetadata] {
 
   return [
     mergeProps(props, {
-      className: classNames(local.className, ...spans, ...classes),
+      get className() {
+        return classNames(local.className, ...spans, ...classes);
+      },
     }),
     {
       get as() {
         return local.as;
       },
       get bsPrefix() {
-        return local.bsPrefix!;
+        return bsPrefix;
       },
       get spans() {
         return spans;
@@ -99,17 +101,18 @@ export function useCol(o: ColProps): [any, UseColMetadata] {
   ];
 }
 
-const Col: BsPrefixRefForwardingComponent<"div", ColProps> = (
-  props: ColProps
-) => {
-  const [{ className, ...colProps }, { as = "div", bsPrefix, spans }] =
-    useCol(props);
+const Col: BsPrefixRefForwardingComponent<"div", ColProps> = (p: ColProps) => {
+  const [useProps, meta] = useCol(p);
+  const [local, colProps] = splitProps(useProps, ["className"]);
 
   return (
     <Dynamic
-      component={as}
+      component={meta.as ?? "div"}
       {...colProps}
-      className={classNames(className, !spans.length && bsPrefix)}
+      className={classNames(
+        local.className,
+        !meta.spans.length && meta.bsPrefix
+      )}
     />
   );
 };
