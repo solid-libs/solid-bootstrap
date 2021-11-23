@@ -12,6 +12,7 @@ import { CoreDropdownDocs } from "./docs/CoreDropdownDocs";
 import { CoreModalDocs } from "./docs/CoreModalDocs";
 import { CoreOverlayDocs } from "./docs/CoreOverlayDocs";
 import { DropdownDocs } from "./docs/DropdownDocs";
+import { FigureDocs } from "./docs/FigureDocs";
 
 const App: Component = () => (
   <div class="container mb-5" style={{ "padding-bottom": "200px" }}>
@@ -69,6 +70,13 @@ const App: Component = () => (
           </li>
         </ul>
       </div>
+      <div>
+        <h3>Known Issues</h3>
+        <ul>
+          <li>Accordion - Transitions</li>
+          <li>Dropdown - autoClose not working</li>
+        </ul>
+      </div>
       <h2 class="display-5">Bootstrap Components</h2>
       <AlertDocs />
       <AccordianDocs />
@@ -80,6 +88,7 @@ const App: Component = () => (
       <CarouselDocs />
       <CloseButtonDocs />
       <DropdownDocs />
+      <FigureDocs />
       <h1 class="display-4">Solid Bootstrap Core</h1>
       <div>
         <p class="lead">
