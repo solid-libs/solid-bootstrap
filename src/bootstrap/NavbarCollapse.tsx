@@ -3,6 +3,7 @@ import Collapse, { CollapseProps } from "./Collapse";
 import { useBootstrapPrefix } from "./ThemeProvider";
 import NavbarContext from "./NavbarContext";
 import { BsPrefixProps } from "./helpers";
+import classnames from "classnames";
 
 export interface NavbarCollapseProps
   extends Omit<CollapseProps, "children">,
@@ -14,6 +15,7 @@ const defaultProps = {};
 const NavbarCollapse = (p: NavbarCollapseProps) => {
   const [local, props] = splitProps(mergeProps(defaultProps, p), [
     "bsPrefix",
+    "className",
     "children",
     "ref",
   ]);
@@ -22,7 +24,7 @@ const NavbarCollapse = (p: NavbarCollapseProps) => {
 
   return (
     <Collapse in={!!(context && context.expanded)} {...props}>
-      <div ref={local.ref} className={bsPrefix}>
+      <div ref={local.ref} className={classnames(bsPrefix, local.className)}>
         {local.children}
       </div>
     </Collapse>

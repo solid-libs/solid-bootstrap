@@ -19,6 +19,7 @@ import { InputGroupDocs } from "./docs/InputGroupDocs";
 import { ListGroupDocs } from "./docs/ListGroupDocs";
 import { ModalDocs } from "./docs/ModalDocs";
 import { NavDocs } from "./docs/NavDocs";
+import { NavbarDocs } from "./docs/NavbarDocs";
 
 const App: Component = () => (
   <div class="container mb-5" style={{ "padding-bottom": "200px" }}>
@@ -41,7 +42,7 @@ const App: Component = () => (
         <p>
           Refer to the original{" "}
           <a href="https://react-bootstrap.github.io/components/alerts">
-            React Boostrap
+            React Bootstrap
           </a>{" "}
           documentation to supplement this page.
         </p>
@@ -85,6 +86,8 @@ const App: Component = () => (
           <li>TabPane - Transitions</li>
           <li>Modal - animation (Transitions)</li>
           <li>Modal/Dropdown - Z-index issues</li>
+          <li>Navbar - not collapsing</li>
+          <li>Navbar - offcanvas infinite loop?</li>
         </ul>
       </div>
       <h2 class="display-5">Bootstrap Components</h2>
@@ -105,6 +108,7 @@ const App: Component = () => (
       <ListGroupDocs />
       <ModalDocs />
       <NavDocs />
+      <NavbarDocs />
       <h1 class="display-4">Solid Bootstrap Core</h1>
       <div>
         <p class="lead">
