@@ -20,6 +20,7 @@ import { ListGroupDocs } from "./docs/ListGroupDocs";
 import { ModalDocs } from "./docs/ModalDocs";
 import { NavDocs } from "./docs/NavDocs";
 import { NavbarDocs } from "./docs/NavbarDocs";
+import { PaginationDocs } from "./docs/PaginationDocs";
 
 const App: Component = () => (
   <div class="container mb-5" style={{ "padding-bottom": "200px" }}>
@@ -90,6 +91,23 @@ const App: Component = () => (
           <li>Navbar - offcanvas infinite loop?</li>
         </ul>
       </div>
+      <div>
+        <h3>To do</h3>
+        <ul>
+          <li>Offcanvas</li>
+          <li>Overlays</li>
+          <li>Placeholders</li>
+          <li>Popovers</li>
+          <li>Progress</li>
+          <li>Spinners</li>
+          <li>Table</li>
+          <li>Tabs</li>
+          <li>Tooltips</li>
+          <li>Toasts</li>
+          <li>Layout Grid docs</li>
+          <li>Layout Stack</li>
+        </ul>
+      </div>
       <h2 class="display-5">Bootstrap Components</h2>
       <AlertDocs />
       <AccordianDocs />
@@ -109,6 +127,7 @@ const App: Component = () => (
       <ModalDocs />
       <NavDocs />
       <NavbarDocs />
+      <PaginationDocs />
       <h1 class="display-4">Solid Bootstrap Core</h1>
       <div>
         <p class="lead">

@@ -10,7 +10,7 @@ export function isTrivialHref(href?: string) {
 export interface AnchorProps extends JSX.HTMLAttributes<HTMLAnchorElement> {
   href?: string;
   disabled?: boolean;
-  tabIndex?: number;
+  tabIndex?: string | number;
   target?: string;
 }
 
