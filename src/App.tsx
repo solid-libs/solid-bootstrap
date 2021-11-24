@@ -14,6 +14,7 @@ import { CoreOverlayDocs } from "./docs/CoreOverlayDocs";
 import { DropdownDocs } from "./docs/DropdownDocs";
 import { FigureDocs } from "./docs/FigureDocs";
 import { FormDocs } from "./docs/FormDocs";
+import { InputGroupDocs } from "./docs/InputGroupDocs";
 
 const App: Component = () => (
   <div class="container mb-5" style={{ "padding-bottom": "200px" }}>
@@ -91,6 +92,7 @@ const App: Component = () => (
       <DropdownDocs />
       <FigureDocs />
       <FormDocs />
+      <InputGroupDocs />
       <h1 class="display-4">Solid Bootstrap Core</h1>
       <div>
         <p class="lead">
