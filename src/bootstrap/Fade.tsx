@@ -11,7 +11,7 @@ export interface FadeProps extends TransitionCallbacks {
   unmountOnExit?: boolean;
   appear?: boolean;
   timeout?: number;
-  children: JSX.Element;
+  children?: JSX.Element;
   transitionClasses?: Record<string, string>;
 }
 

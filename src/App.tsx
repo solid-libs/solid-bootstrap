@@ -16,6 +16,7 @@ import { FigureDocs } from "./docs/FigureDocs";
 import { FormDocs } from "./docs/FormDocs";
 import { ImageDocs } from "./docs/ImageDocs";
 import { InputGroupDocs } from "./docs/InputGroupDocs";
+import { ListGroupDocs } from "./docs/ListGroupDocs";
 
 const App: Component = () => (
   <div class="container mb-5" style={{ "padding-bottom": "200px" }}>
@@ -78,6 +79,8 @@ const App: Component = () => (
         <ul>
           <li>Accordion - Transitions</li>
           <li>Dropdown - autoClose not working</li>
+          <li>Tabs - getDefaultActiveKey (was reading from child props)</li>
+          <li>TabPane - Transitions</li>
         </ul>
       </div>
       <h2 class="display-5">Bootstrap Components</h2>
@@ -95,6 +98,7 @@ const App: Component = () => (
       <FormDocs />
       <ImageDocs />
       <InputGroupDocs />
+      <ListGroupDocs />
       <h1 class="display-4">Solid Bootstrap Core</h1>
       <div>
         <p class="lead">

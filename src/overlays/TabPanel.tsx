@@ -1,15 +1,14 @@
+import { Component, JSX, mergeProps, useContext } from "solid-js";
 import TabContext from "./TabContext";
 import SelectableContext, { makeEventKey } from "./SelectableContext";
-import {
+import type {
   EventKey,
   DynamicRefForwardingComponent,
   TransitionCallbacks,
   TransitionComponent,
 } from "./types";
 import NoopTransition from "./NoopTransition";
-import { Component, JSX, useContext } from "solid-js";
 import { Dynamic } from "solid-js/web";
-import { mergeProps } from "solid-js/web/types/client";
 
 export interface TabPanelProps
   extends TransitionCallbacks,
@@ -158,7 +157,5 @@ const TabPanel: DynamicRefForwardingComponent<"div", TabPanelProps> = (
     </TabContext.Provider>
   );
 };
-
-TabPanel.displayName = "TabPanel";
 
 export default TabPanel;
