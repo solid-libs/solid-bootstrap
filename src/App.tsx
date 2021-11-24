@@ -18,6 +18,7 @@ import { ImageDocs } from "./docs/ImageDocs";
 import { InputGroupDocs } from "./docs/InputGroupDocs";
 import { ListGroupDocs } from "./docs/ListGroupDocs";
 import { ModalDocs } from "./docs/ModalDocs";
+import { NavDocs } from "./docs/NavDocs";
 
 const App: Component = () => (
   <div class="container mb-5" style={{ "padding-bottom": "200px" }}>
@@ -103,6 +104,7 @@ const App: Component = () => (
       <InputGroupDocs />
       <ListGroupDocs />
       <ModalDocs />
+      <NavDocs />
       <h1 class="display-4">Solid Bootstrap Core</h1>
       <div>
         <p class="lead">
