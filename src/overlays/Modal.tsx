@@ -166,6 +166,8 @@ export interface BaseModalProps extends TransitionCallbacks {
   restoreFocusOptions?: {
     preventScroll: boolean;
   };
+
+  ref?: (ref: ModalHandle) => void;
 }
 
 export interface ModalProps extends BaseModalProps {
@@ -254,6 +256,7 @@ const Modal = (p: ModalProps) => {
       "onEnter",
       "onBeforeEnter",
       "onAfterEnter",
+      "ref",
     ]
   );
   const container = props.container;
@@ -264,17 +267,16 @@ const Modal = (p: ModalProps) => {
   onCleanup(() => setIsMounted(false));
 
   const [exited, setExited] = createSignal(!props.show);
-  const [lastFocusRef, setLastFocusRef] = createSignal<HTMLElement | null>(
-    null
-  );
-  // useImperativeHandle(ref, () => modal, [modal]);
+  let lastFocusRef: HTMLElement | null = null;
+
+  props.ref?.(modal);
 
   createComputed(
     on(
       () => props.show,
       (show, prevShow) => {
         if (canUseDOM && !prevShow && show) {
-          setLastFocusRef(activeElement() as HTMLElement);
+          lastFocusRef = activeElement() as HTMLElement;
         }
       }
     )
@@ -291,11 +293,10 @@ const Modal = (p: ModalProps) => {
   const handleShow = () => {
     modal.add();
 
-    setRemoveKeydownListenerRef(() =>
-      listen(document as any, "keydown", handleDocumentKeyDown)
-    );
+    removeKeydownListenerRef = () =>
+      listen(document as any, "keydown", handleDocumentKeyDown);
 
-    setRemoveFocusListenerRef(() =>
+    removeFocusListenerRef = () =>
       listen(
         document as any,
         "focus",
@@ -303,8 +304,7 @@ const Modal = (p: ModalProps) => {
         // and so steals focus from it
         () => setTimeout(handleEnforceFocus),
         true
-      )
-    );
+      );
 
     if (props.onShow) {
       props.onShow();
@@ -320,7 +320,7 @@ const Modal = (p: ModalProps) => {
         currentActiveElement &&
         !contains(modal.dialog, currentActiveElement)
       ) {
-        setLastFocusRef(currentActiveElement);
+        lastFocusRef = currentActiveElement;
         modal.dialog.focus();
       }
     }
@@ -334,8 +334,8 @@ const Modal = (p: ModalProps) => {
 
     if (props.restoreFocus) {
       // Support: <=IE11 doesn't support `focus()` on svg elements (RB: #917)
-      lastFocusRef()?.focus?.(props.restoreFocusOptions);
-      setLastFocusRef(null);
+      lastFocusRef?.focus?.(props.restoreFocusOptions);
+      lastFocusRef = null;
     }
   };
 
@@ -405,10 +405,8 @@ const Modal = (p: ModalProps) => {
     }
   };
 
-  const [removeFocusListenerRef, setRemoveFocusListenerRef] =
-    createSignal<ReturnType<typeof listen>>();
-  const [removeKeydownListenerRef, setRemoveKeydownListenerRef] =
-    createSignal<ReturnType<typeof listen>>();
+  let removeFocusListenerRef: ReturnType<typeof listen>;
+  let removeKeydownListenerRef: ReturnType<typeof listen>;
 
   const handleHidden: TransitionCallbacks["onAfterExit"] = (...args) => {
     setExited(true);
