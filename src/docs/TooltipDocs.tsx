@@ -18,7 +18,7 @@ export const TooltipDocs: Component = () => {
         <Card>
           <Card.Header>Examples</Card.Header>
           <Card.Body>
-            <p>
+            {/* <p>
               Tight pants next level keffiyeh{" "}
               <Tooltip>
                 <a href="#">you probably</a>
@@ -31,7 +31,7 @@ export const TooltipDocs: Component = () => {
               <a href="#">whatever keytar</a>, scenester farm-to-table banksy
               Austin <a href="#">twitter handle</a> freegan cred raw denim
               single-origin coffee viral.
-            </p>
+            </p> */}
           </Card.Body>
         </Card>
         <Card>

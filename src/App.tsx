@@ -26,6 +26,7 @@ import { ProgressBarDocs } from "./docs/ProgressBarDocs";
 import { SpinnerDocs } from "./docs/SpinnerDocs";
 import { TableDocs } from "./docs/TableDocs";
 import { TooltipDocs } from "./docs/TooltipDocs";
+import { ToastDocs } from "./docs/ToastDocs";
 
 const App: Component = () => (
   <div class="container mb-5" style={{ "padding-bottom": "200px" }}>
@@ -101,6 +102,8 @@ const App: Component = () => (
             Overlay Trigger (Bootstrap) - commented out bits. Need to add
             listeners to child
           </li>
+          <li>Tooltips - animation (Transitions)</li>
+          <li>Toasts - animation (Transitions)</li>
         </ul>
       </div>
       <div>
@@ -111,7 +114,6 @@ const App: Component = () => (
           <li>Popovers</li>
           <li>Tabs</li>
           <li>Tooltips</li>
-          <li>Toasts</li>
           <li>Layout Grid docs</li>
           <li>Layout Stack</li>
         </ul>
@@ -141,6 +143,7 @@ const App: Component = () => (
       <SpinnerDocs />
       <TableDocs />
       <TooltipDocs />
+      <ToastDocs />
       <h1 class="display-4">Solid Bootstrap Core</h1>
       <div>
         <p class="lead">

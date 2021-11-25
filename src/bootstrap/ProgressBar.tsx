@@ -55,7 +55,6 @@ function renderProgressBar(p: ProgressBarProps) {
   ]);
   const bsPrefix = useBootstrapPrefix(local.bsPrefix, "progress");
 
-  console.log("renderProgressBar", local, props);
   return (
     <div
       {...props}
@@ -108,8 +107,6 @@ const ProgressBar = (p: ProgressBarProps) => {
     barProps = b;
     wrapperProps = w;
   }
-
-  console.log("Progress bar", local.children, barProps);
 
   return context?.isStacked ? (
     renderProgressBar(barProps)
