@@ -116,14 +116,13 @@ const App: Component = () => (
         </ul>
       </div>
       <div>
-        <h3>To do</h3>
+        <h3>In progress</h3>
         <ul>
           <li>Offcanvas</li>
           <li>Overlays</li>
           <li>Popovers</li>
           <li>Tabs</li>
           <li>Tooltips</li>
-          <li>Layout Stack</li>
         </ul>
       </div>
       <h2 class="display-5">Bootstrap Components</h2>
