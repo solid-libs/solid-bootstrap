@@ -22,6 +22,7 @@ import { NavDocs } from "./docs/NavDocs";
 import { NavbarDocs } from "./docs/NavbarDocs";
 import { PaginationDocs } from "./docs/PaginationDocs";
 import { PlaceholderDocs } from "./docs/PlaceholderDocs";
+import { ProgressBarDocs } from "./docs/ProgressBarDocs";
 
 const App: Component = () => (
   <div class="container mb-5" style={{ "padding-bottom": "200px" }}>
@@ -97,9 +98,7 @@ const App: Component = () => (
         <ul>
           <li>Offcanvas</li>
           <li>Overlays</li>
-          <li>Placeholders</li>
           <li>Popovers</li>
-          <li>Progress</li>
           <li>Spinners</li>
           <li>Table</li>
           <li>Tabs</li>
@@ -130,6 +129,7 @@ const App: Component = () => (
       <NavbarDocs />
       <PaginationDocs />
       <PlaceholderDocs />
+      <ProgressBarDocs />
       <h1 class="display-4">Solid Bootstrap Core</h1>
       <div>
         <p class="lead">
