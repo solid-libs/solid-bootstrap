@@ -28,11 +28,12 @@ import { TableDocs } from "./docs/TableDocs";
 import { TooltipDocs } from "./docs/TooltipDocs";
 import { ToastDocs } from "./docs/ToastDocs";
 import { LayoutGridDocs } from "./docs/LayoutGridDocs";
+import { LayoutStackDocs } from "./docs/LayoutStackDocs";
 
 const App: Component = () => (
   <div class="container mb-5" style={{ "padding-bottom": "200px" }}>
     <div class="row gy-5">
-      <h1 class="display-4">Solid Bootstrap</h1>
+      <h1 class="display-4">Solid-Bootstrap</h1>
       <div>
         <h3>Overview</h3>
         <p class="lead">
@@ -41,11 +42,10 @@ const App: Component = () => (
           <a href="https://www.solidjs.com/">SolidJS</a>.
         </p>
         <p>
-          It is a set of full featured, extensible, and accessible UI
-          components, designed to integrate into any styling framework or
-          system. These components, are "headless", meaning they don't provide
-          any styles. Components encapsulate the complicated logic and and state
-          without being prescriptive about their look and feel.
+          This is a complete implementation of the Bootstrap components using
+          SolidJS. It has no dependency on either bootstrap.js or jQuery. If you
+          have SolidJS setup and Solid-Bootstrap installed, you have everything
+          you need.
         </p>
         <p>
           Refer to the original{" "}
@@ -120,6 +120,7 @@ const App: Component = () => (
       </div>
       <h2 class="display-5">Bootstrap Components</h2>
       <LayoutGridDocs />
+      <LayoutStackDocs />
       <AlertDocs />
       <AccordianDocs />
       <BadgeDocs />
