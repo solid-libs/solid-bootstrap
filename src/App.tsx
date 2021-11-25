@@ -54,6 +54,14 @@ const App: Component = () => (
           </a>{" "}
           documentation to supplement this page.
         </p>
+        <p>
+          <a
+            href="https://github.com/solid-libs/solid-bootstrap"
+            target="_blank"
+          >
+            The Github repo for Solid-Bootstrap is here
+          </a>
+        </p>
       </div>
       <div>
         <h3>Porting approach</h3>
