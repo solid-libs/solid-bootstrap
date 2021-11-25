@@ -1,33 +1,22 @@
-## Usage
+# Solid-Bootstrap
 
-Those templates dependencies are maintained via [pnpm](https://pnpm.io) via `pnpm up -Lri`.
+## Overview
 
-This is the reason you see a `pnpm-lock.yaml`. That being said, any package manager will work. This file can be safely be removed once you clone a template.
+Solid-Bootstrap is a port of [React-Bootstrap](https://react-bootstrap.github.io/) for [SolidJS](https://www.solidjs.com/).
 
-```bash
-$ npm install # or pnpm install or yarn install
-```
-### Learn more on the [Solid Website](https://solidjs.com) and come chat with us on our [Discord](https://discord.com/invite/solidjs)
+This is a complete implementation of the Bootstrap components using SolidJS. It has no dependency on either bootstrap.js or jQuery. If you have SolidJS setup and Solid-Bootstrap installed, you have everything you need.
 
-## Available Scripts
+Refer to the original [React Bootstrap documentation](https://react-bootstrap.github.io/components/alerts) to supplement this page.
 
-In the project directory, you can run:
+## Porting approach
 
-### `npm dev` or `npm start`
+We have changed as little as possible while porting this code.
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Principles:
 
-The page will reload if you make edits.<br>
+- The goal is to capture all of the proven behaviour of React-Bootstrap, @restart/ui (core) and related projects.
+- Keep the source file structure the same.
+- Keep the source code as similar as possible to enable future commits to the original projects to also be pulled into this project.
+- Enable validation of the porting approach using a side-by-side comparison between the ported SolidJS code and the original implementation.
 
-### `npm run build`
-
-Builds the app for production to the `dist` folder.<br>
-It correctly bundles Solid in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
-
-## Deployment
-
-You can deploy the `dist` folder to any static host provider (netlify, surge, now, etc.)
+## Status - Work-in-progess - check back in December 2021
