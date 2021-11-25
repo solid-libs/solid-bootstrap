@@ -1,5 +1,7 @@
 # Solid-Bootstrap
 
+#### [You can check out the demo/test page here](https://solid-libs.github.io/solid-bootstrap/)
+
 ## Overview
 
 Solid-Bootstrap is a port of [React-Bootstrap](https://react-bootstrap.github.io/) for [SolidJS](https://www.solidjs.com/).
