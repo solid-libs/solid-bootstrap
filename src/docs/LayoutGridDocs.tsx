@@ -1,8 +1,8 @@
 import { Component, createSignal } from "solid-js";
-import Card from "../bootstrap/Card";
-import Container from "../bootstrap/Container";
-import Col from "../bootstrap/Col";
-import Row from "../bootstrap/Row";
+import Card from "../../packages/bootstrap/src/Card";
+import Container from "../../packages/bootstrap/src/Container";
+import Col from "../../packages/bootstrap/src/Col";
+import Row from "../../packages/bootstrap/src/Row";
 import "./styles.css";
 
 export const LayoutGridDocs: Component = () => {

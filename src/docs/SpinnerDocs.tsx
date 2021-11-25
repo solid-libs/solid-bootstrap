@@ -1,7 +1,7 @@
 import { Component } from "solid-js";
-import Card from "../bootstrap/Card";
-import Button from "../bootstrap/Button";
-import Spinner from "../bootstrap/Spinner";
+import Card from "../../packages/bootstrap/src/Card";
+import Button from "../../packages/bootstrap/src/Button";
+import Spinner from "../../packages/bootstrap/src/Spinner";
 
 export const SpinnerDocs: Component = () => {
   return (

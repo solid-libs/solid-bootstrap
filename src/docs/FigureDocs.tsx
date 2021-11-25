@@ -1,5 +1,5 @@
 import { Component, For } from "solid-js";
-import Figure from "../bootstrap/Figure";
+import Figure from "../../packages/bootstrap/src/Figure";
 
 export const FigureDocs: Component = () => {
   return (

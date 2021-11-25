@@ -1,6 +1,6 @@
 import { Component, For } from "solid-js";
-import Card from "../bootstrap/Card";
-import Pagination from "../bootstrap/Pagination";
+import Card from "../../packages/bootstrap/src/Card";
+import Pagination from "../../packages/bootstrap/src/Pagination";
 
 export const PaginationDocs: Component = () => {
   let active = 2;

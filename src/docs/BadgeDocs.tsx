@@ -1,5 +1,5 @@
 import { Component, For } from "solid-js";
-import Badge from "../bootstrap/Badge";
+import Badge from "../../packages/bootstrap/src/Badge";
 
 export const BadgeDocs: Component = () => {
   return (

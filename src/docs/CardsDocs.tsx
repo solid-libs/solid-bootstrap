@@ -1,11 +1,11 @@
 import { Component } from "solid-js";
-import Button from "../bootstrap/Button";
-import Card from "../bootstrap/Card";
-import CardGroup from "../bootstrap/CardGroup";
-import ListGroup from "../bootstrap/ListGroup";
-import Nav from "../bootstrap/Nav";
-import Row from "../bootstrap/Row";
-import Col from "../bootstrap/Col";
+import Button from "../../packages/bootstrap/src/Button";
+import Card from "../../packages/bootstrap/src/Card";
+import CardGroup from "../../packages/bootstrap/src/CardGroup";
+import ListGroup from "../../packages/bootstrap/src/ListGroup";
+import Nav from "../../packages/bootstrap/src/Nav";
+import Row from "../../packages/bootstrap/src/Row";
+import Col from "../../packages/bootstrap/src/Col";
 
 export const CardsDocs: Component = () => {
   return (

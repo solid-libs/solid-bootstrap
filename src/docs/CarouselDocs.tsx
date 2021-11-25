@@ -1,5 +1,5 @@
 import { Component, For } from "solid-js";
-import Carousel from "../bootstrap/Carousel";
+import Carousel from "../../packages/bootstrap/src/Carousel";
 
 export const CarouselDocs: Component = () => {
   return (

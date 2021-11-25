@@ -1,8 +1,8 @@
 import { Component } from "solid-js";
-import Card from "../bootstrap/Card";
-import Tooltip from "../bootstrap/Tooltip";
-import Button from "../bootstrap/Button";
-import OverlayTrigger from "../bootstrap/OverlayTrigger";
+import Card from "../../packages/bootstrap/src/Card";
+import Tooltip from "../../packages/bootstrap/src/Tooltip";
+import Button from "../../packages/bootstrap/src/Button";
+import OverlayTrigger from "../../packages/bootstrap/src/OverlayTrigger";
 
 export const TooltipDocs: Component = () => {
   return (

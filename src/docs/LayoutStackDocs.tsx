@@ -1,8 +1,8 @@
 import { Component } from "solid-js";
-import Card from "../bootstrap/Card";
-import Button from "../bootstrap/Button";
-import Form from "../bootstrap/Form";
-import Stack from "../bootstrap/Stack";
+import Card from "../../packages/bootstrap/src/Card";
+import Button from "../../packages/bootstrap/src/Button";
+import Form from "../../packages/bootstrap/src/Form";
+import Stack from "../../packages/bootstrap/src/Stack";
 import "./styles.css";
 
 export const LayoutStackDocs: Component = () => {

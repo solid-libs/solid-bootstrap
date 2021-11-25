@@ -1,12 +1,12 @@
 import { Component, For } from "solid-js";
-import Button from "../bootstrap/Button";
-import Card from "../bootstrap/Card";
-import Dropdown from "../bootstrap/Dropdown";
-import DropdownButton from "../bootstrap/DropdownButton";
-import InputGroup from "../bootstrap/InputGroup";
-import Form from "../bootstrap/Form";
-import FormControl from "../bootstrap/FormControl";
-import SplitButton from "../bootstrap/SplitButton";
+import Button from "../../packages/bootstrap/src/Button";
+import Card from "../../packages/bootstrap/src/Card";
+import Dropdown from "../../packages/bootstrap/src/Dropdown";
+import DropdownButton from "../../packages/bootstrap/src/DropdownButton";
+import InputGroup from "../../packages/bootstrap/src/InputGroup";
+import Form from "../../packages/bootstrap/src/Form";
+import FormControl from "../../packages/bootstrap/src/FormControl";
+import SplitButton from "../../packages/bootstrap/src/SplitButton";
 
 export const InputGroupDocs: Component = () => {
   return (

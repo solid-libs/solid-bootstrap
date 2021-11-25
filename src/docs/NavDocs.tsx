@@ -1,7 +1,7 @@
 import { Component, For } from "solid-js";
-import Card from "../bootstrap/Card";
-import Nav from "../bootstrap/Nav";
-import NavDropdown from "../bootstrap/NavDropdown";
+import Card from "../../packages/bootstrap/src/Card";
+import Nav from "../../packages/bootstrap/src/Nav";
+import NavDropdown from "../../packages/bootstrap/src/NavDropdown";
 
 export const NavDocs: Component = () => {
   return (

@@ -1,5 +1,5 @@
 import { Component, For } from "solid-js";
-import Breadcrumb from "../bootstrap/Breadcrumb";
+import Breadcrumb from "../../packages/bootstrap/src/Breadcrumb";
 
 export const BreadcrumbDocs: Component = () => {
   return (

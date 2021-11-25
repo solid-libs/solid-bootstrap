@@ -1,11 +1,11 @@
 import { Component, createEffect, createSignal, For } from "solid-js";
-import Button from "../bootstrap/Button";
-import ButtonGroup from "../bootstrap/ButtonGroup";
-import ButtonToolbar from "../bootstrap/ButtonToolbar";
-import InputGroup from "../bootstrap/InputGroup";
-import FormControl from "../bootstrap/FormControl";
-import Dropdown from "../bootstrap/Dropdown";
-import DropdownButton from "../bootstrap/DropdownButton";
+import Button from "../../packages/bootstrap/src/Button";
+import ButtonGroup from "../../packages/bootstrap/src/ButtonGroup";
+import ButtonToolbar from "../../packages/bootstrap/src/ButtonToolbar";
+import InputGroup from "../../packages/bootstrap/src/InputGroup";
+import FormControl from "../../packages/bootstrap/src/FormControl";
+import Dropdown from "../../packages/bootstrap/src/Dropdown";
+import DropdownButton from "../../packages/bootstrap/src/DropdownButton";
 
 export const ButtonGroupDocs: Component = () => {
   return (

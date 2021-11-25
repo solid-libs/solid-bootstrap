@@ -1,6 +1,6 @@
 import { Component, createSignal, For, onCleanup } from "solid-js";
-import Card from "../bootstrap/Card";
-import ProgressBar from "../bootstrap/ProgressBar";
+import Card from "../../packages/bootstrap/src/Card";
+import ProgressBar from "../../packages/bootstrap/src/ProgressBar";
 
 export const ProgressBarDocs: Component = () => {
   const [value, setValue] = createSignal(5);

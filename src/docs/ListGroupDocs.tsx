@@ -1,11 +1,11 @@
 import { Component, For } from "solid-js";
-import Badge from "../bootstrap/Badge";
-import Card from "../bootstrap/Card";
-import Tab from "../bootstrap/Tab";
-import Tabs from "../bootstrap/Tabs";
-import Row from "../bootstrap/Row";
-import Col from "../bootstrap/Col";
-import ListGroup from "../bootstrap/ListGroup";
+import Badge from "../../packages/bootstrap/src/Badge";
+import Card from "../../packages/bootstrap/src/Card";
+import Tab from "../../packages/bootstrap/src/Tab";
+import Tabs from "../../packages/bootstrap/src/Tabs";
+import Row from "../../packages/bootstrap/src/Row";
+import Col from "../../packages/bootstrap/src/Col";
+import ListGroup from "../../packages/bootstrap/src/ListGroup";
 
 export const ListGroupDocs: Component = () => {
   function alertClicked() {

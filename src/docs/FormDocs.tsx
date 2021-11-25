@@ -1,13 +1,13 @@
 import { Component, createSignal, For } from "solid-js";
-import Alert from "../bootstrap/Alert";
-import Button from "../bootstrap/Button";
-import Card from "../bootstrap/Card";
-import Form from "../bootstrap/Form";
-import Col from "../bootstrap/Col";
-import InputGroup from "../bootstrap/InputGroup";
-import Row from "../bootstrap/Row";
-import FloatingLabel from "../bootstrap/FloatingLabel";
-import { FormCheckType } from "../bootstrap/FormCheck";
+import Alert from "../../packages/bootstrap/src/Alert";
+import Button from "../../packages/bootstrap/src/Button";
+import Card from "../../packages/bootstrap/src/Card";
+import Form from "../../packages/bootstrap/src/Form";
+import Col from "../../packages/bootstrap/src/Col";
+import InputGroup from "../../packages/bootstrap/src/InputGroup";
+import Row from "../../packages/bootstrap/src/Row";
+import FloatingLabel from "../../packages/bootstrap/src/FloatingLabel";
+import { FormCheckType } from "../../packages/bootstrap/src/FormCheck";
 
 export const FormDocs: Component = () => {
   const [validated, setValidated] = createSignal(false);

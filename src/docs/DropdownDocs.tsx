@@ -1,15 +1,15 @@
 import { Component, For } from "solid-js";
-import Container from "../bootstrap/Container";
-import Dropdown from "../bootstrap/Dropdown";
-import DropdownButton from "../bootstrap/DropdownButton";
-import Button from "../bootstrap/Button";
-import ButtonGroup from "../bootstrap/ButtonGroup";
-import SplitButton from "../bootstrap/SplitButton";
-import Nav from "../bootstrap/Nav";
-import Navbar from "../bootstrap/Navbar";
-import NavDropdown from "../bootstrap/NavDropdown";
-import { DropDirection } from "../bootstrap/DropdownContext";
-import Alert from "../bootstrap/Alert";
+import Container from "../../packages/bootstrap/src/Container";
+import Dropdown from "../../packages/bootstrap/src/Dropdown";
+import DropdownButton from "../../packages/bootstrap/src/DropdownButton";
+import Button from "../../packages/bootstrap/src/Button";
+import ButtonGroup from "../../packages/bootstrap/src/ButtonGroup";
+import SplitButton from "../../packages/bootstrap/src/SplitButton";
+import Nav from "../../packages/bootstrap/src/Nav";
+import Navbar from "../../packages/bootstrap/src/Navbar";
+import NavDropdown from "../../packages/bootstrap/src/NavDropdown";
+import { DropDirection } from "../../packages/bootstrap/src/DropdownContext";
+import Alert from "../../packages/bootstrap/src/Alert";
 
 export const DropdownDocs: Component = () => {
   return (

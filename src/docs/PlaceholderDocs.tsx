@@ -1,7 +1,7 @@
 import { Component, For } from "solid-js";
-import Button from "../bootstrap/Button";
-import Card from "../bootstrap/Card";
-import Placeholder from "../bootstrap/Placeholder";
+import Button from "../../packages/bootstrap/src/Button";
+import Card from "../../packages/bootstrap/src/Card";
+import Placeholder from "../../packages/bootstrap/src/Placeholder";
 
 export const PlaceholderDocs: Component = () => {
   return (

@@ -1,13 +1,13 @@
 import { Component, For } from "solid-js";
-import Card from "../bootstrap/Card";
-import Nav from "../bootstrap/Nav";
-import Navbar from "../bootstrap/Navbar";
-import NavDropdown from "../bootstrap/NavDropdown";
-import Container from "../bootstrap/Container";
-import Form from "../bootstrap/Form";
-import FormControl from "../bootstrap/FormControl";
-import Button from "../bootstrap/Button";
-import Offcanvas from "../bootstrap/Offcanvas";
+import Card from "../../packages/bootstrap/src/Card";
+import Nav from "../../packages/bootstrap/src/Nav";
+import Navbar from "../../packages/bootstrap/src/Navbar";
+import NavDropdown from "../../packages/bootstrap/src/NavDropdown";
+import Container from "../../packages/bootstrap/src/Container";
+import Form from "../../packages/bootstrap/src/Form";
+import FormControl from "../../packages/bootstrap/src/FormControl";
+import Button from "../../packages/bootstrap/src/Button";
+import Offcanvas from "../../packages/bootstrap/src/Offcanvas";
 
 export const NavbarDocs: Component = () => {
   return (
