@@ -25,6 +25,7 @@ import { PlaceholderDocs } from "./docs/PlaceholderDocs";
 import { ProgressBarDocs } from "./docs/ProgressBarDocs";
 import { SpinnerDocs } from "./docs/SpinnerDocs";
 import { TableDocs } from "./docs/TableDocs";
+import { TooltipDocs } from "./docs/TooltipDocs";
 
 const App: Component = () => (
   <div class="container mb-5" style={{ "padding-bottom": "200px" }}>
@@ -93,6 +94,13 @@ const App: Component = () => (
           <li>Modal/Dropdown - Z-index issues</li>
           <li>Navbar - not collapsing</li>
           <li>Navbar - offcanvas infinite loop?</li>
+          <li>
+            Overlay (Bootstrap) - commented out bits. Change API to useContext?
+          </li>
+          <li>
+            Overlay Trigger (Bootstrap) - commented out bits. Need to add
+            listeners to child
+          </li>
         </ul>
       </div>
       <div>
@@ -132,6 +140,7 @@ const App: Component = () => (
       <ProgressBarDocs />
       <SpinnerDocs />
       <TableDocs />
+      <TooltipDocs />
       <h1 class="display-4">Solid Bootstrap Core</h1>
       <div>
         <p class="lead">

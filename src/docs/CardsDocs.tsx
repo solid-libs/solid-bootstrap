@@ -130,7 +130,7 @@ export const CardsDocs: Component = () => {
         <h4>Image overlays</h4>
         <Card>
           <Card.Img src="holder.js/100px270" alt="Card image" />
-          <Card.ImgOverlay>
+          <Card.ImgOverlay className="text-light">
             <Card.Title>Card title</Card.Title>
             <Card.Text>
               This is a wider card with supporting text below as a natural
