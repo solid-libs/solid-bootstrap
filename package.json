@@ -5,7 +5,7 @@
   "scripts": {
     "start": "vite",
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build --base=/solid-bootstrap/",
     "serve": "vite preview"
   },
   "license": "MIT",
