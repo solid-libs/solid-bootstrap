@@ -8,7 +8,7 @@ import {
 } from "solid-js";
 import classNames from "classnames";
 
-import { TransitionComponent } from "../overlays/types";
+import { TransitionComponent } from "../core/types";
 import ToastFade from "./ToastFade";
 import ToastHeader from "./ToastHeader";
 import ToastBody from "./ToastBody";

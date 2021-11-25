@@ -2,7 +2,7 @@
 
 import { JSX, mergeProps, Show, splitProps } from "solid-js";
 import { Transition } from "solid-transition-group";
-import { TransitionCallbacks } from "../overlays/types";
+import { TransitionCallbacks } from "../core/types";
 
 export interface FadeProps extends TransitionCallbacks {
   className?: string;

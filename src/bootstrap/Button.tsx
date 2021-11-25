@@ -1,9 +1,6 @@
 import { mergeProps, splitProps } from "solid-js";
 import classNames from "classnames";
-import {
-  useButtonProps,
-  ButtonProps as BaseButtonProps,
-} from "../overlays/Button";
+import { useButtonProps, ButtonProps as BaseButtonProps } from "../core/Button";
 import { useBootstrapPrefix } from "./ThemeProvider";
 import { BsPrefixProps, BsPrefixRefForwardingComponent } from "./helpers";
 import { ButtonVariant } from "./types";

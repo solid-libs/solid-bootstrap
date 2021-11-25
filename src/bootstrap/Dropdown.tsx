@@ -3,8 +3,8 @@ import classNames from "classnames";
 import BaseDropdown, {
   DropdownProps as BaseDropdownProps,
   ToggleMetadata,
-} from "../overlays/Dropdown";
-import { createControlledProp } from "../controlled/createControlledProp";
+} from "../core/Dropdown";
+import { createControlledProp } from "../core/createControlledProp";
 import DropdownContext, { DropDirection } from "./DropdownContext";
 import DropdownItem from "./DropdownItem";
 import DropdownMenu, { getDropdownMenuPlacement } from "./DropdownMenu";

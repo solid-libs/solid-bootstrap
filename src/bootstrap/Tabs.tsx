@@ -6,8 +6,8 @@ import {
   createMemo,
   For,
 } from "solid-js";
-import { createControlledProp } from "../controlled/createControlledProp";
-import BaseTabs, { TabsProps as BaseTabsProps } from "../overlays/Tabs";
+import { createControlledProp } from "../core/createControlledProp";
+import BaseTabs, { TabsProps as BaseTabsProps } from "../core/Tabs";
 import Nav from "./Nav";
 import NavLink from "./NavLink";
 import NavItem from "./NavItem";
@@ -15,7 +15,7 @@ import TabContent from "./TabContent";
 import TabPane from "./TabPane";
 import { getTabTransitionComponent } from "./getTabTransitionComponent";
 import { TransitionType } from "./helpers";
-import { EventKey } from "../overlays/types";
+import { EventKey } from "../core/types";
 import { TabProps } from "./Tab";
 
 export interface TabsProps

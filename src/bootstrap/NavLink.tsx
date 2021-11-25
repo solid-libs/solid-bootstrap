@@ -1,11 +1,8 @@
 import { JSX, mergeProps, splitProps } from "solid-js";
 import classNames from "classnames";
-import Anchor from "../overlays/Anchor";
-import {
-  useNavItem,
-  NavItemProps as BaseNavItemProps,
-} from "../overlays/NavItem";
-import { makeEventKey } from "../overlays/SelectableContext";
+import Anchor from "../core/Anchor";
+import { useNavItem, NavItemProps as BaseNavItemProps } from "../core/NavItem";
+import { makeEventKey } from "../core/SelectableContext";
 import { useBootstrapPrefix } from "./ThemeProvider";
 import { BsPrefixProps, BsPrefixRefForwardingComponent } from "./helpers";
 import { Dynamic } from "solid-js/web";

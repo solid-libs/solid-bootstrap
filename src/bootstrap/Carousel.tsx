@@ -11,9 +11,9 @@ import {
   onCleanup,
   splitProps,
 } from "solid-js";
-import Anchor from "../overlays/Anchor";
+import Anchor from "../core/Anchor";
 import classNames from "classnames";
-import { createControlledProp } from "../controlled/createControlledProp";
+import { createControlledProp } from "../core/createControlledProp";
 import CarouselCaption from "./CarouselCaption";
 import CarouselItem from "./CarouselItem";
 // import { map, forEach } from './ElementChildren';
@@ -21,7 +21,7 @@ import { useBootstrapPrefix, useIsRTL } from "./ThemeProvider";
 import transitionEndListener from "./transitionEndListener";
 import triggerBrowserReflow from "./triggerBrowserReflow";
 import { BsPrefixProps, BsPrefixRefForwardingComponent } from "./helpers";
-import { callEventHandler } from "../overlays/utils";
+import { callEventHandler } from "../core/utils";
 import { Dynamic } from "solid-js/web";
 import { Transition } from "solid-transition-group";
 

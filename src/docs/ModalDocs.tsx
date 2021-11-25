@@ -5,7 +5,7 @@ import Modal from "../bootstrap/Modal";
 import Container from "../bootstrap/Container";
 import Row from "../bootstrap/Row";
 import Col from "../bootstrap/Col";
-import { ModalProps } from "../overlays";
+import { ModalProps } from "../core";
 
 const booleanSignal = createSignal(false);
 

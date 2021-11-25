@@ -1,5 +1,5 @@
 import { Component } from "solid-js";
-import Modal, { RenderModalBackdropProps } from "../overlays/Modal";
+import Modal, { RenderModalBackdropProps } from "../core/Modal";
 import { createSignal } from "solid-js";
 import { Transition } from "solid-transition-group";
 

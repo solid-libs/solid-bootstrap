@@ -4,7 +4,7 @@ import classNames from "classnames";
 import { useBootstrapPrefix } from "./ThemeProvider";
 import NavbarContext from "./NavbarContext";
 import { BsPrefixProps, BsPrefixRefForwardingComponent } from "./helpers";
-import { callEventHandler } from "../overlays/utils";
+import { callEventHandler } from "../core/utils";
 import { Dynamic } from "solid-js/web";
 
 export interface NavbarToggleProps

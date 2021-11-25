@@ -3,7 +3,7 @@ import classNames from "classnames";
 import BaseOverlay, {
   OverlayProps as BaseOverlayProps,
   OverlayArrowProps,
-} from "../overlays/Overlay";
+} from "../core/Overlay";
 import useOverlayOffset from "./useOverlayOffset";
 import Fade from "./Fade";
 import { TransitionType } from "./helpers";

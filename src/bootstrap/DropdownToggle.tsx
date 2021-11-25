@@ -6,8 +6,8 @@ import {
   useContext,
 } from "solid-js";
 import classNames from "classnames";
-import { useDropdownToggle } from "../overlays/DropdownToggle";
-import DropdownContext from "../overlays/DropdownContext";
+import { useDropdownToggle } from "../core/DropdownToggle";
+import DropdownContext from "../core/DropdownContext";
 import Button, { ButtonProps, CommonButtonProps } from "./Button";
 import InputGroupContext from "./InputGroupContext";
 import { useBootstrapPrefix } from "./ThemeProvider";

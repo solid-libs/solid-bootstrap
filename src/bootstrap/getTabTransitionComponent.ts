@@ -1,4 +1,4 @@
-import { TransitionComponent } from "../overlays/types";
+import { TransitionComponent } from "../core/types";
 import Fade from "./Fade";
 import { TransitionType } from "./helpers";
 

@@ -7,7 +7,7 @@ import {
   splitProps,
 } from "solid-js";
 import hasClass from "dom-helpers/hasClass";
-import { Options } from "../overlays/usePopper";
+import { Options } from "../core/usePopper";
 import { useBootstrapPrefix } from "./ThemeProvider";
 import Popover from "./Popover";
 

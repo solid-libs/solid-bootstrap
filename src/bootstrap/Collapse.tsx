@@ -3,7 +3,7 @@
 import { createEffect, JSX, mergeProps, Show, splitProps } from "solid-js";
 import css from "dom-helpers/css";
 import { Transition } from "solid-transition-group";
-import { TransitionCallbacks } from "../overlays/types";
+import { TransitionCallbacks } from "../core/types";
 import triggerBrowserReflow from "./triggerBrowserReflow";
 
 type Dimension = "height" | "width";

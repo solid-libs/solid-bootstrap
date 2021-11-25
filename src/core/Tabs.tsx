@@ -1,4 +1,4 @@
-import { createControlledProp } from "../controlled/createControlledProp";
+import { createControlledProp } from "./createControlledProp";
 import { useSSRSafeId } from "./ssr";
 
 import TabContext, { TabContextType } from "./TabContext";

@@ -1,10 +1,10 @@
 import { JSX, mergeProps, splitProps } from "solid-js";
 import classNames from "classnames";
-import NoopTransition from "../overlays/NoopTransition";
-import SelectableContext from "../overlays/SelectableContext";
-import TabContext from "../overlays/TabContext";
-import { useTabPanel } from "../overlays/TabPanel";
-import { EventKey, TransitionCallbacks } from "../overlays/types";
+import NoopTransition from "../core/NoopTransition";
+import SelectableContext from "../core/SelectableContext";
+import TabContext from "../core/TabContext";
+import { useTabPanel } from "../core/TabPanel";
+import { EventKey, TransitionCallbacks } from "../core/types";
 import { useBootstrapPrefix } from "./ThemeProvider";
 import { getTabTransitionComponent } from "./getTabTransitionComponent";
 import {

@@ -1,6 +1,6 @@
 import { children, JSX, mergeProps, splitProps } from "solid-js";
 import classNames from "classnames";
-import { TransitionCallbacks } from "../overlays/types";
+import { TransitionCallbacks } from "../core/types";
 import transitionEndListener from "./transitionEndListener";
 import { BsPrefixOnlyProps } from "./helpers";
 import { useBootstrapPrefix } from "./ThemeProvider";

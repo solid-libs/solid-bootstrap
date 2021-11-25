@@ -5,7 +5,7 @@ import removeClass from "dom-helpers/removeClass";
 import ModalManager, {
   ContainerState,
   ModalManagerOptions,
-} from "../overlays/ModalManager";
+} from "../core/ModalManager";
 
 const Selector = {
   FIXED_CONTENT: ".fixed-top, .fixed-bottom, .is-fixed, .sticky-top",

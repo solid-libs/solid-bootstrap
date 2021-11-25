@@ -25,7 +25,7 @@ import {
   onCleanup,
   useContext,
 } from "solid-js";
-import { createControlledProp } from "../controlled/createControlledProp";
+import { createControlledProp } from "./createControlledProp";
 import { listen } from "dom-helpers";
 import { callEventHandler } from "./utils";
 

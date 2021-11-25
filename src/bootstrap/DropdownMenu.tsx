@@ -1,10 +1,7 @@
 import { JSX, mergeProps, Show, splitProps, useContext } from "solid-js";
 import classNames from "classnames";
-import {
-  useDropdownMenu,
-  UseDropdownMenuOptions,
-} from "../overlays/DropdownMenu";
-import { SelectCallback } from "../overlays/types";
+import { useDropdownMenu, UseDropdownMenuOptions } from "../core/DropdownMenu";
+import { SelectCallback } from "../core/types";
 import warning from "warning";
 import DropdownContext, { DropDirection } from "./DropdownContext";
 import InputGroupContext from "./InputGroupContext";
@@ -12,7 +9,7 @@ import NavbarContext from "./NavbarContext";
 import { useBootstrapPrefix } from "./ThemeProvider";
 import { BsPrefixProps, BsPrefixRefForwardingComponent } from "./helpers";
 import { AlignType, AlignDirection, Placement } from "./types";
-import { OffsetValue } from "../overlays/usePopper";
+import { OffsetValue } from "../core/usePopper";
 import { Dynamic } from "solid-js/web";
 
 export type DropdownMenuVariant = "dark" | string;

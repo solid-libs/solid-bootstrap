@@ -4,7 +4,7 @@ import BaseModal, {
   ModalProps as BaseModalProps,
   RenderModalBackdropProps,
   RenderModalDialogProps,
-} from "../overlays/Modal";
+} from "../core/Modal";
 import Fade from "./Fade";
 import OffcanvasBody from "./OffcanvasBody";
 import OffcanvasToggling from "./OffcanvasToggling";

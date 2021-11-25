@@ -1,7 +1,7 @@
 import { Component } from "solid-js";
-import Overlay from "../overlays/Overlay";
+import Overlay from "../core/Overlay";
 import { createSignal } from "solid-js";
-import { Placement } from "../overlays/usePopper";
+import { Placement } from "../core/usePopper";
 import { Transition } from "solid-transition-group";
 
 const PLACEMENTS: Placement[] = ["top", "right", "bottom", "left"];

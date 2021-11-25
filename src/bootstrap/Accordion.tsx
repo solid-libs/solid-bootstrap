@@ -2,8 +2,8 @@
 
 import classNames from "classnames";
 import { JSX, mergeProps, splitProps } from "solid-js";
-import { SelectCallback } from "../overlays/types";
-import { createControlledProp } from "../controlled/createControlledProp";
+import { SelectCallback } from "../core/types";
+import { createControlledProp } from "../core/createControlledProp";
 import { useBootstrapPrefix } from "./ThemeProvider";
 import AccordionBody from "./AccordionBody";
 import AccordionButton from "./AccordionButton";

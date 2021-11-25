@@ -1,6 +1,6 @@
 import { JSX, mergeProps, splitProps } from "solid-js";
 import classNames from "classnames";
-import { OverlayArrowProps } from "../overlays/Overlay";
+import { OverlayArrowProps } from "../core/Overlay";
 import { useBootstrapPrefix, useIsRTL } from "./ThemeProvider";
 import PopoverHeader from "./PopoverHeader";
 import PopoverBody from "./PopoverBody";

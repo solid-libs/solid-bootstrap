@@ -5,9 +5,9 @@ import {
   createSignal,
   Show,
 } from "solid-js";
-import Dropdown, { DropdownProps } from "../overlays/Dropdown";
-import { useDropdownMenu } from "../overlays/DropdownMenu";
-import { useDropdownToggle } from "../overlays/DropdownToggle";
+import Dropdown, { DropdownProps } from "../core/Dropdown";
+import { useDropdownMenu } from "../core/DropdownMenu";
+import { useDropdownToggle } from "../core/DropdownToggle";
 
 const DropdownMenu = () => {
   const [menuProps, meta] = useDropdownMenu({

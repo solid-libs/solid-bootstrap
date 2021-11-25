@@ -1,8 +1,8 @@
 import { JSX, mergeProps, splitProps, useContext } from "solid-js";
 import classNames from "classnames";
-import { createControlledProp } from "../controlled/createControlledProp";
-import BaseNav, { NavProps as BaseNavProps } from "../overlays/Nav";
-import { EventKey } from "../overlays/types";
+import { createControlledProp } from "../core/createControlledProp";
+import BaseNav, { NavProps as BaseNavProps } from "../core/Nav";
+import { EventKey } from "../core/types";
 import { useBootstrapPrefix } from "./ThemeProvider";
 import NavbarContext from "./NavbarContext";
 import CardHeaderContext from "./CardHeaderContext";

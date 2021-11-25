@@ -1,6 +1,6 @@
 import { JSX, mergeProps, splitProps } from "solid-js";
 import classNames from "classnames";
-import Anchor from "../overlays/Anchor";
+import Anchor from "../core/Anchor";
 import { BsPrefixProps, BsPrefixRefForwardingComponent } from "./helpers";
 import { Dynamic } from "solid-js/web";
 

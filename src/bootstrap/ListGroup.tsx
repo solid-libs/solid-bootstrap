@@ -1,9 +1,9 @@
 import { JSX, mergeProps, splitProps } from "solid-js";
 import classNames from "classnames";
 import warning from "warning";
-import { createControlledProp } from "../controlled/createControlledProp";
-import BaseNav, { NavProps as BaseNavProps } from "../overlays/Nav";
-import { EventKey } from "../overlays/types";
+import { createControlledProp } from "../core/createControlledProp";
+import BaseNav, { NavProps as BaseNavProps } from "../core/Nav";
+import { EventKey } from "../core/types";
 import { useBootstrapPrefix } from "./ThemeProvider";
 import ListGroupItem from "./ListGroupItem";
 import { BsPrefixProps, BsPrefixRefForwardingComponent } from "./helpers";

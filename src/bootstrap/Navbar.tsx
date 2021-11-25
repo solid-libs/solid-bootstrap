@@ -1,8 +1,8 @@
 import { JSX, mergeProps, splitProps } from "solid-js";
 import classNames from "classnames";
-import SelectableContext from "../overlays/SelectableContext";
-import { SelectCallback } from "../overlays/types";
-import { createControlledProp } from "../controlled/createControlledProp";
+import SelectableContext from "../core/SelectableContext";
+import { SelectCallback } from "../core/types";
+import { createControlledProp } from "../core/createControlledProp";
 
 import { createWithBsPrefix } from "./createWithBsPrefix";
 import NavbarBrand from "./NavbarBrand";

@@ -1,5 +1,5 @@
 import { createContext } from "solid-js";
-import { EventKey } from "../overlays/types";
+import { EventKey } from "../core/types";
 
 interface NavContextType {
   role?: string; // used by NavLink to determine it's role
