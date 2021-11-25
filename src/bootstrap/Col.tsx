@@ -58,7 +58,6 @@ export function useCol(o: ColProps): [any, UseColMetadata] {
 
   DEVICE_SIZES.forEach((brkPoint) => {
     const propValue = props[brkPoint];
-    delete props[brkPoint];
 
     let span: ColSize | undefined;
     let offset: NumberAttr | undefined;
@@ -81,8 +80,10 @@ export function useCol(o: ColProps): [any, UseColMetadata] {
     if (offset != null) classes.push(`offset${infix}-${offset}`);
   });
 
+  const [_, cleanedProps] = splitProps(props, DEVICE_SIZES as any);
+
   return [
-    mergeProps(props, {
+    mergeProps(cleanedProps, {
       get className() {
         return classNames(local.className, ...spans, ...classes);
       },

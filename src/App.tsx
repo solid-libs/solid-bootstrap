@@ -27,6 +27,7 @@ import { SpinnerDocs } from "./docs/SpinnerDocs";
 import { TableDocs } from "./docs/TableDocs";
 import { TooltipDocs } from "./docs/TooltipDocs";
 import { ToastDocs } from "./docs/ToastDocs";
+import { LayoutGridDocs } from "./docs/LayoutGridDocs";
 
 const App: Component = () => (
   <div class="container mb-5" style={{ "padding-bottom": "200px" }}>
@@ -114,11 +115,11 @@ const App: Component = () => (
           <li>Popovers</li>
           <li>Tabs</li>
           <li>Tooltips</li>
-          <li>Layout Grid docs</li>
           <li>Layout Stack</li>
         </ul>
       </div>
       <h2 class="display-5">Bootstrap Components</h2>
+      <LayoutGridDocs />
       <AlertDocs />
       <AccordianDocs />
       <BadgeDocs />
