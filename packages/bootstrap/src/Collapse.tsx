@@ -15,6 +15,7 @@ import triggerBrowserReflow from "./triggerBrowserReflow";
 import transitionEndListener from "./transitionEndListener";
 import TransitionWrapper from "./TransitionWrapper";
 import classNames from "classnames";
+import { resolveClasses } from "../../core/src/utils";
 
 type Dimension = "height" | "width";
 
@@ -136,7 +137,7 @@ const Collapse = (p: CollapseProps) => {
   };
 
   let child = children(() => local.children);
-  let prevClasses: string[] = [];
+  let prevClasses: string;
 
   return (
     <TransitionWrapper
@@ -160,11 +161,9 @@ const Collapse = (p: CollapseProps) => {
             local.className,
             collapseStyles[state],
             computedDimension() === "width" && "collapse-horizontal"
-          ).split(" ");
-          el.classList.remove(...prevClasses);
-          el.classList.add(...newClasses);
+          );
+          resolveClasses(el, prevClasses, newClasses);
           prevClasses = newClasses;
-          console.log("applied classes", newClasses, el.classList);
           return el;
         }) as unknown as JSX.FunctionElement
       }

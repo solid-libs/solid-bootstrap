@@ -17,21 +17,16 @@ import Anchor from "../../core/src/Anchor";
 import classNames from "classnames";
 import { createControlledProp } from "../../core/src/createControlledProp";
 import CarouselCaption from "./CarouselCaption";
-import CarouselItem, {
-  CarouselItemProps,
-  CarouselItemReturnType,
-} from "./CarouselItem";
-// import { map, forEach } from './ElementChildren';
+import CarouselItem, { CarouselItemReturnType } from "./CarouselItem";
 import { useBootstrapPrefix, useIsRTL } from "./ThemeProvider";
 import transitionEndListener from "./transitionEndListener";
 import triggerBrowserReflow from "./triggerBrowserReflow";
 import { BsPrefixProps, BsPrefixRefForwardingComponent } from "./helpers";
 import { callEventHandler } from "../../core/src/utils";
 import { Dynamic } from "solid-js/web";
-import TransitionWrapper, {
-  TransitionWrapperChildFunction,
-} from "./TransitionWrapper";
+import TransitionWrapper from "./TransitionWrapper";
 import { TransitionStatus } from "../../transition/src/Transition";
+import { resolveClasses } from "../../core/src/utils";
 
 export type CarouselVariant = "dark";
 
@@ -65,6 +60,10 @@ export interface CarouselProps
     next: (event?: any) => void;
   }) => void;
 }
+
+type ItemWithClasses = CarouselItemReturnType & {
+  prevClasses: string;
+};
 
 const SWIPE_THRESHOLD = 40;
 
@@ -448,7 +447,7 @@ const Carousel: BsPrefixRefForwardingComponent<"div", CarouselProps> = (
       )}
 
       <div className={`${prefix}-inner`}>
-        <For<CarouselItemReturnType, JSX.Element> each={items()}>
+        <For<ItemWithClasses, JSX.Element> each={items() as ItemWithClasses[]}>
           {(child, index: Accessor<number>) => {
             const el = (child.item as () => HTMLElement)();
             return local.slide ? (
@@ -463,19 +462,18 @@ const Carousel: BsPrefixRefForwardingComponent<"div", CarouselProps> = (
                     status: TransitionStatus,
                     innerProps: { ref: (el: HTMLElement) => void }
                   ) => {
-                    el.classList.toggle(
-                      orderClassName(),
-                      isActive(index()) && status !== "entered"
-                    );
-                    el.classList.toggle(
-                      "active",
-                      status === "entered" || status === "exiting"
-                    );
-                    el.classList.toggle(
-                      directionalClassName(),
-                      status === "entering" || status === "exiting"
-                    );
                     innerProps.ref(el);
+                    const newClasses = classNames(
+                      isActive(index()) &&
+                        status !== "entered" &&
+                        orderClassName(),
+                      (status === "entered" || status === "exiting") &&
+                        "active",
+                      (status === "entering" || status === "exiting") &&
+                        directionalClassName()
+                    );
+                    resolveClasses(el, child.prevClasses, newClasses);
+                    child.prevClasses = newClasses;
                     return el;
                   }) as unknown as JSX.FunctionElement
                 }

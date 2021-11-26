@@ -28,3 +28,10 @@ export function callEventHandler(
     isPropagationStopped,
   };
 }
+
+export function resolveClasses(el: HTMLElement, prev: string, now: string) {
+  const p = prev ? prev.split(" ") : [];
+  const n = now ? now.split(" ") : [];
+  el.classList.remove(...p.filter((s) => n.indexOf(s) === -1));
+  el.classList.add(...n.filter((s) => p.indexOf(s) === -1));
+}
