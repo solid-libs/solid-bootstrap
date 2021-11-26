@@ -18,6 +18,7 @@ import {
 } from "solid-js";
 import TransitionGroupContext from "./TransitionGroupContext";
 import config from "./config";
+import { nextFrame } from "./utils";
 
 /**
  * The Transition component lets you describe a transition from one component
@@ -210,10 +211,6 @@ const Transition: TransitionComponent = (p: TransitionProps) => {
   let context = useContext(TransitionGroupContext);
   let childRef: HTMLElement;
 
-  // createEffect(() => {
-  //   console.log("Transition.onEntered", local.onEntered);
-  // });
-
   // In the context of a TransitionGroup all enters are really appears
   let appear = context && !context.isMounting ? local.enter : local.appear;
 
@@ -326,22 +323,17 @@ const Transition: TransitionComponent = (p: TransitionProps) => {
 
     local.onEnter!(maybeNode, maybeAppearing);
 
-    safeSetState(ENTERING, () => {
-      console.log("performEnter");
-      local.onEntering!(maybeNode, maybeAppearing);
+    nextFrame(() =>
+      safeSetState(ENTERING, () => {
+        local.onEntering!(maybeNode, maybeAppearing);
 
-      onTransitionEnd(enterTimeout, () => {
-        safeSetState(ENTERED, () => {
-          // console.log(
-          //   "onTransitionEnd",
-          //   local.onEntered,
-          //   maybeNode,
-          //   maybeAppearing
-          // );
-          local.onEntered!(maybeNode!, maybeAppearing!);
+        onTransitionEnd(enterTimeout, () => {
+          safeSetState(ENTERED, () => {
+            local.onEntered!(maybeNode!, maybeAppearing!);
+          });
         });
-      });
-    });
+      })
+    );
   }
 
   function performExit() {
@@ -359,15 +351,17 @@ const Transition: TransitionComponent = (p: TransitionProps) => {
 
     local.onExit!(maybeNode!);
 
-    safeSetState(EXITING, () => {
-      local.onExiting!(maybeNode!);
+    nextFrame(() =>
+      safeSetState(EXITING, () => {
+        local.onExiting!(maybeNode!);
 
-      onTransitionEnd(timeouts.exit, () => {
-        safeSetState(EXITED, () => {
-          local.onExited!(maybeNode);
+        onTransitionEnd(timeouts.exit, () => {
+          safeSetState(EXITED, () => {
+            local.onExited!(maybeNode);
+          });
         });
-      });
-    });
+      })
+    );
   }
 
   function cancelNextCallback() {

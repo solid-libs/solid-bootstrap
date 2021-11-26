@@ -16,10 +16,6 @@ export default function transitionEndListener(
   element: HTMLElement,
   handler: (e: TransitionEvent) => void
 ) {
-  if (handler == null) {
-    debugger;
-  }
-  console.log("transitionEndListener", element, handler);
   const duration = parseDuration(element, "transitionDuration");
   const delay = parseDuration(element, "transitionDelay");
   const remove = transitionEnd(

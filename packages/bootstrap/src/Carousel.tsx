@@ -1,5 +1,6 @@
 import {
   Accessor,
+  batch,
   children,
   createComputed,
   createEffect,
@@ -170,25 +171,23 @@ const Carousel: BsPrefixRefForwardingComponent<"div", CarouselProps> = (
     activeIndex() || 0
   );
 
-  createEffect(() => {
-    console.log("isSliding", isSliding());
-  });
-
-  createComputed(() => {
-    if (!isSliding() && activeIndex() !== renderedActiveIndex()) {
-      if (nextDirectionRef()) {
-        setDirection(nextDirectionRef()!);
-      } else {
-        setDirection(
-          (activeIndex() || 0) > renderedActiveIndex() ? "next" : "prev"
-        );
+  createComputed(() =>
+    batch(() => {
+      if (!isSliding() && activeIndex() !== renderedActiveIndex()) {
+        if (nextDirectionRef()) {
+          setDirection(nextDirectionRef()!);
+        } else {
+          setDirection(
+            (activeIndex() || 0) > renderedActiveIndex() ? "next" : "prev"
+          );
+        }
+        if (local.slide) {
+          setIsSliding(true);
+        }
+        setRenderedActiveIndex(activeIndex() || 0);
       }
-      if (local.slide) {
-        setIsSliding(true);
-      }
-      setRenderedActiveIndex(activeIndex() || 0);
-    }
-  });
+    })
+  );
 
   createEffect(() => {
     if (nextDirectionRef()) {

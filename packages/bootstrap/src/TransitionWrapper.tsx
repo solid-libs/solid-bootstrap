@@ -56,20 +56,14 @@ const TransitionWrapper = (p: TransitionWrapperProps) => {
     "childRef",
   ]);
 
-  // createEffect(() => {
-  //   console.log("TransitionWrapper.onEntered", local.onEntered);
-  // });
-
   let [nodeRef, setNodeRef] = createSignal<HTMLElement>();
   const mergedRef = (ref: HTMLElement) => {
-    console.log("mergedRef", ref);
     setNodeRef(ref);
     local.childRef?.(ref);
   };
 
   function normalize(callback?: (node: HTMLElement, param: any) => void) {
     return (param: any) => {
-      // console.log("Called back", callback, nodeRef());
       if (callback && nodeRef()) {
         callback(nodeRef()!, param);
       }
