@@ -15,7 +15,10 @@ import {
   Show,
 } from "solid-js";
 import { createStore, reconcile } from "solid-js/store";
-import { TransitionCallbacks, TransitionComponent } from "./types";
+import {
+  TransitionCallbacks,
+  TransitionComponent,
+} from "../../transition/src/Transition";
 import { Portal } from "solid-js/web";
 
 export interface OverlayArrowProps extends Record<string, any> {
@@ -82,7 +85,7 @@ export interface OverlayProps extends TransitionCallbacks {
   show?: boolean;
 
   /**
-   * A `solid-transition-group` `<Transition/>` component
+   * A  `<Transition/>` component
    * used to animate the overlay as it changes visibility.
    */
   transition?: TransitionComponent;
@@ -162,11 +165,11 @@ const Overlay = (props: OverlayProps) => {
     }
   });
 
-  const handleHidden: TransitionCallbacks["onAfterExit"] = (...args) => {
+  const handleHidden: TransitionCallbacks["onExited"] = (...args) => {
     setExited(true);
 
-    if (props.onAfterExit) {
-      props.onAfterExit(...args);
+    if (props.onExited) {
+      props.onExited(...args);
     }
   };
 
@@ -207,12 +210,12 @@ const Overlay = (props: OverlayProps) => {
     : () => (
         <Transition
           appear
-          onBeforeExit={props.onBeforeExit}
           onExit={props.onExit}
-          onAfterExit={handleHidden}
-          onBeforeEnter={props.onBeforeEnter}
+          onExiting={props.onExiting}
+          onExited={handleHidden}
           onEnter={props.onEnter}
-          onAfterEnter={props.onAfterEnter}
+          onEntering={props.onEntering}
+          onEntered={props.onEntered}
         >
           {props.show && innerChild}
         </Transition>

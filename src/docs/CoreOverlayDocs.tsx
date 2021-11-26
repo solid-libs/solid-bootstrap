@@ -2,7 +2,6 @@ import { Component } from "solid-js";
 import Overlay from "../../packages/core/src/Overlay";
 import { createSignal } from "solid-js";
 import { Placement } from "../../packages/core/src/usePopper";
-import { Transition } from "solid-transition-group";
 
 const PLACEMENTS: Placement[] = ["top", "right", "bottom", "left"];
 
@@ -50,25 +49,12 @@ export const CoreOverlayDocs: Component = () => {
       </div>
       <div>
         <Overlay
+          show={show()}
+          offset={[0, 5]}
           container={container}
           target={target}
-          show={show()}
           placement={placement()}
-          offset={[0, 5]}
           flip
-          transition={Transition}
-          onEnter={(el, done) => {
-            const a = el.animate([{ opacity: 0 }, { opacity: 1 }], {
-              duration: 500,
-            });
-            a.finished.then(done);
-          }}
-          onExit={(el, done) => {
-            const a = el.animate([{ opacity: 1 }, { opacity: 0 }], {
-              duration: 500,
-            });
-            a.finished.then(done);
-          }}
         >
           {/* Render overlay (tooltip) with props from popperjs */}
           {(props, more) => (
