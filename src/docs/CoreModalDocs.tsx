@@ -1,7 +1,7 @@
 import { Component } from "solid-js";
 import Modal, { RenderModalBackdropProps } from "../../packages/core/src/Modal";
 import { createSignal } from "solid-js";
-import { Transition } from "solid-transition-group";
+import Transition from "../../packages/transition/src/Transition";
 
 let rand = (min: number, max: number) =>
   min + Math.floor(Math.random() * (max - min));
@@ -50,31 +50,6 @@ const ModalExample = () => {
           <div class="modal-backdrop show" {...props} />
         )}
         aria-labelledby="modal-label"
-        transition={Transition}
-        onEnter={(el, done) => {
-          const a = el.animate(
-            [
-              { transform: "scale(0.5)", opacity: 0 },
-              { transform: "scale(1.0)", opacity: 1 },
-            ],
-            {
-              duration: 150,
-            }
-          );
-          a.finished.then(done);
-        }}
-        onExit={(el, done) => {
-          const a = el.animate(
-            [
-              { transform: "scale(1.0)", opacity: 1 },
-              { transform: "scale(0.5)", opacity: 0 },
-            ],
-            {
-              duration: 150,
-            }
-          );
-          a.finished.then(done);
-        }}
       >
         <RandomlyPositionedModal />
       </Modal>

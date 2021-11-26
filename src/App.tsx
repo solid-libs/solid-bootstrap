@@ -96,7 +96,6 @@ const App: Component = () => (
       <div>
         <h3>Known Issues</h3>
         <ul>
-          <li>Accordion - Transitions</li>
           <li>Dropdown - autoClose not working</li>
           <li>Tabs - getDefaultActiveKey (was reading from child props)</li>
           <li>TabPane - Transitions</li>

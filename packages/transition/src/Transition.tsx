@@ -146,6 +146,15 @@ type EndCallback = (
   arg2?: () => void
 ) => void;
 
+export type TransitionCallbacks = {
+  onEnter?: EnterCallback;
+  onEntering?: EnterCallback;
+  onEntered?: EnterCallback;
+  onExit?: (el: HTMLElement) => void;
+  onExiting?: (el: HTMLElement) => void;
+  onExited?: (e?: HTMLElement) => void;
+};
+
 export type TransitionProps = {
   nodeRef?: HTMLElement;
   children?:
@@ -159,13 +168,7 @@ export type TransitionProps = {
   exit?: boolean;
   timeout?: number | { appear?: number; enter?: number; exit?: number };
   addEndListener?: EndCallback;
-  onEnter?: EnterCallback;
-  onEntering?: EnterCallback;
-  onEntered?: EnterCallback;
-  onExit?: (el: HTMLElement) => void;
-  onExiting?: (el: HTMLElement) => void;
-  onExited?: (e?: HTMLElement) => void;
-};
+} & TransitionCallbacks;
 
 type Callback = (...args: any[]) => void;
 type Cancellable = Callback & { cancel: () => void };

@@ -1,9 +1,13 @@
 import ownerDocument from "dom-helpers/ownerDocument";
+import { createEffect, createSignal } from "solid-js";
 
-export type DOMContainer<T extends HTMLElement = HTMLElement> = T | null | (() => T | null);
+export type DOMContainer<T extends HTMLElement = HTMLElement> =
+  | T
+  | null
+  | (() => T | null);
 
 export const resolveContainerRef = <T extends HTMLElement>(
-  ref: DOMContainer<T> | undefined,
+  ref: DOMContainer<T> | undefined
 ): T | HTMLBodyElement | null => {
   if (typeof document === "undefined") return null;
   if (ref == null) return ownerDocument().body as HTMLBodyElement;
@@ -14,29 +18,28 @@ export const resolveContainerRef = <T extends HTMLElement>(
   return null;
 };
 
-// export default function useWaitForDOMRef<T extends HTMLElement = HTMLElement>(
-//   ref: DOMContainer<T> | undefined,
-//   onResolved?: (element: T | HTMLBodyElement) => void,
-// ) {
-//   const [resolvedRef, setRef] = useState(() => resolveContainerRef(ref));
+export default function useWaitForDOMRef<
+  T extends HTMLElement = HTMLElement
+>(props: {
+  ref?: DOMContainer<T>;
+  onResolved?: (element: T | HTMLBodyElement) => void;
+}) {
+  const [resolvedRef, setRef] = createSignal<T | HTMLBodyElement | null>(
+    resolveContainerRef(props.ref)
+  );
 
-//   if (!resolvedRef) {
-//     const earlyRef = resolveContainerRef(ref);
-//     if (earlyRef) setRef(earlyRef);
-//   }
+  createEffect(() => {
+    if (props.onResolved && resolvedRef()) {
+      props.onResolved(resolvedRef()!);
+    }
+  });
 
-//   useEffect(() => {
-//     if (onResolved && resolvedRef) {
-//       onResolved(resolvedRef);
-//     }
-//   }, [onResolved, resolvedRef]);
+  createEffect(() => {
+    const nextRef = resolveContainerRef(props.ref);
+    if (nextRef !== resolvedRef()) {
+      setRef(nextRef as any);
+    }
+  });
 
-//   useEffect(() => {
-//     const nextRef = resolveContainerRef(ref);
-//     if (nextRef !== resolvedRef) {
-//       setRef(nextRef);
-//     }
-//   }, [ref, resolvedRef]);
-
-//   return resolvedRef;
-// }
+  return resolvedRef;
+}

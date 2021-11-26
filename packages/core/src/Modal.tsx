@@ -5,7 +5,7 @@ import contains from "dom-helpers/contains";
 import canUseDOM from "dom-helpers/canUseDOM";
 import listen from "dom-helpers/listen";
 import ModalManager from "./ModalManager";
-import { TransitionCallbacks } from "./types";
+import { TransitionCallbacks } from "../../transition/src/Transition";
 import {
   children,
   Component,
@@ -22,6 +22,7 @@ import {
   createMemo,
 } from "solid-js";
 import { Portal } from "solid-js/web";
+import useWaitForDOMRef, { DOMContainer } from "./useWaitForDOMRef";
 
 let manager: ModalManager;
 
@@ -65,7 +66,7 @@ export interface BaseModalProps extends TransitionCallbacks {
    * A DOM element, a `ref` to an element, or function that returns either. The Modal is appended to it's `container` element.
    *
    */
-  container?: () => HTMLElement | undefined;
+  container?: DOMContainer;
   /**
    * A callback fired when the Modal is opening.
    */
@@ -125,13 +126,13 @@ export interface BaseModalProps extends TransitionCallbacks {
   keyboard?: boolean;
 
   /**
-   * A `react-transition-group` `<Transition/>` component used
+   * A `<Transition/>` component used
    * to control animations for the dialog component.
    */
   transition?: ModalTransitionComponent;
 
   /**
-   * A `react-transition-group` `<Transition/>` component used
+   * A `<Transition/>` component used
    * to control animations for the backdrop components.
    */
   backdropTransition?: ModalTransitionComponent;
@@ -209,24 +210,21 @@ export interface ModalHandle {
   backdrop: HTMLElement | null;
 }
 
+const defaultProps = {
+  show: false,
+  role: "dialog",
+  backdrop: true,
+  keyboard: true,
+  autoFocus: true,
+  enforceFocus: true,
+  restoreFocus: true,
+  renderBackdrop: (props: RenderModalBackdropProps) => <div {...props} />,
+  onHide: () => {},
+};
+
 const Modal = (p: ModalProps) => {
-  const [props, rest] = splitProps(
-    // merge in prop defaults
-    mergeProps(
-      {
-        container: () => document.body,
-        show: false,
-        role: "dialog",
-        backdrop: true,
-        keyboard: true,
-        autoFocus: true,
-        enforceFocus: true,
-        restoreFocus: true,
-        renderBackdrop: (props: RenderModalBackdropProps) => <div {...props} />,
-        onHide: () => {},
-      },
-      p
-    ),
+  const [local, props] = splitProps(
+    mergeProps(defaultProps, p),
     // split off local props with rest passed as dialogProps
     [
       "show",
@@ -251,29 +249,33 @@ const Modal = (p: ModalProps) => {
       "onShow",
       "onHide",
       "onExit",
-      "onAfterExit",
-      "onBeforeExit",
+      "onExited",
+      "onExiting",
       "onEnter",
-      "onBeforeEnter",
-      "onAfterEnter",
+      "onEntering",
+      "onEntered",
       "ref",
     ]
   );
-  const container = props.container;
-  const modal = useModalManager(props.manager);
+  const container = useWaitForDOMRef({
+    get ref() {
+      return local.container;
+    },
+  });
+  const modal = useModalManager(local.manager);
 
   const [isMounted, setIsMounted] = createSignal(false);
   onMount(() => setIsMounted(true));
   onCleanup(() => setIsMounted(false));
 
-  const [exited, setExited] = createSignal(!props.show);
+  const [exited, setExited] = createSignal(!local.show);
   let lastFocusRef: HTMLElement | null = null;
 
-  props.ref?.(modal);
+  local.ref?.(modal);
 
   createComputed(
     on(
-      () => props.show,
+      () => local.show,
       (show, prevShow) => {
         if (canUseDOM && !prevShow && show) {
           lastFocusRef = activeElement() as HTMLElement;
@@ -283,36 +285,38 @@ const Modal = (p: ModalProps) => {
   );
 
   createComputed(() => {
-    if (props.show) {
-      if (exited()) setExited(false);
-    } else if (!props.transition && !exited()) {
+    if (!local.transition && !local.show && !exited()) {
       setExited(true);
+    } else if (local.show && exited()) {
+      setExited(false);
     }
   });
 
   const handleShow = () => {
     modal.add();
 
-    removeKeydownListenerRef = () =>
-      listen(document as any, "keydown", handleDocumentKeyDown);
+    removeKeydownListenerRef = listen(
+      document as any,
+      "keydown",
+      handleDocumentKeyDown
+    );
 
-    removeFocusListenerRef = () =>
-      listen(
-        document as any,
-        "focus",
-        // the timeout is necessary b/c this will run before the new modal is mounted
-        // and so steals focus from it
-        () => setTimeout(handleEnforceFocus),
-        true
-      );
+    removeFocusListenerRef = listen(
+      document as any,
+      "focus",
+      // the timeout is necessary b/c this will run before the new modal is mounted
+      // and so steals focus from it
+      () => setTimeout(handleEnforceFocus),
+      true
+    );
 
-    if (props.onShow) {
-      props.onShow();
+    if (local.onShow) {
+      local.onShow();
     }
 
     // autofocus after onShow to not trigger a focus event for previous
     // modals before this one is shown.
-    if (props.autoFocus) {
+    if (local.autoFocus) {
       const currentActiveElement = activeElement(document) as HTMLElement;
 
       if (
@@ -332,9 +336,9 @@ const Modal = (p: ModalProps) => {
     removeKeydownListenerRef?.();
     removeFocusListenerRef?.();
 
-    if (props.restoreFocus) {
+    if (local.restoreFocus) {
       // Support: <=IE11 doesn't support `focus()` on svg elements (RB: #917)
-      lastFocusRef?.focus?.(props.restoreFocusOptions);
+      lastFocusRef?.focus?.(local.restoreFocusOptions);
       lastFocusRef = null;
     }
   };
@@ -344,7 +348,7 @@ const Modal = (p: ModalProps) => {
   // Show logic when:
   //  - show is `true` _and_ `container` has resolved
   createEffect(() => {
-    if (!props.show || !container?.()) return;
+    if (!local.show || !container?.()) return;
     handleShow();
   });
 
@@ -366,7 +370,7 @@ const Modal = (p: ModalProps) => {
   // --------------------------------
 
   const handleEnforceFocus = () => {
-    if (!props.enforceFocus || !isMounted() || !modal.isTopModal()) {
+    if (!local.enforceFocus || !isMounted() || !modal.isTopModal()) {
       return;
     }
 
@@ -388,19 +392,19 @@ const Modal = (p: ModalProps) => {
       return;
     }
 
-    props.onBackdropClick?.(e);
+    local.onBackdropClick?.(e);
 
-    if (props.backdrop === true) {
-      props.onHide?.();
+    if (local.backdrop === true) {
+      local.onHide?.();
     }
   };
 
   const handleDocumentKeyDown = (e: KeyboardEvent) => {
-    if (props.keyboard && e.keyCode === 27 && modal.isTopModal()) {
-      props.onEscapeKeyDown?.(e);
+    if (local.keyboard && e.keyCode === 27 && modal.isTopModal()) {
+      local.onEscapeKeyDown?.(e);
 
       if (!e.defaultPrevented) {
-        props.onHide?.();
+        local.onHide?.();
       }
     }
   };
@@ -408,36 +412,52 @@ const Modal = (p: ModalProps) => {
   let removeFocusListenerRef: ReturnType<typeof listen>;
   let removeKeydownListenerRef: ReturnType<typeof listen>;
 
-  const handleHidden: TransitionCallbacks["onAfterExit"] = (...args) => {
+  const handleHidden: TransitionCallbacks["onExited"] = (...args) => {
     setExited(true);
-    props.onAfterExit?.(...args);
+    local.onExited?.(...args);
   };
 
-  const Transition = props.transition;
+  const Transition = local.transition;
   const dialogVisible = createMemo(
-    () => !!(props.show || (props.transition && !exited()))
+    () => !!(local.show || (local.transition && !exited()))
   );
 
-  const dialogProps = {
-    role: props.role as NonNullable<JSX.HTMLAttributes<HTMLDivElement>["role"]>,
-    ref: modal.setDialogRef,
-    // apparently only works on the dialog role element
-    "aria-modal": props.role === "dialog" ? true : undefined,
-    ...rest,
-    style: props.style,
-    className: props.className,
-    tabIndex: -1,
-  };
+  const dialogProps = mergeProps(
+    {
+      get role() {
+        return local.role as NonNullable<
+          JSX.HTMLAttributes<HTMLDivElement>["role"]
+        >;
+      },
+      get ref() {
+        return modal.setDialogRef;
+      },
+      // apparently only works on the dialog role element
+      get "aria-modal"() {
+        return local.role === "dialog" ? true : undefined;
+      },
+    },
+    props,
+    {
+      get style() {
+        return local.style;
+      },
+      get className() {
+        return local.className;
+      },
+      tabIndex: -1,
+    }
+  );
 
   const getChildAsDocument = () => {
-    const child = children(() => props.children);
+    const child = children(() => local.children);
     (child() as HTMLElement)?.setAttribute?.("role", "document");
     return child();
   };
 
   let innerDialog = () =>
-    props.renderDialog ? (
-      props.renderDialog(dialogProps)
+    local.renderDialog ? (
+      local.renderDialog(dialogProps)
     ) : (
       <div {...dialogProps}>{getChildAsDocument}</div>
     );
@@ -448,30 +468,30 @@ const Modal = (p: ModalProps) => {
         <Transition
           appear
           unmountOnExit
-          in={!!props.show}
-          onBeforeExit={props.onBeforeExit}
-          onExit={props.onExit}
-          onAfterExit={handleHidden}
-          onBeforeEnter={props.onBeforeEnter}
-          onEnter={props.onEnter}
-          onAfterEnter={props.onAfterEnter}
+          in={!!local.show}
+          onExit={local.onExit}
+          onExiting={local.onExiting}
+          onExited={handleHidden}
+          onEnter={local.onEnter}
+          onEntering={local.onEntering}
+          onEntered={local.onEntered}
         >
-          {props.show && innerDialog}
+          {innerDialog}
         </Transition>
       );
 
   let backdropElement = null;
-  if (props.backdrop) {
-    const BackdropTransition = props.backdropTransition;
+  if (local.backdrop) {
+    const BackdropTransition = local.backdropTransition;
 
-    backdropElement = props.renderBackdrop({
+    backdropElement = local.renderBackdrop({
       ref: modal.setBackdropRef,
       onClick: handleBackdropClick,
     });
 
     if (BackdropTransition) {
       backdropElement = (
-        <BackdropTransition appear in={!!props.show}>
+        <BackdropTransition appear in={!!local.show}>
           {backdropElement}
         </BackdropTransition>
       );
@@ -483,16 +503,14 @@ const Modal = (p: ModalProps) => {
   };
 
   return (
-    <Show when={props.container() && dialogVisible()}>
-      <Portal mount={props.container?.()} ref={portalRef}>
+    <Show when={container() && dialogVisible()}>
+      <Portal mount={container()!} ref={portalRef}>
         {backdropElement}
         {dialog}
       </Portal>
     </Show>
   );
 };
-
-Modal.displayName = "Modal";
 
 export default Object.assign(Modal, {
   Manager: ModalManager,

@@ -40,44 +40,44 @@ export interface DynamicRefForwardingComponent<
 
 export type SelectCallback = (eventKey: string | null, e: Event) => void;
 
-export interface TransitionCallbacks {
-  /**
-   * Callback fired before the component transitions in
-   */
-  onBeforeEnter?: (el: Element) => void;
-  /**
-   * Callback fired as the component begins to transition in
-   */
-  onEnter?: (el: Element, done: () => void) => void;
-  /**
-   * Callback fired after the component finishes transitioning in
-   */
-  onAfterEnter?: (el: Element) => void;
-  /**
-   * Callback fired right before the component transitions out
-   */
-  onBeforeExit?: (el: Element) => void;
-  /**
-   * Callback fired as the component begins to transition out
-   */
-  onExit?: (el: Element, done: () => void) => void;
-  /**
-   * Callback fired after the component finishes transitioning out
-   */
-  onAfterExit?: (el: Element) => void;
-}
+// export interface TransitionCallbacks {
+//   /**
+//    * Callback fired before the component transitions in
+//    */
+//   onEnter?(node: HTMLElement, isAppearing: boolean): any;
+//   /**
+//    * Callback fired as the component begins to transition in
+//    */
+//   onEntering?(node: HTMLElement, isAppearing: boolean): any;
+//   /**
+//    * Callback fired after the component finishes transitioning in
+//    */
+//   onEntered?(node: HTMLElement, isAppearing: boolean): any;
+//   /**
+//    * Callback fired right before the component transitions out
+//    */
+//   onExit?(node: HTMLElement): any;
+//   /**
+//    * Callback fired as the component begins to transition out
+//    */
+//   onExiting?(node: HTMLElement): any;
+//   /**
+//    * Callback fired after the component finishes transitioning out
+//    */
+//   onExited?(node: HTMLElement): any;
+// }
 
-export interface TransitionProps extends TransitionCallbacks {
-  name?: string;
-  enterActiveClass?: string;
-  enterClass?: string;
-  enterToClass?: string;
-  exitActiveClass?: string;
-  exitClass?: string;
-  exitToClass?: string;
-  children?: JSX.Element;
-  appear?: boolean;
-  mode?: "inout" | "outin";
-}
+// export interface TransitionProps extends TransitionCallbacks {
+//   name?: string;
+//   enterActiveClass?: string;
+//   enterClass?: string;
+//   enterToClass?: string;
+//   exitActiveClass?: string;
+//   exitClass?: string;
+//   exitToClass?: string;
+//   children?: JSX.Element;
+//   appear?: boolean;
+//   mode?: "inout" | "outin";
+// }
 
-export type TransitionComponent = Component<TransitionProps>;
+// export type TransitionComponent = Component<TransitionProps>;
