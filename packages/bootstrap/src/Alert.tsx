@@ -99,7 +99,7 @@ const Alert = (uncontrolledProps: AlertProps) => {
   return (
     <Show when={!!Transition} fallback={local.show ? alert : null}>
       <Transition unmountOnExit {...props} ref={undefined} in={show()}>
-        {show() && alert}
+        {alert}
       </Transition>
     </Show>
   );

@@ -240,34 +240,36 @@ const Transition: TransitionComponent = (p: TransitionProps) => {
   );
   let nextCallback: Cancellable | null = null;
 
+  const [mounted, setMounted] = createSignal(false);
   const notUnmounted = createMemo(() => status() !== UNMOUNTED);
 
-  createComputed(
-    on(
-      () => local.in,
-      () => {
-        const prevStatus = status();
-        if (local.in && prevStatus === UNMOUNTED) {
-          setStatus(EXITED);
-        } else {
-          let nextStatus: TransitionStatus | null = null;
-          if (local.in) {
-            if (prevStatus !== ENTERING && prevStatus !== ENTERED) {
-              nextStatus = ENTERING;
-            }
-          } else {
-            if (prevStatus === ENTERING || prevStatus === ENTERED) {
-              nextStatus = EXITING;
-            }
-          }
-          updateStatus(false, nextStatus);
-        }
-      }
-    )
-  );
+  createEffect(() => console.log("status", status()));
 
   onMount(() => {
+    // componentDidMount
     updateStatus(true, appearStatus);
+    setMounted(true);
+  });
+
+  createComputed(() => {
+    // componentDidUpdate
+    if (!mounted) return;
+    const prevStatus = status();
+    if (local.in && prevStatus === UNMOUNTED) {
+      setStatus(EXITED);
+    } else {
+      let nextStatus: TransitionStatus | null = null;
+      if (local.in) {
+        if (prevStatus !== ENTERING && prevStatus !== ENTERED) {
+          nextStatus = ENTERING;
+        }
+      } else {
+        if (prevStatus === ENTERING || prevStatus === ENTERED) {
+          nextStatus = EXITING;
+        }
+      }
+      updateStatus(false, nextStatus);
+    }
   });
 
   onCleanup(() => {
@@ -292,6 +294,8 @@ const Transition: TransitionComponent = (p: TransitionProps) => {
   }
 
   function updateStatus(mounting = false, nextStatus: TransitionStatus | null) {
+    if (local.unmountOnExit) console.log("updateStatus", status(), nextStatus);
+
     if (nextStatus !== null) {
       // nextStatus will always be ENTERING or EXITING.
       cancelNextCallback();

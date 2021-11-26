@@ -1,8 +1,17 @@
 // ported from https://github.com/react-bootstrap/react-bootstrap/blob/f11723114d532cfce840417834a73733a8436414/src/Fade.tsx
 
-import { JSX, mergeProps, Show, splitProps } from "solid-js";
-import { Transition } from "solid-transition-group";
-import { TransitionCallbacks } from "../../core/src/types";
+import { children, JSX, mergeProps, Show, splitProps } from "solid-js";
+import {
+  TransitionStatus,
+  ENTERED,
+  ENTERING,
+  TransitionCallbacks,
+} from "../../transition/src/Transition";
+import TransitionWrapper from "./TransitionWrapper";
+import transitionEndListener from "./transitionEndListener";
+import triggerBrowserReflow from "./triggerBrowserReflow";
+import classNames from "classnames";
+import { resolveClasses } from "../../core/src/utils";
 
 export interface FadeProps extends TransitionCallbacks {
   className?: string;
@@ -23,25 +32,52 @@ const defaultProps = {
   appear: false,
 };
 
+const fadeStyles = {
+  [ENTERING]: "show",
+  [ENTERED]: "show",
+};
+
 const Fade = (p: FadeProps) => {
   const [local, props] = splitProps(mergeProps(defaultProps, p), [
-    "in",
     "className",
     "children",
+    "transitionClasses",
   ]);
 
+  const handleEnter = (node: HTMLElement, isAppearing?: boolean) => {
+    triggerBrowserReflow(node);
+    props.onEnter?.(node, isAppearing);
+  };
+
+  let child = children(() => local.children);
+  let prevClasses: string;
+
   return (
-    <Transition
-      enterActiveClass="fade"
-      enterClass="fade"
-      enterToClass="fade"
-      exitActiveClass="fade"
-      exitClass="fade"
-      exitToClass="fade"
+    <TransitionWrapper
+      addEndListener={transitionEndListener}
+      onEnter={handleEnter}
       {...props}
     >
-      <Show when={local.in}>{local.children}</Show>
-    </Transition>
+      {
+        ((
+          status: TransitionStatus,
+          innerProps: { ref: (el: HTMLElement) => void }
+        ) => {
+          const el = child() as HTMLElement;
+          innerProps.ref(el);
+          const newClasses = classNames(
+            "fade",
+            local.className,
+            // @ts-ignore
+            fadeStyles?.[status],
+            local.transitionClasses?.[status]
+          );
+          resolveClasses(el, prevClasses, newClasses);
+          prevClasses = newClasses;
+          return el;
+        }) as unknown as JSX.FunctionElement
+      }
+    </TransitionWrapper>
   );
 };
 export default Fade;
