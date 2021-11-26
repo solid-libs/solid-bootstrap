@@ -83,11 +83,7 @@ export const ModalDocs: Component = () => {
             <Button variant="primary" onClick={handleOpen("live")}>
               Launch demo modal
             </Button>
-            <Modal
-              show={show("live")}
-              onHide={handleClose("live")}
-              animation={false}
-            >
+            <Modal show={show("live")} onHide={handleClose("live")}>
               <Modal.Header closeButton>
                 <Modal.Title>Modal heading</Modal.Title>
               </Modal.Header>
@@ -116,7 +112,6 @@ export const ModalDocs: Component = () => {
               onHide={handleClose("static")}
               backdrop="static"
               keyboard={false}
-              animation={false}
             >
               <Modal.Header closeButton>
                 <Modal.Title>Modal title</Modal.Title>
@@ -171,7 +166,6 @@ export const ModalDocs: Component = () => {
             <Modal
               show={show("vertc")}
               onHide={handleClose("vertc")}
-              animation={false}
               size="lg"
               aria-labelledby="contained-modal-title-vcenter"
               centered
@@ -204,7 +198,6 @@ export const ModalDocs: Component = () => {
             <Modal
               show={show("grid")}
               onHide={handleClose("grid")}
-              animation={false}
               aria-labelledby="contained-modal-title-vcenter"
             >
               <Modal.Header closeButton>
@@ -252,7 +245,6 @@ export const ModalDocs: Component = () => {
               show={show("small")}
               onHide={handleClose("small")}
               aria-labelledby="example-modal-sizes-title-sm"
-              animation={false}
             >
               <Modal.Header closeButton>
                 <Modal.Title id="example-modal-sizes-title-sm">
@@ -266,7 +258,6 @@ export const ModalDocs: Component = () => {
               show={show("large")}
               onHide={handleClose("large")}
               aria-labelledby="example-modal-sizes-title-lg"
-              animation={false}
             >
               <Modal.Header closeButton>
                 <Modal.Title id="example-modal-sizes-title-lg">
@@ -300,7 +291,6 @@ export const ModalDocs: Component = () => {
                 (fullscreen() as ModalProps["fullscreen"])
               }
               onHide={() => setFullscreen(null)}
-              animation={false}
             >
               <Modal.Header closeButton>
                 <Modal.Title>Modal</Modal.Title>

@@ -31,7 +31,10 @@ import { LayoutGridDocs } from "./docs/LayoutGridDocs";
 import { LayoutStackDocs } from "./docs/LayoutStackDocs";
 
 const App: Component = () => (
-  <div class="container mb-5" style={{ "padding-bottom": "200px" }}>
+  <div
+    class="container mb-5 overflow-hidden"
+    style={{ "padding-bottom": "200px" }}
+  >
     <div class="row gy-5">
       <h1 class="display-4">Solid-Bootstrap</h1>
       <div>
@@ -99,8 +102,6 @@ const App: Component = () => (
           <li>Dropdown - autoClose not working</li>
           <li>Tabs - getDefaultActiveKey (was reading from child props)</li>
           <li>TabPane - Transitions</li>
-          <li>Modal - animation (Transitions)</li>
-          <li>Modal/Dropdown - Z-index issues</li>
           <li>Navbar - not collapsing</li>
           <li>Navbar - offcanvas infinite loop?</li>
           <li>

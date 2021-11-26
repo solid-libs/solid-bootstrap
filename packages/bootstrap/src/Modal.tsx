@@ -222,29 +222,29 @@ const Modal: BsPrefixRefForwardingComponent<"div", ModalProps> = (
     }
   };
 
-  const handleEnter = (node: Element, done: () => void) => {
+  const handleEnter: BaseModalProps["onEnter"] = (node?: any, ...args) => {
     if (node) {
       // @ts-ignore
       node.style.display = "block";
       updateDialogStyle(node);
     }
 
-    local.onEnter?.(node, done);
+    local.onEnter?.(node, ...args);
   };
 
-  const handleExit = (node: Element, done: () => void) => {
+  const handleExit: BaseModalProps["onExit"] = (...args) => {
     removeStaticModalAnimationRef?.();
-    local.onExit?.(node);
+    local.onExit?.(...args);
   };
 
-  const handleEntering = (node: HTMLElement, isAppearing: boolean) => {
-    local.onEntering?.(node, isAppearing);
+  const handleEntering: BaseModalProps["onEntering"] = (...args) => {
+    local.onEntering?.(...args);
 
     // FIXME: This should work even when animation is disabled.
     addEventListener(window as any, "resize", handleWindowResize);
   };
 
-  const handleExited = (node: HTMLElement) => {
+  const handleExited: BaseModalProps["onExited"] = (node?: any) => {
     if (node) node.style.display = ""; // RHL removes it sometimes
     local.onExited?.(node);
 

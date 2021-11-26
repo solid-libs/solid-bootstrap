@@ -1,6 +1,6 @@
 // ported from https://github.com/react-bootstrap/react-bootstrap/blob/f11723114d532cfce840417834a73733a8436414/src/Fade.tsx
 
-import { children, JSX, mergeProps, Show, splitProps } from "solid-js";
+import { children, JSX, mergeProps, splitProps } from "solid-js";
 import {
   TransitionStatus,
   ENTERED,

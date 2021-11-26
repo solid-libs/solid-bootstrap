@@ -243,8 +243,6 @@ const Transition: TransitionComponent = (p: TransitionProps) => {
   const [mounted, setMounted] = createSignal(false);
   const notUnmounted = createMemo(() => status() !== UNMOUNTED);
 
-  createEffect(() => console.log("status", status()));
-
   onMount(() => {
     // componentDidMount
     updateStatus(true, appearStatus);
@@ -294,8 +292,6 @@ const Transition: TransitionComponent = (p: TransitionProps) => {
   }
 
   function updateStatus(mounting = false, nextStatus: TransitionStatus | null) {
-    if (local.unmountOnExit) console.log("updateStatus", status(), nextStatus);
-
     if (nextStatus !== null) {
       // nextStatus will always be ENTERING or EXITING.
       cancelNextCallback();

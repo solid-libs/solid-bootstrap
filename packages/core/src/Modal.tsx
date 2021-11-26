@@ -462,41 +462,46 @@ const Modal = (p: ModalProps) => {
       <div {...dialogProps}>{getChildAsDocument}</div>
     );
 
-  const dialog = !Transition
-    ? innerDialog
-    : () => (
-        <Transition
-          appear
-          unmountOnExit
-          in={!!local.show}
-          onExit={local.onExit}
-          onExiting={local.onExiting}
-          onExited={handleHidden}
-          onEnter={local.onEnter}
-          onEntering={local.onEntering}
-          onEntered={local.onEntered}
-        >
-          {innerDialog}
-        </Transition>
-      );
+  const Dialog = () => {
+    return !Transition ? (
+      innerDialog
+    ) : (
+      <Transition
+        appear
+        unmountOnExit
+        in={!!local.show}
+        onExit={local.onExit}
+        onExiting={local.onExiting}
+        onExited={handleHidden}
+        onEnter={local.onEnter}
+        onEntering={local.onEntering}
+        onEntered={local.onEntered}
+      >
+        {innerDialog}
+      </Transition>
+    );
+  };
 
-  let backdropElement = null;
-  if (local.backdrop) {
-    const BackdropTransition = local.backdropTransition;
+  const Backdrop = () => {
+    let backdropElement = null;
+    if (local.backdrop) {
+      const BackdropTransition = local.backdropTransition;
 
-    backdropElement = local.renderBackdrop({
-      ref: modal.setBackdropRef,
-      onClick: handleBackdropClick,
-    });
+      backdropElement = local.renderBackdrop({
+        ref: modal.setBackdropRef,
+        onClick: handleBackdropClick,
+      });
 
-    if (BackdropTransition) {
-      backdropElement = (
-        <BackdropTransition appear in={!!local.show}>
-          {backdropElement}
-        </BackdropTransition>
-      );
+      if (BackdropTransition) {
+        backdropElement = (
+          <BackdropTransition appear in={!!local.show}>
+            {backdropElement}
+          </BackdropTransition>
+        );
+      }
     }
-  }
+    return backdropElement;
+  };
 
   const portalRef = (ref: HTMLDivElement) => {
     ref.style.position = "fixed";
@@ -504,9 +509,9 @@ const Modal = (p: ModalProps) => {
 
   return (
     <Show when={container() && dialogVisible()}>
-      <Portal mount={container()!} ref={portalRef}>
-        {backdropElement}
-        {dialog}
+      <Portal mount={container()!}>
+        <Backdrop />
+        <Dialog />
       </Portal>
     </Show>
   );
