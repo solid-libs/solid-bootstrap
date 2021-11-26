@@ -4,6 +4,7 @@ import {
   createComputed,
   createEffect,
   createMemo,
+  createSelector,
   createSignal,
   For,
   JSX,
@@ -15,7 +16,10 @@ import Anchor from "../../core/src/Anchor";
 import classNames from "classnames";
 import { createControlledProp } from "../../core/src/createControlledProp";
 import CarouselCaption from "./CarouselCaption";
-import CarouselItem from "./CarouselItem";
+import CarouselItem, {
+  CarouselItemProps,
+  CarouselItemReturnType,
+} from "./CarouselItem";
 // import { map, forEach } from './ElementChildren';
 import { useBootstrapPrefix, useIsRTL } from "./ThemeProvider";
 import transitionEndListener from "./transitionEndListener";
@@ -23,13 +27,16 @@ import triggerBrowserReflow from "./triggerBrowserReflow";
 import { BsPrefixProps, BsPrefixRefForwardingComponent } from "./helpers";
 import { callEventHandler } from "../../core/src/utils";
 import { Dynamic } from "solid-js/web";
-import { Transition } from "solid-transition-group";
+import TransitionWrapper, {
+  TransitionWrapperChildFunction,
+} from "./TransitionWrapper";
+import { TransitionStatus } from "../../transition/src/Transition";
 
 export type CarouselVariant = "dark";
 
 export interface CarouselProps
   extends BsPrefixProps,
-    Omit<JSX.HTMLAttributes<HTMLElement>, "onSelect"> {
+    Omit<JSX.HTMLAttributes<HTMLElement>, "onSelect" | "children" | "ref"> {
   slide?: boolean;
   fade?: boolean;
   controls?: boolean;
@@ -50,6 +57,12 @@ export interface CarouselProps
   nextIcon?: JSX.Element;
   nextLabel?: JSX.Element;
   variant?: CarouselVariant;
+  children?: typeof CarouselItem | typeof CarouselItem[];
+  ref?: (r: {
+    element: () => HTMLElement;
+    prev: (event?: any) => void;
+    next: (event?: any) => void;
+  }) => void;
 }
 
 const SWIPE_THRESHOLD = 40;
@@ -140,9 +153,11 @@ const Carousel: BsPrefixRefForwardingComponent<"div", CarouselProps> = (
 
   const prefix = useBootstrapPrefix(local.bsPrefix, "carousel");
   const isRTL = useIsRTL();
-  const childArray = createMemo(() => {
-    const resolvedChildren = children(() => local.children);
-    return [...(resolvedChildren() as Element[])];
+  const items = createMemo(() => {
+    const resolvedChildren = children(() => local.children as any)();
+    return (Array.isArray(resolvedChildren)
+      ? resolvedChildren
+      : [resolvedChildren]) as unknown as CarouselItemReturnType[];
   });
 
   const [nextDirectionRef, setNextDirectionRef] = createSignal<string | null>(
@@ -156,6 +171,10 @@ const Carousel: BsPrefixRefForwardingComponent<"div", CarouselProps> = (
   );
 
   createEffect(() => {
+    console.log("isSliding", isSliding());
+  });
+
+  createComputed(() => {
     if (!isSliding() && activeIndex() !== renderedActiveIndex()) {
       if (nextDirectionRef()) {
         setDirection(nextDirectionRef()!);
@@ -164,11 +183,9 @@ const Carousel: BsPrefixRefForwardingComponent<"div", CarouselProps> = (
           (activeIndex() || 0) > renderedActiveIndex() ? "next" : "prev"
         );
       }
-
-      // if (local.slide) {
-      //   setIsSliding(true);
-      // }
-
+      if (local.slide) {
+        setIsSliding(true);
+      }
       setRenderedActiveIndex(activeIndex() || 0);
     }
   });
@@ -179,58 +196,46 @@ const Carousel: BsPrefixRefForwardingComponent<"div", CarouselProps> = (
     }
   });
 
-  let numChildren = 0;
-  let activeChildInterval: number | undefined;
-
   // Iterate to grab all of the children's interval values
   // (and count them, too)
-  createComputed(() => {
-    numChildren = 0;
-    for (let index = 0; index < childArray().length; index++) {
-      ++numChildren;
+  const activeChildInterval = createMemo<number | undefined>(() => {
+    for (let index = 0; index < items().length; index++) {
       if (index === activeIndex()) {
-        // @ts-ignore
-        activeChildInterval = childArray()[index]["interval"] as
-          | number
-          | undefined;
+        const item = items()[index];
+        return item.interval;
       }
     }
+    return undefined;
   });
 
   const prev = (event?: any) => {
     if (isSliding()) {
       return;
     }
-
     let nextActiveIndex = renderedActiveIndex() - 1;
     if (nextActiveIndex < 0) {
       if (!local.wrap) {
         return;
       }
-
-      nextActiveIndex = numChildren - 1;
+      nextActiveIndex = items().length - 1;
     }
-
     setNextDirectionRef("prev");
     onSelect?.(nextActiveIndex, event);
   };
+
   // This is used in the setInterval, so it should not invalidate.
   const next = (event?: any) => {
     if (isSliding()) {
       return;
     }
-
     let nextActiveIndex = renderedActiveIndex() + 1;
-    if (nextActiveIndex >= numChildren) {
+    if (nextActiveIndex >= items().length) {
       if (!local.wrap) {
         return;
       }
-
       nextActiveIndex = 0;
     }
-
     setNextDirectionRef("next");
-
     onSelect?.(nextActiveIndex, event);
   };
 
@@ -238,7 +243,13 @@ const Carousel: BsPrefixRefForwardingComponent<"div", CarouselProps> = (
   const mergedRef = (ref: HTMLElement) => {
     setElementRef(ref);
     if (typeof local.ref === "function") {
-      local.ref(ref);
+      local.ref({
+        get element() {
+          return elementRef();
+        },
+        prev,
+        next,
+      } as any);
     }
   };
 
@@ -253,7 +264,9 @@ const Carousel: BsPrefixRefForwardingComponent<"div", CarouselProps> = (
     }
   };
 
-  const slideDirection = direction() === "next" ? "start" : "end";
+  const slideDirection = createMemo(() =>
+    direction() === "next" ? "start" : "end"
+  );
 
   createEffect(() => {
     if (local.slide) {
@@ -261,23 +274,23 @@ const Carousel: BsPrefixRefForwardingComponent<"div", CarouselProps> = (
       return;
     }
 
-    local.onSlide?.(renderedActiveIndex(), slideDirection);
-    local.onSlid?.(renderedActiveIndex(), slideDirection);
+    local.onSlide?.(renderedActiveIndex(), slideDirection());
+    local.onSlid?.(renderedActiveIndex(), slideDirection());
   });
 
-  const orderClassName = `${prefix}-item-${direction()}`;
-  const directionalClassName = `${prefix}-item-${slideDirection}`;
+  const orderClassName = createMemo(() => `${prefix}-item-${direction()}`);
+  const directionalClassName = createMemo(
+    () => `${prefix}-item-${slideDirection()}`
+  );
 
-  const handleEnter = (node: HTMLElement) => {
-    triggerBrowserReflow(node);
-
-    local.onSlide?.(renderedActiveIndex(), slideDirection);
+  const handleEnter = (node: any) => {
+    triggerBrowserReflow(node!);
+    local.onSlide?.(renderedActiveIndex(), slideDirection());
   };
 
   const handleEntered = () => {
     setIsSliding(false);
-
-    local.onSlid?.(renderedActiveIndex(), slideDirection);
+    local.onSlid?.(renderedActiveIndex(), slideDirection());
   };
 
   const handleKeyDown = (event: KeyboardEvent) => {
@@ -308,7 +321,6 @@ const Carousel: BsPrefixRefForwardingComponent<"div", CarouselProps> = (
         default:
       }
     }
-
     callEventHandler(local.onKeyDown, event);
   };
 
@@ -316,13 +328,11 @@ const Carousel: BsPrefixRefForwardingComponent<"div", CarouselProps> = (
     if (local.pause === "hover") {
       setPaused(true);
     }
-
     callEventHandler(local.onMouseOver, event);
   };
 
   const handleMouseOut = (event: Event) => {
     setPaused(false);
-
     callEventHandler(local.onMouseOut, event);
   };
 
@@ -332,11 +342,9 @@ const Carousel: BsPrefixRefForwardingComponent<"div", CarouselProps> = (
   const handleTouchStart = (event: TouchEvent) => {
     touchStartXRef = event.touches[0].clientX;
     touchDeltaXRef = 0;
-
     if (local.pause === "hover") {
       setPaused(true);
     }
-
     callEventHandler(local.onTouchStart, event);
   };
 
@@ -346,14 +354,12 @@ const Carousel: BsPrefixRefForwardingComponent<"div", CarouselProps> = (
     } else {
       touchDeltaXRef = event.touches[0].clientX - touchStartXRef;
     }
-
     callEventHandler(local.onTouchMove, event);
   };
 
   const handleTouchEnd = (event: TouchEvent) => {
     if (local.touch) {
       const touchDeltaX = touchDeltaXRef;
-
       if (Math.abs(touchDeltaX) > SWIPE_THRESHOLD) {
         if (touchDeltaX > 0) {
           prev(event);
@@ -362,28 +368,26 @@ const Carousel: BsPrefixRefForwardingComponent<"div", CarouselProps> = (
         }
       }
     }
-
     if (local.pause === "hover") {
       let touchUnpauseTimeout = window.setTimeout(() => {
         setPaused(false);
       }, local.interval);
 
       onCleanup(() => {
-        if (touchUnpauseTimeout != null) {
-          window.clearTimeout(touchUnpauseTimeout);
-        }
+        window.clearTimeout(touchUnpauseTimeout);
       });
     }
-
     callEventHandler(local.onTouchEnd, event);
   };
 
-  const shouldPlay = local.interval != null && !paused() && !isSliding();
+  const shouldPlay = createMemo(
+    () => local.interval != null && !paused() && !isSliding()
+  );
 
   const [intervalHandleRef, setIntervalHandleRef] = createSignal<number>();
 
   createEffect(() => {
-    if (!shouldPlay) {
+    if (!shouldPlay()) {
       return undefined;
     }
 
@@ -391,7 +395,7 @@ const Carousel: BsPrefixRefForwardingComponent<"div", CarouselProps> = (
     setIntervalHandleRef(
       window.setInterval(
         document.visibilityState ? nextWhenVisible : nextFunc,
-        activeChildInterval ?? local.interval ?? undefined
+        activeChildInterval() ?? local.interval ?? undefined
       )
     );
 
@@ -402,19 +406,7 @@ const Carousel: BsPrefixRefForwardingComponent<"div", CarouselProps> = (
     });
   });
 
-  // add effect to each child to update classes
-  createEffect(() => {
-    for (let index = 0; index < childArray().length; index++) {
-      childArray()[index].classList.add("active");
-      // createEffect(() => {
-      //   if (index === renderedActiveIndex()) {
-      //     childArray()[index].classList.add("active");
-      //   } else {
-      //     childArray()[index].classList.remove("active");
-      //   }
-      // });
-    }
-  });
+  const isActive = createSelector(renderedActiveIndex);
 
   return (
     <Dynamic
@@ -437,7 +429,7 @@ const Carousel: BsPrefixRefForwardingComponent<"div", CarouselProps> = (
     >
       {local.indicators && (
         <div className={`${prefix}-indicators`}>
-          <For each={childArray()}>
+          <For each={items()}>
             {(_, index: Accessor<number>) => (
               <button
                 type="button"
@@ -447,11 +439,9 @@ const Carousel: BsPrefixRefForwardingComponent<"div", CarouselProps> = (
                     ? local.indicatorLabels[index()]
                     : `Slide ${index() + 1}`
                 }
-                className={
-                  index() === renderedActiveIndex() ? "active" : undefined
-                }
+                className={isActive(index()) ? "active" : undefined}
                 onClick={(e) => onSelect?.(index(), e as any)}
-                aria-current={index() === renderedActiveIndex()}
+                aria-current={isActive(index())}
               />
             )}
           </For>
@@ -459,21 +449,45 @@ const Carousel: BsPrefixRefForwardingComponent<"div", CarouselProps> = (
       )}
 
       <div className={`${prefix}-inner`}>
-        <For each={childArray()}>
+        <For<CarouselItemReturnType, JSX.Element> each={items()}>
           {(child, index: Accessor<number>) => {
+            const el = (child.item as () => HTMLElement)();
             return local.slide ? (
-              <Transition
-                // enterActiveClass={orderClassName}
-                enterClass={"carousel-item-end"}
-                // enterToClass={directionalClassName}
-                // exitActiveClass={directionalClassName}
-                // exitClass={orderClassName}
-                exitToClass={directionalClassName}
+              <TransitionWrapper
+                in={isActive(index())}
+                onEnter={isActive(index()) ? handleEnter : undefined}
+                onEntered={isActive(index()) ? handleEntered : undefined}
+                addEndListener={transitionEndListener}
               >
-                {index() === renderedActiveIndex() && child}
-              </Transition>
+                {
+                  ((
+                    status: TransitionStatus,
+                    innerProps: { ref: (el: HTMLElement) => void }
+                  ) => {
+                    el.classList.toggle(
+                      orderClassName(),
+                      isActive(index()) && status !== "entered"
+                    );
+                    el.classList.toggle(
+                      "active",
+                      status === "entered" || status === "exiting"
+                    );
+                    el.classList.toggle(
+                      directionalClassName(),
+                      status === "entering" || status === "exiting"
+                    );
+                    innerProps.ref(el);
+                    return el;
+                  }) as unknown as JSX.FunctionElement
+                }
+              </TransitionWrapper>
             ) : (
-              child
+              () => {
+                createEffect(() => {
+                  el.classList.toggle("active", isActive(index()));
+                });
+                return el;
+              }
             );
           }}
         </For>
@@ -489,7 +503,7 @@ const Carousel: BsPrefixRefForwardingComponent<"div", CarouselProps> = (
               )}
             </Anchor>
           )}
-          {(local.wrap || activeIndex() !== numChildren - 1) && (
+          {(local.wrap || activeIndex() !== items().length - 1) && (
             <Anchor className={`${prefix}-control-next`} onClick={next}>
               {local.nextIcon}
               {local.nextLabel && (

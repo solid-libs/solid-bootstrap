@@ -10,28 +10,33 @@ export interface CarouselItemProps
   interval?: number;
 }
 
+export type CarouselItemReturnType = ReturnType<typeof CarouselItem>;
+
 const defaultProps = {
   as: "div",
 };
 
-const CarouselItem: BsPrefixRefForwardingComponent<"div", CarouselItemProps> = (
-  p: CarouselItemProps
-) => {
+const CarouselItem = (p: CarouselItemProps) => {
   const [local, props] = splitProps(mergeProps(defaultProps, p), [
     "as",
     "bsPrefix",
     "className",
+    "interval",
   ]);
-  return (
-    <Dynamic
-      component={local.as}
-      {...props}
-      className={classNames(
-        local.className,
-        useBootstrapPrefix(local.bsPrefix, "carousel-item")
-      )}
-    />
-  );
+  // custom response to allow <Carousel /> to access interval
+  return {
+    item: (
+      <Dynamic
+        component={local.as}
+        {...props}
+        className={classNames(
+          local.className,
+          useBootstrapPrefix(local.bsPrefix, "carousel-item")
+        )}
+      />
+    ),
+    interval: local.interval,
+  };
 };
 
 export default CarouselItem;
