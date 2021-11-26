@@ -1,10 +1,20 @@
 // ported from https://github.com/react-bootstrap/react-bootstrap/blob/f11723114d532cfce840417834a73733a8436414/src/Collapse.tsx
 
-import { createEffect, JSX, mergeProps, Show, splitProps } from "solid-js";
+import { children, JSX, mergeProps, splitProps } from "solid-js";
 import css from "dom-helpers/css";
-import { Transition } from "solid-transition-group";
-import { TransitionCallbacks } from "../../core/src/types";
+import {
+  TransitionStatus,
+  ENTERED,
+  ENTERING,
+  EXITED,
+  EXITING,
+  TransitionCallbacks,
+  UNMOUNTED,
+} from "../../transition/src/Transition";
 import triggerBrowserReflow from "./triggerBrowserReflow";
+import transitionEndListener from "./transitionEndListener";
+import TransitionWrapper from "./TransitionWrapper";
+import classNames from "classnames";
 
 type Dimension = "height" | "width";
 
@@ -13,10 +23,10 @@ export interface CollapseProps
     Pick<JSX.HTMLAttributes<HTMLElement>, "role"> {
   className?: string;
   in?: boolean;
-  // mountOnEnter?: boolean;
-  // unmountOnExit?: boolean;
+  mountOnEnter?: boolean;
+  unmountOnExit?: boolean;
   appear?: boolean;
-  // timeout?: number;
+  timeout?: number;
   dimension?: Dimension | (() => Dimension);
   getDimensionValue?: (dimension: Dimension, element: HTMLElement) => number;
   children: JSX.Element;
@@ -46,24 +56,31 @@ function getDefaultDimensionValue(
   );
 }
 
+const collapseStyles = {
+  [EXITED]: "collapse",
+  [EXITING]: "collapsing",
+  [ENTERING]: "collapsing",
+  [ENTERED]: "collapse show",
+  [UNMOUNTED]: "",
+};
+
 const defaultProps: Partial<CollapseProps> = {
   in: false,
   dimension: "height",
-  // timeout: 300,
-  // mountOnEnter: false,
-  // unmountOnExit: false,
+  timeout: 300,
+  mountOnEnter: false,
+  unmountOnExit: false,
   appear: false,
   getDimensionValue: getDefaultDimensionValue,
 };
 
 const Collapse = (p: CollapseProps) => {
   const [local, props] = splitProps(mergeProps(defaultProps, p), [
-    "in",
     "onEnter",
-    "onBeforeEnter",
-    "onAfterEnter",
+    "onEntering",
+    "onEntered",
     "onExit",
-    "onBeforeExit",
+    "onExiting",
     "className",
     "children",
     "dimension",
@@ -77,12 +94,12 @@ const Collapse = (p: CollapseProps) => {
       : (local.dimension as Dimension);
 
   /* -- Expanding -- */
-  const handleBeforeEnter = (elem: Element) => {
+  const handleEnter = (elem?: any) => {
     (elem as HTMLElement).style[computedDimension()] = "0";
-    local.onBeforeEnter?.(elem);
+    local.onEnter?.(elem as HTMLElement);
   };
 
-  const handleOnEnter = (elem: Element) => {
+  const handleEntering = (elem: any) => {
     const scroll =
       `scroll${computedDimension()[0].toUpperCase()}${computedDimension().slice(
         1
@@ -90,17 +107,17 @@ const Collapse = (p: CollapseProps) => {
     (elem as HTMLElement).style[computedDimension()] = `${
       (elem as HTMLElement)[scroll]
     }px`;
-    local.onEnter?.(elem, () => {});
+    local.onEntering?.(elem as HTMLElement);
   };
 
-  const handleAfterEnter = (elem: Element) => {
+  const handleEntered = (elem: any) => {
     // @ts-ignore
     elem.style[computedDimension()] = null;
-    local.onAfterEnter?.(elem);
+    local.onEntered?.(elem as HTMLElement);
   };
 
   /* -- Collapsing -- */
-  const handleBeforeExit = (elem: Element) => {
+  const handleExit = (elem: Element) => {
     (elem as HTMLElement).style[
       computedDimension()
     ] = `${local.getDimensionValue!(
@@ -109,33 +126,49 @@ const Collapse = (p: CollapseProps) => {
     )}px`;
     // @ts-ignore
     triggerBrowserReflow(elem);
-    local.onBeforeExit?.(elem);
+    local.onExit?.(elem as HTMLElement);
   };
 
-  const handleOnExit = (elem: Element) => {
+  const handleExiting = (elem: Element) => {
     // @ts-ignore
     elem.style[computedDimension()] = null;
-    local.onExit?.(elem, () => {});
+    local.onExiting?.(elem as HTMLElement);
   };
 
+  let child = children(() => local.children);
+  let prevClasses: string[] = [];
+
   return (
-    <Transition
+    <TransitionWrapper
+      addEndListener={transitionEndListener}
       {...props}
-      aria-expanded={props.role ? local.in : null}
-      enterActiveClass="collapsing"
-      enterClass="collapsing"
-      enterToClass="collapsing"
-      exitActiveClass="collapsing"
-      exitClass="collapsing"
-      exitToClass="collapsing"
-      onBeforeEnter={handleBeforeEnter}
-      onEnter={handleOnEnter}
-      onAfterEnter={handleAfterEnter}
-      onBeforeExit={handleBeforeExit}
-      onExit={handleOnExit}
+      aria-expanded={props.role ? props.in : null}
+      onEnter={handleEnter}
+      onEntering={handleEntering}
+      onEntered={handleEntered}
+      onExit={handleExit}
+      onExiting={handleExiting}
     >
-      <Show when={local.in}>{local.children}</Show>
-    </Transition>
+      {
+        ((
+          state: TransitionStatus,
+          innerProps: { ref: (el: HTMLElement) => void }
+        ) => {
+          const el = child() as HTMLElement;
+          innerProps.ref(el);
+          const newClasses = classNames(
+            local.className,
+            collapseStyles[state],
+            computedDimension() === "width" && "collapse-horizontal"
+          ).split(" ");
+          el.classList.remove(...prevClasses);
+          el.classList.add(...newClasses);
+          prevClasses = newClasses;
+          console.log("applied classes", newClasses, el.classList);
+          return el;
+        }) as unknown as JSX.FunctionElement
+      }
+    </TransitionWrapper>
   );
 };
 export default Collapse;
