@@ -100,8 +100,6 @@ const App: Component = () => (
       <div>
         <h3>Known Issues</h3>
         <ul>
-          <li>Tabs - getDefaultActiveKey (was reading from child props)</li>
-          <li>TabPane - Transitions</li>
           <li>Navbar - not collapsing</li>
           <li>Navbar - offcanvas infinite loop?</li>
           <li>

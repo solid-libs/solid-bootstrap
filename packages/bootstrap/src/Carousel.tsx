@@ -32,7 +32,7 @@ export type CarouselVariant = "dark";
 
 export interface CarouselProps
   extends BsPrefixProps,
-    Omit<JSX.HTMLAttributes<HTMLElement>, "onSelect" | "children" | "ref"> {
+    Omit<JSX.HTMLAttributes<HTMLElement>, "onSelect" | "ref"> {
   slide?: boolean;
   fade?: boolean;
   controls?: boolean;
@@ -53,7 +53,6 @@ export interface CarouselProps
   nextIcon?: JSX.Element;
   nextLabel?: JSX.Element;
   variant?: CarouselVariant;
-  children?: typeof CarouselItem | typeof CarouselItem[];
   ref?: (r: {
     element: () => HTMLElement;
     prev: (event?: any) => void;

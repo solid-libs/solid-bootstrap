@@ -11,7 +11,7 @@
     "types": ["vite/client"]
   },
   "include": [
-    "docs/**/*",
+    "src/**/*",
     "packages/bootstrap/src/**/*",
     "packages/core/src/**/*",
     "packages/transition/src/**/*"

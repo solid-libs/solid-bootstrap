@@ -251,10 +251,6 @@ export const ToastDocs: Component = () => {
         </Card>
         <Card>
           <Card.Header>Contextual variations</Card.Header>
-          <Card.Body></Card.Body>
-        </Card>
-        <Card>
-          <Card.Header></Card.Header>
           <Card.Body>
             {[
               "Primary",

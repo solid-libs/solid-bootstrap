@@ -1,4 +1,4 @@
-import { JSX, mergeProps, splitProps } from "solid-js";
+import { Component, JSX, mergeProps, splitProps } from "solid-js";
 import classNames from "classnames";
 import { useBootstrapPrefix } from "./ThemeProvider";
 import { BsPrefixProps, BsPrefixRefForwardingComponent } from "./helpers";
@@ -10,12 +10,17 @@ export interface CarouselItemProps
   interval?: number;
 }
 
-export type CarouselItemReturnType = ReturnType<typeof CarouselItem>;
+// return type is actually this - but Typescript only allows JSX.Elements
+export type CarouselItemReturnType = {
+  item: JSX.Element;
+  interval: number;
+};
 
 const defaultProps = {
   as: "div",
 };
 
+let a;
 const CarouselItem = (p: CarouselItemProps) => {
   const [local, props] = splitProps(mergeProps(defaultProps, p), [
     "as",
@@ -36,7 +41,7 @@ const CarouselItem = (p: CarouselItemProps) => {
       />
     ),
     interval: local.interval,
-  };
+  } as unknown as JSX.Element;
 };
 
 export default CarouselItem;
