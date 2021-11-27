@@ -105,12 +105,6 @@ const App: Component = () => (
           <li>none</li>
         </ul>
       </div>
-      <div>
-        <h3>In progress</h3>
-        <ul>
-          <li>Popovers</li>
-        </ul>
-      </div>
       <h2 class="display-5">Bootstrap Components</h2>
       <LayoutGridDocs />
       <LayoutStackDocs />
