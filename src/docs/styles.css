@@ -9,3 +9,8 @@
 .show-grid .row + .row {
   margin-top: 1rem;
 }
+
+.modal-90w {
+  width: 90%;
+  max-width: none !important;
+}
