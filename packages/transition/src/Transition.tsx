@@ -250,26 +250,31 @@ const Transition: TransitionComponent = (p: TransitionProps) => {
     setMounted(true);
   });
 
-  createComputed(() => {
-    // componentDidUpdate
-    if (!mounted) return;
-    const prevStatus = status();
-    if (local.in && prevStatus === UNMOUNTED) {
-      setStatus(EXITED);
-    } else {
-      let nextStatus: TransitionStatus | null = null;
-      if (local.in) {
-        if (prevStatus !== ENTERING && prevStatus !== ENTERED) {
-          nextStatus = ENTERING;
-        }
-      } else {
-        if (prevStatus === ENTERING || prevStatus === ENTERED) {
-          nextStatus = EXITING;
+  createComputed(
+    on(
+      () => local.in,
+      () => {
+        // componentDidUpdate
+        if (!mounted()) return;
+        const prevStatus = status();
+        if (local.in && prevStatus === UNMOUNTED) {
+          setStatus(EXITED);
+        } else {
+          let nextStatus: TransitionStatus | null = null;
+          if (local.in) {
+            if (prevStatus !== ENTERING && prevStatus !== ENTERED) {
+              nextStatus = ENTERING;
+            }
+          } else {
+            if (prevStatus === ENTERING || prevStatus === ENTERED) {
+              nextStatus = EXITING;
+            }
+          }
+          updateStatus(false, nextStatus);
         }
       }
-      updateStatus(false, nextStatus);
-    }
-  });
+    )
+  );
 
   onCleanup(() => {
     cancelNextCallback();
