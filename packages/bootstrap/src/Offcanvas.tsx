@@ -89,10 +89,10 @@ const Offcanvas: BsPrefixRefForwardingComponent<"div", OffcanvasProps> = (
   ]);
   let modalManager: BootstrapModalManager;
   const bsPrefix = useBootstrapPrefix(local.bsPrefix, "offcanvas");
-  const { onToggle } = useContext(NavbarContext) || {};
+  const navbarContext = useContext(NavbarContext);
 
   const handleHide = () => {
-    onToggle?.();
+    navbarContext?.onToggle?.();
     local.onHide?.();
   };
 

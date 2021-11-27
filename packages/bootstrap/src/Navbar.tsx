@@ -67,7 +67,7 @@ const Navbar: BsPrefixRefForwardingComponent<"nav", NavbarProps> = (
 
   const handleCollapse: SelectCallback = (...args) => {
     local.onSelect?.(...args);
-    if (local.collapseOnSelect && expanded) {
+    if (local.collapseOnSelect && expanded()) {
       onToggle?.(false);
     }
   };
@@ -81,11 +81,11 @@ const Navbar: BsPrefixRefForwardingComponent<"nav", NavbarProps> = (
 
   const navbarContext: NavbarContextType = {
     get onToggle() {
-      return () => onToggle?.(!expanded);
+      return () => onToggle?.(!expanded());
     },
     bsPrefix,
     get expanded() {
-      return !!expanded;
+      return !!expanded();
     },
   };
 

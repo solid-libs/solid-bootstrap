@@ -100,7 +100,6 @@ const App: Component = () => (
       <div>
         <h3>Known Issues</h3>
         <ul>
-          <li>Navbar - not collapsing</li>
           <li>Navbar - offcanvas infinite loop?</li>
           <li>
             Overlay (Bootstrap) - commented out bits. Change API to useContext?

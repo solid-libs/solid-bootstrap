@@ -23,7 +23,7 @@ const NavbarCollapse = (p: NavbarCollapseProps) => {
   const context = useContext(NavbarContext);
 
   return (
-    <Collapse in={!!(context && context.expanded)} {...props}>
+    <Collapse in={!!context?.expanded} {...props}>
       <div ref={local.ref} className={classnames(bsPrefix, local.className)}>
         {local.children}
       </div>

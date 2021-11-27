@@ -32,11 +32,11 @@ const NavbarToggle: BsPrefixRefForwardingComponent<
   ]);
   const bsPrefix = useBootstrapPrefix(local.bsPrefix, "navbar-toggler");
 
-  const { onToggle, expanded } = useContext(NavbarContext) || {};
+  const context = useContext(NavbarContext);
 
   const handleClick = (e: MouseEvent) => {
     callEventHandler(local.onClick, e);
-    if (onToggle) onToggle();
+    context?.onToggle?.();
   };
 
   if (local.as === "button") {
@@ -53,7 +53,7 @@ const NavbarToggle: BsPrefixRefForwardingComponent<
       className={classNames(
         local.className,
         bsPrefix,
-        !expanded && "collapsed"
+        !context?.expanded && "collapsed"
       )}
     >
       {local.children || <span className={`${bsPrefix}-icon`} />}
