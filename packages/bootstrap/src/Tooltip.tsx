@@ -15,6 +15,7 @@ export interface TooltipProps
 }
 
 const defaultProps = {
+  arrowProps: {},
   placement: "right",
 };
 

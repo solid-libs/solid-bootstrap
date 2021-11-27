@@ -1,4 +1,4 @@
-import { Component } from "solid-js";
+import { Component, JSX } from "solid-js";
 import Card from "../../packages/bootstrap/src/Card";
 import Tooltip from "../../packages/bootstrap/src/Tooltip";
 import Button from "../../packages/bootstrap/src/Button";
@@ -18,20 +18,28 @@ export const TooltipDocs: Component = () => {
         <Card>
           <Card.Header>Examples</Card.Header>
           <Card.Body>
-            {/* <p>
+            <p>
               Tight pants next level keffiyeh{" "}
-              <Tooltip>
-                <a href="#">you probably</a>
-              </Tooltip>{" "}
+              <Link title="Default title" id="t-1">
+                you probably
+              </Link>{" "}
               haven't heard of them. Farm-to-table seitan, mcsweeney's fixie
-              sustainable quinoa 8-bit american apparel <a href="#">have a</a>{" "}
+              sustainable quinoa 8-bit american apparel{" "}
+              <Link id="t-2" title="Another one">
+                have a
+              </Link>{" "}
               terry richardson vinyl chambray. Beard stumptown, cardigans banh
               mi lomo thundercats. Tofu biodiesel williamsburg marfa, four loko
               mcsweeney's cleanse vegan chambray. A really ironic artisan{" "}
-              <a href="#">whatever keytar</a>, scenester farm-to-table banksy
-              Austin <a href="#">twitter handle</a> freegan cred raw denim
-              single-origin coffee viral.
-            </p> */}
+              <Link title="Another one here too" id="t-3">
+                whatever keytar
+              </Link>
+              , scenester farm-to-table banksy Austin{" "}
+              <Link title="The last tip!" id="t-4">
+                twitter handle
+              </Link>{" "}
+              freegan cred raw denim single-origin coffee viral.
+            </p>
           </Card.Body>
         </Card>
         <Card>
@@ -55,8 +63,14 @@ export const TooltipDocs: Component = () => {
   );
 };
 
-// const Link = ({ id, children, title }) => (
-//   <OverlayTrigger overlay={<Tooltip id={id}>{title}</Tooltip>}>
-//     <a href="#">{children}</a>
-//   </OverlayTrigger>
-// );
+const Link = (props: { id: string; children: JSX.Element; title: string }) => (
+  <OverlayTrigger
+    overlay={(p) => (
+      <Tooltip {...p} id={props.id}>
+        {props.title}
+      </Tooltip>
+    )}
+  >
+    <a href="#">{props.children}</a>
+  </OverlayTrigger>
+);

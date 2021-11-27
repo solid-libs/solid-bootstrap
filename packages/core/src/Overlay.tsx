@@ -20,6 +20,7 @@ import {
   TransitionComponent,
 } from "../../transition/src/Transition";
 import { Portal } from "solid-js/web";
+import useWaitForDOMRef, { DOMContainer } from "./useWaitForDOMRef";
 
 export interface OverlayArrowProps extends Record<string, any> {
   ref: (e: HTMLElement) => void;
@@ -71,7 +72,7 @@ export interface OverlayProps extends TransitionCallbacks {
    * A DOM Element, Ref to an element, or function that returns either. The `container` will have the Portal children
    * appended to it.
    */
-  container: () => HTMLElement | undefined;
+  container?: DOMContainer;
 
   /**
    * A DOM Element, Ref to an element, or function that returns either. The `target` element is where
@@ -131,6 +132,13 @@ const Overlay = (props: OverlayProps) => {
   const [rootElement, attachRef] = createSignal<HTMLElement>();
   const [arrowElement, attachArrowRef] = createSignal<Element>();
   const [exited, setExited] = createSignal(!props.show);
+
+  const container = useWaitForDOMRef({
+    get ref() {
+      return props.container;
+    },
+  });
+
   const [popperOptions, setPopperOptions] = createStore<UsePopperOptions>({});
   const Transition = props.transition!;
   const popperVisible = createMemo(
@@ -226,8 +234,8 @@ const Overlay = (props: OverlayProps) => {
   };
 
   return (
-    <Show when={props.container() && popperVisible()}>
-      <Portal mount={props.container()} ref={portalRef}>
+    <Show when={container() && popperVisible()}>
+      <Portal mount={container()!} ref={portalRef}>
         {child}
       </Portal>
     </Show>

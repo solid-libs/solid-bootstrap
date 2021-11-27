@@ -7,7 +7,7 @@ const PLACEMENTS: Placement[] = ["top", "right", "bottom", "left"];
 
 export const CoreOverlayDocs: Component = () => {
   const [target, setTarget] = createSignal<HTMLElement>();
-  const [container, setContainer] = createSignal<HTMLElement>();
+  const [container, setContainer] = createSignal<HTMLElement | null>(null);
   const [show, setShow] = createSignal(false);
   const [placement, setPlacement] = createSignal<Placement>();
 

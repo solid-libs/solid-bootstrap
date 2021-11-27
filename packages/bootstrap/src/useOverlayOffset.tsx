@@ -13,7 +13,7 @@ import Popover from "./Popover";
 
 // This is meant for internal use.
 // This applies a custom offset to the overlay if it's a popover.
-export default function useOverlayOffset(): [
+export function useOverlayOffset(): [
   (ref: HTMLElement | null) => void,
   Accessor<Options["modifiers"]>
 ] {
