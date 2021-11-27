@@ -38,7 +38,7 @@ const fadeStyles = {
   [ENTERED]: "show",
 };
 
-const Fade: TransitionComponent = (p: FadeProps) => {
+const Fade = (p: FadeProps) => {
   const [local, props] = splitProps(mergeProps(defaultProps, p), [
     "className",
     "children",

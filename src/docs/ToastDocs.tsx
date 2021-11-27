@@ -28,7 +28,7 @@ export const ToastDocs: Component = () => {
         <Card>
           <Card.Header>Examples</Card.Header>
           <Card.Body>
-            <Toast animation={false}>
+            <Toast>
               <Toast.Header>
                 <img
                   src="holder.js/20x20?text=%20"
@@ -45,7 +45,6 @@ export const ToastDocs: Component = () => {
         <Card>
           <Card.Header>Dismissible</Card.Header>
           <Card.Body>
-            {" "}
             <Row>
               <Col md={6} className="mb-2">
                 <Button onClick={() => setShow1((s) => !s)} className="mb-2">
@@ -96,7 +95,7 @@ export const ToastDocs: Component = () => {
           <Card.Header>Stacking</Card.Header>
           <Card.Body>
             <ToastContainer>
-              <Toast animation={false}>
+              <Toast>
                 <Toast.Header>
                   <img
                     src="holder.js/20x20?text=%20"
@@ -108,7 +107,7 @@ export const ToastDocs: Component = () => {
                 </Toast.Header>
                 <Toast.Body>See? Just like this.</Toast.Body>
               </Toast>
-              <Toast animation={false}>
+              <Toast>
                 <Toast.Header>
                   <img
                     src="holder.js/20x20?text=%20"
@@ -159,7 +158,7 @@ export const ToastDocs: Component = () => {
               style={{ "min-height": "240px" }}
             >
               <ToastContainer className="p-3" position={position()}>
-                <Toast animation={false}>
+                <Toast>
                   <Toast.Header closeButton={false}>
                     <img
                       src="holder.js/20x20?text=%20"
@@ -187,7 +186,7 @@ export const ToastDocs: Component = () => {
               style={{ "min-height": "240px" }}
             >
               <ToastContainer position="top-end" className="p-3">
-                <Toast animation={false}>
+                <Toast>
                   <Toast.Header>
                     <img
                       src="holder.js/20x20?text=%20"
@@ -199,7 +198,7 @@ export const ToastDocs: Component = () => {
                   </Toast.Header>
                   <Toast.Body>See? Just like this.</Toast.Body>
                 </Toast>
-                <Toast animation={false}>
+                <Toast>
                   <Toast.Header>
                     <img
                       src="holder.js/20x20?text=%20"
@@ -218,7 +217,7 @@ export const ToastDocs: Component = () => {
           </Card.Body>
         </Card>
         <Card>
-          <Card.Header>Autohide (delay ms)</Card.Header>
+          <Card.Header>Autohide (3000 ms)</Card.Header>
           <Card.Body>
             <Row>
               <Col xs={6}>
@@ -227,7 +226,6 @@ export const ToastDocs: Component = () => {
                   show={show3()}
                   delay={3000}
                   autohide
-                  animation={false}
                 >
                   <Toast.Header>
                     <img
@@ -262,11 +260,7 @@ export const ToastDocs: Component = () => {
               "Light",
               "Dark",
             ].map((variant, idx) => (
-              <Toast
-                className="d-inline-block m-1"
-                bg={variant.toLowerCase()}
-                animation={false}
-              >
+              <Toast className="d-inline-block m-1" bg={variant.toLowerCase()}>
                 <Toast.Header>
                   <img
                     src="holder.js/20x20?text=%20"
@@ -282,10 +276,6 @@ export const ToastDocs: Component = () => {
               </Toast>
             ))}
           </Card.Body>
-        </Card>
-        <Card>
-          <Card.Header></Card.Header>
-          <Card.Body></Card.Body>
         </Card>
       </div>
     </div>

@@ -91,8 +91,9 @@ const Toast: BsPrefixRefForwardingComponent<"div", ToastProps> = (
   };
 
   const hasAnimation = !!(local.transition! && local.animation);
+  const Transition = local.transition;
 
-  const toast = () => (
+  const ToastInner = () => (
     <div
       {...props}
       className={classNames(
@@ -106,14 +107,15 @@ const Toast: BsPrefixRefForwardingComponent<"div", ToastProps> = (
       aria-atomic="true"
     />
   );
+
   return (
     <ToastContext.Provider value={toastContext}>
       {hasAnimation && local.transition ? (
-        <Dynamic component={local.transition} in={local.show} unmountOnExit>
-          {toast}
-        </Dynamic>
+        <Transition appear in={local.show} unmountOnExit>
+          <ToastInner />
+        </Transition>
       ) : (
-        toast
+        <ToastInner />
       )}
     </ToastContext.Provider>
   );

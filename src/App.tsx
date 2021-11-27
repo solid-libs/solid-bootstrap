@@ -109,7 +109,6 @@ const App: Component = () => (
             listeners to child
           </li>
           <li>Tooltips - animation (Transitions)</li>
-          <li>Toasts - animation (Transitions)</li>
         </ul>
       </div>
       <div>
@@ -117,7 +116,6 @@ const App: Component = () => (
         <ul>
           <li>Overlays</li>
           <li>Popovers</li>
-          <li>Tabs</li>
           <li>Tooltips</li>
         </ul>
       </div>
