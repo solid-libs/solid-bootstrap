@@ -31,6 +31,7 @@ import { LayoutGridDocs } from "./docs/LayoutGridDocs";
 import { LayoutStackDocs } from "./docs/LayoutStackDocs";
 import { TabsDocs } from "./docs/TabsDocs";
 import { OffcanvasDocs } from "./docs/OffcanvasDocs";
+import { PopoverDocs } from "./docs/PopoverDocs";
 
 const App: Component = () => (
   <div
@@ -101,22 +102,13 @@ const App: Component = () => (
       <div>
         <h3>Known Issues</h3>
         <ul>
-          <li>
-            Overlay (Bootstrap) - commented out bits. Change API to useContext?
-          </li>
-          <li>
-            Overlay Trigger (Bootstrap) - commented out bits. Need to add
-            listeners to child
-          </li>
-          <li>Tooltips - animation (Transitions)</li>
+          <li>none</li>
         </ul>
       </div>
       <div>
         <h3>In progress</h3>
         <ul>
-          <li>Overlays</li>
           <li>Popovers</li>
-          <li>Tooltips</li>
         </ul>
       </div>
       <h2 class="display-5">Bootstrap Components</h2>
@@ -142,6 +134,7 @@ const App: Component = () => (
       <NavbarDocs />
       <OffcanvasDocs />
       <PaginationDocs />
+      <PopoverDocs />
       <PlaceholderDocs />
       <ProgressBarDocs />
       <SpinnerDocs />

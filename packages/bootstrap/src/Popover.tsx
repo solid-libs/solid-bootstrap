@@ -1,11 +1,12 @@
-import { JSX, mergeProps, splitProps } from "solid-js";
+import { JSX, mergeProps, splitProps, useContext } from "solid-js";
 import classNames from "classnames";
 import { OverlayArrowProps } from "../../core/src/Overlay";
-import { useBootstrapPrefix, useIsRTL } from "./ThemeProvider";
+import { useBootstrapPrefix } from "./ThemeProvider";
 import PopoverHeader from "./PopoverHeader";
 import PopoverBody from "./PopoverBody";
 import { Placement } from "./types";
-import { BsPrefixProps, getOverlayDirection } from "./helpers";
+import { BsPrefixProps } from "./helpers";
+import OverlayContext from "./OverlayContext";
 
 export interface PopoverProps
   extends JSX.HTMLAttributes<HTMLDivElement>,
@@ -19,6 +20,7 @@ export interface PopoverProps
 }
 
 const defaultProps: Partial<PopoverProps> = {
+  arrowProps: {},
   placement: "right",
 };
 
@@ -35,23 +37,28 @@ const Popover = (p: PopoverProps) => {
     "show",
   ]);
   const decoratedBsPrefix = useBootstrapPrefix(local.bsPrefix, "popover");
-  const isRTL = useIsRTL();
   const [primaryPlacement] = local.placement?.split("-") || [];
-  const bsDirection = getOverlayDirection(primaryPlacement, isRTL);
+
+  const context = useContext(OverlayContext);
 
   return (
     <div
       role="tooltip"
-      style={local.style}
       x-placement={primaryPlacement}
       className={classNames(
         local.className,
         decoratedBsPrefix,
-        primaryPlacement && `bs-popover-${bsDirection}`
+        primaryPlacement && `bs-popover-auto`
       )}
       {...props}
+      {...context?.wrapperProps}
+      style={Object.assign({}, local.style, context?.wrapperProps.style)}
     >
-      <div className="popover-arrow" {...local.arrowProps} />
+      <div
+        className="popover-arrow"
+        {...local.arrowProps}
+        {...context?.arrowProps}
+      />
       {local.body ? (
         <PopoverBody>{local.children}</PopoverBody>
       ) : (
@@ -64,8 +71,4 @@ const Popover = (p: PopoverProps) => {
 export default Object.assign(Popover, {
   Header: PopoverHeader,
   Body: PopoverBody,
-
-  // Default popover offset.
-  // https://github.com/twbs/bootstrap/blob/5c32767e0e0dbac2d934bcdee03719a65d3f1187/js/src/popover.js#L28
-  POPPER_OFFSET: [0, 8] as const,
 });
