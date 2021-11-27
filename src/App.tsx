@@ -30,6 +30,7 @@ import { ToastDocs } from "./docs/ToastDocs";
 import { LayoutGridDocs } from "./docs/LayoutGridDocs";
 import { LayoutStackDocs } from "./docs/LayoutStackDocs";
 import { TabsDocs } from "./docs/TabsDocs";
+import { OffcanvasDocs } from "./docs/OffcanvasDocs";
 
 const App: Component = () => (
   <div
@@ -100,7 +101,6 @@ const App: Component = () => (
       <div>
         <h3>Known Issues</h3>
         <ul>
-          <li>Navbar - offcanvas infinite loop?</li>
           <li>
             Overlay (Bootstrap) - commented out bits. Change API to useContext?
           </li>
@@ -115,7 +115,6 @@ const App: Component = () => (
       <div>
         <h3>In progress</h3>
         <ul>
-          <li>Offcanvas</li>
           <li>Overlays</li>
           <li>Popovers</li>
           <li>Tabs</li>
@@ -143,6 +142,7 @@ const App: Component = () => (
       <ModalDocs />
       <NavDocs />
       <NavbarDocs />
+      <OffcanvasDocs />
       <PaginationDocs />
       <PlaceholderDocs />
       <ProgressBarDocs />

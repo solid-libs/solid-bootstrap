@@ -13,7 +13,7 @@ const Selector = {
   NAVBAR_TOGGLER: ".navbar-toggler",
 };
 
-class BootstrapModalManager extends ModalManager {
+export class BootstrapModalManager extends ModalManager {
   private adjustAndStore<T extends keyof CSSStyleDeclaration>(
     prop: T,
     element: HTMLElement,

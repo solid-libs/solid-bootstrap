@@ -257,7 +257,7 @@ export const NavbarDocs: Component = () => {
         <Card>
           <Card.Header>Offcanvas</Card.Header>
           <Card.Body>
-            {/* <Navbar bg="light" expand={false}>
+            <Navbar bg="light" expand={false}>
               <Container fluid>
                 <Navbar.Brand href="#">Navbar Offcanvas</Navbar.Brand>
                 <Navbar.Toggle aria-controls="offcanvasNavbar" />
@@ -303,7 +303,7 @@ export const NavbarDocs: Component = () => {
                   </Offcanvas.Body>
                 </Navbar.Offcanvas>
               </Container>
-            </Navbar> */}
+            </Navbar>
           </Card.Body>
         </Card>
         <Card>

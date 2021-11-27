@@ -14,7 +14,8 @@ import OffcanvasHeader from "./OffcanvasHeader";
 import OffcanvasTitle from "./OffcanvasTitle";
 import { BsPrefixRefForwardingComponent } from "./helpers";
 import { useBootstrapPrefix } from "./ThemeProvider";
-import BootstrapModalManager, {
+import {
+  BootstrapModalManager,
   getSharedManager,
 } from "./BootstrapModalManager";
 

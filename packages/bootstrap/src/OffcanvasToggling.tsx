@@ -1,11 +1,17 @@
-import { children, JSX, mergeProps, splitProps } from "solid-js";
+import { children, JSX, mergeProps, splitProps, useContext } from "solid-js";
 import classNames from "classnames";
-import transitionEndListener from "./transitionEndListener";
-import { BsPrefixOnlyProps } from "./helpers";
-import { useBootstrapPrefix } from "./ThemeProvider";
 import Transition, {
   TransitionCallbacks,
+  TransitionStatus,
+  ENTERED,
+  ENTERING,
+  EXITING,
 } from "../../transition/src/Transition";
+import transitionEndListener from "./transitionEndListener";
+import { BsPrefixOnlyProps } from "./helpers";
+import TransitionWrapper from "./TransitionWrapper";
+import { useBootstrapPrefix } from "./ThemeProvider";
+import { resolveClasses } from "../../core/src/utils";
 
 export interface OffcanvasTogglingProps
   extends TransitionCallbacks,
@@ -26,10 +32,10 @@ const defaultProps = {
   appear: false,
 };
 
-// const transitionStyles = {
-//   [ENTERING]: 'show',
-//   [ENTERED]: 'show',
-// };
+const transitionStyles = {
+  [ENTERING]: "show",
+  [ENTERED]: "show",
+};
 
 const OffcanvasToggling = (p: OffcanvasTogglingProps) => {
   const [local, props] = splitProps(mergeProps(defaultProps, p), [
@@ -39,11 +45,32 @@ const OffcanvasToggling = (p: OffcanvasTogglingProps) => {
   ]);
   const bsPrefix = useBootstrapPrefix(local.bsPrefix, "offcanvas");
 
+  let child = children(() => local.children);
+  let prevClasses: string;
+
   return (
-    <Transition {...props}>
-      {/* original source did stuff with "-toggling" class but that doesn't appear in Bootstrap CSS anywhere?? */}
-      {local.children}
-    </Transition>
+    <TransitionWrapper addEndListener={transitionEndListener} {...props}>
+      {
+        ((
+          status: TransitionStatus,
+          innerProps: { ref: (el: HTMLElement) => void }
+        ) => {
+          const el = child() as HTMLElement;
+          innerProps.ref(el);
+          const newClasses = classNames(
+            local.className,
+            (status === ENTERING || status === EXITING) &&
+              `${bsPrefix}-toggling`,
+            // @ts-ignore
+            transitionStyles[status]
+          );
+          resolveClasses(el, prevClasses, newClasses);
+          prevClasses = newClasses;
+          return el;
+        }) as unknown as JSX.FunctionElement
+      }
+    </TransitionWrapper>
   );
 };
+
 export default OffcanvasToggling;
