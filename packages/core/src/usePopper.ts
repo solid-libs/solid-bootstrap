@@ -200,18 +200,16 @@ function usePopper(
       let instance: ReturnType<typeof createPopper>;
       instance = createPopper(target, popper, {});
       setPopperInstance(instance);
-
-      onCleanup(() => {
-        if (instance) {
-          instance.destroy();
-          setPopperInstance(undefined);
-          setPopperState((s) => ({
-            ...s,
-            attributes: {},
-            styles: { popper: {} },
-          }));
-        }
-      });
+    } else {
+      if (popperInstance()) {
+        popperInstance()!.destroy();
+        setPopperInstance(undefined);
+        setPopperState((s) => ({
+          ...s,
+          attributes: {},
+          styles: { popper: {} },
+        }));
+      }
     }
   });
 

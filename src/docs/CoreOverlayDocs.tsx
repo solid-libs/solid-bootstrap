@@ -57,9 +57,9 @@ export const CoreOverlayDocs: Component = () => {
           flip
         >
           {/* Render overlay (tooltip) with props from popperjs */}
-          {(props, more) => (
-            <div class="tooltip bs-tooltip-auto show" {...props()}>
-              <div class="tooltip-arrow" {...more().arrowProps}></div>
+          {(wrapperProps, arrowProps) => (
+            <div class="tooltip bs-tooltip-auto show" {...wrapperProps()}>
+              <div class="tooltip-arrow" {...arrowProps()}></div>
               <div class="tooltip-inner">I am a overlay!</div>
             </div>
           )}

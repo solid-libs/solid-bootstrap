@@ -7,11 +7,15 @@ import usePopper, {
 import useRootClose, { RootCloseOptions } from "./useRootClose";
 import mergeOptionsWithPopperConfig from "./mergeOptionsWithPopperConfig";
 import {
+  batch,
+  children,
   createComputed,
   createEffect,
   createMemo,
   createSignal,
   JSX,
+  mergeProps,
+  onCleanup,
   Show,
 } from "solid-js";
 import { createStore, reconcile } from "solid-js/store";
@@ -31,7 +35,6 @@ export interface OverlayMetadata {
   show: boolean;
   placement: Placement | undefined;
   popper: UsePopperState | null;
-  arrowProps: Partial<OverlayArrowProps>;
 }
 
 export interface OverlayInjectedProps extends Record<string, any> {
@@ -78,7 +81,7 @@ export interface OverlayProps extends TransitionCallbacks {
    * A DOM Element, Ref to an element, or function that returns either. The `target` element is where
    * the overlay is positioned relative to.
    */
-  target: () => HTMLElement | undefined;
+  target: () => Element | undefined;
 
   /**
    * Set the visibility of the Overlay
@@ -119,7 +122,8 @@ export interface OverlayProps extends TransitionCallbacks {
    * A render prop that returns an overlay element.
    */
   children: (
-    props: () => OverlayInjectedProps,
+    wrapperProps: () => OverlayInjectedProps,
+    arrowProps: () => Partial<OverlayArrowProps>,
     meta: () => OverlayMetadata
   ) => JSX.Element;
 }
@@ -194,49 +198,46 @@ const Overlay = (props: OverlayProps) => {
     }
   });
 
-  const innerChild = () =>
-    props.children(
-      () => ({
-        ...popper()?.attributes.popper,
-        style: popper()?.styles.popper as any,
-        ref: attachRef,
-      }),
-      () => ({
-        popper: popper()!,
-        placement: props.placement,
-        show: !!props.show,
-        arrowProps: {
-          ...popper()?.attributes.arrow,
-          style: popper()?.styles.arrow as any,
-          ref: attachArrowRef,
-        },
-      })
-    );
+  const wrapperProps = createMemo(() => ({
+    ...popper()?.attributes.popper,
+    style: popper()?.styles.popper as any,
+    ref: attachRef,
+  }));
 
-  const child = !Transition
-    ? innerChild
-    : () => (
-        <Transition
-          appear
-          onExit={props.onExit}
-          onExiting={props.onExiting}
-          onExited={handleHidden}
-          onEnter={props.onEnter}
-          onEntering={props.onEntering}
-          onEntered={props.onEntered}
-        >
-          {props.show && innerChild}
-        </Transition>
-      );
+  const arrowProps = createMemo(() => ({
+    ...popper()?.attributes.arrow,
+    style: popper()?.styles.arrow as any,
+    ref: attachArrowRef,
+  }));
 
-  const portalRef = (ref: HTMLDivElement) => {
-    ref.style.position = "fixed";
-  };
+  const metadata = createMemo(() => ({
+    popper: popper()!,
+    placement: props.placement,
+    show: !!props.show,
+  }));
+
+  const c = children(() => props.children as JSX.Element)();
+  const InnerChild = () => (c as Function)(wrapperProps, arrowProps, metadata);
 
   return (
     <Show when={container() && popperVisible()}>
-      <Portal mount={container()!} ref={portalRef}>
-        {child}
+      <Portal mount={container()!}>
+        {Transition ? (
+          <Transition
+            appear
+            in={props.show}
+            onExit={props.onExit}
+            onExiting={props.onExiting}
+            onExited={handleHidden}
+            onEnter={props.onEnter}
+            onEntering={props.onEntering}
+            onEntered={props.onEntered}
+          >
+            <InnerChild />
+          </Transition>
+        ) : (
+          <InnerChild />
+        )}
       </Portal>
     </Show>
   );

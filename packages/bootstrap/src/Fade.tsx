@@ -50,7 +50,7 @@ const Fade = (p: FadeProps) => {
     props.onEnter?.(node, isAppearing);
   };
 
-  let child = children(() => local.children);
+  const resolvedChildren = children(() => local.children);
   let prevClasses: string;
 
   return (
@@ -62,9 +62,10 @@ const Fade = (p: FadeProps) => {
       {
         ((
           status: TransitionStatus,
-          innerProps: { ref: (el: HTMLElement) => void }
+          innerProps: { ref: (el: Element) => void }
         ) => {
-          const el = child() as HTMLElement;
+          let el = resolvedChildren() as Element;
+          while (typeof el === "function") el = (el as Function)();
           innerProps.ref(el);
           const newClasses = classNames(
             "fade",

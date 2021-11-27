@@ -1,9 +1,17 @@
-import { JSX, mergeProps, splitProps } from "solid-js";
+import {
+  createEffect,
+  JSX,
+  mergeProps,
+  onCleanup,
+  splitProps,
+  useContext,
+} from "solid-js";
 import classNames from "classnames";
 import { OverlayArrowProps } from "../../core/src/Overlay";
 import { useBootstrapPrefix, useIsRTL } from "./ThemeProvider";
 import { Placement } from "./types";
 import { BsPrefixProps, getOverlayDirection } from "./helpers";
+import OverlayContext from "./OverlayContext";
 
 export interface TooltipProps
   extends JSX.HTMLAttributes<HTMLDivElement>,
@@ -36,9 +44,9 @@ const Tooltip = (p: TooltipProps) => {
   const [primaryPlacement] = local.placement?.split("-") || [];
   const bsDirection = getOverlayDirection(primaryPlacement, isRTL);
 
+  const context = useContext(OverlayContext);
   return (
     <div
-      style={local.style}
       role="tooltip"
       x-placement={primaryPlacement}
       className={classNames(
@@ -47,8 +55,10 @@ const Tooltip = (p: TooltipProps) => {
         `bs-tooltip-${bsDirection}`
       )}
       {...props}
+      {...context?.wrapperProps}
+      style={Object.assign({}, local.style, context?.wrapperProps.style)}
     >
-      <div className="tooltip-arrow" {...local.arrowProps} />
+      <div className="tooltip-arrow" {...context?.arrowProps} />
       <div className={`${bsPrefix}-inner`}>{local.children}</div>
     </div>
   );

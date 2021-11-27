@@ -1,4 +1,4 @@
-import { createSignal, JSX, mergeProps, splitProps } from "solid-js";
+import { children, createSignal, JSX, mergeProps, splitProps } from "solid-js";
 import contains from "dom-helpers/contains";
 import warning from "warning";
 import { createControlledProp } from "../../core/src/createControlledProp";
@@ -18,14 +18,14 @@ export type OverlayTriggerRenderProps = OverlayInjectedProps & {
 
 export interface OverlayTriggerProps
   extends Omit<OverlayProps, "children" | "target"> {
-  children: JSX.Element | ((props: OverlayTriggerRenderProps) => JSX.Element);
+  children: JSX.Element;
   trigger?: OverlayTriggerType | OverlayTriggerType[];
   delay?: OverlayDelay;
   show?: boolean;
   defaultShow?: boolean;
   onToggle?: (nextShow: boolean) => void;
   flip?: boolean;
-  overlay: OverlayChildren;
+  overlay: JSX.Element;
 
   target?: never;
   onHide?: never;
@@ -46,13 +46,13 @@ function normalizeDelay(delay?: OverlayDelay) {
 // moving from one child element to another.
 function handleMouseOverOut(
   // eslint-disable-next-line @typescript-eslint/no-shadow
-  handler: (...args: [MouseEvent, ...any[]]) => any,
-  args: [MouseEvent, ...any[]],
+  handler: (...args: [Event, ...any[]]) => any,
+  args: [Event, ...any[]],
   relatedNative: "fromElement" | "toElement"
 ) {
   const [e] = args;
   const target = e.currentTarget;
-  const related = e.relatedTarget;
+  const related = (e as MouseEvent).relatedTarget;
 
   if (
     (!related || related !== target) &&
@@ -68,20 +68,7 @@ const defaultProps = {
   popperConfig: {},
 };
 
-function OverlayTrigger(
-  p: OverlayTriggerProps
-  // trigger,
-  // overlay,
-  // children,
-  // popperConfig = {},
-  // show: propsShow,
-  // defaultShow = false,
-  // onToggle,
-  // delay: propsDelay,
-  // placement,
-  // flip = placement && placement.indexOf("auto") !== -1,
-  // ...props
-) {
+function OverlayTrigger(p: OverlayTriggerProps) {
   const [local, props] = splitProps(
     mergeProps(
       defaultProps,
@@ -103,10 +90,8 @@ function OverlayTrigger(
       "flip",
     ]
   );
-  let [triggerNodeRef, setTriggerNodeRef] = createSignal<
-    HTMLElement | undefined
-  >();
-  const mergedRef = (r: HTMLElement | undefined) => {
+  let [triggerNodeRef, setTriggerNodeRef] = createSignal<Element | undefined>();
+  const mergedRef = (r: Element | undefined) => {
     setTriggerNodeRef(r);
     (local.children as any).ref?.(r);
   };
@@ -120,11 +105,6 @@ function OverlayTrigger(
   );
 
   const delay = normalizeDelay(local.delay);
-
-  // const { onFocus, onBlur, onClick } =
-  //   typeof children !== "function"
-  //     ? React.Children.only(children).props
-  //     : ({} as any);
 
   const handleShow = () => {
     window.clearTimeout(timeout);
@@ -156,61 +136,61 @@ function OverlayTrigger(
 
   const handleFocus = (...args: any[]) => {
     handleShow();
-    // onFocus?.(...args);
   };
 
   const handleBlur = (...args: any[]) => {
     handleHide();
-    // onBlur?.(...args);
   };
 
   const handleClick = (...args: any[]) => {
-    setShow(!show);
-    // onClick?.(...args);
+    setShow(!show());
   };
 
-  const handleMouseOver = (...args: [MouseEvent, ...any[]]) => {
+  const handleMouseOver = (...args: [Event, ...any[]]) => {
     handleMouseOverOut(handleShow, args, "fromElement");
   };
 
-  const handleMouseOut = (...args: [MouseEvent, ...any[]]) => {
+  const handleMouseOut = (...args: [Event, ...any[]]) => {
     handleMouseOverOut(handleHide, args, "toElement");
   };
 
-  const triggers: string[] =
-    local.trigger == null ? [] : [].concat(local.trigger as any);
-  const triggerProps: any = {
-    ref: mergedRef,
+  const addListeners = (el: Element) => {
+    const triggers: string[] =
+      local.trigger == null ? [] : [].concat(local.trigger as any);
+    if (triggers.indexOf("click") !== -1) {
+      el.addEventListener("click", handleClick);
+    }
+    if (triggers.indexOf("focus") !== -1) {
+      el.addEventListener("focus", handleFocus);
+      el.addEventListener("blur", handleBlur);
+    }
+    if (triggers.indexOf("hover") !== -1) {
+      warning(
+        triggers.length > 1,
+        '[solid-bootstrap] Specifying only the `"hover"` trigger limits the visibility of the overlay to just mouse users. Consider also including the `"focus"` trigger so that touch and keyboard only users can see the overlay as well.'
+      );
+      el.addEventListener("mouseover", handleMouseOver);
+      el.addEventListener("mouseout", handleMouseOut);
+    }
+    // no need to cleanup as element will be removed anyway
   };
 
-  if (triggers.indexOf("click") !== -1) {
-    triggerProps.onClick = handleClick;
-  }
+  let resolvedChildren = children(() => local.children);
 
-  if (triggers.indexOf("focus") !== -1) {
-    triggerProps.onFocus = handleFocus;
-    triggerProps.onBlur = handleBlur;
-  }
-
-  if (triggers.indexOf("hover") !== -1) {
-    warning(
-      triggers.length > 1,
-      '[react-bootstrap] Specifying only the `"hover"` trigger limits the visibility of the overlay to just mouse users. Consider also including the `"focus"` trigger so that touch and keyboard only users can see the overlay as well.'
-    );
-    triggerProps.onMouseOver = handleMouseOver;
-    triggerProps.onMouseOut = handleMouseOut;
-  }
+  let Target = () => {
+    let el = resolvedChildren() as Element;
+    while (typeof el === "function") el = (el as Function)();
+    mergedRef(el);
+    addListeners(el);
+    return el;
+  };
 
   return (
     <>
-      {
-        typeof local.children === "function"
-          ? local.children(triggerProps)
-          : local.children /*cloneElement(children, triggerProps)*/
-      }
+      <Target />
       <Overlay
         {...props}
-        show={local.show}
+        show={show()}
         onHide={handleHide}
         flip={local.flip}
         placement={local.placement}

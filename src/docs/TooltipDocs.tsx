@@ -43,8 +43,17 @@ export const TooltipDocs: Component = () => {
           </Card.Body>
         </Card>
         <Card>
-          <Card.Header></Card.Header>
-          <Card.Body></Card.Body>
+          <Card.Header>OverlayTrigger</Card.Header>
+          <Card.Body>
+            <OverlayTrigger
+              placement="right"
+              delay={{ show: 250, hide: 400 }}
+              overlay={<Tooltip id="button-tooltip">Simple tooltip</Tooltip>}
+              trigger="click"
+            >
+              <Button variant="success">Click me to see</Button>
+            </OverlayTrigger>
+          </Card.Body>
         </Card>
         <Card>
           <Card.Header></Card.Header>
@@ -65,11 +74,8 @@ export const TooltipDocs: Component = () => {
 
 const Link = (props: { id: string; children: JSX.Element; title: string }) => (
   <OverlayTrigger
-    overlay={(p) => (
-      <Tooltip {...p} id={props.id}>
-        {props.title}
-      </Tooltip>
-    )}
+    overlay={<Tooltip id={props.id}>{props.title}</Tooltip>}
+    placement="right"
   >
     <a href="#">{props.children}</a>
   </OverlayTrigger>
