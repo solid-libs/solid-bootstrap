@@ -124,13 +124,14 @@ export type TransitionStatus =
   | typeof EXITED
   | typeof UNMOUNTED;
 
-export type TransitionComponent = Component<TransitionProps> & {
-  UNMOUNTED: typeof UNMOUNTED;
-  EXITED: typeof EXITED;
-  ENTERING: typeof ENTERING;
-  ENTERED: typeof ENTERED;
-  EXITING: typeof EXITING;
-};
+export type TransitionComponent = Component<TransitionProps>;
+// & {
+//   UNMOUNTED: typeof UNMOUNTED;
+//   EXITED: typeof EXITED;
+//   ENTERING: typeof ENTERING;
+//   ENTERED: typeof ENTERED;
+//   EXITING: typeof EXITING;
+// };
 
 /**
  * EnterCallback (and EndCallback) is complicated as the original JS version optionally omits the
@@ -440,10 +441,10 @@ const Transition: TransitionComponent = (p: TransitionProps) => {
   );
 };
 
-Transition.UNMOUNTED = UNMOUNTED;
-Transition.EXITED = EXITED;
-Transition.ENTERING = ENTERING;
-Transition.ENTERED = ENTERED;
-Transition.EXITING = EXITING;
+// Transition.UNMOUNTED = UNMOUNTED;
+// Transition.EXITED = EXITED;
+// Transition.ENTERING = ENTERING;
+// Transition.ENTERED = ENTERED;
+// Transition.EXITING = EXITING;
 
 export default Transition;

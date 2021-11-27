@@ -26,7 +26,6 @@ export function createControlledProp<TProp, THandler extends Handler = Handler>(
   const [stateValue, setState] = createSignal<TProp | undefined>(
     defaultValue()
   );
-
   const isControlled = createMemo(() => propValue() !== undefined);
 
   /**
@@ -41,11 +40,12 @@ export function createControlledProp<TProp, THandler extends Handler = Handler>(
     })
   );
 
-  return [
-    isControlled() ? propValue : stateValue,
-    ((value: TProp, ...args: any[]) => {
-      if (handler) handler(value, ...args);
-      setState(() => value);
-    }) as THandler,
-  ] as const;
+  const getValue = () => (isControlled() ? propValue() : stateValue());
+
+  const setValue = ((value: TProp, ...args: any[]) => {
+    if (handler) handler(value, ...args);
+    setState(() => value);
+  }) as THandler;
+
+  return [getValue, setValue] as const;
 }

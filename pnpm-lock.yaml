@@ -9,8 +9,8 @@ specifiers:
   dom-helpers: ^5.2.0
   holderjs: 2.9.9
   invariant: 2.2.4
+  shakespeare-data: ^3.0.0
   solid-js: ^1.2.5
-  solid-transition-group: 0.0.8
   typescript: ^4.4.3
   vite: ^2.5.7
   vite-plugin-solid: ^2.0.3
@@ -26,10 +26,10 @@ dependencies:
   holderjs: 2.9.9
   invariant: 2.2.4
   solid-js: 1.2.5
-  solid-transition-group: 0.0.8_solid-js@1.2.5
   warning: 4.0.3
 
 devDependencies:
+  shakespeare-data: 3.0.0
   typescript: 4.4.4
   vite: 2.6.14
   vite-plugin-solid: 2.0.3
@@ -769,6 +769,10 @@ packages:
     hasBin: true
     dev: true
 
+  /shakespeare-data/3.0.0:
+    resolution: {integrity: sha512-C8yLfEAo0aHDEoc84rOiMmX3zjU2wVP1A8vQfjjdbbr5e7FpJXtrm/CjTCyAFS+TjAIORhs+sUhSZut+N7DRmA==}
+    dev: true
+
   /solid-js/1.2.5:
     resolution: {integrity: sha512-XcPEULgqd/XbBu8LwtGWs5RGowvIpq88/ZNI/xgJ9PaxRJWwbVlSNsS+ywUWncxRdKsPoVe8vdcIsH4gBJjh3Q==}
 
@@ -779,14 +783,6 @@ packages:
     dependencies:
       solid-js: 1.2.5
     dev: true
-
-  /solid-transition-group/0.0.8_solid-js@1.2.5:
-    resolution: {integrity: sha512-5cS/Ircfs/Y0J00oEToL+MWd9V07KgQlw+qRD8kpd6azb2Ri5SjXg/ocqT8U8Wgdx1VQPx45HyopQN+UumkVGQ==}
-    peerDependencies:
-      solid-js: ^1.0.0
-    dependencies:
-      solid-js: 1.2.5
-    dev: false
 
   /source-map-js/0.6.2:
     resolution: {integrity: sha512-/3GptzWzu0+0MBQFrDKzw/DvvMTUORvgY6k6jd/VS6iCR4RDTKWH6v6WPwQoUO8667uQEf9Oe38DxAYWY5F/Ug==}

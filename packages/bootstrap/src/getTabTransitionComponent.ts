@@ -1,4 +1,4 @@
-import { TransitionComponent } from "../../core/src/types";
+import { TransitionComponent } from "../../transition/src/Transition";
 import Fade from "./Fade";
 import { TransitionType } from "./helpers";
 

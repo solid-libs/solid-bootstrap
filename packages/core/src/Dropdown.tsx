@@ -241,7 +241,7 @@ function Dropdown(p: DropdownProps) {
     return items[index];
   };
 
-  const unlisten = listen(document.body, "keydown", (event: KeyboardEvent) => {
+  const keydownHandler = (event: KeyboardEvent) => {
     const { key } = event;
     const target = event.target as HTMLElement;
 
@@ -311,9 +311,10 @@ function Dropdown(p: DropdownProps) {
         break;
       default:
     }
-  });
+  };
 
-  onCleanup(unlisten);
+  document.addEventListener("keydown", keydownHandler);
+  onCleanup(() => document.removeEventListener("keydown", keydownHandler));
 
   return (
     <SelectableContext.Provider value={handleSelect}>

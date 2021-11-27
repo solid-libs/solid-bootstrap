@@ -29,6 +29,7 @@ import { TooltipDocs } from "./docs/TooltipDocs";
 import { ToastDocs } from "./docs/ToastDocs";
 import { LayoutGridDocs } from "./docs/LayoutGridDocs";
 import { LayoutStackDocs } from "./docs/LayoutStackDocs";
+import { TabsDocs } from "./docs/TabsDocs";
 
 const App: Component = () => (
   <div
@@ -99,7 +100,6 @@ const App: Component = () => (
       <div>
         <h3>Known Issues</h3>
         <ul>
-          <li>Dropdown - autoClose not working</li>
           <li>Tabs - getDefaultActiveKey (was reading from child props)</li>
           <li>TabPane - Transitions</li>
           <li>Navbar - not collapsing</li>
@@ -151,6 +151,7 @@ const App: Component = () => (
       <ProgressBarDocs />
       <SpinnerDocs />
       <TableDocs />
+      <TabsDocs />
       <TooltipDocs />
       <ToastDocs />
       <h1 class="display-4">Solid Bootstrap Core</h1>

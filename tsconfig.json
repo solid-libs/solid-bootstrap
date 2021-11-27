@@ -9,5 +9,12 @@
     "jsx": "preserve",
     "jsxImportSource": "solid-js",
     "types": ["vite/client"]
-  }
+  },
+  "include": [
+    "docs/**/*",
+    "packages/bootstrap/src/**/*",
+    "packages/core/src/**/*",
+    "packages/transition/src/**/*"
+  ],
+  "exclude": ["node_modules"]
 }

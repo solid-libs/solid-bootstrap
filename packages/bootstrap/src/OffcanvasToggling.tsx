@@ -1,10 +1,11 @@
 import { children, JSX, mergeProps, splitProps } from "solid-js";
 import classNames from "classnames";
-import { TransitionCallbacks } from "../../core/src/types";
 import transitionEndListener from "./transitionEndListener";
 import { BsPrefixOnlyProps } from "./helpers";
 import { useBootstrapPrefix } from "./ThemeProvider";
-import { Transition } from "solid-transition-group";
+import Transition, {
+  TransitionCallbacks,
+} from "../../transition/src/Transition";
 
 export interface OffcanvasTogglingProps
   extends TransitionCallbacks,

@@ -3,9 +3,10 @@ import { useSSRSafeId } from "./ssr";
 
 import TabContext, { TabContextType } from "./TabContext";
 import SelectableContext from "./SelectableContext";
-import { EventKey, SelectCallback, TransitionComponent } from "./types";
+import { EventKey, SelectCallback } from "./types";
 import TabPanel, { TabPanelProps } from "./TabPanel";
 import { Component, createMemo, PropsWithChildren } from "solid-js";
+import { TransitionComponent } from "../../transition/src/Transition";
 
 export type { TabPanelProps };
 export interface TabsProps {

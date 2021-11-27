@@ -1,4 +1,4 @@
-import { createMemo, JSX, mergeProps, splitProps, useContext } from "solid-js";
+import { JSX, mergeProps, splitProps, useContext } from "solid-js";
 import classNames from "classnames";
 import BaseDropdown, {
   DropdownProps as BaseDropdownProps,
@@ -85,7 +85,9 @@ const Dropdown: BsPrefixRefForwardingComponent<"div", DropdownProps> = (p) => {
 
   const handleToggle = (nextShow: boolean, meta: ToggleMetadata) => {
     if (
-      meta.originalEvent!.currentTarget === document &&
+      // null option below is for "bug?" in Solid returning null instead of document
+      (meta.originalEvent!.currentTarget === document ||
+        meta.originalEvent!.currentTarget === null) &&
       (meta.source !== "keydown" ||
         (meta.originalEvent as any).key === "Escape")
     ) {

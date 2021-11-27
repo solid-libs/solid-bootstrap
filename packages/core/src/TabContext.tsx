@@ -1,5 +1,6 @@
 import { createContext } from "solid-js";
-import { EventKey, SelectCallback, TransitionComponent } from "./types";
+import { TransitionComponent } from "../../transition/src/Transition";
+import { EventKey, SelectCallback } from "./types";
 
 export interface TabContextType {
   onSelect: SelectCallback;

@@ -1,14 +1,13 @@
 import { Component, JSX, mergeProps, useContext } from "solid-js";
 import TabContext from "./TabContext";
 import SelectableContext, { makeEventKey } from "./SelectableContext";
-import type {
-  EventKey,
-  DynamicRefForwardingComponent,
-  TransitionCallbacks,
-  TransitionComponent,
-} from "./types";
+import type { EventKey, DynamicRefForwardingComponent } from "./types";
 import NoopTransition from "./NoopTransition";
 import { Dynamic } from "solid-js/web";
+import {
+  TransitionCallbacks,
+  TransitionComponent,
+} from "../../transition/src/Transition";
 
 export interface TabPanelProps
   extends TransitionCallbacks,
@@ -136,7 +135,7 @@ const TabPanel: DynamicRefForwardingComponent<"div", TabPanelProps> = (
   return (
     <TabContext.Provider value={null}>
       <SelectableContext.Provider value={null}>
-        <Transition
+        {/* <Transition
           appear
           onBeforeExit={props.onBeforeExit}
           onExit={props.onExit}
@@ -144,15 +143,15 @@ const TabPanel: DynamicRefForwardingComponent<"div", TabPanelProps> = (
           onBeforeEnter={props.onBeforeEnter}
           onEnter={props.onEnter}
           onAfterEnter={props.onAfterEnter}
-        >
-          <Dynamic
-            component={(props.as ?? "div") as "div"}
-            {...tabPanelProps}
-            role="tabpanel"
-            hidden={!other.isActive}
-            aria-hidden={!other.isActive}
-          />
-        </Transition>
+        > */}
+        <Dynamic
+          component={(props.as ?? "div") as "div"}
+          {...tabPanelProps}
+          role="tabpanel"
+          hidden={!other.isActive}
+          aria-hidden={!other.isActive}
+        />
+        {/* </Transition> */}
       </SelectableContext.Provider>
     </TabContext.Provider>
   );

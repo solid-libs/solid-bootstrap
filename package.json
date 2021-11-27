@@ -6,13 +6,15 @@
     "start": "vite",
     "dev": "vite",
     "build": "vite build --base=/solid-bootstrap/",
-    "serve": "vite preview"
+    "serve": "vite preview",
+    "watch": "tsc -noemit -watch"
   },
   "license": "MIT",
   "devDependencies": {
     "vite": "^2.5.7",
     "vite-plugin-solid": "^2.0.3",
-    "typescript": "^4.4.3"
+    "typescript": "^4.4.3",
+    "shakespeare-data": "^3.0.0"
   },
   "dependencies": {
     "@popperjs/core": "^2.10.1",
@@ -24,7 +26,6 @@
     "holderjs": "2.9.9",
     "invariant": "2.2.4",
     "solid-js": "^1.2.5",
-    "solid-transition-group": "0.0.8",
     "warning": "^4.0.3"
   }
 }

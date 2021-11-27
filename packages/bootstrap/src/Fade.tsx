@@ -6,6 +6,7 @@ import {
   ENTERED,
   ENTERING,
   TransitionCallbacks,
+  TransitionComponent,
 } from "../../transition/src/Transition";
 import TransitionWrapper from "./TransitionWrapper";
 import transitionEndListener from "./transitionEndListener";
@@ -19,7 +20,7 @@ export interface FadeProps extends TransitionCallbacks {
   mountOnEnter?: boolean;
   unmountOnExit?: boolean;
   appear?: boolean;
-  timeout?: number;
+  timeout?: number | { appear?: number; enter?: number; exit?: number };
   children?: JSX.Element;
   transitionClasses?: Record<string, string>;
 }
@@ -37,7 +38,7 @@ const fadeStyles = {
   [ENTERED]: "show",
 };
 
-const Fade = (p: FadeProps) => {
+const Fade: TransitionComponent = (p: FadeProps) => {
   const [local, props] = splitProps(mergeProps(defaultProps, p), [
     "className",
     "children",
