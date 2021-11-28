@@ -10,6 +10,7 @@ specifiers:
   holderjs: 2.9.9
   invariant: 2.2.4
   shakespeare-data: ^3.0.0
+  solid-app-router: ^0.1.13
   solid-js: ^1.2.5
   typescript: ^4.4.3
   vite: ^2.5.7
@@ -25,6 +26,7 @@ dependencies:
   dom-helpers: 5.2.1
   holderjs: 2.9.9
   invariant: 2.2.4
+  solid-app-router: 0.1.13_solid-js@1.2.5
   solid-js: 1.2.5
   warning: 4.0.3
 
@@ -772,6 +774,14 @@ packages:
   /shakespeare-data/3.0.0:
     resolution: {integrity: sha512-C8yLfEAo0aHDEoc84rOiMmX3zjU2wVP1A8vQfjjdbbr5e7FpJXtrm/CjTCyAFS+TjAIORhs+sUhSZut+N7DRmA==}
     dev: true
+
+  /solid-app-router/0.1.13_solid-js@1.2.5:
+    resolution: {integrity: sha512-tO6JNmKQ3c1P8c3Rzea6r93AzqIctaS5okbfwyfw1pp5gnX4stAeS9kz/xQfXnycrlMGskbql2w7AuR6b2Nu7g==}
+    peerDependencies:
+      solid-js: ^1.0.0
+    dependencies:
+      solid-js: 1.2.5
+    dev: false
 
   /solid-js/1.2.5:
     resolution: {integrity: sha512-XcPEULgqd/XbBu8LwtGWs5RGowvIpq88/ZNI/xgJ9PaxRJWwbVlSNsS+ywUWncxRdKsPoVe8vdcIsH4gBJjh3Q==}

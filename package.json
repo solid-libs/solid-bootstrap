@@ -26,6 +26,7 @@
     "holderjs": "2.9.9",
     "invariant": "2.2.4",
     "solid-js": "^1.2.5",
+    "solid-app-router": "^0.1.13",
     "warning": "^4.0.3"
   }
 }
