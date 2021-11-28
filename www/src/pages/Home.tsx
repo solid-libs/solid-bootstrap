@@ -14,7 +14,7 @@ const Home = () => (
         </p>
         <div class={css.ButtonToolbar}>
           <Link
-            href="/solid-bootstrap/getting-started"
+            href="/getting-started"
             role="button"
             tabindex="0"
             class="me-3 px-5 btn btn-outline-light btn-lg"
@@ -22,7 +22,7 @@ const Home = () => (
             Get started
           </Link>
           <Link
-            href="/solid-bootstrap/components"
+            href="/components"
             role="button"
             tabindex="0"
             class="px-5 btn btn-outline-light btn-lg"

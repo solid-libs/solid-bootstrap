@@ -1,4 +1,4 @@
-import { Route, Router, Routes } from "solid-app-router";
+import { hashIntegration, Route, Router, Routes } from "solid-app-router";
 import { Component } from "solid-js";
 import Container from "../../packages/bootstrap/src/Container";
 import TopNavbar from "./layout/TopNavbar";
@@ -7,16 +7,11 @@ import GettingStarted from "./pages/GettingStarted";
 import Home from "./pages/Home";
 
 const App: Component = () => (
-  <Router>
+  <Router source={hashIntegration()}>
     <TopNavbar />
     <Routes>
       <Route path="/components" element={<Components />} />
       <Route path="/getting-started" element={<GettingStarted />} />
-      <Route path="/solid-bootstrap/components" element={<Components />} />
-      <Route
-        path="/solid-bootstrap/getting-started"
-        element={<GettingStarted />}
-      />
       <Route path="/*all" element={<Home />} />
     </Routes>
   </Router>
