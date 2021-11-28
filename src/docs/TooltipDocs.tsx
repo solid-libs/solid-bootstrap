@@ -50,7 +50,7 @@ export const TooltipDocs: Component = () => {
               delay={{ show: 250, hide: 400 }}
               overlay={<Tooltip id="button-tooltip">Simple tooltip</Tooltip>}
             >
-              <Button variant="success">Click me to see</Button>
+              <Button variant="success">Hover me to see</Button>
             </OverlayTrigger>
           </Card.Body>
         </Card>
