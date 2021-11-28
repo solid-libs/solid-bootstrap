@@ -21,13 +21,13 @@ const TopNavbar: Component = () => (
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">
         <Nav className="me-auto">
-          <Nav.Link as={Link} href="home">
+          <Nav.Link as={Link} href="/solid-bootstrap/">
             Home
           </Nav.Link>
-          <Nav.Link as={Link} href="getting-started">
+          <Nav.Link as={Link} href="/solid-bootstrap/getting-started">
             Getting started
           </Nav.Link>
-          <Nav.Link as={Link} href="components">
+          <Nav.Link as={Link} href="/solid-bootstrap/components">
             Components
           </Nav.Link>
         </Nav>

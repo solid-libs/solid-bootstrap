@@ -10,8 +10,13 @@ const App: Component = () => (
   <Router>
     <TopNavbar />
     <Routes>
-      <Route path="/getting-started" element={<GettingStarted />} />
       <Route path="/components" element={<Components />} />
+      <Route path="/getting-started" element={<GettingStarted />} />
+      <Route path="/solid-bootstrap/components" element={<Components />} />
+      <Route
+        path="/solid-bootstrap/getting-started"
+        element={<GettingStarted />}
+      />
       <Route path="/*all" element={<Home />} />
     </Routes>
   </Router>
