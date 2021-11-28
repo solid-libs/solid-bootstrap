@@ -368,6 +368,11 @@ const Transition: TransitionComponent = (p: TransitionProps) => {
           safeSetState(EXITED, () => {
             local.onExited!(maybeNode);
           });
+          if (local.unmountOnExit) {
+            nextFrame(() => {
+              setStatus(UNMOUNTED);
+            });
+          }
         });
       })
     );
