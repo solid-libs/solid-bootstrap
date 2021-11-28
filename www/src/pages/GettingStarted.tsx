@@ -8,8 +8,14 @@ const GettingStarted = () => (
         <h3>Overview</h3>
         <p class="lead">
           Solid-Bootstrap is a port of{" "}
-          <a href="https://react-bootstrap.github.io/">React-Bootstrap</a> for{" "}
-          <a href="https://www.solidjs.com/">SolidJS</a>.
+          <a href="https://react-bootstrap.github.io/" target="_blank">
+            React-Bootstrap
+          </a>{" "}
+          for{" "}
+          <a href="https://www.solidjs.com/" target="_blank">
+            SolidJS
+          </a>
+          .
         </p>
         <p>
           This is a complete implementation of the Bootstrap components using
@@ -17,30 +23,17 @@ const GettingStarted = () => (
           have SolidJS setup and Solid-Bootstrap installed, you have everything
           you need.
         </p>
-        <p>
-          Refer to the original{" "}
-          <a href="https://react-bootstrap.github.io/components/alerts">
-            React Bootstrap
-          </a>{" "}
-          documentation to supplement this page.
-        </p>
-        <p>
-          <a
-            href="https://github.com/solid-libs/solid-bootstrap"
-            target="_blank"
-          >
-            The Github repo for Solid-Bootstrap is here
-          </a>
-        </p>
       </div>
       <div>
         <h3>Installation</h3>
         <p>
-          We're just getting things set up at the moment. We'll have an npm
-          install for you over the next couple of weeks.
+          We're just getting things organised at the moment. There is an
+          existing <code>solid-bootstrap</code> npm package BUT IT IS NOT THIS
+          ONE. An npm install will be coming over the next week or two (and may
+          actually replace the one mentioned above)
         </p>
         <p>
-          If you're keen to get started before then, feel free to clone our{" "}
+          If you're keen to get started before then feel free to clone our{" "}
           <a
             href="https://github.com/solid-libs/solid-bootstrap"
             target="_blank"
@@ -48,8 +41,18 @@ const GettingStarted = () => (
             Github repo
           </a>
           . You'll find all the components in the <code>packages</code> folder
-          and examples are in the source for these docs in the <code>www</code>{" "}
-          folder.
+          and examples are in the source for these docs in the{" "}
+          <code>www/src</code> folder.
+        </p>
+        <p>
+          You can also refer to the{" "}
+          <a
+            href="https://react-bootstrap.github.io/components/alerts"
+            target="_blank"
+          >
+            React-Bootstrap
+          </a>{" "}
+          documentation to supplement this site.
         </p>
       </div>
       <div>
@@ -61,11 +64,14 @@ const GettingStarted = () => (
         <ul>
           <li>
             The goal is to capture all of the proven behaviour of{" "}
-            <a href="https://github.com/react-bootstrap/react-bootstrap">
+            <a
+              href="https://github.com/react-bootstrap/react-bootstrap"
+              target="_blank"
+            >
               <code>React-Bootstrap</code>
             </a>
             ,{" "}
-            <a href="https://github.com/react-restart/ui">
+            <a href="https://github.com/react-restart/ui" target="_blank">
               <code>@restart/ui</code>
             </a>{" "}
             (core) and related projects.
