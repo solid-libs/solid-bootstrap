@@ -20,6 +20,7 @@
     "build": "tsc && rollup -c",
     "prepublishOnly": "npm run build"
   },
+  "dependencies": {},
   "devDependencies": {
     "@babel/core": "^7.15.8",
     "@babel/preset-typescript": "^7.15.0",

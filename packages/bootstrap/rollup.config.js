@@ -10,11 +10,13 @@ export default {
     },
   ],
   external: [
-    "@popperjs/core",
+    "classnames",
     "dom-helpers",
+    "solid-bootstrap-core",
     "solid-js",
     "solid-js/web",
     "solid-react-transition",
+    "warning",
   ],
   plugins: [
     nodeResolve({
