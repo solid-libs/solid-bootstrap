@@ -22,7 +22,7 @@ import { createStore, reconcile } from "solid-js/store";
 import {
   TransitionCallbacks,
   TransitionComponent,
-} from "../../transition/src/Transition";
+} from "solid-react-transition";
 import { Portal } from "solid-js/web";
 import useWaitForDOMRef, { DOMContainer } from "./useWaitForDOMRef";
 

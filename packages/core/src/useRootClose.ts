@@ -4,8 +4,6 @@ import listen from "dom-helpers/listen";
 import ownerDocument from "dom-helpers/ownerDocument";
 import { createEffect, createSignal, mergeProps, onCleanup } from "solid-js";
 
-import warning from "warning";
-
 const escapeKeyCode = 27;
 const noop = () => {};
 
@@ -51,12 +49,6 @@ function useRootClose(
 
   const handleMouseCapture: EventHandler<MouseEvents> = (e) => {
     const currentTarget = ref();
-
-    warning(
-      !!currentTarget,
-      "RootClose captured a close event but does not have a ref to compare it to. " +
-        "useRootClose(), should be passed a ref that resolves to a DOM node"
-    );
 
     setPreventMouseRootCloseRef(
       !currentTarget ||

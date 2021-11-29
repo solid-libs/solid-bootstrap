@@ -1,6 +1,6 @@
 // ported from https://github.com/react-bootstrap/react-bootstrap/blob/f11723114d532cfce840417834a73733a8436414/src/helpers.ts
 
-import { TransitionComponent } from "../../transition/src/Transition";
+import { TransitionComponent } from "solid-react-transition";
 import { Component, ComponentProps, JSX } from "solid-js";
 
 export type Omit<T, U> = Pick<T, Exclude<keyof T, keyof U>>;

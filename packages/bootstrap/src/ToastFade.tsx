@@ -1,5 +1,5 @@
 import Fade, { FadeProps } from "./Fade";
-import Transition, { ENTERING, EXITING } from "../../transition/src/Transition";
+import Transition, { ENTERING, EXITING } from "solid-react-transition";
 
 const fadeStyles = {
   [ENTERING]: "showing",

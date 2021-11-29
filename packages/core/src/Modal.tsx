@@ -5,7 +5,7 @@ import contains from "dom-helpers/contains";
 import canUseDOM from "dom-helpers/canUseDOM";
 import listen from "dom-helpers/listen";
 import ModalManager from "./ModalManager";
-import { TransitionCallbacks } from "../../transition/src/Transition";
+import { TransitionCallbacks } from "solid-react-transition";
 import {
   children,
   Component,

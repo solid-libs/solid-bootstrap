@@ -10,7 +10,7 @@ import {
   EXITING,
   TransitionCallbacks,
   UNMOUNTED,
-} from "../../transition/src/Transition";
+} from "solid-react-transition";
 import triggerBrowserReflow from "./triggerBrowserReflow";
 import transitionEndListener from "./transitionEndListener";
 import TransitionWrapper from "./TransitionWrapper";

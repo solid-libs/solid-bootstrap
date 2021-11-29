@@ -2,7 +2,7 @@ import {
   ENTERED,
   TransitionComponent,
   TransitionProps,
-} from "../../transition/src/Transition";
+} from "solid-react-transition";
 
 const NoopTransition: TransitionComponent = (props: TransitionProps) => {
   return typeof props.children === "function"

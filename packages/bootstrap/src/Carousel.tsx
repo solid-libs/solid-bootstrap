@@ -25,7 +25,7 @@ import { BsPrefixProps, BsPrefixRefForwardingComponent } from "./helpers";
 import { callEventHandler } from "../../core/src/utils";
 import { Dynamic } from "solid-js/web";
 import TransitionWrapper from "./TransitionWrapper";
-import { TransitionStatus } from "../../transition/src/Transition";
+import { TransitionStatus } from "solid-react-transition";
 import { resolveClasses } from "../../core/src/utils";
 
 export type CarouselVariant = "dark";

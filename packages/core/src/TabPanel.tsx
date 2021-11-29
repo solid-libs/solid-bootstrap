@@ -7,7 +7,7 @@ import { Dynamic } from "solid-js/web";
 import {
   TransitionCallbacks,
   TransitionComponent,
-} from "../../transition/src/Transition";
+} from "solid-react-transition";
 
 export interface TabPanelProps
   extends TransitionCallbacks,

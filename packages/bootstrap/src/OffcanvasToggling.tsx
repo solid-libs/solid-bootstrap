@@ -1,12 +1,12 @@
 import { children, JSX, mergeProps, splitProps, useContext } from "solid-js";
 import classNames from "classnames";
-import Transition, {
+import {
   TransitionCallbacks,
   TransitionStatus,
   ENTERED,
   ENTERING,
   EXITING,
-} from "../../transition/src/Transition";
+} from "solid-react-transition";
 import transitionEndListener from "./transitionEndListener";
 import { BsPrefixOnlyProps } from "./helpers";
 import TransitionWrapper from "./TransitionWrapper";

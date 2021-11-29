@@ -184,7 +184,7 @@ const defaultProps = {
   onExited: noop,
 };
 
-const Transition: TransitionComponent = (p: TransitionProps) => {
+export const Transition = (p: TransitionProps) => {
   const [local, childProps] = splitProps(mergeProps(defaultProps, p), [
     "in",
     "children",
@@ -441,5 +441,3 @@ const Transition: TransitionComponent = (p: TransitionProps) => {
     </TransitionGroupContext.Provider>
   );
 };
-
-export default Transition;

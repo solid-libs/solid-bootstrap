@@ -6,8 +6,7 @@ import {
   ENTERED,
   ENTERING,
   TransitionCallbacks,
-  TransitionComponent,
-} from "../../transition/src/Transition";
+} from "solid-react-transition";
 import TransitionWrapper from "./TransitionWrapper";
 import transitionEndListener from "./transitionEndListener";
 import triggerBrowserReflow from "./triggerBrowserReflow";

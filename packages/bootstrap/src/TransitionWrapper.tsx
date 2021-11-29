@@ -1,15 +1,9 @@
+import { children, createSignal, JSX, mergeProps, splitProps } from "solid-js";
 import {
-  children,
-  createEffect,
-  createSignal,
-  JSX,
-  mergeProps,
-  splitProps,
-} from "solid-js";
-import Transition, {
+  Transition,
   TransitionProps,
   TransitionStatus,
-} from "../../transition/src/Transition";
+} from "solid-react-transition";
 
 export type TransitionWrapperChildFunction = (
   status: TransitionStatus,

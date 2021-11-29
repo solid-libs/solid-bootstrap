@@ -1,5 +1,5 @@
 export {
-  default as Transition,
+  Transition,
   UNMOUNTED,
   EXITED,
   ENTERING,

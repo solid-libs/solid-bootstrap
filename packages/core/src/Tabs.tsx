@@ -5,8 +5,8 @@ import TabContext, { TabContextType } from "./TabContext";
 import SelectableContext from "./SelectableContext";
 import { EventKey, SelectCallback } from "./types";
 import TabPanel, { TabPanelProps } from "./TabPanel";
-import { Component, createMemo, PropsWithChildren } from "solid-js";
-import { TransitionComponent } from "../../transition/src/Transition";
+import { createMemo, PropsWithChildren } from "solid-js";
+import { TransitionComponent } from "solid-react-transition";
 
 export type { TabPanelProps };
 export interface TabsProps {

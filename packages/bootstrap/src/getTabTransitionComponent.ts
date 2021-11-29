@@ -1,4 +1,4 @@
-import { TransitionComponent } from "../../transition/src/Transition";
+import { TransitionComponent } from "solid-react-transition";
 import Fade from "./Fade";
 import { TransitionType } from "./helpers";
 

@@ -13,7 +13,7 @@ import {
   TransitionType,
 } from "./helpers";
 import { Dynamic } from "solid-js/web";
-import { TransitionCallbacks } from "../../transition/src/Transition";
+import { TransitionCallbacks } from "solid-react-transition";
 
 export interface TabPaneProps
   extends TransitionCallbacks,

@@ -1,5 +1,5 @@
 import { createContext } from "solid-js";
-import { TransitionComponent } from "../../transition/src/Transition";
+import { TransitionComponent } from "solid-react-transition";
 import { EventKey, SelectCallback } from "./types";
 
 export interface TabContextType {
