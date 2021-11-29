@@ -1,19 +1,29 @@
 import { hashIntegration, Route, Router, Routes } from "solid-app-router";
-import { Component } from "solid-js";
-import Container from "../../packages/bootstrap/src/Container";
+import { Component, lazy } from "solid-js";
 import TopNavbar from "./layout/TopNavbar";
-import Components from "./pages/Components";
-import GettingStarted from "./pages/GettingStarted";
 import Home from "./pages/Home";
+import "./App.css";
 
 const App: Component = () => (
   <Router source={hashIntegration()}>
     <TopNavbar />
     <Routes>
-      <Route path="/components" element={<Components />} />
-      <Route path="/getting-started" element={<GettingStarted />} />
+      <Route
+        path="/components/*"
+        component={lazy(() => import("./pages/Components"))}
+      />
+      <Route
+        path="/layout/*"
+        component={lazy(() => import("./pages/Layouts"))}
+      />
+      <Route path="/core/*" component={lazy(() => import("./pages/Core"))} />
+      <Route
+        path="/getting-started"
+        component={lazy(() => import("./pages/GettingStarted"))}
+      />
       <Route path="/*all" element={<Home />} />
     </Routes>
   </Router>
 );
+
 export default App;

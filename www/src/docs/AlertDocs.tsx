@@ -1,7 +1,7 @@
 import { Component, For } from "solid-js";
 import Alert from "../../../packages/bootstrap/src/Alert";
 
-export const AlertDocs: Component = () => {
+const AlertDocs: Component = () => {
   return (
     <div class="row gy-4">
       <div>
@@ -45,3 +45,5 @@ export const AlertDocs: Component = () => {
     </div>
   );
 };
+
+export default AlertDocs;

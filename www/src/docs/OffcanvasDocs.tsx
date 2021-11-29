@@ -131,3 +131,5 @@ const backdropOptions = [
     backdrop: true,
   },
 ];
+
+export default OffcanvasDocs;

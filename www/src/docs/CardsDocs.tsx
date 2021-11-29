@@ -1,4 +1,4 @@
-import { Component } from "solid-js";
+import { Component, onMount } from "solid-js";
 import Button from "../../../packages/bootstrap/src/Button";
 import Card from "../../../packages/bootstrap/src/Card";
 import CardGroup from "../../../packages/bootstrap/src/CardGroup";
@@ -6,8 +6,10 @@ import ListGroup from "../../../packages/bootstrap/src/ListGroup";
 import Nav from "../../../packages/bootstrap/src/Nav";
 import Row from "../../../packages/bootstrap/src/Row";
 import Col from "../../../packages/bootstrap/src/Col";
+import { useHolderJSRefresh } from "./utils";
 
-export const CardsDocs: Component = () => {
+const CardsDocs: Component = () => {
+  useHolderJSRefresh();
   return (
     <div class="row gy-4">
       <div>
@@ -392,3 +394,4 @@ export const CardsDocs: Component = () => {
     </div>
   );
 };
+export default CardsDocs;

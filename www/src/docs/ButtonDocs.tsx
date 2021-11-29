@@ -3,7 +3,7 @@ import Button from "../../../packages/bootstrap/src/Button";
 import ButtonGroup from "../../../packages/bootstrap/src/ButtonGroup";
 import ToggleButton from "../../../packages/bootstrap/src/ToggleButton";
 
-export const ButtonDocs: Component = () => {
+const ButtonDocs: Component = () => {
   return (
     <div class="row gy-4">
       <div>
@@ -177,3 +177,5 @@ function ToggleButtonExample() {
     </>
   );
 }
+
+export default ButtonDocs;

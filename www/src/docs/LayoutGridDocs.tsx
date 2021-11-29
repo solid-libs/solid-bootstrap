@@ -230,3 +230,5 @@ export const LayoutGridDocs: Component = () => {
     </div>
   );
 };
+
+export default LayoutGridDocs;

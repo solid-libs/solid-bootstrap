@@ -60,3 +60,5 @@ export const PopoverDocs: Component = () => {
     </div>
   );
 };
+
+export default PopoverDocs;

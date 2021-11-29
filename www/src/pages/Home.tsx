@@ -1,18 +1,18 @@
 import classnames from "classnames";
 import { Link } from "solid-app-router";
-import css from "./Home.module.css";
+import styles from "./Home.module.css";
 
 const Home = () => (
-  <div class={css.IndexGrey}>
-    <div class={classnames(css.MastHead, "mb-4")}>
-      <div class={classnames(css.HomeContent, "px-4")}>
-        <h1 class={css.HomeHeading}>Solid Bootstrap</h1>
-        <p class={classnames(css.HomeSubheading, "lead")}>
+  <div class={styles.IndexGrey}>
+    <div class={classnames(styles.MastHead, "mb-4")}>
+      <div class={classnames(styles.HomeContent, "px-4")}>
+        <h1 class={styles.HomeHeading}>Solid Bootstrap</h1>
+        <p class={classnames(styles.HomeSubheading, "lead")}>
           The most popular front-end framework
           <br />
           <strong>Rebuilt</strong> for SolidJS.
         </p>
-        <div class={css.ButtonToolbar}>
+        <div class={styles.ButtonToolbar}>
           <Link
             href="/getting-started"
             role="button"
@@ -22,7 +22,7 @@ const Home = () => (
             Get started
           </Link>
           <Link
-            href="/components"
+            href="/components/alerts"
             role="button"
             tabindex="0"
             class="px-5 btn btn-outline-light btn-lg"

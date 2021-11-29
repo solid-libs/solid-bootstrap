@@ -339,3 +339,5 @@ const infoStyle = {
   "background-color": "#bbeffd",
   border: "1px solid #61dafb",
 };
+
+export default ModalDocs;

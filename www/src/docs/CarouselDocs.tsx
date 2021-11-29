@@ -1,7 +1,7 @@
 import { Component, For } from "solid-js";
 import Carousel from "../../../packages/bootstrap/src/Carousel";
 
-export const CarouselDocs: Component = () => {
+const CarouselDocs: Component = () => {
   return (
     <div class="row gy-4">
       <div>
@@ -50,3 +50,5 @@ export const CarouselDocs: Component = () => {
     </div>
   );
 };
+
+export default CarouselDocs;

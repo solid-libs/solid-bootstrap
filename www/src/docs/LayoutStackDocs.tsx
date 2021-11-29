@@ -85,3 +85,5 @@ export const LayoutStackDocs: Component = () => {
     </div>
   );
 };
+
+export default LayoutStackDocs;

@@ -978,3 +978,5 @@ export const FormDocs: Component = () => {
     </div>
   );
 };
+
+export default FormDocs;

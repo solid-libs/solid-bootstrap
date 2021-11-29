@@ -62,7 +62,7 @@ export const CoreModalDocs: Component = () => {
   return (
     <div class="row gy-4">
       <div>
-        <h3>Modal</h3>
+        <h3>Modals (core)</h3>
         <p class="lead">
           Love them or hate them, <code>{"<Modal />"}</code> provides a solid
           foundation for creating dialogs, lightboxes, or whatever else. The
@@ -96,3 +96,5 @@ export const CoreModalDocs: Component = () => {
     </div>
   );
 };
+
+export default CoreModalDocs;

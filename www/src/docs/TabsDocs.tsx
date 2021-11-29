@@ -68,3 +68,5 @@ export const TabsDocs: Component = () => {
     </div>
   );
 };
+
+export default TabsDocs;

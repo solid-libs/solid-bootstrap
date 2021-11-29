@@ -4,9 +4,16 @@ import Container from "../../../packages/bootstrap/src/Container";
 import Nav from "../../../packages/bootstrap/src/Nav";
 import Navbar from "../../../packages/bootstrap/src/Navbar";
 import { Bootstrap, Github, SolidBW } from "../icons";
+import styles from "./TopNavbar.module.css";
 
 const TopNavbar: Component = () => (
-  <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+  <Navbar
+    collapseOnSelect
+    expand="lg"
+    bg="dark"
+    variant="dark"
+    className={styles.Navbar}
+  >
     <Container>
       <Navbar.Brand href="#">
         <img
@@ -27,7 +34,7 @@ const TopNavbar: Component = () => (
           <Nav.Link as={Link} href="/getting-started">
             Getting started
           </Nav.Link>
-          <Nav.Link as={Link} href="/components">
+          <Nav.Link as={Link} href="/components/alerts">
             Components
           </Nav.Link>
         </Nav>

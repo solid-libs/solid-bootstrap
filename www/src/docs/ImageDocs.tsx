@@ -4,8 +4,10 @@ import Container from "../../../packages/bootstrap/src/Container";
 import Col from "../../../packages/bootstrap/src/Col";
 import Row from "../../../packages/bootstrap/src/Row";
 import Image from "../../../packages/bootstrap/src/Image";
+import { useHolderJSRefresh } from "./utils";
 
 export const ImageDocs: Component = () => {
+  useHolderJSRefresh();
   return (
     <div class="row gy-4">
       <div>
@@ -40,3 +42,5 @@ export const ImageDocs: Component = () => {
     </div>
   );
 };
+
+export default ImageDocs;

@@ -318,3 +318,5 @@ export const NavbarDocs: Component = () => {
     </div>
   );
 };
+
+export default NavbarDocs;

@@ -191,3 +191,5 @@ export const NavDocs: Component = () => {
     </div>
   );
 };
+
+export default NavDocs;

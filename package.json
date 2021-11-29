@@ -19,12 +19,14 @@
   "dependencies": {
     "@popperjs/core": "^2.10.1",
     "@types/invariant": "2.2.35",
+    "@types/lodash": "4.14.177",
     "@types/warning": "^3.0.0",
     "classnames": "2.3.1",
     "dequal": "^2.0.2",
     "dom-helpers": "^5.2.0",
     "holderjs": "2.9.9",
     "invariant": "2.2.4",
+    "lodash": "4.17.21",
     "solid-js": "^1.2.5",
     "solid-app-router": "^0.1.13",
     "warning": "^4.0.3"

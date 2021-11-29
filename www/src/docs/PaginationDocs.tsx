@@ -64,3 +64,5 @@ export const PaginationDocs: Component = () => {
     </div>
   );
 };
+
+export default PaginationDocs;

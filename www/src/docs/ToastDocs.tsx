@@ -8,12 +8,14 @@ import Button from "../../../packages/bootstrap/src/Button";
 import Col from "../../../packages/bootstrap/src/Col";
 import Row from "../../../packages/bootstrap/src/Row";
 import Form from "../../../packages/bootstrap/src/Form";
+import { useHolderJSRefresh } from "./utils";
 
 export const ToastDocs: Component = () => {
   const [show1, setShow1] = createSignal(true);
   const [show2, setShow2] = createSignal(true);
   const [show3, setShow3] = createSignal(false);
   const [position, setPosition] = createSignal<ToastPosition>("top-start");
+  useHolderJSRefresh();
 
   return (
     <div class="row gy-4">
@@ -282,8 +284,4 @@ export const ToastDocs: Component = () => {
   );
 };
 
-// const Link = ({ id, children, title }) => (
-//   <OverlayTrigger overlay={<Tooltip id={id}>{title}</Tooltip>}>
-//     <a href="#">{children}</a>
-//   </OverlayTrigger>
-// );
+export default ToastDocs;

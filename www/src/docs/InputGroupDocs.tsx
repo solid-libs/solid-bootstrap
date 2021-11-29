@@ -266,3 +266,5 @@ export const InputGroupDocs: Component = () => {
     </div>
   );
 };
+
+export default InputGroupDocs;

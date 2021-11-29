@@ -1,7 +1,10 @@
 import { Component, For } from "solid-js";
 import Figure from "../../../packages/bootstrap/src/Figure";
+import { useHolderJSRefresh } from "./utils";
 
 export const FigureDocs: Component = () => {
+  useHolderJSRefresh();
+
   return (
     <div class="row gy-4">
       <div>
@@ -27,3 +30,5 @@ export const FigureDocs: Component = () => {
     </div>
   );
 };
+
+export default FigureDocs;

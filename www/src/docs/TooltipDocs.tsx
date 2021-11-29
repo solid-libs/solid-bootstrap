@@ -64,3 +64,5 @@ const Link = (props: { id: string; children: JSX.Element; title: string }) => (
     <a href="#">{props.children}</a>
   </OverlayTrigger>
 );
+
+export default TooltipDocs;

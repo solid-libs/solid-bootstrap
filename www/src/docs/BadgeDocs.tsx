@@ -1,7 +1,7 @@
 import { Component, For } from "solid-js";
 import Badge from "../../../packages/bootstrap/src/Badge";
 
-export const BadgeDocs: Component = () => {
+const BadgeDocs: Component = () => {
   return (
     <div class="row gy-4">
       <div>
@@ -81,3 +81,5 @@ export const BadgeDocs: Component = () => {
     </div>
   );
 };
+
+export default BadgeDocs;

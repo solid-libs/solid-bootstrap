@@ -7,7 +7,7 @@ import FormControl from "../../../packages/bootstrap/src/FormControl";
 import Dropdown from "../../../packages/bootstrap/src/Dropdown";
 import DropdownButton from "../../../packages/bootstrap/src/DropdownButton";
 
-export const ButtonGroupDocs: Component = () => {
+const ButtonGroupDocs: Component = () => {
   return (
     <div class="row gy-4">
       <div>
@@ -160,3 +160,5 @@ export const ButtonGroupDocs: Component = () => {
     </div>
   );
 };
+
+export default ButtonGroupDocs;

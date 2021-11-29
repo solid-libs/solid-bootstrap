@@ -77,7 +77,7 @@ export const CoreDropdownDocs: Component = () => {
   return (
     <div class="row gy-4">
       <div>
-        <h3>Dropdown</h3>
+        <h3>Dropdowns (core)</h3>
         <p class="lead">
           Dropdown is a set of structural components for building accessible
           dropdown menus with close-on-click, keyboard navigation, and correct
@@ -108,3 +108,5 @@ export const CoreDropdownDocs: Component = () => {
     </div>
   );
 };
+
+export default CoreDropdownDocs;

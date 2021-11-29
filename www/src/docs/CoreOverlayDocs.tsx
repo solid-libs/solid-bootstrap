@@ -24,7 +24,7 @@ export const CoreOverlayDocs: Component = () => {
   return (
     <div class="row gy-4" ref={setContainer}>
       <div>
-        <h3>Overlay</h3>
+        <h3>Overlays (core)</h3>
         <p class="lead">
           A powerful and flexible overlay component for showing things over, and
           next to, other things.
@@ -67,3 +67,5 @@ export const CoreOverlayDocs: Component = () => {
     </div>
   );
 };
+
+export default CoreOverlayDocs;

@@ -329,3 +329,5 @@ export const TableDocs: Component = () => {
     </div>
   );
 };
+
+export default TableDocs;

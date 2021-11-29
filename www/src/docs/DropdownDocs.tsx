@@ -385,3 +385,5 @@ export const DropdownDocs: Component = () => {
     </div>
   );
 };
+
+export default DropdownDocs;

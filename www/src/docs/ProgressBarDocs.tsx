@@ -76,3 +76,5 @@ export const ProgressBarDocs: Component = () => {
     </div>
   );
 };
+
+export default ProgressBarDocs;

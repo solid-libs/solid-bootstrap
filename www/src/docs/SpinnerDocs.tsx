@@ -95,3 +95,5 @@ export const SpinnerDocs: Component = () => {
     </div>
   );
 };
+
+export default SpinnerDocs;

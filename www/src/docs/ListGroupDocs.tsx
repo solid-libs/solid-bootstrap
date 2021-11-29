@@ -208,3 +208,5 @@ export const ListGroupDocs: Component = () => {
     </div>
   );
 };
+
+export default ListGroupDocs;

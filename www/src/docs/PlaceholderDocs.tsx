@@ -2,8 +2,11 @@ import { Component, For } from "solid-js";
 import Button from "../../../packages/bootstrap/src/Button";
 import Card from "../../../packages/bootstrap/src/Card";
 import Placeholder from "../../../packages/bootstrap/src/Placeholder";
+import { useHolderJSRefresh } from "./utils";
 
 export const PlaceholderDocs: Component = () => {
+  useHolderJSRefresh();
+
   return (
     <div class="row gy-4">
       <div>
@@ -93,3 +96,5 @@ export const PlaceholderDocs: Component = () => {
     </div>
   );
 };
+
+export default PlaceholderDocs;
