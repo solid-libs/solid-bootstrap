@@ -5,7 +5,7 @@ import Collapse from "../../../packages/bootstrap/src/Collapse";
 import styles from "./SideNav.module.css";
 import Button from "../../../packages/bootstrap/src/Button";
 import Nav from "../../../packages/bootstrap/src/Nav";
-import { useLocation } from "solid-app-router";
+import { Link, useLocation } from "solid-app-router";
 
 const layout = ["grid", "stack"];
 
@@ -112,8 +112,9 @@ const NavSection = (props: {
     <>
       <TocLink
         active={active()}
+        as={Link}
         href={
-          props.items ? `/#${props.path}/${props.items[0]}/` : `${props.path}/`
+          props.items ? `/${props.path}/${props.items[0]}/` : `${props.path}/`
         }
         className={classNames(
           "js-search-toc-item",
@@ -131,7 +132,7 @@ const NavSection = (props: {
         >
           {props.items.map((name: string) => (
             <Nav.Item>
-              <TocSubLink href={`/#${props.path}/${name}/`}>
+              <TocSubLink as={Link} href={`/${props.path}/${name}/`}>
                 {
                   // @ts-ignore
                   nameOverrides[name] || startCase(name.toLowerCase())
