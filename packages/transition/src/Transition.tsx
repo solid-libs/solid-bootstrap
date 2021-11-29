@@ -13,11 +13,9 @@ import {
   Show,
   createMemo,
   splitProps,
-  createEffect,
   mergeProps,
 } from "solid-js";
 import TransitionGroupContext from "./TransitionGroupContext";
-import config from "./config";
 import { nextFrame } from "./utils";
 
 /**
@@ -125,13 +123,6 @@ export type TransitionStatus =
   | typeof UNMOUNTED;
 
 export type TransitionComponent = Component<TransitionProps>;
-// & {
-//   UNMOUNTED: typeof UNMOUNTED;
-//   EXITED: typeof EXITED;
-//   ENTERING: typeof ENTERING;
-//   ENTERED: typeof ENTERED;
-//   EXITING: typeof EXITING;
-// };
 
 /**
  * EnterCallback (and EndCallback) is complicated as the original JS version optionally omits the
@@ -323,7 +314,7 @@ const Transition: TransitionComponent = (p: TransitionProps) => {
     const enterTimeout = appearing ? timeouts.appear : timeouts.enter;
     // no enter animation skip right to ENTERED
     // if we are mounting and running this it means appear _must_ be set
-    if ((!mounting && !enter) || config.disabled) {
+    if (!mounting && !enter) {
       safeSetState(ENTERED, () => {
         local.onEntered!(maybeNode);
       });
@@ -351,7 +342,7 @@ const Transition: TransitionComponent = (p: TransitionProps) => {
     const maybeNode = local.nodeRef ? undefined : childRef;
 
     // no exit animation skip right to EXITED
-    if (!exit || config.disabled) {
+    if (!exit) {
       safeSetState(EXITED, () => {
         local.onExited!(maybeNode);
       });
@@ -450,11 +441,5 @@ const Transition: TransitionComponent = (p: TransitionProps) => {
     </TransitionGroupContext.Provider>
   );
 };
-
-// Transition.UNMOUNTED = UNMOUNTED;
-// Transition.EXITED = EXITED;
-// Transition.ENTERING = ENTERING;
-// Transition.ENTERED = ENTERED;
-// Transition.EXITING = EXITING;
 
 export default Transition;

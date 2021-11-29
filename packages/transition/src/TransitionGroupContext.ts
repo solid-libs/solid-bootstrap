@@ -1,4 +1,4 @@
-import { createContext, JSX } from "solid-js";
+import { createContext } from "solid-js";
 
 export type TransitionGroupContextType = {
   isMounting: boolean;
