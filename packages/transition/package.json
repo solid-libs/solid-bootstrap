@@ -1,6 +1,6 @@
 {
   "name": "solid-react-transition",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "SolidJS port of react-transition-group",
   "homepage": "https://github.com/solid-libs/solid-bootstrap/tree/master#readme",
   "repository": {
@@ -19,8 +19,7 @@
   "scripts": {
     "build": "tsc && rollup -c && node dist/prepublish.js",
     "buildpackage": "cd dist && npm pack",
-    "prepublishOnly": "npm run build",
-    "publish": "cd dist && npm publish"
+    "prepublishOnly": "npm run build"
   },
   "dependencies": {},
   "devDependencies": {
