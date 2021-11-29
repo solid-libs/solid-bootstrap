@@ -1,7 +1,9 @@
 import { Component, createSignal, Show } from "solid-js";
-import Dropdown, { DropdownProps } from "solid-bootstrap-core/Dropdown";
-import { useDropdownMenu } from "solid-bootstrap-core/DropdownMenu";
-import { useDropdownToggle } from "solid-bootstrap-core/DropdownToggle";
+import Dropdown, {
+  DropdownProps,
+} from "../../../packages/bootstrap/src/core/Dropdown";
+import { useDropdownMenu } from "../../../packages/bootstrap/src/core/DropdownMenu";
+import { useDropdownToggle } from "../../../packages/bootstrap/src/core/DropdownToggle";
 import GithubSource from "./GithubSource";
 
 const DropdownMenu = () => {

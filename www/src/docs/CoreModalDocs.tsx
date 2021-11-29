@@ -1,5 +1,7 @@
 import { Component } from "solid-js";
-import Modal, { RenderModalBackdropProps } from "solid-bootstrap-core/Modal";
+import Modal, {
+  RenderModalBackdropProps,
+} from "../../../packages/bootstrap/src/core/Modal";
 import { createSignal } from "solid-js";
 import GithubSource from "./GithubSource";
 
