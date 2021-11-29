@@ -1,3 +1,5 @@
+import Card from "../../../packages/bootstrap/src/Card";
+
 const GettingStarted = () => (
   <div
     class="container mb-5 overflow-hidden mt-5"
@@ -26,34 +28,37 @@ const GettingStarted = () => (
       </div>
       <div>
         <h3>Installation</h3>
-        <p>
-          We're just getting things organised at the moment. There is an
-          existing <code>solid-bootstrap</code> npm package BUT IT IS NOT THIS
-          ONE. An npm install will be coming over the next week or two (and may
-          actually replace the one mentioned above)
-        </p>
-        <p>
-          If you're keen to get started before then feel free to clone our{" "}
-          <a
-            href="https://github.com/solid-libs/solid-bootstrap"
-            target="_blank"
-          >
-            Github repo
-          </a>
-          . You'll find all the components in the <code>packages</code> folder
-          and examples are in the source for these docs in the{" "}
-          <code>www/src</code> folder.
-        </p>
-        <p>
-          You can also refer to the{" "}
-          <a
-            href="https://react-bootstrap.github.io/components/alerts"
-            target="_blank"
-          >
-            React-Bootstrap
-          </a>{" "}
-          documentation to supplement this site.
-        </p>
+        <ol>
+          <li>
+            Create a new SolidJS website per{" "}
+            <a href="https://www.solidjs.com/guide" target="_blank">
+              Solid's documentation
+            </a>
+            .
+          </li>
+          <li>
+            Add the Bootstrap CSS to <code>index.html</code> per{" "}
+            <a
+              href="https://getbootstrap.com/docs/5.0/getting-started/introduction/"
+              target="_blank"
+            >
+              Bootstrap's documentation
+            </a>
+            .
+          </li>
+          <li>
+            Install <code>solid-bootstrap</code> with <code>npm</code>,{" "}
+            <code>yarn</code>, <code>pnpm</code>, etc...
+          </li>
+        </ol>
+
+        <Card>
+          <Card.Body>
+            <pre>
+              <code>{"> npm install solid-bootstrap"}</code>
+            </pre>
+          </Card.Body>
+        </Card>
       </div>
       <div>
         <h3>Porting approach</h3>
@@ -65,7 +70,7 @@ const GettingStarted = () => (
           <li>
             The goal is to capture all of the proven behaviour of{" "}
             <a
-              href="https://github.com/react-bootstrap/react-bootstrap"
+              href="https://react-bootstrap.github.io/components/alerts"
               target="_blank"
             >
               <code>React-Bootstrap</code>
