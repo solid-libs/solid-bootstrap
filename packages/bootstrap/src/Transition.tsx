@@ -1,1 +1,1 @@
-export * from "solid-react-transition/";
+export * from "solid-react-transition";
