@@ -1,6 +1,6 @@
 {
   "name": "solid-bootstrap-core",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Unstyled/headless components for Solid-Bootstrap",
   "homepage": "https://github.com/solid-libs/solid-bootstrap/tree/master#readme",
   "repository": {
@@ -12,13 +12,11 @@
   "type": "module",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "files": [
-    "dist"
-  ],
   "sideEffects": false,
   "scripts": {
-    "build": "tsc && rollup -c",
-    "prepublishOnly": "npm run build"
+    "build": "tsc && rollup -c && node dist/prepublish.js",
+    "prepublishOnly": "npm run build",
+    "buildpackage": "cd dist && npm pack"
   },
   "devDependencies": {
     "@babel/core": "^7.15.8",
