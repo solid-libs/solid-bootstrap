@@ -1,12 +1,5 @@
 import * as Popper from "@popperjs/core";
-import {
-  Accessor,
-  createEffect,
-  createMemo,
-  createSignal,
-  on,
-  onCleanup,
-} from "solid-js";
+import { Accessor, createEffect, createMemo, createSignal, on } from "solid-js";
 import { createPopper } from "./popper";
 
 const disabledApplyStylesModifier = {
