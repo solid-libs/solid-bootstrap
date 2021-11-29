@@ -1,6 +1,7 @@
 import { Component, For } from "solid-js";
 import Card from "../../../packages/bootstrap/src/Card";
 import Pagination from "../../../packages/bootstrap/src/Pagination";
+import GithubSource from "./GithubSource";
 
 export const PaginationDocs: Component = () => {
   let active = 2;
@@ -18,6 +19,7 @@ export const PaginationDocs: Component = () => {
   return (
     <div class="row gy-4">
       <div>
+        <GithubSource name="PaginationDocs" />
         <h3>Pagination</h3>
         <p class="lead">
           A set of presentational components for building pagination UI.

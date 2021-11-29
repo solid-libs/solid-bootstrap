@@ -6,11 +6,13 @@ import Row from "../../../packages/bootstrap/src/Row";
 import Col from "../../../packages/bootstrap/src/Col";
 import Nav from "../../../packages/bootstrap/src/Nav";
 import Sonnet from "./Sonnet";
+import GithubSource from "./GithubSource";
 
 export const TabsDocs: Component = () => {
   return (
     <div class="row gy-4">
       <div>
+        <GithubSource name="TabsDocs" />
         <h3>Tabbed components</h3>
         <p class="lead">Dynamic tabbed interfaces.</p>
       </div>

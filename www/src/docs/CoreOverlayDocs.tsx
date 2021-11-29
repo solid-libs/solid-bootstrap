@@ -1,6 +1,7 @@
 import { Component, createSignal } from "solid-js";
 import Overlay from "../../../packages/core/src/Overlay";
 import { Placement } from "../../../packages/core/src/usePopper";
+import GithubSource from "./GithubSource";
 
 const PLACEMENTS: Placement[] = ["top", "right", "bottom", "left"];
 
@@ -24,6 +25,7 @@ export const CoreOverlayDocs: Component = () => {
   return (
     <div class="row gy-4" ref={setContainer}>
       <div>
+        <GithubSource name="CoreOverlayDocs" />
         <h3>Overlays (core)</h3>
         <p class="lead">
           A powerful and flexible overlay component for showing things over, and

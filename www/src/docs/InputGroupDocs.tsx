@@ -1,4 +1,4 @@
-import { Component, For } from "solid-js";
+import { Component } from "solid-js";
 import Button from "../../../packages/bootstrap/src/Button";
 import Card from "../../../packages/bootstrap/src/Card";
 import Dropdown from "../../../packages/bootstrap/src/Dropdown";
@@ -7,11 +7,13 @@ import InputGroup from "../../../packages/bootstrap/src/InputGroup";
 import Form from "../../../packages/bootstrap/src/Form";
 import FormControl from "../../../packages/bootstrap/src/FormControl";
 import SplitButton from "../../../packages/bootstrap/src/SplitButton";
+import GithubSource from "./GithubSource";
 
 export const InputGroupDocs: Component = () => {
   return (
     <div class="row gy-4">
       <div>
+        <GithubSource name="InputGroupDocs" />
         <h3>InputGroup</h3>
         <p class="lead">
           Place one add-on or button on either side of an input. You may also

@@ -1,4 +1,4 @@
-import { Component, createSignal, For } from "solid-js";
+import { Component, createSignal } from "solid-js";
 import Button from "../../../packages/bootstrap/src/Button";
 import Card from "../../../packages/bootstrap/src/Card";
 import Modal from "../../../packages/bootstrap/src/Modal";
@@ -6,6 +6,7 @@ import Container from "../../../packages/bootstrap/src/Container";
 import Row from "../../../packages/bootstrap/src/Row";
 import Col from "../../../packages/bootstrap/src/Col";
 import { ModalProps } from "../../../packages/core/src";
+import GithubSource from "./GithubSource";
 
 const booleanSignal = createSignal(false);
 
@@ -26,6 +27,7 @@ export const ModalDocs: Component = () => {
   return (
     <div class="row gy-4">
       <div>
+        <GithubSource name="ModalDocs" />
         <h3>Modals</h3>
         <div class="head">
           Add dialogs to your site for lightboxes, user notifications, or

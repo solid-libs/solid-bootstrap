@@ -1,6 +1,7 @@
 import { Component, createSignal, For, onCleanup } from "solid-js";
 import Card from "../../../packages/bootstrap/src/Card";
 import ProgressBar from "../../../packages/bootstrap/src/ProgressBar";
+import GithubSource from "./GithubSource";
 
 export const ProgressBarDocs: Component = () => {
   const [value, setValue] = createSignal(5);
@@ -13,6 +14,7 @@ export const ProgressBarDocs: Component = () => {
   return (
     <div class="row gy-4">
       <div>
+        <GithubSource name="ProgressBarDocs" />
         <h3>Progress bars </h3>
         <p class="lead">
           Provide up-to-date feedback on the progress of a workflow or action

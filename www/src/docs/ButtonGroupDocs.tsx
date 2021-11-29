@@ -1,4 +1,4 @@
-import { Component, createEffect, createSignal, For } from "solid-js";
+import { Component } from "solid-js";
 import Button from "../../../packages/bootstrap/src/Button";
 import ButtonGroup from "../../../packages/bootstrap/src/ButtonGroup";
 import ButtonToolbar from "../../../packages/bootstrap/src/ButtonToolbar";
@@ -6,11 +6,13 @@ import InputGroup from "../../../packages/bootstrap/src/InputGroup";
 import FormControl from "../../../packages/bootstrap/src/FormControl";
 import Dropdown from "../../../packages/bootstrap/src/Dropdown";
 import DropdownButton from "../../../packages/bootstrap/src/DropdownButton";
+import GithubSource from "./GithubSource";
 
 const ButtonGroupDocs: Component = () => {
   return (
     <div class="row gy-4">
       <div>
+        <GithubSource name="ButtonGroupDocs" />
         <h3>Button groups</h3>
         <p class="lead">
           Group a series of buttons together on a single line with the button

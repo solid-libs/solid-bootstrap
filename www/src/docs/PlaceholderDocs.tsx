@@ -2,6 +2,7 @@ import { Component, For } from "solid-js";
 import Button from "../../../packages/bootstrap/src/Button";
 import Card from "../../../packages/bootstrap/src/Card";
 import Placeholder from "../../../packages/bootstrap/src/Placeholder";
+import GithubSource from "./GithubSource";
 import { useHolderJSRefresh } from "./utils";
 
 export const PlaceholderDocs: Component = () => {
@@ -10,6 +11,7 @@ export const PlaceholderDocs: Component = () => {
   return (
     <div class="row gy-4">
       <div>
+        <GithubSource name="PlaceholderDocs" />
         <h3>Placeholders</h3>
         <p class="lead">
           Use loading placeholders (otherwise known as "skeletons") for your

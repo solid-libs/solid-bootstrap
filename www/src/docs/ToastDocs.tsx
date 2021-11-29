@@ -9,6 +9,7 @@ import Col from "../../../packages/bootstrap/src/Col";
 import Row from "../../../packages/bootstrap/src/Row";
 import Form from "../../../packages/bootstrap/src/Form";
 import { useHolderJSRefresh } from "./utils";
+import GithubSource from "./GithubSource";
 
 export const ToastDocs: Component = () => {
   const [show1, setShow1] = createSignal(true);
@@ -20,6 +21,7 @@ export const ToastDocs: Component = () => {
   return (
     <div class="row gy-4">
       <div>
+        <GithubSource name="ToastDocs" />
         <h3>Toasts</h3>
         <p class="lead">
           Push notifications to your visitors with a toast, a lightweight and

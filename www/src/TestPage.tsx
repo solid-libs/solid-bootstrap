@@ -1,6 +1,6 @@
 import { Component } from "solid-js";
 import AlertDocs from "./docs/AlertDocs";
-import AccordianDocs from "./docs/AccordianDocs";
+import AccordionDocs from "./docs/AccordionDocs";
 import BadgeDocs from "./docs/BadgeDocs";
 import BreadcrumbDocs from "./docs/BreadcrumbDocs";
 import ButtonDocs from "./docs/ButtonDocs";
@@ -43,7 +43,7 @@ const TestPage: Component = () => (
       <LayoutGridDocs />
       <LayoutStackDocs />
       <AlertDocs />
-      <AccordianDocs />
+      <AccordionDocs />
       <BadgeDocs />
       <BreadcrumbDocs />
       <ButtonDocs />

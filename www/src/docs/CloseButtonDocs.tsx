@@ -1,11 +1,13 @@
 import { Component, For } from "solid-js";
 import Badge from "../../../packages/bootstrap/src/Badge";
 import CloseButton from "../../../packages/bootstrap/src/CloseButton";
+import GithubSource from "./GithubSource";
 
 const CloseButtonDocs: Component = () => {
   return (
     <div class="row gy-4">
       <div>
+        <GithubSource name="CloseButtonDocs" />
         <h3>Close Button</h3>
         <p class="lead">
           A generic close button for dismissing content such as modals and

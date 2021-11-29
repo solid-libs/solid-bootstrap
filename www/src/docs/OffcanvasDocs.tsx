@@ -1,7 +1,8 @@
-import { Component, createSignal, For } from "solid-js";
+import { Component, createSignal } from "solid-js";
 import Button from "../../../packages/bootstrap/src/Button";
 import Card from "../../../packages/bootstrap/src/Card";
 import Offcanvas from "../../../packages/bootstrap/src/Offcanvas";
+import GithubSource from "./GithubSource";
 
 const booleanSignal = createSignal(false);
 
@@ -20,6 +21,7 @@ export const OffcanvasDocs: Component = () => {
   return (
     <div class="row gy-4">
       <div>
+        <GithubSource name="OffcanvasDocs" />
         <h3>Offcanvas</h3>
         <p class="lead">
           Build hidden sidebars into your project for navigation, shopping

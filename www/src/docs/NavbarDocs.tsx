@@ -1,4 +1,4 @@
-import { Component, For } from "solid-js";
+import { Component } from "solid-js";
 import Card from "../../../packages/bootstrap/src/Card";
 import Nav from "../../../packages/bootstrap/src/Nav";
 import Navbar from "../../../packages/bootstrap/src/Navbar";
@@ -8,11 +8,13 @@ import Form from "../../../packages/bootstrap/src/Form";
 import FormControl from "../../../packages/bootstrap/src/FormControl";
 import Button from "../../../packages/bootstrap/src/Button";
 import Offcanvas from "../../../packages/bootstrap/src/Offcanvas";
+import GithubSource from "./GithubSource";
 
 export const NavbarDocs: Component = () => {
   return (
     <div class="row gy-4">
       <div>
+        <GithubSource name="NavbarDocs" />
         <h3>Navbars</h3>
         <p class="lead">
           A powerful, responsive navigation header, the navbar. Includes support

@@ -1,4 +1,4 @@
-import { Component, For } from "solid-js";
+import { Component } from "solid-js";
 import Container from "../../../packages/bootstrap/src/Container";
 import Dropdown from "../../../packages/bootstrap/src/Dropdown";
 import DropdownButton from "../../../packages/bootstrap/src/DropdownButton";
@@ -10,11 +10,13 @@ import Navbar from "../../../packages/bootstrap/src/Navbar";
 import NavDropdown from "../../../packages/bootstrap/src/NavDropdown";
 import { DropDirection } from "../../../packages/bootstrap/src/DropdownContext";
 import Alert from "../../../packages/bootstrap/src/Alert";
+import GithubSource from "./GithubSource";
 
 export const DropdownDocs: Component = () => {
   return (
     <div class="row gy-4">
       <div>
+        <GithubSource name="DropdownDocs" />
         <h3>Dropdowns</h3>
         <p class="lead">
           Toggle contextual overlays for displaying lists of links and more with

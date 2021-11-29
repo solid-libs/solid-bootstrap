@@ -4,11 +4,13 @@ import Popover from "../../../packages/bootstrap/src/Popover";
 import Button from "../../../packages/bootstrap/src/Button";
 import OverlayTrigger from "../../../packages/bootstrap/src/OverlayTrigger";
 import { Placement } from "../../../packages/bootstrap/src/types";
+import GithubSource from "./GithubSource";
 
 export const PopoverDocs: Component = () => {
   return (
     <div class="row gy-4">
       <div>
+        <GithubSource name="PopoverDocs" />
         <h3>Popovers</h3>
         <p class="lead">A popover component, like those found in iOS.</p>
       </div>

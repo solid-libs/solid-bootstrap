@@ -2,11 +2,13 @@ import { Component, createEffect, createSignal, For } from "solid-js";
 import Button from "../../../packages/bootstrap/src/Button";
 import ButtonGroup from "../../../packages/bootstrap/src/ButtonGroup";
 import ToggleButton from "../../../packages/bootstrap/src/ToggleButton";
+import GithubSource from "./GithubSource";
 
 const ButtonDocs: Component = () => {
   return (
     <div class="row gy-4">
       <div>
+        <GithubSource name="ButtonDocs" />
         <h3>Buttons</h3>
         <p class="lead">
           Custom button styles for actions in forms, dialogs, and more with

@@ -1,5 +1,6 @@
 import { Component, For } from "solid-js";
 import Figure from "../../../packages/bootstrap/src/Figure";
+import GithubSource from "./GithubSource";
 import { useHolderJSRefresh } from "./utils";
 
 export const FigureDocs: Component = () => {
@@ -8,6 +9,7 @@ export const FigureDocs: Component = () => {
   return (
     <div class="row gy-4">
       <div>
+        <GithubSource name="FigureDocs" />
         <h3>Figures</h3>
         <p class="lead">
           Anytime you need to display a piece of content, like an image with an

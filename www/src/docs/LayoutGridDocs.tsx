@@ -1,14 +1,16 @@
-import { Component, createSignal } from "solid-js";
+import { Component } from "solid-js";
 import Card from "../../../packages/bootstrap/src/Card";
 import Container from "../../../packages/bootstrap/src/Container";
 import Col from "../../../packages/bootstrap/src/Col";
 import Row from "../../../packages/bootstrap/src/Row";
 import "./styles.css";
+import GithubSource from "./GithubSource";
 
 export const LayoutGridDocs: Component = () => {
   return (
     <div class="row gy-4">
       <div>
+        <GithubSource name="LayoutGridDocs" />
         <h3>Grid system</h3>
         <p class="lead">
           Bootstrap’s grid system uses a series of containers, rows, and columns

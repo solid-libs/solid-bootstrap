@@ -1,10 +1,12 @@
 import { Component, For } from "solid-js";
 import Alert from "../../../packages/bootstrap/src/Alert";
+import GithubSource from "./GithubSource";
 
 const AlertDocs: Component = () => {
   return (
     <div class="row gy-4">
       <div>
+        <GithubSource name="AlertDocs" />
         <h3>Alerts</h3>
         <p class="lead">
           Provide contextual feedback messages for typical user actions with the

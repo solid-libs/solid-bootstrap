@@ -1,10 +1,12 @@
 import { Component, For } from "solid-js";
 import Breadcrumb from "../../../packages/bootstrap/src/Breadcrumb";
+import GithubSource from "./GithubSource";
 
 const BreadcrumbDocs: Component = () => {
   return (
     <div class="row gy-4">
       <div>
+        <GithubSource name="BreadcrumbDocs" />
         <h3>Breadcrumbs</h3>
         <p class="lead">
           Indicate the current page’s location within a navigational hierarchy

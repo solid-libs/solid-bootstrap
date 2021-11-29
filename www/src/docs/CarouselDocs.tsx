@@ -1,10 +1,12 @@
-import { Component, For } from "solid-js";
+import { Component } from "solid-js";
 import Carousel from "../../../packages/bootstrap/src/Carousel";
+import GithubSource from "./GithubSource";
 
 const CarouselDocs: Component = () => {
   return (
     <div class="row gy-4">
       <div>
+        <GithubSource name="CarouselDocs" />
         <h3>Carousels</h3>
         <p class="lead">
           A slideshow component for cycling through elements—images or slides of

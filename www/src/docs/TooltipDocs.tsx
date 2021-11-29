@@ -3,11 +3,13 @@ import Card from "../../../packages/bootstrap/src/Card";
 import Tooltip from "../../../packages/bootstrap/src/Tooltip";
 import Button from "../../../packages/bootstrap/src/Button";
 import OverlayTrigger from "../../../packages/bootstrap/src/OverlayTrigger";
+import GithubSource from "./GithubSource";
 
 export const TooltipDocs: Component = () => {
   return (
     <div class="row gy-4">
       <div>
+        <GithubSource name="TooltipDocs" />
         <h3>Tooltips</h3>
         <p class="lead">
           A tooltip component for a more stylish alternative to that anchor tag

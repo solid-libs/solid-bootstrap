@@ -2,11 +2,13 @@ import { Component } from "solid-js";
 import Card from "../../../packages/bootstrap/src/Card";
 import Button from "../../../packages/bootstrap/src/Button";
 import Spinner from "../../../packages/bootstrap/src/Spinner";
+import GithubSource from "./GithubSource";
 
 export const SpinnerDocs: Component = () => {
   return (
     <div class="row gy-4">
       <div>
+        <GithubSource name="SpinnerDocs" />
         <h3>Spinners</h3>
         <p class="lead">
           Spinners can be used to show the loading state in your projects.

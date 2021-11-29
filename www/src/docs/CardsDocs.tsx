@@ -1,4 +1,4 @@
-import { Component, onMount } from "solid-js";
+import { Component } from "solid-js";
 import Button from "../../../packages/bootstrap/src/Button";
 import Card from "../../../packages/bootstrap/src/Card";
 import CardGroup from "../../../packages/bootstrap/src/CardGroup";
@@ -7,12 +7,14 @@ import Nav from "../../../packages/bootstrap/src/Nav";
 import Row from "../../../packages/bootstrap/src/Row";
 import Col from "../../../packages/bootstrap/src/Col";
 import { useHolderJSRefresh } from "./utils";
+import GithubSource from "./GithubSource";
 
 const CardsDocs: Component = () => {
   useHolderJSRefresh();
   return (
     <div class="row gy-4">
       <div>
+        <GithubSource name="CardsDocs" />
         <h3>Cards</h3>
         <p class="lead">
           Bootstrap’s cards provide a flexible and extensible content container

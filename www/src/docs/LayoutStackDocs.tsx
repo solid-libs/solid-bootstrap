@@ -4,11 +4,13 @@ import Button from "../../../packages/bootstrap/src/Button";
 import Form from "../../../packages/bootstrap/src/Form";
 import Stack from "../../../packages/bootstrap/src/Stack";
 import "./styles.css";
+import GithubSource from "./GithubSource";
 
 export const LayoutStackDocs: Component = () => {
   return (
     <div class="row gy-4">
       <div>
+        <GithubSource name="LayoutStackDocs" />
         <h3>Stacks</h3>
         <p class="lead">
           Shorthand helpers that build on top of our flexbox utilities to make

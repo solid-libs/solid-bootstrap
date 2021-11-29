@@ -1,11 +1,11 @@
-import { Component, For } from "solid-js";
+import { Component } from "solid-js";
 import Badge from "../../../packages/bootstrap/src/Badge";
 import Card from "../../../packages/bootstrap/src/Card";
 import Tab from "../../../packages/bootstrap/src/Tab";
-import Tabs from "../../../packages/bootstrap/src/Tabs";
 import Row from "../../../packages/bootstrap/src/Row";
 import Col from "../../../packages/bootstrap/src/Col";
 import ListGroup from "../../../packages/bootstrap/src/ListGroup";
+import GithubSource from "./GithubSource";
 
 export const ListGroupDocs: Component = () => {
   function alertClicked() {
@@ -15,6 +15,7 @@ export const ListGroupDocs: Component = () => {
   return (
     <div class="row gy-4">
       <div>
+        <GithubSource name="ListGroupDocs" />
         <h3>List groups</h3>
       </div>
       <div>

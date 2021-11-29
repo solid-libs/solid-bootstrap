@@ -1,10 +1,12 @@
-import { Component, For } from "solid-js";
+import { Component } from "solid-js";
 import Badge from "../../../packages/bootstrap/src/Badge";
+import GithubSource from "./GithubSource";
 
 const BadgeDocs: Component = () => {
   return (
     <div class="row gy-4">
       <div>
+        <GithubSource name="BadgeDocs" />
         <h3>Badges</h3>
         <p class="lead">
           Badges scale to match the size of the immediate parent element by

@@ -2,6 +2,7 @@ import { Component, createSignal, Show } from "solid-js";
 import Dropdown, { DropdownProps } from "../../../packages/core/src/Dropdown";
 import { useDropdownMenu } from "../../../packages/core/src/DropdownMenu";
 import { useDropdownToggle } from "../../../packages/core/src/DropdownToggle";
+import GithubSource from "./GithubSource";
 
 const DropdownMenu = () => {
   const [menuProps, meta] = useDropdownMenu({
@@ -77,6 +78,7 @@ export const CoreDropdownDocs: Component = () => {
   return (
     <div class="row gy-4">
       <div>
+        <GithubSource name="CoreDropdownDocs" />
         <h3>Dropdowns (core)</h3>
         <p class="lead">
           Dropdown is a set of structural components for building accessible

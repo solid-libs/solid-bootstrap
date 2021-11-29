@@ -1,4 +1,4 @@
-import { Component, createSignal, For } from "solid-js";
+import { Component, createSignal } from "solid-js";
 import Alert from "../../../packages/bootstrap/src/Alert";
 import Button from "../../../packages/bootstrap/src/Button";
 import Card from "../../../packages/bootstrap/src/Card";
@@ -8,6 +8,7 @@ import InputGroup from "../../../packages/bootstrap/src/InputGroup";
 import Row from "../../../packages/bootstrap/src/Row";
 import FloatingLabel from "../../../packages/bootstrap/src/FloatingLabel";
 import { FormCheckType } from "../../../packages/bootstrap/src/FormCheck";
+import GithubSource from "./GithubSource";
 
 export const FormDocs: Component = () => {
   const [validated, setValidated] = createSignal(false);
@@ -25,6 +26,7 @@ export const FormDocs: Component = () => {
   return (
     <div class="row gy-4">
       <div>
+        <GithubSource name="FormDocs" />
         <h3>Forms</h3>
         <p class="lead">
           The <code>{"<FormControl>"}</code> component renders a form control

@@ -3,6 +3,7 @@ import Modal, {
   RenderModalBackdropProps,
 } from "../../../packages/core/src/Modal";
 import { createSignal } from "solid-js";
+import GithubSource from "./GithubSource";
 
 let rand = (min: number, max: number) =>
   min + Math.floor(Math.random() * (max - min));
@@ -62,6 +63,7 @@ export const CoreModalDocs: Component = () => {
   return (
     <div class="row gy-4">
       <div>
+        <GithubSource name="CoreModalDocs" />
         <h3>Modals (core)</h3>
         <p class="lead">
           Love them or hate them, <code>{"<Modal />"}</code> provides a solid

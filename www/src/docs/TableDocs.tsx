@@ -1,11 +1,13 @@
 import { Component } from "solid-js";
 import Card from "../../../packages/bootstrap/src/Card";
 import Table from "../../../packages/bootstrap/src/Table";
+import GithubSource from "./GithubSource";
 
 export const TableDocs: Component = () => {
   return (
     <div class="row gy-4">
       <div>
+        <GithubSource name="TableDocs" />
         <h3>Tables</h3>
         <p class="lead">
           Use the <code>striped</code>, <code>bordered</code> and{" "}

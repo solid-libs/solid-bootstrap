@@ -1,12 +1,14 @@
-import { Component, For } from "solid-js";
+import { Component } from "solid-js";
 import Card from "../../../packages/bootstrap/src/Card";
 import Nav from "../../../packages/bootstrap/src/Nav";
 import NavDropdown from "../../../packages/bootstrap/src/NavDropdown";
+import GithubSource from "./GithubSource";
 
 export const NavDocs: Component = () => {
   return (
     <div class="row gy-4">
       <div>
+        <GithubSource name="NavDocs" />
         <h3>Navs</h3>
         <p class="lead">
           Navigation bits in Bootstrap all share a general Nav component and
