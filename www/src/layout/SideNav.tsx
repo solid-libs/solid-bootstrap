@@ -114,7 +114,7 @@ const NavSection = (props: {
         active={active()}
         as={Link}
         href={
-          props.items ? `/${props.path}/${props.items[0]}/` : `${props.path}/`
+          props.items ? `${props.path}/${props.items[0]}/` : `${props.path}/`
         }
         className={classNames(
           "js-search-toc-item",
@@ -132,7 +132,7 @@ const NavSection = (props: {
         >
           {props.items.map((name: string) => (
             <Nav.Item>
-              <TocSubLink as={Link} href={`/${props.path}/${name}/`}>
+              <TocSubLink as={Link} href={`${props.path}/${name}/`}>
                 {
                   // @ts-ignore
                   nameOverrides[name] || startCase(name.toLowerCase())
