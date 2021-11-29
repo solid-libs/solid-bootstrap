@@ -1,6 +1,12 @@
 import startCase from "lodash/startCase";
 import classNames from "classnames";
-import { Component, ComponentProps, createMemo, createSignal } from "solid-js";
+import {
+  Component,
+  ComponentProps,
+  createEffect,
+  createMemo,
+  createSignal,
+} from "solid-js";
 import Collapse from "../../../packages/bootstrap/src/Collapse";
 import styles from "./SideNav.module.css";
 import Button from "../../../packages/bootstrap/src/Button";
@@ -147,12 +153,19 @@ const NavSection = (props: {
 };
 
 const SideNav: Component = (props: ComponentProps<typeof SidePanel>) => {
-  const [collapsed, setCollapsed] = createSignal(false);
+  const [collapsed, setCollapsed] = createSignal(true);
   const location = useLocation();
 
   const handleCollapse = () => {
     setCollapsed((s) => !s);
   };
+
+  createEffect(() => {
+    // collapse mobile sidebar if navigated
+    if (location?.pathname) {
+      setCollapsed(true);
+    }
+  });
 
   return (
     <SidePanel {...props}>
@@ -173,7 +186,7 @@ const SideNav: Component = (props: ComponentProps<typeof SidePanel>) => {
           />
         </svg>
       </MenuButton>
-      <Collapse in={collapsed()}>
+      <Collapse in={!collapsed()}>
         <OverflowWrapper>
           <TableOfContents role="complementary">
             <NavSection
