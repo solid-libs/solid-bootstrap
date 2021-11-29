@@ -33,7 +33,7 @@ export type Color =
   | "white"
   | "muted";
 
-export type Placement = import("../../core/src/usePopper").Placement;
+export type Placement = import("solid-bootstrap-core/usePopper").Placement;
 
 export type AlignDirection = "start" | "end";
 

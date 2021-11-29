@@ -15,8 +15,8 @@ import transitionEnd from "dom-helpers/transitionEnd";
 import BaseModal, {
   ModalHandle,
   ModalProps as BaseModalProps,
-} from "../../core/src/Modal";
-import { ModalInstance } from "../../core/src/ModalManager";
+} from "solid-bootstrap-core/Modal";
+import { ModalInstance } from "solid-bootstrap-core/ModalManager";
 import { getSharedManager } from "./BootstrapModalManager";
 import Fade, { FadeProps } from "./Fade";
 import ModalBody from "./ModalBody";

@@ -3,8 +3,8 @@ import classNames from "classnames";
 import BaseDropdownItem, {
   useDropdownItem,
   DropdownItemProps as BaseDropdownItemProps,
-} from "../../core/src/DropdownItem";
-import Anchor, { AnchorProps } from "../../core/src/Anchor";
+} from "solid-bootstrap-core/DropdownItem";
+import Anchor, { AnchorProps } from "solid-bootstrap-core/Anchor";
 import { useBootstrapPrefix } from "./ThemeProvider";
 import { BsPrefixProps, BsPrefixRefForwardingComponent } from "./helpers";
 import { Dynamic } from "solid-js/web";

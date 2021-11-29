@@ -13,7 +13,7 @@ specifiers:
   lodash: 4.17.21
   shakespeare-data: ^3.0.0
   solid-app-router: ^0.1.13
-  solid-bootstrap-core: 0.1.0
+  solid-bootstrap-core: 0.1.1
   solid-js: ^1.2.5
   solid-react-transition: 0.1.1
   typescript: ^4.4.3
@@ -33,7 +33,7 @@ dependencies:
   invariant: 2.2.4
   lodash: 4.17.21
   solid-app-router: 0.1.13_solid-js@1.2.5
-  solid-bootstrap-core: 0.1.0_solid-js@1.2.5
+  solid-bootstrap-core: 0.1.1_solid-js@1.2.5
   solid-js: 1.2.5
   solid-react-transition: 0.1.1_solid-js@1.2.5
   warning: 4.0.3
@@ -799,8 +799,8 @@ packages:
       solid-js: 1.2.5
     dev: false
 
-  /solid-bootstrap-core/0.1.0_solid-js@1.2.5:
-    resolution: {integrity: sha512-vpKYpFMX7DGpkIDsxkXpOO6FH0y8ACwJl7VgPY6fu2csN5opwy/irAsAFo2jP/OerbrccNWvRelwzhN7+Hr/zw==}
+  /solid-bootstrap-core/0.1.1_solid-js@1.2.5:
+    resolution: {integrity: sha512-jOkPAqjXts/YvJpDz/c8q5j9pAUSvn8qAkOSzYpYpRf15R+m8SVErkTHgbcJiLOMjjNYbUV+87zx/10uEvzvvQ==}
     peerDependencies:
       solid-js: ^1.2.5
     dependencies:

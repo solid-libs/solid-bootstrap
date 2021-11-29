@@ -1,8 +1,8 @@
 import { JSX, mergeProps, splitProps } from "solid-js";
 import classNames from "classnames";
-import SelectableContext from "../../core/src/SelectableContext";
-import { SelectCallback } from "../../core/src/types";
-import { createControlledProp } from "../../core/src/createControlledProp";
+import SelectableContext from "solid-bootstrap-core/SelectableContext";
+import { SelectCallback } from "solid-bootstrap-core/types";
+import { createControlledProp } from "solid-bootstrap-core/createControlledProp";
 
 import { createWithBsPrefix } from "./createWithBsPrefix";
 import NavbarBrand from "./NavbarBrand";

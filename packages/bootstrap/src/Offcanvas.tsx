@@ -4,7 +4,7 @@ import BaseModal, {
   ModalProps as BaseModalProps,
   RenderModalBackdropProps,
   RenderModalDialogProps,
-} from "../../core/src/Modal";
+} from "solid-bootstrap-core/Modal";
 import Fade from "./Fade";
 import OffcanvasBody from "./OffcanvasBody";
 import OffcanvasToggling from "./OffcanvasToggling";

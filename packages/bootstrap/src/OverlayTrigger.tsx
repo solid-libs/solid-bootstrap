@@ -1,7 +1,7 @@
 import { children, createSignal, JSX, mergeProps, splitProps } from "solid-js";
 import contains from "dom-helpers/contains";
 import warning from "warning";
-import { createControlledProp } from "../../core/src/createControlledProp";
+import { createControlledProp } from "solid-bootstrap-core/createControlledProp";
 import Overlay, { OverlayChildren, OverlayProps } from "./Overlay";
 
 export type OverlayTriggerType = "hover" | "click" | "focus";

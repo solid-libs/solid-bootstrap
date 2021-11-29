@@ -12,7 +12,7 @@ import BaseOverlay, {
   OverlayArrowProps,
   OverlayMetadata,
   OverlayInjectedProps,
-} from "../../core/src/Overlay";
+} from "solid-bootstrap-core/Overlay";
 import Fade from "./Fade";
 import { TransitionType } from "./helpers";
 import { Placement, RootCloseEvent } from "./types";

@@ -11,7 +11,7 @@ import transitionEndListener from "./transitionEndListener";
 import { BsPrefixOnlyProps } from "./helpers";
 import TransitionWrapper from "./TransitionWrapper";
 import { useBootstrapPrefix } from "./ThemeProvider";
-import { resolveClasses } from "../../core/src/utils";
+import { resolveClasses } from "solid-bootstrap-core/utils";
 
 export interface OffcanvasTogglingProps
   extends TransitionCallbacks,

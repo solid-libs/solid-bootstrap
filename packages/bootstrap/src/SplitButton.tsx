@@ -1,5 +1,5 @@
 import { JSX, mergeProps, splitProps } from "solid-js";
-import { ButtonType } from "../../core/src/Button";
+import { ButtonType } from "solid-bootstrap-core/Button";
 import Button from "./Button";
 import ButtonGroup from "./ButtonGroup";
 import Dropdown, { DropdownProps } from "./Dropdown";

@@ -3,7 +3,7 @@ import classNames from "classnames";
 import {
   useButtonProps,
   ButtonProps as BaseButtonProps,
-} from "../../core/src/Button";
+} from "solid-bootstrap-core/Button";
 import { useBootstrapPrefix } from "./ThemeProvider";
 import { BsPrefixProps, BsPrefixRefForwardingComponent } from "./helpers";
 import { ButtonVariant } from "./types";

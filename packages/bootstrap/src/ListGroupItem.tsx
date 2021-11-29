@@ -3,8 +3,8 @@ import classNames from "classnames";
 import {
   useNavItem,
   NavItemProps as BaseNavItemProps,
-} from "../../core/src/NavItem";
-import { makeEventKey } from "../../core/src/SelectableContext";
+} from "solid-bootstrap-core/NavItem";
+import { makeEventKey } from "solid-bootstrap-core/SelectableContext";
 import { useBootstrapPrefix } from "./ThemeProvider";
 import { BsPrefixProps, BsPrefixRefForwardingComponent } from "./helpers";
 import { Variant } from "./types";

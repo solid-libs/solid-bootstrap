@@ -2,8 +2,8 @@
 
 import { JSX, mergeProps, Show, splitProps } from "solid-js";
 import classNames from "classnames";
-import { createControlledProp } from "../../core/src/createControlledProp";
-import Anchor from "../../core/src/Anchor";
+import { createControlledProp } from "solid-bootstrap-core/createControlledProp";
+import Anchor from "solid-bootstrap-core/Anchor";
 import { useBootstrapPrefix } from "./ThemeProvider";
 import Fade from "./Fade";
 import CloseButton, { CloseButtonVariant } from "./CloseButton";

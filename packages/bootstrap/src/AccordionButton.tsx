@@ -3,7 +3,7 @@
 import classNames from "classnames";
 import { JSX, mergeProps, splitProps, useContext } from "solid-js";
 import { Dynamic } from "solid-js/web";
-import { callEventHandler } from "../../core/src/utils";
+import { callEventHandler } from "solid-bootstrap-core/utils";
 import AccordionContext from "./AccordionContext";
 import AccordionItemContext from "./AccordionItemContext";
 import { BsPrefixProps, BsPrefixRefForwardingComponent } from "./helpers";

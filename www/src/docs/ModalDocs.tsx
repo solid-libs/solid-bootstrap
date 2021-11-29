@@ -5,7 +5,7 @@ import Modal from "../../../packages/bootstrap/src/Modal";
 import Container from "../../../packages/bootstrap/src/Container";
 import Row from "../../../packages/bootstrap/src/Row";
 import Col from "../../../packages/bootstrap/src/Col";
-import { ModalProps } from "../../../packages/core/src";
+import { ModalProps } from "solid-bootstrap-core";
 import GithubSource from "./GithubSource";
 
 const booleanSignal = createSignal(false);

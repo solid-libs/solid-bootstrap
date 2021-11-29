@@ -1,4 +1,4 @@
-import Anchor, { AnchorProps } from "../../core/src/Anchor";
+import Anchor, { AnchorProps } from "solid-bootstrap-core/Anchor";
 
 export type { AnchorProps };
 

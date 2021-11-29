@@ -3,8 +3,8 @@ import classNames from "classnames";
 import {
   useDropdownMenu,
   UseDropdownMenuOptions,
-} from "../../core/src/DropdownMenu";
-import { SelectCallback } from "../../core/src/types";
+} from "solid-bootstrap-core/DropdownMenu";
+import { SelectCallback } from "solid-bootstrap-core/types";
 import warning from "warning";
 import DropdownContext, { DropDirection } from "./DropdownContext";
 import InputGroupContext from "./InputGroupContext";
@@ -12,7 +12,7 @@ import NavbarContext from "./NavbarContext";
 import { useBootstrapPrefix } from "./ThemeProvider";
 import { BsPrefixProps, BsPrefixRefForwardingComponent } from "./helpers";
 import { AlignType, AlignDirection, Placement } from "./types";
-import { OffsetValue } from "../../core/src/usePopper";
+import { OffsetValue } from "solid-bootstrap-core/usePopper";
 import { Dynamic } from "solid-js/web";
 
 export type DropdownMenuVariant = "dark" | string;

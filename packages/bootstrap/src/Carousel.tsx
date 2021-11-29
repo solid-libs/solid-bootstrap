@@ -13,20 +13,20 @@ import {
   onCleanup,
   splitProps,
 } from "solid-js";
-import Anchor from "../../core/src/Anchor";
+import Anchor from "solid-bootstrap-core/Anchor";
 import classNames from "classnames";
-import { createControlledProp } from "../../core/src/createControlledProp";
+import { createControlledProp } from "solid-bootstrap-core/createControlledProp";
 import CarouselCaption from "./CarouselCaption";
 import CarouselItem, { CarouselItemReturnType } from "./CarouselItem";
 import { useBootstrapPrefix, useIsRTL } from "./ThemeProvider";
 import transitionEndListener from "./transitionEndListener";
 import triggerBrowserReflow from "./triggerBrowserReflow";
 import { BsPrefixProps, BsPrefixRefForwardingComponent } from "./helpers";
-import { callEventHandler } from "../../core/src/utils";
+import { callEventHandler } from "solid-bootstrap-core/utils";
 import { Dynamic } from "solid-js/web";
 import TransitionWrapper from "./TransitionWrapper";
 import { TransitionStatus } from "solid-react-transition";
-import { resolveClasses } from "../../core/src/utils";
+import { resolveClasses } from "solid-bootstrap-core/utils";
 
 export type CarouselVariant = "dark";
 

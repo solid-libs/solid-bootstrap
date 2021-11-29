@@ -1,5 +1,5 @@
 import { mergeProps, PropsWithChildren, splitProps } from "solid-js";
-import Tabs, { TabsProps } from "../../core/src/Tabs";
+import Tabs, { TabsProps } from "solid-bootstrap-core/Tabs";
 import { getTabTransitionComponent } from "./getTabTransitionComponent";
 import { TransitionType } from "./helpers";
 

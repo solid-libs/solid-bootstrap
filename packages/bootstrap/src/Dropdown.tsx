@@ -3,8 +3,8 @@ import classNames from "classnames";
 import BaseDropdown, {
   DropdownProps as BaseDropdownProps,
   ToggleMetadata,
-} from "../../core/src/Dropdown";
-import { createControlledProp } from "../../core/src/createControlledProp";
+} from "solid-bootstrap-core/Dropdown";
+import { createControlledProp } from "solid-bootstrap-core/createControlledProp";
 import DropdownContext, { DropDirection } from "./DropdownContext";
 import DropdownItem from "./DropdownItem";
 import DropdownMenu, { getDropdownMenuPlacement } from "./DropdownMenu";

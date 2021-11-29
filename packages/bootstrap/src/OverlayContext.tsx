@@ -3,7 +3,7 @@ import {
   OverlayArrowProps,
   OverlayInjectedProps,
   OverlayMetadata,
-} from "../../core/src/Overlay";
+} from "solid-bootstrap-core/Overlay";
 
 export interface OverlayContextType {
   wrapperProps: OverlayInjectedProps;
