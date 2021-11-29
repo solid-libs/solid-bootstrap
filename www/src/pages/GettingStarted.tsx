@@ -54,7 +54,7 @@ const GettingStarted = () => (
 
         <Card>
           <Card.Body>
-            <pre>
+            <pre className="mb-0">
               <code>{"> npm install solid-bootstrap"}</code>
             </pre>
           </Card.Body>
@@ -91,12 +91,6 @@ const GettingStarted = () => (
             comparison between the ported SolidJS code and the original
             implementation.
           </li>
-        </ul>
-      </div>
-      <div>
-        <h3>Known Issues</h3>
-        <ul>
-          <li>none</li>
         </ul>
       </div>
     </div>
