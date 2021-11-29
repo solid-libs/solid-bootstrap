@@ -29,8 +29,7 @@
     "lodash": "4.17.21",
     "solid-js": "^1.2.5",
     "solid-app-router": "^0.1.13",
-    "solid-bootstrap-core": "0.1.1",
-    "solid-react-transition": "0.1.1",
+    "solid-bootstrap-core": "0.1.6",
     "warning": "^4.0.3"
   }
 }

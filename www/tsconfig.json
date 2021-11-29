@@ -10,11 +10,6 @@
     "jsxImportSource": "solid-js",
     "types": ["vite/client"]
   },
-  "include": [
-    "www/src/**/*",
-    "packages/bootstrap/src/**/*",
-    "packages/core/src/**/*",
-    "packages/transition/src/**/*"
-  ],
+  "include": ["src/**/*"],
   "exclude": ["node_modules"]
 }

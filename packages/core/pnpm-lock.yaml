@@ -11,13 +11,13 @@ specifiers:
   rollup: ^2.52.1
   rollup-plugin-terser: ^7.0.2
   solid-js: ^1.2.5
-  solid-react-transition: ^0.1.3
+  solid-react-transition: ^0.1.5
   typescript: ^4.4.3
 
 dependencies:
   '@popperjs/core': 2.11.0
   dom-helpers: 5.2.1
-  solid-react-transition: 0.1.3_solid-js@1.2.5
+  solid-react-transition: 0.1.5_solid-js@1.2.5
 
 devDependencies:
   '@babel/core': 7.16.0
@@ -688,8 +688,8 @@ packages:
     resolution: {integrity: sha512-XcPEULgqd/XbBu8LwtGWs5RGowvIpq88/ZNI/xgJ9PaxRJWwbVlSNsS+ywUWncxRdKsPoVe8vdcIsH4gBJjh3Q==}
     dev: true
 
-  /solid-react-transition/0.1.3_solid-js@1.2.5:
-    resolution: {integrity: sha512-3pD2x4L5vhIOneFSg0RWDZcsfN8fnjv0uqx0HGMx6XM0FZOmVGuuVL/mcqMXMGS4habbdG+yI/t5CB6WQQsOJQ==}
+  /solid-react-transition/0.1.5_solid-js@1.2.5:
+    resolution: {integrity: sha512-f4aBYAuBfgyI7aQdO423ZXD8U12zuKqxMAaO/lwSIfq9OvQC4Szz7eHxv9lLd5LSo+h47t+xBq3409A2RQB9qQ==}
     peerDependencies:
       solid-js: ^1.2.5
     dependencies:
