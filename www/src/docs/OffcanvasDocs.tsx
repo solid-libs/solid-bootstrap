@@ -1,7 +1,7 @@
 import { Component, createSignal } from "solid-js";
-import Button from "../../../packages/bootstrap/src/Button";
-import Card from "../../../packages/bootstrap/src/Card";
-import Offcanvas from "../../../packages/bootstrap/src/Offcanvas";
+import Button from "solid-bootstrap/Button";
+import Card from "solid-bootstrap/Card";
+import Offcanvas from "solid-bootstrap/Offcanvas";
 import GithubSource from "./GithubSource";
 
 const booleanSignal = createSignal(false);

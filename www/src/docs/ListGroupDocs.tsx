@@ -1,10 +1,10 @@
 import { Component } from "solid-js";
-import Badge from "../../../packages/bootstrap/src/Badge";
-import Card from "../../../packages/bootstrap/src/Card";
-import Tab from "../../../packages/bootstrap/src/Tab";
-import Row from "../../../packages/bootstrap/src/Row";
-import Col from "../../../packages/bootstrap/src/Col";
-import ListGroup from "../../../packages/bootstrap/src/ListGroup";
+import Badge from "solid-bootstrap/Badge";
+import Card from "solid-bootstrap/Card";
+import Tab from "solid-bootstrap/Tab";
+import Row from "solid-bootstrap/Row";
+import Col from "solid-bootstrap/Col";
+import ListGroup from "solid-bootstrap/ListGroup";
 import GithubSource from "./GithubSource";
 
 export const ListGroupDocs: Component = () => {

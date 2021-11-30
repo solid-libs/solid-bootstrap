@@ -7,10 +7,10 @@ import {
   createMemo,
   createSignal,
 } from "solid-js";
-import Collapse from "../../../packages/bootstrap/src/Collapse";
+import Collapse from "solid-bootstrap/Collapse";
 import styles from "./SideNav.module.css";
-import Button from "../../../packages/bootstrap/src/Button";
-import Nav from "../../../packages/bootstrap/src/Nav";
+import Button from "solid-bootstrap/Button";
+import Nav from "solid-bootstrap/Nav";
 import { Link, useLocation } from "solid-app-router";
 
 const layout = ["grid", "stack"];

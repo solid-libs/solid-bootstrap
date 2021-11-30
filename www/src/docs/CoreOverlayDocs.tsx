@@ -1,6 +1,6 @@
 import { Component, createSignal } from "solid-js";
-import Overlay from "../../../packages/bootstrap/src/core/Overlay";
-import { Placement } from "../../../packages/bootstrap/src/core/usePopper";
+import Overlay from "solid-bootstrap/core/Overlay";
+import { Placement } from "solid-bootstrap/core/usePopper";
 import GithubSource from "./GithubSource";
 
 const PLACEMENTS: Placement[] = ["top", "right", "bottom", "left"];

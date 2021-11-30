@@ -1,5 +1,5 @@
 import { Component } from "solid-js";
-import Accordion from "../../../packages/bootstrap/src/Accordion";
+import Accordion from "solid-bootstrap/Accordion";
 import GithubSource from "./GithubSource";
 
 const AccordionDocs: Component = () => {

@@ -1,4 +1,4 @@
-import Card from "../../../packages/bootstrap/src/Card";
+import Card from "solid-bootstrap/Card";
 
 const GettingStarted = () => (
   <div

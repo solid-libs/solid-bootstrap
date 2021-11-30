@@ -1,6 +1,6 @@
 import { Component } from "solid-js";
-import Card from "../../../packages/bootstrap/src/Card";
-import Table from "../../../packages/bootstrap/src/Table";
+import Card from "solid-bootstrap/Card";
+import Table from "solid-bootstrap/Table";
 import GithubSource from "./GithubSource";
 
 export const TableDocs: Component = () => {

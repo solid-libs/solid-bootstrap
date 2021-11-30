@@ -1,7 +1,7 @@
 import { Component } from "solid-js";
-import Card from "../../../packages/bootstrap/src/Card";
-import Nav from "../../../packages/bootstrap/src/Nav";
-import NavDropdown from "../../../packages/bootstrap/src/NavDropdown";
+import Card from "solid-bootstrap/Card";
+import Nav from "solid-bootstrap/Nav";
+import NavDropdown from "solid-bootstrap/NavDropdown";
 import GithubSource from "./GithubSource";
 
 export const NavDocs: Component = () => {

@@ -1,7 +1,5 @@
 import { Component } from "solid-js";
-import Modal, {
-  RenderModalBackdropProps,
-} from "../../../packages/bootstrap/src/core/Modal";
+import Modal, { RenderModalBackdropProps } from "solid-bootstrap/core/Modal";
 import { createSignal } from "solid-js";
 import GithubSource from "./GithubSource";
 
@@ -19,7 +17,7 @@ const RandomlyPositionedModal = () => {
     >
       <div class="modal-content">
         <div class="modal-header">
-          <h5 id="modal-label">Text in a modal</h4>
+          <h4 id="modal-label">Text in a modal</h4>
         </div>
         <div class="modal-body">
           <p>

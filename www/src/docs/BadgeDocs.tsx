@@ -1,5 +1,5 @@
 import { Component } from "solid-js";
-import Badge from "../../../packages/bootstrap/src/Badge";
+import Badge from "solid-bootstrap/Badge";
 import GithubSource from "./GithubSource";
 
 const BadgeDocs: Component = () => {

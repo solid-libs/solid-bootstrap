@@ -1,10 +1,10 @@
 import { Component } from "solid-js";
-import Card from "../../../packages/bootstrap/src/Card";
-import Tabs from "../../../packages/bootstrap/src/Tabs";
-import Tab from "../../../packages/bootstrap/src/Tab";
-import Row from "../../../packages/bootstrap/src/Row";
-import Col from "../../../packages/bootstrap/src/Col";
-import Nav from "../../../packages/bootstrap/src/Nav";
+import Card from "solid-bootstrap/Card";
+import Tabs from "solid-bootstrap/Tabs";
+import Tab from "solid-bootstrap/Tab";
+import Row from "solid-bootstrap/Row";
+import Col from "solid-bootstrap/Col";
+import Nav from "solid-bootstrap/Nav";
 import Sonnet from "./Sonnet";
 import GithubSource from "./GithubSource";
 

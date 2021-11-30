@@ -1,13 +1,13 @@
 import { Component, createSignal } from "solid-js";
-import Alert from "../../../packages/bootstrap/src/Alert";
-import Button from "../../../packages/bootstrap/src/Button";
-import Card from "../../../packages/bootstrap/src/Card";
-import Form from "../../../packages/bootstrap/src/Form";
-import Col from "../../../packages/bootstrap/src/Col";
-import InputGroup from "../../../packages/bootstrap/src/InputGroup";
-import Row from "../../../packages/bootstrap/src/Row";
-import FloatingLabel from "../../../packages/bootstrap/src/FloatingLabel";
-import { FormCheckType } from "../../../packages/bootstrap/src/FormCheck";
+import Alert from "solid-bootstrap/Alert";
+import Button from "solid-bootstrap/Button";
+import Card from "solid-bootstrap/Card";
+import Form from "solid-bootstrap/Form";
+import Col from "solid-bootstrap/Col";
+import InputGroup from "solid-bootstrap/InputGroup";
+import Row from "solid-bootstrap/Row";
+import FloatingLabel from "solid-bootstrap/FloatingLabel";
+import { FormCheckType } from "solid-bootstrap/FormCheck";
 import GithubSource from "./GithubSource";
 
 export const FormDocs: Component = () => {

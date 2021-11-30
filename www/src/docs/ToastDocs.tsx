@@ -1,13 +1,11 @@
 import { Component, createSignal } from "solid-js";
-import Card from "../../../packages/bootstrap/src/Card";
-import Toast from "../../../packages/bootstrap/src/Toast";
-import ToastContainer, {
-  ToastPosition,
-} from "../../../packages/bootstrap/src/ToastContainer";
-import Button from "../../../packages/bootstrap/src/Button";
-import Col from "../../../packages/bootstrap/src/Col";
-import Row from "../../../packages/bootstrap/src/Row";
-import Form from "../../../packages/bootstrap/src/Form";
+import Card from "solid-bootstrap/Card";
+import Toast from "solid-bootstrap/Toast";
+import ToastContainer, { ToastPosition } from "solid-bootstrap/ToastContainer";
+import Button from "solid-bootstrap/Button";
+import Col from "solid-bootstrap/Col";
+import Row from "solid-bootstrap/Row";
+import Form from "solid-bootstrap/Form";
 import { useHolderJSRefresh } from "./utils";
 import GithubSource from "./GithubSource";
 

@@ -1,5 +1,5 @@
 import { Component, For } from "solid-js";
-import Alert from "../../../packages/bootstrap/src/Alert";
+import Alert from "solid-bootstrap/Alert";
 import GithubSource from "./GithubSource";
 
 const AlertDocs: Component = () => {

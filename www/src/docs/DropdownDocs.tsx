@@ -1,15 +1,15 @@
 import { Component } from "solid-js";
-import Container from "../../../packages/bootstrap/src/Container";
-import Dropdown from "../../../packages/bootstrap/src/Dropdown";
-import DropdownButton from "../../../packages/bootstrap/src/DropdownButton";
-import Button from "../../../packages/bootstrap/src/Button";
-import ButtonGroup from "../../../packages/bootstrap/src/ButtonGroup";
-import SplitButton from "../../../packages/bootstrap/src/SplitButton";
-import Nav from "../../../packages/bootstrap/src/Nav";
-import Navbar from "../../../packages/bootstrap/src/Navbar";
-import NavDropdown from "../../../packages/bootstrap/src/NavDropdown";
-import { DropDirection } from "../../../packages/bootstrap/src/DropdownContext";
-import Alert from "../../../packages/bootstrap/src/Alert";
+import Container from "solid-bootstrap/Container";
+import Dropdown from "solid-bootstrap/Dropdown";
+import DropdownButton from "solid-bootstrap/DropdownButton";
+import Button from "solid-bootstrap/Button";
+import ButtonGroup from "solid-bootstrap/ButtonGroup";
+import SplitButton from "solid-bootstrap/SplitButton";
+import Nav from "solid-bootstrap/Nav";
+import Navbar from "solid-bootstrap/Navbar";
+import NavDropdown from "solid-bootstrap/NavDropdown";
+import { DropDirection } from "solid-bootstrap/DropdownContext";
+import Alert from "solid-bootstrap/Alert";
 import GithubSource from "./GithubSource";
 
 export const DropdownDocs: Component = () => {

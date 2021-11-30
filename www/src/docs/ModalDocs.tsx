@@ -1,11 +1,11 @@
 import { Component, createSignal } from "solid-js";
-import Button from "../../../packages/bootstrap/src/Button";
-import Card from "../../../packages/bootstrap/src/Card";
-import Modal from "../../../packages/bootstrap/src/Modal";
-import Container from "../../../packages/bootstrap/src/Container";
-import Row from "../../../packages/bootstrap/src/Row";
-import Col from "../../../packages/bootstrap/src/Col";
-import { ModalProps } from "../../../packages/bootstrap/src/core";
+import Button from "solid-bootstrap/Button";
+import Card from "solid-bootstrap/Card";
+import Modal from "solid-bootstrap/Modal";
+import Container from "solid-bootstrap/Container";
+import Row from "solid-bootstrap/Row";
+import Col from "solid-bootstrap/Col";
+import { ModalProps } from "solid-bootstrap/core";
 import GithubSource from "./GithubSource";
 
 const booleanSignal = createSignal(false);

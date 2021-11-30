@@ -1,5 +1,5 @@
 import { Component, For } from "solid-js";
-import Figure from "../../../packages/bootstrap/src/Figure";
+import Figure from "solid-bootstrap/Figure";
 import GithubSource from "./GithubSource";
 import { useHolderJSRefresh } from "./utils";
 

@@ -1,11 +1,11 @@
 import { Component } from "solid-js";
-import Button from "../../../packages/bootstrap/src/Button";
-import Card from "../../../packages/bootstrap/src/Card";
-import CardGroup from "../../../packages/bootstrap/src/CardGroup";
-import ListGroup from "../../../packages/bootstrap/src/ListGroup";
-import Nav from "../../../packages/bootstrap/src/Nav";
-import Row from "../../../packages/bootstrap/src/Row";
-import Col from "../../../packages/bootstrap/src/Col";
+import Button from "solid-bootstrap/Button";
+import Card from "solid-bootstrap/Card";
+import CardGroup from "solid-bootstrap/CardGroup";
+import ListGroup from "solid-bootstrap/ListGroup";
+import Nav from "solid-bootstrap/Nav";
+import Row from "solid-bootstrap/Row";
+import Col from "solid-bootstrap/Col";
 import { useHolderJSRefresh } from "./utils";
 import GithubSource from "./GithubSource";
 

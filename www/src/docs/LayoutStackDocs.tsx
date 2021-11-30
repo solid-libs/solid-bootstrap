@@ -1,8 +1,8 @@
 import { Component } from "solid-js";
-import Card from "../../../packages/bootstrap/src/Card";
-import Button from "../../../packages/bootstrap/src/Button";
-import Form from "../../../packages/bootstrap/src/Form";
-import Stack from "../../../packages/bootstrap/src/Stack";
+import Card from "solid-bootstrap/Card";
+import Button from "solid-bootstrap/Button";
+import Form from "solid-bootstrap/Form";
+import Stack from "solid-bootstrap/Stack";
 import "./styles.css";
 import GithubSource from "./GithubSource";
 

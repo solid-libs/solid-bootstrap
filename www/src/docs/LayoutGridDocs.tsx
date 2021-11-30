@@ -1,8 +1,8 @@
 import { Component } from "solid-js";
-import Card from "../../../packages/bootstrap/src/Card";
-import Container from "../../../packages/bootstrap/src/Container";
-import Col from "../../../packages/bootstrap/src/Col";
-import Row from "../../../packages/bootstrap/src/Row";
+import Card from "solid-bootstrap/Card";
+import Container from "solid-bootstrap/Container";
+import Col from "solid-bootstrap/Col";
+import Row from "solid-bootstrap/Row";
 import "./styles.css";
 import GithubSource from "./GithubSource";
 

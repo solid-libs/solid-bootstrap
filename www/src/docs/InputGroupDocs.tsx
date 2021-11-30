@@ -1,12 +1,12 @@
 import { Component } from "solid-js";
-import Button from "../../../packages/bootstrap/src/Button";
-import Card from "../../../packages/bootstrap/src/Card";
-import Dropdown from "../../../packages/bootstrap/src/Dropdown";
-import DropdownButton from "../../../packages/bootstrap/src/DropdownButton";
-import InputGroup from "../../../packages/bootstrap/src/InputGroup";
-import Form from "../../../packages/bootstrap/src/Form";
-import FormControl from "../../../packages/bootstrap/src/FormControl";
-import SplitButton from "../../../packages/bootstrap/src/SplitButton";
+import Button from "solid-bootstrap/Button";
+import Card from "solid-bootstrap/Card";
+import Dropdown from "solid-bootstrap/Dropdown";
+import DropdownButton from "solid-bootstrap/DropdownButton";
+import InputGroup from "solid-bootstrap/InputGroup";
+import Form from "solid-bootstrap/Form";
+import FormControl from "solid-bootstrap/FormControl";
+import SplitButton from "solid-bootstrap/SplitButton";
 import GithubSource from "./GithubSource";
 
 export const InputGroupDocs: Component = () => {

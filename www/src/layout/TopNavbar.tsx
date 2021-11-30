@@ -1,8 +1,8 @@
 import { Link } from "solid-app-router";
 import { Component } from "solid-js";
-import Container from "../../../packages/bootstrap/src/Container";
-import Nav from "../../../packages/bootstrap/src/Nav";
-import Navbar from "../../../packages/bootstrap/src/Navbar";
+import Container from "solid-bootstrap/Container";
+import Nav from "solid-bootstrap/Nav";
+import Navbar from "solid-bootstrap/Navbar";
 import { Bootstrap, Github, SolidBW } from "../icons";
 import styles from "./TopNavbar.module.css";
 

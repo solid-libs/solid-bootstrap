@@ -1,11 +1,11 @@
 import { Component } from "solid-js";
-import Button from "../../../packages/bootstrap/src/Button";
-import ButtonGroup from "../../../packages/bootstrap/src/ButtonGroup";
-import ButtonToolbar from "../../../packages/bootstrap/src/ButtonToolbar";
-import InputGroup from "../../../packages/bootstrap/src/InputGroup";
-import FormControl from "../../../packages/bootstrap/src/FormControl";
-import Dropdown from "../../../packages/bootstrap/src/Dropdown";
-import DropdownButton from "../../../packages/bootstrap/src/DropdownButton";
+import Button from "solid-bootstrap/Button";
+import ButtonGroup from "solid-bootstrap/ButtonGroup";
+import ButtonToolbar from "solid-bootstrap/ButtonToolbar";
+import InputGroup from "solid-bootstrap/InputGroup";
+import FormControl from "solid-bootstrap/FormControl";
+import Dropdown from "solid-bootstrap/Dropdown";
+import DropdownButton from "solid-bootstrap/DropdownButton";
 import GithubSource from "./GithubSource";
 
 const ButtonGroupDocs: Component = () => {
