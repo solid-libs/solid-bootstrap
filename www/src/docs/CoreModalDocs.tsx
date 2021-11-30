@@ -19,7 +19,7 @@ const RandomlyPositionedModal = () => {
     >
       <div class="modal-content">
         <div class="modal-header">
-          <h5 id="modal-label">Text in a modal</h5>
+          <h5 id="modal-label">Text in a modal</h4>
         </div>
         <div class="modal-body">
           <p>
@@ -64,7 +64,7 @@ export const CoreModalDocs: Component = () => {
     <div class="row gy-4">
       <div>
         <GithubSource name="CoreModalDocs" />
-        <h3>Modals (core)</h3>
+        <h2>Modals (core)</h2>
         <p class="lead">
           Love them or hate them, <code>{"<Modal />"}</code> provides a solid
           foundation for creating dialogs, lightboxes, or whatever else. The

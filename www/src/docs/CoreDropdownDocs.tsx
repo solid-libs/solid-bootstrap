@@ -81,7 +81,7 @@ export const CoreDropdownDocs: Component = () => {
     <div class="row gy-4">
       <div>
         <GithubSource name="CoreDropdownDocs" />
-        <h3>Dropdowns (core)</h3>
+        <h2>Dropdowns (core)</h2>
         <p class="lead">
           Dropdown is a set of structural components for building accessible
           dropdown menus with close-on-click, keyboard navigation, and correct

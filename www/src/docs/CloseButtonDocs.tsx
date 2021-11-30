@@ -8,7 +8,7 @@ const CloseButtonDocs: Component = () => {
     <div class="row gy-4">
       <div>
         <GithubSource name="CloseButtonDocs" />
-        <h3>Close Button</h3>
+        <h2>Close Button</h2>
         <p class="lead">
           A generic close button for dismissing content such as modals and
           alerts.
@@ -20,7 +20,7 @@ const CloseButtonDocs: Component = () => {
         </Badge>
       </div>
       <div>
-        <h5>Variants</h5>
+        <h4>Variants</h4>
         <div className="bg-dark p-3 te">
           <CloseButton variant="white" />
           <CloseButton variant="white" disabled />

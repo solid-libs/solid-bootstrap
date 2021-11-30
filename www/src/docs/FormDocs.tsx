@@ -27,7 +27,7 @@ export const FormDocs: Component = () => {
     <div class="row gy-4">
       <div>
         <GithubSource name="FormDocs" />
-        <h3>Forms</h3>
+        <h2>Forms</h2>
         <p class="lead">
           The <code>{"<FormControl>"}</code> component renders a form control
           with Bootstrap styling. The <code>{"<FormGroup>"}</code> component
@@ -62,7 +62,7 @@ export const FormDocs: Component = () => {
         </Card>
       </div>
       <div>
-        <h5>Form controls</h5>
+        <h4>Form controls</h4>
         <Card body>
           <Form>
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
@@ -80,7 +80,7 @@ export const FormDocs: Component = () => {
         </Card>
       </div>
       <div>
-        <h5>Sizing</h5>
+        <h4>Sizing</h4>
         <Card body>
           <>
             <Form.Control size="lg" type="text" placeholder="Large text" />
@@ -92,7 +92,7 @@ export const FormDocs: Component = () => {
         </Card>
       </div>
       <div>
-        <h5>Readonly</h5>
+        <h4>Readonly</h4>
         <Card body>
           <Form.Control
             type="text"
@@ -102,7 +102,7 @@ export const FormDocs: Component = () => {
         </Card>
       </div>
       <div>
-        <h5>Readonly plain text</h5>
+        <h4>Readonly plain text</h4>
         <Card body>
           <Form>
             <Form.Group
@@ -134,7 +134,7 @@ export const FormDocs: Component = () => {
         </Card>
       </div>
       <div>
-        <h5>File input</h5>
+        <h4>File input</h4>
         <Card body>
           <Form.Group controlId="formFile" className="mb-3">
             <Form.Label>Default file input example</Form.Label>
@@ -159,7 +159,7 @@ export const FormDocs: Component = () => {
         </Card>
       </div>
       <div>
-        <h5>Color</h5>
+        <h4>Color</h4>
         <Card body>
           {" "}
           <Form.Label htmlFor="exampleColorInput">Color picker</Form.Label>
@@ -172,7 +172,7 @@ export const FormDocs: Component = () => {
         </Card>
       </div>
       <div>
-        <h5>Checkboxes and Radios</h5>
+        <h4>Checkboxes and Radios</h4>
         <Card>
           <Card.Header>Stacked</Card.Header>
           <Card.Body>
@@ -237,7 +237,7 @@ export const FormDocs: Component = () => {
         </Card>
       </div>
       <div>
-        <h5>Customizing FormCheck rendering</h5>
+        <h4>Customizing FormCheck rendering</h4>
         <Card body>
           <Form>
             {["checkbox", "radio"].map((type) => (
@@ -258,14 +258,14 @@ export const FormDocs: Component = () => {
         </Card>
       </div>
       <div>
-        <h5>Range</h5>
+        <h4>Range</h4>
         <Card body>
           <Form.Label>Range</Form.Label>
           <Form.Range />
         </Card>
       </div>
       <div>
-        <h5>Select</h5>
+        <h4>Select</h4>
         <Card body>
           <Form.Select aria-label="Default select example">
             <option>Open this select menu</option>
@@ -276,7 +276,7 @@ export const FormDocs: Component = () => {
         </Card>
       </div>
       <div>
-        <h5>Sizing</h5>
+        <h4>Sizing</h4>
         <Card body>
           <Form.Select size="lg">
             <option>Large select</option>
@@ -292,7 +292,7 @@ export const FormDocs: Component = () => {
         </Card>
       </div>
       <div>
-        <h5>Floating labels</h5>
+        <h4>Floating labels</h4>
         <Card>
           <Card.Header>Inputs</Card.Header>
           <Card.Body>
@@ -394,7 +394,7 @@ export const FormDocs: Component = () => {
         </Card>
       </div>
       <div>
-        <h5>Layout</h5>
+        <h4>Layout</h4>
         <Card>
           <Card.Header>Form groups</Card.Header>
           <Card.Body>
@@ -727,7 +727,7 @@ export const FormDocs: Component = () => {
         </Card>
       </div>
       <div>
-        <h5>Help text</h5>
+        <h4>Help text</h4>
         <p>
           Block-level help text in forms can be created using{" "}
           <code>{"<Form.Text>"}</code>. Inline help text can be flexibly
@@ -767,7 +767,7 @@ export const FormDocs: Component = () => {
         </Card>
       </div>
       <div>
-        <h5>Disabled forms</h5>
+        <h4>Disabled forms</h4>
         <Card>
           <Card.Body>
             <>
@@ -852,7 +852,7 @@ export const FormDocs: Component = () => {
         </Alert>
       </div>
       <div>
-        <h5>Validation</h5>
+        <h4>Validation</h4>
         <Card>
           <Card.Header>Inline</Card.Header>
           <Card.Body>
@@ -957,7 +957,7 @@ export const FormDocs: Component = () => {
         </Card>
       </div>
       <div>
-        <h5>Custom form components</h5>
+        <h4>Custom form components</h4>
         <Card>
           <Card.Header>Switches</Card.Header>
           <Card.Body>

@@ -13,7 +13,7 @@ export const TabsDocs: Component = () => {
     <div class="row gy-4">
       <div>
         <GithubSource name="TabsDocs" />
-        <h3>Tabbed components</h3>
+        <h2>Tabbed components</h2>
         <p class="lead">Dynamic tabbed interfaces.</p>
       </div>
       <div>

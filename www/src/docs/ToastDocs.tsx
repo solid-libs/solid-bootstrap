@@ -22,7 +22,7 @@ export const ToastDocs: Component = () => {
     <div class="row gy-4">
       <div>
         <GithubSource name="ToastDocs" />
-        <h3>Toasts</h3>
+        <h2>Toasts</h2>
         <p class="lead">
           Push notifications to your visitors with a toast, a lightweight and
           easily customizable alert message.

@@ -22,7 +22,7 @@ export const OffcanvasDocs: Component = () => {
     <div class="row gy-4">
       <div>
         <GithubSource name="OffcanvasDocs" />
-        <h3>Offcanvas</h3>
+        <h2>Offcanvas</h2>
         <p class="lead">
           Build hidden sidebars into your project for navigation, shopping
           carts, and more.

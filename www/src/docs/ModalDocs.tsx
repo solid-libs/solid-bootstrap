@@ -28,14 +28,14 @@ export const ModalDocs: Component = () => {
     <div class="row gy-4">
       <div>
         <GithubSource name="ModalDocs" />
-        <h3>Modals</h3>
+        <h2>Modals</h2>
         <div class="head">
           Add dialogs to your site for lightboxes, user notifications, or
           completely custom content.
         </div>
       </div>
       <div>
-        <h5>Overview</h5>
+        <h4>Overview</h4>
         <ul>
           <li>
             Modals are positioned over everything else in the document and

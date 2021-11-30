@@ -9,7 +9,7 @@ export const NavDocs: Component = () => {
     <div class="row gy-4">
       <div>
         <GithubSource name="NavDocs" />
-        <h3>Navs</h3>
+        <h2>Navs</h2>
         <p class="lead">
           Navigation bits in Bootstrap all share a general Nav component and
           styles. Swap variants to switch between each style. The base Nav

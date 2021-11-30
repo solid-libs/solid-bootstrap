@@ -11,10 +11,10 @@ import GithubSource from "./GithubSource";
 
 export const InputGroupDocs: Component = () => {
   return (
-    <div class="row gy-4">
+    <div class="row gy-4 pb-5 mb-5">
       <div>
         <GithubSource name="InputGroupDocs" />
-        <h3>InputGroup</h3>
+        <h2>InputGroup</h2>
         <p class="lead">
           Place one add-on or button on either side of an input. You may also
           place one on both sides of an input. Remember to place{" "}

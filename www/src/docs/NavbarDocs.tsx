@@ -15,7 +15,7 @@ export const NavbarDocs: Component = () => {
     <div class="row gy-4">
       <div>
         <GithubSource name="NavbarDocs" />
-        <h3>Navbars</h3>
+        <h2>Navbars</h2>
         <p class="lead">
           A powerful, responsive navigation header, the navbar. Includes support
           for branding, navigation, and more
@@ -27,24 +27,24 @@ export const NavbarDocs: Component = () => {
           <Card.Body>
             <Navbar bg="light" expand="lg">
               <Container>
-                <Navbar.Brand href="#home">Solid-Bootstrap</Navbar.Brand>
+                <Navbar.Brand href="#">Solid-Bootstrap</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                   <Nav className="me-auto">
-                    <Nav.Link href="#home">Home</Nav.Link>
-                    <Nav.Link href="#link">Link</Nav.Link>
+                    <Nav.Link eventKey="#home">Home</Nav.Link>
+                    <Nav.Link eventKey="#link">Link</Nav.Link>
                     <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-                      <NavDropdown.Item href="#action/3.1">
+                      <NavDropdown.Item eventKey="#action/3.1">
                         Action
                       </NavDropdown.Item>
-                      <NavDropdown.Item href="#action/3.2">
+                      <NavDropdown.Item eventKey="#action/3.2">
                         Another action
                       </NavDropdown.Item>
-                      <NavDropdown.Item href="#action/3.3">
+                      <NavDropdown.Item eventKey="#action/3.3">
                         Something
                       </NavDropdown.Item>
                       <NavDropdown.Divider />
-                      <NavDropdown.Item href="#action/3.4">
+                      <NavDropdown.Item eventKey="#action/3.4">
                         Separated link
                       </NavDropdown.Item>
                     </NavDropdown>
@@ -60,7 +60,7 @@ export const NavbarDocs: Component = () => {
             {" "}
             <Navbar bg="light">
               <Container>
-                <Navbar.Brand href="#home">Brand link</Navbar.Brand>
+                <Navbar.Brand href="#">Brand link</Navbar.Brand>
               </Container>
             </Navbar>
             <br />
@@ -72,7 +72,7 @@ export const NavbarDocs: Component = () => {
             <br />
             <Navbar bg="dark">
               <Container>
-                <Navbar.Brand href="#home">
+                <Navbar.Brand href="#">
                   <img
                     src="logo.svg"
                     width="30"
@@ -86,7 +86,7 @@ export const NavbarDocs: Component = () => {
             <br />
             <Navbar bg="dark" variant="dark">
               <Container>
-                <Navbar.Brand href="#home">
+                <Navbar.Brand href="#">
                   <img
                     alt=""
                     src="logo.svg"
@@ -105,11 +105,11 @@ export const NavbarDocs: Component = () => {
           <Card.Body>
             <Navbar>
               <Container>
-                <Navbar.Brand href="#home">Navbar with text</Navbar.Brand>
+                <Navbar.Brand href="#">Navbar with text</Navbar.Brand>
                 <Navbar.Toggle />
                 <Navbar.Collapse className="justify-content-end">
                   <Navbar.Text>
-                    Signed in as: <a href="#login">Mark Otto</a>
+                    Signed in as: <a href="#">Mark Otto</a>
                   </Navbar.Text>
                 </Navbar.Collapse>
               </Container>
@@ -122,33 +122,33 @@ export const NavbarDocs: Component = () => {
             {" "}
             <Navbar bg="dark" variant="dark">
               <Container>
-                <Navbar.Brand href="#home">Navbar</Navbar.Brand>
+                <Navbar.Brand href="#">Navbar</Navbar.Brand>
                 <Nav className="me-auto">
-                  <Nav.Link href="#home">Home</Nav.Link>
-                  <Nav.Link href="#features">Features</Nav.Link>
-                  <Nav.Link href="#pricing">Pricing</Nav.Link>
+                  <Nav.Link eventKey="#home">Home</Nav.Link>
+                  <Nav.Link eventKey="#features">Features</Nav.Link>
+                  <Nav.Link eventKey="#pricing">Pricing</Nav.Link>
                 </Nav>
               </Container>
             </Navbar>
             <br />
             <Navbar bg="primary" variant="dark">
               <Container>
-                <Navbar.Brand href="#home">Navbar</Navbar.Brand>
+                <Navbar.Brand href="#">Navbar</Navbar.Brand>
                 <Nav className="me-auto">
-                  <Nav.Link href="#home">Home</Nav.Link>
-                  <Nav.Link href="#features">Features</Nav.Link>
-                  <Nav.Link href="#pricing">Pricing</Nav.Link>
+                  <Nav.Link eventKey="#home">Home</Nav.Link>
+                  <Nav.Link eventKey="#features">Features</Nav.Link>
+                  <Nav.Link eventKey="#pricing">Pricing</Nav.Link>
                 </Nav>
               </Container>
             </Navbar>
             <br />
             <Navbar bg="light" variant="light">
               <Container>
-                <Navbar.Brand href="#home">Navbar</Navbar.Brand>
+                <Navbar.Brand href="#">Navbar</Navbar.Brand>
                 <Nav className="me-auto">
-                  <Nav.Link href="#home">Home</Nav.Link>
-                  <Nav.Link href="#features">Features</Nav.Link>
-                  <Nav.Link href="#pricing">Pricing</Nav.Link>
+                  <Nav.Link eventKey="#home">Home</Nav.Link>
+                  <Nav.Link eventKey="#features">Features</Nav.Link>
+                  <Nav.Link eventKey="#pricing">Pricing</Nav.Link>
                 </Nav>
               </Container>
             </Navbar>
@@ -186,21 +186,21 @@ export const NavbarDocs: Component = () => {
                     style={{ "max-height": "100px" }}
                     navbarScroll
                   >
-                    <Nav.Link href="#action1">Home</Nav.Link>
-                    <Nav.Link href="#action2">Link</Nav.Link>
+                    <Nav.Link eventKey="#action1">Home</Nav.Link>
+                    <Nav.Link eventKey="#action2">Link</Nav.Link>
                     <NavDropdown title="Link" id="navbarScrollingDropdown">
-                      <NavDropdown.Item href="#action3">
+                      <NavDropdown.Item eventKey="#action3">
                         Action
                       </NavDropdown.Item>
-                      <NavDropdown.Item href="#action4">
+                      <NavDropdown.Item eventKey="#action4">
                         Another action
                       </NavDropdown.Item>
                       <NavDropdown.Divider />
-                      <NavDropdown.Item href="#action5">
+                      <NavDropdown.Item eventKey="#action5">
                         Something else here
                       </NavDropdown.Item>
                     </NavDropdown>
-                    <Nav.Link href="#" disabled>
+                    <Nav.Link eventKey="#" disabled>
                       Link
                     </Nav.Link>
                   </Nav>
@@ -223,31 +223,31 @@ export const NavbarDocs: Component = () => {
           <Card.Body>
             <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
               <Container>
-                <Navbar.Brand href="#home">Solid-Bootstrap</Navbar.Brand>
+                <Navbar.Brand href="#">Solid-Bootstrap</Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                   <Nav className="me-auto">
-                    <Nav.Link href="#features">Features</Nav.Link>
-                    <Nav.Link href="#pricing">Pricing</Nav.Link>
+                    <Nav.Link eventKey="#features">Features</Nav.Link>
+                    <Nav.Link eventKey="#pricing">Pricing</Nav.Link>
                     <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
-                      <NavDropdown.Item href="#action/3.1">
+                      <NavDropdown.Item eventKey="#action/3.1">
                         Action
                       </NavDropdown.Item>
-                      <NavDropdown.Item href="#action/3.2">
+                      <NavDropdown.Item eventKey="#action/3.2">
                         Another action
                       </NavDropdown.Item>
-                      <NavDropdown.Item href="#action/3.3">
+                      <NavDropdown.Item eventKey="#action/3.3">
                         Something
                       </NavDropdown.Item>
                       <NavDropdown.Divider />
-                      <NavDropdown.Item href="#action/3.4">
+                      <NavDropdown.Item eventKey="#action/3.4">
                         Separated link
                       </NavDropdown.Item>
                     </NavDropdown>
                   </Nav>
                   <Nav>
-                    <Nav.Link href="#deets">More deets</Nav.Link>
-                    <Nav.Link eventKey={2} href="#memes">
+                    <Nav.Link eventKey="#deets">More deets</Nav.Link>
+                    <Nav.Link eventKey={2} href="#">
                       Dank memes
                     </Nav.Link>
                   </Nav>
@@ -275,20 +275,20 @@ export const NavbarDocs: Component = () => {
                   </Offcanvas.Header>
                   <Offcanvas.Body>
                     <Nav className="justify-content-end flex-grow-1 pe-3">
-                      <Nav.Link href="#action1">Home</Nav.Link>
-                      <Nav.Link href="#action2">Link</Nav.Link>
+                      <Nav.Link eventKey="#action1">Home</Nav.Link>
+                      <Nav.Link eventKey="#action2">Link</Nav.Link>
                       <NavDropdown
                         title="Dropdown"
                         id="offcanvasNavbarDropdown"
                       >
-                        <NavDropdown.Item href="#action3">
+                        <NavDropdown.Item eventKey="#action3">
                           Action
                         </NavDropdown.Item>
-                        <NavDropdown.Item href="#action4">
+                        <NavDropdown.Item eventKey="#action4">
                           Another action
                         </NavDropdown.Item>
                         <NavDropdown.Divider />
-                        <NavDropdown.Item href="#action5">
+                        <NavDropdown.Item eventKey="#action5">
                           Something else here
                         </NavDropdown.Item>
                       </NavDropdown>

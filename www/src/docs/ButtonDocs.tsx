@@ -9,7 +9,7 @@ const ButtonDocs: Component = () => {
     <div class="row gy-4">
       <div>
         <GithubSource name="ButtonDocs" />
-        <h3>Buttons</h3>
+        <h2>Buttons</h2>
         <p class="lead">
           Custom button styles for actions in forms, dialogs, and more with
           support for multiple sizes, states, and more.
@@ -28,7 +28,7 @@ const ButtonDocs: Component = () => {
       </div>
       <div></div>
       <div>
-        <h5>Outline buttons</h5>
+        <h4>Outline buttons</h4>
         <Button variant="outline-primary">Primary</Button>{" "}
         <Button variant="outline-secondary">Secondary</Button>{" "}
         <Button variant="outline-success">Success</Button>{" "}
@@ -39,14 +39,14 @@ const ButtonDocs: Component = () => {
         <Button variant="outline-dark">Dark</Button>
       </div>
       <div>
-        <h5>Button tags</h5>
+        <h4>Button tags</h4>
         <Button href="#">Link</Button> <Button type="submit">Button</Button>{" "}
         <Button as="input" type="button" value="Input" />{" "}
         <Button as="input" type="submit" value="Submit" />{" "}
         <Button as="input" type="reset" value="Reset" />
       </div>
       <div>
-        <h5>Sizes</h5>
+        <h4>Sizes</h4>
         <div className="mb-2">
           <Button variant="primary" size="lg">
             Large button
@@ -65,11 +65,11 @@ const ButtonDocs: Component = () => {
         </div>
       </div>
       <div>
-        <h5>Button loading state</h5>
+        <h4>Button loading state</h4>
         <LoadingButton />
       </div>
       <div>
-        <h5>Checkbox / Radio</h5>
+        <h4>Checkbox / Radio</h4>
         <ToggleButtonExample />
       </div>
     </div>

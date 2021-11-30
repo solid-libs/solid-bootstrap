@@ -11,7 +11,7 @@ export const LayoutStackDocs: Component = () => {
     <div class="row gy-4">
       <div>
         <GithubSource name="LayoutStackDocs" />
-        <h3>Stacks</h3>
+        <h2>Stacks</h2>
         <p class="lead">
           Shorthand helpers that build on top of our flexbox utilities to make
           component layout faster and easier than ever

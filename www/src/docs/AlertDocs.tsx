@@ -7,7 +7,7 @@ const AlertDocs: Component = () => {
     <div class="row gy-4">
       <div>
         <GithubSource name="AlertDocs" />
-        <h3>Alerts</h3>
+        <h2>Alerts</h2>
         <p class="lead">
           Provide contextual feedback messages for typical user actions with the
           handful of available and flexible alert messages.

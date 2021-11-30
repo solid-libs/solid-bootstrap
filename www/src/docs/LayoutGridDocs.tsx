@@ -11,7 +11,7 @@ export const LayoutGridDocs: Component = () => {
     <div class="row gy-4">
       <div>
         <GithubSource name="LayoutGridDocs" />
-        <h3>Grid system</h3>
+        <h2>Grid system</h2>
         <p class="lead">
           Bootstrap’s grid system uses a series of containers, rows, and columns
           to layout and align content. It’s built with flexbox and is fully

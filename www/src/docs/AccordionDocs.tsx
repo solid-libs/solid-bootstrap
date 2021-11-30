@@ -7,7 +7,7 @@ const AccordionDocs: Component = () => {
     <div class="row gy-4">
       <div>
         <GithubSource name="AccordionDocs" />
-        <h3>Accordion</h3>
+        <h2>Accordion</h2>
         <p class="lead">
           Build vertically collapsing accordions in combination with the
           Collapse component.

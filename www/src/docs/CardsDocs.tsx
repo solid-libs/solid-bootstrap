@@ -15,7 +15,7 @@ const CardsDocs: Component = () => {
     <div class="row gy-4">
       <div>
         <GithubSource name="CardsDocs" />
-        <h3>Cards</h3>
+        <h2>Cards</h2>
         <p class="lead">
           Bootstrap’s cards provide a flexible and extensible content container
           with multiple variants and options.
@@ -151,13 +151,13 @@ const CardsDocs: Component = () => {
           <Card.Header>
             <Nav variant="tabs" defaultActiveKey="#first">
               <Nav.Item>
-                <Nav.Link href="#first">Active</Nav.Link>
+                <Nav.Link eventKey="#first">Active</Nav.Link>
               </Nav.Item>
               <Nav.Item>
-                <Nav.Link href="#link">Link</Nav.Link>
+                <Nav.Link eventKey="#link">Link</Nav.Link>
               </Nav.Item>
               <Nav.Item>
-                <Nav.Link href="#disabled" disabled>
+                <Nav.Link eventKey="#disabled" disabled>
                   Disabled
                 </Nav.Link>
               </Nav.Item>
@@ -178,13 +178,13 @@ const CardsDocs: Component = () => {
           <Card.Header>
             <Nav variant="pills" defaultActiveKey="#first">
               <Nav.Item>
-                <Nav.Link href="#first">Active</Nav.Link>
+                <Nav.Link eventKey="#first">Active</Nav.Link>
               </Nav.Item>
               <Nav.Item>
-                <Nav.Link href="#link">Link</Nav.Link>
+                <Nav.Link eventKey="#link">Link</Nav.Link>
               </Nav.Item>
               <Nav.Item>
-                <Nav.Link href="#disabled" disabled>
+                <Nav.Link eventKey="#disabled" disabled>
                   Disabled
                 </Nav.Link>
               </Nav.Item>

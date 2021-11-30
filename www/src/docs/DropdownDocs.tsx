@@ -14,10 +14,10 @@ import GithubSource from "./GithubSource";
 
 export const DropdownDocs: Component = () => {
   return (
-    <div class="row gy-4">
+    <div class="row gy-4 pb-5 mb-5">
       <div>
         <GithubSource name="DropdownDocs" />
-        <h3>Dropdowns</h3>
+        <h2>Dropdowns</h2>
         <p class="lead">
           Toggle contextual overlays for displaying lists of links and more with
           the Bootstrap dropdown plugin.
@@ -28,9 +28,9 @@ export const DropdownDocs: Component = () => {
           </Dropdown.Toggle>
 
           <Dropdown.Menu>
-            <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-            <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-            <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+            <Dropdown.Item eventKey="#/action-1">Action</Dropdown.Item>
+            <Dropdown.Item eventKey="#/action-2">Another action</Dropdown.Item>
+            <Dropdown.Item eventKey="#/action-3">Something else</Dropdown.Item>
           </Dropdown.Menu>
         </Dropdown>
       </div>
@@ -39,9 +39,9 @@ export const DropdownDocs: Component = () => {
           ...or with simplified <code>DropdownButton</code> component...
         </p>
         <DropdownButton id="dropdown-basic-button" title="Dropdown button">
-          <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-          <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-          <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+          <Dropdown.Item eventKey="#/action-1">Action</Dropdown.Item>
+          <Dropdown.Item eventKey="#/action-2">Another action</Dropdown.Item>
+          <Dropdown.Item eventKey="#/action-3">Something else</Dropdown.Item>
         </DropdownButton>
       </div>
       <div>
@@ -66,16 +66,16 @@ export const DropdownDocs: Component = () => {
         )}
       </div>
       <div>
-        <h5>Split button dropdowns</h5>
+        <h4>Split button dropdowns</h4>
         <Dropdown as={ButtonGroup}>
           <Button variant="success">Split Button</Button>
 
           <Dropdown.Toggle split variant="success" id="dropdown-split-basic" />
 
           <Dropdown.Menu>
-            <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-            <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-            <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+            <Dropdown.Item eventKey="#/action-1">Action</Dropdown.Item>
+            <Dropdown.Item eventKey="#/action-2">Another action</Dropdown.Item>
+            <Dropdown.Item eventKey="#/action-3">Something else</Dropdown.Item>
           </Dropdown.Menu>
         </Dropdown>
       </div>
@@ -102,7 +102,7 @@ export const DropdownDocs: Component = () => {
         )}
       </div>
       <div>
-        <h5>Sizing</h5>
+        <h4>Sizing</h4>
         <div className="mb-2">
           {[DropdownButton, SplitButton].map((DropdownType, idx) => (
             <DropdownType
@@ -140,7 +140,7 @@ export const DropdownDocs: Component = () => {
         </div>
       </div>
       <div>
-        <h5>Dark dropdowns</h5>
+        <h4>Dark dropdowns</h4>
         <Dropdown>
           <Dropdown.Toggle
             id="dropdown-button-dark-example1"
@@ -150,13 +150,13 @@ export const DropdownDocs: Component = () => {
           </Dropdown.Toggle>
 
           <Dropdown.Menu variant="dark">
-            <Dropdown.Item href="#/action-1" active>
+            <Dropdown.Item eventKey="#/action-1" active>
               Action
             </Dropdown.Item>
-            <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-            <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+            <Dropdown.Item eventKey="#/action-2">Another action</Dropdown.Item>
+            <Dropdown.Item eventKey="#/action-3">Something else</Dropdown.Item>
             <Dropdown.Divider />
-            <Dropdown.Item href="#/action-4">Separated link</Dropdown.Item>
+            <Dropdown.Item eventKey="#/action-4">Separated link</Dropdown.Item>
           </Dropdown.Menu>
         </Dropdown>
         <DropdownButton
@@ -166,20 +166,20 @@ export const DropdownDocs: Component = () => {
           title="Dropdown button"
           className="mt-2"
         >
-          <Dropdown.Item href="#/action-1" active>
+          <Dropdown.Item eventKey="#/action-1" active>
             Action
           </Dropdown.Item>
-          <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-          <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+          <Dropdown.Item eventKey="#/action-2">Another action</Dropdown.Item>
+          <Dropdown.Item eventKey="#/action-3">Something else</Dropdown.Item>
           <Dropdown.Divider />
-          <Dropdown.Item href="#/action-4">Separated link</Dropdown.Item>
+          <Dropdown.Item eventKey="#/action-4">Separated link</Dropdown.Item>
         </DropdownButton>{" "}
       </div>
       <div>
-        <h5>Dropdown in NavBar</h5>
+        <h4>Dropdown in NavBar</h4>
         <Navbar variant="dark" bg="dark" expand="lg">
           <Container fluid>
-            <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+            <Navbar.Brand href="#">React-Bootstrap</Navbar.Brand>
             <Navbar.Toggle aria-controls="navbar-dark-example" />
             <Navbar.Collapse id="navbar-dark-example">
               <Nav>
@@ -188,15 +188,17 @@ export const DropdownDocs: Component = () => {
                   title="Dropdown"
                   menuVariant="dark"
                 >
-                  <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-                  <NavDropdown.Item href="#action/3.2">
+                  <NavDropdown.Item eventKey="#action/3.1">
+                    Action
+                  </NavDropdown.Item>
+                  <NavDropdown.Item eventKey="#action/3.2">
                     Another action
                   </NavDropdown.Item>
-                  <NavDropdown.Item href="#action/3.3">
+                  <NavDropdown.Item eventKey="#action/3.3">
                     Something
                   </NavDropdown.Item>
                   <NavDropdown.Divider />
-                  <NavDropdown.Item href="#action/3.4">
+                  <NavDropdown.Item eventKey="#action/3.4">
                     Separated link
                   </NavDropdown.Item>
                 </NavDropdown>
@@ -206,7 +208,7 @@ export const DropdownDocs: Component = () => {
         </Navbar>
       </div>
       <div>
-        <h5>Drop directions</h5>
+        <h4>Drop directions</h4>
         <div className="mb-2">
           {["up", "down", "start", "end"].map((direction) => (
             <DropdownButton
@@ -244,7 +246,7 @@ export const DropdownDocs: Component = () => {
         </div>
       </div>
       <div>
-        <h5>Dropdown items</h5>
+        <h4>Dropdown items</h4>
         <p>
           Historically dropdown menu contents had to be links, but that’s no
           longer the case with v4. Now you can optionally use{" "}
@@ -265,7 +267,7 @@ export const DropdownDocs: Component = () => {
       </div>
 
       <div>
-        <h5>Menu alignment</h5>
+        <h4>Menu alignment</h4>
         <p>
           By default, a dropdown menu is aligned to the left, but you can switch
           it by passing align="end" to a <code>{"<Dropdown>"}</code>,{" "}
@@ -284,7 +286,7 @@ export const DropdownDocs: Component = () => {
         </DropdownButton>
       </div>
       <div>
-        <h5>Responsive alignment</h5>
+        <h4>Responsive alignment</h4>
         <p>
           If you want to use responsive menu alignment, pass an object
           containing a breakpoint to the align prop on the{" "}
@@ -318,8 +320,8 @@ export const DropdownDocs: Component = () => {
           </SplitButton>
         </div>
       </div>
-      <div>
-        <h5>Menu headers</h5>
+      <div className="mt-5 pt-5">
+        <h4>Menu headers</h4>
         <Dropdown.Menu show style={{ position: "relative" }}>
           <Dropdown.Header>Dropdown header</Dropdown.Header>
           <Dropdown.Item eventKey="2">Another action</Dropdown.Item>
@@ -327,7 +329,7 @@ export const DropdownDocs: Component = () => {
         </Dropdown.Menu>
       </div>
       <div>
-        <h5>Menu dividers</h5>
+        <h4>Menu dividers</h4>
         <Dropdown.Menu show style={{ position: "relative" }}>
           <Dropdown.Item eventKey="1">Action</Dropdown.Item>
           <Dropdown.Item eventKey="2">Another action</Dropdown.Item>
@@ -337,8 +339,8 @@ export const DropdownDocs: Component = () => {
         </Dropdown.Menu>
       </div>
 
-      <div>
-        <h5>AutoClose</h5>
+      <div className="pb-5">
+        <h4>AutoClose</h4>
         <Dropdown className="d-inline mx-2">
           <Dropdown.Toggle id="dropdown-autoclose-true">
             Default Dropdown

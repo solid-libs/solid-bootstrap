@@ -20,7 +20,7 @@ export const PaginationDocs: Component = () => {
     <div class="row gy-4">
       <div>
         <GithubSource name="PaginationDocs" />
-        <h3>Pagination</h3>
+        <h2>Pagination</h2>
         <p class="lead">
           A set of presentational components for building pagination UI.
         </p>

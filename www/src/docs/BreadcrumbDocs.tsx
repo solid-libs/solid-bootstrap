@@ -7,7 +7,7 @@ const BreadcrumbDocs: Component = () => {
     <div class="row gy-4">
       <div>
         <GithubSource name="BreadcrumbDocs" />
-        <h3>Breadcrumbs</h3>
+        <h2>Breadcrumbs</h2>
         <p class="lead">
           Indicate the current page’s location within a navigational hierarchy
           that automatically adds separators via CSS. Add active prop to active

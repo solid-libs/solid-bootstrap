@@ -11,7 +11,7 @@ export const PopoverDocs: Component = () => {
     <div class="row gy-4">
       <div>
         <GithubSource name="PopoverDocs" />
-        <h3>Popovers</h3>
+        <h2>Popovers</h2>
         <p class="lead">A popover component, like those found in iOS.</p>
       </div>
       <div>

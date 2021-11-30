@@ -10,7 +10,7 @@ export const FigureDocs: Component = () => {
     <div class="row gy-4">
       <div>
         <GithubSource name="FigureDocs" />
-        <h3>Figures</h3>
+        <h2>Figures</h2>
         <p class="lead">
           Anytime you need to display a piece of content, like an image with an
           optional caption, consider using a Figure.

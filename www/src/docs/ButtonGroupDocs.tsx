@@ -10,10 +10,10 @@ import GithubSource from "./GithubSource";
 
 const ButtonGroupDocs: Component = () => {
   return (
-    <div class="row gy-4">
+    <div class="row gy-4 pb-5 mb-5">
       <div>
         <GithubSource name="ButtonGroupDocs" />
-        <h3>Button groups</h3>
+        <h2>Button groups</h2>
         <p class="lead">
           Group a series of buttons together on a single line with the button
           group.
@@ -27,7 +27,7 @@ const ButtonGroupDocs: Component = () => {
         </ButtonGroup>
       </div>
       <div>
-        <h5>Button toolbar</h5>
+        <h4>Button toolbar</h4>
         <ButtonToolbar aria-label="Toolbar with button groups">
           <ButtonGroup className="me-2" aria-label="First group">
             <Button>1</Button> <Button>2</Button> <Button>3</Button>{" "}
@@ -87,7 +87,7 @@ const ButtonGroupDocs: Component = () => {
         </ButtonToolbar>
       </div>
       <div>
-        <h5>Sizing</h5>
+        <h4>Sizing</h4>
         <ButtonGroup size="lg" className="mb-2">
           <Button>Left</Button>
           <Button>Middle</Button>
@@ -107,7 +107,7 @@ const ButtonGroupDocs: Component = () => {
         </ButtonGroup>
       </div>
       <div>
-        <h5>Nesting</h5>
+        <h4>Nesting</h4>
         <ButtonGroup>
           <Button>1</Button>
           <Button>2</Button>
@@ -123,7 +123,7 @@ const ButtonGroupDocs: Component = () => {
         </ButtonGroup>
       </div>
       <div>
-        <h5>Vertical variation</h5>
+        <h4>Vertical variation</h4>
         <ButtonGroup vertical>
           <Button>Button</Button>
           <Button>Button</Button>

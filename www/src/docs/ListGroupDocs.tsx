@@ -16,7 +16,7 @@ export const ListGroupDocs: Component = () => {
     <div class="row gy-4">
       <div>
         <GithubSource name="ListGroupDocs" />
-        <h3>List groups</h3>
+        <h2>List groups</h2>
       </div>
       <div>
         <Card>
@@ -61,10 +61,10 @@ export const ListGroupDocs: Component = () => {
           <Card.Header>Actionable items</Card.Header>
           <Card.Body>
             <ListGroup defaultActiveKey="#link1">
-              <ListGroup.Item action href="#link1">
+              <ListGroup.Item action eventKey="#link1">
                 Link 1
               </ListGroup.Item>
-              <ListGroup.Item action href="#link2" disabled>
+              <ListGroup.Item action eventKey="#link2" disabled>
                 Link 2
               </ListGroup.Item>
               <ListGroup.Item action onClick={alertClicked}>
@@ -187,10 +187,10 @@ export const ListGroupDocs: Component = () => {
               <Row>
                 <Col sm={4}>
                   <ListGroup>
-                    <ListGroup.Item action href="#link1">
+                    <ListGroup.Item action eventKey="#link1">
                       Link 1
                     </ListGroup.Item>
-                    <ListGroup.Item action href="#link2">
+                    <ListGroup.Item action eventKey="#link2">
                       Link 2
                     </ListGroup.Item>
                   </ListGroup>

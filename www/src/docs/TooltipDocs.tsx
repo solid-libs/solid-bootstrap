@@ -10,7 +10,7 @@ export const TooltipDocs: Component = () => {
     <div class="row gy-4">
       <div>
         <GithubSource name="TooltipDocs" />
-        <h3>Tooltips</h3>
+        <h2>Tooltips</h2>
         <p class="lead">
           A tooltip component for a more stylish alternative to that anchor tag
           title attribute.

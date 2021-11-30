@@ -8,7 +8,7 @@ export const TableDocs: Component = () => {
     <div class="row gy-4">
       <div>
         <GithubSource name="TableDocs" />
-        <h3>Tables</h3>
+        <h2>Tables</h2>
         <p class="lead">
           Use the <code>striped</code>, <code>bordered</code> and{" "}
           <code>hover</code> props to customise the table.

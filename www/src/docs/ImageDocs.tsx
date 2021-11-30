@@ -13,7 +13,7 @@ export const ImageDocs: Component = () => {
     <div class="row gy-4">
       <div>
         <GithubSource name="ImageDocs" />
-        <h3>Images</h3>
+        <h2>Images</h2>
       </div>
       <div>
         <Card>

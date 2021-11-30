@@ -15,7 +15,7 @@ export const ProgressBarDocs: Component = () => {
     <div class="row gy-4">
       <div>
         <GithubSource name="ProgressBarDocs" />
-        <h3>Progress bars </h3>
+        <h2>Progress bars </h2>
         <p class="lead">
           Provide up-to-date feedback on the progress of a workflow or action
           with simple yet flexible progress bars.

@@ -9,7 +9,7 @@ export const SpinnerDocs: Component = () => {
     <div class="row gy-4">
       <div>
         <GithubSource name="SpinnerDocs" />
-        <h3>Spinners</h3>
+        <h2>Spinners</h2>
         <p class="lead">
           Spinners can be used to show the loading state in your projects.
         </p>

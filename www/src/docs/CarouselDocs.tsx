@@ -7,7 +7,7 @@ const CarouselDocs: Component = () => {
     <div class="row gy-4">
       <div>
         <GithubSource name="CarouselDocs" />
-        <h3>Carousels</h3>
+        <h2>Carousels</h2>
         <p class="lead">
           A slideshow component for cycling through elements—images or slides of
           text—like a carousel.
@@ -19,7 +19,7 @@ const CarouselDocs: Component = () => {
               style={{ height: "400px" }}
             />
             <Carousel.Caption>
-              <h3>First slide label</h3>
+              <h2>First slide label</h2>
               <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
             </Carousel.Caption>
           </Carousel.Item>
@@ -30,7 +30,7 @@ const CarouselDocs: Component = () => {
             />
 
             <Carousel.Caption>
-              <h3>Second slide label</h3>
+              <h2>Second slide label</h2>
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
             </Carousel.Caption>
           </Carousel.Item>
@@ -41,7 +41,7 @@ const CarouselDocs: Component = () => {
             />
 
             <Carousel.Caption>
-              <h3>Third slide label</h3>
+              <h2>Third slide label</h2>
               <p>
                 Praesent commodo cursus magna, vel scelerisque nisl consectetur.
               </p>

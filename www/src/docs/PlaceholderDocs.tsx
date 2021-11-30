@@ -12,7 +12,7 @@ export const PlaceholderDocs: Component = () => {
     <div class="row gy-4">
       <div>
         <GithubSource name="PlaceholderDocs" />
-        <h3>Placeholders</h3>
+        <h2>Placeholders</h2>
         <p class="lead">
           Use loading placeholders (otherwise known as "skeletons") for your
           components or pages to indicate something may still be loading

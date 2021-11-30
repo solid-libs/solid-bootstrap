@@ -26,7 +26,7 @@ export const CoreOverlayDocs: Component = () => {
     <div class="row gy-4" ref={setContainer}>
       <div>
         <GithubSource name="CoreOverlayDocs" />
-        <h3>Overlays (core)</h3>
+        <h2>Overlays (core)</h2>
         <p class="lead">
           A powerful and flexible overlay component for showing things over, and
           next to, other things.

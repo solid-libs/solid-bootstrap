@@ -7,7 +7,7 @@ const BadgeDocs: Component = () => {
     <div class="row gy-4">
       <div>
         <GithubSource name="BadgeDocs" />
-        <h3>Badges</h3>
+        <h2>Badges</h2>
         <p class="lead">
           Badges scale to match the size of the immediate parent element by
           using relative font sizing and em units.
@@ -20,15 +20,15 @@ const BadgeDocs: Component = () => {
         <h2>
           Example heading <Badge bg="secondary">New</Badge>
         </h2>
-        <h3>
+        <h2>
           Example heading <Badge bg="secondary">New</Badge>
-        </h3>
+        </h2>
         <h4>
           Example heading <Badge bg="secondary">New</Badge>
         </h4>
-        <h5>
+        <h4>
           Example heading <Badge bg="secondary">New</Badge>
-        </h5>
+        </h4>
         <h6>
           Example heading <Badge bg="secondary">New</Badge>
         </h6>
@@ -40,7 +40,7 @@ const BadgeDocs: Component = () => {
         </Button> */}
       </div>
       <div>
-        <h5>Contextual</h5>
+        <h4>Contextual</h4>
         <Badge bg="primary">Primary</Badge>{" "}
         <Badge bg="secondary">Secondary</Badge>{" "}
         <Badge bg="success">Success</Badge> <Badge bg="danger">Danger</Badge>{" "}
@@ -54,7 +54,7 @@ const BadgeDocs: Component = () => {
         <Badge bg="dark">Dark</Badge>
       </div>
       <div>
-        <h5>Pills</h5>
+        <h4>Pills</h4>
         <Badge pill bg="primary">
           Primary
         </Badge>{" "}
