@@ -1,6 +1,6 @@
 {
   "name": "solid-bootstrap",
-  "version": "0.1.1",
+  "version": "0.1.0",
   "description": "Bootstrap 5 components built with SolidJS",
   "homepage": "https://github.com/solid-libs/solid-bootstrap/tree/master#readme",
   "repository": {
@@ -21,8 +21,8 @@
   "dependencies": {
     "classnames": "2.3.1",
     "dom-helpers": "^5.2.0",
-    "solid-bootstrap-core": "^0.1.6",
-    "solid-react-transition": "0.1.5",
+    "solid-bootstrap-core": "^0.1.7",
+    "solid-react-transition": "0.1.6",
     "warning": "^4.0.3"
   },
   "devDependencies": {
