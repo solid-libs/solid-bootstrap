@@ -1,3 +1,4 @@
+import { Alert } from "solid-bootstrap";
 import Card from "solid-bootstrap/Card";
 
 const GettingStarted = () => (
@@ -51,7 +52,6 @@ const GettingStarted = () => (
             <code>yarn</code>, <code>pnpm</code>, etc...
           </li>
         </ol>
-
         <Card>
           <Card.Body>
             <pre className="mb-0">
@@ -60,6 +60,11 @@ const GettingStarted = () => (
           </Card.Body>
         </Card>
       </div>
+      <Alert variant="primary">
+        <strong>Tip!</strong> You may need to clear out some of the CSS that
+        comes in the default SolidJS template to get the full Bootstrap
+        experience.
+      </Alert>
       <div>
         <h3>Porting approach</h3>
         <p class="lead">

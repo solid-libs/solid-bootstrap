@@ -22,6 +22,8 @@ Refer to the original [React Bootstrap documentation](https://react-bootstrap.gi
 > npm install solid-bootstrap
 ```
 
+> Tip! You may need to clear out some CSS in the default SolidJS template to get the full Bootstrap experience.
+
 ## Porting approach
 
 We have changed as little as possible while porting this code.
