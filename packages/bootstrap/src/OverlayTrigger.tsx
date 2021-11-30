@@ -1,6 +1,5 @@
 import { children, createSignal, JSX, mergeProps, splitProps } from "solid-js";
 import contains from "dom-helpers/contains";
-import warning from "warning";
 import { createControlledProp } from "solid-bootstrap-core/createControlledProp";
 import Overlay, { OverlayChildren, OverlayProps } from "./Overlay";
 
@@ -165,10 +164,6 @@ function OverlayTrigger(p: OverlayTriggerProps) {
       el.addEventListener("blur", handleBlur);
     }
     if (triggers.indexOf("hover") !== -1) {
-      warning(
-        triggers.length > 1,
-        '[solid-bootstrap] Specifying only the `"hover"` trigger limits the visibility of the overlay to just mouse users. Consider also including the `"focus"` trigger so that touch and keyboard only users can see the overlay as well.'
-      );
       el.addEventListener("mouseover", handleMouseOver);
       el.addEventListener("mouseout", handleMouseOut);
     }

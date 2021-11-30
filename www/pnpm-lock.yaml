@@ -1,40 +1,24 @@
 lockfileVersion: 5.3
 
 specifiers:
-  '@popperjs/core': ^2.10.1
-  '@types/invariant': 2.2.35
   '@types/lodash': 4.14.177
-  '@types/warning': ^3.0.0
   classnames: 2.3.1
-  dequal: ^2.0.2
-  dom-helpers: ^5.2.0
-  holderjs: 2.9.9
-  invariant: 2.2.4
   lodash: 4.17.21
   shakespeare-data: ^3.0.0
   solid-app-router: ^0.1.13
-  solid-bootstrap: 0.1.0
+  solid-bootstrap: 0.1.1
   solid-js: ^1.2.5
   typescript: ^4.4.3
   vite: ^2.5.7
   vite-plugin-solid: ^2.0.3
-  warning: ^4.0.3
 
 dependencies:
-  '@popperjs/core': 2.10.2
-  '@types/invariant': 2.2.35
   '@types/lodash': 4.14.177
-  '@types/warning': 3.0.0
   classnames: 2.3.1
-  dequal: 2.0.2
-  dom-helpers: 5.2.1
-  holderjs: 2.9.9
-  invariant: 2.2.4
   lodash: 4.17.21
   solid-app-router: 0.1.13_solid-js@1.2.5
-  solid-bootstrap: 0.1.0_solid-js@1.2.5
+  solid-bootstrap: 0.1.1_solid-js@1.2.5
   solid-js: 1.2.5
-  warning: 4.0.3
 
 devDependencies:
   shakespeare-data: 3.0.0
@@ -345,16 +329,8 @@ packages:
     resolution: {integrity: sha512-IXf3XA7+XyN7CP9gGh/XB0UxVMlvARGEgGXLubFICsUMGz6Q+DU+i4gGlpOxTjKvXjkJDJC8YdqdKkDj9qZHEQ==}
     dev: false
 
-  /@types/invariant/2.2.35:
-    resolution: {integrity: sha512-DxX1V9P8zdJPYQat1gHyY0xj3efl8gnMVjiM9iCY6y27lj+PoQWkgjt8jDqmovPqULkKVpKRg8J36iQiA+EtEg==}
-    dev: false
-
   /@types/lodash/4.14.177:
     resolution: {integrity: sha512-0fDwydE2clKe9MNfvXHBHF9WEahRuj+msTuQqOmAApNORFvhMYZKNGGJdCzuhheVjMps/ti0Ak/iJPACMaevvw==}
-    dev: false
-
-  /@types/warning/3.0.0:
-    resolution: {integrity: sha1-DSUBJorY+ZYrdA04fEZU9fjiPlI=}
     dev: false
 
   /ansi-styles/3.2.1:
@@ -446,11 +422,6 @@ packages:
     dependencies:
       ms: 2.1.2
     dev: true
-
-  /dequal/2.0.2:
-    resolution: {integrity: sha512-q9K8BlJVxK7hQYqa6XISGmBZbtQQWVXSrRrWreHC94rMt1QL/Impruc+7p2CYSYuVIUr+YCt6hjrs1kkdJRTug==}
-    engines: {node: '>=6'}
-    dev: false
 
   /dom-helpers/5.2.1:
     resolution: {integrity: sha512-nRCa7CK3VTrM2NmGkIy4cbK7IZlgBE/PYMn55rrXefr5xXDP0LdtfPnblFDoVdcAfslJ7or6iqAUnx0CCGIWQA==}
@@ -667,16 +638,6 @@ packages:
       function-bind: 1.1.1
     dev: true
 
-  /holderjs/2.9.9:
-    resolution: {integrity: sha512-ceWPz1MrR3dxOoZXiom+G48+l1VPG3TcjBw9fq5iwCiZAMvYX8Aia13GOxT7DoV/AcSyTH7Vvr11ygjZP9qn4w==}
-    dev: false
-
-  /invariant/2.2.4:
-    resolution: {integrity: sha512-phJfQVBuaJM5raOpJjSfkiD6BpbCE4Ns//LaXl6wGYtUBY83nWS6Rf9tXm2e8VaK60JEjYldbPif/A2B1C2gNA==}
-    dependencies:
-      loose-envify: 1.4.0
-    dev: false
-
   /is-core-module/2.6.0:
     resolution: {integrity: sha512-wShG8vs60jKfPWpF2KZRaAtvt3a20OAn7+IJ6hLPECpSABLcKtFKTTI4ZtH5QcBruBHlq+WsdHWyz0BCZW7svQ==}
     dependencies:
@@ -689,6 +650,7 @@ packages:
 
   /js-tokens/4.0.0:
     resolution: {integrity: sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==}
+    dev: true
 
   /jsesc/2.5.2:
     resolution: {integrity: sha512-OYu7XEzjkCQ3C5Ps3QIZsQfNpqoJyZZA99wd9aWd05NCtC5pWOkShK2mkL6HXQR6/Cy2lbNdPlZBpuQHXE63gA==}
@@ -706,13 +668,6 @@ packages:
 
   /lodash/4.17.21:
     resolution: {integrity: sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==}
-    dev: false
-
-  /loose-envify/1.4.0:
-    resolution: {integrity: sha512-lyuxPGr/Wfhrlem2CL/UcnUc1zcqKAImBDzukY7Y5F/yQiNdko6+fRLevlw1HgMySw7f611UIY408EtxRSoK3Q==}
-    hasBin: true
-    dependencies:
-      js-tokens: 4.0.0
     dev: false
 
   /merge-anything/4.0.1:
@@ -808,8 +763,8 @@ packages:
       solid-react-transition: 0.1.6_solid-js@1.2.5
     dev: false
 
-  /solid-bootstrap/0.1.0_solid-js@1.2.5:
-    resolution: {integrity: sha512-hkiYMpj2sw7bbGZqU1QERGBzu+wNyTpDUiom+SDFhaaAjjiNiXBvm1PqRDDWUujK7Y15gI4IroX2dm4Zt/JLKg==}
+  /solid-bootstrap/0.1.1_solid-js@1.2.5:
+    resolution: {integrity: sha512-Bxlaju30ig7pEK6UvJnjXJpoHWREWShZj+s+s26J2P3a1hfBrLgxBiHg4yYYno/VVGO5IJiY8ZO8ykghnQ1dkw==}
     peerDependencies:
       solid-js: ^1.2.5
     dependencies:
@@ -818,7 +773,6 @@ packages:
       solid-bootstrap-core: 0.1.7_solid-js@1.2.5
       solid-js: 1.2.5
       solid-react-transition: 0.1.6_solid-js@1.2.5
-      warning: 4.0.3
     dev: false
 
   /solid-js/1.2.5:
@@ -912,9 +866,3 @@ packages:
     optionalDependencies:
       fsevents: 2.3.2
     dev: true
-
-  /warning/4.0.3:
-    resolution: {integrity: sha512-rpJyN222KWIvHJ/F53XSZv0Zl/accqHR8et1kpaMTD/fLCRxtV8iX8czMzY7sVZupTI3zcUTg8eycS2kNF9l6w==}
-    dependencies:
-      loose-envify: 1.4.0
-    dev: false

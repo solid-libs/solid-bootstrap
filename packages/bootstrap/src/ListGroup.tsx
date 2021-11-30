@@ -1,6 +1,5 @@
 import { JSX, mergeProps, splitProps } from "solid-js";
 import classNames from "classnames";
-import warning from "warning";
 import { createControlledProp } from "solid-bootstrap-core/createControlledProp";
 import BaseNav, { NavProps as BaseNavProps } from "solid-bootstrap-core/Nav";
 import { EventKey } from "solid-bootstrap-core/types";
@@ -48,11 +47,6 @@ const ListGroup: BsPrefixRefForwardingComponent<"div", ListGroupProps> = (
         ? "horizontal"
         : `horizontal-${local.horizontal}`;
   }
-
-  warning(
-    !(local.horizontal && local.variant === "flush"),
-    '`variant="flush"` and `horizontal` should not be used together.'
-  );
 
   return (
     <BaseNav

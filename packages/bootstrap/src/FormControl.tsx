@@ -1,6 +1,5 @@
 import { JSX, mergeProps, splitProps, useContext } from "solid-js";
 import classNames from "classnames";
-import warning from "warning";
 import Feedback from "./Feedback";
 import FormContext from "./FormContext";
 import { useBootstrapPrefix } from "./ThemeProvider";
@@ -60,11 +59,6 @@ const FormControl: BsPrefixRefForwardingComponent<"input", FormControlProps> = (
     }
     return classes;
   };
-
-  warning(
-    formContext.controlId == null || !local.id,
-    "`controlId` is ignored on `<FormControl>` when `id` is specified."
-  );
 
   return (
     <Dynamic

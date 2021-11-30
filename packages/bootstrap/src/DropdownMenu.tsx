@@ -5,7 +5,6 @@ import {
   UseDropdownMenuOptions,
 } from "solid-bootstrap-core/DropdownMenu";
 import { SelectCallback } from "solid-bootstrap-core/types";
-import warning from "warning";
 import DropdownContext, { DropDirection } from "./DropdownContext";
 import InputGroupContext from "./InputGroupContext";
 import NavbarContext from "./NavbarContext";
@@ -86,11 +85,6 @@ const DropdownMenu: BsPrefixRefForwardingComponent<"div", DropdownMenuProps> = (
   if (align) {
     if (typeof align === "object") {
       const keys = Object.keys(align);
-
-      warning(
-        keys.length === 1,
-        "There should only be 1 breakpoint when passing an object to `align`"
-      );
 
       if (keys.length) {
         const brkPoint = keys[0];

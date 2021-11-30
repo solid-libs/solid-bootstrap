@@ -1,6 +1,5 @@
 import { JSX, mergeProps, splitProps, useContext } from "solid-js";
 import classNames from "classnames";
-import warning from "warning";
 import Col, { ColProps } from "./Col";
 import FormContext from "./FormContext";
 import { useBootstrapPrefix } from "./ThemeProvider";
@@ -55,11 +54,6 @@ const FormLabel: BsPrefixRefForwardingComponent<"label", FormLabelProps> = (
       local.visuallyHidden && "visually-hidden",
       local.column && columnClass
     );
-
-  warning(
-    formContext.controlId == null || !local.htmlFor,
-    "`controlId` is ignored on `<FormLabel>` when `htmlFor` is specified."
-  );
 
   return !!local.column ? (
     <Col
