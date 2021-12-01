@@ -1,0 +1,5 @@
+## 2021-12-01 - solid-bootstrap (0.1.2)
+
+### Bug Fixes
+
+- **FormCheck:** fix `Form.Check.Label` spacing ([react-bootstrap/#5938](https://github.com/react-bootstrap/react-bootstrap/issues/5938))
