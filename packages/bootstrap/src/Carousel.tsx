@@ -79,11 +79,7 @@ const defaultProps = {
   pause: "hover" as CarouselProps["pause"],
   wrap: true,
   touch: true,
-
-  prevIcon: <span aria-hidden="true" className="carousel-control-prev-icon" />,
   prevLabel: "Previous",
-
-  nextIcon: <span aria-hidden="true" className="carousel-control-next-icon" />,
   nextLabel: "Next",
 };
 
@@ -493,7 +489,12 @@ const Carousel: BsPrefixRefForwardingComponent<"div", CarouselProps> = (
         <>
           {(local.wrap || activeIndex() !== 0) && (
             <Anchor className={`${prefix}-control-prev`} onClick={prev}>
-              {local.prevIcon}
+              {local.prevIcon ?? (
+                <span
+                  aria-hidden="true"
+                  className="carousel-control-prev-icon"
+                />
+              )}
               {local.prevLabel && (
                 <span className="visually-hidden">{local.prevLabel}</span>
               )}
@@ -501,7 +502,12 @@ const Carousel: BsPrefixRefForwardingComponent<"div", CarouselProps> = (
           )}
           {(local.wrap || activeIndex() !== items().length - 1) && (
             <Anchor className={`${prefix}-control-next`} onClick={next}>
-              {local.nextIcon}
+              {local.nextIcon ?? (
+                <span
+                  aria-hidden="true"
+                  className="carousel-control-next-icon"
+                />
+              )}
               {local.nextLabel && (
                 <span className="visually-hidden">{local.nextLabel}</span>
               )}
