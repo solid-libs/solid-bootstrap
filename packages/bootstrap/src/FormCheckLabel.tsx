@@ -4,6 +4,7 @@ import FormContext from "./FormContext";
 import { useBootstrapPrefix } from "./ThemeProvider";
 
 import { BsPrefixProps } from "./helpers";
+import FormCheckContext from "./FormCheckContext";
 
 export interface FormCheckLabelProps
   extends JSX.LabelHTMLAttributes<HTMLLabelElement>,
@@ -17,8 +18,10 @@ const FormCheckLabel = (p: FormCheckLabelProps) => {
     "className",
     "htmlFor",
   ]);
-  const formContext = useContext(FormContext);
   const bsPrefix = useBootstrapPrefix(local.bsPrefix, "form-check-label");
+  const formContext = useContext(FormContext);
+  const formCheckContext = useContext(FormCheckContext);
+  formCheckContext?.setHasFormCheckLabel?.(true);
 
   return (
     <label // eslint-disable-line jsx-a11y/label-has-associated-control

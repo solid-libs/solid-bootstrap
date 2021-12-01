@@ -1,4 +1,11 @@
-import { createMemo, JSX, mergeProps, splitProps, useContext } from "solid-js";
+import {
+  createMemo,
+  createSignal,
+  JSX,
+  mergeProps,
+  splitProps,
+  useContext,
+} from "solid-js";
 import classNames from "classnames";
 import Feedback, { FeedbackType } from "./Feedback";
 import FormCheckInput from "./FormCheckInput";
@@ -6,6 +13,7 @@ import FormCheckLabel from "./FormCheckLabel";
 import FormContext from "./FormContext";
 import { useBootstrapPrefix } from "./ThemeProvider";
 import { BsPrefixProps, BsPrefixRefForwardingComponent } from "./helpers";
+import FormCheckContext from "./FormCheckContext";
 
 export type FormCheckType = "checkbox" | "radio" | "switch";
 
@@ -62,6 +70,7 @@ const FormCheck: BsPrefixRefForwardingComponent<"input", FormCheckProps> = (
     local.bsSwitchPrefix,
     "form-switch"
   );
+  const [hasFormCheckLabel, setHasFormCheckLabel] = createSignal(false);
 
   const formContext = useContext(FormContext);
   const innerFormContext = {
@@ -69,8 +78,11 @@ const FormCheck: BsPrefixRefForwardingComponent<"input", FormCheckProps> = (
       return local.id || formContext.controlId;
     },
   };
-  const hasLabel =
-    local.label != null && local.label !== false && !local.children;
+  const hasLabel = createMemo(
+    () =>
+      (local.label != null && local.label !== false && !local.children) ||
+      hasFormCheckLabel()
+  );
 
   const input = (
     <FormCheckInput
@@ -85,32 +97,36 @@ const FormCheck: BsPrefixRefForwardingComponent<"input", FormCheckProps> = (
 
   return (
     <FormContext.Provider value={innerFormContext}>
-      <div
-        style={local.style}
-        className={classNames(
-          local.className,
-          hasLabel && bsPrefix,
-          local.inline && `${bsPrefix}-inline`,
-          local.type === "switch" && bsSwitchPrefix
-        )}
-      >
-        {local.children || (
-          <>
-            {input}
-            {hasLabel && (
-              <FormCheckLabel title={local.title}>{local.label}</FormCheckLabel>
-            )}
-            {local.feedback && (
-              <Feedback
-                type={local.feedbackType}
-                tooltip={local.feedbackTooltip}
-              >
-                {local.feedback}
-              </Feedback>
-            )}
-          </>
-        )}
-      </div>
+      <FormCheckContext.Provider value={{ setHasFormCheckLabel }}>
+        <div
+          style={local.style}
+          className={classNames(
+            local.className,
+            hasLabel() && bsPrefix,
+            local.inline && `${bsPrefix}-inline`,
+            local.type === "switch" && bsSwitchPrefix
+          )}
+        >
+          {local.children || (
+            <>
+              {input}
+              {hasLabel() && (
+                <FormCheckLabel title={local.title}>
+                  {local.label}
+                </FormCheckLabel>
+              )}
+              {local.feedback && (
+                <Feedback
+                  type={local.feedbackType}
+                  tooltip={local.feedbackTooltip}
+                >
+                  {local.feedback}
+                </Feedback>
+              )}
+            </>
+          )}
+        </div>
+      </FormCheckContext.Provider>
     </FormContext.Provider>
   );
 };
