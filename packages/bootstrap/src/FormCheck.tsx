@@ -89,7 +89,7 @@ const FormCheck: BsPrefixRefForwardingComponent<"input", FormCheckProps> = (
         style={local.style}
         className={classNames(
           local.className,
-          local.label && bsPrefix,
+          hasLabel && bsPrefix,
           local.inline && `${bsPrefix}-inline`,
           local.type === "switch" && bsSwitchPrefix
         )}

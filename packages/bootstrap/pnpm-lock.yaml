@@ -5,7 +5,6 @@ specifiers:
   '@babel/preset-typescript': ^7.15.0
   '@rollup/plugin-babel': 5.3.0
   '@rollup/plugin-node-resolve': 13.0.5
-  '@types/warning': ^3.0.0
   babel-preset-solid: ^1.1.0
   classnames: 2.3.1
   dom-helpers: ^5.2.0
@@ -14,22 +13,19 @@ specifiers:
   solid-bootstrap-core: ^0.1.7
   solid-js: ^1.2.5
   solid-react-transition: 0.1.6
-  typescript: ^4.4.3
-  warning: ^4.0.3
+  typescript: ^4.5.2
 
 dependencies:
   classnames: 2.3.1
   dom-helpers: 5.2.1
   solid-bootstrap-core: 0.1.7_solid-js@1.2.5
   solid-react-transition: 0.1.6_solid-js@1.2.5
-  warning: 4.0.3
 
 devDependencies:
   '@babel/core': 7.16.0
   '@babel/preset-typescript': 7.16.0_@babel+core@7.16.0
   '@rollup/plugin-babel': 5.3.0_@babel+core@7.16.0+rollup@2.60.1
   '@rollup/plugin-node-resolve': 13.0.5_rollup@2.60.1
-  '@types/warning': 3.0.0
   babel-preset-solid: 1.2.5_@babel+core@7.16.0
   rollup: 2.60.1
   rollup-plugin-terser: 7.0.2_rollup@2.60.1
@@ -397,10 +393,6 @@ packages:
       '@types/node': 16.11.10
     dev: true
 
-  /@types/warning/3.0.0:
-    resolution: {integrity: sha1-DSUBJorY+ZYrdA04fEZU9fjiPlI=}
-    dev: true
-
   /ansi-styles/3.2.1:
     resolution: {integrity: sha512-VT0ZI6kZRdTh8YyJw3SMbYm/u+NqfsAxEpWO0Pf9sq8/e94WxxOpPKx9FR1FlyCtOVDNOQ+8ntlqFxiRc+r5qA==}
     engines: {node: '>=4'}
@@ -595,6 +587,7 @@ packages:
 
   /js-tokens/4.0.0:
     resolution: {integrity: sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==}
+    dev: true
 
   /jsesc/2.5.2:
     resolution: {integrity: sha512-OYu7XEzjkCQ3C5Ps3QIZsQfNpqoJyZZA99wd9aWd05NCtC5pWOkShK2mkL6HXQR6/Cy2lbNdPlZBpuQHXE63gA==}
@@ -609,13 +602,6 @@ packages:
     dependencies:
       minimist: 1.2.5
     dev: true
-
-  /loose-envify/1.4.0:
-    resolution: {integrity: sha512-lyuxPGr/Wfhrlem2CL/UcnUc1zcqKAImBDzukY7Y5F/yQiNdko6+fRLevlw1HgMySw7f611UIY408EtxRSoK3Q==}
-    hasBin: true
-    dependencies:
-      js-tokens: 4.0.0
-    dev: false
 
   /merge-stream/2.0.0:
     resolution: {integrity: sha512-abv/qOcuPfk3URPfDzmZU1LKmuw8kT+0nIHvKrKgFrwifol/doWcdA4ZqsWQ8ENrFKkd67Mfpo/LovbIUsbt3w==}
@@ -788,9 +774,3 @@ packages:
     engines: {node: '>=4.2.0'}
     hasBin: true
     dev: true
-
-  /warning/4.0.3:
-    resolution: {integrity: sha512-rpJyN222KWIvHJ/F53XSZv0Zl/accqHR8et1kpaMTD/fLCRxtV8iX8czMzY7sVZupTI3zcUTg8eycS2kNF9l6w==}
-    dependencies:
-      loose-envify: 1.4.0
-    dev: false
