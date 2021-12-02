@@ -1,4 +1,4 @@
-## 2021-12-01 - solid-bootstrap (0.1.3)
+## 2021-12-02 - solid-bootstrap (0.1.3)
 
 ### Bug Fixes
 
