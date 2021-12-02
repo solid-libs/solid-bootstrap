@@ -1,3 +1,9 @@
+## 2021-12-01 - solid-bootstrap (0.1.3)
+
+### Bug Fixes
+
+Fix - carousel prev/next icons only show once if multiple on page
+
 ## 2021-12-01 - solid-bootstrap (0.1.2)
 
 ### Bug Fixes
