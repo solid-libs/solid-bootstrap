@@ -4,6 +4,7 @@ import Tooltip from "solid-bootstrap/Tooltip";
 import Button from "solid-bootstrap/Button";
 import OverlayTrigger from "solid-bootstrap/OverlayTrigger";
 import GithubSource from "./GithubSource";
+import TooltipApi from "./TooltipApi";
 
 export const TooltipDocs: Component = () => {
   return (
@@ -57,6 +58,7 @@ export const TooltipDocs: Component = () => {
           </Card.Body>
         </Card>
       </div>
+      <TooltipApi />
     </div>
   );
 };

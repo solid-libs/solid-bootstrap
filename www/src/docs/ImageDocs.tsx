@@ -6,6 +6,7 @@ import Row from "solid-bootstrap/Row";
 import Image from "solid-bootstrap/Image";
 import { useHolderJSRefresh } from "./utils";
 import GithubSource from "./GithubSource";
+import ImageApi from "./ImageApi";
 
 export const ImageDocs: Component = () => {
   useHolderJSRefresh();
@@ -41,6 +42,7 @@ export const ImageDocs: Component = () => {
           </Card.Body>
         </Card>
       </div>
+      <ImageApi />
     </div>
   );
 };

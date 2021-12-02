@@ -7,6 +7,7 @@ import FormControl from "solid-bootstrap/FormControl";
 import Dropdown from "solid-bootstrap/Dropdown";
 import DropdownButton from "solid-bootstrap/DropdownButton";
 import GithubSource from "./GithubSource";
+import ButtonGroupApi from "./ButtonGroupApi";
 
 const ButtonGroupDocs: Component = () => {
   return (
@@ -159,6 +160,7 @@ const ButtonGroupDocs: Component = () => {
           </DropdownButton>
         </ButtonGroup>
       </div>
+      <ButtonGroupApi />
     </div>
   );
 };

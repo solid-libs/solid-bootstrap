@@ -8,6 +8,7 @@ import Row from "solid-bootstrap/Row";
 import Form from "solid-bootstrap/Form";
 import { useHolderJSRefresh } from "./utils";
 import GithubSource from "./GithubSource";
+import ToastApi from "./ToastApi";
 
 export const ToastDocs: Component = () => {
   const [show1, setShow1] = createSignal(true);
@@ -280,6 +281,7 @@ export const ToastDocs: Component = () => {
           </Card.Body>
         </Card>
       </div>
+      <ToastApi />
     </div>
   );
 };

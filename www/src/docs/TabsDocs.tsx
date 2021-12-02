@@ -7,6 +7,7 @@ import Col from "solid-bootstrap/Col";
 import Nav from "solid-bootstrap/Nav";
 import Sonnet from "./Sonnet";
 import GithubSource from "./GithubSource";
+import TabsApi from "./TabsApi";
 
 export const TabsDocs: Component = () => {
   return (
@@ -67,6 +68,7 @@ export const TabsDocs: Component = () => {
           </Card.Body>
         </Card>
       </div>
+      <TabsApi />
     </div>
   );
 };

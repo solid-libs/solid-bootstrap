@@ -2,6 +2,7 @@ import { Component, createSignal, For, onCleanup } from "solid-js";
 import Card from "solid-bootstrap/Card";
 import ProgressBar from "solid-bootstrap/ProgressBar";
 import GithubSource from "./GithubSource";
+import ProgressBarApi from "./ProgressBarApi";
 
 export const ProgressBarDocs: Component = () => {
   const [value, setValue] = createSignal(5);
@@ -75,6 +76,7 @@ export const ProgressBarDocs: Component = () => {
           </Card.Body>
         </Card>
       </div>
+      <ProgressBarApi />
     </div>
   );
 };

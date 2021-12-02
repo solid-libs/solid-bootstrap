@@ -1,1 +1,14 @@
-{}
+{
+  "0 debug pnpm:scope": {
+    "selected": 1
+  },
+  "1 error pnpm": {
+    "code": "ERR_PNPM_NO_IMPORTER_MANIFEST_FOUND",
+    "err": {
+      "name": "pnpm",
+      "message": "No package.json (or package.yaml, or package.json5) was found in \"C:\\DevGit\\solid-bootstrap\".",
+      "code": "ERR_PNPM_NO_IMPORTER_MANIFEST_FOUND",
+      "stack": "pnpm: No package.json (or package.yaml, or package.json5) was found in \"C:\\DevGit\\solid-bootstrap\".\n    at readProjectManifest (C:\\Users\\brend\\AppData\\Roaming\\npm\\pnpm-global\\5\\node_modules\\.pnpm\\pnpm@6.20.4\\node_modules\\pnpm\\dist\\pnpm.cjs:41092:13)\n    at async Object.readProjectManifestOnly (C:\\Users\\brend\\AppData\\Roaming\\npm\\pnpm-global\\5\\node_modules\\.pnpm\\pnpm@6.20.4\\node_modules\\pnpm\\dist\\pnpm.cjs:41096:28)\n    at async readProjectManifestOnly (C:\\Users\\brend\\AppData\\Roaming\\npm\\pnpm-global\\5\\node_modules\\.pnpm\\pnpm@6.20.4\\node_modules\\pnpm\\dist\\pnpm.cjs:41315:24)\n    at async Object.handler (C:\\Users\\brend\\AppData\\Roaming\\npm\\pnpm-global\\5\\node_modules\\.pnpm\\pnpm@6.20.4\\node_modules\\pnpm\\dist\\pnpm.cjs:129738:24)\n    at async C:\\Users\\brend\\AppData\\Roaming\\npm\\pnpm-global\\5\\node_modules\\.pnpm\\pnpm@6.20.4\\node_modules\\pnpm\\dist\\pnpm.cjs:133938:20\n    at async run (C:\\Users\\brend\\AppData\\Roaming\\npm\\pnpm-global\\5\\node_modules\\.pnpm\\pnpm@6.20.4\\node_modules\\pnpm\\dist\\pnpm.cjs:133913:34)\n    at async runPnpm (C:\\Users\\brend\\AppData\\Roaming\\npm\\pnpm-global\\5\\node_modules\\.pnpm\\pnpm@6.20.4\\node_modules\\pnpm\\dist\\pnpm.cjs:134124:5)\n    at async C:\\Users\\brend\\AppData\\Roaming\\npm\\pnpm-global\\5\\node_modules\\.pnpm\\pnpm@6.20.4\\node_modules\\pnpm\\dist\\pnpm.cjs:134116:7"
+    }
+  }
+}

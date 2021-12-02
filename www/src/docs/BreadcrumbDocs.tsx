@@ -1,6 +1,7 @@
 import { Component, For } from "solid-js";
 import Breadcrumb from "solid-bootstrap/Breadcrumb";
 import GithubSource from "./GithubSource";
+import BreadcrumbApi from "./BreadcrumbApi";
 
 const BreadcrumbDocs: Component = () => {
   return (
@@ -24,6 +25,7 @@ const BreadcrumbDocs: Component = () => {
           <Breadcrumb.Item active>Data</Breadcrumb.Item>
         </Breadcrumb>
       </div>
+      <BreadcrumbApi />
     </div>
   );
 };

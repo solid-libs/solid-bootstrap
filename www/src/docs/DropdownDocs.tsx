@@ -11,6 +11,7 @@ import NavDropdown from "solid-bootstrap/NavDropdown";
 import { DropDirection } from "solid-bootstrap/DropdownContext";
 import Alert from "solid-bootstrap/Alert";
 import GithubSource from "./GithubSource";
+import DropdownApi from "./DropdownApi";
 
 export const DropdownDocs: Component = () => {
   return (
@@ -386,6 +387,7 @@ export const DropdownDocs: Component = () => {
           </Dropdown.Menu>
         </Dropdown>{" "}
       </div>
+      <DropdownApi />
     </div>
   );
 };

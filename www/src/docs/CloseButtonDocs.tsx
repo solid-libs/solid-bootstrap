@@ -2,6 +2,7 @@ import { Component, For } from "solid-js";
 import Badge from "solid-bootstrap/Badge";
 import CloseButton from "solid-bootstrap/CloseButton";
 import GithubSource from "./GithubSource";
+import CloseButtonApi from "./CloseButtonApi";
 
 const CloseButtonDocs: Component = () => {
   return (
@@ -29,6 +30,7 @@ const CloseButtonDocs: Component = () => {
           </Badge>
         </div>
       </div>
+      <CloseButtonApi />
     </div>
   );
 };

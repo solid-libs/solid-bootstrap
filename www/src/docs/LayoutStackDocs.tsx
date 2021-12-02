@@ -5,6 +5,7 @@ import Form from "solid-bootstrap/Form";
 import Stack from "solid-bootstrap/Stack";
 import "./styles.css";
 import GithubSource from "./GithubSource";
+import LayoutStackApi from "./LayoutStackApi";
 
 export const LayoutStackDocs: Component = () => {
   return (
@@ -84,6 +85,7 @@ export const LayoutStackDocs: Component = () => {
           </Card.Body>
         </Card>
       </div>
+      <LayoutStackApi />
     </div>
   );
 };

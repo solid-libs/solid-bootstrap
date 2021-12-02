@@ -2,6 +2,7 @@ import { Component } from "solid-js";
 import Card from "solid-bootstrap/Card";
 import Table from "solid-bootstrap/Table";
 import GithubSource from "./GithubSource";
+import TableApi from "./TableApi";
 
 export const TableDocs: Component = () => {
   return (
@@ -328,6 +329,7 @@ export const TableDocs: Component = () => {
           </Card.Body>
         </Card>
       </div>
+      <TableApi />
     </div>
   );
 };

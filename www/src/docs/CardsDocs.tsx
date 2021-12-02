@@ -8,6 +8,7 @@ import Row from "solid-bootstrap/Row";
 import Col from "solid-bootstrap/Col";
 import { useHolderJSRefresh } from "./utils";
 import GithubSource from "./GithubSource";
+import CardsApi from "./CardsApi";
 
 const CardsDocs: Component = () => {
   useHolderJSRefresh();
@@ -393,6 +394,7 @@ const CardsDocs: Component = () => {
           ))}
         </Row>
       </div>
+      <CardsApi />
     </div>
   );
 };

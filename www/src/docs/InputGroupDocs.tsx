@@ -8,6 +8,7 @@ import Form from "solid-bootstrap/Form";
 import FormControl from "solid-bootstrap/FormControl";
 import SplitButton from "solid-bootstrap/SplitButton";
 import GithubSource from "./GithubSource";
+import InputGroupApi from "./InputGroupApi";
 
 export const InputGroupDocs: Component = () => {
   return (
@@ -265,6 +266,7 @@ export const InputGroupDocs: Component = () => {
           </Card.Body>
         </Card>
       </div>
+      <InputGroupApi />
     </div>
   );
 };

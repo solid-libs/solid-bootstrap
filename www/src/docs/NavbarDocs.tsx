@@ -9,6 +9,7 @@ import FormControl from "solid-bootstrap/FormControl";
 import Button from "solid-bootstrap/Button";
 import Offcanvas from "solid-bootstrap/Offcanvas";
 import GithubSource from "./GithubSource";
+import NavbarApi from "./NavbarApi";
 
 export const NavbarDocs: Component = () => {
   return (
@@ -317,6 +318,7 @@ export const NavbarDocs: Component = () => {
           <Card.Body></Card.Body>
         </Card>
       </div>
+      <NavbarApi />
     </div>
   );
 };

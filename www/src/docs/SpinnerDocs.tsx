@@ -3,6 +3,7 @@ import Card from "solid-bootstrap/Card";
 import Button from "solid-bootstrap/Button";
 import Spinner from "solid-bootstrap/Spinner";
 import GithubSource from "./GithubSource";
+import SpinnerApi from "./SpinnerApi";
 
 export const SpinnerDocs: Component = () => {
   return (
@@ -94,6 +95,7 @@ export const SpinnerDocs: Component = () => {
           meaning inside the component using Bootstrap's visually-hidden class.
         </p>
       </div>
+      <SpinnerApi />
     </div>
   );
 };

@@ -2,6 +2,7 @@ import { Component, For } from "solid-js";
 import Figure from "solid-bootstrap/Figure";
 import GithubSource from "./GithubSource";
 import { useHolderJSRefresh } from "./utils";
+import FigureApi from "./FigureApi";
 
 export const FigureDocs: Component = () => {
   useHolderJSRefresh();
@@ -29,6 +30,7 @@ export const FigureDocs: Component = () => {
           </Figure.Caption>
         </Figure>
       </div>
+      <FigureApi />
     </div>
   );
 };

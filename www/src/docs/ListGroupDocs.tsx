@@ -6,6 +6,7 @@ import Row from "solid-bootstrap/Row";
 import Col from "solid-bootstrap/Col";
 import ListGroup from "solid-bootstrap/ListGroup";
 import GithubSource from "./GithubSource";
+import ListGroupApi from "./ListGroupApi";
 
 export const ListGroupDocs: Component = () => {
   function alertClicked() {
@@ -206,6 +207,7 @@ export const ListGroupDocs: Component = () => {
           </Card.Body>
         </Card>
       </div>
+      <ListGroupApi />
     </div>
   );
 };

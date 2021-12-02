@@ -1,6 +1,7 @@
 import { Component, For } from "solid-js";
 import Alert from "solid-bootstrap/Alert";
 import GithubSource from "./GithubSource";
+import AlertApi from "./AlertApi";
 
 const AlertDocs: Component = () => {
   return (
@@ -44,6 +45,7 @@ const AlertDocs: Component = () => {
           </p>
         </Alert>
       </div>
+      <AlertApi />
     </div>
   );
 };

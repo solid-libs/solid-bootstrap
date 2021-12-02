@@ -2,6 +2,7 @@ import { Component, For } from "solid-js";
 import Card from "solid-bootstrap/Card";
 import Pagination from "solid-bootstrap/Pagination";
 import GithubSource from "./GithubSource";
+import PaginationApi from "./PaginationApi";
 
 export const PaginationDocs: Component = () => {
   let active = 2;
@@ -63,6 +64,7 @@ export const PaginationDocs: Component = () => {
           </Card.Body>
         </Card>
       </div>
+      <PaginationApi />
     </div>
   );
 };

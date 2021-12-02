@@ -5,6 +5,7 @@ import Col from "solid-bootstrap/Col";
 import Row from "solid-bootstrap/Row";
 import "./styles.css";
 import GithubSource from "./GithubSource";
+import LayoutGridApi from "./LayoutGridApi";
 
 export const LayoutGridDocs: Component = () => {
   return (
@@ -229,6 +230,7 @@ export const LayoutGridDocs: Component = () => {
           </Card.Body>
         </Card>
       </div>
+      <LayoutGridApi />
     </div>
   );
 };

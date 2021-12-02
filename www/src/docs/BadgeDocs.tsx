@@ -1,6 +1,7 @@
 import { Component } from "solid-js";
 import Badge from "solid-bootstrap/Badge";
 import GithubSource from "./GithubSource";
+import BadgeApi from "./BadgeApi";
 
 const BadgeDocs: Component = () => {
   return (
@@ -80,6 +81,7 @@ const BadgeDocs: Component = () => {
           Dark
         </Badge>
       </div>
+      <BadgeApi />
     </div>
   );
 };

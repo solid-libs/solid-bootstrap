@@ -4,6 +4,7 @@ import Card from "solid-bootstrap/Card";
 import Placeholder from "solid-bootstrap/Placeholder";
 import GithubSource from "./GithubSource";
 import { useHolderJSRefresh } from "./utils";
+import PlaceholderApi from "./PlaceholderApi";
 
 export const PlaceholderDocs: Component = () => {
   useHolderJSRefresh();
@@ -95,6 +96,7 @@ export const PlaceholderDocs: Component = () => {
           </Card.Body>
         </Card>
       </div>
+      <PlaceholderApi />
     </div>
   );
 };

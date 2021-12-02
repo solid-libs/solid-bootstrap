@@ -3,6 +3,7 @@ import Card from "solid-bootstrap/Card";
 import Nav from "solid-bootstrap/Nav";
 import NavDropdown from "solid-bootstrap/NavDropdown";
 import GithubSource from "./GithubSource";
+import NavApi from "./NavApi";
 
 export const NavDocs: Component = () => {
   return (
@@ -190,6 +191,7 @@ export const NavDocs: Component = () => {
           </Card.Body>
         </Card>
       </div>
+      <NavApi />
     </div>
   );
 };

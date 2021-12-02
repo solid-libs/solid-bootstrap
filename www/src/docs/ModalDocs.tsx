@@ -7,6 +7,7 @@ import Row from "solid-bootstrap/Row";
 import Col from "solid-bootstrap/Col";
 import { ModalProps } from "solid-bootstrap/core";
 import GithubSource from "./GithubSource";
+import ModalApi from "./ModalApi";
 
 const booleanSignal = createSignal(false);
 
@@ -333,6 +334,7 @@ export const ModalDocs: Component = () => {
           </Card.Body>
         </Card>
       </div>
+      <ModalApi />
     </div>
   );
 };

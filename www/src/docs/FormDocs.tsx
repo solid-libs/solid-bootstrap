@@ -9,6 +9,7 @@ import Row from "solid-bootstrap/Row";
 import FloatingLabel from "solid-bootstrap/FloatingLabel";
 import { FormCheckType } from "solid-bootstrap/FormCheck";
 import GithubSource from "./GithubSource";
+import FormApi from "./FormApi";
 
 export const FormDocs: Component = () => {
   const [validated, setValidated] = createSignal(false);
@@ -977,6 +978,7 @@ export const FormDocs: Component = () => {
           </Card.Body>
         </Card>
       </div>
+      <FormApi />
     </div>
   );
 };

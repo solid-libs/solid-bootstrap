@@ -5,6 +5,7 @@ import Button from "solid-bootstrap/Button";
 import OverlayTrigger from "solid-bootstrap/OverlayTrigger";
 import { Placement } from "solid-bootstrap/types";
 import GithubSource from "./GithubSource";
+import PopoverApi from "./PopoverApi";
 
 export const PopoverDocs: Component = () => {
   return (
@@ -59,6 +60,7 @@ export const PopoverDocs: Component = () => {
           </Card.Body>
         </Card>
       </div>
+      <PopoverApi />
     </div>
   );
 };

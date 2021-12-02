@@ -1,6 +1,7 @@
 import { Component } from "solid-js";
 import Accordion from "solid-bootstrap/Accordion";
 import GithubSource from "./GithubSource";
+import AccordianApi from "./AccordianAPI";
 
 const AccordionDocs: Component = () => {
   return (
@@ -39,6 +40,7 @@ const AccordionDocs: Component = () => {
           </Accordion.Body>
         </Accordion.Item>
       </Accordion>
+      <AccordianApi />
     </div>
   );
 };

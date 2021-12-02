@@ -3,6 +3,7 @@ import Button from "solid-bootstrap/Button";
 import Card from "solid-bootstrap/Card";
 import Offcanvas from "solid-bootstrap/Offcanvas";
 import GithubSource from "./GithubSource";
+import OffcanvasApi from "./OffcanvasApi";
 
 const booleanSignal = createSignal(false);
 
@@ -107,6 +108,7 @@ export const OffcanvasDocs: Component = () => {
           </Card.Body>
         </Card>
       </div>
+      <OffcanvasApi />
     </div>
   );
 };
