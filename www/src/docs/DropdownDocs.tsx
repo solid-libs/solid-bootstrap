@@ -12,6 +12,7 @@ import { DropDirection } from "solid-bootstrap/DropdownContext";
 import Alert from "solid-bootstrap/Alert";
 import GithubSource from "./GithubSource";
 import DropdownApi from "./DropdownApi";
+import { Row } from "solid-bootstrap";
 
 export const DropdownDocs: Component = () => {
   return (
@@ -50,6 +51,7 @@ export const DropdownDocs: Component = () => {
           (variant) => (
             <DropdownButton
               as={ButtonGroup}
+              className="me-2"
               key={variant}
               id={`dropdown-variants-${variant}`}
               variant={variant.toLowerCase()}
@@ -88,6 +90,7 @@ export const DropdownDocs: Component = () => {
           (variant) => (
             <SplitButton
               id={`dropdown-split-variants-${variant}`}
+              className="me-2"
               variant={variant.toLowerCase()}
               title={variant}
             >
@@ -108,7 +111,7 @@ export const DropdownDocs: Component = () => {
           {[DropdownButton, SplitButton].map((DropdownType, idx) => (
             <DropdownType
               as={ButtonGroup}
-              key={idx}
+              className="me-2"
               id={`dropdown-button-drop-${idx}`}
               size="lg"
               title="Drop large"
@@ -125,7 +128,7 @@ export const DropdownDocs: Component = () => {
           {[DropdownButton, SplitButton].map((DropdownType, idx) => (
             <DropdownType
               as={ButtonGroup}
-              key={idx}
+              className="me-2"
               id={`dropdown-button-drop-${idx}`}
               size="sm"
               variant="secondary"
@@ -214,7 +217,7 @@ export const DropdownDocs: Component = () => {
           {["up", "down", "start", "end"].map((direction) => (
             <DropdownButton
               as={ButtonGroup}
-              key={direction}
+              className="me-2"
               id={`dropdown-button-drop-${direction}`}
               drop={direction as DropDirection}
               variant="secondary"
@@ -233,6 +236,7 @@ export const DropdownDocs: Component = () => {
           {["up", "down", "start", "end"].map((direction) => (
             <SplitButton
               id={`dropdown-button-drop-${direction}`}
+              className="me-2"
               drop={direction as DropDirection}
               variant="secondary"
               title={`Drop ${direction}`}
@@ -353,7 +357,7 @@ export const DropdownDocs: Component = () => {
             <Dropdown.Item href="#">Menu Item</Dropdown.Item>
           </Dropdown.Menu>
         </Dropdown>
-        <Dropdown className="d-inline mx-2" autoClose="inside">
+        <Dropdown className="d-inline me-2" autoClose="inside">
           <Dropdown.Toggle id="dropdown-autoclose-inside">
             Clickable Outside
           </Dropdown.Toggle>
@@ -364,7 +368,7 @@ export const DropdownDocs: Component = () => {
             <Dropdown.Item href="#">Menu Item</Dropdown.Item>
           </Dropdown.Menu>
         </Dropdown>
-        <Dropdown className="d-inline mx-2" autoClose="outside">
+        <Dropdown className="d-inline me-2" autoClose="outside">
           <Dropdown.Toggle id="dropdown-autoclose-outside">
             Clickable Inside
           </Dropdown.Toggle>
@@ -375,7 +379,7 @@ export const DropdownDocs: Component = () => {
             <Dropdown.Item href="#">Menu Item</Dropdown.Item>
           </Dropdown.Menu>
         </Dropdown>
-        <Dropdown className="d-inline mx-2" autoClose={false}>
+        <Dropdown className="d-inline me-2" autoClose={false}>
           <Dropdown.Toggle id="dropdown-autoclose-false">
             Manual Close
           </Dropdown.Toggle>

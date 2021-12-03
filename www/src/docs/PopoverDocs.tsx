@@ -54,7 +54,9 @@ export const PopoverDocs: Component = () => {
                   </Popover>
                 }
               >
-                <Button variant="secondary">Popover on {placement}</Button>
+                <Button variant="secondary" className="me-2">
+                  Popover on {placement}
+                </Button>
               </OverlayTrigger>
             ))}
           </Card.Body>

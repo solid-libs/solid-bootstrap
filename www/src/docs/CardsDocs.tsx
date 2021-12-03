@@ -203,130 +203,64 @@ const CardsDocs: Component = () => {
       </div>
       <div>
         <h4>Background color</h4>
-        {[
-          "Primary",
-          "Secondary",
-          "Success",
-          "Danger",
-          "Warning",
-          "Info",
-          "Light",
-          "Dark",
-        ].map((variant, idx) => (
-          <Card
-            bg={variant.toLowerCase()}
-            text={variant.toLowerCase() === "light" ? "dark" : "white"}
-            style={{ width: "18rem" }}
-            className="mb-2"
-          >
-            <Card.Header>Header</Card.Header>
-            <Card.Body>
-              <Card.Title>{variant} Card Title </Card.Title>
-              <Card.Text>
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </Card.Text>
-            </Card.Body>
-          </Card>
-        ))}
+        <div className="d-flex flex-wrap">
+          {[
+            "Primary",
+            "Secondary",
+            "Success",
+            "Danger",
+            "Warning",
+            "Info",
+            "Light",
+            "Dark",
+          ].map((variant, idx) => (
+            <Card
+              bg={variant.toLowerCase()}
+              text={variant.toLowerCase() === "light" ? "dark" : "white"}
+              style={{ width: "18rem" }}
+              className="m-2"
+            >
+              <Card.Header>Header</Card.Header>
+              <Card.Body>
+                <Card.Title>{variant} Card Title </Card.Title>
+                <Card.Text>
+                  Some quick example text to build on the card title and make up
+                  the bulk of the card's content.
+                </Card.Text>
+              </Card.Body>
+            </Card>
+          ))}
+        </div>
       </div>
       <div>
         <h4>Border color</h4>
-        <Card border="primary" style={{ width: "18rem" }}>
-          <Card.Header>Header</Card.Header>
-          <Card.Body>
-            <Card.Title>Primary Card Title</Card.Title>
-            <Card.Text>
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </Card.Text>
-          </Card.Body>
-        </Card>
-        <br />
-
-        <Card border="secondary" style={{ width: "18rem" }}>
-          <Card.Header>Header</Card.Header>
-          <Card.Body>
-            <Card.Title>Secondary Card Title</Card.Title>
-            <Card.Text>
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </Card.Text>
-          </Card.Body>
-        </Card>
-        <br />
-
-        <Card border="success" style={{ width: "18rem" }}>
-          <Card.Header>Header</Card.Header>
-          <Card.Body>
-            <Card.Title>Success Card Title</Card.Title>
-            <Card.Text>
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </Card.Text>
-          </Card.Body>
-        </Card>
-        <br />
-
-        <Card border="danger" style={{ width: "18rem" }}>
-          <Card.Header>Header</Card.Header>
-          <Card.Body>
-            <Card.Title>Danger Card Title</Card.Title>
-            <Card.Text>
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </Card.Text>
-          </Card.Body>
-        </Card>
-        <br />
-
-        <Card border="warning" style={{ width: "18rem" }}>
-          <Card.Header>Header</Card.Header>
-          <Card.Body>
-            <Card.Title>Warning Card Title</Card.Title>
-            <Card.Text>
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </Card.Text>
-          </Card.Body>
-        </Card>
-        <br />
-
-        <Card border="info" style={{ width: "18rem" }}>
-          <Card.Header>Header</Card.Header>
-          <Card.Body>
-            <Card.Title>Info Card Title</Card.Title>
-            <Card.Text>
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </Card.Text>
-          </Card.Body>
-        </Card>
-        <br />
-
-        <Card border="dark" style={{ width: "18rem" }}>
-          <Card.Header>Header</Card.Header>
-          <Card.Body>
-            <Card.Title>Dark Card Title</Card.Title>
-            <Card.Text>
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </Card.Text>
-          </Card.Body>
-        </Card>
-        <br />
-
-        <Card border="light" style={{ width: "18rem" }}>
-          <Card.Header>Header</Card.Header>
-          <Card.Body>
-            <Card.Title>Light Card Title</Card.Title>
-            <Card.Text>
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </Card.Text>
-          </Card.Body>
-        </Card>
-        <br />
+        <div className="d-flex flex-wrap">
+          {[
+            "Primary",
+            "Secondary",
+            "Success",
+            "Danger",
+            "Warning",
+            "Info",
+            "Light",
+            "Dark",
+          ].map((variant, idx) => (
+            <Card
+              border={variant.toLowerCase()}
+              style={{ width: "18rem" }}
+              className="m-2"
+            >
+              <Card.Header>Header</Card.Header>
+              <Card.Body>
+                <Card.Title>{variant} Card Title </Card.Title>
+                <Card.Text>
+                  Some quick example text to build on the card title and make up
+                  the bulk of the card's content.
+                </Card.Text>
+              </Card.Body>
+            </Card>
+          ))}
+        </div>
       </div>
       <div>
         <h4>Card Groups</h4>
