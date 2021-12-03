@@ -2,7 +2,7 @@
   "name": "solid-bootstrap",
   "version": "0.1.3",
   "description": "Bootstrap 5 components built with SolidJS",
-  "homepage": "https://github.com/solid-libs/solid-bootstrap/tree/master#readme",
+  "homepage": "https://solid-libs.github.io/solid-bootstrap",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/solid-libs/solid-bootstrap.git#master"
