@@ -19,16 +19,28 @@ function main() {
     componentsPath + "/breadcrumb.html"
   );
   fs.copyFileSync(docsPath + "/index.html", componentsPath + "/buttons.html");
-  fs.copyFileSync(docsPath + "/index.html", componentsPath + "/button.html");
+  fs.copyFileSync(
+    docsPath + "/index.html",
+    componentsPath + "/button-group.html"
+  );
   fs.copyFileSync(docsPath + "/index.html", componentsPath + "/cards.html");
   fs.copyFileSync(docsPath + "/index.html", componentsPath + "/carousel.html");
-  fs.copyFileSync(docsPath + "/index.html", componentsPath + "/close.html");
+  fs.copyFileSync(
+    docsPath + "/index.html",
+    componentsPath + "/close-button.html"
+  );
   fs.copyFileSync(docsPath + "/index.html", componentsPath + "/dropdowns.html");
   fs.copyFileSync(docsPath + "/index.html", componentsPath + "/figures.html");
   fs.copyFileSync(docsPath + "/index.html", componentsPath + "/forms.html");
   fs.copyFileSync(docsPath + "/index.html", componentsPath + "/images.html");
-  fs.copyFileSync(docsPath + "/index.html", componentsPath + "/input.html");
-  fs.copyFileSync(docsPath + "/index.html", componentsPath + "/list.html");
+  fs.copyFileSync(
+    docsPath + "/index.html",
+    componentsPath + "/input-group.html"
+  );
+  fs.copyFileSync(
+    docsPath + "/index.html",
+    componentsPath + "/list-group.html"
+  );
   fs.copyFileSync(docsPath + "/index.html", componentsPath + "/modal.html");
   fs.copyFileSync(docsPath + "/index.html", componentsPath + "/navs.html");
   fs.copyFileSync(docsPath + "/index.html", componentsPath + "/navbar.html");
