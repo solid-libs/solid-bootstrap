@@ -17,7 +17,7 @@ const TopNavbar: Component = () => (
     className={styles.Navbar}
   >
     <Container>
-      <Navbar.Brand href="#">
+      <Navbar.Brand as={Link} href="/">
         <img
           alt=""
           src={baseUrl + "logo.svg"}
