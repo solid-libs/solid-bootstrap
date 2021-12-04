@@ -1,8 +1,3 @@
-.IndexGrey:not(:first-child) {
-  filter: grayscale(100%);
-  -webkit-filter: grayscale(100%);
-}
-
 .MastHead {
   background-color: #282c34;
   color: #fff;

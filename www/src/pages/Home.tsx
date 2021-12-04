@@ -3,7 +3,7 @@ import { Link } from "solid-app-router";
 import styles from "./Home.module.css";
 
 const Home = () => (
-  <div class={styles.IndexGrey}>
+  <div>
     <div class={classnames(styles.MastHead, "mb-4")}>
       <div class={classnames(styles.HomeContent, "px-4")}>
         <h1 class={styles.HomeHeading}>Solid Bootstrap</h1>
