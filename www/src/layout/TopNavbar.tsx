@@ -6,6 +6,8 @@ import Navbar from "solid-bootstrap/Navbar";
 import { Bootstrap, Github, SolidBW } from "../icons";
 import styles from "./TopNavbar.module.css";
 
+const baseUrl = import.meta.env.BASE_URL;
+
 const TopNavbar: Component = () => (
   <Navbar
     collapseOnSelect
@@ -18,7 +20,7 @@ const TopNavbar: Component = () => (
       <Navbar.Brand href="#">
         <img
           alt=""
-          src="logo.svg"
+          src={baseUrl + "logo.svg"}
           width="30"
           height="30"
           className="d-inline-block align-top"

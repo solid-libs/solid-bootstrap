@@ -13,6 +13,8 @@ import Button from "solid-bootstrap/Button";
 import Nav from "solid-bootstrap/Nav";
 import { Link, useLocation } from "solid-app-router";
 
+const baseUrl = import.meta.env.BASE_URL;
+
 const layout = ["grid", "stack"];
 
 const components = [
@@ -113,7 +115,10 @@ const NavSection = (props: {
   items?: string[];
   path: string;
 }) => {
-  let active = createMemo(() => props.location.pathname.startsWith(props.path));
+  let active = createMemo(() => {
+    console.log(props.location.pathname, baseUrl + props.path);
+    return props.location.pathname.startsWith(baseUrl + props.path.slice(1));
+  });
   return (
     <>
       <TocLink

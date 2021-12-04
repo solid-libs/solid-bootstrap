@@ -11,6 +11,8 @@ import Offcanvas from "solid-bootstrap/Offcanvas";
 import GithubSource from "./GithubSource";
 import NavbarApi from "./NavbarApi";
 
+const baseUrl = import.meta.env.BASE_URL;
+
 export const NavbarDocs: Component = () => {
   return (
     <div class="row gy-4">
@@ -75,7 +77,7 @@ export const NavbarDocs: Component = () => {
               <Container>
                 <Navbar.Brand href="#">
                   <img
-                    src="logo.svg"
+                    src={baseUrl + "logo.svg"}
                     width="30"
                     height="30"
                     className="d-inline-block align-top"
@@ -90,7 +92,7 @@ export const NavbarDocs: Component = () => {
                 <Navbar.Brand href="#">
                   <img
                     alt=""
-                    src="logo.svg"
+                    src={baseUrl + "logo.svg"}
                     width="30"
                     height="30"
                     className="d-inline-block align-top"

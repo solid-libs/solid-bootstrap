@@ -1,11 +1,13 @@
-import { hashIntegration, Route, Router, Routes } from "solid-app-router";
+import { Route, Router, Routes } from "solid-app-router";
 import { Component, lazy } from "solid-js";
 import TopNavbar from "./layout/TopNavbar";
 import Home from "./pages/Home";
 import "./App.css";
 
+const baseUrl = import.meta.env.BASE_URL;
+
 const App: Component = () => (
-  <Router source={hashIntegration()}>
+  <Router base={baseUrl}>
     <TopNavbar />
     <Routes>
       <Route
