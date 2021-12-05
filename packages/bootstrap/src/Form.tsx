@@ -39,7 +39,9 @@ const Form: BsPrefixRefForwardingComponent<"form", FormProps> = (
         local.className,
         local.validated && "was-validated"
       )}
-    />
+    >
+      {props.children}
+    </Dynamic>
   );
 };
 

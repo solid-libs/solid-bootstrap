@@ -54,7 +54,9 @@ const ToggleButton = (p: ToggleButtonProps) => {
         type={undefined}
         as="label"
         htmlFor={local.id}
-      />
+      >
+        {props.children}
+      </Button>
     </>
   );
 };

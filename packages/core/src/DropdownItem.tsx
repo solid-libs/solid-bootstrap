@@ -125,7 +125,11 @@ const DropdownItem: DynamicRefForwardingComponent<
     },
   });
 
-  return <Dynamic component={local.as} {...props} {...dropdownItemProps} />;
+  return (
+    <Dynamic component={local.as} {...props} {...dropdownItemProps}>
+      {props.children}
+    </Dynamic>
+  );
 };
 
 DropdownItem.displayName = "DropdownItem";

@@ -33,7 +33,9 @@ const CardImg: BsPrefixRefForwardingComponent<"img", CardImgProps> = (
         local.className
       )}
       {...props}
-    />
+    >
+      {props.children}
+    </Dynamic>
   );
 };
 

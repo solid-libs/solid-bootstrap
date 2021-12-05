@@ -76,7 +76,9 @@ const TabPane: BsPrefixRefForwardingComponent<"div", TabPaneProps> = (
               prefix,
               meta.isActive && "active"
             )}
-          />
+          >
+            {rest.children}
+          </Dynamic>
         </Transition>
       </SelectableContext.Provider>
     </TabContext.Provider>

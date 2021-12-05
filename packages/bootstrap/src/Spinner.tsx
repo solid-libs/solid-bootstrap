@@ -41,7 +41,9 @@ const Spinner: BsPrefixRefForwardingComponent<"div", SpinnerProps> = (
         local.size && `${bsSpinnerPrefix}-${local.size}`,
         local.variant && `text-${local.variant}`
       )}
-    />
+    >
+      {props.children}
+    </Dynamic>
   );
 };
 

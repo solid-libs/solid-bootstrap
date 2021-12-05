@@ -75,7 +75,9 @@ const FormControl: BsPrefixRefForwardingComponent<"input", FormControlProps> = (
         local.isInvalid && `is-invalid`,
         local.type === "color" && `${bsPrefix}-color`
       )}
-    />
+    >
+      {props.children}
+    </Dynamic>
   );
 };
 

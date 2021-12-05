@@ -109,7 +109,11 @@ const Tabs = (p: TabsProps) => {
       unmountOnExit={local.unmountOnExit}
     >
       <Nav {...props} role="tablist" as="ul">
-        <For each={tabs()}>{(tabProps) => <RenderTab {...tabProps} />}</For>
+        <For each={tabs()}>
+          {(tabProps) => (
+            <RenderTab {...tabProps}>{tabProps.children}</RenderTab>
+          )}
+        </For>
       </Nav>
 
       <TabContent>
@@ -121,7 +125,7 @@ const Tabs = (p: TabsProps) => {
               "tabClassName",
             ]);
 
-            return <TabPane {...childProps} />;
+            return <TabPane {...childProps}>{childProps.children}</TabPane>;
           }}
         </For>
       </TabContent>

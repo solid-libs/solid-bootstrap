@@ -13,7 +13,11 @@ const Placeholder: BsPrefixRefForwardingComponent<"span", PlaceholderProps> = (
   p: PlaceholderProps
 ) => {
   const [local, props] = splitProps(mergeProps(defaultProps, p), ["as"]);
-  return <Dynamic component={local.as} {...usePlaceholder(props)} />;
+  return (
+    <Dynamic component={local.as} {...usePlaceholder(props)}>
+      {props.children}
+    </Dynamic>
+  );
 };
 
 export default Object.assign(Placeholder, {

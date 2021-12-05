@@ -6,6 +6,8 @@ import { ComponentProps } from "solid-js";
 export const divWithClassName =
   (className: string) => (p: ComponentProps<"div">) => {
     return (
-      <div {...p} className={classNames((p as any).className, className)} />
+      <div {...p} className={classNames((p as any).className, className)}>
+        {p.children}
+      </div>
     );
   };

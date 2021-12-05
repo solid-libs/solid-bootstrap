@@ -26,7 +26,9 @@ const ModalHeader = (p: ModalHeaderProps) => {
     <AbstractModalHeader
       {...props}
       className={classNames(local.className, bsPrefix)}
-    />
+    >
+      {props.children}
+    </AbstractModalHeader>
   );
 };
 

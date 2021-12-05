@@ -135,7 +135,11 @@ const Button = (props: ButtonProps) => {
     ...otherProps,
   });
 
-  return <Dynamic {...otherProps} {...buttonProps} as={tagName} />;
+  return (
+    <Dynamic {...otherProps} {...buttonProps} as={tagName}>
+      {otherProps.children}
+    </Dynamic>
+  );
 };
 
 Button.displayName = "Button";

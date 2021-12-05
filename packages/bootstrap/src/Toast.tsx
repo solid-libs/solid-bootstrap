@@ -105,7 +105,9 @@ const Toast: BsPrefixRefForwardingComponent<"div", ToastProps> = (
       role="alert"
       aria-live="assertive"
       aria-atomic="true"
-    />
+    >
+      {props.children}
+    </div>
   );
 
   return (

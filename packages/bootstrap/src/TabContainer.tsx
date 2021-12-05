@@ -15,7 +15,9 @@ const TabContainer = (p: PropsWithChildren<TabContainerProps>) => {
   ]);
 
   return (
-    <Tabs {...props} transition={getTabTransitionComponent(local.transition)} />
+    <Tabs {...props} transition={getTabTransitionComponent(local.transition)}>
+      {props.children}
+    </Tabs>
   );
 };
 

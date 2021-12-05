@@ -25,7 +25,9 @@ const OffcanvasHeader = (p: OffcanvasHeaderProps) => {
     <AbstractModalHeader
       {...props}
       className={classNames(local.className, bsPrefix)}
-    />
+    >
+      {props.children}
+    </AbstractModalHeader>
   );
 };
 

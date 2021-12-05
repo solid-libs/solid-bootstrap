@@ -43,7 +43,11 @@ const Table = (p: TableProps) => {
       local.hover && `${decoratedBsPrefix}-hover`
     );
 
-  const table = () => <table {...props} className={classes()} />;
+  const table = () => (
+    <table {...props} className={classes()}>
+      {props.children}
+    </table>
+  );
   if (local.responsive) {
     let responsiveClass = `${decoratedBsPrefix}-responsive`;
     if (typeof local.responsive === "string") {

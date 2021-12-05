@@ -112,7 +112,9 @@ const Navbar: BsPrefixRefForwardingComponent<"nav", NavbarProps> = (
             local.sticky && `sticky-${local.sticky}`,
             local.fixed && `fixed-${local.fixed}`
           )}
-        />
+        >
+          {props.children}
+        </Dynamic>
       </SelectableContext.Provider>
     </NavbarContext.Provider>
   );

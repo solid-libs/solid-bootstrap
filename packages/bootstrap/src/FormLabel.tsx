@@ -61,14 +61,18 @@ const FormLabel: BsPrefixRefForwardingComponent<"label", FormLabelProps> = (
       className={classes()}
       htmlFor={local.htmlFor || formContext.controlId}
       {...props}
-    />
+    >
+      {props.children}
+    </Col>
   ) : (
     <Dynamic
       component={local.as}
       className={classes()}
       htmlFor={local.htmlFor || formContext.controlId}
       {...props}
-    />
+    >
+      {props.children}
+    </Dynamic>
   );
 };
 

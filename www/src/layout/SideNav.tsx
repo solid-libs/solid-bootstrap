@@ -67,7 +67,9 @@ const MenuButton = (props: ComponentProps<typeof Button>) => (
       styles.MenuButton,
       "p-0 d-md-none ms-auto"
     )}
-  />
+  >
+    {props.children}
+  </Button>
 );
 
 const SidePanel = (props: ComponentProps<"div">) => (
@@ -78,35 +80,42 @@ const SidePanel = (props: ComponentProps<"div">) => (
       styles.SidePanel,
       "d-flex flex-column"
     )}
-  />
+  >
+    {props.children}
+  </div>
 );
 
 const OverflowWrapper = (props: ComponentProps<"div">) => (
   <div
     {...props}
     className={classNames(props.className, styles.OverflowWrapper)}
-  />
+  >
+    {props.children}
+  </div>
 );
 
 const TableOfContents = (props: ComponentProps<"nav">) => (
   <nav
     {...props}
     className={classNames(props.className, styles.TableOfContents, "pt-2 pb-4")}
-  />
+  >
+    {props.children}
+  </nav>
 );
 
 const TocLink = (props: ComponentProps<typeof Nav.Link>) => (
-  <Nav.Link
-    {...props}
-    className={classNames(props.className, styles.TocLink)}
-  />
+  <Nav.Link {...props} className={classNames(props.className, styles.TocLink)}>
+    {props.children}
+  </Nav.Link>
 );
 
 const TocSubLink = (props: ComponentProps<typeof TocLink>) => (
   <TocLink
     {...props}
     className={classNames(props.className, styles.TocSubLink)}
-  />
+  >
+    {props.children}
+  </TocLink>
 );
 
 const NavSection = (props: {

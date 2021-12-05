@@ -5,7 +5,11 @@ type SwitchProps = Omit<FormCheckProps, "type">;
 
 const Switch: BsPrefixRefForwardingComponent<typeof FormCheck, SwitchProps> = (
   props: SwitchProps
-) => <FormCheck {...props} type="switch" />;
+) => (
+  <FormCheck {...props} type="switch">
+    {props.children}
+  </FormCheck>
+);
 
 export default Object.assign(Switch, {
   Input: FormCheck.Input,

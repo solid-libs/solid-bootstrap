@@ -49,11 +49,11 @@ const defaultProps: Partial<OffcanvasProps> = {
 };
 
 function DialogTransition(props: any) {
-  return <OffcanvasToggling {...props} />;
+  return <OffcanvasToggling {...props}>{props.children}</OffcanvasToggling>;
 }
 
 function BackdropTransition(props: any) {
-  return <Fade {...props} />;
+  return <Fade {...props}>{props.children}</Fade>;
 }
 
 const Offcanvas: BsPrefixRefForwardingComponent<"div", OffcanvasProps> = (
@@ -132,7 +132,9 @@ const Offcanvas: BsPrefixRefForwardingComponent<"div", OffcanvasProps> = (
     <div
       {...backdropProps}
       className={classNames(`${bsPrefix}-backdrop`, local.backdropClassName)}
-    />
+    >
+      {props.children}
+    </div>
   );
 
   const renderDialog = (dialogProps: RenderModalDialogProps) => (

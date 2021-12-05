@@ -47,7 +47,9 @@ const Stack: BsPrefixRefForwardingComponent<"span", StackProps> = (
           gap: local.gap,
         })
       )}
-    />
+    >
+      {props.children}
+    </Dynamic>
   );
 };
 

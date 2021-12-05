@@ -34,7 +34,9 @@ const FormText: BsPrefixRefForwardingComponent<"small", FormTextProps> = (
         bsPrefix,
         local.muted && "text-muted"
       )}
-    />
+    >
+      {props.children}
+    </Dynamic>
   );
 };
 

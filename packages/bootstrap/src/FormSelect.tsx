@@ -45,7 +45,9 @@ const FormSelect: BsPrefixRefForwardingComponent<"select", FormSelectProps> = (
         local.isInvalid && `is-invalid`
       )}
       id={local.id || formContext.controlId}
-    />
+    >
+      {props.children}
+    </select>
   );
 };
 

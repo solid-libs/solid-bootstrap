@@ -40,7 +40,9 @@ const Image = (p: ImageProps) => {
         local.roundedCircle && `rounded-circle`,
         local.thumbnail && `${bsPrefix}-thumbnail`
       )}
-    />
+    >
+      {props.children}
+    </img>
   );
 };
 

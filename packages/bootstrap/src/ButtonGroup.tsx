@@ -41,7 +41,9 @@ const ButtonGroup: BsPrefixRefForwardingComponent<"div", ButtonGroupProps> = (
         baseClass,
         local.size && `${prefix}-${local.size}`
       )}
-    />
+    >
+      {props.children}
+    </Dynamic>
   );
 };
 export default ButtonGroup;

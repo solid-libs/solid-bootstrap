@@ -68,7 +68,9 @@ const AccordionButton: BsPrefixRefForwardingComponent<
         bsPrefix,
         itemContext.eventKey !== accordianContext.activeEventKey && "collapsed"
       )}
-    />
+    >
+      {props.children}
+    </Dynamic>
   );
 };
 export default AccordionButton;

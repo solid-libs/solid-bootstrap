@@ -12,7 +12,11 @@ const PlaceholderButton: BsPrefixRefForwardingComponent<
   "button",
   PlaceholderButtonProps
 > = (props: PlaceholderButtonProps) => {
-  return <Button {...usePlaceholder(props)} disabled tabIndex={-1} />;
+  return (
+    <Button {...usePlaceholder(props)} disabled tabIndex={-1}>
+      {props.children}
+    </Button>
+  );
 };
 
 export default PlaceholderButton;

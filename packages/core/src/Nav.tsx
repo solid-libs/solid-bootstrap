@@ -165,7 +165,9 @@ const Nav = (p: NavProps) => {
           {...props}
           onKeyDown={handleKeyDown}
           ref={mergedRef}
-        />
+        >
+          {props.children}
+        </Dynamic>
       </NavContext.Provider>
     </SelectableContext.Provider>
   );

@@ -61,7 +61,9 @@ const ListGroup: BsPrefixRefForwardingComponent<"div", ListGroupProps> = (
         horizontalVariant && `${bsPrefix}-${horizontalVariant}`,
         local.numbered && `${bsPrefix}-numbered`
       )}
-    />
+    >
+      {props.children}
+    </BaseNav>
   );
 };
 

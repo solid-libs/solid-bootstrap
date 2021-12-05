@@ -71,11 +71,19 @@ const defaultProps: Partial<ModalProps> = {
 
 /* eslint-disable no-use-before-define, react/no-multi-comp */
 function DialogTransition(props: FadeProps) {
-  return <Fade {...props} timeout={undefined} />;
+  return (
+    <Fade {...props} timeout={undefined}>
+      {props.children}
+    </Fade>
+  );
 }
 
 function BackdropTransition(props: FadeProps) {
-  return <Fade {...props} timeout={undefined} />;
+  return (
+    <Fade {...props} timeout={undefined}>
+      {props.children}
+    </Fade>
+  );
 }
 
 /* eslint-enable no-use-before-define */
@@ -260,7 +268,9 @@ const Modal: BsPrefixRefForwardingComponent<"div", ModalProps> = (
         local.backdropClassName,
         !local.animation && "show"
       )}
-    />
+    >
+      {backdropProps.children}
+    </div>
   );
 
   const baseModalStyle = () => {

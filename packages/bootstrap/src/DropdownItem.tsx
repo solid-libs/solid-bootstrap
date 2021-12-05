@@ -61,7 +61,9 @@ const DropdownItem: BsPrefixRefForwardingComponent<
         meta.isActive && "active",
         local.disabled && "disabled"
       )}
-    />
+    >
+      {props.children}
+    </Dynamic>
   );
 };
 

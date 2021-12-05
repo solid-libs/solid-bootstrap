@@ -28,7 +28,9 @@ const FormCheckLabel = (p: FormCheckLabelProps) => {
       {...props}
       htmlFor={local.htmlFor || formContext.controlId}
       className={classNames(local.className, bsPrefix)}
-    />
+    >
+      {props.children}
+    </label>
   );
 };
 

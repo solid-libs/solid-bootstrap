@@ -34,7 +34,9 @@ const CardHeader: BsPrefixRefForwardingComponent<"div", CardHeaderProps> = (
         component={local.as}
         {...props}
         className={classNames(local.className, prefix)}
-      />
+      >
+        {props.children}
+      </Dynamic>
     </CardHeaderContext.Provider>
   );
 };

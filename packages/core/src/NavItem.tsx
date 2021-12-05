@@ -139,7 +139,11 @@ const NavItem: DynamicRefForwardingComponent<typeof Button, NavItemProps> = (
   // @ts-ignore
   props[dataAttr("active")] = meta.isActive;
 
-  return <Dynamic as={local.as} {...options} {...props} />;
+  return (
+    <Dynamic as={local.as} {...options} {...props}>
+      {options.children}
+    </Dynamic>
+  );
 };
 NavItem.displayName = "NavItem";
 

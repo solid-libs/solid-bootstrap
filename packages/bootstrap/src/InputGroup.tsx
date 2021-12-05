@@ -13,13 +13,17 @@ const InputGroupText = createWithBsPrefix("input-group-text", {
 
 const InputGroupCheckbox = (props: FormCheckInputProps) => (
   <InputGroupText>
-    <FormCheckInput type="checkbox" {...props} />
+    <FormCheckInput type="checkbox" {...props}>
+      {props.children}
+    </FormCheckInput>
   </InputGroupText>
 );
 
 const InputGroupRadio = (props: FormCheckInputProps) => (
   <InputGroupText>
-    <FormCheckInput type="radio" {...props} />
+    <FormCheckInput type="radio" {...props}>
+      {props.children}
+    </FormCheckInput>
   </InputGroupText>
 );
 
@@ -67,7 +71,9 @@ const InputGroup: BsPrefixRefForwardingComponent<"div", InputGroupProps> = (
           local.size && `${bsPrefix}-${local.size}`,
           local.hasValidation && "has-validation"
         )}
-      />
+      >
+        {props.children}
+      </Dynamic>
     </InputGroupContext.Provider>
   );
 };

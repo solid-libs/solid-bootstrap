@@ -7,7 +7,9 @@ const fadeStyles = {
 };
 
 const ToastFade = (props: FadeProps) => (
-  <Fade {...props} transitionClasses={fadeStyles} />
+  <Fade {...props} transitionClasses={fadeStyles}>
+    {props.children}
+  </Fade>
 );
 
 export default ToastFade;

@@ -38,7 +38,9 @@ const Pagination = (p: PaginationProps) => {
         decoratedBsPrefix,
         local.size && `${decoratedBsPrefix}-${local.size}`
       )}
-    />
+    >
+      {props.children}
+    </ul>
   );
 };
 

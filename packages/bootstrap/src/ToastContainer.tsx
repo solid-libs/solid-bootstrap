@@ -59,7 +59,9 @@ const ToastContainer: BsPrefixRefForwardingComponent<
           `position-absolute ${positionClasses[local.position]}`,
         local.className
       )}
-    />
+    >
+      {props.children}
+    </Dynamic>
   );
 };
 

@@ -28,7 +28,9 @@ const FormGroup: BsPrefixRefForwardingComponent<"div", FormGroupProps> = (
 
   return (
     <FormContext.Provider value={context}>
-      <Dynamic component={local.as} {...props} />
+      <Dynamic component={local.as} {...props}>
+        {props.children}
+      </Dynamic>
     </FormContext.Provider>
   );
 };

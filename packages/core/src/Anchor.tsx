@@ -32,9 +32,13 @@ const Anchor = (props: AnchorProps) => {
 
   return (isTrivialHref(props.href) && !props.role) ||
     props.role === "button" ? (
-    <a {...otherProps} {...buttonProps} onKeyDown={handleKeyDown} />
+    <a {...otherProps} {...buttonProps} onKeyDown={handleKeyDown}>
+      {otherProps.children}
+    </a>
   ) : (
-    <a {...otherProps} onKeyDown={local.onKeyDown} />
+    <a {...otherProps} onKeyDown={local.onKeyDown}>
+      {otherProps.children}
+    </a>
   );
 };
 

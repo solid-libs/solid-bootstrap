@@ -32,7 +32,9 @@ const AccordionBody: BsPrefixRefForwardingComponent<"div", AccordionBodyProps> =
           component={local.as}
           {...props}
           className={classNames(local.className, bsPrefix)}
-        />
+        >
+          {props.children}
+        </Dynamic>
       </AccordionCollapse>
     );
   };
