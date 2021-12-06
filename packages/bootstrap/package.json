@@ -12,6 +12,14 @@
   "type": "module",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "solid": "./index.jsx"
+    },
+    "./": {
+      "solid": "./"
+    }
+  },
   "sideEffects": false,
   "scripts": {
     "build": "tsc && rollup -c && node dist/prepublish.js",
