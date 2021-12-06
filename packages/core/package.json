@@ -1,6 +1,6 @@
 {
   "name": "solid-bootstrap-core",
-  "version": "0.1.7",
+  "version": "0.1.10",
   "description": "Unstyled/headless components for Solid-Bootstrap",
   "homepage": "https://github.com/solid-libs/solid-bootstrap/tree/master#readme",
   "repository": {
@@ -12,14 +12,6 @@
   "type": "module",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "exports": {
-    ".": {
-      "solid": "./index.jsx"
-    },
-    "./": {
-      "solid": "./"
-    }
-  },
   "sideEffects": false,
   "scripts": {
     "build": "tsc && rollup -c && node dist/prepublish.js",
@@ -29,7 +21,7 @@
   "dependencies": {
     "@popperjs/core": "^2.10.1",
     "dom-helpers": "^5.2.0",
-    "solid-react-transition": "^0.1.6"
+    "solid-react-transition": "^0.1.10"
   },
   "devDependencies": {
     "@babel/core": "^7.15.8",
