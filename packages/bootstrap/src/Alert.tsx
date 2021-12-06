@@ -77,7 +77,7 @@ const Alert = (uncontrolledProps: AlertProps) => {
   const alert = () => (
     <div
       role="alert"
-      {...(!Transition ? props : undefined)}
+      {...(!Transition ? props : {})}
       className={classNames(
         local.className,
         prefix,
