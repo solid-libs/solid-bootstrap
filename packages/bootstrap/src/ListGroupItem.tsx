@@ -1,5 +1,5 @@
 import { createMemo, JSX, mergeProps, splitProps } from "solid-js";
-import classNames from "classnames";
+import classNames from "./classnames";
 import {
   useNavItem,
   NavItemProps as BaseNavItemProps,

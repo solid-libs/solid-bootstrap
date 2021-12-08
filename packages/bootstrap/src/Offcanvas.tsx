@@ -1,5 +1,5 @@
 import { mergeProps, splitProps, useContext } from "solid-js";
-import classNames from "classnames";
+import classNames from "./classnames";
 import BaseModal, {
   ModalProps as BaseModalProps,
   RenderModalBackdropProps,

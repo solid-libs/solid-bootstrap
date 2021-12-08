@@ -3,7 +3,7 @@ import Collapse, { CollapseProps } from "./Collapse";
 import { useBootstrapPrefix } from "./ThemeProvider";
 import NavbarContext from "./NavbarContext";
 import { BsPrefixProps } from "./helpers";
-import classnames from "classnames";
+import classnames from "./classnames";
 
 export interface NavbarCollapseProps
   extends Omit<CollapseProps, "children">,

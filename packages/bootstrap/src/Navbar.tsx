@@ -1,5 +1,5 @@
 import { JSX, mergeProps, splitProps } from "solid-js";
-import classNames from "classnames";
+import classNames from "./classnames";
 import SelectableContext from "solid-bootstrap-core/SelectableContext";
 import { SelectCallback } from "solid-bootstrap-core/types";
 import { createControlledProp } from "solid-bootstrap-core/createControlledProp";

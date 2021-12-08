@@ -1,4 +1,4 @@
-import classNames from "classnames";
+import classNames from "./classnames";
 import { useBootstrapPrefix } from "./ThemeProvider";
 import { useCol, ColProps } from "./Col";
 import { Variant } from "./types";

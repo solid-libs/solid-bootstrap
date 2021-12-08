@@ -1,5 +1,5 @@
 import { JSX, mergeProps, splitProps } from "solid-js";
-import classNames from "classnames";
+import classNames from "./classnames";
 import { createWithBsPrefix } from "./createWithBsPrefix";
 import { useBootstrapPrefix } from "./ThemeProvider";
 import FormCheckInput, { FormCheckInputProps } from "./FormCheckInput";

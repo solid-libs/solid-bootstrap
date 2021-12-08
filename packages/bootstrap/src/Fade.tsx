@@ -10,7 +10,7 @@ import {
 import TransitionWrapper from "./TransitionWrapper";
 import transitionEndListener from "./transitionEndListener";
 import triggerBrowserReflow from "./triggerBrowserReflow";
-import classNames from "classnames";
+import classNames from "./classnames";
 import { resolveClasses } from "solid-bootstrap-core/utils";
 
 export interface FadeProps extends TransitionCallbacks {

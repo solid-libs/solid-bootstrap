@@ -1,7 +1,7 @@
 // ported from https://github.com/react-bootstrap/react-bootstrap/blob/f11723114d532cfce840417834a73733a8436414/src/CloseButton.tsx
 
 import { JSX, mergeProps, splitProps } from "solid-js";
-import classNames from "classnames";
+import classNames from "./classnames";
 
 export type CloseButtonVariant = "white";
 

@@ -1,5 +1,5 @@
 import { children, JSX, mergeProps, splitProps, useContext } from "solid-js";
-import classNames from "classnames";
+import classNames from "./classnames";
 import {
   TransitionCallbacks,
   TransitionStatus,

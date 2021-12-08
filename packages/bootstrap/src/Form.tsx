@@ -1,5 +1,5 @@
 import { JSX, mergeProps, splitProps } from "solid-js";
-import classNames from "classnames";
+import classNames from "./classnames";
 import FormCheck from "./FormCheck";
 import FormControl from "./FormControl";
 import FormFloating from "./FormFloating";

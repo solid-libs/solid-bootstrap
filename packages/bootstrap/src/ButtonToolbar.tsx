@@ -1,5 +1,5 @@
 import { JSX, mergeProps, splitProps } from "solid-js";
-import classNames from "classnames";
+import classNames from "./classnames";
 import { useBootstrapPrefix } from "./ThemeProvider";
 import { BsPrefixProps } from "./helpers";
 

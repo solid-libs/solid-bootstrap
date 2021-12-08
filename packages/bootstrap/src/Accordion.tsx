@@ -1,6 +1,6 @@
 // ported from https://github.com/react-bootstrap/react-bootstrap/blob/f11723114d532cfce840417834a73733a8436414/src/Accordion.tsx
 
-import classNames from "classnames";
+import classNames from "./classnames";
 import { JSX, mergeProps, splitProps } from "solid-js";
 import { SelectCallback } from "solid-bootstrap-core/types";
 import { createControlledProp } from "solid-bootstrap-core/createControlledProp";
@@ -61,6 +61,7 @@ const Accordion: BsPrefixRefForwardingComponent<"div", AccordionProps> = (
       <Dynamic
         component={local.as}
         {...props}
+        classList={{}}
         className={classNames(
           local.className,
           prefix,

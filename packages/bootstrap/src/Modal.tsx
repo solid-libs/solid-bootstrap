@@ -5,7 +5,7 @@ import {
   onCleanup,
   splitProps,
 } from "solid-js";
-import classNames from "classnames";
+import classNames from "./classnames";
 import addEventListener from "dom-helpers/addEventListener";
 import canUseDOM from "dom-helpers/canUseDOM";
 import ownerDocument from "dom-helpers/ownerDocument";

@@ -14,7 +14,7 @@ import {
   splitProps,
 } from "solid-js";
 import Anchor from "solid-bootstrap-core/Anchor";
-import classNames from "classnames";
+import classNames from "./classnames";
 import { createControlledProp } from "solid-bootstrap-core/createControlledProp";
 import CarouselCaption from "./CarouselCaption";
 import CarouselItem, { CarouselItemReturnType } from "./CarouselItem";

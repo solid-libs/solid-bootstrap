@@ -1,6 +1,6 @@
 // ported from https://github.com/react-bootstrap/react-bootstrap/blob/f11723114d532cfce840417834a73733a8436414/src/createWithBsPrefix.tsx
 
-import classNames from "classnames";
+import classNames from "./classnames";
 import { useBootstrapPrefix } from "./ThemeProvider";
 import { BsPrefixRefForwardingComponent } from "./helpers";
 import {

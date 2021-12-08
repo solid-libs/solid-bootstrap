@@ -1,5 +1,5 @@
 import { JSX, mergeProps, Show, splitProps, useContext } from "solid-js";
-import classNames from "classnames";
+import classNames from "./classnames";
 import {
   useDropdownMenu,
   UseDropdownMenuOptions,

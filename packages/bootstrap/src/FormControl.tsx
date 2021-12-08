@@ -1,5 +1,5 @@
 import { JSX, mergeProps, splitProps, useContext } from "solid-js";
-import classNames from "classnames";
+import classNames from "./classnames";
 import Feedback from "./Feedback";
 import FormContext from "./FormContext";
 import { useBootstrapPrefix } from "./ThemeProvider";

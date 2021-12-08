@@ -14,7 +14,7 @@ import {
 import triggerBrowserReflow from "./triggerBrowserReflow";
 import transitionEndListener from "./transitionEndListener";
 import TransitionWrapper from "./TransitionWrapper";
-import classNames from "classnames";
+import classNames from "./classnames";
 import { resolveClasses } from "solid-bootstrap-core/utils";
 
 type Dimension = "height" | "width";

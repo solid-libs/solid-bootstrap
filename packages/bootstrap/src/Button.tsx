@@ -1,5 +1,5 @@
 import { mergeProps, splitProps } from "solid-js";
-import classNames from "classnames";
+import classNames from "./classnames";
 import {
   useButtonProps,
   ButtonProps as BaseButtonProps,

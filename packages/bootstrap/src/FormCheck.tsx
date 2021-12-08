@@ -6,7 +6,7 @@ import {
   splitProps,
   useContext,
 } from "solid-js";
-import classNames from "classnames";
+import classNames from "./classnames";
 import Feedback, { FeedbackType } from "./Feedback";
 import FormCheckInput from "./FormCheckInput";
 import FormCheckLabel from "./FormCheckLabel";

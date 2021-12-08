@@ -1,5 +1,5 @@
 import { JSX, mergeProps, splitProps } from "solid-js";
-import classNames from "classnames";
+import classNames from "./classnames";
 import NoopTransition from "solid-bootstrap-core/NoopTransition";
 import SelectableContext from "solid-bootstrap-core/SelectableContext";
 import TabContext from "solid-bootstrap-core/TabContext";

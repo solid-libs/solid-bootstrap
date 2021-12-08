@@ -2,7 +2,7 @@
 
 import { JSX, mergeProps, splitProps } from "solid-js";
 import { Dynamic } from "solid-js/web";
-import classNames from "classnames";
+import classNames from "./classnames";
 import { useBootstrapPrefix } from "./ThemeProvider";
 import AccordionItemContext, {
   AccordionItemContextValue,

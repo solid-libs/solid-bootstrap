@@ -6,7 +6,7 @@ import {
   onCleanup,
   splitProps,
 } from "solid-js";
-import classNames from "classnames";
+import classNames from "./classnames";
 
 import ToastFade from "./ToastFade";
 import ToastHeader from "./ToastHeader";
