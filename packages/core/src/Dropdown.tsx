@@ -26,8 +26,8 @@ import {
   useContext,
 } from "solid-js";
 import { createControlledProp } from "./createControlledProp";
-import { listen } from "dom-helpers";
 import { callEventHandler } from "./utils";
+import { isServer } from "solid-js/web";
 
 export type {
   DropdownMenuProps,
@@ -118,7 +118,7 @@ export interface DropdownProps {
    *   props: {
    *     onKeyDown: (SyntheticEvent) => void,
    *   },
-   * }) => React.Element}
+   * }) => Element}
    */
   children: JSX.Element;
 }
@@ -313,8 +313,10 @@ function Dropdown(p: DropdownProps) {
     }
   };
 
-  document.addEventListener("keydown", keydownHandler);
-  onCleanup(() => document.removeEventListener("keydown", keydownHandler));
+  if (!isServer) {
+    document.addEventListener("keydown", keydownHandler);
+    onCleanup(() => document.removeEventListener("keydown", keydownHandler));
+  }
 
   return (
     <SelectableContext.Provider value={handleSelect}>

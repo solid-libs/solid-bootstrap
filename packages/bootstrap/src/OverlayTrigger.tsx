@@ -1,7 +1,8 @@
 import { children, createSignal, JSX, mergeProps, splitProps } from "solid-js";
+import { isServer } from "solid-js/web";
 import contains from "dom-helpers/contains";
 import { createControlledProp } from "solid-bootstrap-core/createControlledProp";
-import Overlay, { OverlayChildren, OverlayProps } from "./Overlay";
+import Overlay, { OverlayProps } from "./Overlay";
 
 export type OverlayTriggerType = "hover" | "click" | "focus";
 
@@ -176,7 +177,9 @@ function OverlayTrigger(p: OverlayTriggerProps) {
     let el = resolvedChildren() as Element;
     while (typeof el === "function") el = (el as Function)();
     mergedRef(el);
-    addListeners(el);
+    if (!isServer) {
+      addListeners(el);
+    }
     return el;
   };
 

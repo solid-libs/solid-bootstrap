@@ -3,14 +3,17 @@ import Card from "solid-bootstrap/Card";
 import ProgressBar from "solid-bootstrap/ProgressBar";
 import GithubSource from "./GithubSource";
 import ProgressBarApi from "./ProgressBarApi";
+import { isServer } from "solid-js/web";
 
 export const ProgressBarDocs: Component = () => {
   const [value, setValue] = createSignal(5);
 
-  const interval = window.setInterval(() => {
-    setValue(value() < 100 ? value() + 5 : 0);
-  }, 1000);
-  onCleanup(() => window.clearInterval(interval));
+  if (!isServer) {
+    const interval = window.setInterval(() => {
+      setValue(value() < 100 ? value() + 5 : 0);
+    }, 1000);
+    onCleanup(() => window.clearInterval(interval));
+  }
 
   return (
     <div class="row gy-4">
