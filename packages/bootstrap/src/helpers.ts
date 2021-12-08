@@ -35,17 +35,6 @@ export interface BsPrefixRefForwardingComponent<
   ): JSX.Element | null;
 }
 
-// export class BsPrefixComponent<
-//   As extends ElementType,
-//   P = unknown
-// > extends React.Component<ReplaceProps<As, BsPrefixProps<As> & P>> {}
-
-// Need to use this instead of typeof Component to get proper type checking.
-// export type BsPrefixComponentClass<
-//   As extends ElementType,
-//   P = unknown
-// > = React.ComponentClass<ReplaceProps<As, BsPrefixProps<As> & P>>;
-
 export type TransitionType = boolean | TransitionComponent;
 
 export function getOverlayDirection(placement: string, isRTL?: boolean) {

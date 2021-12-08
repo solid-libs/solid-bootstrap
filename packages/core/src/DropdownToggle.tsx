@@ -82,7 +82,7 @@ export interface DropdownToggleProps {
    *     show: boolean,
    *     toggle: (show: boolean) => void,
    *   }
-   * }) => React.Element}
+   * }) => Element}
    */
   children: (
     props: UseDropdownToggleProps,

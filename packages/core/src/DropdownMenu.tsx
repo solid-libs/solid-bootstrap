@@ -248,7 +248,7 @@ export interface DropdownMenuProps extends UseDropdownMenuOptions {
    *     ref: (?HTMLElement) => void,
    *     style: { [string]: string | number },
    *   },
-   * }) => React.Element}
+   * }) => Element}
    */
   children: (
     props: UserDropdownMenuProps,
