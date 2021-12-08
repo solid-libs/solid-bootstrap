@@ -30,7 +30,7 @@ const Home = () => (
             Components
           </Link>
         </div>
-        <div class="text-muted mt-3">Current version: 0.1.10</div>
+        <div class="text-muted mt-3">Current version: 0.1.11</div>
       </div>
     </div>
     <div class="container">
