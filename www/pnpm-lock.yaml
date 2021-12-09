@@ -2,12 +2,11 @@ lockfileVersion: 5.3
 
 specifiers:
   '@types/lodash': 4.14.177
-  classnames: 2.3.1
   fs-extra: 10.0.0
   lodash: 4.17.21
   shakespeare-data: ^3.0.0
   solid-app-router: ^0.1.13
-  solid-bootstrap: 0.1.11
+  solid-bootstrap: 0.1.12
   solid-js: ^1.2.5
   typescript: ^4.5.2
   vite: ^2.5.7
@@ -15,10 +14,9 @@ specifiers:
 
 dependencies:
   '@types/lodash': 4.14.177
-  classnames: 2.3.1
   lodash: 4.17.21
   solid-app-router: 0.1.13_solid-js@1.2.5
-  solid-bootstrap: 0.1.11_solid-js@1.2.5
+  solid-bootstrap: 0.1.12_solid-js@1.2.5
   solid-js: 1.2.5
 
 devDependencies:
@@ -384,10 +382,6 @@ packages:
       escape-string-regexp: 1.0.5
       supports-color: 5.5.0
     dev: true
-
-  /classnames/2.3.1:
-    resolution: {integrity: sha512-OlQdbZ7gLfGarSqxesMesDa5uz7KFbID8Kpq/SxIoNGDqY8lSYs0D+hhtBXhcdB3rcbXArFr7vlHheLk1voeNA==}
-    dev: false
 
   /color-convert/1.9.3:
     resolution: {integrity: sha512-QfAUtd+vFdAtFQcC8CCyYt1fYWxSqAiK2cSD6zDB8N3cpsEBAvRxp9zOGg6G/SHHJYAT88/az/IuDGALsNVbGg==}
@@ -786,12 +780,11 @@ packages:
       solid-react-transition: 0.1.10_solid-js@1.2.5
     dev: false
 
-  /solid-bootstrap/0.1.11_solid-js@1.2.5:
-    resolution: {integrity: sha512-ZpRtc+wEIzmpOfHRWMBb68fvlQ3bKoxhITt9IfNiJkGgnkhNLXig77AoDyFCEpausBXA4y7IrLY8N8CnQWMu1w==}
+  /solid-bootstrap/0.1.12_solid-js@1.2.5:
+    resolution: {integrity: sha512-DfkgFEOQUyE9bgAtVxwZ0RW8yzl3CKpk1vqOvfFE6LE3XNRxoaUim13xL6MdHjtgp3eUP42ie08jA8ECKqkyCQ==}
     peerDependencies:
       solid-js: ^1.2.5
     dependencies:
-      classnames: 2.3.1
       dom-helpers: 5.2.1
       solid-bootstrap-core: 0.1.10_solid-js@1.2.5
       solid-js: 1.2.5

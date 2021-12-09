@@ -1,3 +1,7 @@
+## 2021-12-09 - solid-bootstrap (0.1.12)
+
+Remove external dependancy on `classnames` ([#2](https://github.com/solid-libs/solid-bootstrap/issues/2))
+
 ## 2021-12-02 - solid-bootstrap (0.1.3)
 
 ### Bug Fixes

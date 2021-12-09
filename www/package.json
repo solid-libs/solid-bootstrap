@@ -20,10 +20,9 @@
   },
   "dependencies": {
     "@types/lodash": "4.14.177",
-    "classnames": "2.3.1",
     "lodash": "4.17.21",
     "solid-js": "^1.2.5",
     "solid-app-router": "^0.1.13",
-    "solid-bootstrap": "0.1.11"
+    "solid-bootstrap": "0.1.12"
   }
 }

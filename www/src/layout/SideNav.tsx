@@ -1,5 +1,5 @@
 import startCase from "lodash/startCase";
-import classNames from "classnames";
+import classNames from "solid-bootstrap/classnames";
 import {
   Component,
   ComponentProps,
