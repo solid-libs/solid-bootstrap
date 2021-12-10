@@ -1,11 +1,11 @@
 import { JSX, mergeProps, splitProps } from "solid-js";
 import classNames from "./classnames";
-import Anchor from "solid-bootstrap-core/Anchor";
 import {
+  Anchor,
   useNavItem,
+  makeEventKey,
   NavItemProps as BaseNavItemProps,
-} from "solid-bootstrap-core/NavItem";
-import { makeEventKey } from "solid-bootstrap-core/SelectableContext";
+} from "solid-bootstrap-core";
 import { useBootstrapPrefix } from "./ThemeProvider";
 import { BsPrefixProps, BsPrefixRefForwardingComponent } from "./helpers";
 import { Dynamic } from "solid-js/web";

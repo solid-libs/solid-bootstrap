@@ -1,4 +1,4 @@
-import classnames from "solid-bootstrap/classnames";
+import classnames from "classnames";
 import { Link } from "solid-app-router";
 import styles from "./Home.module.css";
 
@@ -30,7 +30,7 @@ const Home = () => (
             Components
           </Link>
         </div>
-        <div class="text-muted mt-3">Current version: 0.1.12</div>
+        <div class="text-muted mt-3">Current version: 0.2.0</div>
       </div>
     </div>
     <div class="container">

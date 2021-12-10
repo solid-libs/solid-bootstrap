@@ -1,11 +1,13 @@
 import { Component } from "solid-js";
-import Button from "solid-bootstrap/Button";
-import ButtonGroup from "solid-bootstrap/ButtonGroup";
-import ButtonToolbar from "solid-bootstrap/ButtonToolbar";
-import InputGroup from "solid-bootstrap/InputGroup";
-import FormControl from "solid-bootstrap/FormControl";
-import Dropdown from "solid-bootstrap/Dropdown";
-import DropdownButton from "solid-bootstrap/DropdownButton";
+import {
+  Button,
+  ButtonGroup,
+  ButtonToolbar,
+  InputGroup,
+  FormControl,
+  Dropdown,
+  DropdownButton,
+} from "solid-bootstrap";
 import GithubSource from "./GithubSource";
 import ButtonGroupApi from "./ButtonGroupApi";
 

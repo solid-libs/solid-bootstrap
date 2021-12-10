@@ -1,17 +1,16 @@
 import { JSX, mergeProps, Show, splitProps, useContext } from "solid-js";
 import classNames from "./classnames";
 import {
+  SelectCallback,
   useDropdownMenu,
   UseDropdownMenuOptions,
-} from "solid-bootstrap-core/DropdownMenu";
-import { SelectCallback } from "solid-bootstrap-core/types";
+} from "solid-bootstrap-core";
 import DropdownContext, { DropDirection } from "./DropdownContext";
 import InputGroupContext from "./InputGroupContext";
 import NavbarContext from "./NavbarContext";
 import { useBootstrapPrefix } from "./ThemeProvider";
 import { BsPrefixProps, BsPrefixRefForwardingComponent } from "./helpers";
 import { AlignType, AlignDirection, Placement } from "./types";
-import { OffsetValue } from "solid-bootstrap-core/usePopper";
 import { Dynamic } from "solid-js/web";
 
 export type DropdownMenuVariant = "dark" | string;
@@ -115,7 +114,7 @@ const DropdownMenu: BsPrefixRefForwardingComponent<"div", DropdownMenuProps> = (
       return !isNavbar && alignClasses.length === 0;
     },
     get offset() {
-      return [0, 2] as OffsetValue;
+      return [0, 2] as UseDropdownMenuOptions["offset"];
     },
     get popperConfig() {
       return local.popperConfig;

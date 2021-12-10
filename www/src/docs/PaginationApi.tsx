@@ -2,7 +2,9 @@ const PaginationApi = () => (
   <div className="mt-5">
     <h2>API</h2>
     <h3>Pagination</h3>
-    <code>import Pagination from 'solid-bootstrap/Pagination'</code>
+    <code>
+      import {"{"} Pagination {"}"} from 'solid-bootstrap'
+    </code>
     <div class="overflow-auto mt-4 mb-5 border border-light">
       <table class="bg-white mb-0 table table-striped table-bordered">
         <thead>
@@ -55,7 +57,9 @@ const PaginationApi = () => (
       </table>
     </div>
     <h3>PageItem</h3>
-    <code>import PageItem from 'solid-bootstrap/PageItem'</code>
+    <code>
+      import {"{"} PageItem {"}"} from 'solid-bootstrap'
+    </code>
     <div class="overflow-auto mt-4 mb-5 border border-light">
       <table class="bg-white mb-0 table table-striped table-bordered">
         <thead>

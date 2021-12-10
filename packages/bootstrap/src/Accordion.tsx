@@ -2,8 +2,7 @@
 
 import classNames from "./classnames";
 import { JSX, mergeProps, splitProps } from "solid-js";
-import { SelectCallback } from "solid-bootstrap-core/types";
-import { createControlledProp } from "solid-bootstrap-core/createControlledProp";
+import { createControlledProp, SelectCallback } from "solid-bootstrap-core";
 import { useBootstrapPrefix } from "./ThemeProvider";
 import AccordionBody from "./AccordionBody";
 import AccordionButton from "./AccordionButton";

@@ -1,6 +1,6 @@
 {
   "name": "solid-react-transition",
-  "version": "0.1.10",
+  "version": "0.2.0",
   "description": "SolidJS port of react-transition-group",
   "homepage": "https://github.com/solid-libs/solid-bootstrap/tree/master#readme",
   "repository": {
@@ -10,11 +10,18 @@
   "author": "Brendan O'Reilly",
   "license": "MIT",
   "type": "module",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "dist/esm/index.js",
+  "types": "dist/esm/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./esm/index.d.ts",
+      "solid": "./esm/index.jsx",
+      "default": "./esm/index.js"
+    }
+  },
   "sideEffects": false,
   "scripts": {
-    "build": "tsc && rollup -c && node dist/prepublish.js",
+    "build": "tsc && rollup -c && node dist/esm/prepublish.js",
     "buildpackage": "cd dist && npm pack",
     "prepublishOnly": "npm run build"
   },

@@ -1,6 +1,6 @@
 {
   "name": "solid-bootstrap",
-  "version": "0.1.12",
+  "version": "0.2.0",
   "description": "Bootstrap 5 components built with SolidJS",
   "homepage": "https://solid-libs.github.io/solid-bootstrap",
   "repository": {
@@ -10,18 +10,25 @@
   "author": "Brendan O'Reilly",
   "license": "MIT",
   "type": "module",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "dist/esm/index.js",
+  "types": "dist/esm/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./esm/index.d.ts",
+      "solid": "./esm/index.jsx",
+      "default": "./esm/index.js"
+    }
+  },
   "sideEffects": false,
   "scripts": {
-    "build": "tsc && rollup -c && node dist/prepublish.js",
+    "build": "tsc && rollup -c && node dist/esm/prepublish.js",
     "prepublishOnly": "npm run build",
     "buildpackage": "cd dist && npm pack"
   },
   "dependencies": {
     "dom-helpers": "^5.2.0",
-    "solid-bootstrap-core": "^0.1.10",
-    "solid-react-transition": "0.1.10"
+    "solid-bootstrap-core": "^0.2.0",
+    "solid-react-transition": "^0.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.15.8",

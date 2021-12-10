@@ -1,6 +1,4 @@
-import Container from "solid-bootstrap/Container";
-import Row from "solid-bootstrap/Row";
-import Col from "solid-bootstrap/Col";
+import { Container, Col, Row } from "solid-bootstrap";
 import SideNav from "./SideNav";
 import styles from "./Layout.module.css";
 import { Component } from "solid-js";

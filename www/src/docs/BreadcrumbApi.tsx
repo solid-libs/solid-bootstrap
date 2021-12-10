@@ -2,7 +2,9 @@ const BreadcrumbApi = () => (
   <div className="mt-5">
     <h2>API</h2>
     <h3>Breadcrumb</h3>
-    <code>import Breadcrumb from 'solid-bootstrap/Breadcrumb'</code>
+    <code>
+      import {"{"} Breadcrumb {"}"} from 'solid-bootstrap'
+    </code>
     <div class="overflow-auto mt-4 mb-5 border border-light">
       <table class="bg-white mb-0 table table-striped table-bordered">
         <thead>

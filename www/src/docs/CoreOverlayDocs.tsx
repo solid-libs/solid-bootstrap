@@ -1,15 +1,14 @@
 import { Component, createSignal } from "solid-js";
-import Overlay from "solid-bootstrap/core/Overlay";
-import { Placement } from "solid-bootstrap/core/usePopper";
+import { Overlay } from "solid-bootstrap-core";
 import GithubSource from "./GithubSource";
 
-const PLACEMENTS: Placement[] = ["top", "right", "bottom", "left"];
+const PLACEMENTS = ["top", "right", "bottom", "left"];
 
 export const CoreOverlayDocs: Component = () => {
   const [target, setTarget] = createSignal<HTMLElement>();
   const [container, setContainer] = createSignal<HTMLElement | null>(null);
   const [show, setShow] = createSignal(false);
-  const [placement, setPlacement] = createSignal<Placement>();
+  const [placement, setPlacement] = createSignal<any>();
 
   function showOverlayClick() {
     if (!show()) {

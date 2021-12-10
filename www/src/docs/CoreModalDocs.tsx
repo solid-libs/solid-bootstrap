@@ -1,5 +1,5 @@
 import { Component } from "solid-js";
-import Modal, { RenderModalBackdropProps } from "solid-bootstrap/core/Modal";
+import { Modal } from "solid-bootstrap-core";
 import { createSignal } from "solid-js";
 import GithubSource from "./GithubSource";
 
@@ -46,7 +46,7 @@ const ModalExample = () => {
         class="modal d-block pe-none"
         show={show()}
         onHide={() => setShow(false)}
-        renderBackdrop={(props: RenderModalBackdropProps) => (
+        renderBackdrop={(props: any) => (
           <div class="modal-backdrop show" {...props} />
         )}
         aria-labelledby="modal-label"

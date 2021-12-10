@@ -1,15 +1,17 @@
 import { Component } from "solid-js";
-import Container from "solid-bootstrap/Container";
-import Dropdown from "solid-bootstrap/Dropdown";
-import DropdownButton from "solid-bootstrap/DropdownButton";
-import Button from "solid-bootstrap/Button";
-import ButtonGroup from "solid-bootstrap/ButtonGroup";
-import SplitButton from "solid-bootstrap/SplitButton";
-import Nav from "solid-bootstrap/Nav";
-import Navbar from "solid-bootstrap/Navbar";
-import NavDropdown from "solid-bootstrap/NavDropdown";
-import { DropDirection } from "solid-bootstrap/DropdownContext";
-import Alert from "solid-bootstrap/Alert";
+import {
+  Container,
+  Dropdown,
+  DropdownButton,
+  Button,
+  ButtonGroup,
+  SplitButton,
+  Nav,
+  Navbar,
+  NavDropdown,
+  Alert,
+  DropdownButtonProps,
+} from "solid-bootstrap";
 import GithubSource from "./GithubSource";
 import DropdownApi from "./DropdownApi";
 import { Row } from "solid-bootstrap";
@@ -219,7 +221,7 @@ export const DropdownDocs: Component = () => {
               as={ButtonGroup}
               className="me-2"
               id={`dropdown-button-drop-${direction}`}
-              drop={direction as DropDirection}
+              drop={direction as DropdownButtonProps["drop"]}
               variant="secondary"
               title={` Drop ${direction} `}
             >
@@ -237,7 +239,7 @@ export const DropdownDocs: Component = () => {
             <SplitButton
               id={`dropdown-button-drop-${direction}`}
               className="me-2"
-              drop={direction as DropDirection}
+              drop={direction as DropdownButtonProps["drop"]}
               variant="secondary"
               title={`Drop ${direction}`}
             >

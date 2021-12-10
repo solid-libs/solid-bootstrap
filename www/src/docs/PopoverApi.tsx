@@ -2,7 +2,9 @@ const PopoverApi = () => (
   <div className="mt-5">
     <h2>API</h2>
     <h3>Popover</h3>
-    <code>import Popover from 'solid-bootstrap/Popover'</code>
+    <code>
+      import {"{"} Popover {"}"} from 'solid-bootstrap'
+    </code>
     <div class="overflow-auto mt-4 mb-5 border border-light">
       <table class="bg-white mb-0 table table-striped table-bordered">
         <thead>
@@ -159,7 +161,9 @@ const PopoverApi = () => (
       </table>
     </div>
     <h3>PopoverBody</h3>
-    <code>import PopoverBody from 'solid-bootstrap/PopoverBody'</code>
+    <code>
+      import {"{"} PopoverBody {"}"} from 'solid-bootstrap'
+    </code>
     <div class="overflow-auto mt-4 mb-5 border border-light">
       <table class="bg-white mb-0 table table-striped table-bordered">
         <thead>
@@ -210,7 +214,9 @@ const PopoverApi = () => (
       </table>
     </div>
     <h3>PopoverHeader</h3>
-    <code>import PopoverHeader from 'solid-bootstrap/PopoverHeader'</code>
+    <code>
+      import {"{"} PopoverHeader {"}"} from 'solid-bootstrap'
+    </code>
     <div class="overflow-auto mt-4 mb-5 border border-light">
       <table class="bg-white mb-0 table table-striped table-bordered">
         <thead>
@@ -261,7 +267,9 @@ const PopoverApi = () => (
       </table>
     </div>
     <h3>Overlay</h3>
-    <code>import Overlay from 'solid-bootstrap/Overlay'</code>
+    <code>
+      import {"{"} Overlay {"}"} from 'solid-bootstrap'
+    </code>
     <div class="overflow-auto mt-4 mb-5 border border-light">
       <table class="bg-white mb-0 table table-striped table-bordered">
         <thead>
@@ -531,7 +539,9 @@ const PopoverApi = () => (
       </table>
     </div>
     <h3>OverlayTrigger</h3>
-    <code>import OverlayTrigger from 'solid-bootstrap/OverlayTrigger'</code>
+    <code>
+      import {"{"} OverlayTrigger {"}"} from 'solid-bootstrap'
+    </code>
     <div class="overflow-auto mt-4 mb-5 border border-light">
       <table class="bg-white mb-0 table table-striped table-bordered">
         <thead>

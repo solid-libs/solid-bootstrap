@@ -2,10 +2,11 @@ import addClass from "dom-helpers/addClass";
 import css from "dom-helpers/css";
 import qsa from "dom-helpers/querySelectorAll";
 import removeClass from "dom-helpers/removeClass";
-import ModalManager, {
-  ContainerState,
+import {
+  ModalManager,
+  ModalContainerState,
   ModalManagerOptions,
-} from "solid-bootstrap-core/ModalManager";
+} from "solid-bootstrap-core";
 
 const Selector = {
   FIXED_CONTENT: ".fixed-top, .fixed-bottom, .is-fixed, .sticky-top",
@@ -41,7 +42,7 @@ export class BootstrapModalManager extends ModalManager {
     }
   }
 
-  setContainerStyle(containerState: ContainerState) {
+  setContainerStyle(containerState: ModalContainerState) {
     super.setContainerStyle(containerState);
 
     const container = this.getElement();
@@ -63,7 +64,7 @@ export class BootstrapModalManager extends ModalManager {
     );
   }
 
-  removeContainerStyle(containerState: ContainerState) {
+  removeContainerStyle(containerState: ModalContainerState) {
     super.removeContainerStyle(containerState);
 
     const container = this.getElement();

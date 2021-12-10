@@ -33,7 +33,8 @@ export type Color =
   | "white"
   | "muted";
 
-export type Placement = import("solid-bootstrap-core/usePopper").Placement;
+export type Placement =
+  import("solid-bootstrap-core").DropdownProps["placement"];
 
 export type AlignDirection = "start" | "end";
 

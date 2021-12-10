@@ -1,7 +1,5 @@
 import { Component, For } from "solid-js";
-import Button from "solid-bootstrap/Button";
-import Card from "solid-bootstrap/Card";
-import Placeholder from "solid-bootstrap/Placeholder";
+import { Button, Card, Placeholder } from "solid-bootstrap";
 import GithubSource from "./GithubSource";
 import { useHolderJSRefresh } from "./utils";
 import PlaceholderApi from "./PlaceholderApi";

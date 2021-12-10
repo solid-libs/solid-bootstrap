@@ -2,7 +2,9 @@ const DropdownApi = () => (
   <div className="mt-5">
     <h2>API</h2>
     <h3>DropdownButton</h3>
-    <code>import DropdownButton from 'solid-bootstrap/DropdownButton'</code>
+    <code>
+      import {"{"} DropdownButton {"}"} from 'solid-bootstrap'
+    </code>
     <p>
       A convenience component for simple or general use dropdowns. Renders a
       Button toggle and all children are passed directly to the default
@@ -217,7 +219,9 @@ const DropdownApi = () => (
     </div>
 
     <h3>SplitButton</h3>
-    <code>import SplitButton from 'solid-bootstrap/SplitButton'</code>
+    <code>
+      import {"{"} SplitButton {"}"} from 'solid-bootstrap'
+    </code>
     <p>
       A convenience component for simple or general use split button dropdowns.
       Renders a ButtonGroup containing a Button and a Button toggle for the
@@ -467,7 +471,9 @@ const DropdownApi = () => (
     </div>
 
     <h3>Dropdown</h3>
-    <code>import Dropdown from 'solid-bootstrap/Dropdown'</code>
+    <code>
+      import {"{"} Dropdown {"}"} from 'solid-bootstrap'
+    </code>
     <div class="overflow-auto mt-4 mb-5 border border-light">
       <table class="bg-white mb-0 table table-striped table-bordered">
         <thead>

@@ -1,7 +1,5 @@
 import { Component, createSignal } from "solid-js";
-import Button from "solid-bootstrap/Button";
-import Card from "solid-bootstrap/Card";
-import Offcanvas from "solid-bootstrap/Offcanvas";
+import { Button, Card, Offcanvas } from "solid-bootstrap";
 import GithubSource from "./GithubSource";
 import OffcanvasApi from "./OffcanvasApi";
 

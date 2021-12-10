@@ -2,7 +2,9 @@ const ToastApi = () => (
   <div className="mt-5">
     <h2>API</h2>
     <h3>Toast</h3>
-    <code>import Toast from 'solid-bootstrap/Toast'</code>
+    <code>
+      import {"{"} Toast {"}"} from 'solid-bootstrap'
+    </code>
     <div class="overflow-auto mt-4 mb-5 border border-light">
       <table class="bg-white mb-0 table table-striped table-bordered">
         <thead>
@@ -155,7 +157,9 @@ const ToastApi = () => (
     </div>
 
     <h3>ToastHeader</h3>
-    <code>import ToastHeader from 'solid-bootstrap/ToastHeader'</code>
+    <code>
+      import {"{"} ToastHeader {"}"} from 'solid-bootstrap'
+    </code>
     <div class="overflow-auto mt-4 mb-5 border border-light">
       <table class="bg-white mb-0 table table-striped table-bordered">
         <thead>
@@ -238,7 +242,9 @@ const ToastApi = () => (
     </div>
 
     <h3>ToastBody</h3>
-    <code>import ToastBody from 'solid-bootstrap/ToastBody'</code>
+    <code>
+      import {"{"} ToastBody {"}"} from 'solid-bootstrap'
+    </code>
     <div class="overflow-auto mt-4 mb-5 border border-light">
       <table class="bg-white mb-0 table table-striped table-bordered">
         <thead>
@@ -290,7 +296,9 @@ const ToastApi = () => (
     </div>
 
     <h3>ToastContainer</h3>
-    <code>import ToastContainer from 'solid-bootstrap/ToastContainer'</code>
+    <code>
+      import {"{"} ToastContainer {"}"} from 'solid-bootstrap'
+    </code>
     <div class="overflow-auto mt-4 mb-5 border border-light">
       <table class="bg-white mb-0 table table-striped table-bordered">
         <thead>

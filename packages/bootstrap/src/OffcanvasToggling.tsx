@@ -1,4 +1,4 @@
-import { children, JSX, mergeProps, splitProps, useContext } from "solid-js";
+import { children, JSX, mergeProps, splitProps } from "solid-js";
 import classNames from "./classnames";
 import {
   TransitionCallbacks,
@@ -11,7 +11,7 @@ import transitionEndListener from "./transitionEndListener";
 import { BsPrefixOnlyProps } from "./helpers";
 import TransitionWrapper from "./TransitionWrapper";
 import { useBootstrapPrefix } from "./ThemeProvider";
-import { resolveClasses } from "solid-bootstrap-core/utils";
+import { resolveClasses } from "solid-bootstrap-core";
 
 export interface OffcanvasTogglingProps
   extends TransitionCallbacks,

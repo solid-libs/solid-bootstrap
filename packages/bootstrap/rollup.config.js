@@ -5,12 +5,11 @@ export default {
   input: "src/index.tsx",
   output: [
     {
-      file: "dist/index.js",
+      file: "dist/esm/index.js",
       format: "es",
     },
   ],
   external: [
-    "classnames",
     "dom-helpers",
     "solid-bootstrap-core",
     "solid-js",

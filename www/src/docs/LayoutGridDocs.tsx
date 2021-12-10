@@ -1,8 +1,5 @@
 import { Component } from "solid-js";
-import Card from "solid-bootstrap/Card";
-import Container from "solid-bootstrap/Container";
-import Col from "solid-bootstrap/Col";
-import Row from "solid-bootstrap/Row";
+import { Card, Container, Col, Row } from "solid-bootstrap";
 import "./styles.css";
 import GithubSource from "./GithubSource";
 import LayoutGridApi from "./LayoutGridApi";

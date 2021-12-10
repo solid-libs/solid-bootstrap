@@ -1,6 +1,5 @@
-import { Component, createSignal, For, onCleanup } from "solid-js";
-import Card from "solid-bootstrap/Card";
-import ProgressBar from "solid-bootstrap/ProgressBar";
+import { Component, createSignal, onCleanup } from "solid-js";
+import { Card, ProgressBar } from "solid-bootstrap";
 import GithubSource from "./GithubSource";
 import ProgressBarApi from "./ProgressBarApi";
 import { isServer } from "solid-js/web";

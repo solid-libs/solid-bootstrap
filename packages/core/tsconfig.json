@@ -1,12 +1,13 @@
 {
   "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
     "declaration": true,
     "target": "esnext",
     "moduleResolution": "node",
     "strict": true,
     "jsx": "preserve",
     "jsxImportSource": "solid-js",
-    "outDir": "./dist",
+    "outDir": "./dist/esm",
     "module": "esnext"
   },
   "include": ["./src"],

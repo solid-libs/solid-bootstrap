@@ -6,10 +6,12 @@ import {
   createMemo,
   For,
 } from "solid-js";
-import { createControlledProp } from "solid-bootstrap-core/createControlledProp";
-import BaseTabs, {
+import {
+  createControlledProp,
+  EventKey,
+  Tabs as BaseTabs,
   TabsProps as BaseTabsProps,
-} from "solid-bootstrap-core/Tabs";
+} from "solid-bootstrap-core";
 import Nav from "./Nav";
 import NavLink from "./NavLink";
 import NavItem from "./NavItem";
@@ -17,7 +19,6 @@ import TabContent from "./TabContent";
 import TabPane from "./TabPane";
 import { getTabTransitionComponent } from "./getTabTransitionComponent";
 import { TransitionType } from "./helpers";
-import { EventKey } from "solid-bootstrap-core/types";
 import { TabProps } from "./Tab";
 
 export interface TabsProps

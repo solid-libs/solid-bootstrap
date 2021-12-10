@@ -1,10 +1,10 @@
 import { createMemo, JSX, mergeProps, splitProps } from "solid-js";
 import classNames from "./classnames";
 import {
+  makeEventKey,
   useNavItem,
   NavItemProps as BaseNavItemProps,
-} from "solid-bootstrap-core/NavItem";
-import { makeEventKey } from "solid-bootstrap-core/SelectableContext";
+} from "solid-bootstrap-core";
 import { useBootstrapPrefix } from "./ThemeProvider";
 import { BsPrefixProps, BsPrefixRefForwardingComponent } from "./helpers";
 import { Variant } from "./types";

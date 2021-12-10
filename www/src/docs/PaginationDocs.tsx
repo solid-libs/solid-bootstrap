@@ -1,6 +1,5 @@
 import { Component, For } from "solid-js";
-import Card from "solid-bootstrap/Card";
-import Pagination from "solid-bootstrap/Pagination";
+import { Card, Pagination } from "solid-bootstrap";
 import GithubSource from "./GithubSource";
 import PaginationApi from "./PaginationApi";
 

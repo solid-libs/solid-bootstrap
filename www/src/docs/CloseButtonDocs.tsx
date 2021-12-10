@@ -1,6 +1,5 @@
-import { Component, For } from "solid-js";
-import Badge from "solid-bootstrap/Badge";
-import CloseButton from "solid-bootstrap/CloseButton";
+import { Component } from "solid-js";
+import { Badge, CloseButton } from "solid-bootstrap";
 import GithubSource from "./GithubSource";
 import CloseButtonApi from "./CloseButtonApi";
 

@@ -1,7 +1,5 @@
 import { Component, createEffect, createSignal, For } from "solid-js";
-import Button from "solid-bootstrap/Button";
-import ButtonGroup from "solid-bootstrap/ButtonGroup";
-import ToggleButton from "solid-bootstrap/ToggleButton";
+import { Button, ButtonGroup, ToggleButton } from "solid-bootstrap";
 import GithubSource from "./GithubSource";
 
 const ButtonDocs: Component = () => {

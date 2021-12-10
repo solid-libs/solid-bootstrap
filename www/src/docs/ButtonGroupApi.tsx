@@ -2,7 +2,9 @@ const ButtonGroupApi = () => (
   <div className="mt-5">
     <h2>API</h2>
     <h3>ButtonGroup</h3>
-    <code>import ButtonGroup from 'solid-bootstrap/ButtonGroup'</code>
+    <code>
+      import {"{"} ButtonGroup {"}"} from 'solid-bootstrap'
+    </code>
     <div class="overflow-auto mt-4 mb-5 border border-light">
       <table class="bg-white mb-0 table table-striped table-bordered">
         <thead>
@@ -101,7 +103,9 @@ const ButtonGroupApi = () => (
       </table>
     </div>
     <h3>ButtonToolbar</h3>
-    <code>import ButtonToolbar from 'solid-bootstrap/ButtonToolbar'</code>
+    <code>
+      import {"{"} ButtonToolbar {"}"} from 'solid-bootstrap'
+    </code>
     <div class="overflow-auto mt-4 mb-5 border border-light">
       <table class="bg-white mb-0 table table-striped table-bordered">
         <thead>

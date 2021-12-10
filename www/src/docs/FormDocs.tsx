@@ -1,13 +1,15 @@
 import { Component, createSignal } from "solid-js";
-import Alert from "solid-bootstrap/Alert";
-import Button from "solid-bootstrap/Button";
-import Card from "solid-bootstrap/Card";
-import Form from "solid-bootstrap/Form";
-import Col from "solid-bootstrap/Col";
-import InputGroup from "solid-bootstrap/InputGroup";
-import Row from "solid-bootstrap/Row";
-import FloatingLabel from "solid-bootstrap/FloatingLabel";
-import { FormCheckType } from "solid-bootstrap/FormCheck";
+import {
+  Alert,
+  Button,
+  Card,
+  Form,
+  Col,
+  InputGroup,
+  Row,
+  FloatingLabel,
+  FormCheckProps,
+} from "solid-bootstrap";
 import GithubSource from "./GithubSource";
 import FormApi from "./FormApi";
 
@@ -181,14 +183,14 @@ export const FormDocs: Component = () => {
               {["checkbox", "radio"].map((type) => (
                 <div className="mb-3">
                   <Form.Check
-                    type={type as FormCheckType}
+                    type={type as FormCheckProps["type"]}
                     id={`default-${type}`}
                     label={`default ${type}`}
                   />
 
                   <Form.Check
                     disabled
-                    type={type as FormCheckType}
+                    type={type as FormCheckProps["type"]}
                     label={`disabled ${type}`}
                     id={`disabled-default-${type}`}
                   />
@@ -207,21 +209,21 @@ export const FormDocs: Component = () => {
                     inline
                     label="1"
                     name="group1"
-                    type={type as FormCheckType}
+                    type={type as FormCheckProps["type"]}
                     id={`inline-${type}-1`}
                   />
                   <Form.Check
                     inline
                     label="2"
                     name="group1"
-                    type={type as FormCheckType}
+                    type={type as FormCheckProps["type"]}
                     id={`inline-${type}-2`}
                   />
                   <Form.Check
                     inline
                     disabled
                     label="3 (disabled)"
-                    type={type as FormCheckType}
+                    type={type as FormCheckProps["type"]}
                     id={`inline-${type}-3`}
                   />
                 </div>
@@ -244,7 +246,7 @@ export const FormDocs: Component = () => {
             {["checkbox", "radio"].map((type) => (
               <div className="mb-3">
                 <Form.Check
-                  type={type as FormCheckType}
+                  type={type as FormCheckProps["type"]}
                   id={`check-api-${type}`}
                 >
                   <Form.Check.Input type={type as any} isValid />

@@ -2,7 +2,9 @@ const FigureApi = () => (
   <div className="mt-5">
     <h2>API</h2>
     <h3>Figure</h3>
-    <code>import Figure from 'solid-bootstrap/Figure'</code>
+    <code>
+      import {"{"} Figure {"}"} from 'solid-bootstrap'
+    </code>
     <div class="overflow-auto mt-4 mb-5 border border-light">
       <table class="bg-white mb-0 table table-striped table-bordered">
         <thead>
@@ -53,10 +55,14 @@ const FigureApi = () => (
       </table>
     </div>
     <h3>FigureImage</h3>
-    <code>import FigureImage from 'solid-bootstrap/FigureImage'</code>
+    <code>
+      import {"{"} FigureImage {"}"} from 'solid-bootstrap'
+    </code>
 
     <h3 class="mt-5">FigureCaption</h3>
-    <code>import FigureCaption from 'solid-bootstrap/FigureCaption'</code>
+    <code>
+      import {"{"} FigureCaption {"}"} from 'solid-bootstrap'
+    </code>
     <div class="overflow-auto mt-4 mb-5 border border-light">
       <table class="bg-white mb-0 table table-striped table-bordered">
         <thead>

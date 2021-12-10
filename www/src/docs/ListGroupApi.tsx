@@ -2,7 +2,9 @@ const ListGroupApi = () => (
   <div className="mt-5">
     <h2>API</h2>
     <h3>ListGroup</h3>
-    <code>import ListGroup from 'solid-bootstrap/ListGroup'</code>
+    <code>
+      import {"{"} ListGroup {"}"} from 'solid-bootstrap'
+    </code>
     <div class="overflow-auto mt-4 mb-5 border border-light">
       <table class="bg-white mb-0 table table-striped table-bordered">
         <thead>
@@ -112,7 +114,9 @@ const ListGroupApi = () => (
     </div>
 
     <h3>ListGroup.Item</h3>
-    <code>import ListGroup from 'solid-bootstrap/ListGroup'</code>
+    <code>
+      import {"{"} ListGroup {"}"} from 'solid-bootstrap'
+    </code>
     <div class="overflow-auto mt-4 mb-5 border border-light">
       <table class="bg-white mb-0 table table-striped table-bordered">
         <thead>

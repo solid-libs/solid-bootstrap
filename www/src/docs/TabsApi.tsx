@@ -2,7 +2,9 @@ const TabsApi = () => (
   <div className="mt-5">
     <h2>API</h2>
     <h3>Tabs</h3>
-    <code>import Tabs from 'solid-bootstrap/Tabs'</code>
+    <code>
+      import {"{"} Tabs {"}"} from 'solid-bootstrap'
+    </code>
     <div class="overflow-auto mt-4 mb-5 border border-light">
       <table class="bg-white mb-0 table table-striped table-bordered">
         <thead>
@@ -181,7 +183,9 @@ const TabsApi = () => (
     </div>
 
     <h3>Tab</h3>
-    <code>import Tab from 'solid-bootstrap/Tab'</code>
+    <code>
+      import {"{"} Tab {"}"} from 'solid-bootstrap'
+    </code>
     <div class="overflow-auto mt-4 mb-5 border border-light">
       <table class="bg-white mb-0 table table-striped table-bordered">
         <thead>
@@ -254,7 +258,9 @@ const TabsApi = () => (
     </div>
 
     <h3>TabContainer</h3>
-    <code>import TabContainer from 'solid-bootstrap/TabContainer'</code>
+    <code>
+      import {"{"} TabContainer {"}"} from 'solid-bootstrap'
+    </code>
     <div class="overflow-auto mt-4 mb-5 border border-light">
       <table class="bg-white mb-0 table table-striped table-bordered">
         <thead>
@@ -407,7 +413,9 @@ const TabsApi = () => (
     </div>
 
     <h3>TabContent</h3>
-    <code>import TabContent from 'solid-bootstrap/TabContent'</code>
+    <code>
+      import {"{"} TabContent {"}"} from 'solid-bootstrap'
+    </code>
     <div class="overflow-auto mt-4 mb-5 border border-light">
       <table class="bg-white mb-0 table table-striped table-bordered">
         <thead>
@@ -459,7 +467,9 @@ const TabsApi = () => (
     </div>
 
     <h3>TabPane</h3>
-    <code>import TabPane from 'solid-bootstrap/TabPane'</code>
+    <code>
+      import {"{"} TabPane {"}"} from 'solid-bootstrap'
+    </code>
     <div class="overflow-auto mt-4 mb-5 border border-light">
       <table class="bg-white mb-0 table table-striped table-bordered">
         <thead>

@@ -1,10 +1,12 @@
 import { JSX, mergeProps, splitProps } from "solid-js";
 import classNames from "./classnames";
-import BaseDropdownItem, {
+import {
+  Anchor,
+  AnchorProps,
+  DropdownItem as BaseDropdownItem,
   useDropdownItem,
   DropdownItemProps as BaseDropdownItemProps,
-} from "solid-bootstrap-core/DropdownItem";
-import Anchor, { AnchorProps } from "solid-bootstrap-core/Anchor";
+} from "solid-bootstrap-core";
 import { useBootstrapPrefix } from "./ThemeProvider";
 import { BsPrefixProps, BsPrefixRefForwardingComponent } from "./helpers";
 import { Dynamic } from "solid-js/web";

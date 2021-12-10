@@ -1,6 +1,5 @@
 import { Component } from "solid-js";
-import Card from "solid-bootstrap/Card";
-import Table from "solid-bootstrap/Table";
+import { Card, Table } from "solid-bootstrap";
 import GithubSource from "./GithubSource";
 import TableApi from "./TableApi";
 

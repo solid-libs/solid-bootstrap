@@ -2,7 +2,9 @@ const LayoutGridApi = () => (
   <div className="mt-5">
     <h2>API</h2>
     <h3>Container</h3>
-    <code>import Container from 'solid-bootstrap/Container'</code>
+    <code>
+      import {"{"} Container {"}"} from 'solid-bootstrap'
+    </code>
     <div class="overflow-auto mt-4 mb-5 border border-light">
       <table class="bg-white mb-0 table table-striped table-bordered">
         <thead>
@@ -83,7 +85,9 @@ const LayoutGridApi = () => (
     </div>
 
     <h3>Row</h3>
-    <code>import Row from 'solid-bootstrap/Row'</code>
+    <code>
+      import {"{"} Row {"}"} from 'solid-bootstrap'
+    </code>
     <div class="overflow-auto mt-4 mb-5 border border-light">
       <table class="bg-white mb-0 table table-striped table-bordered">
         <thead>
@@ -229,7 +233,9 @@ const LayoutGridApi = () => (
     </div>
 
     <h3>Col</h3>
-    <code>import Col from 'solid-bootstrap/Col'</code>
+    <code>
+      import {"{"} Col {"}"} from 'solid-bootstrap'
+    </code>
     <div class="overflow-auto mt-4 mb-5 border border-light">
       <table class="bg-white mb-0 table table-striped table-bordered">
         <thead>

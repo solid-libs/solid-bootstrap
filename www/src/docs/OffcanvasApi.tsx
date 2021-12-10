@@ -2,7 +2,9 @@ const OffcanvasApi = () => (
   <div className="mt-5">
     <h2>API</h2>
     <h3>Offcanvas</h3>
-    <code>import Offcanvas from 'solid-bootstrap/Offcanvas'</code>
+    <code>
+      import {"{"} Offcanvas {"}"} from 'solid-bootstrap'
+    </code>
     <div class="overflow-auto mt-4 mb-5 border border-light">
       <table class="bg-white mb-0 table table-striped table-bordered">
         <thead>
@@ -342,7 +344,9 @@ const OffcanvasApi = () => (
       </table>
     </div>
     <h3>OffcanvasHeader</h3>
-    <code>import OffcanvasHeader from 'solid-bootstrap/OffcanvasHeader'</code>
+    <code>
+      import {"{"} OffcanvasHeader {"}"} from 'solid-bootstrap'
+    </code>
     <div class="overflow-auto mt-4 mb-5 border border-light">
       <table class="bg-white mb-0 table table-striped table-bordered">
         <thead>
@@ -444,7 +448,9 @@ const OffcanvasApi = () => (
     </div>
 
     <h3>OffcanvasTitle</h3>
-    <code>import OffcanvasTitle from 'solid-bootstrap/OffcanvasTitle'</code>
+    <code>
+      import {"{"} OffcanvasTitle {"}"} from 'solid-bootstrap'
+    </code>
     <div class="overflow-auto mt-4 mb-5 border border-light">
       <table class="bg-white mb-0 table table-striped table-bordered">
         <thead>
@@ -496,7 +502,9 @@ const OffcanvasApi = () => (
     </div>
 
     <h3>OffcanvasBody</h3>
-    <code>import OffcanvasBody from 'solid-bootstrap/OffcanvasBody'</code>
+    <code>
+      import {"{"} OffcanvasBody {"}"} from 'solid-bootstrap'
+    </code>
     <div class="overflow-auto mt-4 mb-5 border border-light">
       <table class="bg-white mb-0 table table-striped table-bordered">
         <thead>

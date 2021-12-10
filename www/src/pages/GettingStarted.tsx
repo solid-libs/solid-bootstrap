@@ -1,5 +1,4 @@
-import { Alert } from "solid-bootstrap";
-import Card from "solid-bootstrap/Card";
+import { Alert, Card } from "solid-bootstrap";
 
 const GettingStarted = () => (
   <div

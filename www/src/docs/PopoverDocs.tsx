@@ -1,9 +1,11 @@
 import { Component } from "solid-js";
-import Card from "solid-bootstrap/Card";
-import Popover from "solid-bootstrap/Popover";
-import Button from "solid-bootstrap/Button";
-import OverlayTrigger from "solid-bootstrap/OverlayTrigger";
-import { Placement } from "solid-bootstrap/types";
+import {
+  Button,
+  Card,
+  OverlayTrigger,
+  Placement,
+  Popover,
+} from "solid-bootstrap";
 import GithubSource from "./GithubSource";
 import PopoverApi from "./PopoverApi";
 

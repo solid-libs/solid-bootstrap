@@ -1,10 +1,11 @@
 import { mergeProps, splitProps, useContext } from "solid-js";
 import classNames from "./classnames";
-import BaseModal, {
+import {
+  Modal as BaseModal,
   ModalProps as BaseModalProps,
   RenderModalBackdropProps,
   RenderModalDialogProps,
-} from "solid-bootstrap-core/Modal";
+} from "solid-bootstrap-core";
 import Fade from "./Fade";
 import OffcanvasBody from "./OffcanvasBody";
 import OffcanvasToggling from "./OffcanvasToggling";

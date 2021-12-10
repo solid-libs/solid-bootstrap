@@ -3,7 +3,7 @@
 import classNames from "./classnames";
 import { JSX, mergeProps, splitProps, useContext } from "solid-js";
 import { Dynamic } from "solid-js/web";
-import { callEventHandler } from "solid-bootstrap-core/utils";
+import { callEventHandler } from "solid-bootstrap-core";
 import AccordionContext from "./AccordionContext";
 import AccordionItemContext from "./AccordionItemContext";
 import { BsPrefixProps, BsPrefixRefForwardingComponent } from "./helpers";
@@ -54,7 +54,7 @@ const AccordionButton: BsPrefixRefForwardingComponent<
     itemContext.eventKey,
     local.onClick
   );
-  const accordianContext = useContext(AccordionContext);
+  const accordionContext = useContext(AccordionContext);
 
   return (
     <Dynamic
@@ -62,11 +62,11 @@ const AccordionButton: BsPrefixRefForwardingComponent<
       onClick={accordionOnClick}
       {...props}
       type={local.as === "button" ? "button" : undefined}
-      aria-expanded={itemContext.eventKey === accordianContext.activeEventKey}
+      aria-expanded={itemContext.eventKey === accordionContext.activeEventKey}
       className={classNames(
         local.className,
         bsPrefix,
-        itemContext.eventKey !== accordianContext.activeEventKey && "collapsed"
+        itemContext.eventKey !== accordionContext.activeEventKey && "collapsed"
       )}
     >
       {props.children}

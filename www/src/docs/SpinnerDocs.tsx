@@ -1,7 +1,5 @@
 import { Component } from "solid-js";
-import Card from "solid-bootstrap/Card";
-import Button from "solid-bootstrap/Button";
-import Spinner from "solid-bootstrap/Spinner";
+import { Button, Card, Spinner } from "solid-bootstrap";
 import GithubSource from "./GithubSource";
 import SpinnerApi from "./SpinnerApi";
 

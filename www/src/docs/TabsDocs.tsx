@@ -1,10 +1,5 @@
 import { Component } from "solid-js";
-import Card from "solid-bootstrap/Card";
-import Tabs from "solid-bootstrap/Tabs";
-import Tab from "solid-bootstrap/Tab";
-import Row from "solid-bootstrap/Row";
-import Col from "solid-bootstrap/Col";
-import Nav from "solid-bootstrap/Nav";
+import { Card, Col, Nav, Row, Tab, Tabs } from "solid-bootstrap";
 import Sonnet from "./Sonnet";
 import GithubSource from "./GithubSource";
 import TabsApi from "./TabsApi";

@@ -7,12 +7,13 @@ import {
   mergeProps,
   splitProps,
 } from "solid-js";
-import BaseOverlay, {
+import {
+  Overlay as BaseOverlay,
   OverlayProps as BaseOverlayProps,
   OverlayArrowProps,
   OverlayMetadata,
   OverlayInjectedProps,
-} from "solid-bootstrap-core/Overlay";
+} from "solid-bootstrap-core";
 import Fade from "./Fade";
 import { TransitionType } from "./helpers";
 import { Placement, RootCloseEvent } from "./types";

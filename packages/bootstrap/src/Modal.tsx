@@ -12,11 +12,12 @@ import ownerDocument from "dom-helpers/ownerDocument";
 import removeEventListener from "dom-helpers/removeEventListener";
 import getScrollbarSize from "dom-helpers/scrollbarSize";
 import transitionEnd from "dom-helpers/transitionEnd";
-import BaseModal, {
+import {
+  Modal as BaseModal,
   ModalHandle,
+  ModalInstance,
   ModalProps as BaseModalProps,
-} from "solid-bootstrap-core/Modal";
-import { ModalInstance } from "solid-bootstrap-core/ModalManager";
+} from "solid-bootstrap-core";
 import { getSharedManager } from "./BootstrapModalManager";
 import Fade, { FadeProps } from "./Fade";
 import ModalBody from "./ModalBody";

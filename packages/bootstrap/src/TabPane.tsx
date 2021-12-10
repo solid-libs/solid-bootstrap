@@ -1,10 +1,12 @@
 import { JSX, mergeProps, splitProps } from "solid-js";
 import classNames from "./classnames";
-import NoopTransition from "solid-bootstrap-core/NoopTransition";
-import SelectableContext from "solid-bootstrap-core/SelectableContext";
-import TabContext from "solid-bootstrap-core/TabContext";
-import { useTabPanel } from "solid-bootstrap-core/TabPanel";
-import { EventKey } from "solid-bootstrap-core/types";
+import {
+  EventKey,
+  NoopTransition,
+  SelectableContext,
+  TabContext,
+  useTabPanel,
+} from "solid-bootstrap-core";
 import { useBootstrapPrefix } from "./ThemeProvider";
 import { getTabTransitionComponent } from "./getTabTransitionComponent";
 import {

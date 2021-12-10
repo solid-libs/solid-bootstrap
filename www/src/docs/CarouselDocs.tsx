@@ -1,8 +1,7 @@
 import { Component, createSignal } from "solid-js";
-import Carousel from "solid-bootstrap/Carousel";
+import { Card, Carousel } from "solid-bootstrap";
 import GithubSource from "./GithubSource";
 import CarouselApi from "./CarouselApi";
-import { Card } from "solid-bootstrap";
 import { Solid1 } from "../icons/solid1";
 import { Solid2 } from "../icons/solid2";
 import { Solid3 } from "../icons/solid3";

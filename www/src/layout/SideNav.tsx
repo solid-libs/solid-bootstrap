@@ -1,5 +1,5 @@
 import startCase from "lodash/startCase";
-import classNames from "solid-bootstrap/classnames";
+import classNames from "classnames";
 import {
   Component,
   ComponentProps,
@@ -7,10 +7,8 @@ import {
   createMemo,
   createSignal,
 } from "solid-js";
-import Collapse from "solid-bootstrap/Collapse";
+import { Button, Collapse, Nav } from "solid-bootstrap";
 import styles from "./SideNav.module.css";
-import Button from "solid-bootstrap/Button";
-import Nav from "solid-bootstrap/Nav";
 import { Link, useLocation } from "solid-app-router";
 
 const baseUrl = import.meta.env.BASE_URL;
@@ -125,7 +123,6 @@ const NavSection = (props: {
   path: string;
 }) => {
   let active = createMemo(() => {
-    console.log(props.location.pathname, baseUrl + props.path);
     return props.location.pathname.startsWith(baseUrl + props.path.slice(1));
   });
   return (

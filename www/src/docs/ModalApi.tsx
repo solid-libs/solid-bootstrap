@@ -2,7 +2,9 @@ const ModalApi = () => (
   <div className="mt-5">
     <h2>API</h2>
     <h3>Modal</h3>
-    <code>import Modal from 'solid-bootstrap/Modal'</code>
+    <code>
+      import {"{"} Modal {"}"} from 'solid-bootstrap'
+    </code>
     <div class="overflow-auto mt-4 mb-5 border border-light">
       <table class="bg-white mb-0 table table-striped table-bordered">
         <thead>
@@ -465,7 +467,9 @@ const ModalApi = () => (
       </table>
     </div>
     <h3>ModalDialog</h3>
-    <code>import ModalDialog from 'solid-bootstrap/ModalDialog'</code>
+    <code>
+      import {"{"} ModalDialog {"}"} from 'solid-bootstrap'
+    </code>
     <div class="overflow-auto mt-4 mb-5 border border-light">
       <table class="bg-white mb-0 table table-striped table-bordered">
         <thead>
@@ -587,7 +591,9 @@ const ModalApi = () => (
       </table>
     </div>
     <h3>ModalHeader</h3>
-    <code>import ModalHeader from 'solid-bootstrap/ModalHeader'</code>
+    <code>
+      import {"{"} ModalHeader {"}"} from 'solid-bootstrap'
+    </code>
     <div class="overflow-auto mt-4 mb-5 border border-light">
       <table class="bg-white mb-0 table table-striped table-bordered">
         <thead>
@@ -738,7 +744,9 @@ const ModalApi = () => (
     </div>
 
     <h3>ModalTitle</h3>
-    <code>import ModalTitle from 'solid-bootstrap/ModalTitle'</code>
+    <code>
+      import {"{"} ModalTitle {"}"} from 'solid-bootstrap'
+    </code>
     <div class="overflow-auto mt-4 mb-5 border border-light">
       <table class="bg-white mb-0 table table-striped table-bordered">
         <thead>
@@ -789,7 +797,9 @@ const ModalApi = () => (
       </table>
     </div>
     <h3>ModalBody</h3>
-    <code>import ModalBody from 'solid-bootstrap/ModalBody'</code>
+    <code>
+      import {"{"} ModalBody {"}"} from 'solid-bootstrap'
+    </code>
     <div class="overflow-auto mt-4 mb-5 border border-light">
       <table class="bg-white mb-0 table table-striped table-bordered">
         <thead>
@@ -841,7 +851,9 @@ const ModalApi = () => (
     </div>
 
     <h3>ModalFooter</h3>
-    <code>import ModalFooter from 'solid-bootstrap/ModalFooter'</code>
+    <code>
+      import {"{"} ModalFooter {"}"} from 'solid-bootstrap'
+    </code>
     <div class="overflow-auto mt-4 mb-5 border border-light">
       <table class="bg-white mb-0 table table-striped table-bordered">
         <thead>

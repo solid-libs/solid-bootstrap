@@ -1,10 +1,11 @@
 import { JSX, mergeProps, splitProps, useContext } from "solid-js";
 import classNames from "./classnames";
-import BaseDropdown, {
+import {
+  createControlledProp,
+  Dropdown as BaseDropdown,
   DropdownProps as BaseDropdownProps,
-  ToggleMetadata,
-} from "solid-bootstrap-core/Dropdown";
-import { createControlledProp } from "solid-bootstrap-core/createControlledProp";
+  DropdownToggleMetadata,
+} from "solid-bootstrap-core";
 import DropdownContext, { DropDirection } from "./DropdownContext";
 import DropdownItem from "./DropdownItem";
 import DropdownMenu, { getDropdownMenuPlacement } from "./DropdownMenu";
@@ -83,7 +84,7 @@ const Dropdown: BsPrefixRefForwardingComponent<"div", DropdownProps> = (p) => {
     return true;
   };
 
-  const handleToggle = (nextShow: boolean, meta: ToggleMetadata) => {
+  const handleToggle = (nextShow: boolean, meta: DropdownToggleMetadata) => {
     if (
       // null option below is for "bug?" in Solid returning null instead of document
       (meta.originalEvent!.currentTarget === document ||

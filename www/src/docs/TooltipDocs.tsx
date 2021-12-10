@@ -1,8 +1,5 @@
 import { Component, JSX } from "solid-js";
-import Card from "solid-bootstrap/Card";
-import Tooltip from "solid-bootstrap/Tooltip";
-import Button from "solid-bootstrap/Button";
-import OverlayTrigger from "solid-bootstrap/OverlayTrigger";
+import { Button, Card, OverlayTrigger, Tooltip } from "solid-bootstrap";
 import GithubSource from "./GithubSource";
 import TooltipApi from "./TooltipApi";
 

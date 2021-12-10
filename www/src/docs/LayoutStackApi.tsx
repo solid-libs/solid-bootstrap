@@ -2,7 +2,9 @@ const LayoutStackApi = () => (
   <div className="mt-5">
     <h2>API</h2>
     <h3>Stack</h3>
-    <code>import Stack from 'solid-bootstrap/Stack'</code>
+    <code>
+      import {"{"} Stack {"}"} from 'solid-bootstrap'
+    </code>
     <div class="overflow-auto mt-4 mb-5 border border-light">
       <table class="bg-white mb-0 table table-striped table-bordered">
         <thead>

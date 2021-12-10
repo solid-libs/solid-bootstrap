@@ -1,8 +1,10 @@
-const AccordianApi = () => (
+const AccordionApi = () => (
   <div className="mt-5">
     <h2>API</h2>
     <h3>Accordion</h3>
-    <code>import Accordion from 'solid-bootstrap/Accordion'</code>
+    <code>
+      import {"{"} Accordion {"}"} from 'solid-bootstrap'
+    </code>
     <div class="overflow-auto mt-4 mb-5 border border-light">
       <table class="bg-white mb-0 table table-striped table-bordered">
         <thead>
@@ -385,4 +387,4 @@ const AccordianApi = () => (
   </div>
 );
 
-export default AccordianApi;
+export default AccordionApi;

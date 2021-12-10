@@ -1,9 +1,5 @@
 import { Component } from "solid-js";
-import Card from "solid-bootstrap/Card";
-import Container from "solid-bootstrap/Container";
-import Col from "solid-bootstrap/Col";
-import Row from "solid-bootstrap/Row";
-import Image from "solid-bootstrap/Image";
+import { Card, Container, Col, Row, Image } from "solid-bootstrap";
 import { useHolderJSRefresh } from "./utils";
 import GithubSource from "./GithubSource";
 import ImageApi from "./ImageApi";

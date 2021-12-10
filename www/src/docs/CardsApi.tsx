@@ -2,7 +2,9 @@ const CardsApi = () => (
   <div className="mt-5">
     <h2>API</h2>
     <h3>Card</h3>
-    <code>import Card from 'solid-bootstrap/Card'</code>
+    <code>
+      import {"{"} Card {"}"} from 'solid-bootstrap'
+    </code>
     <div class="overflow-auto mt-4 mb-5 border border-light">
       <table class="bg-white mb-0 table table-striped table-bordered">
         <thead>
@@ -636,7 +638,9 @@ const CardsApi = () => (
     </div>
 
     <h3>CardGroup</h3>
-    <code>import CardGroup from 'solid-bootstrap/CardGroup'</code>
+    <code>
+      import {"{"} CardGroup {"}"} from 'solid-bootstrap'
+    </code>
     <div class="overflow-auto mt-4 mb-5 border border-light">
       <table class="bg-white mb-0 table table-striped table-bordered">
         <thead>

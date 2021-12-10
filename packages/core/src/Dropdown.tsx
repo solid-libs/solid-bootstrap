@@ -44,7 +44,7 @@ export interface DropdownInjectedProps {
 
 export type ToggleEvent = KeyboardEvent | MouseEvent;
 
-export interface ToggleMetadata {
+export interface DropdownToggleMetadata {
   source: string | undefined;
   originalEvent: ToggleEvent | undefined;
 }
@@ -89,7 +89,7 @@ export interface DropdownProps {
    *
    * @controllable show
    */
-  onToggle?: (nextShow: boolean, meta: ToggleMetadata) => void;
+  onToggle?: (nextShow: boolean, meta: DropdownToggleMetadata) => void;
 
   /**
    * A css selector string that will return __focusable__ menu items.

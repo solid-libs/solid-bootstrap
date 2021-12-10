@@ -2,7 +2,9 @@ const FormApi = () => (
   <div className="mt-5">
     <h2>API</h2>
     <h3>Form</h3>
-    <code>import Form from 'solid-bootstrap/Form'</code>
+    <code>
+      import {"{"} Form {"}"} from 'solid-bootstrap'
+    </code>
     <div class="overflow-auto mt-4 mb-5 border border-light">
       <table class="bg-white mb-0 table table-striped table-bordered">
         <thead>
@@ -65,7 +67,9 @@ const FormApi = () => (
     </div>
 
     <h3>Form.Floating</h3>
-    <code>import Form from 'solid-bootstrap/Form'</code>
+    <code>
+      import {"{"} Form {"}"} from 'solid-bootstrap'
+    </code>
     <div class="overflow-auto mt-4 mb-5 border border-light">
       <table class="bg-white mb-0 table table-striped table-bordered">
         <thead>
@@ -116,7 +120,9 @@ const FormApi = () => (
       </table>
     </div>
     <h3>Form.Group</h3>
-    <code>import Form from 'solid-bootstrap/Form'</code>
+    <code>
+      import {"{"} Form {"}"} from 'solid-bootstrap'
+    </code>
     <div class="overflow-auto mt-4 mb-5 border border-light">
       <table class="bg-white mb-0 table table-striped table-bordered">
         <thead>
@@ -179,7 +185,9 @@ const FormApi = () => (
     </div>
 
     <h3>Form.Text</h3>
-    <code>import Form from 'solid-bootstrap/Form'</code>
+    <code>
+      import {"{"} Form {"}"} from 'solid-bootstrap'
+    </code>
     <div class="overflow-auto mt-4 mb-5 border border-light">
       <table class="bg-white mb-0 table table-striped table-bordered">
         <thead>
@@ -260,7 +268,9 @@ const FormApi = () => (
       </table>
     </div>
     <h3>Form.Control</h3>
-    <code>import Form from 'solid-bootstrap/Form'</code>
+    <code>
+      import {"{"} Form {"}"} from 'solid-bootstrap'
+    </code>
     <div class="overflow-auto mt-4 mb-5 border border-light">
       <table class="bg-white mb-0 table table-striped table-bordered">
         <thead>
@@ -501,7 +511,9 @@ const FormApi = () => (
       </table>
     </div>
     <h3>FormControl.Feedback</h3>
-    <code>import FormControl from 'solid-bootstrap/FormControl'</code>
+    <code>
+      import {"{"} FormControl {"}"} from 'solid-bootstrap'
+    </code>
     <div class="overflow-auto mt-4 mb-5 border border-light">
       <table class="bg-white mb-0 table table-striped table-bordered">
         <thead>
@@ -567,7 +579,9 @@ const FormApi = () => (
       </table>
     </div>
     <h3>Form.Check</h3>
-    <code>import Form from 'solid-bootstrap/Form'</code>
+    <code>
+      import {"{"} Form {"}"} from 'solid-bootstrap'
+    </code>
     <div class="overflow-auto mt-4 mb-5 border border-light">
       <table class="bg-white mb-0 table table-striped table-bordered">
         <thead>
@@ -833,7 +847,9 @@ const FormApi = () => (
       </table>
     </div>
     <h3>FormCheck.Input</h3>
-    <code>import FormCheck from 'solid-bootstrap/FormCheck'</code>
+    <code>
+      import {"{"} FormCheck {"}"} from 'solid-bootstrap'
+    </code>
     <div class="overflow-auto mt-4 mb-5 border border-light">
       <table class="bg-white mb-0 table table-striped table-bordered">
         <thead>
@@ -947,7 +963,9 @@ const FormApi = () => (
       </table>
     </div>
     <h3>FormCheck.Label</h3>
-    <code>import FormCheck from 'solid-bootstrap/FormCheck'</code>
+    <code>
+      import {"{"} FormCheck {"}"} from 'solid-bootstrap'
+    </code>
     <div class="overflow-auto mt-4 mb-5 border border-light">
       <table class="bg-white mb-0 table table-striped table-bordered">
         <thead>
@@ -996,7 +1014,9 @@ const FormApi = () => (
       </table>
     </div>
     <h3>Form.Range</h3>
-    <code>import Form from 'solid-bootstrap/Form'</code>
+    <code>
+      import {"{"} Form {"}"} from 'solid-bootstrap'
+    </code>
     <div class="overflow-auto mt-4 mb-5 border border-light">
       <table class="bg-white mb-0 table table-striped table-bordered">
         <thead>
@@ -1096,7 +1116,9 @@ const FormApi = () => (
       </table>
     </div>
     <h3>Form.Select</h3>
-    <code>import Form from 'solid-bootstrap/Form'</code>
+    <code>
+      import {"{"} Form {"}"} from 'solid-bootstrap'
+    </code>
     <div class="overflow-auto mt-4 mb-5 border border-light">
       <table class="bg-white mb-0 table table-striped table-bordered">
         <thead>
@@ -1245,7 +1267,9 @@ const FormApi = () => (
       </table>
     </div>
     <h3>FloatingLabel</h3>
-    <code>import FloatingLabel from 'solid-bootstrap/FloatingLabel'</code>
+    <code>
+      import {"{"} FloatingLabel {"}"} from 'solid-bootstrap'
+    </code>
     <div class="overflow-auto mt-4 mb-5 border border-light">
       <table class="bg-white mb-0 table table-striped table-bordered">
         <thead>

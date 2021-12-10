@@ -12,7 +12,7 @@ export interface ModalManagerOptions {
   isRTL?: boolean;
 }
 
-export type ContainerState = {
+export type ModalContainerState = {
   scrollBarWidth: number;
   style: Record<string, any>;
   [key: string]: any;
@@ -31,7 +31,7 @@ class ModalManager {
 
   readonly modals: ModalInstance[];
 
-  private state!: ContainerState;
+  private state!: ModalContainerState;
 
   constructor({
     handleContainerOverflow = true,
@@ -58,7 +58,7 @@ class ModalManager {
     // For overriding
   }
 
-  setContainerStyle(containerState: ContainerState) {
+  setContainerStyle(containerState: ModalContainerState) {
     const style: Partial<CSSStyleDeclaration> = { overflow: "hidden" };
 
     // we are only interested in the actual `style` here
@@ -88,7 +88,7 @@ class ModalManager {
     [...this.modals].forEach((m) => this.remove(m));
   }
 
-  removeContainerStyle(containerState: ContainerState) {
+  removeContainerStyle(containerState: ModalContainerState) {
     const container = this.getElement();
     container.removeAttribute(OPEN_DATA_ATTRIBUTE);
     Object.assign(container.style, containerState.style);

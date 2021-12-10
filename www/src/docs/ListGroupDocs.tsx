@@ -1,10 +1,5 @@
 import { Component } from "solid-js";
-import Badge from "solid-bootstrap/Badge";
-import Card from "solid-bootstrap/Card";
-import Tab from "solid-bootstrap/Tab";
-import Row from "solid-bootstrap/Row";
-import Col from "solid-bootstrap/Col";
-import ListGroup from "solid-bootstrap/ListGroup";
+import { Badge, Card, Tab, Row, Col, ListGroup } from "solid-bootstrap";
 import GithubSource from "./GithubSource";
 import ListGroupApi from "./ListGroupApi";
 

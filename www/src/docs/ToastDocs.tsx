@@ -1,11 +1,13 @@
 import { Component, createSignal } from "solid-js";
-import Card from "solid-bootstrap/Card";
-import Toast from "solid-bootstrap/Toast";
-import ToastContainer, { ToastPosition } from "solid-bootstrap/ToastContainer";
-import Button from "solid-bootstrap/Button";
-import Col from "solid-bootstrap/Col";
-import Row from "solid-bootstrap/Row";
-import Form from "solid-bootstrap/Form";
+import {
+  Button,
+  Card,
+  Col,
+  Form,
+  Row,
+  Toast,
+  ToastContainer,
+} from "solid-bootstrap";
 import { useHolderJSRefresh } from "./utils";
 import GithubSource from "./GithubSource";
 import ToastApi from "./ToastApi";
@@ -14,7 +16,7 @@ export const ToastDocs: Component = () => {
   const [show1, setShow1] = createSignal(true);
   const [show2, setShow2] = createSignal(true);
   const [show3, setShow3] = createSignal(false);
-  const [position, setPosition] = createSignal<ToastPosition>("top-start");
+  const [position, setPosition] = createSignal<any>("top-start");
   useHolderJSRefresh();
 
   return (
@@ -135,9 +137,7 @@ export const ToastDocs: Component = () => {
               <Form.Select
                 id="selectToastPlacement"
                 className="mt-2"
-                onChange={(e) =>
-                  setPosition(e.currentTarget.value as ToastPosition)
-                }
+                onChange={(e: any) => setPosition(e.currentTarget.value)}
               >
                 {[
                   "top-start",

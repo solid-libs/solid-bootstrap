@@ -2,7 +2,9 @@ const NavbarApi = () => (
   <div className="mt-5">
     <h2>API</h2>
     <h3>Navbar</h3>
-    <code>import Navbar from 'solid-bootstrap/Navbar'</code>
+    <code>
+      import {"{"} Navbar {"}"} from 'solid-bootstrap'
+    </code>
     <div class="overflow-auto mt-4 mb-5 border border-light">
       <table class="bg-white mb-0 table table-striped table-bordered">
         <thead>
@@ -312,7 +314,9 @@ const NavbarApi = () => (
       </table>
     </div>
     <h3>Navbar.Brand</h3>
-    <code>import Navbar from 'solid-bootstrap/Navbar'</code>
+    <code>
+      import {"{"} Navbar {"}"} from 'solid-bootstrap'
+    </code>
     <div class="overflow-auto mt-4 mb-5 border border-light">
       <table class="bg-white mb-0 table table-striped table-bordered">
         <thead>
@@ -376,7 +380,9 @@ const NavbarApi = () => (
     </div>
 
     <h3>Navbar.Toggle</h3>
-    <code>import Navbar from 'solid-bootstrap/Navbar'</code>
+    <code>
+      import {"{"} Navbar {"}"} from 'solid-bootstrap'
+    </code>
     <div class="overflow-auto mt-4 mb-5 border border-light">
       <table class="bg-white mb-0 table table-striped table-bordered">
         <thead>
@@ -465,7 +471,9 @@ const NavbarApi = () => (
     </div>
 
     <h3>Navbar.Collapse</h3>
-    <code>import Navbar from 'solid-bootstrap/Navbar'</code>
+    <code>
+      import {"{"} Navbar {"}"} from 'solid-bootstrap'
+    </code>
     <div class="overflow-auto mt-4 mb-5 border border-light">
       <table class="bg-white mb-0 table table-striped table-bordered">
         <thead>
