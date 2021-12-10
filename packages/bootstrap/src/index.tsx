@@ -2,7 +2,7 @@ export { default as Accordion } from "./Accordion";
 export { default as AccordionBody } from "./AccordionBody";
 export { default as AccordionButton } from "./AccordionButton";
 export { default as AccordionCollapse } from "./AccordionCollapse";
-export { default as AccordionContext } from "./AccordionContexT";
+export { default as AccordionContext } from "./AccordionContext";
 export { default as AccordionHeader } from "./AccordionHeader";
 export { default as AccordionItem } from "./AccordionItem";
 export { default as AccordionItemContext } from "./AccordionItemContext";
