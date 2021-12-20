@@ -8,7 +8,7 @@ import NavLink from "./NavLink";
 import { BsPrefixRefForwardingComponent } from "./helpers";
 
 export interface NavDropdownProps
-  extends Omit<DropdownProps, "onSelect" | "title"> {
+  extends Omit<DropdownProps, "title"> {
   title: JSX.Element;
   disabled?: boolean;
   active?: boolean;
