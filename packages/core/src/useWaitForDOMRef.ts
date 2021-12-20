@@ -1,5 +1,7 @@
 import ownerDocument from "dom-helpers/ownerDocument";
+import canUseDOM from 'dom-helpers/canUseDOM';
 import { createEffect, createSignal } from "solid-js";
+import useWindow from './useWindow';
 
 export type DOMContainer<T extends HTMLElement = HTMLElement> =
   | T
@@ -7,10 +9,11 @@ export type DOMContainer<T extends HTMLElement = HTMLElement> =
   | (() => T | null);
 
 export const resolveContainerRef = <T extends HTMLElement>(
-  ref: DOMContainer<T> | undefined
+  ref: DOMContainer<T> | undefined,
+  document?: Document,
 ): T | HTMLBodyElement | null => {
-  if (typeof document === "undefined") return null;
-  if (ref == null) return ownerDocument().body as HTMLBodyElement;
+  if (!canUseDOM) return null;
+  if (ref == null) return (document || ownerDocument()).body as HTMLBodyElement;
   if (typeof ref === "function") ref = ref();
 
   if (ref?.nodeType) return ref || null;
@@ -24,8 +27,9 @@ export default function useWaitForDOMRef<
   ref?: DOMContainer<T>;
   onResolved?: (element: T | HTMLBodyElement) => void;
 }) {
+  const window = useWindow();
   const [resolvedRef, setRef] = createSignal<T | HTMLBodyElement | null>(
-    resolveContainerRef(props.ref)
+    resolveContainerRef(props.ref, window?.document)
   );
 
   createEffect(() => {

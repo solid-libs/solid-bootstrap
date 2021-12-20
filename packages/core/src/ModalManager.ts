@@ -8,6 +8,7 @@ export interface ModalInstance {
 }
 
 export interface ModalManagerOptions {
+  ownerDocument?: Document;
   handleContainerOverflow?: boolean;
   isRTL?: boolean;
 }
@@ -31,23 +32,27 @@ class ModalManager {
 
   readonly modals: ModalInstance[];
 
-  private state!: ModalContainerState;
+  protected state!: ModalContainerState;
+
+  protected ownerDocument: Document | undefined;
 
   constructor({
+    ownerDocument,
     handleContainerOverflow = true,
     isRTL = false,
   }: ModalManagerOptions = {}) {
     this.handleContainerOverflow = handleContainerOverflow;
     this.isRTL = isRTL;
     this.modals = [];
+    this.ownerDocument = ownerDocument;
   }
 
   getScrollbarWidth() {
-    return getBodyScrollbarWidth();
+    return getBodyScrollbarWidth(this.ownerDocument);
   }
 
   getElement() {
-    return document.body;
+    return (this.ownerDocument || document).body;
   }
 
   setModalAttributes(_modal: ModalInstance) {

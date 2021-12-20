@@ -17,6 +17,7 @@ import SelectableContext from "./SelectableContext";
 import { SelectCallback } from "./types";
 import { dataAttr } from "./DataKey";
 import { Placement } from "./usePopper";
+import useWindow from './useWindow';
 import {
   createEffect,
   createSignal,
@@ -137,6 +138,7 @@ function Dropdown(p: DropdownProps) {
     p
   );
 
+  const window = useWindow();
   const [show, onToggle] = createControlledProp(
     () => props.show,
     () => props.defaultShow!,
@@ -191,7 +193,7 @@ function Dropdown(p: DropdownProps) {
 
   createEffect(() => {
     if (menuRef() && show) {
-      setFocusInDropdown(() => menuRef()!.contains(document.activeElement));
+      setFocusInDropdown(() => menuRef()!.contains(menuRef()!.ownerDocument.activeElement));
     }
   });
 
@@ -288,7 +290,7 @@ function Dropdown(p: DropdownProps) {
         // On `keyup` the target is the element being tagged TO which we use to check
         // if focus has left the menu
         addEventListener(
-          document as any,
+          target.ownerDocument as any,
           "keyup",
           (e) => {
             if (
@@ -314,8 +316,8 @@ function Dropdown(p: DropdownProps) {
   };
 
   if (!isServer) {
-    document.addEventListener("keydown", keydownHandler);
-    onCleanup(() => document.removeEventListener("keydown", keydownHandler));
+    window!.document.addEventListener("keydown", keydownHandler);
+    onCleanup(() => window!.document.removeEventListener("keydown", keydownHandler));
   }
 
   return (

@@ -73,11 +73,11 @@ function useRootClose(
   createEffect(() => {
     if (options.disabled || ref() == null) return;
 
+    const doc = ownerDocument(ref()!);
+
     // Store the current event to avoid triggering handlers immediately
     // https://github.com/facebook/react/issues/20074
-    let currentEvent = window.event;
-
-    const doc = ownerDocument(ref()!);
+    let currentEvent = (doc.defaultView || window).event;
 
     // Use capture for this listener so it fires before React's listener, to
     // avoid false positives in the contains() check below if the target DOM

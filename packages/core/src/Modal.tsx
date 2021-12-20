@@ -6,6 +6,7 @@ import canUseDOM from "dom-helpers/canUseDOM";
 import listen from "dom-helpers/listen";
 import ModalManager from "./ModalManager";
 import { TransitionCallbacks } from "solid-react-transition";
+import useWindow from './useWindow';
 import {
   children,
   Component,
@@ -175,13 +176,14 @@ export interface ModalProps extends BaseModalProps {
   [other: string]: any;
 }
 
-function getManager() {
-  if (!manager) manager = new ModalManager();
+function getManager(window?: Window) {
+  if (!manager) manager = new ModalManager({ ownerDocument: window?.document });
   return manager;
 }
 
 function useModalManager(provided?: ModalManager) {
-  const modalManager = provided || getManager();
+  const window = useWindow();
+  const modalManager = provided || getManager(window);
 
   const modal = {
     dialog: null as any as HTMLElement,
