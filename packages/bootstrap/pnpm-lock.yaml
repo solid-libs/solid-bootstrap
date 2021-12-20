@@ -9,14 +9,14 @@ specifiers:
   dom-helpers: ^5.2.0
   rollup: ^2.52.1
   rollup-plugin-terser: ^7.0.2
-  solid-bootstrap-core: ^0.2.0
+  solid-bootstrap-core: ^0.2.2
   solid-js: ^1.2.5
   solid-react-transition: ^0.2.0
   typescript: ^4.5.2
 
 dependencies:
   dom-helpers: 5.2.1
-  solid-bootstrap-core: 0.2.0_solid-js@1.2.5
+  solid-bootstrap-core: 0.2.2_solid-js@1.2.5
   solid-react-transition: 0.2.0_solid-js@1.2.5
 
 devDependencies:
@@ -684,8 +684,8 @@ packages:
       randombytes: 2.1.0
     dev: true
 
-  /solid-bootstrap-core/0.2.0_solid-js@1.2.5:
-    resolution: {integrity: sha512-7Qa3g/LhZDVCl/BEgGEJfPvJVlLuXE10/Zfh5DrEPiD3eazPLsxE6wf1xO2LPn5phL36d37H1QEfJtrTFGMGLA==}
+  /solid-bootstrap-core/0.2.2_solid-js@1.2.5:
+    resolution: {integrity: sha512-1QdDQMDT3TT7RPtnBXqsNx6YlQJyVtdHb5eddTco0pUvdCpBqU5qC6cXyb+2pmmvyYIcSRcO+Q416W+W+10MNg==}
     peerDependencies:
       solid-js: ^1.2.5
     dependencies:

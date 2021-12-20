@@ -1,3 +1,9 @@
+## 2021-12-21 - solid-bootstrap (0.2.2)
+
+### Upstream changes
+- [add support for iframe and differing owner documents](https://github.com/react-restart/ui/pull/38)
+- [fix NavDropdown onSelect](https://github.com/react-bootstrap/react-bootstrap/pull/6151)
+
 ## 2021-12-10 - solid-bootstrap (0.2.0)
 
 ### BREAKING CHANGE
