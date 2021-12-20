@@ -1,0 +1,1 @@
+import{t as o,d as a,a as r}from"./vendor.f31dc633.js";const c=o('<span class="float-end"><a target="_blank">View source on Github</a></span>'),n=e=>(()=>{const t=c.cloneNode(!0),s=t.firstChild;return a(()=>r(s,"href",`https://github.com/solid-libs/solid-bootstrap/blob/master/www/src/docs/${e.name}.tsx`)),t})();export{n as G};
