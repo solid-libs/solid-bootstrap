@@ -10,6 +10,7 @@ import {
 } from "solid-bootstrap";
 import GithubSource from "./GithubSource";
 import ModalApi from "./ModalApi";
+import styles from "./ModalDocs.module.css";
 
 const booleanSignal = createSignal(false);
 
@@ -313,7 +314,7 @@ export const ModalDocs: Component = () => {
             <Modal
               show={show("custom")}
               onHide={handleClose("custom")}
-              dialogClassName="modal-90w"
+              dialogClassName={styles.modal90w}
               aria-labelledby="example-custom-modal-styling-title"
             >
               <Modal.Header closeButton>
