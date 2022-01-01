@@ -1,6 +1,7 @@
 ## 2022-01-01 - solid-bootstrap (0.2.3)
 
-Accordion - add new `alwaysOpen` prop
+### Upstream changes
+- [Accordion - add new `alwaysOpen` prop](https://github.com/react-bootstrap/react-bootstrap/pull/6091)
 
 ## 2021-12-21 - solid-bootstrap (0.2.2)
 
