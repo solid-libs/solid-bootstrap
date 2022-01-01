@@ -1,6 +1,6 @@
 {
   "name": "solid-bootstrap",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "Bootstrap 5 components built with SolidJS",
   "homepage": "https://solid-libs.github.io/solid-bootstrap",
   "repository": {
