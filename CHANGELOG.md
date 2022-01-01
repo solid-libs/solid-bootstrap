@@ -1,3 +1,7 @@
+## 2022-01-01 - solid-bootstrap (0.2.3)
+
+Accordion - add new `alwaysOpen` prop
+
 ## 2021-12-21 - solid-bootstrap (0.2.2)
 
 ### Upstream changes

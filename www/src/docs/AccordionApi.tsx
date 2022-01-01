@@ -19,7 +19,7 @@ const AccordionApi = () => (
           <tr>
             <td class="font-monospace">activeKey </td>
             <td class="font-monospace">
-              <div>string</div>
+              <div>string | string[]</div>
             </td>
             <td></td>
             <td>
@@ -27,6 +27,20 @@ const AccordionApi = () => (
                 <p>
                   The current active key that corresponds to the currently
                   expanded card
+                </p>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="font-monospace">alwaysOpen </td>
+            <td class="font-monospace">
+              <div>boolean</div>
+            </td>
+            <td></td>
+            <td>
+              <div>
+                <p>
+                  Allow accordion items to stay open when another item is opened
                 </p>
               </div>
             </td>
@@ -46,7 +60,7 @@ const AccordionApi = () => (
           <tr>
             <td class="font-monospace">defaultActiveKey </td>
             <td class="font-monospace">
-              <div>string</div>
+              <div>string | string[]</div>
             </td>
             <td></td>
             <td>
