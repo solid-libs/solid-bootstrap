@@ -5,7 +5,7 @@ import { mergeProps, splitProps, useContext } from "solid-js";
 import { Dynamic } from "solid-js/web";
 import { useBootstrapPrefix } from "./ThemeProvider";
 import Collapse, { CollapseProps } from "./Collapse";
-import AccordionContext from "./AccordionContext";
+import AccordionContext, { isAccordionItemSelected } from './AccordionContext';
 import { BsPrefixRefForwardingComponent, BsPrefixProps } from "./helpers";
 
 export interface AccordionCollapseProps extends BsPrefixProps, CollapseProps {
@@ -31,7 +31,7 @@ const AccordionCollapse: BsPrefixRefForwardingComponent<
   const bsPrefix = useBootstrapPrefix(local.bsPrefix, "accordion-collapse");
 
   return (
-    <Collapse in={context.activeEventKey === local.eventKey} {...props}>
+    <Collapse in={isAccordionItemSelected(context.activeEventKey, local.eventKey)} {...props}>
       <Dynamic
         component={local.as}
         className={classNames(local.className, bsPrefix)}

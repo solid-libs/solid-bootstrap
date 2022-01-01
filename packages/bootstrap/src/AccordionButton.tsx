@@ -4,7 +4,10 @@ import classNames from "./classnames";
 import { JSX, mergeProps, splitProps, useContext } from "solid-js";
 import { Dynamic } from "solid-js/web";
 import { callEventHandler } from "solid-bootstrap-core";
-import AccordionContext from "./AccordionContext";
+import AccordionContext, {
+  isAccordionItemSelected,
+  AccordionEventKey,
+} from './AccordionContext';
 import AccordionItemContext from "./AccordionItemContext";
 import { BsPrefixProps, BsPrefixRefForwardingComponent } from "./helpers";
 import { useBootstrapPrefix } from "./ThemeProvider";
@@ -26,10 +29,22 @@ export function useAccordionButton(
       Compare the event key in context with the given event key.
       If they are the same, then collapse the component.
     */
-    const eventKeyPassed =
+      let eventKeyPassed: AccordionEventKey =
       eventKey === context.activeEventKey ? null : eventKey;
+    if (context.alwaysOpen) {
+      if (Array.isArray(context.activeEventKey)) {
+        if (context.activeEventKey.includes(eventKey)) {
+          eventKeyPassed = context.activeEventKey.filter((k) => k !== eventKey);
+        } else {
+          eventKeyPassed = [...context.activeEventKey, eventKey];
+        }
+      } else {
+        // activeEventKey is undefined.
+        eventKeyPassed = [eventKey];
+      }
+    }
 
-    if (context.onSelect) context.onSelect(eventKeyPassed, e);
+    context.onSelect?.(eventKeyPassed, e);
     callEventHandler(onClick, e);
   };
 }
@@ -66,7 +81,7 @@ const AccordionButton: BsPrefixRefForwardingComponent<
       className={classNames(
         local.className,
         bsPrefix,
-        itemContext.eventKey !== accordionContext.activeEventKey && "collapsed"
+        !isAccordionItemSelected(accordionContext.activeEventKey, itemContext.eventKey) && 'collapsed',
       )}
     >
       {props.children}

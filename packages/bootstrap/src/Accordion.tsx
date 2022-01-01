@@ -2,12 +2,15 @@
 
 import classNames from "./classnames";
 import { JSX, mergeProps, splitProps } from "solid-js";
-import { createControlledProp, SelectCallback } from "solid-bootstrap-core";
+import { createControlledProp } from "solid-bootstrap-core";
 import { useBootstrapPrefix } from "./ThemeProvider";
 import AccordionBody from "./AccordionBody";
 import AccordionButton from "./AccordionButton";
 import AccordionCollapse from "./AccordionCollapse";
-import AccordionContext from "./AccordionContext";
+import AccordionContext, {
+  AccordionSelectCallback,
+  AccordionEventKey,
+} from './AccordionContext';
 import AccordionHeader from "./AccordionHeader";
 import AccordionItem from "./AccordionItem";
 import { BsPrefixProps, BsPrefixRefForwardingComponent } from "./helpers";
@@ -16,10 +19,11 @@ import { Dynamic } from "solid-js/web";
 export interface AccordionProps
   extends Omit<JSX.HTMLAttributes<HTMLElement>, "onSelect">,
     BsPrefixProps {
-  activeKey?: string;
-  defaultActiveKey?: string;
-  onSelect?: SelectCallback;
+  activeKey?: AccordionEventKey;
+  defaultActiveKey?: AccordionEventKey;
+  onSelect?: AccordionSelectCallback;
   flush?: boolean;
+  alwaysOpen?: boolean;
 }
 
 const defaultProps = {
@@ -32,6 +36,7 @@ const Accordion: BsPrefixRefForwardingComponent<"div", AccordionProps> = (
   const [local, props] = splitProps(mergeProps(defaultProps, p), [
     "as",
     "activeKey",
+    "alwaysOpen",
     "bsPrefix",
     "className",
     "defaultActiveKey",
@@ -49,6 +54,9 @@ const Accordion: BsPrefixRefForwardingComponent<"div", AccordionProps> = (
   const contextValue = {
     get activeEventKey() {
       return activeKey();
+    },
+    get alwaysOpen() {
+      return local.alwaysOpen;
     },
     get onSelect() {
       return onSelect;
