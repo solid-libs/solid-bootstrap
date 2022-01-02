@@ -1,4 +1,4 @@
-import { JSX, splitProps } from "solid-js";
+import { Accessor, createMemo, JSX, mergeProps, splitProps } from "solid-js";
 import { Dynamic } from "solid-js/web";
 import { callEventHandler } from "./utils";
 
@@ -40,49 +40,61 @@ export interface UseButtonPropsMetadata {
   tagName: keyof JSX.IntrinsicElements;
 }
 
-export function useButtonProps<T extends HTMLElement>({
-  tagName,
-  disabled,
-  href,
-  target,
-  rel,
-  onClick,
-  tabIndex = 0,
-  type,
-}: UseButtonPropsOptions<T>): [AriaButtonProps<T>, UseButtonPropsMetadata] {
-  if (!tagName) {
-    if (href != null || target != null || rel != null) {
-      tagName = "a";
-    } else {
-      tagName = "button";
+const defaultOptions = {
+  tabIndex: 0,
+}
+
+export function useButtonProps<T extends HTMLElement>(o : UseButtonPropsOptions<T>): [AriaButtonProps<T>, UseButtonPropsMetadata] {
+  const options = mergeProps(defaultOptions, o);
+
+  const tagName = createMemo(() => {
+    if (!options.tagName) {
+      if (options.href != null || options.target != null || options.rel != null) {
+        return "a";
+      } else {
+        return "button";
+      }
     }
+    return options.tagName
+  })
+
+  const meta: UseButtonPropsMetadata = {
+    get tagName() {
+      return tagName();
+    },
+  };
+
+  if (tagName() === "button") {
+    return [{ 
+      get type() {
+        return (options.type as any) || "button"
+      }, 
+      get disabled() {
+        return options.disabled
+      } 
+    }, meta];
   }
 
-  const meta: UseButtonPropsMetadata = { tagName };
-  if (tagName === "button") {
-    return [{ type: (type as any) || "button", disabled }, meta];
-  }
-
-  const handleClick: JSX.EventHandler<T, MouseEvent> = (event) => {
-    if (disabled || (tagName === "a" && isTrivialHref(href))) {
+  const getClickHandler: Accessor<JSX.EventHandler<T, MouseEvent>> = createMemo(() => (event: MouseEvent) => {
+    if (options.disabled || (tagName() === "a" && isTrivialHref(options.href))) {
       event.preventDefault();
     }
 
-    if (disabled) {
+    if (options.disabled) {
       event.stopPropagation();
       return;
     }
-    callEventHandler(onClick, event);
-  };
+    callEventHandler(options.onClick, event);
+  });
 
-  const handleKeyDown: JSX.EventHandler<T, KeyboardEvent> = (event) => {
+  const getKeyDownHandler: Accessor<JSX.EventHandler<T, KeyboardEvent>> = createMemo(() => (event: KeyboardEvent) => {
     if (event.key === " ") {
       event.preventDefault();
-      handleClick(
+      getClickHandler()(
         event as any /*HACK calling click handler with keyboard event*/
       );
     }
-  };
+  });
 
   return [
     {
@@ -90,13 +102,27 @@ export function useButtonProps<T extends HTMLElement>({
       // explicitly undefined so that it overrides the props disabled in a spread
       // e.g. <Tag {...props} {...hookProps} />
       disabled: undefined,
-      tabIndex: disabled ? undefined : tabIndex,
-      href: tagName === "a" && disabled ? undefined : href,
-      target: tagName === "a" ? target : undefined,
-      "aria-disabled": !disabled ? undefined : disabled,
-      rel: tagName === "a" ? rel : undefined,
-      onClick: handleClick,
-      onKeyDown: handleKeyDown,
+      get tabIndex() {
+        return options.disabled ? undefined : options.tabIndex;
+      },
+      get href() {
+        return tagName() === "a" && options.disabled ? undefined : options.href;
+      },
+      get target() {
+        return tagName() === "a" ? options.target : undefined;
+      },
+      get "aria-disabled"() {
+        return !options.disabled ? undefined : options.disabled;
+      },
+      get rel() {
+        return tagName() === "a" ? options.rel : undefined;
+      },
+      get onClick() {
+        return getClickHandler();
+      },
+      get onKeyDown() {
+        return getKeyDownHandler();
+      }
     },
     meta,
   ];

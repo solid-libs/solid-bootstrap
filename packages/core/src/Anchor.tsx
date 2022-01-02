@@ -1,4 +1,4 @@
-import { JSX, splitProps } from "solid-js";
+import { JSX, mergeProps, splitProps } from "solid-js";
 
 import { useButtonProps } from "./Button";
 import { callEventHandler } from "./utils";
@@ -20,10 +20,9 @@ export interface AnchorProps extends JSX.HTMLAttributes<HTMLAnchorElement> {
  */
 const Anchor = (props: AnchorProps) => {
   const [local, otherProps] = splitProps(props, ["onKeyDown"]);
-  const [buttonProps] = useButtonProps<HTMLAnchorElement>({
-    tagName: "a",
-    ...otherProps,
-  });
+  const [buttonProps] = useButtonProps<HTMLAnchorElement>(
+    mergeProps({tagName: "a" as const}, otherProps)
+  );
 
   const handleKeyDown = ((e) => {
     callEventHandler(buttonProps.onKeyDown, e);
