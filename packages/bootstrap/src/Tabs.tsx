@@ -109,7 +109,7 @@ const Tabs = (p: TabsProps) => {
       mountOnEnter={local.mountOnEnter}
       unmountOnExit={local.unmountOnExit}
     >
-      <Nav {...props} role="tablist" as="ul">
+      <Nav {...props} role="tablist" as="ul" data-active-key={activeKey()}>
         <For each={tabs()}>
           {(tabProps) => (
             <RenderTab {...tabProps}>{tabProps.children}</RenderTab>

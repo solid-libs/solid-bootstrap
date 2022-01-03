@@ -81,6 +81,7 @@ const Nav: BsPrefixRefForwardingComponent<"div", NavProps> = (p: NavProps) => {
         [`${bsPrefix}-justified`]: local.justify,
       })}
       {...props}
+      data-active-key={activeKey()}
     >
       {props.children}
     </BaseNav>
