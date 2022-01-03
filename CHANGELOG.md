@@ -1,3 +1,8 @@
+## 2022-01-04 - solid-bootstrap (0.2.6)
+
+### Bug Fixes
+- [New data-active-key not set upon initialization](https://github.com/solid-libs/solid-bootstrap/issues/7)
+
 ## 2022-01-04 - solid-bootstrap (0.2.5)
 
 ### New Features
