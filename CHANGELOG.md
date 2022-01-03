@@ -1,3 +1,8 @@
+## 2022-01-03 - solid-bootstrap (0.2.4)
+
+### Fixes
+- [core anchor and button not responsive](https://github.com/solid-libs/solid-bootstrap/issues/5)
+
 ## 2022-01-01 - solid-bootstrap (0.2.3)
 
 ### Upstream changes

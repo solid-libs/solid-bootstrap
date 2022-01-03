@@ -7,8 +7,8 @@ specifiers:
   lodash: 4.17.21
   shakespeare-data: ^3.0.0
   solid-app-router: ^0.1.13
-  solid-bootstrap: 0.2.3
-  solid-bootstrap-core: 0.2.2
+  solid-bootstrap: 0.2.4
+  solid-bootstrap-core: 0.2.4
   solid-js: ^1.2.5
   typescript: ^4.5.2
   vite: ^2.5.7
@@ -19,8 +19,8 @@ dependencies:
   classnames: 2.3.1
   lodash: 4.17.21
   solid-app-router: 0.1.13_solid-js@1.2.5
-  solid-bootstrap: 0.2.3_solid-js@1.2.5
-  solid-bootstrap-core: 0.2.2_solid-js@1.2.5
+  solid-bootstrap: 0.2.4_solid-js@1.2.5
+  solid-bootstrap-core: 0.2.4_solid-js@1.2.5
   solid-js: 1.2.5
 
 devDependencies:
@@ -777,8 +777,8 @@ packages:
       solid-js: 1.2.5
     dev: false
 
-  /solid-bootstrap-core/0.2.2_solid-js@1.2.5:
-    resolution: {integrity: sha512-1QdDQMDT3TT7RPtnBXqsNx6YlQJyVtdHb5eddTco0pUvdCpBqU5qC6cXyb+2pmmvyYIcSRcO+Q416W+W+10MNg==}
+  /solid-bootstrap-core/0.2.4_solid-js@1.2.5:
+    resolution: {integrity: sha512-4l3HnF2lNl5sdPL2rQJrbGh9KUoPArz1he1vMlJqf3uRyy8R5kFxTIyz/kTBTsnIN8r36qTguJyBPZ6yz1lX+Q==}
     peerDependencies:
       solid-js: ^1.2.5
     dependencies:
@@ -788,13 +788,13 @@ packages:
       solid-react-transition: 0.2.0_solid-js@1.2.5
     dev: false
 
-  /solid-bootstrap/0.2.3_solid-js@1.2.5:
-    resolution: {integrity: sha512-YOtmMQBOu7FkbJqaIlMaOOHBOGEvFqhevSMRzFDdtyx4qoVQWzhDuADFRGard0O+XaASor8bJ7jGGuJ7IftmpA==}
+  /solid-bootstrap/0.2.4_solid-js@1.2.5:
+    resolution: {integrity: sha512-I6s2HvT5Cn4I5Qzc/i1a5veWtdgxVnYod8v4rYzWWydl7bSyCqa+Lj2OsHRZuWeb+VnOTErbNqJVamIW/usKKQ==}
     peerDependencies:
       solid-js: ^1.2.5
     dependencies:
       dom-helpers: 5.2.1
-      solid-bootstrap-core: 0.2.2_solid-js@1.2.5
+      solid-bootstrap-core: 0.2.4_solid-js@1.2.5
       solid-js: 1.2.5
       solid-react-transition: 0.2.0_solid-js@1.2.5
     dev: false
