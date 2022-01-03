@@ -84,17 +84,6 @@ const FormCheck: BsPrefixRefForwardingComponent<"input", FormCheckProps> = (
       hasFormCheckLabel()
   );
 
-  const input = (
-    <FormCheckInput
-      {...props}
-      type={local.type === "switch" ? "checkbox" : local.type}
-      isValid={local.isValid}
-      isInvalid={local.isInvalid}
-      disabled={local.disabled}
-      as={local.as}
-    />
-  );
-
   return (
     <FormContext.Provider value={innerFormContext}>
       <FormCheckContext.Provider value={{ setHasFormCheckLabel }}>
@@ -109,7 +98,14 @@ const FormCheck: BsPrefixRefForwardingComponent<"input", FormCheckProps> = (
         >
           {local.children || (
             <>
-              {input}
+              <FormCheckInput
+                {...props}
+                type={local.type === "switch" ? "checkbox" : local.type}
+                isValid={local.isValid}
+                isInvalid={local.isInvalid}
+                disabled={local.disabled}
+                as={local.as}
+              />
               {hasLabel() && (
                 <FormCheckLabel title={local.title}>
                   {local.label}
