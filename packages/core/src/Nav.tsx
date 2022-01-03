@@ -142,6 +142,8 @@ const Nav = (p: NavProps) => {
     }
   };
 
+  const activeKey = () => makeEventKey(tabContext?.activeKey ?? local.activeKey)
+
   return (
     <SelectableContext.Provider value={handleSelect}>
       <NavContext.Provider
@@ -150,7 +152,7 @@ const Nav = (p: NavProps) => {
             return local.role || (tabContext ? "tablist" : undefined);
           }, // used by NavLink to determine it's role
           get activeKey() {
-            return makeEventKey(tabContext?.activeKey ?? local.activeKey);
+            return activeKey();
           },
           get getControlledId() {
             return tabContext?.getControlledId || noop;
@@ -162,10 +164,11 @@ const Nav = (p: NavProps) => {
       >
         <Dynamic
           component={local.as}
+          data-active-key={activeKey()}
           {...props}
           onKeyDown={handleKeyDown}
           ref={mergedRef}
-        >
+          >
           {props.children}
         </Dynamic>
       </NavContext.Provider>
