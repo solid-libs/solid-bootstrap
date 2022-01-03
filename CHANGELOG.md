@@ -1,6 +1,14 @@
+## 2022-01-04 - solid-bootstrap (0.2.5)
+
+### New Features
+- Tabs & Nav - add data-active-key attribute
+
+### Bug Fixes
+- [Form.Control id prop doesn't work for checkboxes](https://github.com/solid-libs/solid-bootstrap/issues/6)
+
 ## 2022-01-03 - solid-bootstrap (0.2.4)
 
-### Fixes
+### Bug Fixes
 - [core anchor and button not responsive](https://github.com/solid-libs/solid-bootstrap/issues/5)
 
 ## 2022-01-01 - solid-bootstrap (0.2.3)
