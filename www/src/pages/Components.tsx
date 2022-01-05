@@ -24,9 +24,9 @@ const Components: Component = (props) => (
       />
       <Route
         path="button-group"
-        component={lazy(() => import("../docs/ButtonGroupDocs"))}
+        component={lazy(() => import("../docs/ButtonGroupDocs.mdx"))}
       />
-      <Route path="cards" component={lazy(() => import("../docs/CardsDocs"))} />
+      <Route path="cards" component={lazy(() => import("../docs/CardsDocs.mdx"))} />
       <Route
         path="carousel"
         component={lazy(() => import("../docs/CarouselDocs"))}

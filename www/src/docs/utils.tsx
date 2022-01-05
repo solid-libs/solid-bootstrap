@@ -7,3 +7,8 @@ export const useHolderJSRefresh = () => {
     Holder.run({});
   });
 };
+
+export function HolderJSRefresh() {
+  useHolderJSRefresh()
+  return null;
+}
