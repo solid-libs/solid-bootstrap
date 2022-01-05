@@ -11,7 +11,7 @@ const Components: Component = (props) => (
       />
       <Route
         path="accordion"
-        component={lazy(() => import("../docs/AccordionDocs"))}
+        component={lazy(() => import("../docs/AccordionDocs.mdx"))}
       />
       <Route path="badge" component={lazy(() => import("../docs/BadgeDocs"))} />
       <Route

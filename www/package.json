@@ -11,18 +11,23 @@
     "watch": "tsc -noemit -watch"
   },
   "license": "MIT",
+  "type": "module",
   "devDependencies": {
+    "@mdx-js/rollup": "^2.0.0-rc.2",
     "fs-extra": "10.0.0",
-    "vite": "^2.5.7",
-    "vite-plugin-solid": "^2.0.3",
+    "shakespeare-data": "^3.0.0",
+    "rollup": "2.63.0",
+    "rehype-highlight": "5.0.2",
+    "solid-mdx": "^0.0.5",
     "typescript": "^4.5.2",
-    "shakespeare-data": "^3.0.0"
+    "vite": "^2.7.10",
+    "vite-plugin-solid": "2.2.0"
   },
   "dependencies": {
     "@types/lodash": "4.14.177",
     "classnames": "2.3.1",
     "lodash": "4.17.21",
-    "solid-js": "^1.2.5",
+    "solid-js": "^1.2.6",
     "solid-app-router": "^0.1.13",
     "solid-bootstrap": "0.2.6",
     "solid-bootstrap-core": "0.2.6"
