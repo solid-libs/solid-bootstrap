@@ -22,7 +22,7 @@ const Home = () => (
             Get started
           </Link>
           <Link
-            href="/components/alerts"
+            href="/components/accordion"
             role="button"
             tabindex="0"
             class="px-5 btn btn-outline-light btn-lg"

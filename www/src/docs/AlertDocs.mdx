@@ -1,0 +1,231 @@
+import { createSignal, For } from "solid-js";
+import { Alert, Button } from "solid-bootstrap";
+import Example from "./Example";
+import GithubSource from "./GithubSource";
+import AlertApi from "./AlertApi";
+import { ControlledDismissAlert } from "./AlertExamples"
+
+
+<GithubSource name="AlertDocs.mdx" />
+# Alerts
+
+<p className="lead">
+  Provide contextual feedback messages for typical user actions with the handful
+  of available and flexible alert messages.
+</p>
+
+<div class="row gy-5 pt-3">
+
+
+  <Example title="Examples">
+    <Example.Intro>
+      Alerts are available for any length of text, as well as an optional dismiss button. 
+      For proper styling, use one of the eight variants.
+    </Example.Intro>
+    <Example.Preview>
+      <For
+        each={[
+          "primary",
+          "secondary",
+          "success",
+          "danger",
+          "warning",
+          "info",
+          "light",
+          "dark",
+        ]}
+      >
+        {(variant) => (
+          <Alert variant={variant}>
+            This is a {variant} alert—check it out!{" "}
+          </Alert>
+        )}
+      </For>
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      <For
+        each={[
+          "primary",
+          "secondary",
+          "success",
+          "danger",
+          "warning",
+          "info",
+          "light",
+          "dark",
+        ]}
+      >
+        {(variant) => (
+          <Alert variant={variant}>
+            This is a {variant} alert—check it out!{" "}
+          </Alert>
+        )}
+      </For>
+      ```
+    </Example.Code>
+  </Example>
+
+  <Alert variant="warning">
+      Using color to add meaning only provides a visual indication, which will not
+      be conveyed to users of assistive technologies – such as screen readers.
+      Ensure that information denoted by the color is either obvious from the content
+      itself (e.g. the visible text), or is included through alternative means,
+      such as additional text hidden with the `.visually-hidden` class.
+  </Alert>
+
+  <Example title="Links">
+    <Example.Intro>
+      For links, use the `<Alert.Link>` component to provide matching
+      colored links within any alert.
+    </Example.Intro>
+    <Example.Preview>
+      <For
+        each={[
+          "primary",
+          "secondary",
+          "success",
+          "danger",
+          "warning",
+          "info",
+          "light",
+          "dark",
+        ]}
+      >
+        {(variant) => (
+          <Alert variant={variant}>
+            This is a {variant} alert with <Alert.Link href="#">an example link.</Alert.Link>. Give it a try if you like.
+          </Alert>
+        )}
+      </For>
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      <For
+        each={[
+          "primary",
+          "secondary",
+          "success",
+          "danger",
+          "warning",
+          "info",
+          "light",
+          "dark",
+        ]}
+      >
+        {(variant) => (
+          <Alert variant={variant}>
+            This is a {variant} alert with <Alert.Link href="#">an example link.</Alert.Link>. Give it a try if you like.
+          </Alert>
+        )}
+      </For>
+      ```
+    </Example.Code>
+  </Example>
+
+
+  <Example title="Additional content">
+    <Example.Intro>
+      Alerts can contain whatever content you like. Headers, paragraphs, dividers, go crazy.
+    </Example.Intro>
+    <Example.Preview>
+      <Alert variant="success">
+        <Alert.Heading>Hey, nice to see you</Alert.Heading>
+        <p>
+          Aww yeah, you successfully read this important alert message. This example
+          text is going to run a bit longer so that you can see how spacing within an
+          alert works with this kind of content.
+        </p>
+        <hr />
+        <p className="mb-0">
+          Whenever you need to, be sure to use margin utilities to keep things nice
+          and tidy.
+        </p>
+      </Alert>
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      <Alert variant="success">
+        <Alert.Heading>Hey, nice to see you</Alert.Heading>
+        <p>
+          Aww yeah, you successfully read this important alert message. This example
+          text is going to run a bit longer so that you can see how spacing within an
+          alert works with this kind of content.
+        </p>
+        <hr />
+        <p className="mb-0">
+          Whenever you need to, be sure to use margin utilities to keep things nice
+          and tidy.
+        </p>
+      </Alert>
+      ```
+    </Example.Code>
+  </Example>
+
+
+  <Example title="Dismissing">
+    <Example.Intro>
+      Add the `dismissible` prop to add a functioning dismiss button to the Alert.
+    </Example.Intro>
+    <Example.Preview>
+      <Alert variant="danger" dismissible>
+        <Alert.Heading>Oh snap! You got an error!</Alert.Heading>
+        <p>
+          Change this and that and try again. Duis mollis, est non commodo
+          luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.
+          Cras mattis consectetur purus sit amet fermentum.
+        </p>
+      </Alert>
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      <Alert variant="danger" dismissible>
+        <Alert.Heading>Oh snap! You got an error!</Alert.Heading>
+        <p>
+          Change this and that and try again. Duis mollis, est non commodo
+          luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.
+          Cras mattis consectetur purus sit amet fermentum.
+        </p>
+      </Alert>
+      ```
+    </Example.Code>
+  </Example>
+
+
+  <Example title="Controlling visibility">
+    <Example.Intro>
+      You can also control the visual state directly which is great if you want to build more complicated alerts.
+    </Example.Intro>
+    <Example.Preview>
+      <ControlledDismissAlert />
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      const [show, setShow] = createSignal(true);
+      return (
+        <>
+          <Alert show={show()} variant="success">
+            <Alert.Heading>How's it going?!</Alert.Heading>
+            <p>
+              Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget
+              lacinia odio sem nec elit. Cras mattis consectetur purus sit amet
+              fermentum.
+            </p>
+            <hr />
+            <div className="d-flex justify-content-end">
+              <Button onClick={() => setShow(false)} variant="outline-success">
+                Close me y'all!
+              </Button>
+            </div>
+          </Alert>
+
+          {!show() && <Button onClick={() => setShow(true)}>Show Alert</Button>}
+        </>
+      )
+      ```
+    </Example.Code>
+  </Example>
+
+  <AlertApi />
+
+</div>

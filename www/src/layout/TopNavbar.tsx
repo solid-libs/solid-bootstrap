@@ -34,7 +34,7 @@ const TopNavbar: Component = () => (
           <Nav.Link as={Link} href="/getting-started">
             Getting started
           </Nav.Link>
-          <Nav.Link as={Link} href="/components/alerts">
+          <Nav.Link as={Link} href="/components/accordion">
             Components
           </Nav.Link>
         </Nav>

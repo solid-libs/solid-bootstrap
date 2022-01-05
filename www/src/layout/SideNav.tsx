@@ -16,8 +16,8 @@ const baseUrl = import.meta.env.BASE_URL;
 const layout = ["grid", "stack"];
 
 const components = [
-  "alerts",
   "accordion",
+  "alerts",
   "badge",
   "breadcrumb",
   "buttons",

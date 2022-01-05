@@ -6,21 +6,21 @@ const Components: Component = (props) => (
   <Layout>
     <Routes>
       <Route
-        path="alerts"
-        component={lazy(() => import("../docs/AlertDocs"))}
-      />
-      <Route
         path="accordion"
         component={lazy(() => import("../docs/AccordionDocs.mdx"))}
       />
-      <Route path="badge" component={lazy(() => import("../docs/BadgeDocs"))} />
+      <Route
+        path="alerts"
+        component={lazy(() => import("../docs/AlertDocs.mdx"))}
+      />
+      <Route path="badge" component={lazy(() => import("../docs/BadgeDocs.mdx"))} />
       <Route
         path="breadcrumb"
-        component={lazy(() => import("../docs/BreadcrumbDocs"))}
+        component={lazy(() => import("../docs/BreadcrumbDocs.mdx"))}
       />
       <Route
         path="buttons"
-        component={lazy(() => import("../docs/ButtonDocs"))}
+        component={lazy(() => import("../docs/ButtonDocs.mdx"))}
       />
       <Route
         path="button-group"

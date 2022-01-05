@@ -1,0 +1,119 @@
+import { Alert, Badge, Button } from "solid-bootstrap";
+import Example from "./Example";
+import GithubSource from "./GithubSource";
+import BadgeApi from "./BadgeApi";
+
+<GithubSource name="BadgeDocs.mdx" />
+# Badges
+
+<p class="lead">
+  Badges scale to match the size of the immediate parent element by
+  using relative font sizing and em units.
+</p>
+
+<div class="row gy-5 pt-3">
+
+  <Example title="Examples">
+    <Example.Preview>
+      <h1>Example heading <Badge bg="secondary">New</Badge></h1>
+      <h2>Example heading <Badge bg="secondary">New</Badge></h2>
+      <h3>Example heading <Badge bg="secondary">New</Badge></h3>
+      <h4>Example heading <Badge bg="secondary">New</Badge></h4>
+      <h5>Example heading <Badge bg="secondary">New</Badge></h5>
+      <h6>Example heading <Badge bg="secondary">New</Badge></h6>
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      <h1>Example heading <Badge bg="secondary">New</Badge></h1>
+      <h2>Example heading <Badge bg="secondary">New</Badge></h2>
+      <h3>Example heading <Badge bg="secondary">New</Badge></h3>
+      <h4>Example heading <Badge bg="secondary">New</Badge></h4>
+      <h5>Example heading <Badge bg="secondary">New</Badge></h5>
+      <h6>Example heading <Badge bg="secondary">New</Badge></h6>
+      ```
+    </Example.Code>
+  </Example>
+
+  <Example title="Embedded">
+    <Example.Intro>
+      Badges can be used as part of links or buttons to provide a counter.
+    </Example.Intro>
+    <Example.Preview>
+      {
+        <Button variant="primary">Profile 
+          <Badge bg="secondary">9</Badge>
+          <span className="visually-hidden">unread messages</span>
+        </Button>
+      }
+
+      <Alert variant="warning" className="mt-3">
+        {"Note that depending on how they are used, badges may be confusing for users of screen readers and similar assistive technologies. While the styling of badges provides a visual cue as to their purpose, these users will simply be presented with the content of the badge. Depending on the specific situation, these badges may seem like random additional words or numbers at the end of a sentence, link, or button. Unless the context is clear, consider including additional context with a visually hidden piece of additional text."}
+      </Alert>
+    </Example.Preview>
+    <Example.Code>
+      ```js
+        <Button variant="primary">Profile 
+          <Badge bg="secondary">9</Badge>
+          <span className="visually-hidden">unread messages</span>
+        </Button>
+      ```
+    </Example.Code>
+  </Example>
+
+
+  <Example title="Contextual">
+    <Example.Intro>
+      Add any of the below mentioned modifier classes to change the appearance of a badge.
+    </Example.Intro>
+    <Example.Preview>
+      <Badge bg="primary">Primary</Badge>
+      <Badge bg="secondary">Secondary</Badge>
+      <Badge bg="success">Success</Badge> <Badge bg="danger">Danger</Badge>
+      <Badge bg="warning" text="dark">Warning</Badge>
+      <Badge bg="info">Info</Badge>
+      <Badge bg="light" text="dark">Light</Badge>
+      <Badge bg="dark">Dark</Badge>
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      <Badge bg="primary">Primary</Badge>
+      <Badge bg="secondary">Secondary</Badge>
+      <Badge bg="success">Success</Badge> <Badge bg="danger">Danger</Badge>
+      <Badge bg="warning" text="dark">Warning</Badge>
+      <Badge bg="info">Info</Badge>
+      <Badge bg="light" text="dark">Light</Badge>
+      <Badge bg="dark">Dark</Badge>
+      ```
+    </Example.Code>
+  </Example>
+
+  <Example title="Pills">
+    <Example.Intro>
+      Badges Use the pill modifier class to make badges more rounded (with a larger border-radius).
+    </Example.Intro>
+    <Example.Preview>
+      <Badge pill bg="primary">Primary</Badge>
+      <Badge pill bg="secondary">Secondary</Badge>
+      <Badge pill bg="success">Success</Badge>
+      <Badge pill bg="danger">Danger</Badge>
+      <Badge pill bg="warning" text="dark">Warning</Badge>
+      <Badge pill bg="info">Info</Badge>
+      <Badge pill bg="light" text="dark">Light</Badge>
+      <Badge pill bg="dark">Dark</Badge>
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      <Badge pill bg="primary">Primary</Badge>
+      <Badge pill bg="secondary">Secondary</Badge>
+      <Badge pill bg="success">Success</Badge>
+      <Badge pill bg="danger">Danger</Badge>
+      <Badge pill bg="warning" text="dark">Warning</Badge>
+      <Badge pill bg="info">Info</Badge>
+      <Badge pill bg="light" text="dark">Light</Badge>
+      <Badge pill bg="dark">Dark</Badge>
+      ```
+    </Example.Code>
+  </Example>
+
+  <BadgeApi />
+</div>
