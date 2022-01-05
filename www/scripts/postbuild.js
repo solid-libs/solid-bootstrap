@@ -1,9 +1,12 @@
 // Copies index.html for each route endpoint to workaround limitations
 // of static server like Github pages not supporting SPA routing
 
-const path = require("path");
-const fs = require("fs-extra");
+import path from "path"
+import fs from "fs-extra"
+import { fileURLToPath } from 'url';
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 const docsPath = path.resolve(__dirname, "../../docs/");
 const componentsPath = path.join(docsPath, "components");
 const corePath = path.join(docsPath, "core");
