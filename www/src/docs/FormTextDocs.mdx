@@ -1,0 +1,77 @@
+import { Alert, Form  } from "solid-bootstrap";
+import Example from "./Example";
+import GithubSource from "./GithubSource";
+import BadgeApi from "./BadgeApi";
+
+<GithubSource name="FormTextDocs.mdx" />
+# Form text
+
+<p className="lead">
+  Create block-level or inline-level form text.
+</p>
+
+<div className="row gy-5 pt-3">
+
+  <Example title="Example">
+    <Example.Intro>
+      Block-level help text in forms can be created using `<Form.Text>`. Inline help
+      text can be flexibly implemented using any inline HTML element and utility classes
+      like `.text-muted`.
+
+      Form text below inputs can be styled with `<Form.Text>`. This component includes
+      `display: block` and adds some top margin for easy spacing from the inputs above.
+    </Example.Intro>
+    <Example.Preview>
+      <Form.Label htmlFor="inputPassword5">Password</Form.Label>
+      <Form.Control
+        type="password"
+        id="inputPassword5"
+        aria-describedby="passwordHelpBlock"
+      />
+      <Form.Text id="passwordHelpBlock" muted>
+        Your password must be 8-20 characters long, contain letters and numbers, and
+        must not contain spaces, special characters, or emoji.
+      </Form.Text>
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      <Form.Label htmlFor="inputPassword5">Password</Form.Label>
+      <Form.Control
+        type="password"
+        id="inputPassword5"
+        aria-describedby="passwordHelpBlock"
+      />
+      <Form.Text id="passwordHelpBlock" muted>
+        Your password must be 8-20 characters long, contain letters and numbers, and
+        must not contain spaces, special characters, or emoji.
+      </Form.Text>
+      ```
+    </Example.Code>
+  </Example>
+
+<Alert variant="warning">
+  <Alert.Heading>Associating help text with form controls</Alert.Heading>
+  Help text should be explicitly associated with the form control it relates to using
+  the <code>aria-describedby</code> attribute. This will ensure that assistive technologies—such
+  as screen readers—will announce this help text when the user focuses or enters
+  the control.
+</Alert>
+
+
+</div>
+
+## Api
+### Form.Text
+`import { Form } from "solid-bootstrap"'`
+
+<table class="bg-white mb-0 table table-striped table-bordered">
+  <thead>
+    <tr><th>Name</th><th>Type</th><th>Default</th><th>Description</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>ref </td><td><div>ReactRef</div></td><td></td><td><div><p>The FormText <code>ref</code> will be forwarded to the underlying element. Unless the FormText is rendered <code>as</code> a composite component, it will be a DOM node, when resolved.</p></div></td></tr>
+    <tr><td>as </td><td><div>elementType</div></td><td><code>`<small>`</code></td><td><div><p>You can use a custom element type for this component.</p></div></td></tr>
+    <tr><td>muted </td><td><div>boolean</div></td><td></td><td><div><p>A convenience prop for add the <code>text-muted</code> class, since it's so commonly used here.</p></div></td></tr>
+    <tr><td>bsPrefix </td><td><div>string</div></td><td><code>'form-text'</code></td><td><div><p>Change the underlying component CSS base class name and modifier class names prefix. <strong>This is an escape hatch</strong> for working with heavily customized bootstrap css.</p></div></td></tr>
+  </tbody>
+</table>

@@ -13,6 +13,19 @@ import { Link, useLocation } from "solid-app-router";
 
 const baseUrl = import.meta.env.BASE_URL;
 
+const forms = [
+  "overview", 
+  "form-controls", 
+  "form-text", 
+  "select", 
+  "checks-radios", 
+  "range", 
+  "input-group", 
+  "floating-labels", 
+  "layout", 
+  "validation"
+];
+
 const layout = ["grid", "stack"];
 
 const components = [
@@ -27,7 +40,6 @@ const components = [
   "close-button",
   "dropdowns",
   "figures",
-  "forms",
   "input-group",
   "images",
   "list-group",
@@ -205,6 +217,12 @@ const SideNav: Component = (props: ComponentProps<typeof SidePanel>) => {
               location={location}
               items={layout}
               path="/layout"
+            />
+            <NavSection
+              heading="Forms"
+              location={location}
+              items={forms}
+              path="/forms"
             />
             <NavSection
               heading="Components"

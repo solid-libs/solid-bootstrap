@@ -1,0 +1,514 @@
+import { Alert, Button, Dropdown, DropdownButton, Form, FormControl, InputGroup, SplitButton } from "solid-bootstrap";
+import Example from "./Example";
+import GithubSource from "./GithubSource";
+import BadgeApi from "./BadgeApi";
+
+<GithubSource name="FormInputGroupDocs.mdx" />
+# Input groups
+
+<p className="lead">
+  Place one add-on or button on either side of an input. You may also
+  place one on both sides of an input. Remember to place
+  `<label>`s outside the input group.
+</p>
+
+<div className="row gy-5 pt-3">
+
+  <Example title="Examples">
+    <Example.Intro>
+    </Example.Intro>
+    <Example.Preview>
+      <InputGroup className="mb-3">
+        <InputGroup.Text id="basic-addon1">@</InputGroup.Text>
+        <FormControl
+          placeholder="Username"
+          aria-label="Username"
+          aria-describedby="basic-addon1"
+        />
+      </InputGroup>
+
+      <InputGroup className="mb-3">
+        <FormControl
+          placeholder="Recipient's username"
+          aria-label="Recipient's username"
+          aria-describedby="basic-addon2"
+        />
+        <InputGroup.Text id="basic-addon2">@example.com</InputGroup.Text>
+      </InputGroup>
+
+      <Form.Label htmlFor="basic-url">Your vanity URL</Form.Label>
+      <InputGroup className="mb-3">
+        <InputGroup.Text id="basic-addon3">
+          https://example.com/users/
+        </InputGroup.Text>
+        <FormControl id="basic-url" aria-describedby="basic-addon3" />
+      </InputGroup>
+
+      <InputGroup className="mb-3">
+        <InputGroup.Text>$</InputGroup.Text>
+        <FormControl aria-label="Amount (to the nearest dollar)" />
+        <InputGroup.Text>.00</InputGroup.Text>
+      </InputGroup>
+
+      <InputGroup>
+        <InputGroup.Text>With textarea</InputGroup.Text>
+        <FormControl as="textarea" aria-label="With textarea" />
+      </InputGroup>
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      <InputGroup className="mb-3">
+        <InputGroup.Text id="basic-addon1">@</InputGroup.Text>
+        <FormControl
+          placeholder="Username"
+          aria-label="Username"
+          aria-describedby="basic-addon1"
+        />
+      </InputGroup>
+
+      <InputGroup className="mb-3">
+        <FormControl
+          placeholder="Recipient's username"
+          aria-label="Recipient's username"
+          aria-describedby="basic-addon2"
+        />
+        <InputGroup.Text id="basic-addon2">@example.com</InputGroup.Text>
+      </InputGroup>
+
+      <Form.Label htmlFor="basic-url">Your vanity URL</Form.Label>
+      <InputGroup className="mb-3">
+        <InputGroup.Text id="basic-addon3">
+          https://example.com/users/
+        </InputGroup.Text>
+        <FormControl id="basic-url" aria-describedby="basic-addon3" />
+      </InputGroup>
+
+      <InputGroup className="mb-3">
+        <InputGroup.Text>$</InputGroup.Text>
+        <FormControl aria-label="Amount (to the nearest dollar)" />
+        <InputGroup.Text>.00</InputGroup.Text>
+      </InputGroup>
+
+      <InputGroup>
+        <InputGroup.Text>With textarea</InputGroup.Text>
+        <FormControl as="textarea" aria-label="With textarea" />
+      </InputGroup>
+      ```
+    </Example.Code>
+  </Example>
+
+  <Example title="Sizing">
+    <Example.Intro>
+      Add the relative form sizing classes to the `InputGroup` and
+      contents within will automatically resize—no need for repeating the form
+      control size classes on each element.
+    </Example.Intro>
+    <Example.Preview>
+      <InputGroup size="sm" className="mb-3">
+        <InputGroup.Text id="inputGroup-sizing-sm">Small</InputGroup.Text>
+        <FormControl aria-label="Small" aria-describedby="inputGroup-sizing-sm" />
+      </InputGroup>
+      <br />
+      <InputGroup className="mb-3">
+        <InputGroup.Text id="inputGroup-sizing-default">Default</InputGroup.Text>
+        <FormControl
+          aria-label="Default"
+          aria-describedby="inputGroup-sizing-default"
+        />
+      </InputGroup>
+      <br />
+      <InputGroup size="lg">
+        <InputGroup.Text id="inputGroup-sizing-lg">Large</InputGroup.Text>
+        <FormControl aria-label="Large" aria-describedby="inputGroup-sizing-sm" />
+      </InputGroup>
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      <InputGroup size="sm" className="mb-3">
+        <InputGroup.Text id="inputGroup-sizing-sm">Small</InputGroup.Text>
+        <FormControl aria-label="Small" aria-describedby="inputGroup-sizing-sm" />
+      </InputGroup>
+      <br />
+      <InputGroup className="mb-3">
+        <InputGroup.Text id="inputGroup-sizing-default">Default</InputGroup.Text>
+        <FormControl
+          aria-label="Default"
+          aria-describedby="inputGroup-sizing-default"
+        />
+      </InputGroup>
+      <br />
+      <InputGroup size="lg">
+        <InputGroup.Text id="inputGroup-sizing-lg">Large</InputGroup.Text>
+        <FormControl aria-label="Large" aria-describedby="inputGroup-sizing-sm" />
+      </InputGroup>
+      ```
+    </Example.Code>
+  </Example>
+
+  <Example title="Checkboxes and radios">
+    <Example.Intro>
+      Use the `InputGroup.Radio` or
+      `InputGroup.Checkbox` to add options to an input group.
+    </Example.Intro>
+    <Example.Preview>
+      <InputGroup className="mb-3">
+        <InputGroup.Checkbox aria-label="Checkbox for following text input" />
+        <FormControl aria-label="Text input with checkbox" />
+      </InputGroup>
+      <InputGroup>
+        <InputGroup.Radio aria-label="Radio button for following text input" />
+        <FormControl aria-label="Text input with radio button" />
+      </InputGroup>
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      <InputGroup className="mb-3">
+        <InputGroup.Checkbox aria-label="Checkbox for following text input" />
+        <FormControl aria-label="Text input with checkbox" />
+      </InputGroup>
+      <InputGroup>
+        <InputGroup.Radio aria-label="Radio button for following text input" />
+        <FormControl aria-label="Text input with radio button" />
+      </InputGroup>
+      ```
+    </Example.Code>
+  </Example>
+
+  <Example title="Multiple inputs">
+    <Example.Intro>
+      While multiple inputs are supported visually, validation styles are only
+      available for input groups with a single input.
+    </Example.Intro>
+    <Example.Preview>
+      <InputGroup className="mb-3">
+        <InputGroup.Text>First and last name</InputGroup.Text>
+        <FormControl aria-label="First name" />
+        <FormControl aria-label="Last name" />
+      </InputGroup>
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      <InputGroup className="mb-3">
+        <InputGroup.Text>First and last name</InputGroup.Text>
+        <FormControl aria-label="First name" />
+        <FormControl aria-label="Last name" />
+      </InputGroup>
+      ```
+    </Example.Code>
+  </Example>
+
+  <Example title="Multiple addons">
+    <Example.Intro>
+      Multiple add-ons are supported and can be mixed with checkbox and radio
+      input versions.
+    </Example.Intro>
+    <Example.Preview>
+      <InputGroup className="mb-3">
+        <InputGroup.Text>$</InputGroup.Text>
+        <InputGroup.Text>0.00</InputGroup.Text>
+        <FormControl aria-label="Dollar amount (with dot and two decimal places)" />
+      </InputGroup>
+      <InputGroup>
+        <FormControl aria-label="Dollar amount (with dot and two decimal places)" />
+        <InputGroup.Text>$</InputGroup.Text>
+        <InputGroup.Text>0.00</InputGroup.Text>
+      </InputGroup>
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      <InputGroup className="mb-3">
+        <InputGroup.Text>$</InputGroup.Text>
+        <InputGroup.Text>0.00</InputGroup.Text>
+        <FormControl aria-label="Dollar amount (with dot and two decimal places)" />
+      </InputGroup>
+      <InputGroup>
+        <FormControl aria-label="Dollar amount (with dot and two decimal places)" />
+        <InputGroup.Text>$</InputGroup.Text>
+        <InputGroup.Text>0.00</InputGroup.Text>
+      </InputGroup>
+      ```
+    </Example.Code>
+  </Example>
+
+  <Example title="Button addons">
+    <Example.Preview>
+      <InputGroup className="mb-3">
+        <Button variant="outline-secondary" id="button-addon1">Button</Button>
+        <FormControl
+          aria-label="Example text with button addon"
+          aria-describedby="basic-addon1"
+        />
+      </InputGroup>
+
+      <InputGroup className="mb-3">
+        <FormControl
+          placeholder="Recipient's username"
+          aria-label="Recipient's username"
+          aria-describedby="basic-addon2"
+        />
+        <Button variant="outline-secondary" id="button-addon2">Button</Button>
+      </InputGroup>
+
+      <InputGroup className="mb-3">
+        <Button variant="outline-secondary">Button</Button>
+        <Button variant="outline-secondary">Button</Button>
+        <FormControl aria-label="Example text with two button addons" />
+      </InputGroup>
+
+      <InputGroup>
+        <FormControl
+          placeholder="Recipient's username"
+          aria-label="Recipient's username with two button addons"
+        />
+        <Button variant="outline-secondary">Button</Button>
+        <Button variant="outline-secondary">Button</Button>
+      </InputGroup>
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      <InputGroup className="mb-3">
+        <Button variant="outline-secondary" id="button-addon1">Button</Button>
+        <FormControl
+          aria-label="Example text with button addon"
+          aria-describedby="basic-addon1"
+        />
+      </InputGroup>
+
+      <InputGroup className="mb-3">
+        <FormControl
+          placeholder="Recipient's username"
+          aria-label="Recipient's username"
+          aria-describedby="basic-addon2"
+        />
+        <Button variant="outline-secondary" id="button-addon2">Button</Button>
+      </InputGroup>
+
+      <InputGroup className="mb-3">
+        <Button variant="outline-secondary">Button</Button>
+        <Button variant="outline-secondary">Button</Button>
+        <FormControl aria-label="Example text with two button addons" />
+      </InputGroup>
+
+      <InputGroup>
+        <FormControl
+          placeholder="Recipient's username"
+          aria-label="Recipient's username with two button addons"
+        />
+        <Button variant="outline-secondary">Button</Button>
+        <Button variant="outline-secondary">Button</Button>
+      </InputGroup>
+      ```
+    </Example.Code>
+  </Example>
+
+  <Example title="Buttons with Dropdowns">
+    <Example.Preview>
+      <InputGroup className="mb-3">
+        <DropdownButton
+          variant="outline-secondary"
+          title="Dropdown"
+          id="input-group-dropdown-1"
+        >
+          <Dropdown.Item href="#">Action</Dropdown.Item>
+          <Dropdown.Item href="#">Another action</Dropdown.Item>
+          <Dropdown.Item href="#">Something else here</Dropdown.Item>
+          <Dropdown.Divider />
+          <Dropdown.Item href="#">Separated link</Dropdown.Item>
+        </DropdownButton>
+        <FormControl aria-label="Text input with dropdown button" />
+      </InputGroup>
+
+      <InputGroup className="mb-3">
+        <FormControl aria-label="Text input with dropdown button" />
+
+        <DropdownButton
+          variant="outline-secondary"
+          title="Dropdown"
+          id="input-group-dropdown-2"
+          align="end"
+        >
+          <Dropdown.Item href="#">Action</Dropdown.Item>
+          <Dropdown.Item href="#">Another action</Dropdown.Item>
+          <Dropdown.Item href="#">Something else here</Dropdown.Item>
+          <Dropdown.Divider />
+          <Dropdown.Item href="#">Separated link</Dropdown.Item>
+        </DropdownButton>
+      </InputGroup>
+
+      <InputGroup>
+        <DropdownButton
+          variant="outline-secondary"
+          title="Dropdown"
+          id="input-group-dropdown-3"
+        >
+          <Dropdown.Item href="#">Action</Dropdown.Item>
+          <Dropdown.Item href="#">Another action</Dropdown.Item>
+          <Dropdown.Item href="#">Something else here</Dropdown.Item>
+          <Dropdown.Divider />
+          <Dropdown.Item href="#">Separated link</Dropdown.Item>
+        </DropdownButton>
+        <FormControl aria-label="Text input with 2 dropdown buttons" />
+        <DropdownButton
+          variant="outline-secondary"
+          title="Dropdown"
+          id="input-group-dropdown-4"
+          align="end"
+        >
+          <Dropdown.Item href="#">Action</Dropdown.Item>
+          <Dropdown.Item href="#">Another action</Dropdown.Item>
+          <Dropdown.Item href="#">Something else here</Dropdown.Item>
+          <Dropdown.Divider />
+          <Dropdown.Item href="#">Separated link</Dropdown.Item>
+        </DropdownButton>
+      </InputGroup>
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      <InputGroup className="mb-3">
+        <DropdownButton
+          variant="outline-secondary"
+          title="Dropdown"
+          id="input-group-dropdown-1"
+        >
+          <Dropdown.Item href="#">Action</Dropdown.Item>
+          <Dropdown.Item href="#">Another action</Dropdown.Item>
+          <Dropdown.Item href="#">Something else here</Dropdown.Item>
+          <Dropdown.Divider />
+          <Dropdown.Item href="#">Separated link</Dropdown.Item>
+        </DropdownButton>
+        <FormControl aria-label="Text input with dropdown button" />
+      </InputGroup>
+
+      <InputGroup className="mb-3">
+        <FormControl aria-label="Text input with dropdown button" />
+
+        <DropdownButton
+          variant="outline-secondary"
+          title="Dropdown"
+          id="input-group-dropdown-2"
+          align="end"
+        >
+          <Dropdown.Item href="#">Action</Dropdown.Item>
+          <Dropdown.Item href="#">Another action</Dropdown.Item>
+          <Dropdown.Item href="#">Something else here</Dropdown.Item>
+          <Dropdown.Divider />
+          <Dropdown.Item href="#">Separated link</Dropdown.Item>
+        </DropdownButton>
+      </InputGroup>
+
+      <InputGroup>
+        <DropdownButton
+          variant="outline-secondary"
+          title="Dropdown"
+          id="input-group-dropdown-3"
+        >
+          <Dropdown.Item href="#">Action</Dropdown.Item>
+          <Dropdown.Item href="#">Another action</Dropdown.Item>
+          <Dropdown.Item href="#">Something else here</Dropdown.Item>
+          <Dropdown.Divider />
+          <Dropdown.Item href="#">Separated link</Dropdown.Item>
+        </DropdownButton>
+        <FormControl aria-label="Text input with 2 dropdown buttons" />
+        <DropdownButton
+          variant="outline-secondary"
+          title="Dropdown"
+          id="input-group-dropdown-4"
+          align="end"
+        >
+          <Dropdown.Item href="#">Action</Dropdown.Item>
+          <Dropdown.Item href="#">Another action</Dropdown.Item>
+          <Dropdown.Item href="#">Something else here</Dropdown.Item>
+          <Dropdown.Divider />
+          <Dropdown.Item href="#">Separated link</Dropdown.Item>
+        </DropdownButton>
+      </InputGroup>
+      ```
+    </Example.Code>
+  </Example>
+
+  <Example title="Segmented buttons">
+    <Example.Preview>
+      <InputGroup className="mb-3">
+        <SplitButton
+          variant="outline-secondary"
+          title="Action"
+          id="segmented-button-dropdown-1"
+        >
+          <Dropdown.Item href="#">Action</Dropdown.Item>
+          <Dropdown.Item href="#">Another action</Dropdown.Item>
+          <Dropdown.Item href="#">Something else here</Dropdown.Item>
+          <Dropdown.Divider />
+          <Dropdown.Item href="#">Separated link</Dropdown.Item>
+        </SplitButton>
+        <FormControl aria-label="Text input with dropdown button" />
+      </InputGroup>
+
+      <InputGroup className="mb-3">
+        <FormControl aria-label="Text input with dropdown button" />
+        <SplitButton
+          variant="outline-secondary"
+          title="Action"
+          id="segmented-button-dropdown-2"
+          alignRight
+        >
+          <Dropdown.Item href="#">Action</Dropdown.Item>
+          <Dropdown.Item href="#">Another action</Dropdown.Item>
+          <Dropdown.Item href="#">Something else here</Dropdown.Item>
+          <Dropdown.Divider />
+          <Dropdown.Item href="#">Separated link</Dropdown.Item>
+        </SplitButton>
+      </InputGroup>
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      <InputGroup className="mb-3">
+        <SplitButton
+          variant="outline-secondary"
+          title="Action"
+          id="segmented-button-dropdown-1"
+        >
+          <Dropdown.Item href="#">Action</Dropdown.Item>
+          <Dropdown.Item href="#">Another action</Dropdown.Item>
+          <Dropdown.Item href="#">Something else here</Dropdown.Item>
+          <Dropdown.Divider />
+          <Dropdown.Item href="#">Separated link</Dropdown.Item>
+        </SplitButton>
+        <FormControl aria-label="Text input with dropdown button" />
+      </InputGroup>
+
+      <InputGroup className="mb-3">
+        <FormControl aria-label="Text input with dropdown button" />
+        <SplitButton
+          variant="outline-secondary"
+          title="Action"
+          id="segmented-button-dropdown-2"
+          alignRight
+        >
+          <Dropdown.Item href="#">Action</Dropdown.Item>
+          <Dropdown.Item href="#">Another action</Dropdown.Item>
+          <Dropdown.Item href="#">Something else here</Dropdown.Item>
+          <Dropdown.Divider />
+          <Dropdown.Item href="#">Separated link</Dropdown.Item>
+        </SplitButton>
+      </InputGroup>
+      ```
+    </Example.Code>
+  </Example>
+
+</div>
+
+## Api
+### InputGroup
+`import { InputGroup } from "solid-bootstrap"'`
+
+<table class="bg-white mb-0 table table-striped table-bordered">
+  <thead>
+    <tr><th>Name</th><th>Type</th><th>Default</th><th>Description</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>as </td><td><div>elementType</div></td><td><code>`<div>`</code></td><td><div><p>You can use a custom element type for this component.</p></div></td></tr>
+    <tr><td>hasValidation </td><td><div>boolean</div></td><td></td><td><div><p>Handles the input's rounded corners when using form validation.</p><p>Use this when your input group contains both an input and feedback element.</p></div></td></tr>
+    <tr><td>size </td><td><div><span><code>'sm'</code><span> | </span><code>'lg'</code></span></div></td><td></td><td><div><p>Control the size of buttons and form elements from the top-level.</p></div></td></tr>
+    <tr><td>bsPrefix </td><td><div>string</div></td><td><code>'input-group'</code></td><td><div><p>Change the underlying component CSS base class name and modifier class names prefix. <strong>This is an escape hatch</strong> for working with heavily customized bootstrap css.</p></div></td></tr>
+  </tbody>
+</table>

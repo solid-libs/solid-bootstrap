@@ -1,0 +1,179 @@
+import { Alert, Form, InputGroup  } from "solid-bootstrap";
+import { Example1 } from "./FormValidationExamples";
+import Example from "./Example";
+import GithubSource from "./GithubSource";
+import BadgeApi from "./BadgeApi";
+
+<GithubSource name="FormValidationDocs.mdx" />
+# Validation
+
+<p className="lead">
+  Provide valuable, actionable feedback to your users with HTML5 form
+  validation, via browser default behaviors or custom styles and JavaScript.
+</p>
+
+<div className="row gy-5 pt-3">
+
+  <Example title="Native HTML5 form validation">
+    <Example.Intro>
+      For native HTML form validation–[available in all our supported browsers](https://caniuse.com/#feat=form-validation),
+      the `:valid` and `:invalid` pseudo selectors are used to apply validation
+      styles as well as display feedback messages.
+
+      Bootstrap scopes the `:valid` and `:invalid` styles to parent `.was-validated`
+      class, usually applied to the `<Form>` (you can use the `validated` prop
+      as a shortcut). Otherwise, any required field without a value shows up
+      as invalid on page load. This way, you may choose when to activate them
+      (typically after form submission is attempted).
+    </Example.Intro>
+    <Example.Preview>
+      <Example1 />
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      const [validated, setValidated] = createSignal(false);
+
+      const handleSubmit = (event: SubmitEvent) => {
+        const form = event.currentTarget;
+        if ((form as HTMLFormElement).checkValidity() === false) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+
+        setValidated(true);
+      };
+
+      return (
+        <Form noValidate validated={validated()} onSubmit={handleSubmit}>
+          <Row className="mb-3">
+            <Form.Group as={Col} md="4" controlId="validationCustom01">
+              <Form.Label>First name</Form.Label>
+              <Form.Control
+                required
+                type="text"
+                placeholder="First name"
+                ref={r => r.defaultValue="Mark"}
+              />
+              <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+            </Form.Group>
+            <Form.Group as={Col} md="4" controlId="validationCustom02">
+              <Form.Label>Last name</Form.Label>
+              <Form.Control
+                required
+                type="text"
+                placeholder="Last name"
+                ref={r => r.defaultValue="Otto"}
+              />
+              <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+            </Form.Group>
+            <Form.Group as={Col} md="4" controlId="validationCustomUsername">
+              <Form.Label>Username</Form.Label>
+              <InputGroup hasValidation>
+                <InputGroup.Text id="inputGroupPrepend">@</InputGroup.Text>
+                <Form.Control
+                  type="text"
+                  placeholder="Username"
+                  aria-describedby="inputGroupPrepend"
+                  required
+                />
+                <Form.Control.Feedback type="invalid">
+                  Please choose a username.
+                </Form.Control.Feedback>
+              </InputGroup>
+            </Form.Group>
+          </Row>
+          <Row className="mb-3">
+            <Form.Group as={Col} md="6" controlId="validationCustom03">
+              <Form.Label>City</Form.Label>
+              <Form.Control type="text" placeholder="City" required />
+              <Form.Control.Feedback type="invalid">
+                Please provide a valid city.
+              </Form.Control.Feedback>
+            </Form.Group>
+            <Form.Group as={Col} md="3" controlId="validationCustom04">
+              <Form.Label>State</Form.Label>
+              <Form.Control type="text" placeholder="State" required />
+              <Form.Control.Feedback type="invalid">
+                Please provide a valid state.
+              </Form.Control.Feedback>
+            </Form.Group>
+            <Form.Group as={Col} md="3" controlId="validationCustom05">
+              <Form.Label>Zip</Form.Label>
+              <Form.Control type="text" placeholder="Zip" required />
+              <Form.Control.Feedback type="invalid">
+                Please provide a valid zip.
+              </Form.Control.Feedback>
+            </Form.Group>
+          </Row>
+          <Form.Group className="mb-3">
+            <Form.Check
+              required
+              label="Agree to terms and conditions"
+              feedback="You must agree before submitting."
+              feedbackType="invalid"
+            />
+          </Form.Group>
+          <Button type="submit">Submit form</Button>
+        </Form>
+      );
+        ```
+    </Example.Code>
+  </Example>
+
+  <Alert variant="warning">
+    Watch out! Browsers provide their own validation UI by default on{' '}
+    <code>form</code>s. You can disable the default UI by adding the HTML{' '}
+    <code>noValidate</code> attribute to your <code>{'<Form>'}</code> or{' '}
+    <code>{'<form>'}</code> element.
+  </Alert>
+
+  <Alert variant="info">
+    It's often beneficial to handle form validation
+    via a library like Formik, or react-formal. In those cases, `isValid`
+    and `isInvalid` props can be added to form controls to manually apply
+    validation styles.
+  </Alert>
+
+  <Example title="Input group validation">
+    <Example.Intro>
+      To properly show rounded corners in an `<InputGroup>` with validation,
+      the `<InputGroup>` requires the `hasValidation` prop.
+    </Example.Intro>
+    <Example.Preview>
+      <InputGroup hasValidation>
+        <InputGroup.Text>@</InputGroup.Text>
+        <Form.Control type="text" required isInvalid />
+        <Form.Control.Feedback type="invalid">
+          Please choose a username.
+        </Form.Control.Feedback>
+      </InputGroup>
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      <InputGroup hasValidation>
+        <InputGroup.Text>@</InputGroup.Text>
+        <Form.Control type="text" required isInvalid />
+        <Form.Control.Feedback type="invalid">
+          Please choose a username.
+        </Form.Control.Feedback>
+      </InputGroup>
+      ```
+    </Example.Code>
+  </Example>
+
+</div>
+
+## Api
+### Feedback 
+`import { Feedback  } from "solid-bootstrap"'`
+
+<table class="bg-white mb-0 table table-striped table-bordered">
+  <thead>
+    <tr><th>Name</th><th>Type</th><th>Default</th><th>Description</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>as </td><td><div>elementType</div></td><td><code>`<div>`</code></td><td><div><p>You can use a custom element type for this component.</p></div></td></tr>
+    <tr><td>tooltip </td><td><div>boolean</div></td><td><code>false</code></td><td><div><p>Display feedback as a tooltip.</p></div></td></tr>
+    <tr><td>type </td><td><div><span><code>'valid'</code><span> | </span><code>'invalid'</code></span></div></td><td><code>'valid'</code></td><td><div><p>Specify whether the feedback is for valid or invalid fields</p></div></td></tr>
+  </tbody>
+</table>

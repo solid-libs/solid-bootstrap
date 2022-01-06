@@ -8,9 +8,10 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const docsPath = path.resolve(__dirname, "../../docs/");
+const formsPath = path.join(docsPath, "forms");
+const layoutPath = path.join(docsPath, "layout");
 const componentsPath = path.join(docsPath, "components");
 const corePath = path.join(docsPath, "core");
-const layoutPath = path.join(docsPath, "layout");
 
 function main() {
   const source = docsPath + "/index.html";
@@ -31,7 +32,6 @@ function main() {
     "close-button",
     "dropdowns",
     "figures",
-    "forms",
     "images",
     "input-group",
     "list-group",
@@ -71,6 +71,24 @@ function main() {
   ].forEach((dest) => {
     fs.copyFileSync(source, path.join(layoutPath, `${dest}.html`));
   });
+
+  // Forms routes
+  fs.mkdirSync(formsPath);
+  [
+    "overview", 
+    "form-controls", 
+    "form-text", 
+    "select", 
+    "checks-radios", 
+    "range", 
+    "input-group", 
+    "floating-labels", 
+    "layout", 
+    "validation"
+  ].forEach((dest) => {
+    fs.copyFileSync(source, path.join(formsPath, `${dest}.html`));
+  });
+  
 }
 
 main();

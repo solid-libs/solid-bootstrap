@@ -11,12 +11,16 @@ const App: Component = () => (
     <TopNavbar />
     <Routes>
       <Route
-        path="/components/*"
-        component={lazy(() => import("./pages/Components"))}
-      />
-      <Route
         path="/layout/*"
         component={lazy(() => import("./pages/Layouts"))}
+      />
+      <Route
+        path="/forms/*"
+        component={lazy(() => import("./pages/Forms"))}
+      />
+      <Route
+        path="/components/*"
+        component={lazy(() => import("./pages/Components"))}
       />
       <Route path="/core/*" component={lazy(() => import("./pages/Core"))} />
       <Route

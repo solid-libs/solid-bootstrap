@@ -1,0 +1,234 @@
+import { Alert, Form, Button } from "solid-bootstrap";
+import Example from "./Example";
+import GithubSource from "./GithubSource";
+import BadgeApi from "./BadgeApi";
+
+<GithubSource name="FormOverviewDocs.mdx" />
+# Forms
+
+<p className="lead">
+  Examples and usage guidelines for form control styles, layout options, and
+  custom components for creating a wide variety of forms.
+</p>
+
+<div className="row gy-5 pt-3">
+
+    <Example title="Overview">
+    <Example.Intro>
+      The `<FormControl>` component renders a form control with Bootstrap styling.
+      The `<FormGroup>` component wraps a form control with proper spacing, along
+      with support for a label, help text, and validation state. To ensure
+      accessibility, set `controlId` on `<FormGroup>`, and use `<FormLabel>` for
+      the label.
+    </Example.Intro>
+    <Example.Preview>
+      <Form>
+        <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Label>Email address</Form.Label>
+          <Form.Control type="email" placeholder="Enter email" />
+          <Form.Text className="text-muted">
+            We'll never share your email with anyone else.
+          </Form.Text>
+        </Form.Group>
+
+        <Form.Group className="mb-3" controlId="formBasicPassword">
+          <Form.Label>Password</Form.Label>
+          <Form.Control type="password" placeholder="Password" />
+        </Form.Group>
+
+        <Form.Group className="mb-3" controlId="formBasicCheckbox">
+          <Form.Check type="checkbox" label="Check me out" />
+        </Form.Group>
+
+        <Button variant="primary" type="submit">Submit</Button>
+      </Form>
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      <Form>
+        <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Label>Email address</Form.Label>
+          <Form.Control type="email" placeholder="Enter email" />
+          <Form.Text className="text-muted">
+            We'll never share your email with anyone else.
+          </Form.Text>
+        </Form.Group>
+
+        <Form.Group className="mb-3" controlId="formBasicPassword">
+          <Form.Label>Password</Form.Label>
+          <Form.Control type="password" placeholder="Password" />
+        </Form.Group>
+
+        <Form.Group className="mb-3" controlId="formBasicCheckbox">
+          <Form.Check type="checkbox" label="Check me out" />
+        </Form.Group>
+
+        <Button variant="primary" type="submit">Submit</Button>
+      </Form>
+      ```
+    </Example.Code>
+  </Example>
+
+<div>
+  The `<FormControl>` component directly renders the `<input>` or other specified
+  component. If you need to access the value of an uncontrolled `<FormControl>`,
+  attach a `ref` to it as you would with an uncontrolled input. You can then interact with that
+  node as you would with any other uncontrolled input.
+
+  If your application contains a large number of form groups, we recommend
+  building a higher-level component encapsulating a complete field group
+  that renders the label, the control, and any other necessary components.
+  We don't provide this out-of-the-box, because the composition of those
+  field groups is too specific to an individual application to admit a
+  good one-size-fits-all solution.
+</div>
+
+  <Example title="Disabled fields">
+    <Example.Intro>
+      Add the `disabled` boolean attribute on an input to prevent user interactions and make it appear lighter.
+    </Example.Intro>
+    <Example.Preview>
+      <Form.Group className="mb-3">
+        <Form.Label>Disabled input</Form.Label>
+        <Form.Control placeholder="Disabled input" disabled />
+      </Form.Group>
+
+      <Form.Group className="mb-3">
+        <Form.Label>Disabled select menu</Form.Label>
+        <Form.Select disabled>
+          <option>Disabled select</option>
+        </Form.Select>
+      </Form.Group>
+
+      <Form.Group className="mb-3">
+        <Form.Check type="checkbox" label="Can't check this" disabled />
+      </Form.Group>
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      <Form.Group className="mb-3">
+        <Form.Label>Disabled input</Form.Label>
+        <Form.Control placeholder="Disabled input" disabled />
+      </Form.Group>
+
+      <Form.Group className="mb-3">
+        <Form.Label>Disabled select menu</Form.Label>
+        <Form.Select disabled>
+          <option>Disabled select</option>
+        </Form.Select>
+      </Form.Group>
+
+      <Form.Group className="mb-3">
+        <Form.Check type="checkbox" label="Can't check this" disabled />
+      </Form.Group>
+      ```
+    </Example.Code>
+  </Example>
+
+  <Example title="Disabled fieldsets">
+    <Example.Intro>
+      Add the `disabled` attribute to a `<fieldset>` to disable all the controls within.
+    </Example.Intro>
+    <Example.Preview>
+      <Form>
+        <fieldset disabled>
+          <Form.Group className="mb-3">
+            <Form.Label htmlFor="disabledTextInput">Disabled input</Form.Label>
+            <Form.Control id="disabledTextInput" placeholder="Disabled input" />
+          </Form.Group>
+
+          <Form.Group className="mb-3">
+            <Form.Label htmlFor="disabledSelect">Disabled select menu</Form.Label>
+            <Form.Select id="disabledSelect">
+              <option>Disabled select</option>
+            </Form.Select>
+          </Form.Group>
+
+          <Form.Group className="mb-3">
+            <Form.Check
+              type="checkbox"
+              id="disabledFieldsetCheck"
+              label="Can't check this"
+            />
+          </Form.Group>
+
+          <Button type="submit">Submit</Button>
+        </fieldset>
+      </Form>
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      <Form>
+        <fieldset disabled>
+          <Form.Group className="mb-3">
+            <Form.Label htmlFor="disabledTextInput">Disabled input</Form.Label>
+            <Form.Control id="disabledTextInput" placeholder="Disabled input" />
+          </Form.Group>
+
+          <Form.Group className="mb-3">
+            <Form.Label htmlFor="disabledSelect">Disabled select menu</Form.Label>
+            <Form.Select id="disabledSelect">
+              <option>Disabled select</option>
+            </Form.Select>
+          </Form.Group>
+
+          <Form.Group className="mb-3">
+            <Form.Check
+              type="checkbox"
+              id="disabledFieldsetCheck"
+              label="Can't check this"
+            />
+          </Form.Group>
+
+          <Button type="submit">Submit</Button>
+        </fieldset>
+      </Form>
+      ```
+    </Example.Code>
+  </Example>
+
+  <div>
+    Browsers treat all native form controls (`<input>`, `<select>` and `<button>` elements)
+    inside `<fieldset disabled>` as disabled, preventing both keyboard and mouse interactions
+    on them. 
+
+    However, if your form also includes custom button-like elements such as
+    `<a ... class="btn btn-*">`, these will only be given a style of `pointer-events: none`,
+    meaning they are still focusable and operable using the keyboard. In this case, you must
+    manually modify these controls by adding `tabindex="-1"` to prevent them from receiving
+    focus and `aria-disabled="disabled"` to signal their state to assistive technologies.
+  </div>
+
+</div>
+
+## Api
+### Form
+`import { Form } from "solid-bootstrap"'`
+
+<table class="bg-white mb-5 table table-striped table-bordered">
+  <thead>
+    <tr><th>Name</th><th>Type</th><th>Default</th><th>Description</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>ref </td><td><div>ReactRef</div></td><td></td><td><div><p>The Form <code>ref</code> will be forwarded to the underlying element, which means, unless it's rendered <code>as</code> a composite component, it will be a DOM node, when resolved.</p></div></td></tr>
+    <tr><td>as </td><td><div>elementType</div></td><td><code>`<form>`</code></td><td><div><p>You can use a custom element type for this component.</p></div></td></tr>
+    <tr><td>validated </td><td><div>boolean</div></td><td></td><td><div><p>Mark a form as having been validated. Setting it to <code>true</code> will toggle any validation styles on the forms elements.</p></div></td></tr>
+  </tbody>
+</table>
+
+### Form.Label
+`import { Form } from "solid-bootstrap"'`
+
+<table class="bg-white mb-0 table table-striped table-bordered">
+  <thead>
+    <tr><th>Name</th><th>Type</th><th>Default</th><th>Description</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>ref </td><td><div>ReactRef</div></td><td></td><td><div><p>The FormLabel <code>ref</code> will be forwarded to the underlying element. Unless the FormLabel is rendered <code>as</code> a composite component, it will be a DOM node, when resolved.</p></div></td></tr>
+    <tr><td>as </td><td><div>elementType</div></td><td><code>`<label>`</code></td><td><div><p>Set a custom element for this component</p></div></td></tr>
+    <tr><td>column </td><td><div>boolean | <span><code>'sm'</code><span> | </span><code>'lg'</code></span></div></td><td><code>false</code></td><td><div><p>Renders the FormLabel as a <code>`<Col>`</code> component (accepting all the same props), as well as adding additional styling for horizontal forms.</p></div></td></tr>
+    <tr><td>htmlFor </td><td><div>string</div></td><td></td><td><div><p>Uses <code>controlId</code> from <code>`<FormGroup>`</code> if not explicitly specified.</p></div></td></tr>
+    <tr><td>visuallyHidden </td><td><div>boolean</div></td><td><code>false</code></td><td><div><p>Hides the label visually while still allowing it to be read by assistive technologies.</p></div></td></tr>
+    <tr><td>bsPrefix </td><td><div>string</div></td><td><code>'form-label'</code></td><td><div><p>Change the underlying component CSS base class name and modifier class names prefix. <strong>This is an escape hatch</strong> for working with heavily customized bootstrap css.</p></div></td></tr>
+  </tbody>
+</table>
