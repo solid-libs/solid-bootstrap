@@ -21,4 +21,9 @@ export default defineConfig({
     polyfillDynamicImport: false,
     outDir: "../docs",
   },
+  server: {
+    fs: {
+      allow: [".."]
+    }
+  }
 });
