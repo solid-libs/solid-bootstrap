@@ -23,8 +23,8 @@ dependencies:
   classnames: 2.3.1
   lodash: 4.17.21
   solid-app-router: 0.1.13_solid-js@1.2.6
-  solid-bootstrap: link:../packages/bootstrap/dist
-  solid-bootstrap-core: link:../packages/core/dist
+  solid-bootstrap: 0.2.6_solid-js@1.2.6
+  solid-bootstrap-core: 0.2.6_solid-js@1.2.6
   solid-js: 1.2.6
 
 devDependencies:
@@ -305,6 +305,13 @@ packages:
       - supports-color
     dev: true
 
+  /@babel/runtime/7.16.7:
+    resolution: {integrity: sha512-9E9FJowqAsytyOY6LG+1KuueckRL+aQW+mKvXRXnuFGyRAyepJPmEo9vgMfXUA6O9u3IeEdv9MAkppFcaQwogQ==}
+    engines: {node: '>=6.9.0'}
+    dependencies:
+      regenerator-runtime: 0.13.9
+    dev: false
+
   /@babel/template/7.16.7:
     resolution: {integrity: sha512-I8j/x8kHUrbYRTUxXrrMbfCa7jxkE7tZre39x3kjr9hvI82cK1FfqLygotcWN5kdPGWcLdWMHpSBavse5tWw3w==}
     engines: {node: '>=6.9.0'}
@@ -376,6 +383,10 @@ packages:
     transitivePeerDependencies:
       - supports-color
     dev: true
+
+  /@popperjs/core/2.11.2:
+    resolution: {integrity: sha512-92FRmppjjqz29VMJ2dn+xdyXZBrMlE42AV6Kq6BwjWV7CNUW1hs2FtxSNLQE+gJhaZ6AAmYuO9y8dshhcBl7vA==}
+    dev: false
 
   /@rollup/pluginutils/4.1.2:
     resolution: {integrity: sha512-ROn4qvkxP9SyPeHaf7uQC/GPFY6L/OWy9+bd9AwcjOAWQwxRscoEyAUD8qCY5o5iL4jqQwoLk2kaTKJPb/HwzQ==}
@@ -629,6 +640,10 @@ packages:
       safe-buffer: 5.1.2
     dev: true
 
+  /csstype/3.0.10:
+    resolution: {integrity: sha512-2u44ZG2OcNUO9HDp/Jl8C07x6pU/eTR3ncV91SiK3dhG9TWvRVsCoJw14Ckx5DgWkzGA3waZWO3d7pgqpUI/XA==}
+    dev: false
+
   /deasync/0.1.24:
     resolution: {integrity: sha512-i98vg42xNfRZCymummMAN0rIcQ1gZFinSe3btvPIvy6JFTaeHcumeKybRo2HTv86nasfmT0nEgAn2ggLZhOCVA==}
     engines: {node: '>=0.11.0'}
@@ -678,6 +693,13 @@ packages:
     resolution: {integrity: sha512-/VTCrvm5Z0JGty/BWHljh+BAiw3IK+2j87NGMu8Nwc/f48WoDAC395uomO9ZD117ZOBaHmkX1oyLvkVM/aIT3w==}
     engines: {node: '>=0.3.1'}
     dev: true
+
+  /dom-helpers/5.2.1:
+    resolution: {integrity: sha512-nRCa7CK3VTrM2NmGkIy4cbK7IZlgBE/PYMn55rrXefr5xXDP0LdtfPnblFDoVdcAfslJ7or6iqAUnx0CCGIWQA==}
+    dependencies:
+      '@babel/runtime': 7.16.7
+      csstype: 3.0.10
+    dev: false
 
   /electron-to-chromium/1.4.35:
     resolution: {integrity: sha512-wzTOMh6HGFWeALMI3bif0mzgRrVGyP1BdFRx7IvWukFrSC5QVQELENuy+Fm2dCrAdQH9T3nuqr07n94nPDFBWA==}
@@ -1639,6 +1661,10 @@ packages:
     engines: {node: '>=10'}
     dev: true
 
+  /regenerator-runtime/0.13.9:
+    resolution: {integrity: sha512-p3VT+cOEgxFsRRA9X4lkI1E+k2/CtnKtU4gcxyaCUreilL/vqI6CdZ3wxVUx3UOUg+gnUOQQcRI7BmSI656MYA==}
+    dev: false
+
   /rehype-highlight/5.0.2:
     resolution: {integrity: sha512-ZNm8V8BQUDn05cJPzAu/PjiloaFFrh+Pt3bY+NCcdCggI7Uyl5mW0FGR7RATeIz5/ECUd1D8Kvjt4HaLPmnOMw==}
     dependencies:
@@ -1730,6 +1756,28 @@ packages:
       solid-js: 1.2.6
     dev: false
 
+  /solid-bootstrap-core/0.2.6_solid-js@1.2.6:
+    resolution: {integrity: sha512-7PR7kYeC7p3nMe929DwmOx3vAV2kYoF5PNAS19QIAx4AO4pEc62xa+0Rx5eE2d9UoN6L4CjgOtObwwxxzd6C5g==}
+    peerDependencies:
+      solid-js: ^1.2.5
+    dependencies:
+      '@popperjs/core': 2.11.2
+      dom-helpers: 5.2.1
+      solid-js: 1.2.6
+      solid-react-transition: 0.2.0_solid-js@1.2.6
+    dev: false
+
+  /solid-bootstrap/0.2.6_solid-js@1.2.6:
+    resolution: {integrity: sha512-FJ/85eHJzd23qWkpFIcg2K+GZQ9AAmPHOTC4uBE3sTCfCT1XS6NQM+w1DFSMOGlZ2XZohO4ahCd+4t+rcJv4bg==}
+    peerDependencies:
+      solid-js: ^1.2.5
+    dependencies:
+      dom-helpers: 5.2.1
+      solid-bootstrap-core: 0.2.6_solid-js@1.2.6
+      solid-js: 1.2.6
+      solid-react-transition: 0.2.0_solid-js@1.2.6
+    dev: false
+
   /solid-js/1.2.6:
     resolution: {integrity: sha512-NvPHJ5Vj5f+ZJWIioickrC55seovSkDtm5NzSpnoUk3z4tATv0STpy5iuGNEn51ZORUcwpZzrMAtOCGziXU1XA==}
 
@@ -1746,6 +1794,14 @@ packages:
     transitivePeerDependencies:
       - supports-color
     dev: true
+
+  /solid-react-transition/0.2.0_solid-js@1.2.6:
+    resolution: {integrity: sha512-hyNchsJEmCzfLWsaQtdryeqT/OxqAW+o6/1IlpfuvuBwhoKaMAn6EV5wPWQPLybM7ED2jbEeYP0lvGHxt4AAgg==}
+    peerDependencies:
+      solid-js: ^1.2.5
+    dependencies:
+      solid-js: 1.2.6
+    dev: false
 
   /solid-refresh/0.3.3_solid-js@1.2.6:
     resolution: {integrity: sha512-8Xi828ErNGAp7FmNNfJTBKy+LdMxnJ1LAAh8CgtPhtaVMBlmppzvD4YSR6UHm8sNsoO5rwTwAl5uHfKsWFFDPA==}
