@@ -1,0 +1,149 @@
+import { Card, Button, Form, Stack } from "solid-bootstrap";
+import "./styles.css";
+import Example from "./Example";
+import GithubSource from "./GithubSource";
+import LayoutStackApi from "./LayoutStackApi";
+
+# Stacks
+
+<p class="lead">
+  Shorthand helpers that build on top of our flexbox utilities to make component layout faster and easier than ever.
+</p>
+
+<div class="row gy-5 pt-3 show-grid">
+
+    <Example title="Vertical">
+    <Example.Intro>
+      Stacks are vertical by default and stacked items are full-width by default. Use the `gap` prop to add space between items.
+    </Example.Intro>
+    <Example.Preview>
+      <Stack gap={3}>
+        <div className="bg-light border">First item</div>
+        <div className="bg-light border">Second item</div>
+        <div className="bg-light border">Third item</div>
+      </Stack>
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      <Stack gap={3}>
+        <div className="bg-light border">First item</div>
+        <div className="bg-light border">Second item</div>
+        <div className="bg-light border">Third item</div>
+      </Stack>
+      ```
+    </Example.Code>
+  </Example>
+
+    <Example title="Horizontal">
+    <Example.Intro>
+      Use `direction="horizontal"` for horizontal layouts. Stacked items are vertically centered by default and only take up their necessary width. Use the `gap` prop to add space between items.
+    </Example.Intro>
+    <Example.Preview>
+      <Stack direction="horizontal" gap={3}>
+        <div className="bg-light border">First item</div>
+        <div className="bg-light border">Second item</div>
+        <div className="bg-light border">Third item</div>
+      </Stack>
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      <Stack direction="horizontal" gap={3}>
+        <div className="bg-light border">First item</div>
+        <div className="bg-light border">Second item</div>
+        <div className="bg-light border">Third item</div>
+      </Stack>
+      ```
+    </Example.Code>
+  </Example>
+
+    <Example title="Horizonal spacers">
+    <Example.Intro>
+      Using horizontal margin utilities like `.ms-auto` as spacers:
+    </Example.Intro>
+    <Example.Preview>
+      <Stack direction="horizontal" gap={3}>
+        <div className="bg-light border">First item</div>
+        <div className="bg-light border ms-auto">Second item</div>
+        <div className="bg-light border">Third item</div>
+      </Stack>
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      <Stack direction="horizontal" gap={3}>
+        <div className="bg-light border">First item</div>
+        <div className="bg-light border ms-auto">Second item</div>
+        <div className="bg-light border">Third item</div>
+      </Stack>
+      ```
+    </Example.Code>
+  </Example>
+
+    <Example title="Vertical rule seperator">
+    <Example.Preview>
+      <Stack direction="horizontal" gap={3}>
+        <div className="bg-light border">First item</div>
+        <div className="vr" />
+        <div className="bg-light border">Second item</div>
+        <div className="vr" />
+        <div className="bg-light border">Third item</div>
+      </Stack>
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      <Stack direction="horizontal" gap={3}>
+        <div className="bg-light border">First item</div>
+        <div className="vr" />
+        <div className="bg-light border">Second item</div>
+        <div className="vr" />
+        <div className="bg-light border">Third item</div>
+      </Stack>
+      ```
+    </Example.Code>
+  </Example>
+
+    <Example title="Stacked buttons">
+    <Example.Intro>
+      Use a vertical `Stack` to stack buttons and other elements.
+    </Example.Intro>
+    <Example.Preview>
+      <Stack gap={2} className="col-md-5 mx-auto">
+        <Button variant="secondary">Save changes</Button>
+        <Button variant="outline-secondary">Cancel</Button>
+      </Stack>
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      <Stack gap={2} className="col-md-5 mx-auto">
+        <Button variant="secondary">Save changes</Button>
+        <Button variant="outline-secondary">Cancel</Button>
+      </Stack>
+      ```
+    </Example.Code>
+  </Example>
+
+    <Example title="Horizontal form">
+    <Example.Intro>
+      Create an inline form with a horizontal `Stack`.
+    </Example.Intro>
+    <Example.Preview>
+      <Stack direction="horizontal" gap={3}>
+        <Form.Control className="me-auto" placeholder="Add your item here..." />
+        <Button variant="secondary">Submit</Button>
+        <div className="vr" />
+        <Button variant="outline-danger">Reset</Button>
+      </Stack>
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      <Stack direction="horizontal" gap={3}>
+        <Form.Control className="me-auto" placeholder="Add your item here..." />
+        <Button variant="secondary">Submit</Button>
+        <div className="vr" />
+        <Button variant="outline-danger">Reset</Button>
+      </Stack>
+      ```
+    </Example.Code>
+  </Example>
+
+  <LayoutStackApi />
+</div>

@@ -7,11 +7,11 @@ const Layouts: Component = (props) => (
     <Routes>
       <Route
         path="grid"
-        component={lazy(() => import("../docs/LayoutGridDocs"))}
+        component={lazy(() => import("../docs/LayoutGridDocs.mdx"))}
       />
       <Route
         path="stack"
-        component={lazy(() => import("../docs/LayoutStackDocs"))}
+        component={lazy(() => import("../docs/LayoutStackDocs.mdx"))}
       />
     </Routes>
   </Layout>

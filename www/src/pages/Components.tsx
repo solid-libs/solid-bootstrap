@@ -29,11 +29,11 @@ const Components: Component = (props) => (
       <Route path="cards" component={lazy(() => import("../docs/CardsDocs.mdx"))} />
       <Route
         path="carousel"
-        component={lazy(() => import("../docs/CarouselDocs"))}
+        component={lazy(() => import("../docs/CarouselDocs.mdx"))}
       />
       <Route
         path="close-button"
-        component={lazy(() => import("../docs/CloseButtonDocs"))}
+        component={lazy(() => import("../docs/CloseButtonDocs.mdx"))}
       />
       <Route
         path="dropdowns"
