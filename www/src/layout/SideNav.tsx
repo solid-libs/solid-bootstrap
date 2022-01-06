@@ -40,7 +40,6 @@ const components = [
   "close-button",
   "dropdowns",
   "figures",
-  "input-group",
   "images",
   "list-group",
   "modal",

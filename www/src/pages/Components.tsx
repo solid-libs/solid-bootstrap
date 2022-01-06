@@ -48,10 +48,6 @@ const Components: Component = (props) => (
         component={lazy(() => import("../docs/ImageDocs"))}
       />
       <Route
-        path="input-group"
-        component={lazy(() => import("../docs/InputGroupDocs"))}
-      />
-      <Route
         path="list-group"
         component={lazy(() => import("../docs/ListGroupDocs"))}
       />
@@ -95,19 +91,6 @@ const Components: Component = (props) => (
         component={lazy(() => import("../docs/ToastDocs"))}
       />
       <Route path="tabs" component={lazy(() => import("../docs/TabsDocs"))} />
-
-      <Route
-        path="coreDropdown"
-        component={lazy(() => import("../docs/CoreDropdownDocs"))}
-      />
-      <Route
-        path="coreModal"
-        component={lazy(() => import("../docs/CoreModalDocs"))}
-      />
-      <Route
-        path="coreOverlay"
-        component={lazy(() => import("../docs/CoreOverlayDocs"))}
-      />
     </Routes>
   </Layout>
 );

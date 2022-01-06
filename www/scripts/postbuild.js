@@ -33,7 +33,6 @@ function main() {
     "dropdowns",
     "figures",
     "images",
-    "input-group",
     "list-group",
     "modal",
     "navs",
