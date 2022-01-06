@@ -1,0 +1,54 @@
+import { For } from "solid-js";
+import { Figure } from "solid-bootstrap";
+import Example from "./Example";
+import GithubSource from "./GithubSource";
+import { HolderJSRefresh } from "./utils";
+import FigureApi from "./FigureApi";
+
+<GithubSource name="FigureDocs.mdx" />
+# Figures
+
+<p className="lead">
+  Anytime you need to display a piece of content, like an image with an
+  optional caption, consider using a `Figure`.
+</p>
+
+<div className="row gy-5 pt-3">
+    <HolderJSRefresh />
+
+    <Example title="Figure">
+    <Example.Intro>
+      Displaying related images and text with the Figure component.
+    </Example.Intro>
+    <Example.Preview>
+      <Figure>
+        <Figure.Image
+          width={171}
+          height={180}
+          alt="171x180"
+          src="holder.js/171x180"
+        />
+        <Figure.Caption>
+          Nulla vitae elit libero, a pharetra augue mollis interdum.
+        </Figure.Caption>
+      </Figure>
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      <Figure>
+        <Figure.Image
+          width={171}
+          height={180}
+          alt="171x180"
+          src="holder.js/171x180"
+        />
+        <Figure.Caption>
+          Nulla vitae elit libero, a pharetra augue mollis interdum.
+        </Figure.Caption>
+      </Figure>
+      ```
+    </Example.Code>
+  </Example>
+
+  <FigureApi />
+</div>

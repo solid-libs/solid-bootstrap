@@ -37,11 +37,11 @@ const Components: Component = (props) => (
       />
       <Route
         path="dropdowns"
-        component={lazy(() => import("../docs/DropdownDocs"))}
+        component={lazy(() => import("../docs/DropdownDocs.mdx"))}
       />
       <Route
         path="figures"
-        component={lazy(() => import("../docs/FigureDocs"))}
+        component={lazy(() => import("../docs/FigureDocs.mdx"))}
       />
       <Route path="forms" component={lazy(() => import("../docs/FormDocs"))} />
       <Route
