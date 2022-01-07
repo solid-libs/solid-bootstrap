@@ -1,0 +1,145 @@
+import { Card, ProgressBar } from "solid-bootstrap";
+import { value } from "./ProgressBarExamples";
+import Example from "./Example";
+import GithubSource from "./GithubSource";
+import ProgressBarApi from "./ProgressBarApi";
+
+<GithubSource name="ProgressBarDocs.mdx" />
+# Progress bars
+
+<p className="lead">
+  Provide up-to-date feedback on the progress of a workflow or action with
+  simple yet flexible progress bars.
+</p>
+
+<div className="row gy-5 pt-3">
+
+  <Example title="Example">
+    <Example.Intro>
+      Default progress bar.
+    </Example.Intro>
+    <Example.Preview>
+      <ProgressBar now={60} />
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      <ProgressBar now={60} />
+      ```
+    </Example.Code>
+  </Example>
+
+  <Example title="With label">
+    <Example.Intro>
+      Add a `label` prop to show a visible percentage. For low
+      percentages, consider adding a min-width to ensure the label's text is
+      fully visible.
+    </Example.Intro>
+    <Example.Preview>
+      <ProgressBar now={60} label={`${60}%`} />
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      <ProgressBar now={60} label={`${60}%`} />;
+      ```
+    </Example.Code>
+  </Example>
+
+  <Example title="Screenreader only label">
+    <Example.Intro>
+      Add a `visuallyHidden` prop to hide the label visually.
+    </Example.Intro>
+    <Example.Preview>
+      <ProgressBar now={60} label={`${60}%`} visuallyHidden />
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      <ProgressBar now={60} label={`${60}%`} visuallyHidden />
+      ```
+    </Example.Code>
+  </Example>
+
+  <Example title="Contextual alternatives">
+    <Example.Intro>
+      Progress bars use some of the same button and alert classes for
+      consistent styles.
+    </Example.Intro>
+    <Example.Preview>
+      <ProgressBar variant="success" now={40} />
+      <ProgressBar variant="info" now={20} />
+      <ProgressBar variant="warning" now={60} />
+      <ProgressBar variant="danger" now={80} />
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      <ProgressBar variant="success" now={40} />
+      <ProgressBar variant="info" now={20} />
+      <ProgressBar variant="warning" now={60} />
+      <ProgressBar variant="danger" now={80} />
+      ```
+    </Example.Code>
+  </Example>
+
+  <Example title="Striped">
+    <Example.Intro>
+      Uses a gradient to create a striped effect.
+    </Example.Intro>
+    <Example.Preview>
+      <ProgressBar striped variant="success" now={40} />
+      <ProgressBar striped variant="info" now={20} />
+      <ProgressBar striped variant="warning" now={60} />
+      <ProgressBar striped variant="danger" now={80} />
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      <ProgressBar striped variant="success" now={40} />
+      <ProgressBar striped variant="info" now={20} />
+      <ProgressBar striped variant="warning" now={60} />
+      <ProgressBar striped variant="danger" now={80} />
+      ```
+    </Example.Code>
+  </Example>
+
+  <Example title="Animated">
+    <Example.Intro>
+      Add `animated` prop to animate the stripes right to left.
+    </Example.Intro>
+    <Example.Preview>
+      <ProgressBar animated now={value()} label={`${value()}%`} />
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      const [value, setValue] = createSignal(5);
+      const interval = window.setInterval(() => { 
+          setValue(value() < 100 ? value() + 5 : 0); 
+        }, 1000);
+      onCleanup(() => window.clearInterval(interval));
+
+      <ProgressBar animated now={value()} label={`${value()}%`} />
+      ```
+    </Example.Code>
+  </Example>
+
+  <Example title="Stacked">
+    <Example.Intro>
+      Nest `<ProgressBar />`s to stack them.
+    </Example.Intro>
+    <Example.Preview>
+      <ProgressBar>
+        <ProgressBar striped variant="success" now={35} key={1} />
+        <ProgressBar variant="warning" now={20} key={2} />
+        <ProgressBar striped variant="danger" now={10} key={3} />
+      </ProgressBar>
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      <ProgressBar>
+        <ProgressBar striped variant="success" now={35} key={1} />
+        <ProgressBar variant="warning" now={20} key={2} />
+        <ProgressBar striped variant="danger" now={10} key={3} />
+      </ProgressBar>
+      ```
+    </Example.Code>
+  </Example>
+
+  <ProgressBarApi />
+</div>

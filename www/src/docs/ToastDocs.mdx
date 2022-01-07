@@ -1,0 +1,511 @@
+import {
+  Button,
+  Card,
+  Col,
+  Form,
+  Row,
+  Toast,
+  ToastContainer,
+} from "solid-bootstrap";
+import {
+  show1,
+  show2,
+  show3,
+  setShow1,
+  setShow2,
+  setShow3,
+  position,
+  setPosition
+} from "./ToastExamples";
+import { HolderJSRefresh } from "./utils";
+import Example from "./Example";
+import GithubSource from "./GithubSource";
+import ToastApi from "./ToastApi";
+
+<HolderJSRefresh />
+<GithubSource name="ToastDocs.mdx" />
+# Toasts
+
+<p className="lead">
+  Push notifications to your visitors with a toast, a lightweight and
+  easily customizable alert message.
+</p>
+
+Toasts are lightweight notifications designed to mimic the push notifications that have been popularized by mobile and desktop operating systems.
+They’re built with flexbox, so they’re easy to align and position.
+
+<div className="row gy-5 pt-3">
+
+  <Example title="Basic">
+    <Example.Intro>
+      To encourage extensible and predictable toasts, we recommend a header and body. Toast headers use display: flex, allowing easy alignment of content thanks to our margin and flexbox utilities.
+
+      Toasts are as flexible as you need and have very little required markup. At a minimum, we require a single element to contain your “toasted” content and strongly encourage a dismiss button.
+    </Example.Intro>
+    <Example.Preview>
+      <Toast>
+        <Toast.Header>
+          <img src="holder.js/20x20?text=%20" className="rounded me-2" alt="" />
+          <strong className="me-auto">Bootstrap</strong>
+          <small>11 mins ago</small>
+        </Toast.Header>
+        <Toast.Body>Hello, world! This is a toast message.</Toast.Body>
+      </Toast>
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      <Toast>
+        <Toast.Header>
+          <img src="holder.js/20x20?text=%20" className="rounded me-2" alt="" />
+          <strong className="me-auto">Bootstrap</strong>
+          <small>11 mins ago</small>
+        </Toast.Header>
+        <Toast.Body>Hello, world! This is a toast message.</Toast.Body>
+      </Toast>
+      ```
+    </Example.Code>
+  </Example>
+
+  <Example title="Dismissible">
+    <Example.Preview>
+      <Row>
+        <Col md={6} className="mb-2">
+          <Button onClick={() => setShow1((s) => !s)} className="mb-2">Toggle Toast <strong>with</strong> Animation</Button>
+          <Toast show={show1()} onClose={() => setShow1(false)}>
+            <Toast.Header>
+              <img
+                src="holder.js/20x20?text=%20"
+                className="rounded me-2"
+                alt=""
+              />
+              <strong className="me-auto">Bootstrap</strong>
+              <small>11 mins ago</small>
+            </Toast.Header>
+            <Toast.Body>Woohoo, you're reading this text in a Toast!</Toast.Body>
+          </Toast>
+        </Col>
+        <Col md={6} className="mb-2">
+          <Button onClick={() => setShow2((s) => !s)} className="mb-2">Toggle Toast <strong>without</strong> Animation</Button>
+          <Toast
+            show={show2()}
+            onClose={() => setShow2(false)}
+            animation={false}
+          >
+            <Toast.Header>
+              <img
+                src="holder.js/20x20?text=%20"
+                className="rounded me-2"
+                alt=""
+              />
+              <strong className="me-auto">Bootstrap</strong>
+              <small>11 mins ago</small>
+            </Toast.Header>
+            <Toast.Body>Woohoo, you're reading this text in a Toast!</Toast.Body>
+          </Toast>
+        </Col>
+      </Row>
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      const [show1, setShow1] = createSignal(true);
+      const [show2, setShow2] = createSignal(true);
+
+      <Row>
+        <Col md={6} className="mb-2">
+          <Button onClick={() => setShow1((s) => !s)} className="mb-2">Toggle Toast <strong>with</strong> Animation</Button>
+          <Toast show={show1()} onClose={() => setShow1(false)}>
+            <Toast.Header>
+              <img
+                src="holder.js/20x20?text=%20"
+                className="rounded me-2"
+                alt=""
+              />
+              <strong className="me-auto">Bootstrap</strong>
+              <small>11 mins ago</small>
+            </Toast.Header>
+            <Toast.Body>Woohoo, you're reading this text in a Toast!</Toast.Body>
+          </Toast>
+        </Col>
+        <Col md={6} className="mb-2">
+          <Button onClick={() => setShow2((s) => !s)} className="mb-2">Toggle Toast <strong>without</strong> Animation</Button>
+          <Toast
+            show={show2()}
+            onClose={() => setShow2(false)}
+            animation={false}
+          >
+            <Toast.Header>
+              <img
+                src="holder.js/20x20?text=%20"
+                className="rounded me-2"
+                alt=""
+              />
+              <strong className="me-auto">Bootstrap</strong>
+              <small>11 mins ago</small>
+            </Toast.Header>
+            <Toast.Body>Woohoo, you're reading this text in a Toast!</Toast.Body>
+          </Toast>
+        </Col>
+      </Row>
+      ```
+    </Example.Code>
+  </Example>
+
+  <Example title="Stacking">
+    <Example.Intro>
+      When you have multiple toasts, we default to vertically stacking them in a readable manner.
+    </Example.Intro>
+    <Example.Preview>
+      <ToastContainer>
+        <Toast>
+          <Toast.Header>
+            <img src="holder.js/20x20?text=%20" className="rounded me-2" alt="" />
+            <strong className="me-auto">Bootstrap</strong>
+            <small className="text-muted">just now</small>
+          </Toast.Header>
+          <Toast.Body>See? Just like this.</Toast.Body>
+        </Toast>
+        <Toast>
+          <Toast.Header>
+            <img src="holder.js/20x20?text=%20" className="rounded me-2" alt="" />
+            <strong className="me-auto">Bootstrap</strong>
+            <small className="text-muted">2 seconds ago</small>
+          </Toast.Header>
+          <Toast.Body>Heads up, toasts will stack automatically</Toast.Body>
+        </Toast>
+      </ToastContainer>
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      <ToastContainer>
+        <Toast>
+          <Toast.Header>
+            <img src="holder.js/20x20?text=%20" className="rounded me-2" alt="" />
+            <strong className="me-auto">Bootstrap</strong>
+            <small className="text-muted">just now</small>
+          </Toast.Header>
+          <Toast.Body>See? Just like this.</Toast.Body>
+        </Toast>
+        <Toast>
+          <Toast.Header>
+            <img src="holder.js/20x20?text=%20" className="rounded me-2" alt="" />
+            <strong className="me-auto">Bootstrap</strong>
+            <small className="text-muted">2 seconds ago</small>
+          </Toast.Header>
+          <Toast.Body>Heads up, toasts will stack automatically</Toast.Body>
+        </Toast>
+      </ToastContainer>
+      ```
+    </Example.Code>
+  </Example>
+
+  <Example title="Placement">
+    <Example.Intro>
+      Place toasts by setting a `position` in a `ToastContainer`. The top right is often used for notifications, as is the top middle.
+    </Example.Intro>
+    <Example.Preview>
+      <div className="mb-3">
+        <label htmlFor="selectToastPlacement">Toast position</label>
+        <Form.Select
+          id="selectToastPlacement"
+          className="mt-2"
+          onChange={(e) => setPosition(e.currentTarget.value)}
+        >
+          {[
+            "top-start",
+            "top-center",
+            "top-end",
+            "middle-start",
+            "middle-center",
+            "middle-end",
+            "bottom-start",
+            "bottom-center",
+            "bottom-end",
+          ].map((p) => (
+            <option value={p}>{p}</option>
+          ))}
+        </Form.Select>
+      </div>
+      <div
+        aria-live="polite"
+        aria-atomic="true"
+        className="bg-dark position-relative"
+        style={{ "min-height": "240px" }}
+      >
+        <ToastContainer className="p-3" position={position()}>
+          <Toast>
+            <Toast.Header closeButton={false}>
+              <img
+                src="holder.js/20x20?text=%20"
+                className="rounded me-2"
+                alt=""
+              />
+              <strong className="me-auto">Bootstrap</strong>
+              <small>11 mins ago</small>
+            </Toast.Header>
+            <Toast.Body>Hello, world! This is a toast message.</Toast.Body>
+          </Toast>
+        </ToastContainer>
+      </div>
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      const [position, setPosition] = createSignal<any>("top-start");
+
+      <div className="mb-3">
+        <label htmlFor="selectToastPlacement">Toast position</label>
+        <Form.Select
+          id="selectToastPlacement"
+          className="mt-2"
+          onChange={(e: any) => setPosition(e.currentTarget.value)}
+        >
+          {[
+            "top-start",
+            "top-center",
+            "top-end",
+            "middle-start",
+            "middle-center",
+            "middle-end",
+            "bottom-start",
+            "bottom-center",
+            "bottom-end",
+          ].map((p) => (
+            <option value={p}>{p}</option>
+          ))}
+        </Form.Select>
+      </div>
+      <div
+        aria-live="polite"
+        aria-atomic="true"
+        className="bg-dark position-relative"
+        style={{ "min-height": "240px" }}
+      >
+        <ToastContainer className="p-3" position={position()}>
+          <Toast>
+            <Toast.Header closeButton={false}>
+              <img
+                src="holder.js/20x20?text=%20"
+                className="rounded me-2"
+                alt=""
+              />
+              <strong className="me-auto">Bootstrap</strong>
+              <small>11 mins ago</small>
+            </Toast.Header>
+            <Toast.Body>
+              Hello, world! This is a toast message.
+            </Toast.Body>
+          </Toast>
+        </ToastContainer>
+      </div>
+      ```
+    </Example.Code>
+  </Example>
+
+  <Example>
+    <Example.Intro>
+      For systems that generate more notifications, consider using a wrapping element so they can easily stack.
+    </Example.Intro>
+    <Example.Preview>
+      <div
+        aria-live="polite"
+        aria-atomic="true"
+        className="bg-dark position-relative"
+        style={{ "min-height": "240px" }}
+      >
+        <ToastContainer position="top-end" className="p-3">
+          <Toast>
+            <Toast.Header>
+              <img
+                src="holder.js/20x20?text=%20"
+                className="rounded me-2"
+                alt=""
+              />
+              <strong className="me-auto">Bootstrap</strong>
+              <small className="text-muted">just now</small>
+            </Toast.Header>
+            <Toast.Body>See? Just like this.</Toast.Body>
+          </Toast>
+          <Toast>
+            <Toast.Header>
+              <img
+                src="holder.js/20x20?text=%20"
+                className="rounded me-2"
+                alt=""
+              />
+              <strong className="me-auto">Bootstrap</strong>
+              <small className="text-muted">2 seconds ago</small>
+            </Toast.Header>
+            <Toast.Body>Heads up, toasts will stack automatically</Toast.Body>
+          </Toast>
+        </ToastContainer>
+      </div>
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      <div
+        aria-live="polite"
+        aria-atomic="true"
+        className="bg-dark position-relative"
+        style={{ "min-height": "240px" }}
+      >
+        <ToastContainer position="top-end" className="p-3">
+          <Toast>
+            <Toast.Header>
+              <img
+                src="holder.js/20x20?text=%20"
+                className="rounded me-2"
+                alt=""
+              />
+              <strong className="me-auto">Bootstrap</strong>
+              <small className="text-muted">just now</small>
+            </Toast.Header>
+            <Toast.Body>See? Just like this.</Toast.Body>
+          </Toast>
+          <Toast>
+            <Toast.Header>
+              <img
+                src="holder.js/20x20?text=%20"
+                className="rounded me-2"
+                alt=""
+              />
+              <strong className="me-auto">Bootstrap</strong>
+              <small className="text-muted">2 seconds ago</small>
+            </Toast.Header>
+            <Toast.Body>Heads up, toasts will stack automatically</Toast.Body>
+          </Toast>
+        </ToastContainer>
+      </div>
+      ```
+    </Example.Code>
+  </Example>
+
+
+  <Example title="Autohide">
+    <Example.Intro>
+      A Toast can also automatically hide after X milliseconds. For that, use the `autohide` prop in combination with `delay` the prop to sepecify the delay. But be aware, that it will only trigger the `onClose` function, you have to set manually the show property.
+    </Example.Intro>
+    <Example.Preview>
+      <Row>
+        <Col xs={6}>
+          <Toast
+            onClose={() => setShow3(false)}
+            show={show3()}
+            delay={3000}
+            autohide
+          >
+            <Toast.Header>
+              <img
+                src="holder.js/20x20?text=%20"
+                className="rounded me-2"
+                alt=""
+              />
+              <strong className="me-auto">Bootstrap</strong>
+              <small>11 mins ago</small>
+            </Toast.Header>
+            <Toast.Body>
+              Woohoo, you're reading this text in a Toast!
+            </Toast.Body>
+          </Toast>
+        </Col>
+        <Col xs={6}>
+          <Button onClick={() => setShow3(true)}>Show Toast</Button>
+        </Col>
+      </Row>
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      const [show3, setShow3] = createSignal(false);
+
+      <Row>
+        <Col xs={6}>
+          <Toast
+            onClose={() => setShow3(false)}
+            show={show3()}
+            delay={3000}
+            autohide
+          >
+            <Toast.Header>
+              <img
+                src="holder.js/20x20?text=%20"
+                className="rounded me-2"
+                alt=""
+              />
+              <strong className="me-auto">Bootstrap</strong>
+              <small>11 mins ago</small>
+            </Toast.Header>
+            <Toast.Body>
+              Woohoo, you're reading this text in a Toast!
+            </Toast.Body>
+          </Toast>
+        </Col>
+        <Col xs={6}>
+          <Button onClick={() => setShow3(true)}>Show Toast</Button>
+        </Col>
+      </Row>
+      ```
+    </Example.Code>
+  </Example>
+
+  <Example title="Contextual variations">
+    <Example.Intro>
+      Add any of the below mentioned modifier classes to change the appearance of a toast.
+    </Example.Intro>
+    <Example.Preview>
+      {[
+        "Primary",
+        "Secondary",
+        "Success",
+        "Danger",
+        "Warning",
+        "Info",
+        "Light",
+        "Dark",
+      ].map((variant, idx) => (
+        <Toast className="d-inline-block m-2" bg={variant.toLowerCase()}>
+          <Toast.Header>
+            <img
+              src="holder.js/20x20?text=%20"
+              className="rounded me-2"
+              alt=""
+            />
+            <strong className="me-auto">Bootstrap</strong>
+            <small>11 mins ago</small>
+          </Toast.Header>
+          <Toast.Body className={variant === "Dark" ? "text-white" : ""}>
+            Hello, world! This is a toast message.
+          </Toast.Body>
+        </Toast>
+      ))}
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      {[
+        "Primary",
+        "Secondary",
+        "Success",
+        "Danger",
+        "Warning",
+        "Info",
+        "Light",
+        "Dark",
+      ].map((variant, idx) => (
+        <Toast className="d-inline-block m-2" bg={variant.toLowerCase()}>
+          <Toast.Header>
+            <img
+              src="holder.js/20x20?text=%20"
+              className="rounded me-2"
+              alt=""
+            />
+            <strong className="me-auto">Bootstrap</strong>
+            <small>11 mins ago</small>
+          </Toast.Header>
+          <Toast.Body className={variant === "Dark" ? "text-white" : ""}>
+            Hello, world! This is a toast message.
+          </Toast.Body>
+        </Toast>
+      ))}
+      ```
+    </Example.Code>
+  </Example>
+
+  <ToastApi />
+</div>

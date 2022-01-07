@@ -62,35 +62,35 @@ const Components: Component = (props) => (
         component={lazy(() => import("../docs/OffcanvasDocs.mdx"))}
       />
       <Route
-        path="popovers"
-        component={lazy(() => import("../docs/PopoverDocs"))}
-      />
-      <Route
         path="pagination"
-        component={lazy(() => import("../docs/PaginationDocs"))}
+        component={lazy(() => import("../docs/PaginationDocs.mdx"))}
       />
       <Route
         path="placeholder"
-        component={lazy(() => import("../docs/PlaceholderDocs"))}
+        component={lazy(() => import("../docs/PlaceholderDocs.mdx"))}
+      />
+      <Route
+        path="popovers"
+        component={lazy(() => import("../docs/PopoverDocs.mdx"))}
       />
       <Route
         path="progress"
-        component={lazy(() => import("../docs/ProgressBarDocs"))}
+        component={lazy(() => import("../docs/ProgressBarDocs.mdx"))}
       />
       <Route
         path="spinners"
-        component={lazy(() => import("../docs/SpinnerDocs"))}
+        component={lazy(() => import("../docs/SpinnerDocs.mdx"))}
       />
-      <Route path="table" component={lazy(() => import("../docs/TableDocs"))} />
+      <Route path="table" component={lazy(() => import("../docs/TableDocs.mdx"))} />
+      <Route path="tabs" component={lazy(() => import("../docs/TabsDocs.mdx"))} />
       <Route
         path="tooltips"
-        component={lazy(() => import("../docs/TooltipDocs"))}
+        component={lazy(() => import("../docs/TooltipDocs.mdx"))}
       />
       <Route
         path="toasts"
-        component={lazy(() => import("../docs/ToastDocs"))}
+        component={lazy(() => import("../docs/ToastDocs.mdx"))}
       />
-      <Route path="tabs" component={lazy(() => import("../docs/TabsDocs"))} />
     </Routes>
   </Layout>
 );

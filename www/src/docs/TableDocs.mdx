@@ -1,0 +1,657 @@
+import { Card, Table } from "solid-bootstrap";
+import Example from "./Example";
+import GithubSource from "./GithubSource";
+import TableApi from "./TableApi";
+
+<GithubSource name="TableDocs.mdx" />
+# Tables
+
+<div className="row gy-5 pt-3">
+
+  <Example>
+    <Example.Intro>
+      Use the `striped`, `bordered` and `hover` props to customise the table.
+    </Example.Intro>
+    <Example.Preview>
+      <Table striped bordered hover>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Username</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>@fat</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td colSpan={2}>Larry the Bird</td>
+            <td>@twitter</td>
+          </tr>
+        </tbody>
+      </Table>
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      <Table striped bordered hover>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Username</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>@fat</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td colSpan={2}>Larry the Bird</td>
+            <td>@twitter</td>
+          </tr>
+        </tbody>
+      </Table>
+      ```
+    </Example.Code>
+  </Example>
+
+  <Example title="Small table">
+    <Example.Intro>
+      Use `size="sm"` to make tables compact by cutting cell padding in half.
+    </Example.Intro>
+    <Example.Preview>
+      <Table striped bordered hover size="sm">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Username</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>@fat</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td colSpan={2}>Larry the Bird</td>
+            <td>@twitter</td>
+          </tr>
+        </tbody>
+      </Table>
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      <Table striped bordered hover size="sm">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Username</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>@fat</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td colSpan={2}>Larry the Bird</td>
+            <td>@twitter</td>
+          </tr>
+        </tbody>
+      </Table>
+      ```
+    </Example.Code>
+  </Example>
+
+  <Example title="Dark Table">
+    <Example.Intro>
+      Use `variant="dark"` to invert the colors of the table and get light text 
+      on a dark background.
+    </Example.Intro>
+    <Example.Preview>
+      <Table striped bordered hover variant="dark">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Username</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>@fat</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td colSpan={2}>Larry the Bird</td>
+            <td>@twitter</td>
+          </tr>
+        </tbody>
+      </Table>
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      <Table striped bordered hover variant="dark">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Username</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>@fat</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td colSpan={2}>Larry the Bird</td>
+            <td>@twitter</td>
+          </tr>
+        </tbody>
+      </Table>
+      ```
+    </Example.Code>
+  </Example>
+
+  <div>
+    ## Responsive
+
+    Responsive tables allow tables to be scrolled horizontally with ease.
+  </div>
+
+  <Example title="Always Responsive">
+    <Example.Intro>
+      Across every breakpoint, use `responsive` for horizontally scrolling tables. 
+      Responsive tables are wrapped automatically in a `div`. The following example 
+      has 12 columns that are scrollable horizontally.
+    </Example.Intro>
+    <Example.Preview>
+      <Table responsive>
+        <thead>
+          <tr>
+            <th>#</th>
+            {Array.from({ length: 12 }).map((_, index) => (
+              <th key={index}>Table heading</th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            {Array.from({ length: 12 }).map((_, index) => (
+              <td key={index}>Table cell {index}</td>
+            ))}
+          </tr>
+          <tr>
+            <td>2</td>
+            {Array.from({ length: 12 }).map((_, index) => (
+              <td key={index}>Table cell {index}</td>
+            ))}
+          </tr>
+          <tr>
+            <td>3</td>
+            {Array.from({ length: 12 }).map((_, index) => (
+              <td key={index}>Table cell {index}</td>
+            ))}
+          </tr>
+        </tbody>
+      </Table>
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      <Table responsive>
+        <thead>
+          <tr>
+            <th>#</th>
+            {Array.from({ length: 12 }).map((_, index) => (
+              <th key={index}>Table heading</th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            {Array.from({ length: 12 }).map((_, index) => (
+              <td key={index}>Table cell {index}</td>
+            ))}
+          </tr>
+          <tr>
+            <td>2</td>
+            {Array.from({ length: 12 }).map((_, index) => (
+              <td key={index}>Table cell {index}</td>
+            ))}
+          </tr>
+          <tr>
+            <td>3</td>
+            {Array.from({ length: 12 }).map((_, index) => (
+              <td key={index}>Table cell {index}</td>
+            ))}
+          </tr>
+        </tbody>
+      </Table>
+      ```
+    </Example.Code>
+  </Example>
+
+  <Example title="Breakpoint specific">
+    <Example.Intro>
+      Use `responsive="sm"`, `responsive="md"`, `responsive="lg"`, or `responsive="xl"` 
+      as needed to create responsive tables up to a particular breakpoint. From that 
+      breakpoint and up, the table will behave normally and not scroll horizontally.
+    </Example.Intro>
+    <Example.Preview>
+      <div>
+        <Table responsive="sm">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Table heading</th>
+              <th>Table heading</th>
+              <th>Table heading</th>
+              <th>Table heading</th>
+              <th>Table heading</th>
+              <th>Table heading</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Table cell</td>
+              <td>Table cell</td>
+              <td>Table cell</td>
+              <td>Table cell</td>
+              <td>Table cell</td>
+              <td>Table cell</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Table cell</td>
+              <td>Table cell</td>
+              <td>Table cell</td>
+              <td>Table cell</td>
+              <td>Table cell</td>
+              <td>Table cell</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>Table cell</td>
+              <td>Table cell</td>
+              <td>Table cell</td>
+              <td>Table cell</td>
+              <td>Table cell</td>
+              <td>Table cell</td>
+            </tr>
+          </tbody>
+        </Table>
+        <Table responsive="md">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Table heading</th>
+              <th>Table heading</th>
+              <th>Table heading</th>
+              <th>Table heading</th>
+              <th>Table heading</th>
+              <th>Table heading</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Table cell</td>
+              <td>Table cell</td>
+              <td>Table cell</td>
+              <td>Table cell</td>
+              <td>Table cell</td>
+              <td>Table cell</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Table cell</td>
+              <td>Table cell</td>
+              <td>Table cell</td>
+              <td>Table cell</td>
+              <td>Table cell</td>
+              <td>Table cell</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>Table cell</td>
+              <td>Table cell</td>
+              <td>Table cell</td>
+              <td>Table cell</td>
+              <td>Table cell</td>
+              <td>Table cell</td>
+            </tr>
+          </tbody>
+        </Table>
+        <Table responsive="lg">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Table heading</th>
+              <th>Table heading</th>
+              <th>Table heading</th>
+              <th>Table heading</th>
+              <th>Table heading</th>
+              <th>Table heading</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Table cell</td>
+              <td>Table cell</td>
+              <td>Table cell</td>
+              <td>Table cell</td>
+              <td>Table cell</td>
+              <td>Table cell</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Table cell</td>
+              <td>Table cell</td>
+              <td>Table cell</td>
+              <td>Table cell</td>
+              <td>Table cell</td>
+              <td>Table cell</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>Table cell</td>
+              <td>Table cell</td>
+              <td>Table cell</td>
+              <td>Table cell</td>
+              <td>Table cell</td>
+              <td>Table cell</td>
+            </tr>
+          </tbody>
+        </Table>
+        <Table responsive="xl">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Table heading</th>
+              <th>Table heading</th>
+              <th>Table heading</th>
+              <th>Table heading</th>
+              <th>Table heading</th>
+              <th>Table heading</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Table cell</td>
+              <td>Table cell</td>
+              <td>Table cell</td>
+              <td>Table cell</td>
+              <td>Table cell</td>
+              <td>Table cell</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Table cell</td>
+              <td>Table cell</td>
+              <td>Table cell</td>
+              <td>Table cell</td>
+              <td>Table cell</td>
+              <td>Table cell</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>Table cell</td>
+              <td>Table cell</td>
+              <td>Table cell</td>
+              <td>Table cell</td>
+              <td>Table cell</td>
+              <td>Table cell</td>
+            </tr>
+          </tbody>
+        </Table>
+      </div>
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      <div>
+        <Table responsive="sm">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Table heading</th>
+              <th>Table heading</th>
+              <th>Table heading</th>
+              <th>Table heading</th>
+              <th>Table heading</th>
+              <th>Table heading</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Table cell</td>
+              <td>Table cell</td>
+              <td>Table cell</td>
+              <td>Table cell</td>
+              <td>Table cell</td>
+              <td>Table cell</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Table cell</td>
+              <td>Table cell</td>
+              <td>Table cell</td>
+              <td>Table cell</td>
+              <td>Table cell</td>
+              <td>Table cell</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>Table cell</td>
+              <td>Table cell</td>
+              <td>Table cell</td>
+              <td>Table cell</td>
+              <td>Table cell</td>
+              <td>Table cell</td>
+            </tr>
+          </tbody>
+        </Table>
+        <Table responsive="md">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Table heading</th>
+              <th>Table heading</th>
+              <th>Table heading</th>
+              <th>Table heading</th>
+              <th>Table heading</th>
+              <th>Table heading</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Table cell</td>
+              <td>Table cell</td>
+              <td>Table cell</td>
+              <td>Table cell</td>
+              <td>Table cell</td>
+              <td>Table cell</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Table cell</td>
+              <td>Table cell</td>
+              <td>Table cell</td>
+              <td>Table cell</td>
+              <td>Table cell</td>
+              <td>Table cell</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>Table cell</td>
+              <td>Table cell</td>
+              <td>Table cell</td>
+              <td>Table cell</td>
+              <td>Table cell</td>
+              <td>Table cell</td>
+            </tr>
+          </tbody>
+        </Table>
+        <Table responsive="lg">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Table heading</th>
+              <th>Table heading</th>
+              <th>Table heading</th>
+              <th>Table heading</th>
+              <th>Table heading</th>
+              <th>Table heading</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Table cell</td>
+              <td>Table cell</td>
+              <td>Table cell</td>
+              <td>Table cell</td>
+              <td>Table cell</td>
+              <td>Table cell</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Table cell</td>
+              <td>Table cell</td>
+              <td>Table cell</td>
+              <td>Table cell</td>
+              <td>Table cell</td>
+              <td>Table cell</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>Table cell</td>
+              <td>Table cell</td>
+              <td>Table cell</td>
+              <td>Table cell</td>
+              <td>Table cell</td>
+              <td>Table cell</td>
+            </tr>
+          </tbody>
+        </Table>
+        <Table responsive="xl">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Table heading</th>
+              <th>Table heading</th>
+              <th>Table heading</th>
+              <th>Table heading</th>
+              <th>Table heading</th>
+              <th>Table heading</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Table cell</td>
+              <td>Table cell</td>
+              <td>Table cell</td>
+              <td>Table cell</td>
+              <td>Table cell</td>
+              <td>Table cell</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Table cell</td>
+              <td>Table cell</td>
+              <td>Table cell</td>
+              <td>Table cell</td>
+              <td>Table cell</td>
+              <td>Table cell</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>Table cell</td>
+              <td>Table cell</td>
+              <td>Table cell</td>
+              <td>Table cell</td>
+              <td>Table cell</td>
+              <td>Table cell</td>
+            </tr>
+          </tbody>
+        </Table>
+      </div>
+      ```
+    </Example.Code>
+  </Example>
+
+  <TableApi />
+</div>

@@ -1,0 +1,190 @@
+import { Card, Col, Nav, Row, Tab, Tabs } from "solid-bootstrap";
+import { createSignal } from "solid-js";
+import Sonnet from "./Sonnet";
+import Example from "./Example";
+import GithubSource from "./GithubSource";
+import TabsApi from "./TabsApi";
+
+<GithubSource name="TabsDocs.mdx" />
+# Tabbed components
+
+<p className="lead">
+  Dynamic tabbed interfaces
+</p>
+
+<div className="row gy-5 pt-3">
+
+  <Example title="Examples">
+    <Example.Intro>
+      Create dynamic tabbed interfaces, as described in the
+      [<abbr title="Web Accessibility Initiative">WAI</abbr>-ARIA Authoring Practices](https://www.w3.org/TR/wai-aria-practices/#tabpanel).
+      `Tabs` is a higher-level component for quickly creating a
+      `Nav` matched with a set of `TabPane`s.
+    </Example.Intro>
+    <Example.Preview>
+      <Tabs defaultActiveKey="profile" id="uncontrolled-tab-example" className="mb-3">
+        <Tab eventKey="home" title="Home">
+          <Sonnet />
+        </Tab>
+        <Tab eventKey="profile" title="Profile">
+          <Sonnet />
+        </Tab>
+        <Tab eventKey="contact" title="Contact" disabled>
+          <Sonnet />
+        </Tab>
+      </Tabs>
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      <Tabs defaultActiveKey="profile" id="uncontrolled-tab-example" className="mb-3">
+        <Tab eventKey="home" title="Home">
+          <Sonnet />
+        </Tab>
+        <Tab eventKey="profile" title="Profile">
+          <Sonnet />
+        </Tab>
+        <Tab eventKey="contact" title="Contact" disabled>
+          <Sonnet />
+        </Tab>
+      </Tabs>
+      ```
+    </Example.Code>
+  </Example>
+
+  <Example title="Controlled">
+    <Example.Intro>
+      `Tabs` can be controlled directly when you want to handle the
+      selection logic personally.
+    </Example.Intro>
+    <Example.Preview>
+export const [key, setKey] = createSignal('home');
+
+      <Tabs
+        id="controlled-tab-example"
+        activeKey={key()}
+        onSelect={(k) => setKey(k)}
+        className="mb-3"
+      >
+        <Tab eventKey="home" title="Home">
+          <Sonnet />
+        </Tab>
+        <Tab eventKey="profile" title="Profile">
+          <Sonnet />
+        </Tab>
+        <Tab eventKey="contact" title="Contact" disabled>
+          <Sonnet />
+        </Tab>
+      </Tabs>
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      const [key, setKey] = createSignal('home');
+
+      <Tabs
+        id="controlled-tab-example"
+        activeKey={key()}
+        onSelect={(k) => setKey(k)}
+        className="mb-3"
+      >
+        <Tab eventKey="home" title="Home">
+          <Sonnet />
+        </Tab>
+        <Tab eventKey="profile" title="Profile">
+          <Sonnet />
+        </Tab>
+        <Tab eventKey="contact" title="Contact" disabled>
+          <Sonnet />
+        </Tab>
+      </Tabs>
+      ```
+    </Example.Code>
+  </Example>
+
+  <div>
+    ## Dropdowns?
+
+    Dynamic tabbed interfaces should not contain dropdown menus, as this
+    causes both usability and accessibility issues. From a usability
+    perspective, the fact that the currently displayed tab’s trigger element
+    is not immediately visible (as it’s inside the closed dropdown menu) can
+    cause confusion. From an accessibility point of view, there is currently
+    no sensible way to map this sort of construct to a standard WAI ARIA
+    pattern, meaning that it cannot be easily made understandable to users
+    of assistive technologies.
+
+    That said, it Dropdowns do work technically (sans focus management), but
+    we don't make any claims about support.
+  </div>  
+
+  <Example title="Custom Tab Layout">
+    <Example.Intro>
+      For more complex layouts the flexible `TabContainer`,
+
+      `TabContent`, and `TabPane` components along with any
+      style of `Nav` allow you to quickly piece together your own Tabs
+      component with additional markup needed.
+
+      Create a set of NavItems each with an `eventKey`
+      corresponding to the eventKey of a `TabPane`. Wrap the whole
+      thing in a `TabContainer` and you have fully functioning
+      custom tabs component. Check out the below example making use of the
+      grid system and pills.
+    </Example.Intro>
+    <Example.Preview>
+      <Tab.Container id="left-tabs-example" defaultActiveKey="first">
+        <Row>
+          <Col sm={3}>
+            <Nav variant="pills" className="flex-column">
+              <Nav.Item>
+                <Nav.Link eventKey="first">Tab 1</Nav.Link>
+              </Nav.Item>
+              <Nav.Item>
+                <Nav.Link eventKey="second">Tab 2</Nav.Link>
+              </Nav.Item>
+            </Nav>
+          </Col>
+          <Col sm={9}>
+            <Tab.Content>
+              <Tab.Pane eventKey="first">
+                <Sonnet />
+              </Tab.Pane>
+              <Tab.Pane eventKey="second">
+                <Sonnet />
+              </Tab.Pane>
+            </Tab.Content>
+          </Col>
+        </Row>
+      </Tab.Container>
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      <Tab.Container id="left-tabs-example" defaultActiveKey="first">
+        <Row>
+          <Col sm={3}>
+            <Nav variant="pills" className="flex-column">
+              <Nav.Item>
+                <Nav.Link eventKey="first">Tab 1</Nav.Link>
+              </Nav.Item>
+              <Nav.Item>
+                <Nav.Link eventKey="second">Tab 2</Nav.Link>
+              </Nav.Item>
+            </Nav>
+          </Col>
+          <Col sm={9}>
+            <Tab.Content>
+              <Tab.Pane eventKey="first">
+                <Sonnet />
+              </Tab.Pane>
+              <Tab.Pane eventKey="second">
+                <Sonnet />
+              </Tab.Pane>
+            </Tab.Content>
+          </Col>
+        </Row>
+      </Tab.Container>
+      ```
+    </Example.Code>
+  </Example>
+
+  <TabsApi />
+</div>

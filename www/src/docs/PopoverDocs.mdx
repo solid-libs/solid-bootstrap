@@ -1,0 +1,115 @@
+import {
+  Button,
+  Card,
+  OverlayTrigger,
+  Popover,
+} from "solid-bootstrap";
+import Example from "./Example";
+import GithubSource from "./GithubSource";
+import PopoverApi from "./PopoverApi";
+
+<GithubSource name="PopoverDocs.mdx" />
+# Popovers
+
+<p className="lead">
+  A popover component, like those found in iOS.
+</p>
+
+
+<div className="row gy-5 pt-3">
+
+  <Example title="Examples">
+    <Example.Intro>
+    </Example.Intro>
+    <Example.Preview>
+      <OverlayTrigger
+        trigger="click"
+        offset={[0, 8]}
+        placement="right"
+        overlay={
+          <Popover id="popover-basic">
+            <Popover.Header as="h3">Popover right</Popover.Header>
+            <Popover.Body>
+              And here's some <strong>amazing</strong> content. It's very
+              engaging. right?
+            </Popover.Body>
+          </Popover>
+        }
+      >
+        <Button variant="success">Click me to see</Button>
+      </OverlayTrigger>
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      <OverlayTrigger
+        trigger="click"
+        offset={[0, 8]}
+        placement="right"
+        overlay={
+          <Popover id="popover-basic">
+            <Popover.Header as="h3">Popover right</Popover.Header>
+            <Popover.Body>
+              And here's some <strong>amazing</strong> content. It's very
+              engaging. right?
+            </Popover.Body>
+          </Popover>
+        }
+      >
+        <Button variant="success">Click me to see</Button>
+      </OverlayTrigger>
+      ```
+    </Example.Code>
+  </Example>
+
+  <Example title="Placement options">
+    <Example.Preview>
+      {["top", "bottom", "left", "right"].map((placement) => (
+        <OverlayTrigger
+          trigger="click"
+          offset={[0, 8]}
+          placement={placement}
+          overlay={
+            <Popover id={`popover-positioned-${placement}`}>
+              <Popover.Header as="h3">{`Popover ${placement}`}</Popover.Header>
+              <Popover.Body>
+                <strong>Holy guacamole!</strong> Check this info.
+              </Popover.Body>
+            </Popover>
+          }
+        >
+          <Button variant="secondary" className="me-2">
+            Popover on {placement}
+          </Button>
+        </OverlayTrigger>
+      ))}
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      {["top", "bottom", "left", "right"].map((placement) => (
+        <OverlayTrigger
+          trigger="click"
+          offset={[0, 8]}
+          placement={placement as Placement}
+          overlay={
+            <Popover id={`popover-positioned-${placement}`}>
+              <Popover.Header as="h3">{`Popover ${placement}`}</Popover.Header>
+              <Popover.Body>
+                <strong>Holy guacamole!</strong> Check this info.
+              </Popover.Body>
+            </Popover>
+          }
+        >
+          <Button variant="secondary" className="me-2">
+            Popover on {placement}
+          </Button>
+        </OverlayTrigger>
+      ))}
+      ```
+    </Example.Code>
+  </Example>
+
+  <PopoverApi />
+</div>
+
+
+

@@ -1,0 +1,134 @@
+import { Button, Card, OverlayTrigger, Stack, Tooltip } from "solid-bootstrap";
+import { Link } from "./TooltipExamples";
+import Example from "./Example";
+import GithubSource from "./GithubSource";
+import TooltipApi from "./TooltipApi";
+
+<GithubSource name="TooltipDocs.mdx" />
+# Tooltips
+
+<p className="lead">
+  A tooltip component for a more stylish alternative to that anchor tag
+  title attribute.
+</p>
+
+<div className="row gy-5 pt-3">
+
+  <Example title="Example">
+    <Example.Intro>
+      Try hovering over these links.
+    </Example.Intro>
+    <Example.Preview>
+      <p>
+        Tight pants next level keffiyeh 
+        <Link title="Default title" id="t-1"> you probably</Link>
+        haven't heard of them. Farm-to-table seitan, mcsweeney's fixie
+        sustainable quinoa 8-bit american apparel
+        <Link id="t-2" title="Another one">have a</Link>
+        terry richardson vinyl chambray. Beard stumptown, cardigans banh
+        mi lomo thundercats. Tofu biodiesel williamsburg marfa, four loko
+        mcsweeney's cleanse vegan chambray. A really ironic artisan
+        <Link title="Another one here too" id="t-3">whatever keytar</Link>, 
+        scenester farm-to-table banksy Austin
+        <Link title="The last tip!" id="t-4">twitter handle</Link>
+        freegan cred raw denim single-origin coffee viral.
+      </p>
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      const Link = (props: { id: string; children: JSX.Element; title: string }) => (
+        <OverlayTrigger overlay={<Tooltip id={props.id}>{props.title}</Tooltip>}>
+          <a href="#">{props.children}</a>
+        </OverlayTrigger>
+      );
+
+      <p>
+        Tight pants next level keffiyeh 
+        <Link title="Default title" id="t-1"> you probably</Link>
+        haven't heard of them. Farm-to-table seitan, mcsweeney's fixie
+        sustainable quinoa 8-bit american apparel
+        <Link id="t-2" title="Another one">have a</Link>
+        terry richardson vinyl chambray. Beard stumptown, cardigans banh
+        mi lomo thundercats. Tofu biodiesel williamsburg marfa, four loko
+        mcsweeney's cleanse vegan chambray. A really ironic artisan
+        <Link title="Another one here too" id="t-3">whatever keytar</Link>, 
+        scenester farm-to-table banksy Austin
+        <Link title="The last tip!" id="t-4">twitter handle</Link>
+        freegan cred raw denim single-origin coffee viral.
+      </p>
+      ```
+    </Example.Code>
+  </Example>
+
+  <Example title="Customize">
+    <Example.Intro>
+      You can pass the Overlay injected props directly to the Tooltip component.
+      
+      This example delays hiding the tooltip.
+    </Example.Intro>
+    <Example.Preview>
+      <OverlayTrigger
+        placement="right"
+        delay={{ show: 250, hide: 1000 }}
+        overlay={<Tooltip id="button-tooltip">Simple tooltip</Tooltip>}
+      >
+        <Button variant="success">Hover me to see</Button>
+      </OverlayTrigger>
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      <OverlayTrigger
+        placement="right"
+        delay={{ show: 250, hide: 1000 }}
+        overlay={<Tooltip id="button-tooltip">Simple tooltip</Tooltip>}
+      >
+        <Button variant="success">Hover me to see</Button>
+      </OverlayTrigger>
+      ```
+    </Example.Code>
+  </Example>
+
+  <Example>
+    <Example.Intro>
+      Or pass a Tooltip element to `OverlayTrigger` instead.
+    </Example.Intro>
+    <Example.Preview>
+      <Stack direction="horizontal" gap={2}>
+        {['top', 'right', 'bottom', 'left'].map((placement) => (
+          <OverlayTrigger
+            key={placement}
+            placement={placement}
+            overlay={
+              <Tooltip id={`tooltip-${placement}`}>
+                Tooltip on <strong>{placement}</strong>.
+              </Tooltip>
+            }
+          >
+            <Button variant="secondary">Tooltip on {placement}</Button>
+          </OverlayTrigger>
+        ))}
+      </Stack>
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      <Stack direction="horizontal" gap={2}>
+        {['top', 'right', 'bottom', 'left'].map((placement) => (
+          <OverlayTrigger
+            key={placement}
+            placement={placement}
+            overlay={
+              <Tooltip id={`tooltip-${placement}`}>
+                Tooltip on <strong>{placement}</strong>.
+              </Tooltip>
+            }
+          >
+            <Button variant="secondary">Tooltip on {placement}</Button>
+          </OverlayTrigger>
+        ))}
+      </Stack>
+      ```
+    </Example.Code>
+  </Example>
+
+  <TooltipApi />
+</div>

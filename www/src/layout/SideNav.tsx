@@ -53,8 +53,8 @@ const components = [
   "spinners",
   "table",
   "tabs",
-  "tooltips",
   "toasts",
+  "tooltips",
 ];
 
 const core = ["overview", "dropdowns", "modal", "overlays"];
