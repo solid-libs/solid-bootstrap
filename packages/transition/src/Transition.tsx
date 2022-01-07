@@ -248,21 +248,24 @@ export const Transition = (p: TransitionProps) => {
         // componentDidUpdate
         if (!mounted()) return;
         const prevStatus = status();
+
         if (local.in && prevStatus === UNMOUNTED) {
+          // prepate to show again
           setStatus(EXITED);
-        } else {
-          let nextStatus: TransitionStatus | null = null;
-          if (local.in) {
-            if (prevStatus !== ENTERING && prevStatus !== ENTERED) {
-              nextStatus = ENTERING;
-            }
-          } else {
-            if (prevStatus === ENTERING || prevStatus === ENTERED) {
-              nextStatus = EXITING;
-            }
+        } 
+
+        let nextStatus: TransitionStatus | null = null;
+        if (local.in) {
+          if (prevStatus !== ENTERING && prevStatus !== ENTERED) {
+            nextStatus = ENTERING;
           }
-          updateStatus(false, nextStatus);
+        } else {
+          if (prevStatus === ENTERING || prevStatus === ENTERED) {
+            nextStatus = EXITING;
+          }
         }
+
+        updateStatus(false, nextStatus);
       }
     )
   );

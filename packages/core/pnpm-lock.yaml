@@ -17,7 +17,7 @@ specifiers:
 dependencies:
   '@popperjs/core': 2.11.0
   dom-helpers: 5.2.1
-  solid-react-transition: 0.2.0_solid-js@1.2.5
+  solid-react-transition: link:../transition/dist
 
 devDependencies:
   '@babel/core': 7.16.0
@@ -687,14 +687,6 @@ packages:
   /solid-js/1.2.5:
     resolution: {integrity: sha512-XcPEULgqd/XbBu8LwtGWs5RGowvIpq88/ZNI/xgJ9PaxRJWwbVlSNsS+ywUWncxRdKsPoVe8vdcIsH4gBJjh3Q==}
     dev: true
-
-  /solid-react-transition/0.2.0_solid-js@1.2.5:
-    resolution: {integrity: sha512-hyNchsJEmCzfLWsaQtdryeqT/OxqAW+o6/1IlpfuvuBwhoKaMAn6EV5wPWQPLybM7ED2jbEeYP0lvGHxt4AAgg==}
-    peerDependencies:
-      solid-js: ^1.2.5
-    dependencies:
-      solid-js: 1.2.5
-    dev: false
 
   /source-map-support/0.5.21:
     resolution: {integrity: sha512-uBHU3L3czsIyYXKX88fdrGovxdSCoTGDRZ6SYXtSRxLZUzHg5P/66Ht6uoUlHu9EZod+inXhKo3qQgwXUT/y1w==}
