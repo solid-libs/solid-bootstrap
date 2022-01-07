@@ -51,15 +51,15 @@ const Components: Component = (props) => (
         path="list-group"
         component={lazy(() => import("../docs/ListGroupDocs.mdx"))}
       />
-      <Route path="modal" component={lazy(() => import("../docs/ModalDocs"))} />
-      <Route path="navs" component={lazy(() => import("../docs/NavDocs"))} />
+      <Route path="modal" component={lazy(() => import("../docs/ModalDocs.mdx"))} />
+      <Route path="navs" component={lazy(() => import("../docs/NavDocs.mdx"))} />
       <Route
         path="navbar"
-        component={lazy(() => import("../docs/NavbarDocs"))}
+        component={lazy(() => import("../docs/NavbarDocs.mdx"))}
       />
       <Route
         path="offcanvas"
-        component={lazy(() => import("../docs/OffcanvasDocs"))}
+        component={lazy(() => import("../docs/OffcanvasDocs.mdx"))}
       />
       <Route
         path="popovers"

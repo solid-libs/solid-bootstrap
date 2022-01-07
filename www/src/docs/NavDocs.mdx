@@ -1,0 +1,427 @@
+import { Alert, Card, Nav, NavDropdown } from "solid-bootstrap";
+import Example from "./Example";
+import GithubSource from "./GithubSource";
+import NavApi from "./NavApi";
+
+<GithubSource name="NavDocs.mdx" />
+# Base Nav
+
+
+
+<div className="row gy-5 pt-3">
+
+  <Example title="Base Nav">
+    <Example.Intro>
+      Navigation bits in Bootstrap all share a general `Nav`
+      component and styles. Swap `variant`s to switch between each
+      style. The base `Nav` component is built with flexbox and
+      provide a strong foundation for building all types of navigation
+      components.
+    </Example.Intro>
+    <Example.Preview>
+      <Nav activeKey="#" onSelect={(selectedKey) => alert(`selected ${selectedKey}`)}>
+        <Nav.Item>
+          <Nav.Link href="#">Active</Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link eventKey="link-1">Link</Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link eventKey="link-2">Link</Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link eventKey="disabled" disabled>Disabled</Nav.Link>
+        </Nav.Item>
+      </Nav>
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      <Nav activeKey="#" onSelect={(selectedKey) => alert(`selected ${selectedKey}`)}>
+        <Nav.Item>
+          <Nav.Link href="#">Active</Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link eventKey="link-1">Link</Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link eventKey="link-2">Link</Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link eventKey="disabled" disabled>Disabled</Nav.Link>
+        </Nav.Item>
+      </Nav>
+      ```
+    </Example.Code>
+  </Example>
+
+  <Alert variant="warning">The basic, variant-less, `Nav` component does not include any `active` prop styling!</Alert>
+
+  <Example title="As a list">
+    <Example.Intro>
+      `<Nav>` markup is very flexible and styling is controlled via classes so you can
+      use whatever elements you like to build your navs. By default `<Nav>` and `<Nav.Item>` both
+      render `<div>`s instead of `<ul>` and `<li>` elements respectively.
+      This because it's possible (and common) to leave off the `<Nav.Item>`'s and
+      render a `<Nav.Link>` directly, which would create invalid markup by default (`ul > a`).
+
+      When a `<ul>` is appropriate you can render one via the `as` prop; be sure to
+      also set your items to `<li>` as well!
+    </Example.Intro>
+    <Example.Preview>
+      <Nav defaultActiveKey="#" as="ul">
+        <Nav.Item as="li">
+          <Nav.Link href="#">Active</Nav.Link>
+        </Nav.Item>
+        <Nav.Item as="li">
+          <Nav.Link eventKey="link-1">Link</Nav.Link>
+        </Nav.Item>
+        <Nav.Item as="li">
+          <Nav.Link eventKey="link-2">Link</Nav.Link>
+        </Nav.Item>
+      </Nav>
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      <Nav defaultActiveKey="#" as="ul">
+        <Nav.Item as="li">
+          <Nav.Link href="#">Active</Nav.Link>
+        </Nav.Item>
+        <Nav.Item as="li">
+          <Nav.Link eventKey="link-1">Link</Nav.Link>
+        </Nav.Item>
+        <Nav.Item as="li">
+          <Nav.Link eventKey="link-2">Link</Nav.Link>
+        </Nav.Item>
+      </Nav>
+      ```
+    </Example.Code>
+  </Example>
+
+  <Example title="Alignment and orientation">
+    <Example.Intro>
+      You can control the the direction and orientation of the
+      `Nav` by making use of the [flexbox layout][0] utility classes.
+      By default, navs are left-aligned, but that is easily changed to center or right-aligned.
+    </Example.Intro>
+    <Example.Preview>
+      <Nav className="justify-content-center" activeKey="#">
+        <Nav.Item>
+          <Nav.Link href="#">Active</Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link eventKey="link-1">Link</Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link eventKey="link-2">Link</Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link eventKey="disabled" disabled>
+            Disabled
+          </Nav.Link>
+        </Nav.Item>
+      </Nav>
+      <p className="text-center mt-4 mb-4">Or right-aligned</p>
+      <Nav className="justify-content-end" activeKey="#">
+        <Nav.Item>
+          <Nav.Link href="#">Active</Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link eventKey="link-1">Link</Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link eventKey="link-2">Link</Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link eventKey="disabled" disabled>
+            Disabled
+          </Nav.Link>
+        </Nav.Item>
+      </Nav>
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      <Nav className="justify-content-center" activeKey="#">
+        <Nav.Item>
+          <Nav.Link href="#">Active</Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link eventKey="link-1">Link</Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link eventKey="link-2">Link</Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link eventKey="disabled" disabled>
+            Disabled
+          </Nav.Link>
+        </Nav.Item>
+      </Nav>
+      <p className="text-center mt-4 mb-4">Or right-aligned</p>
+      <Nav className="justify-content-end" activeKey="#">
+        <Nav.Item>
+          <Nav.Link href="#">Active</Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link eventKey="link-1">Link</Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link eventKey="link-2">Link</Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link eventKey="disabled" disabled>
+            Disabled
+          </Nav.Link>
+        </Nav.Item>
+      </Nav>
+      ```
+    </Example.Code>
+  </Example>
+
+  <Example title="Vertical">
+    <Example.Intro>
+      Create stacked navs by changing the flex item direction with the
+      `.flex-column` class, or your own css. You can even use the
+      responsive versions to stack in some viewports but not others (e.g.
+      `.flex-sm-column`).
+    </Example.Intro>
+    <Example.Preview>
+      <Nav defaultActiveKey="#" className="flex-column">
+        <Nav.Link href="#">Active</Nav.Link>
+        <Nav.Link eventKey="link-1">Link</Nav.Link>
+        <Nav.Link eventKey="link-2">Link</Nav.Link>
+        <Nav.Link eventKey="disabled" disabled>Disabled</Nav.Link>
+      </Nav>
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      <Nav defaultActiveKey="#" className="flex-column">
+        <Nav.Link href="#">Active</Nav.Link>
+        <Nav.Link eventKey="link-1">Link</Nav.Link>
+        <Nav.Link eventKey="link-2">Link</Nav.Link>
+        <Nav.Link eventKey="disabled" disabled>Disabled</Nav.Link>
+      </Nav>
+      ```
+    </Example.Code>
+  </Example>
+
+  <Example title="Tabs">
+    <Example.Intro>
+      Visually represent nav items as "tabs". This style pairs nicely with
+      tabbable regions created by our [Tab components](../tabs/).
+
+      Note: creating a vertical nav (`.flex-column`) with tabs styling is unsupported by Bootstrap's default stylesheet.
+    </Example.Intro>
+    <Example.Preview>
+      <Nav variant="tabs" defaultActiveKey="#">
+        <Nav.Item>
+          <Nav.Link href="#">Active</Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link eventKey="link-1">Option 2</Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link eventKey="disabled" disabled>Disabled</Nav.Link>
+        </Nav.Item>
+      </Nav>
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      <Nav variant="tabs" defaultActiveKey="#">
+        <Nav.Item>
+          <Nav.Link href="#">Active</Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link eventKey="link-1">Option 2</Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link eventKey="disabled" disabled>Disabled</Nav.Link>
+        </Nav.Item>
+      </Nav>
+      ```
+    </Example.Code>
+  </Example>
+
+  <Example title="Pills">
+    <Example.Intro>
+      An alternative visual variant.
+    </Example.Intro>
+    <Example.Preview>
+      <Nav variant="pills" defaultActiveKey="#">
+        <Nav.Item>
+          <Nav.Link href="#">Active</Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link eventKey="link-1">Option 2</Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link eventKey="disabled" disabled>Disabled</Nav.Link>
+        </Nav.Item>
+      </Nav>
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      <Nav variant="pills" defaultActiveKey="#">
+        <Nav.Item>
+          <Nav.Link href="#">Active</Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link eventKey="link-1">Option 2</Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link eventKey="disabled" disabled>Disabled</Nav.Link>
+        </Nav.Item>
+      </Nav>
+      ```
+    </Example.Code>
+  </Example>
+
+  <Example title="Fill and justify">
+    <Example.Intro>
+      Force the contents of your nav to extend the full available width. To
+      proportionately fill the space use `fill`. Notice that the
+      nav is the entire width but each nav item is a different size.
+    </Example.Intro>
+    <Example.Preview>
+      <Nav fill variant="tabs" defaultActiveKey="#">
+        <Nav.Item>
+          <Nav.Link href="#">Active</Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link eventKey="link-1">Loooonger NavLink</Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link eventKey="link-2">Link</Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link eventKey="disabled" disabled>Disabled</Nav.Link>
+        </Nav.Item>
+      </Nav>
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      <Nav fill variant="tabs" defaultActiveKey="#">
+        <Nav.Item>
+          <Nav.Link href="#">Active</Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link eventKey="link-1">Loooonger NavLink</Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link eventKey="link-2">Link</Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link eventKey="disabled" disabled>Disabled</Nav.Link>
+        </Nav.Item>
+      </Nav>
+      ```
+    </Example.Code>
+  </Example>
+
+  <Example>
+    <Example.Intro>
+      If you want each NavItem to be the same size use `justify`.
+    </Example.Intro>
+    <Example.Preview>
+      <Nav justify variant="tabs" defaultActiveKey="#">
+        <Nav.Item>
+          <Nav.Link href="#">Active</Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link eventKey="link-1">Loooonger NavLink</Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link eventKey="link-2">Link</Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link eventKey="disabled" disabled>Disabled</Nav.Link>
+        </Nav.Item>
+      </Nav>
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      <Nav justify variant="tabs" defaultActiveKey="#">
+        <Nav.Item>
+          <Nav.Link href="#">Active</Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link eventKey="link-1">Loooonger NavLink</Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link eventKey="link-2">Link</Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link eventKey="disabled" disabled>Disabled</Nav.Link>
+        </Nav.Item>
+      </Nav>
+      ```
+    </Example.Code>
+  </Example>
+
+  <div>
+    ### Using dropdowns
+    You can mix and match the Dropdown components with the NavLink and
+    NavItem components to create a Dropdown that plays well in a Nav
+    component
+
+    ```js
+    <Dropdown as={NavItem}>
+      <Dropdown.Toggle as={NavLink}>Click to see more…</Dropdown.Toggle>
+      <Dropdown.Menu>
+        <Dropdown.Item>Hello there!</Dropdown.Item>
+      </Dropdown.Menu>
+    </Dropdown>;
+    ```
+  </div>
+
+  <Example>
+    <Example.Intro>
+      The above demonstrates how flexible the component model can be. But if
+      you didn't want to roll your own versions we've included a
+      straight-forward `<NavDropdown>` that works for most cases.
+    </Example.Intro>
+    <Example.Preview>
+      <Nav variant="pills" activeKey="1" onSelect={(eventKey) => alert(`selected ${eventKey}`)}>
+        <Nav.Item>
+          <Nav.Link eventKey="1" href="#">NavLink 1 content</Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link eventKey="2" title="Item">NavLink 2 content</Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link eventKey="3" disabled>NavLink 3 content</Nav.Link>
+        </Nav.Item>
+        <NavDropdown title="Dropdown" id="nav-dropdown">
+          <NavDropdown.Item eventKey="4.1">Action</NavDropdown.Item>
+          <NavDropdown.Item eventKey="4.2">Another action</NavDropdown.Item>
+          <NavDropdown.Item eventKey="4.3">Something else here</NavDropdown.Item>
+          <NavDropdown.Divider />
+          <NavDropdown.Item eventKey="4.4">Separated link</NavDropdown.Item>
+        </NavDropdown>
+      </Nav>
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      <Nav variant="pills" activeKey="1" onSelect={(eventKey) => alert(`selected ${eventKey}`)}>
+        <Nav.Item>
+          <Nav.Link eventKey="1" href="#">NavLink 1 content</Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link eventKey="2" title="Item">NavLink 2 content</Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link eventKey="3" disabled>NavLink 3 content</Nav.Link>
+        </Nav.Item>
+        <NavDropdown title="Dropdown" id="nav-dropdown">
+          <NavDropdown.Item eventKey="4.1">Action</NavDropdown.Item>
+          <NavDropdown.Item eventKey="4.2">Another action</NavDropdown.Item>
+          <NavDropdown.Item eventKey="4.3">Something else here</NavDropdown.Item>
+          <NavDropdown.Divider />
+          <NavDropdown.Item eventKey="4.4">Separated link</NavDropdown.Item>
+        </NavDropdown>
+      </Nav>
+      ```
+    </Example.Code>
+  </Example>
+
+  <NavApi />
+</div>

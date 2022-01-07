@@ -1,0 +1,185 @@
+import { createSignal } from "solid-js";
+import { Button, Card, Offcanvas } from "solid-bootstrap";
+import Example from "./Example";
+import GithubSource from "./GithubSource";
+import OffcanvasApi from "./OffcanvasApi";
+import { backdropOptions, show, handleClose, handleOpen } from "./OffcanvasExamples"
+
+<GithubSource name="OffcanvasDocs.mdx" />
+# Offcanvas
+
+<p className="lead">
+  Build hidden sidebars into your project for navigation, shopping carts, and
+  more.
+</p>
+
+<div className="row gy-5 pt-3">
+
+  <Example title="Basic Example">
+    <Example.Intro>
+      Offcanvas includes support for a header with a close button and an optional body class 
+      for some initial padding. We suggest that you include offcanvas headers with dismiss 
+      actions whenever possible, or provide an explicit dismiss action.
+    </Example.Intro>
+    <Example.Preview>
+      <Button variant="primary" onClick={handleOpen("basic")}>Launch</Button>
+
+      <Offcanvas show={show("basic")} onHide={handleClose("basic")}>
+        <Offcanvas.Header closeButton>
+          <Offcanvas.Title>Offcanvas</Offcanvas.Title>
+        </Offcanvas.Header>
+        <Offcanvas.Body>
+          Some text as placeholder. In real life you can have the elements
+          you have chosen. Like, text, images, lists, etc.
+        </Offcanvas.Body>
+      </Offcanvas>
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      const [show, setShow] = createSignal(false);
+      const handleOpen = () => setShow(true);
+      const handleClose = () => setShow(false);
+
+      <Button variant="primary" onClick={handleOpen}>Launch</Button>
+
+      <Offcanvas show={show()} onHide={handleClose}>
+        <Offcanvas.Header closeButton>
+          <Offcanvas.Title>Offcanvas</Offcanvas.Title>
+        </Offcanvas.Header>
+        <Offcanvas.Body>
+          Some text as placeholder. In real life you can have the elements
+          you have chosen. Like, text, images, lists, etc.
+        </Offcanvas.Body>
+      </Offcanvas>
+      ```
+    </Example.Code>
+  </Example>
+
+  <Example title="Placement">
+    <Example.Intro>
+      Offcanvas supports a few different placements:
+      - `start` places offcanvas on the left of the viewport
+      - `end` places offcanvas on the right of the viewport
+      - `top` places offcanvas on the top of the viewport
+      - `bottom` places offcanvas on the bottom of the viewport
+    </Example.Intro>
+    <Example.Preview>
+      {["start", "end", "top", "bottom"].map((placement, idx) => (
+        <span>
+          <Button
+            variant="primary"
+            onClick={handleOpen(placement)}
+            className="me-2"
+          >
+            {placement}
+          </Button>
+          <Offcanvas
+            show={show(placement)}
+            onHide={handleClose(placement)}
+            placement={placement}
+          >
+            <Offcanvas.Header closeButton>
+              <Offcanvas.Title>Offcanvas</Offcanvas.Title>
+            </Offcanvas.Header>
+            <Offcanvas.Body>
+              Some text as placeholder. In real life you can have the
+              elements you have chosen. Like, text, images, lists, etc.
+            </Offcanvas.Body>
+          </Offcanvas>
+        </span>
+      ))}
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      {["start", "end", "top", "bottom"].map((placement, idx) => (
+        <span>
+          <Button
+            variant="primary"
+            onClick={handleOpen(placement)}
+            className="me-2"
+          >
+            {placement}
+          </Button>
+          <Offcanvas
+            show={show(placement)}
+            onHide={handleClose(placement)}
+            placement={placement}
+          >
+            <Offcanvas.Header closeButton>
+              <Offcanvas.Title>Offcanvas</Offcanvas.Title>
+            </Offcanvas.Header>
+            <Offcanvas.Body>
+              Some text as placeholder. In real life you can have the
+              elements you have chosen. Like, text, images, lists, etc.
+            </Offcanvas.Body>
+          </Offcanvas>
+        </span>
+      ))}
+      ```
+    </Example.Code>
+  </Example>
+
+  <Example title="Backdrop">
+    <Example.Intro>
+      Scrolling the `<body>` element is disabled when an offcanvas and its backdrop are 
+      visible. Use the `scroll` prop to toggle `<body>` scrolling and the `backdrop` prop 
+      to toggle the backdrop.
+    </Example.Intro>
+    <Example.Preview>
+      {backdropOptions.map((options) => (
+        <span>
+          <Button
+            variant="primary"
+            onClick={handleOpen(options.name)}
+            className="me-2"
+          >
+            {options.name}
+          </Button>
+          <Offcanvas
+            show={show(options.name)}
+            onHide={handleClose(options.name)}
+            {...options}
+          >
+            <Offcanvas.Header closeButton>
+              <Offcanvas.Title>Offcanvas</Offcanvas.Title>
+            </Offcanvas.Header>
+            <Offcanvas.Body>
+              Some text as placeholder. In real life you can have the
+              elements you have chosen. Like, text, images, lists, etc.
+            </Offcanvas.Body>
+          </Offcanvas>
+        </span>
+      ))}
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      {backdropOptions.map((options) => (
+        <span>
+          <Button
+            variant="primary"
+            onClick={handleOpen(options.name)}
+            className="me-2"
+          >
+            {options.name}
+          </Button>
+          <Offcanvas
+            show={show(options.name)}
+            onHide={handleClose(options.name)}
+            {...options}
+          >
+            <Offcanvas.Header closeButton>
+              <Offcanvas.Title>Offcanvas</Offcanvas.Title>
+            </Offcanvas.Header>
+            <Offcanvas.Body>
+              Some text as placeholder. In real life you can have the
+              elements you have chosen. Like, text, images, lists, etc.
+            </Offcanvas.Body>
+          </Offcanvas>
+        </span>
+      ))}
+      ```
+    </Example.Code>
+  </Example>
+
+  <OffcanvasApi />
+</div>
