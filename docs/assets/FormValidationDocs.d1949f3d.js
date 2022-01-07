@@ -98,8 +98,7 @@ as invalid on page load. This way, you may choose when to activate them\r
 `]}})}})}})]}}),null),o(n,e(u,{variant:"warning",get children(){return e(a.p,{get children(){return["Watch out! Browsers provide their own validation UI by default on"," ",`\r
 `,L.cloneNode(!0),"s. You can disable the default UI by adding the HTML"," ",`\r
 `,P.cloneNode(!0)," attribute to your ",S.cloneNode(!0)," or"," ",`\r
-`,T.cloneNode(!0)," element."]}})}}),null),o(n,e(u,{variant:"info",get children(){return e(a.p,{get children(){return[`It's often beneficial to handle form validation\r
-via a library like Formik, or react-formal. In those cases, `,e(a.code,{children:"isValid"}),`\r
+`,T.cloneNode(!0)," element."]}})}}),null),o(n,e(u,{variant:"info",get children(){return e(a.p,{get children(){return["It's often beneficial to handle form validation via a library. In those cases, ",e(a.code,{children:"isValid"}),`\r
 and `,e(a.code,{children:"isInvalid"}),` props can be added to form controls to manually apply\r
 validation styles.`]}})}}),null),o(n,e(l,{title:"Input group validation",get children(){return[e(l.Intro,{get children(){return e(a.p,{get children(){return["To properly show rounded corners in an ",e(a.code,{children:"<InputGroup>"}),` with validation,\r
 the `,e(a.code,{children:"<InputGroup>"})," requires the ",e(a.code,{children:"hasValidation"})," prop."]}})}}),e(l.Preview,{get children(){return e(d,{hasValidation:!0,get children(){return[e(d.Text,{children:"@"}),e(s.Control,{type:"text",required:!0,isInvalid:!0}),e(s.Control.Feedback,{type:"invalid",get children(){return e(a.p,{children:"Please choose a username."})}})]}})}}),e(l.Code,{get children(){return e(a.pre,{get children(){return e(a.code,{className:"hljs language-js",get children(){return["<",e(a.span,{className:"hljs-title hljs-class",children:"InputGroup"}),` hasValidation>\r
