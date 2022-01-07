@@ -1,0 +1,66 @@
+import { Container, Col, Row, Image } from "solid-bootstrap";
+import { HolderJSRefresh } from "./utils";
+import Example from "./Example";
+import GithubSource from "./GithubSource";
+import ImageApi from "./ImageApi";
+
+<GithubSource name="ImageDocs.mdx" />
+# Images
+
+<div className="row gy-5 pt-3">
+  <HolderJSRefresh />
+
+  <Example title="Shape">
+    <Example.Intro>
+      Use the `rounded`, `roundedCircle` and `thumbnail` props to customise the image.
+    </Example.Intro>
+    <Example.Preview>
+      <Container>
+        <Row>
+          <Col xs={6} md={4}>
+            <Image src="holder.js/171x180" rounded />
+          </Col>
+          <Col xs={6} md={4}>
+            <Image src="holder.js/171x180" roundedCircle />
+          </Col>
+          <Col xs={6} md={4}>
+            <Image src="holder.js/171x180" thumbnail />
+          </Col>
+        </Row>
+      </Container>
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      <Container>
+        <Row>
+          <Col xs={6} md={4}>
+            <Image src="holder.js/171x180" rounded />
+          </Col>
+          <Col xs={6} md={4}>
+            <Image src="holder.js/171x180" roundedCircle />
+          </Col>
+          <Col xs={6} md={4}>
+            <Image src="holder.js/171x180" thumbnail />
+          </Col>
+        </Row>
+      </Container>
+      ```
+    </Example.Code>
+  </Example>
+
+  <Example title="Fluid">
+    <Example.Intro>
+      Use the `fluid` to scale image nicely to the parent element.
+    </Example.Intro>
+    <Example.Preview>
+      <Image src="holder.js/100px250" fluid />
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      <Image src="holder.js/100px250" fluid />
+      ```
+    </Example.Code>
+  </Example>
+
+  <ImageApi />
+</div>

@@ -45,11 +45,11 @@ const Components: Component = (props) => (
       />
       <Route
         path="images"
-        component={lazy(() => import("../docs/ImageDocs"))}
+        component={lazy(() => import("../docs/ImageDocs.mdx"))}
       />
       <Route
         path="list-group"
-        component={lazy(() => import("../docs/ListGroupDocs"))}
+        component={lazy(() => import("../docs/ListGroupDocs.mdx"))}
       />
       <Route path="modal" component={lazy(() => import("../docs/ModalDocs"))} />
       <Route path="navs" component={lazy(() => import("../docs/NavDocs"))} />
