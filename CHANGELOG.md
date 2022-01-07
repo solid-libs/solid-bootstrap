@@ -1,3 +1,8 @@
+## 2022-01-08 - solid-bootstrap (0.2.7)
+
+### Bug Fixes
+- [Fix: Transition - not (re)showing unless on initial appear](https://github.com/solid-libs/solid-bootstrap/commit/15be5b1e493dc2005e48cbc3e7fc570b5d2f29a7)
+
 ## 2022-01-04 - solid-bootstrap (0.2.6)
 
 ### Bug Fixes
