@@ -9,15 +9,15 @@ specifiers:
   dom-helpers: ^5.2.0
   rollup: ^2.52.1
   rollup-plugin-terser: ^7.0.2
-  solid-bootstrap-core: ^0.2.6
+  solid-bootstrap-core: ^0.2.7
   solid-js: ^1.2.5
-  solid-react-transition: ^0.2.0
+  solid-react-transition: ^0.2.1
   typescript: ^4.5.2
 
 dependencies:
   dom-helpers: 5.2.1
-  solid-bootstrap-core: link:../core/dist
-  solid-react-transition: link:../transition/dist
+  solid-bootstrap-core: 0.2.7_solid-js@1.2.5
+  solid-react-transition: 0.2.1_solid-js@1.2.5
 
 devDependencies:
   '@babel/core': 7.16.0
@@ -328,6 +328,10 @@ packages:
       '@babel/helper-validator-identifier': 7.15.7
       to-fast-properties: 2.0.0
     dev: true
+
+  /@popperjs/core/2.11.2:
+    resolution: {integrity: sha512-92FRmppjjqz29VMJ2dn+xdyXZBrMlE42AV6Kq6BwjWV7CNUW1hs2FtxSNLQE+gJhaZ6AAmYuO9y8dshhcBl7vA==}
+    dev: false
 
   /@rollup/plugin-babel/5.3.0_@babel+core@7.16.0+rollup@2.60.1:
     resolution: {integrity: sha512-9uIC8HZOnVLrLHxayq/PTzw+uS25E14KPUBh5ktF+18Mjo5yK0ToMMx6epY0uEgkjwJw0aBW4x2horYXh8juWw==}
@@ -680,9 +684,28 @@ packages:
       randombytes: 2.1.0
     dev: true
 
+  /solid-bootstrap-core/0.2.7_solid-js@1.2.5:
+    resolution: {integrity: sha512-sO8fqMCuzbqNPaBGV/D2yKmD+iOJyY5T/BBzYWAh+lkxVboapWxW9H2sQhE+clrOR8mT5PtLCqdwdI4UO7vG2w==}
+    peerDependencies:
+      solid-js: ^1.2.5
+    dependencies:
+      '@popperjs/core': 2.11.2
+      dom-helpers: 5.2.1
+      solid-js: 1.2.5
+      solid-react-transition: 0.2.1_solid-js@1.2.5
+    dev: false
+
   /solid-js/1.2.5:
     resolution: {integrity: sha512-XcPEULgqd/XbBu8LwtGWs5RGowvIpq88/ZNI/xgJ9PaxRJWwbVlSNsS+ywUWncxRdKsPoVe8vdcIsH4gBJjh3Q==}
     dev: true
+
+  /solid-react-transition/0.2.1_solid-js@1.2.5:
+    resolution: {integrity: sha512-qCWfSVrVuN4MDtZf3xerMXTwhnMD3nZH9s4q1VieI9UGlP3mDSy3luZOSJhSsZ8guuhXwQpvUxd3Cx6N04wkxg==}
+    peerDependencies:
+      solid-js: ^1.2.5
+    dependencies:
+      solid-js: 1.2.5
+    dev: false
 
   /source-map-support/0.5.21:
     resolution: {integrity: sha512-uBHU3L3czsIyYXKX88fdrGovxdSCoTGDRZ6SYXtSRxLZUzHg5P/66Ht6uoUlHu9EZod+inXhKo3qQgwXUT/y1w==}
