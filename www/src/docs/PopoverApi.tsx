@@ -291,7 +291,7 @@ const PopoverApi = () => (
               <div>
                 <p>
                   A component instance, DOM node. The <code>container</code>{" "}
-                  element will have the Overlay appended to it via a React
+                  element will have the Overlay appended to it via a Solid
                   portal.
                 </p>
               </div>
@@ -529,7 +529,7 @@ const PopoverApi = () => (
                 <p>
                   Animate the entering and exiting of the Overlay.{" "}
                   <code>true</code> will use the <code>&lt;Fade&gt;</code>{" "}
-                  transition, or a custom react-transition-group{" "}
+                  transition, or a custom solid-react-transition{" "}
                   <code>&lt;Transition&gt;</code> component can be provided.
                 </p>
               </div>

@@ -121,7 +121,7 @@ const AlertApi = () => (
                   <code class=" language-text">&lt;Fade&gt;</code> animation or
                   use <code class=" language-text">false</code> to disable. A
                   custom{" "}
-                  <code class=" language-text">react-transition-group</code>{" "}
+                  <code class=" language-text">solid-react-transition</code>{" "}
                   Transition can also be provided.
                 </p>
               </div>

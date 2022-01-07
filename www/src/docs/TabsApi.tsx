@@ -135,7 +135,7 @@ const TabsApi = () => (
                 </p>
                 <p>
                   Defaults to <code>&lt;Fade&gt;</code> animation, else use{" "}
-                  <code>false</code> to disable or a react-transition-group{" "}
+                  <code>false</code> to disable or a solid-react-transition{" "}
                   <code>&lt;Transition/&gt;</code> component.
                 </p>
               </div>
@@ -220,9 +220,7 @@ const TabsApi = () => (
                 <p>
                   A unique identifier for the Component, the{" "}
                   <code>eventKey</code> makes it distinguishable from others in
-                  a set. Similar to React's <code>key</code> prop, in that it
-                  only needs to be unique amongst the Components siblings, not
-                  globally.
+                  a set. It only needs to be unique amongst the Components siblings, not globally.
                 </p>
               </div>
             </td>
@@ -387,7 +385,7 @@ const TabsApi = () => (
                   <code>&lt;TabPane&gt;</code>s. Defaults to{" "}
                   <code>&lt;Fade&gt;</code> animation; else, use{" "}
                   <code>false</code> to disable, or a custom
-                  react-transition-group <code>&lt;Transition/&gt;</code>{" "}
+                  solid-react-transition <code>&lt;Transition/&gt;</code>{" "}
                   component.
                 </p>
               </div>
@@ -661,7 +659,7 @@ const TabsApi = () => (
                   <code>&lt;TabPane&gt;</code>s. Defaults to{" "}
                   <code>&lt;Fade&gt;</code>
                   animation, else use <code>false</code> to disable or a
-                  react-transition-group
+                  solid-react-transition
                   <code>&lt;Transition/&gt;</code> component.
                 </p>
               </div>

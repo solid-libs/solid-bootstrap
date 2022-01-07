@@ -195,11 +195,8 @@ const ListGroupApi = () => (
             <td>
               <div>
                 <p>
-                  A unique identifier for the Component, the{" "}
-                  <code>eventKey</code> makes it distinguishable from others in
-                  a set. Similar to React's <code>key</code> prop, in that it
-                  only needs to be unique amongst the Components siblings, not
-                  globally.
+                  A unique identifier for the Component, the <code>eventKey</code> makes it distinguishable from others in
+                  a set. It only needs to be unique amongst the Components siblings, not globally.
                 </p>
               </div>
             </td>

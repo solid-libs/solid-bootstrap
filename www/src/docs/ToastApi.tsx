@@ -127,7 +127,7 @@ const ToastApi = () => (
             <td>
               <div>
                 <p>
-                  A <code>react-transition-group</code> Transition component
+                  A <code>solid-react-transition</code> Transition component
                   used to animate the Toast on dismissal.
                 </p>
               </div>
