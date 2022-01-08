@@ -1,0 +1,5 @@
+/docs/
+**/dist/
+**/node_modules/
+**/*lock.yaml
+**/*.mdx
