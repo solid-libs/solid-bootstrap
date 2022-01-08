@@ -1,14 +1,12 @@
-import { JSX, mergeProps, splitProps, useContext } from "solid-js";
+import {JSX, mergeProps, splitProps, useContext} from "solid-js";
 import classNames from "./classnames";
-import Col, { ColProps } from "./Col";
+import Col, {ColProps} from "./Col";
 import FormContext from "./FormContext";
-import { useBootstrapPrefix } from "./ThemeProvider";
-import { BsPrefixProps, BsPrefixRefForwardingComponent } from "./helpers";
-import { Dynamic } from "solid-js/web";
+import {useBootstrapPrefix} from "./ThemeProvider";
+import {BsPrefixProps, BsPrefixRefForwardingComponent} from "./helpers";
+import {Dynamic} from "solid-js/web";
 
-interface FormLabelBaseProps
-  extends BsPrefixProps,
-    JSX.HTMLAttributes<HTMLElement> {
+interface FormLabelBaseProps extends BsPrefixProps, JSX.HTMLAttributes<HTMLElement> {
   htmlFor?: string;
   visuallyHidden?: boolean;
 }
@@ -29,9 +27,7 @@ const defaultProps = {
   visuallyHidden: false,
 };
 
-const FormLabel: BsPrefixRefForwardingComponent<"label", FormLabelProps> = (
-  p: FormLabelProps
-) => {
+const FormLabel: BsPrefixRefForwardingComponent<"label", FormLabelProps> = (p: FormLabelProps) => {
   const [local, props] = splitProps(mergeProps(defaultProps, p), [
     "as",
     "bsPrefix",
@@ -52,7 +48,7 @@ const FormLabel: BsPrefixRefForwardingComponent<"label", FormLabelProps> = (
       local.className,
       bsPrefix,
       local.visuallyHidden && "visually-hidden",
-      local.column && columnClass
+      local.column && columnClass,
     );
 
   return !!local.column ? (

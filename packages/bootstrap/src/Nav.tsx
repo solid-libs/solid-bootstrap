@@ -1,4 +1,4 @@
-import { JSX, mergeProps, splitProps, useContext } from "solid-js";
+import {JSX, mergeProps, splitProps, useContext} from "solid-js";
 import classNames from "./classnames";
 import {
   createControlledProp,
@@ -6,12 +6,12 @@ import {
   Nav as BaseNav,
   NavProps as BaseNavProps,
 } from "solid-bootstrap-core";
-import { useBootstrapPrefix } from "./ThemeProvider";
+import {useBootstrapPrefix} from "./ThemeProvider";
 import NavbarContext from "./NavbarContext";
 import CardHeaderContext from "./CardHeaderContext";
 import NavItem from "./NavItem";
 import NavLink from "./NavLink";
-import { BsPrefixProps, BsPrefixRefForwardingComponent } from "./helpers";
+import {BsPrefixProps, BsPrefixRefForwardingComponent} from "./helpers";
 
 export interface NavProps extends BsPrefixProps, BaseNavProps {
   navbarBsPrefix?: string;
@@ -48,7 +48,7 @@ const Nav: BsPrefixRefForwardingComponent<"div", NavProps> = (p: NavProps) => {
   const [activeKey, onSelect] = createControlledProp(
     () => local.activeKey,
     () => local.defaultActiveKey,
-    local.onSelect
+    local.onSelect,
   );
   const bsPrefix = useBootstrapPrefix(local.bsPrefix, "nav");
 
@@ -63,7 +63,7 @@ const Nav: BsPrefixRefForwardingComponent<"div", NavProps> = (p: NavProps) => {
     navbarBsPrefix = navbarContext.bsPrefix;
     isNavbar = local.navbar == null ? true : local.navbar;
   } else if (cardHeaderContext) {
-    ({ cardHeaderBsPrefix } = cardHeaderContext);
+    ({cardHeaderBsPrefix} = cardHeaderContext);
   }
 
   return (

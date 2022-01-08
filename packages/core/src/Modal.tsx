@@ -5,8 +5,8 @@ import contains from "dom-helpers/contains";
 import canUseDOM from "dom-helpers/canUseDOM";
 import listen from "dom-helpers/listen";
 import ModalManager from "./ModalManager";
-import { TransitionCallbacks } from "solid-react-transition";
-import useWindow from './useWindow';
+import {TransitionCallbacks} from "solid-react-transition";
+import useWindow from "./useWindow";
 import {
   children,
   Component,
@@ -22,8 +22,8 @@ import {
   Show,
   createMemo,
 } from "solid-js";
-import { Portal } from "solid-js/web";
-import useWaitForDOMRef, { DOMContainer } from "./useWaitForDOMRef";
+import {Portal} from "solid-js/web";
+import useWaitForDOMRef, {DOMContainer} from "./useWaitForDOMRef";
 
 let manager: ModalManager;
 
@@ -177,7 +177,7 @@ export interface ModalProps extends BaseModalProps {
 }
 
 function getManager(window?: Window) {
-  if (!manager) manager = new ModalManager({ ownerDocument: window?.document });
+  if (!manager) manager = new ModalManager({ownerDocument: window?.document});
   return manager;
 }
 
@@ -257,7 +257,7 @@ const Modal = (p: ModalProps) => {
       "onEntering",
       "onEntered",
       "ref",
-    ]
+    ],
   );
   const container = useWaitForDOMRef({
     get ref() {
@@ -282,8 +282,8 @@ const Modal = (p: ModalProps) => {
         if (canUseDOM && !prevShow && show) {
           lastFocusRef = activeElement() as HTMLElement;
         }
-      }
-    )
+      },
+    ),
   );
 
   createComputed(() => {
@@ -297,11 +297,7 @@ const Modal = (p: ModalProps) => {
   const handleShow = () => {
     modal.add();
 
-    removeKeydownListenerRef = listen(
-      document as any,
-      "keydown",
-      handleDocumentKeyDown
-    );
+    removeKeydownListenerRef = listen(document as any, "keydown", handleDocumentKeyDown);
 
     removeFocusListenerRef = listen(
       document as any,
@@ -309,7 +305,7 @@ const Modal = (p: ModalProps) => {
       // the timeout is necessary b/c this will run before the new modal is mounted
       // and so steals focus from it
       () => setTimeout(handleEnforceFocus),
-      true
+      true,
     );
 
     if (local.onShow) {
@@ -321,11 +317,7 @@ const Modal = (p: ModalProps) => {
     if (local.autoFocus) {
       const currentActiveElement = activeElement(document) as HTMLElement;
 
-      if (
-        modal.dialog &&
-        currentActiveElement &&
-        !contains(modal.dialog, currentActiveElement)
-      ) {
+      if (modal.dialog && currentActiveElement && !contains(modal.dialog, currentActiveElement)) {
         lastFocusRef = currentActiveElement;
         modal.dialog.focus();
       }
@@ -362,7 +354,7 @@ const Modal = (p: ModalProps) => {
       if (exited && !(prev ?? exited)) {
         handleHide();
       }
-    })
+    }),
   );
 
   onCleanup(() => {
@@ -378,18 +370,12 @@ const Modal = (p: ModalProps) => {
 
     const currentActiveElement = activeElement();
 
-    if (
-      modal.dialog &&
-      currentActiveElement &&
-      !contains(modal.dialog, currentActiveElement)
-    ) {
+    if (modal.dialog && currentActiveElement && !contains(modal.dialog, currentActiveElement)) {
       modal.dialog.focus();
     }
   };
 
-  const handleBackdropClick: JSX.EventHandler<HTMLElement, MouseEvent> = (
-    e
-  ) => {
+  const handleBackdropClick: JSX.EventHandler<HTMLElement, MouseEvent> = (e) => {
     if (e.target !== e.currentTarget) {
       return;
     }
@@ -420,16 +406,12 @@ const Modal = (p: ModalProps) => {
   };
 
   const Transition = local.transition;
-  const dialogVisible = createMemo(
-    () => !!(local.show || (local.transition && !exited()))
-  );
+  const dialogVisible = createMemo(() => !!(local.show || (local.transition && !exited())));
 
   const dialogProps = mergeProps(
     {
       get role() {
-        return local.role as NonNullable<
-          JSX.HTMLAttributes<HTMLDivElement>["role"]
-        >;
+        return local.role as NonNullable<JSX.HTMLAttributes<HTMLDivElement>["role"]>;
       },
       get ref() {
         return modal.setDialogRef;
@@ -448,7 +430,7 @@ const Modal = (p: ModalProps) => {
         return local.className;
       },
       tabIndex: -1,
-    }
+    },
   );
 
   const getChildAsDocument = () => {

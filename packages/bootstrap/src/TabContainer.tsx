@@ -1,7 +1,7 @@
-import { mergeProps, PropsWithChildren, splitProps } from "solid-js";
-import { Tabs, TabsProps } from "solid-bootstrap-core";
-import { getTabTransitionComponent } from "./getTabTransitionComponent";
-import { TransitionType } from "./helpers";
+import {mergeProps, PropsWithChildren, splitProps} from "solid-js";
+import {Tabs, TabsProps} from "solid-bootstrap-core";
+import {getTabTransitionComponent} from "./getTabTransitionComponent";
+import {TransitionType} from "./helpers";
 
 export interface TabContainerProps extends Omit<TabsProps, "transition"> {
   transition?: TransitionType;
@@ -10,9 +10,7 @@ export interface TabContainerProps extends Omit<TabsProps, "transition"> {
 const defaultProps = {};
 
 const TabContainer = (p: PropsWithChildren<TabContainerProps>) => {
-  const [local, props] = splitProps(mergeProps(defaultProps, p), [
-    "transition",
-  ]);
+  const [local, props] = splitProps(mergeProps(defaultProps, p), ["transition"]);
 
   return (
     <Tabs {...props} transition={getTabTransitionComponent(local.transition)}>

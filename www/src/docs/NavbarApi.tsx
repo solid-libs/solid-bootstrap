@@ -37,11 +37,10 @@ const NavbarApi = () => (
             <td>
               <div>
                 <p>
-                  A convenience prop for adding <code>bg-*</code> utility
-                  classes since they are so commonly used here.
-                  <code>light</code> and <code>dark</code> are common choices
-                  but any <code>bg-*</code> class is supported, including any
-                  custom ones you might define.
+                  A convenience prop for adding <code>bg-*</code> utility classes since they are so
+                  commonly used here.
+                  <code>light</code> and <code>dark</code> are common choices but any{" "}
+                  <code>bg-*</code> class is supported, including any custom ones you might define.
                 </p>
                 <p>
                   Pairs nicely with the <code>variant</code> prop.
@@ -60,17 +59,14 @@ const NavbarApi = () => (
             <td>
               <div>
                 <p>
-                  Toggles <code>expanded</code> to <code>false</code> after the
-                  onSelect event of a descendant of a child{" "}
-                  <code>&lt;Nav&gt;</code> fires. Does nothing if no{" "}
-                  <code>&lt;Nav&gt;</code> or <code>&lt;Nav&gt;</code>{" "}
-                  descendants exist.
+                  Toggles <code>expanded</code> to <code>false</code> after the onSelect event of a
+                  descendant of a child <code>&lt;Nav&gt;</code> fires. Does nothing if no{" "}
+                  <code>&lt;Nav&gt;</code> or <code>&lt;Nav&gt;</code> descendants exist.
                 </p>
                 <p>
-                  Manually controlling <code>expanded</code> via the onSelect
-                  callback is recommended instead, for more complex operations
-                  that need to be executed after the <code>select</code> event
-                  of <code>&lt;Nav&gt;</code> descendants.
+                  Manually controlling <code>expanded</code> via the onSelect callback is
+                  recommended instead, for more complex operations that need to be executed after
+                  the <code>select</code> event of <code>&lt;Nav&gt;</code> descendants.
                 </p>
               </div>
             </td>
@@ -102,9 +98,8 @@ const NavbarApi = () => (
             <td>
               <div>
                 <p>
-                  The breakpoint, below which, the Navbar will collapse. When{" "}
-                  <code>true</code> the Navbar will always be expanded
-                  regardless of screen size.
+                  The breakpoint, below which, the Navbar will collapse. When <code>true</code> the
+                  Navbar will always be expanded regardless of screen size.
                 </p>
               </div>
             </td>
@@ -146,9 +141,8 @@ const NavbarApi = () => (
             <td>
               <div>
                 <p>
-                  Create a fixed navbar along the top or bottom of the screen,
-                  that scrolls with the page. A convenience prop for the{" "}
-                  <code>fixed-*</code> positioning classes.
+                  Create a fixed navbar along the top or bottom of the screen, that scrolls with the
+                  page. A convenience prop for the <code>fixed-*</code> positioning classes.
                 </p>
               </div>
             </td>
@@ -162,35 +156,26 @@ const NavbarApi = () => (
             <td>
               <div>
                 <p>
-                  A callback fired when a descendant of a child{" "}
-                  <code>&lt;Nav&gt;</code> is selected. Should be used to
-                  execute complex closing or other miscellaneous actions desired
-                  after selecting a descendant of <code>&lt;Nav&gt;</code>. Does
-                  nothing if no <code>&lt;Nav&gt;</code> or{" "}
-                  <code>&lt;Nav&gt;</code>
-                  descendants exist. The callback is called with an eventKey,
-                  which is a prop from the selected <code>
-                    &lt;Nav&gt;
-                  </code>{" "}
-                  descendant, and an event.
+                  A callback fired when a descendant of a child <code>&lt;Nav&gt;</code> is
+                  selected. Should be used to execute complex closing or other miscellaneous actions
+                  desired after selecting a descendant of <code>&lt;Nav&gt;</code>. Does nothing if
+                  no <code>&lt;Nav&gt;</code> or <code>&lt;Nav&gt;</code>
+                  descendants exist. The callback is called with an eventKey, which is a prop from
+                  the selected <code>&lt;Nav&gt;</code> descendant, and an event.
                 </p>
                 <div>
                   <pre>
-                    <code>
-                      function (eventKey: mixed,event?: SyntheticEvent)
-                    </code>
+                    <code>function (eventKey: mixed,event?: SyntheticEvent)</code>
                   </pre>
                 </div>
                 <p>
-                  For basic closing behavior after all <code>&lt;Nav&gt;</code>{" "}
-                  descendant onSelect events in mobile viewports, try using
-                  collapseOnSelect.
+                  For basic closing behavior after all <code>&lt;Nav&gt;</code> descendant onSelect
+                  events in mobile viewports, try using collapseOnSelect.
                 </p>
                 <p>
-                  Note: If you are manually closing the navbar using this{" "}
-                  <code>OnSelect</code> prop, ensure that you are setting{" "}
-                  <code>expanded</code> to false and not <em>toggling</em>{" "}
-                  between true and false.
+                  Note: If you are manually closing the navbar using this <code>OnSelect</code>{" "}
+                  prop, ensure that you are setting <code>expanded</code> to false and not{" "}
+                  <em>toggling</em> between true and false.
                 </p>
               </div>
             </td>
@@ -213,10 +198,9 @@ const NavbarApi = () => (
               </div>
               <div>
                 <p>
-                  A callback fired when the <code>&lt;Navbar&gt;</code> body
-                  collapses or expands. Fired when a{" "}
-                  <code>&lt;Navbar.Toggle&gt;</code> is clicked and called with
-                  the new <code>expanded</code>
+                  A callback fired when the <code>&lt;Navbar&gt;</code> body collapses or expands.
+                  Fired when a <code>&lt;Navbar.Toggle&gt;</code> is clicked and called with the new{" "}
+                  <code>expanded</code>
                   boolean value.
                 </p>
               </div>
@@ -233,9 +217,8 @@ const NavbarApi = () => (
             <td>
               <div>
                 <p>
-                  The ARIA role for the navbar, will default to 'navigation' for
-                  Navbars whose <code>as</code> is something other than{" "}
-                  <code>&lt;nav&gt;</code>.
+                  The ARIA role for the navbar, will default to 'navigation' for Navbars whose{" "}
+                  <code>as</code> is something other than <code>&lt;nav&gt;</code>.
                 </p>
               </div>
             </td>
@@ -253,15 +236,13 @@ const NavbarApi = () => (
             <td>
               <div>
                 <p>
-                  Position the navbar at the top of the viewport, but only after
-                  scrolling past it. A convenience prop for the{" "}
-                  <code>sticky-top</code> positioning class.
+                  Position the navbar at the top of the viewport, but only after scrolling past it.
+                  A convenience prop for the <code>sticky-top</code> positioning class.
                 </p>
                 <p>
                   {" "}
                   <strong>
-                    Not supported in &lt;= IE11 and other older browsers without
-                    a polyfill
+                    Not supported in &lt;= IE11 and other older browsers without a polyfill
                   </strong>
                 </p>
               </div>
@@ -284,9 +265,9 @@ const NavbarApi = () => (
             <td>
               <div>
                 <p>
-                  The general visual variant a the Navbar. Use in combination
-                  with the <code>bg</code> prop, <code>background-color</code>{" "}
-                  utilities, or your own background styles.
+                  The general visual variant a the Navbar. Use in combination with the{" "}
+                  <code>bg</code> prop, <code>background-color</code> utilities, or your own
+                  background styles.
                 </p>
               </div>
             </td>
@@ -302,10 +283,9 @@ const NavbarApi = () => (
             <td>
               <div>
                 <p>
-                  Change the underlying component CSS base class name and
-                  modifier class names prefix.{" "}
-                  <strong>This is an escape hatch</strong> for working with
-                  heavily customized bootstrap css.
+                  Change the underlying component CSS base class name and modifier class names
+                  prefix. <strong>This is an escape hatch</strong> for working with heavily
+                  customized bootstrap css.
                 </p>
               </div>
             </td>
@@ -349,9 +329,8 @@ const NavbarApi = () => (
             <td>
               <div>
                 <p>
-                  An href, when provided the Brand will render as an{" "}
-                  <code>&lt;a&gt;</code> element (unless <code>as</code> is
-                  provided).
+                  An href, when provided the Brand will render as an <code>&lt;a&gt;</code> element
+                  (unless <code>as</code> is provided).
                 </p>
               </div>
             </td>
@@ -367,10 +346,9 @@ const NavbarApi = () => (
             <td>
               <div>
                 <p>
-                  Change the underlying component CSS base class name and
-                  modifier class names prefix.{" "}
-                  <strong>This is an escape hatch</strong> for working with
-                  heavily customized bootstrap css.
+                  Change the underlying component CSS base class name and modifier class names
+                  prefix. <strong>This is an escape hatch</strong> for working with heavily
+                  customized bootstrap css.
                 </p>
               </div>
             </td>
@@ -416,10 +394,7 @@ const NavbarApi = () => (
             <td></td>
             <td>
               <div>
-                <p>
-                  The toggle content. When empty, the default toggle will be
-                  rendered.
-                </p>
+                <p>The toggle content. When empty, the default toggle will be rendered.</p>
               </div>
             </td>
           </tr>
@@ -458,10 +433,9 @@ const NavbarApi = () => (
             <td>
               <div>
                 <p>
-                  Change the underlying component CSS base class name and
-                  modifier class names prefix.{" "}
-                  <strong>This is an escape hatch</strong> for working with
-                  heavily customized bootstrap css.
+                  Change the underlying component CSS base class name and modifier class names
+                  prefix. <strong>This is an escape hatch</strong> for working with heavily
+                  customized bootstrap css.
                 </p>
               </div>
             </td>
@@ -496,10 +470,9 @@ const NavbarApi = () => (
             <td>
               <div>
                 <p>
-                  Change the underlying component CSS base class name and
-                  modifier class names prefix.{" "}
-                  <strong>This is an escape hatch</strong> for working with
-                  heavily customized bootstrap css.
+                  Change the underlying component CSS base class name and modifier class names
+                  prefix. <strong>This is an escape hatch</strong> for working with heavily
+                  customized bootstrap css.
                 </p>
               </div>
             </td>

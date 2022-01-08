@@ -1,5 +1,5 @@
-import { createSignal, createEffect, For } from "solid-js";
-import { Button, ButtonGroup, ToggleButton } from "solid-bootstrap";
+import {createSignal, createEffect, For} from "solid-js";
+import {Button, ButtonGroup, ToggleButton} from "solid-bootstrap";
 
 export function LoadingButton() {
   const [isLoading, setLoading] = createSignal(false);
@@ -29,15 +29,14 @@ export function LoadingButton() {
   );
 }
 
-
 export function ToggleButtonExample() {
   const [checked, setChecked] = createSignal(false);
   const [radioValue, setRadioValue] = createSignal("1");
 
   const radios = [
-    { name: "Active", value: "1" },
-    { name: "Radio", value: "2" },
-    { name: "Radio", value: "3" },
+    {name: "Active", value: "1"},
+    {name: "Radio", value: "2"},
+    {name: "Radio", value: "3"},
   ];
 
   return (

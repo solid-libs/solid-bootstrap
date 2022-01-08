@@ -1,5 +1,5 @@
-import { createContext } from "solid-js";
-import { EventKey } from "solid-bootstrap-core";
+import {createContext} from "solid-js";
+import {EventKey} from "solid-bootstrap-core";
 
 interface NavContextType {
   role?: string; // used by NavLink to determine it's role

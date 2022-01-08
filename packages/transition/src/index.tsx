@@ -1,11 +1,4 @@
-export {
-  Transition,
-  UNMOUNTED,
-  EXITED,
-  ENTERING,
-  ENTERED,
-  EXITING,
-} from "./Transition";
+export {Transition, UNMOUNTED, EXITED, ENTERING, ENTERED, EXITING} from "./Transition";
 
 export type {
   TransitionCallbacks,

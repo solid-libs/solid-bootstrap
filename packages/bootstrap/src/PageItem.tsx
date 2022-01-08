@@ -1,12 +1,10 @@
-import { JSX, mergeProps, splitProps } from "solid-js";
+import {JSX, mergeProps, splitProps} from "solid-js";
 import classNames from "./classnames";
-import { Anchor } from "solid-bootstrap-core";
-import { BsPrefixProps, BsPrefixRefForwardingComponent } from "./helpers";
-import { Dynamic } from "solid-js/web";
+import {Anchor} from "solid-bootstrap-core";
+import {BsPrefixProps, BsPrefixRefForwardingComponent} from "./helpers";
+import {Dynamic} from "solid-js/web";
 
-export interface PageItemProps
-  extends Omit<JSX.HTMLAttributes<HTMLElement>, "ref">,
-    BsPrefixProps {
+export interface PageItemProps extends Omit<JSX.HTMLAttributes<HTMLElement>, "ref">, BsPrefixProps {
   disabled?: boolean;
   active?: boolean;
   activeLabel?: string;
@@ -20,9 +18,7 @@ const defaultProps = {
   activeLabel: "(current)",
 };
 
-const PageItem: BsPrefixRefForwardingComponent<"li", PageItemProps> = (
-  p: PageItemProps
-) => {
+const PageItem: BsPrefixRefForwardingComponent<"li", PageItemProps> = (p: PageItemProps) => {
   const [local, props] = splitProps(mergeProps(defaultProps, p), [
     "active",
     "disabled",
@@ -59,7 +55,7 @@ const PageItem: BsPrefixRefForwardingComponent<"li", PageItemProps> = (
 export default PageItem;
 
 function createButton(name: string, defaultValue: JSX.Element, label = name) {
-  function Button({ children, ...props }: PageItemProps) {
+  function Button({children, ...props}: PageItemProps) {
     return (
       <PageItem {...props}>
         <span aria-hidden="true">{children || defaultValue}</span>

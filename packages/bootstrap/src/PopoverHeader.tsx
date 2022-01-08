@@ -1,3 +1,3 @@
-import { createWithBsPrefix } from "./createWithBsPrefix";
+import {createWithBsPrefix} from "./createWithBsPrefix";
 
 export default createWithBsPrefix("popover-header");

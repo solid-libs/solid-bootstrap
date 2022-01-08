@@ -1,25 +1,16 @@
-import {
-  createEffect,
-  createMemo,
-  JSX,
-  mergeProps,
-  onCleanup,
-  splitProps,
-} from "solid-js";
+import {createEffect, createMemo, JSX, mergeProps, onCleanup, splitProps} from "solid-js";
 import classNames from "./classnames";
 
 import ToastFade from "./ToastFade";
 import ToastHeader from "./ToastHeader";
 import ToastBody from "./ToastBody";
-import { useBootstrapPrefix } from "./ThemeProvider";
+import {useBootstrapPrefix} from "./ThemeProvider";
 import ToastContext from "./ToastContext";
-import { BsPrefixProps, BsPrefixRefForwardingComponent } from "./helpers";
-import { Variant } from "./types";
-import { Dynamic } from "solid-js/web";
+import {BsPrefixProps, BsPrefixRefForwardingComponent} from "./helpers";
+import {Variant} from "./types";
+import {Dynamic} from "solid-js/web";
 
-export interface ToastProps
-  extends BsPrefixProps,
-    JSX.HTMLAttributes<HTMLDivElement> {
+export interface ToastProps extends BsPrefixProps, JSX.HTMLAttributes<HTMLDivElement> {
   animation?: boolean;
   autohide?: boolean;
   delay?: number;
@@ -37,9 +28,7 @@ const defaultProps = {
   autohide: false,
 };
 
-const Toast: BsPrefixRefForwardingComponent<"div", ToastProps> = (
-  p: ToastProps
-) => {
+const Toast: BsPrefixRefForwardingComponent<"div", ToastProps> = (p: ToastProps) => {
   const [local, props] = splitProps(mergeProps(defaultProps, p), [
     "bsPrefix",
     "className",
@@ -100,7 +89,7 @@ const Toast: BsPrefixRefForwardingComponent<"div", ToastProps> = (
         bsPrefix,
         local.className,
         local.bg && `bg-${local.bg}`,
-        !hasAnimation && (local.show ? "show" : "hide")
+        !hasAnimation && (local.show ? "show" : "hide"),
       )}
       role="alert"
       aria-live="assertive"

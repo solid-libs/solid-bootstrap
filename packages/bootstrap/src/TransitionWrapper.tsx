@@ -1,31 +1,18 @@
-import { children, createSignal, JSX, mergeProps, splitProps } from "solid-js";
-import {
-  Transition,
-  TransitionProps,
-  TransitionStatus,
-} from "solid-react-transition";
+import {children, createSignal, JSX, mergeProps, splitProps} from "solid-js";
+import {Transition, TransitionProps, TransitionStatus} from "solid-react-transition";
 
 export type TransitionWrapperChildFunction = (
   status: TransitionStatus,
-  props: Record<string, unknown>
+  props: Record<string, unknown>,
 ) => JSX.Element;
 
 export type TransitionWrapperProps = Omit<
   TransitionProps,
-  | "addEndListener"
-  | "onEnter"
-  | "onEntering"
-  | "onEntered"
-  | "onExit"
-  | "onExiting"
-  | "onExited"
+  "addEndListener" | "onEnter" | "onEntering" | "onEntered" | "onExit" | "onExiting" | "onExited"
 > & {
   childRef?: (r: HTMLElement) => void;
   children: JSX.Element | TransitionWrapperChildFunction;
-  addEndListener?: (
-    el: HTMLElement,
-    done: (e: TransitionEvent) => void
-  ) => void;
+  addEndListener?: (el: HTMLElement, done: (e: TransitionEvent) => void) => void;
   onEnter?: (el: HTMLElement, isAppearing?: boolean) => void;
   onEntering?: (el: HTMLElement, isAppearing?: boolean) => void;
   onEntered?: (el: HTMLElement, isAppearing?: boolean) => void;

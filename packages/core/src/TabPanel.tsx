@@ -1,17 +1,12 @@
-import { Component, JSX, mergeProps, useContext } from "solid-js";
+import {Component, JSX, mergeProps, useContext} from "solid-js";
 import TabContext from "./TabContext";
-import SelectableContext, { makeEventKey } from "./SelectableContext";
-import type { EventKey, DynamicRefForwardingComponent } from "./types";
+import SelectableContext, {makeEventKey} from "./SelectableContext";
+import type {EventKey, DynamicRefForwardingComponent} from "./types";
 import NoopTransition from "./NoopTransition";
-import { Dynamic } from "solid-js/web";
-import {
-  TransitionCallbacks,
-  TransitionComponent,
-} from "solid-react-transition";
+import {Dynamic} from "solid-js/web";
+import {TransitionCallbacks, TransitionComponent} from "solid-react-transition";
 
-export interface TabPanelProps
-  extends TransitionCallbacks,
-    JSX.HTMLAttributes<HTMLElement> {
+export interface TabPanelProps extends TransitionCallbacks, JSX.HTMLAttributes<HTMLElement> {
   /**
    * Element used to render the component.
    */
@@ -57,9 +52,7 @@ export interface TabPanelMetadata extends TransitionCallbacks {
   unmountOnExit?: boolean;
 }
 
-export function useTabPanel(
-  props: TabPanelProps
-): readonly [useTabPanel, TabPanelMetadata] {
+export function useTabPanel(props: TabPanelProps): readonly [useTabPanel, TabPanelMetadata] {
   const context = useContext(TabContext);
 
   if (!context)
@@ -110,22 +103,16 @@ export function useTabPanel(
         return props.transition || context?.transition || NoopTransition;
       },
       get mountOnEnter() {
-        return props.mountOnEnter != null
-          ? props.mountOnEnter
-          : context?.mountOnEnter;
+        return props.mountOnEnter != null ? props.mountOnEnter : context?.mountOnEnter;
       },
       get unmountOnExit() {
-        return props.unmountOnExit != null
-          ? props.unmountOnExit
-          : context?.unmountOnExit;
+        return props.unmountOnExit != null ? props.unmountOnExit : context?.unmountOnExit;
       },
     },
   ];
 }
 
-const TabPanel: DynamicRefForwardingComponent<"div", TabPanelProps> = (
-  props: TabPanelProps
-) => {
+const TabPanel: DynamicRefForwardingComponent<"div", TabPanelProps> = (props: TabPanelProps) => {
   const [tabPanelProps, other] = useTabPanel(props);
 
   const Transition = other.transition!;

@@ -1,5 +1,5 @@
-import { createContext } from "solid-js";
-import { AlignType } from "./types";
+import {createContext} from "solid-js";
+import {AlignType} from "./types";
 
 export type DropDirection = "up" | "start" | "end" | "down";
 

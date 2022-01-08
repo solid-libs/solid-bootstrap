@@ -1,8 +1,8 @@
 import contains from "dom-helpers/contains";
-import { EventHandler } from "dom-helpers/esm/addEventListener";
+import {EventHandler} from "dom-helpers/esm/addEventListener";
 import listen from "dom-helpers/listen";
 import ownerDocument from "dom-helpers/ownerDocument";
-import { createEffect, createSignal, mergeProps, onCleanup } from "solid-js";
+import {createEffect, createSignal, mergeProps, onCleanup} from "solid-js";
 
 const escapeKeyCode = 27;
 const noop = () => {};
@@ -40,11 +40,10 @@ export interface RootCloseOptions {
 function useRootClose(
   ref: () => Element | null | undefined,
   onRootClose: (e: Event) => void,
-  rootCloseoptions: RootCloseOptions = {}
+  rootCloseoptions: RootCloseOptions = {},
 ) {
-  let options = mergeProps({ clickTrigger: "click" }, rootCloseoptions);
-  const [preventMouseRootCloseRef, setPreventMouseRootCloseRef] =
-    createSignal(false);
+  let options = mergeProps({clickTrigger: "click"}, rootCloseoptions);
+  const [preventMouseRootCloseRef, setPreventMouseRootCloseRef] = createSignal(false);
   const onClose = onRootClose || noop;
 
   const handleMouseCapture: EventHandler<MouseEvents> = (e) => {
@@ -54,7 +53,7 @@ function useRootClose(
       !currentTarget ||
         isModifiedEvent(e) ||
         !isLeftClickEvent(e) ||
-        !!contains(currentTarget, e.target as Element)
+        !!contains(currentTarget, e.target as Element),
     );
   };
 
@@ -86,21 +85,17 @@ function useRootClose(
       doc as any,
       options.clickTrigger!,
       handleMouseCapture,
-      true
+      true,
     );
 
-    const removeMouseListener = listen(
-      doc as any,
-      options.clickTrigger!,
-      (e) => {
-        // skip if this event is the same as the one running when we added the handlers
-        if (e === currentEvent) {
-          currentEvent = undefined;
-          return;
-        }
-        handleMouse(e);
+    const removeMouseListener = listen(doc as any, options.clickTrigger!, (e) => {
+      // skip if this event is the same as the one running when we added the handlers
+      if (e === currentEvent) {
+        currentEvent = undefined;
+        return;
       }
-    );
+      handleMouse(e);
+    });
 
     const removeKeyupListener = listen(doc as any, "keyup", (e) => {
       // skip if this event is the same as the one running when we added the handlers

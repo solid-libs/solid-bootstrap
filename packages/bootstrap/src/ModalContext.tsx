@@ -1,4 +1,4 @@
-import { createContext } from "solid-js";
+import {createContext} from "solid-js";
 
 interface ModalContextType {
   onHide: () => void;

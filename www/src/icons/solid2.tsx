@@ -1,28 +1,14 @@
-import { JSX } from "solid-js";
+import {JSX} from "solid-js";
 
 export const Solid2 = (props: JSX.SvgSVGAttributes<SVGSVGElement>) => (
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 166 155.3" {...props}>
     <defs>
-      <linearGradient
-        id="a"
-        gradientUnits="userSpaceOnUse"
-        x1="27.5"
-        y1="3"
-        x2="152"
-        y2="63.5"
-      >
+      <linearGradient id="a" gradientUnits="userSpaceOnUse" x1="27.5" y1="3" x2="152" y2="63.5">
         <stop offset=".1" stop-color="#76b3e1" />
         <stop offset=".3" stop-color="#dcf2fd" />
         <stop offset="1" stop-color="#76b3e1" />
       </linearGradient>
-      <linearGradient
-        id="b"
-        gradientUnits="userSpaceOnUse"
-        x1="95.8"
-        y1="32.6"
-        x2="74"
-        y2="105.2"
-      >
+      <linearGradient id="b" gradientUnits="userSpaceOnUse" x1="95.8" y1="32.6" x2="74" y2="105.2">
         <stop offset="0" stop-color="#76b3e1" />
         <stop offset=".5" stop-color="#4377bb" />
         <stop offset="1" stop-color="#1f3b77" />
@@ -61,22 +47,13 @@ export const Solid2 = (props: JSX.SvgSVGAttributes<SVGSVGElement>) => (
       opacity=".3"
       fill="url(#a)"
     />
-    <path
-      d="m52 35-4 1c-17 5-22 21-13 35 10 13 31 20 48 15l62-21S92 26 52 35z"
-      fill="#518ac8"
-    />
+    <path d="m52 35-4 1c-17 5-22 21-13 35 10 13 31 20 48 15l62-21S92 26 52 35z" fill="#518ac8" />
     <path
       d="m52 35-4 1c-17 5-22 21-13 35 10 13 31 20 48 15l62-21S92 26 52 35z"
       opacity=".3"
       fill="url(#b)"
     />
-    <path
-      d="M134 80a45 45 0 0 0-48-15L24 85 4 120l112 19 20-36c4-7 3-15-2-23z"
-      fill="url(#c)"
-    />
-    <path
-      d="M114 115a45 45 0 0 0-48-15L4 120s53 40 94 30l3-1c17-5 23-21 13-34z"
-      fill="url(#d)"
-    />
+    <path d="M134 80a45 45 0 0 0-48-15L24 85 4 120l112 19 20-36c4-7 3-15-2-23z" fill="url(#c)" />
+    <path d="M114 115a45 45 0 0 0-48-15L4 120s53 40 94 30l3-1c17-5 23-21 13-34z" fill="url(#d)" />
   </svg>
 );

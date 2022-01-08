@@ -1,8 +1,8 @@
-import { JSX, mergeProps, splitProps, useContext } from "solid-js";
-import Collapse, { CollapseProps } from "./Collapse";
-import { useBootstrapPrefix } from "./ThemeProvider";
+import {JSX, mergeProps, splitProps, useContext} from "solid-js";
+import Collapse, {CollapseProps} from "./Collapse";
+import {useBootstrapPrefix} from "./ThemeProvider";
 import NavbarContext from "./NavbarContext";
-import { BsPrefixProps } from "./helpers";
+import {BsPrefixProps} from "./helpers";
 import classnames from "./classnames";
 
 export interface NavbarCollapseProps

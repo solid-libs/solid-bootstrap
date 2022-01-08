@@ -1,17 +1,13 @@
-import { JSX, mergeProps, Show, splitProps, useContext } from "solid-js";
+import {JSX, mergeProps, Show, splitProps, useContext} from "solid-js";
 import classNames from "./classnames";
-import {
-  SelectCallback,
-  useDropdownMenu,
-  UseDropdownMenuOptions,
-} from "solid-bootstrap-core";
-import DropdownContext, { DropDirection } from "./DropdownContext";
+import {SelectCallback, useDropdownMenu, UseDropdownMenuOptions} from "solid-bootstrap-core";
+import DropdownContext, {DropDirection} from "./DropdownContext";
 import InputGroupContext from "./InputGroupContext";
 import NavbarContext from "./NavbarContext";
-import { useBootstrapPrefix } from "./ThemeProvider";
-import { BsPrefixProps, BsPrefixRefForwardingComponent } from "./helpers";
-import { AlignType, AlignDirection, Placement } from "./types";
-import { Dynamic } from "solid-js/web";
+import {useBootstrapPrefix} from "./ThemeProvider";
+import {BsPrefixProps, BsPrefixRefForwardingComponent} from "./helpers";
+import {AlignType, AlignDirection, Placement} from "./types";
+import {Dynamic} from "solid-js/web";
 
 export type DropdownMenuVariant = "dark" | string;
 
@@ -37,7 +33,7 @@ const defaultProps: Partial<DropdownMenuProps> = {
 export function getDropdownMenuPlacement(
   alignEnd: boolean,
   dropDirection?: DropDirection,
-  isRTL?: boolean
+  isRTL?: boolean,
 ) {
   const topStart = isRTL ? "top-end" : "top-start";
   const topEnd = isRTL ? "top-start" : "top-end";
@@ -50,15 +46,13 @@ export function getDropdownMenuPlacement(
 
   let placement: Placement = alignEnd ? bottomEnd : bottomStart;
   if (dropDirection === "up") placement = alignEnd ? topEnd : topStart;
-  else if (dropDirection === "end")
-    placement = alignEnd ? rightEnd : rightStart;
-  else if (dropDirection === "start")
-    placement = alignEnd ? leftEnd : leftStart;
+  else if (dropDirection === "end") placement = alignEnd ? rightEnd : rightStart;
+  else if (dropDirection === "start") placement = alignEnd ? leftEnd : leftStart;
   return placement;
 }
 
 const DropdownMenu: BsPrefixRefForwardingComponent<"div", DropdownMenuProps> = (
-  p: DropdownMenuProps
+  p: DropdownMenuProps,
 ) => {
   const [local, props] = splitProps(mergeProps(defaultProps, p), [
     "as",
@@ -120,11 +114,7 @@ const DropdownMenu: BsPrefixRefForwardingComponent<"div", DropdownMenuProps> = (
       return local.popperConfig;
     },
     get placement() {
-      return getDropdownMenuPlacement(
-        alignEnd,
-        dropdownContext.drop,
-        dropdownContext.isRTL
-      );
+      return getDropdownMenuPlacement(alignEnd, dropdownContext.drop, dropdownContext.isRTL);
     },
   });
 
@@ -154,14 +144,14 @@ const DropdownMenu: BsPrefixRefForwardingComponent<"div", DropdownMenuProps> = (
             return align;
           },
         }
-      : {}
+      : {},
   );
 
   // we don't need the default popper style,
   // menus are display: none when not shown.
   const style = () =>
     menuMeta.popper?.placement
-      ? { ...(props.style as JSX.CSSProperties), ...menuProps.style }
+      ? {...(props.style as JSX.CSSProperties), ...menuProps.style}
       : props.style;
 
   return (
@@ -183,7 +173,7 @@ const DropdownMenu: BsPrefixRefForwardingComponent<"div", DropdownMenuProps> = (
           menuMeta.show && "show",
           alignEnd && `${prefix}-end`,
           local.variant && `${prefix}-${local.variant}`,
-          ...alignClasses
+          ...alignClasses,
         )}
       >
         {props.children}

@@ -1,7 +1,7 @@
 import classNames from "./classnames";
-import { useBootstrapPrefix } from "./ThemeProvider";
-import { useCol, ColProps } from "./Col";
-import { Variant } from "./types";
+import {useBootstrapPrefix} from "./ThemeProvider";
+import {useCol, ColProps} from "./Col";
+import {Variant} from "./types";
 
 export type PlaceholderAnimation = "glow" | "wave";
 export type PlaceholderSize = "xs" | "sm" | "lg";
@@ -20,7 +20,7 @@ export default function usePlaceholder({
   ...props
 }: UsePlaceholderProps) {
   bsPrefix = useBootstrapPrefix(bsPrefix, "placeholder");
-  const [{ className, ...colProps }] = useCol(props);
+  const [{className, ...colProps}] = useCol(props);
 
   return {
     ...colProps,
@@ -28,7 +28,7 @@ export default function usePlaceholder({
       className,
       animation ? `${bsPrefix}-${animation}` : bsPrefix,
       size && `${bsPrefix}-${size}`,
-      bg && `bg-${bg}`
+      bg && `bg-${bg}`,
     ),
   };
 }

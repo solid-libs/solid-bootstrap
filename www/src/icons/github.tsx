@@ -1,4 +1,4 @@
-import { JSX } from "solid-js";
+import {JSX} from "solid-js";
 
 export const Github = (props: JSX.SvgSVGAttributes<SVGSVGElement>) => (
   <svg

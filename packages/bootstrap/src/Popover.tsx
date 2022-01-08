@@ -1,16 +1,14 @@
-import { JSX, mergeProps, splitProps, useContext } from "solid-js";
+import {JSX, mergeProps, splitProps, useContext} from "solid-js";
 import classNames from "./classnames";
-import { OverlayArrowProps } from "solid-bootstrap-core";
-import { useBootstrapPrefix } from "./ThemeProvider";
+import {OverlayArrowProps} from "solid-bootstrap-core";
+import {useBootstrapPrefix} from "./ThemeProvider";
 import PopoverHeader from "./PopoverHeader";
 import PopoverBody from "./PopoverBody";
-import { Placement } from "./types";
-import { BsPrefixProps } from "./helpers";
+import {Placement} from "./types";
+import {BsPrefixProps} from "./helpers";
 import OverlayContext from "./OverlayContext";
 
-export interface PopoverProps
-  extends JSX.HTMLAttributes<HTMLDivElement>,
-    BsPrefixProps {
+export interface PopoverProps extends JSX.HTMLAttributes<HTMLDivElement>, BsPrefixProps {
   placement?: Placement;
   title?: string;
   arrowProps?: Partial<OverlayArrowProps>;
@@ -48,22 +46,14 @@ const Popover = (p: PopoverProps) => {
       className={classNames(
         local.className,
         decoratedBsPrefix,
-        primaryPlacement && `bs-popover-auto`
+        primaryPlacement && `bs-popover-auto`,
       )}
       {...props}
       {...context?.wrapperProps}
       style={Object.assign({}, local.style, context?.wrapperProps.style)}
     >
-      <div
-        className="popover-arrow"
-        {...local.arrowProps}
-        {...context?.arrowProps}
-      />
-      {local.body ? (
-        <PopoverBody>{local.children}</PopoverBody>
-      ) : (
-        local.children
-      )}
+      <div className="popover-arrow" {...local.arrowProps} {...context?.arrowProps} />
+      {local.body ? <PopoverBody>{local.children}</PopoverBody> : local.children}
     </div>
   );
 };

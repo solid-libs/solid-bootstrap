@@ -1,4 +1,4 @@
-import { JSX, mergeProps, splitProps } from "solid-js";
+import {JSX, mergeProps, splitProps} from "solid-js";
 import classNames from "./classnames";
 import {
   createControlledProp,
@@ -6,9 +6,9 @@ import {
   Nav as BaseNav,
   NavProps as BaseNavProps,
 } from "solid-bootstrap-core";
-import { useBootstrapPrefix } from "./ThemeProvider";
+import {useBootstrapPrefix} from "./ThemeProvider";
 import ListGroupItem from "./ListGroupItem";
-import { BsPrefixProps, BsPrefixRefForwardingComponent } from "./helpers";
+import {BsPrefixProps, BsPrefixRefForwardingComponent} from "./helpers";
 
 export interface ListGroupProps extends BsPrefixProps, BaseNavProps {
   variant?: "flush";
@@ -21,9 +21,7 @@ const defaultProps = {
   as: "div",
 };
 
-const ListGroup: BsPrefixRefForwardingComponent<"div", ListGroupProps> = (
-  p: ListGroupProps
-) => {
+const ListGroup: BsPrefixRefForwardingComponent<"div", ListGroupProps> = (p: ListGroupProps) => {
   const [local, props] = splitProps(mergeProps(defaultProps, p), [
     "as",
     "activeKey",
@@ -39,16 +37,13 @@ const ListGroup: BsPrefixRefForwardingComponent<"div", ListGroupProps> = (
   const [activeKey, onSelect] = createControlledProp(
     () => local.activeKey,
     () => local.defaultActiveKey,
-    local.onSelect
+    local.onSelect,
   );
   const bsPrefix = useBootstrapPrefix(local.bsPrefix, "list-group");
 
   let horizontalVariant: string | undefined;
   if (local.horizontal) {
-    horizontalVariant =
-      local.horizontal === true
-        ? "horizontal"
-        : `horizontal-${local.horizontal}`;
+    horizontalVariant = local.horizontal === true ? "horizontal" : `horizontal-${local.horizontal}`;
   }
 
   return (
@@ -62,7 +57,7 @@ const ListGroup: BsPrefixRefForwardingComponent<"div", ListGroupProps> = (
         bsPrefix,
         local.variant && `${bsPrefix}-${local.variant}`,
         horizontalVariant && `${bsPrefix}-${horizontalVariant}`,
-        local.numbered && `${bsPrefix}-numbered`
+        local.numbered && `${bsPrefix}-numbered`,
       )}
     >
       {props.children}

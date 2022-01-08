@@ -9,13 +9,7 @@ export default {
       format: "es",
     },
   ],
-  external: [
-    "@popperjs/core",
-    "dom-helpers",
-    "solid-js",
-    "solid-js/web",
-    "solid-react-transition",
-  ],
+  external: ["@popperjs/core", "dom-helpers", "solid-js", "solid-js/web", "solid-react-transition"],
   plugins: [
     nodeResolve({
       extensions: [".js", ".ts", ".tsx"],

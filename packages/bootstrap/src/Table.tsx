@@ -1,12 +1,10 @@
-import { JSX, mergeProps, splitProps } from "solid-js";
+import {JSX, mergeProps, splitProps} from "solid-js";
 import classNames from "./classnames";
-import { useBootstrapPrefix } from "./ThemeProvider";
+import {useBootstrapPrefix} from "./ThemeProvider";
 
-import { BsPrefixOnlyProps } from "./helpers";
+import {BsPrefixOnlyProps} from "./helpers";
 
-export interface TableProps
-  extends BsPrefixOnlyProps,
-    JSX.HTMLAttributes<HTMLTableElement> {
+export interface TableProps extends BsPrefixOnlyProps, JSX.HTMLAttributes<HTMLTableElement> {
   striped?: boolean;
   bordered?: boolean;
   borderless?: boolean;
@@ -40,7 +38,7 @@ const Table = (p: TableProps) => {
       local.striped && `${decoratedBsPrefix}-striped`,
       local.bordered && `${decoratedBsPrefix}-bordered`,
       local.borderless && `${decoratedBsPrefix}-borderless`,
-      local.hover && `${decoratedBsPrefix}-hover`
+      local.hover && `${decoratedBsPrefix}-hover`,
     );
 
   const table = () => (

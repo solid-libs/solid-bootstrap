@@ -1,13 +1,11 @@
-import { JSX, mergeProps, splitProps } from "solid-js";
+import {JSX, mergeProps, splitProps} from "solid-js";
 import classNames from "./classnames";
 
-import { useBootstrapPrefix } from "./ThemeProvider";
-import { BsPrefixProps, BsPrefixRefForwardingComponent } from "./helpers";
-import { Dynamic } from "solid-js/web";
+import {useBootstrapPrefix} from "./ThemeProvider";
+import {BsPrefixProps, BsPrefixRefForwardingComponent} from "./helpers";
+import {Dynamic} from "solid-js/web";
 
-export interface ContainerProps
-  extends BsPrefixProps,
-    JSX.HTMLAttributes<HTMLElement> {
+export interface ContainerProps extends BsPrefixProps, JSX.HTMLAttributes<HTMLElement> {
   fluid?: boolean | "sm" | "md" | "lg" | "xl" | "xxl";
 }
 
@@ -16,9 +14,7 @@ const defaultProps = {
   fluid: false,
 };
 
-const Container: BsPrefixRefForwardingComponent<"div", ContainerProps> = (
-  p: ContainerProps
-) => {
+const Container: BsPrefixRefForwardingComponent<"div", ContainerProps> = (p: ContainerProps) => {
   const [local, props] = splitProps(mergeProps(defaultProps, p), [
     "as",
     "bsPrefix",
@@ -31,10 +27,7 @@ const Container: BsPrefixRefForwardingComponent<"div", ContainerProps> = (
     <Dynamic
       component={local.as}
       {...props}
-      className={classNames(
-        local.className,
-        local.fluid ? `${prefix}${suffix}` : prefix
-      )}
+      className={classNames(local.className, local.fluid ? `${prefix}${suffix}` : prefix)}
     >
       {props.children}
     </Dynamic>

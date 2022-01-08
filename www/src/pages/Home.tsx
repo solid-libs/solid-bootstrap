@@ -1,5 +1,5 @@
 import classnames from "classnames";
-import { Link } from "solid-app-router";
+import {Link} from "solid-app-router";
 import styles from "./Home.module.css";
 
 const Home = () => (
@@ -38,38 +38,35 @@ const Home = () => (
         <div class="px-4 py-3 col-md-4">
           <h2>Rebuilt with SolidJS</h2>
           <p>
-            Solid-Bootstrap replaces the Bootstrap JavaScript. Each component
-            has been carefully ported into a true SolidJS component, without
-            unneeded dependencies like jQuery.
+            Solid-Bootstrap replaces the Bootstrap JavaScript. Each component has been carefully
+            ported into a true SolidJS component, without unneeded dependencies like jQuery.
           </p>
           <p>
-            This library has been ported from React-Bootstrap which is one of
-            the most popular and proven UI libraries, making it an excellent
-            choice as your SolidJS UI foundation.
+            This library has been ported from React-Bootstrap which is one of the most popular and
+            proven UI libraries, making it an excellent choice as your SolidJS UI foundation.
           </p>
         </div>
         <div class="px-4 py-3 col-md-4">
           <h2>Bootstrap at its core</h2>
           <p>
-            Built with compatibility in mind, we embrace our bootstrap core and
-            strive to be compatible with the world's largest UI ecosystem.
+            Built with compatibility in mind, we embrace our bootstrap core and strive to be
+            compatible with the world's largest UI ecosystem.
           </p>
           <p>
-            By relying entirely on the Bootstrap stylesheet, Solid-Bootstrap
-            just works with the thousands of Bootstrap themes you already love.
+            By relying entirely on the Bootstrap stylesheet, Solid-Bootstrap just works with the
+            thousands of Bootstrap themes you already love.
           </p>
           <p></p>
         </div>
         <div class="px-4 py-3 col-md-4">
           <h2>Accessible by default</h2>
           <p>
-            The SolidJS component model gives us more control over form and
-            function of each component.
+            The SolidJS component model gives us more control over form and function of each
+            component.
           </p>
           <p>
-            Each component is implemented with accessibility in mind. The result
-            is a set of accessible-by-default components, over what is possible
-            from plain Bootstrap.
+            Each component is implemented with accessibility in mind. The result is a set of
+            accessible-by-default components, over what is possible from plain Bootstrap.
           </p>
         </div>
       </div>

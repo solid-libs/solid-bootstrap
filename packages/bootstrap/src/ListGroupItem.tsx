@@ -1,18 +1,12 @@
-import { createMemo, JSX, mergeProps, splitProps } from "solid-js";
+import {createMemo, JSX, mergeProps, splitProps} from "solid-js";
 import classNames from "./classnames";
-import {
-  makeEventKey,
-  useNavItem,
-  NavItemProps as BaseNavItemProps,
-} from "solid-bootstrap-core";
-import { useBootstrapPrefix } from "./ThemeProvider";
-import { BsPrefixProps, BsPrefixRefForwardingComponent } from "./helpers";
-import { Variant } from "./types";
-import { Dynamic } from "solid-js/web";
+import {makeEventKey, useNavItem, NavItemProps as BaseNavItemProps} from "solid-bootstrap-core";
+import {useBootstrapPrefix} from "./ThemeProvider";
+import {BsPrefixProps, BsPrefixRefForwardingComponent} from "./helpers";
+import {Variant} from "./types";
+import {Dynamic} from "solid-js/web";
 
-export interface ListGroupItemProps
-  extends Omit<BaseNavItemProps, "onSelect">,
-    BsPrefixProps {
+export interface ListGroupItemProps extends Omit<BaseNavItemProps, "onSelect">, BsPrefixProps {
   action?: boolean;
   onClick?: JSX.EventHandlerUnion<HTMLElement, MouseEvent>;
   variant?: Variant;
@@ -21,7 +15,7 @@ export interface ListGroupItemProps
 const defaultProps = {};
 
 const ListGroupItem: BsPrefixRefForwardingComponent<"a", ListGroupItemProps> = (
-  p: ListGroupItemProps
+  p: ListGroupItemProps,
 ) => {
   const [local, props] = splitProps(mergeProps(defaultProps, p), [
     "as",
@@ -44,8 +38,8 @@ const ListGroupItem: BsPrefixRefForwardingComponent<"a", ListGroupItemProps> = (
           return local.active;
         },
       },
-      props
-    )
+      props,
+    ),
   );
 
   const handleClick = createMemo(() => (event: MouseEvent) => {
@@ -67,9 +61,7 @@ const ListGroupItem: BsPrefixRefForwardingComponent<"a", ListGroupItemProps> = (
 
   return (
     <Dynamic
-      component={
-        local.as || (local.action ? (props.href ? "a" : "button") : "div")
-      }
+      component={local.as || (local.action ? (props.href ? "a" : "button") : "div")}
       {...props}
       {...navItemProps}
       {...disabledProps()}
@@ -80,7 +72,7 @@ const ListGroupItem: BsPrefixRefForwardingComponent<"a", ListGroupItemProps> = (
         meta.isActive && "active",
         local.disabled && "disabled",
         local.variant && `${bsPrefix}-${local.variant}`,
-        local.action && `${bsPrefix}-action`
+        local.action && `${bsPrefix}-action`,
       )}
     >
       {props.children}

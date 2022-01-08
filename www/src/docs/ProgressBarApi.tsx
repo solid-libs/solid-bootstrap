@@ -38,9 +38,7 @@ const ProgressBarApi = () => (
             <td></td>
             <td>
               <div>
-                <p>
-                  {`Child elements (only allows elements of type <progressbar>)`}
-                </p>
+                <p>{`Child elements (only allows elements of type <progressbar>)`}</p>
               </div>
             </td>
           </tr>
@@ -169,10 +167,9 @@ const ProgressBarApi = () => (
             <td>
               <div>
                 <p>
-                  Change the underlying component CSS base class name and
-                  modifier class names prefix.{" "}
-                  <strong>This is an escape hatch</strong> for working with
-                  heavily customized bootstrap css.
+                  Change the underlying component CSS base class name and modifier class names
+                  prefix. <strong>This is an escape hatch</strong> for working with heavily
+                  customized bootstrap css.
                 </p>
               </div>
             </td>

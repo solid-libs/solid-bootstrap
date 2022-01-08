@@ -1,4 +1,4 @@
-import { children, JSX, mergeProps, splitProps } from "solid-js";
+import {children, JSX, mergeProps, splitProps} from "solid-js";
 import classNames from "./classnames";
 import {
   TransitionCallbacks,
@@ -8,14 +8,12 @@ import {
   EXITING,
 } from "solid-react-transition";
 import transitionEndListener from "./transitionEndListener";
-import { BsPrefixOnlyProps } from "./helpers";
+import {BsPrefixOnlyProps} from "./helpers";
 import TransitionWrapper from "./TransitionWrapper";
-import { useBootstrapPrefix } from "./ThemeProvider";
-import { resolveClasses } from "solid-bootstrap-core";
+import {useBootstrapPrefix} from "./ThemeProvider";
+import {resolveClasses} from "solid-bootstrap-core";
 
-export interface OffcanvasTogglingProps
-  extends TransitionCallbacks,
-    BsPrefixOnlyProps {
+export interface OffcanvasTogglingProps extends TransitionCallbacks, BsPrefixOnlyProps {
   className?: string;
   in?: boolean;
   mountOnEnter?: boolean;
@@ -51,18 +49,14 @@ const OffcanvasToggling = (p: OffcanvasTogglingProps) => {
   return (
     <TransitionWrapper addEndListener={transitionEndListener} {...props}>
       {
-        ((
-          status: TransitionStatus,
-          innerProps: { ref: (el: HTMLElement) => void }
-        ) => {
+        ((status: TransitionStatus, innerProps: {ref: (el: HTMLElement) => void}) => {
           const el = child() as HTMLElement;
           innerProps.ref(el);
           const newClasses = classNames(
             local.className,
-            (status === ENTERING || status === EXITING) &&
-              `${bsPrefix}-toggling`,
+            (status === ENTERING || status === EXITING) && `${bsPrefix}-toggling`,
             // @ts-ignore
-            transitionStyles[status]
+            transitionStyles[status],
           );
           resolveClasses(el, prevClasses, newClasses);
           prevClasses = newClasses;

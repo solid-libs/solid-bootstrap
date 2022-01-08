@@ -1,10 +1,5 @@
-import { Component, createSignal, Show } from "solid-js";
-import {
-  Dropdown,
-  DropdownProps,
-  useDropdownMenu,
-  useDropdownToggle,
-} from "solid-bootstrap-core";
+import {Component, createSignal, Show} from "solid-js";
+import {Dropdown, DropdownProps, useDropdownMenu, useDropdownToggle} from "solid-bootstrap-core";
 import GithubSource from "./GithubSource";
 
 const DropdownMenu = () => {
@@ -14,11 +9,7 @@ const DropdownMenu = () => {
   });
 
   return (
-    <ul
-      class={`dropdown-menu ${meta.show ? "show" : ""}`}
-      role="menu"
-      {...menuProps}
-    >
+    <ul class={`dropdown-menu ${meta.show ? "show" : ""}`} role="menu" {...menuProps}>
       <li>
         <Dropdown.Item as="a" class="dropdown-item" href="#">
           Item 1
@@ -48,9 +39,7 @@ const DropdownToggle: Component = (props) => {
   );
 };
 
-const DropdownButton = (
-  props: Pick<DropdownProps, "show" | "onToggle"> & { title: string }
-) => (
+const DropdownButton = (props: Pick<DropdownProps, "show" | "onToggle"> & {title: string}) => (
   <Dropdown show={props.show} onToggle={props.onToggle}>
     <span>
       <DropdownToggle>{props.title}</DropdownToggle>
@@ -84,26 +73,23 @@ export const CoreDropdownDocs: Component = () => {
         <GithubSource name="CoreDropdownDocs" />
         <h2>Dropdowns (core)</h2>
         <p class="lead">
-          Dropdown is a set of structural components for building accessible
-          dropdown menus with close-on-click, keyboard navigation, and correct
-          focus handling.
+          Dropdown is a set of structural components for building accessible dropdown menus with
+          close-on-click, keyboard navigation, and correct focus handling.
         </p>
         <p>
-          Dropdown is primarily built from three base components that you should
-          compose to build your dropdowns:
+          Dropdown is primarily built from three base components that you should compose to build
+          your dropdowns:
         </p>
         <ul>
           <li>
-            <code>Dropdown</code>: wraps the menu and toggle, and handles
-            keyboard navigation
+            <code>Dropdown</code>: wraps the menu and toggle, and handles keyboard navigation
           </li>
           <li>
-            <code>Dropdown.Toggle</code>: generally a button that triggers the
-            opening of the menu
+            <code>Dropdown.Toggle</code>: generally a button that triggers the opening of the menu
           </li>
           <li>
-            <code>Dropdown.Menu</code>: the overlaid menu, positioned to the
-            toggle with <code>PopperJS</code>
+            <code>Dropdown.Menu</code>: the overlaid menu, positioned to the toggle with{" "}
+            <code>PopperJS</code>
           </li>
         </ul>
       </div>

@@ -12,7 +12,7 @@ export type ResponsiveUtilityValue<T> =
 export const DEVICE_SIZES = ["xxl", "xl", "lg", "md", "sm", "xs"] as const;
 
 export default function createUtilityClassName(
-  utilityValues: Record<string, ResponsiveUtilityValue<unknown>>
+  utilityValues: Record<string, ResponsiveUtilityValue<unknown>>,
 ) {
   const classes: string[] = [];
   Object.entries(utilityValues).forEach(([utilName, utilValue]) => {

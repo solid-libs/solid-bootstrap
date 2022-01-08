@@ -1,12 +1,7 @@
-import { JSX } from "solid-js";
+import {JSX} from "solid-js";
 
 export const Solid3 = (props: JSX.SvgSVGAttributes<SVGSVGElement>) => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="306.42"
-    height="70.7"
-    {...props}
-  >
+  <svg xmlns="http://www.w3.org/2000/svg" width="306.42" height="70.7" {...props}>
     <defs>
       <clipPath id="a">
         <path style="fill:none" d="M0 0h306.42v70.7H0z" />

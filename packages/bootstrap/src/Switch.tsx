@@ -1,10 +1,10 @@
-import FormCheck, { FormCheckProps } from "./FormCheck";
-import { BsPrefixRefForwardingComponent } from "./helpers";
+import FormCheck, {FormCheckProps} from "./FormCheck";
+import {BsPrefixRefForwardingComponent} from "./helpers";
 
 type SwitchProps = Omit<FormCheckProps, "type">;
 
 const Switch: BsPrefixRefForwardingComponent<typeof FormCheck, SwitchProps> = (
-  props: SwitchProps
+  props: SwitchProps,
 ) => (
   <FormCheck {...props} type="switch">
     {props.children}

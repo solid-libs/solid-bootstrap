@@ -1,4 +1,4 @@
-import { createSignal } from "solid-js";
+import {createSignal} from "solid-js";
 
 const booleanSignal = createSignal(false);
 
@@ -9,7 +9,7 @@ const signal = (name: string) => {
   }
   return signals.get(name)!;
 };
-  
+
 export const show = (name: string) => signal(name)[0]();
 export const handleOpen = (name: string) => () => signal(name)[1](true);
 export const handleClose = (name: string) => () => signal(name)[1](false);
@@ -36,4 +36,3 @@ export const backdropOptions = [
     backdrop: true,
   },
 ];
-

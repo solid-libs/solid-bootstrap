@@ -36,10 +36,7 @@ const TableApi = () => (
             <td></td>
             <td>
               <div>
-                <p>
-                  Removes all borders on the table and cells, including table
-                  header.
-                </p>
+                <p>Removes all borders on the table and cells, including table header.</p>
               </div>
             </td>
           </tr>
@@ -52,8 +49,7 @@ const TableApi = () => (
             <td>
               <div>
                 <p>
-                  Enable a hover state on table rows within a{" "}
-                  <code>&lt;tbody&gt;</code>.
+                  Enable a hover state on table rows within a <code>&lt;tbody&gt;</code>.
                 </p>
               </div>
             </td>
@@ -67,16 +63,14 @@ const TableApi = () => (
             <td>
               <div>
                 <p>
-                  Responsive tables allow tables to be scrolled horizontally
-                  with ease. Across every breakpoint, use{" "}
-                  <code>responsive</code> for horizontally scrolling tables.
-                  Responsive tables are wrapped automatically in a{" "}
-                  <code>div</code>. Use <code>responsive="sm"</code>,{" "}
-                  <code>responsive="md"</code>, <code>responsive="lg"</code>, or
-                  <code>responsive="xl"</code> as needed to create responsive
-                  tables up to a particular breakpoint. From that breakpoint and
-                  up, the table will behave normally and not scroll
-                  horizontally.
+                  Responsive tables allow tables to be scrolled horizontally with ease. Across every
+                  breakpoint, use <code>responsive</code> for horizontally scrolling tables.
+                  Responsive tables are wrapped automatically in a <code>div</code>. Use{" "}
+                  <code>responsive="sm"</code>, <code>responsive="md"</code>,{" "}
+                  <code>responsive="lg"</code>, or
+                  <code>responsive="xl"</code> as needed to create responsive tables up to a
+                  particular breakpoint. From that breakpoint and up, the table will behave normally
+                  and not scroll horizontally.
                 </p>
               </div>
             </td>
@@ -90,8 +84,8 @@ const TableApi = () => (
             <td>
               <div>
                 <p>
-                  Make tables more compact by cutting cell padding in half by
-                  setting size as <code>sm</code>.
+                  Make tables more compact by cutting cell padding in half by setting size as{" "}
+                  <code>sm</code>.
                 </p>
               </div>
             </td>
@@ -105,8 +99,7 @@ const TableApi = () => (
             <td>
               <div>
                 <p>
-                  Adds zebra-striping to any table row within the{" "}
-                  <code>&lt;tbody&gt;</code>.
+                  Adds zebra-striping to any table row within the <code>&lt;tbody&gt;</code>.
                 </p>
               </div>
             </td>
@@ -120,8 +113,8 @@ const TableApi = () => (
             <td>
               <div>
                 <p>
-                  Invert the colors of the table — with light text on dark
-                  backgrounds by setting variant as <code>dark</code>.
+                  Invert the colors of the table — with light text on dark backgrounds by setting
+                  variant as <code>dark</code>.
                 </p>
               </div>
             </td>
@@ -137,10 +130,9 @@ const TableApi = () => (
             <td>
               <div>
                 <p>
-                  Change the underlying component CSS base class name and
-                  modifier class names prefix.{" "}
-                  <strong>This is an escape hatch</strong> for working with
-                  heavily customized bootstrap css.
+                  Change the underlying component CSS base class name and modifier class names
+                  prefix. <strong>This is an escape hatch</strong> for working with heavily
+                  customized bootstrap css.
                 </p>
               </div>
             </td>

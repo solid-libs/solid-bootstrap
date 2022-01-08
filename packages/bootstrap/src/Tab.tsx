@@ -1,7 +1,7 @@
-import { JSX } from "solid-js";
+import {JSX} from "solid-js";
 import TabContainer from "./TabContainer";
 import TabContent from "./TabContent";
-import TabPane, { TabPaneProps } from "./TabPane";
+import TabPane, {TabPaneProps} from "./TabPane";
 
 export interface TabProps extends Omit<TabPaneProps, "title"> {
   title: JSX.Element;

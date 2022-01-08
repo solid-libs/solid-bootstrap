@@ -1,38 +1,17 @@
-import { JSX, mergeProps, splitProps } from "solid-js";
+import {JSX, mergeProps, splitProps} from "solid-js";
 import classNames from "./classnames";
-import { useBootstrapPrefix } from "./ThemeProvider";
-import {
-  BsPrefixProps,
-  BsPrefixRefForwardingComponent,
-  ElementType,
-} from "./helpers";
-import { Dynamic } from "solid-js/web";
+import {useBootstrapPrefix} from "./ThemeProvider";
+import {BsPrefixProps, BsPrefixRefForwardingComponent, ElementType} from "./helpers";
+import {Dynamic} from "solid-js/web";
 
-type NumberAttr =
-  | number
-  | "1"
-  | "2"
-  | "3"
-  | "4"
-  | "5"
-  | "6"
-  | "7"
-  | "8"
-  | "9"
-  | "10"
-  | "11"
-  | "12";
+type NumberAttr = number | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12";
 
 type ColOrderNumber = number | "1" | "2" | "3" | "4" | "5";
 type ColOrder = ColOrderNumber | "first" | "last";
 type ColSize = boolean | "auto" | NumberAttr;
-type ColSpec =
-  | ColSize
-  | { span?: ColSize; offset?: NumberAttr; order?: ColOrder };
+type ColSpec = ColSize | {span?: ColSize; offset?: NumberAttr; order?: ColOrder};
 
-export interface ColProps
-  extends BsPrefixProps,
-    JSX.HTMLAttributes<HTMLElement> {
+export interface ColProps extends BsPrefixProps, JSX.HTMLAttributes<HTMLElement> {
   xs?: ColSpec;
   sm?: ColSpec;
   md?: ColSpec;
@@ -64,17 +43,14 @@ export function useCol(o: ColProps): [any, UseColMetadata] {
     let order: ColOrder | undefined;
 
     if (typeof propValue === "object" && propValue != null) {
-      ({ span, offset, order } = propValue);
+      ({span, offset, order} = propValue);
     } else {
       span = propValue;
     }
 
     const infix = brkPoint !== "xs" ? `-${brkPoint}` : "";
 
-    if (span)
-      spans.push(
-        span === true ? `${bsPrefix}${infix}` : `${bsPrefix}${infix}-${span}`
-      );
+    if (span) spans.push(span === true ? `${bsPrefix}${infix}` : `${bsPrefix}${infix}-${span}`);
 
     if (order != null) classes.push(`order${infix}-${order}`);
     if (offset != null) classes.push(`offset${infix}-${offset}`);
@@ -110,10 +86,7 @@ const Col: BsPrefixRefForwardingComponent<"div", ColProps> = (p: ColProps) => {
     <Dynamic
       component={meta.as ?? "div"}
       {...colProps}
-      className={classNames(
-        local.className,
-        !meta.spans.length && meta.bsPrefix
-      )}
+      className={classNames(local.className, !meta.spans.length && meta.bsPrefix)}
     >
       {colProps.children}
     </Dynamic>

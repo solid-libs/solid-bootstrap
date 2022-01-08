@@ -41,9 +41,9 @@ const ButtonGroupApi = () => (
             <td>
               <div>
                 <p>
-                  An ARIA role describing the button group. Usually the default
-                  "group" role is fine. An <code>aria-label</code> or{" "}
-                  <code>aria-labelledby</code> prop is also recommended.
+                  An ARIA role describing the button group. Usually the default "group" role is
+                  fine. An <code>aria-label</code> or <code>aria-labelledby</code> prop is also
+                  recommended.
                 </p>
               </div>
             </td>
@@ -91,10 +91,9 @@ const ButtonGroupApi = () => (
             <td>
               <div>
                 <p>
-                  Change the underlying component CSS base class name and
-                  modifier class names prefix.{" "}
-                  <strong>This is an escape hatch</strong> for working with
-                  heavily customized bootstrap css.
+                  Change the underlying component CSS base class name and modifier class names
+                  prefix. <strong>This is an escape hatch</strong> for working with heavily
+                  customized bootstrap css.
                 </p>
               </div>
             </td>
@@ -128,9 +127,9 @@ const ButtonGroupApi = () => (
             <td>
               <div>
                 <p>
-                  The ARIA role describing the button toolbar. Generally the
-                  default "toolbar" role is correct. An <code>aria-label</code>{" "}
-                  or <code>aria-labelledby</code> prop is also recommended.
+                  The ARIA role describing the button toolbar. Generally the default "toolbar" role
+                  is correct. An <code>aria-label</code> or <code>aria-labelledby</code> prop is
+                  also recommended.
                 </p>
               </div>
             </td>
@@ -146,10 +145,9 @@ const ButtonGroupApi = () => (
             <td>
               <div>
                 <p>
-                  Change the underlying component CSS base class name and
-                  modifier class names prefix.{" "}
-                  <strong>This is an escape hatch</strong> for working with
-                  heavily customized bootstrap css.
+                  Change the underlying component CSS base class name and modifier class names
+                  prefix. <strong>This is an escape hatch</strong> for working with heavily
+                  customized bootstrap css.
                 </p>
               </div>
             </td>

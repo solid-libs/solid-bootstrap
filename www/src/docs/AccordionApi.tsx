@@ -24,10 +24,7 @@ const AccordionApi = () => (
             <td></td>
             <td>
               <div>
-                <p>
-                  The current active key that corresponds to the currently
-                  expanded card
-                </p>
+                <p>The current active key that corresponds to the currently expanded card</p>
               </div>
             </td>
           </tr>
@@ -39,9 +36,7 @@ const AccordionApi = () => (
             <td></td>
             <td>
               <div>
-                <p>
-                  Allow accordion items to stay open when another item is opened
-                </p>
+                <p>Allow accordion items to stay open when another item is opened</p>
               </div>
             </td>
           </tr>
@@ -92,10 +87,9 @@ const AccordionApi = () => (
             <td>
               <div>
                 <p>
-                  Change the underlying component CSS base class name and
-                  modifier class names prefix.{" "}
-                  <strong>This is an escape hatch</strong> for working with
-                  heavily customized bootstrap css.
+                  Change the underlying component CSS base class name and modifier class names
+                  prefix. <strong>This is an escape hatch</strong> for working with heavily
+                  customized bootstrap css.
                 </p>
               </div>
             </td>
@@ -154,10 +148,9 @@ const AccordionApi = () => (
             <td>
               <div>
                 <p>
-                  Change the underlying component CSS base class name and
-                  modifier class names prefix.{" "}
-                  <strong>This is an escape hatch</strong> for working with
-                  heavily customized bootstrap css.
+                  Change the underlying component CSS base class name and modifier class names
+                  prefix. <strong>This is an escape hatch</strong> for working with heavily
+                  customized bootstrap css.
                 </p>
               </div>
             </td>
@@ -216,10 +209,9 @@ const AccordionApi = () => (
             <td>
               <div>
                 <p>
-                  Change the underlying component CSS base class name and
-                  modifier class names prefix.{" "}
-                  <strong>This is an escape hatch</strong> for working with
-                  heavily customized bootstrap css.
+                  Change the underlying component CSS base class name and modifier class names
+                  prefix. <strong>This is an escape hatch</strong> for working with heavily
+                  customized bootstrap css.
                 </p>
               </div>
             </td>
@@ -264,10 +256,9 @@ const AccordionApi = () => (
             <td>
               <div>
                 <p>
-                  Change the underlying component CSS base class name and
-                  modifier class names prefix.{" "}
-                  <strong>This is an escape hatch</strong> for working with
-                  heavily customized bootstrap css.
+                  Change the underlying component CSS base class name and modifier class names
+                  prefix. <strong>This is an escape hatch</strong> for working with heavily
+                  customized bootstrap css.
                 </p>
               </div>
             </td>
@@ -324,10 +315,9 @@ const AccordionApi = () => (
             <td>
               <div>
                 <p>
-                  Change the underlying component CSS base class name and
-                  modifier class names prefix.{" "}
-                  <strong>This is an escape hatch</strong> for working with
-                  heavily customized bootstrap css.
+                  Change the underlying component CSS base class name and modifier class names
+                  prefix. <strong>This is an escape hatch</strong> for working with heavily
+                  customized bootstrap css.
                 </p>
               </div>
             </td>
@@ -371,10 +361,7 @@ const AccordionApi = () => (
             <td></td>
             <td>
               <div>
-                <p>
-                  Children prop should only contain a single child, and is
-                  enforced as such
-                </p>
+                <p>Children prop should only contain a single child, and is enforced as such</p>
               </div>
             </td>
           </tr>
@@ -389,8 +376,8 @@ const AccordionApi = () => (
             <td>
               <div>
                 <p>
-                  A key that corresponds to the toggler that triggers this
-                  collapse's expand or collapse.
+                  A key that corresponds to the toggler that triggers this collapse's expand or
+                  collapse.
                 </p>
               </div>
             </td>

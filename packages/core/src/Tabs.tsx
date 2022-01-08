@@ -1,14 +1,14 @@
-import { createControlledProp } from "./createControlledProp";
-import { useSSRSafeId } from "./ssr";
+import {createControlledProp} from "./createControlledProp";
+import {useSSRSafeId} from "./ssr";
 
-import TabContext, { TabContextType } from "./TabContext";
+import TabContext, {TabContextType} from "./TabContext";
 import SelectableContext from "./SelectableContext";
-import { EventKey, SelectCallback } from "./types";
-import TabPanel, { TabPanelProps } from "./TabPanel";
-import { createMemo, PropsWithChildren } from "solid-js";
-import { TransitionComponent } from "solid-react-transition";
+import {EventKey, SelectCallback} from "./types";
+import TabPanel, {TabPanelProps} from "./TabPanel";
+import {createMemo, PropsWithChildren} from "solid-js";
+import {TransitionComponent} from "solid-react-transition";
 
-export type { TabPanelProps };
+export type {TabPanelProps};
 export interface TabsProps {
   id?: string;
 
@@ -65,7 +65,7 @@ const Tabs = (props: PropsWithChildren<TabsProps>) => {
   const [activeKey, onSelect] = createControlledProp(
     () => props.activeKey,
     () => props.defaultActiveKey,
-    props.onSelect
+    props.onSelect,
   );
 
   const id = useSSRSafeId(props.id);
@@ -73,7 +73,7 @@ const Tabs = (props: PropsWithChildren<TabsProps>) => {
   const generateChildId = createMemo(
     () =>
       props.generateChildId ||
-      ((key: EventKey, type: string) => (id ? `${id}-${type}-${key}` : null))
+      ((key: EventKey, type: string) => (id ? `${id}-${type}-${key}` : null)),
   );
 
   const tabContext: TabContextType = {

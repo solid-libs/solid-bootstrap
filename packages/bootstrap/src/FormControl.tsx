@@ -1,16 +1,14 @@
-import { JSX, mergeProps, splitProps, useContext } from "solid-js";
+import {JSX, mergeProps, splitProps, useContext} from "solid-js";
 import classNames from "./classnames";
 import Feedback from "./Feedback";
 import FormContext from "./FormContext";
-import { useBootstrapPrefix } from "./ThemeProvider";
-import { BsPrefixProps, BsPrefixRefForwardingComponent } from "./helpers";
-import { Dynamic } from "solid-js/web";
+import {useBootstrapPrefix} from "./ThemeProvider";
+import {BsPrefixProps, BsPrefixRefForwardingComponent} from "./helpers";
+import {Dynamic} from "solid-js/web";
 
 type FormControlElement = HTMLInputElement | HTMLTextAreaElement;
 
-export interface FormControlProps
-  extends BsPrefixProps,
-    JSX.HTMLAttributes<FormControlElement> {
+export interface FormControlProps extends BsPrefixProps, JSX.HTMLAttributes<FormControlElement> {
   htmlSize?: number;
   size?: "sm" | "lg";
   plaintext?: boolean;
@@ -29,7 +27,7 @@ const defaultProps = {
 };
 
 const FormControl: BsPrefixRefForwardingComponent<"input", FormControlProps> = (
-  p: FormControlProps
+  p: FormControlProps,
 ) => {
   const [local, props] = splitProps(mergeProps(defaultProps, p), [
     "as",
@@ -50,7 +48,7 @@ const FormControl: BsPrefixRefForwardingComponent<"input", FormControlProps> = (
   const classes = () => {
     let classes;
     if (local.plaintext) {
-      classes = { [`${bsPrefix}-plaintext`]: true };
+      classes = {[`${bsPrefix}-plaintext`]: true};
     } else {
       classes = {
         [bsPrefix]: true,
@@ -73,7 +71,7 @@ const FormControl: BsPrefixRefForwardingComponent<"input", FormControlProps> = (
         classes(),
         local.isValid && `is-valid`,
         local.isInvalid && `is-invalid`,
-        local.type === "color" && `${bsPrefix}-color`
+        local.type === "color" && `${bsPrefix}-color`,
       )}
     >
       {props.children}
@@ -81,4 +79,4 @@ const FormControl: BsPrefixRefForwardingComponent<"input", FormControlProps> = (
   );
 };
 
-export default Object.assign(FormControl, { Feedback });
+export default Object.assign(FormControl, {Feedback});

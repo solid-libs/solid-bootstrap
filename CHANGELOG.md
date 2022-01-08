@@ -1,34 +1,41 @@
 ## 2022-01-08 - solid-bootstrap (0.2.7)
 
 ### Bug Fixes
+
 - [Fix: Transition - not (re)showing unless on initial appear](https://github.com/solid-libs/solid-bootstrap/commit/15be5b1e493dc2005e48cbc3e7fc570b5d2f29a7)
 
 ## 2022-01-04 - solid-bootstrap (0.2.6)
 
 ### Bug Fixes
+
 - [New data-active-key not set upon initialization](https://github.com/solid-libs/solid-bootstrap/issues/7)
 
 ## 2022-01-04 - solid-bootstrap (0.2.5)
 
 ### New Features
+
 - Tabs & Nav - add data-active-key attribute
 
 ### Bug Fixes
+
 - [Form.Control id prop doesn't work for checkboxes](https://github.com/solid-libs/solid-bootstrap/issues/6)
 
 ## 2022-01-03 - solid-bootstrap (0.2.4)
 
 ### Bug Fixes
+
 - [core anchor and button not responsive](https://github.com/solid-libs/solid-bootstrap/issues/5)
 
 ## 2022-01-01 - solid-bootstrap (0.2.3)
 
 ### Upstream changes
+
 - [Accordion - add new `alwaysOpen` prop](https://github.com/react-bootstrap/react-bootstrap/pull/6091)
 
 ## 2021-12-21 - solid-bootstrap (0.2.2)
 
 ### Upstream changes
+
 - [add support for iframe and differing owner documents](https://github.com/react-restart/ui/pull/38)
 - [fix NavDropdown onSelect](https://github.com/react-bootstrap/react-bootstrap/pull/6151)
 

@@ -1,7 +1,7 @@
-import { JSX, mergeProps, splitProps } from "solid-js";
+import {JSX, mergeProps, splitProps} from "solid-js";
 
-import { useButtonProps } from "./Button";
-import { callEventHandler } from "./utils";
+import {useButtonProps} from "./Button";
+import {callEventHandler} from "./utils";
 
 export function isTrivialHref(href?: string) {
   return !href || href.trim() === "#";
@@ -21,7 +21,7 @@ export interface AnchorProps extends JSX.HTMLAttributes<HTMLAnchorElement> {
 const Anchor = (props: AnchorProps) => {
   const [local, otherProps] = splitProps(props, ["onKeyDown"]);
   const [buttonProps] = useButtonProps<HTMLAnchorElement>(
-    mergeProps({tagName: "a" as const}, otherProps)
+    mergeProps({tagName: "a" as const}, otherProps),
   );
 
   const handleKeyDown = ((e) => {
@@ -29,8 +29,7 @@ const Anchor = (props: AnchorProps) => {
     callEventHandler(local.onKeyDown, e);
   }) as JSX.EventHandler<HTMLAnchorElement, KeyboardEvent>;
 
-  return (isTrivialHref(props.href) && !props.role) ||
-    props.role === "button" ? (
+  return (isTrivialHref(props.href) && !props.role) || props.role === "button" ? (
     <a {...otherProps} {...buttonProps} onKeyDown={handleKeyDown}>
       {otherProps.children}
     </a>

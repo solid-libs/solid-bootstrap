@@ -51,11 +51,10 @@ const ModalApi = () => (
             <td>
               <div>
                 <p>
-                  When <code>true</code> The modal will automatically shift
-                  focus to itself when it opens, and replace it to the last
-                  focused element when it closes. Generally this should never be
-                  set to false as it makes the Modal less accessible to
-                  assistive technologies, like screen-readers.
+                  When <code>true</code> The modal will automatically shift focus to itself when it
+                  opens, and replace it to the last focused element when it closes. Generally this
+                  should never be set to false as it makes the Modal less accessible to assistive
+                  technologies, like screen-readers.
                 </p>
               </div>
             </td>
@@ -79,8 +78,8 @@ const ModalApi = () => (
             <td>
               <div>
                 <p>
-                  Include a backdrop component. Specify 'static' for a backdrop
-                  that doesn't trigger an "onHide" when clicked.
+                  Include a backdrop component. Specify 'static' for a backdrop that doesn't trigger
+                  an "onHide" when clicked.
                 </p>
               </div>
             </td>
@@ -94,9 +93,8 @@ const ModalApi = () => (
             <td>
               <div>
                 <p>
-                  Add an optional extra class name to .modal-backdrop It could
-                  end up looking like class="modal-backdrop foo-modal-backdrop
-                  in".
+                  Add an optional extra class name to .modal-backdrop It could end up looking like
+                  class="modal-backdrop foo-modal-backdrop in".
                 </p>
               </div>
             </td>
@@ -146,9 +144,9 @@ const ModalApi = () => (
             <td>
               <div>
                 <p>
-                  A Component type that provides the modal content Markup. This
-                  is a useful prop when you want to use your own styles and
-                  markup to create a custom modal component.
+                  A Component type that provides the modal content Markup. This is a useful prop
+                  when you want to use your own styles and markup to create a custom modal
+                  component.
                 </p>
               </div>
             </td>
@@ -176,10 +174,9 @@ const ModalApi = () => (
             <td>
               <div>
                 <p>
-                  When <code>true</code> The modal will prevent focus from
-                  leaving the Modal while open. Consider leaving the default
-                  value here, as it is necessary to make the Modal work well
-                  with assistive technologies, such as screen readers.
+                  When <code>true</code> The modal will prevent focus from leaving the Modal while
+                  open. Consider leaving the default value here, as it is necessary to make the
+                  Modal work well with assistive technologies, such as screen readers.
                 </p>
               </div>
             </td>
@@ -207,9 +204,8 @@ const ModalApi = () => (
             <td>
               <div>
                 <p>
-                  Renders a fullscreen modal. Specifying a breakpoint will
-                  render the modal as fullscreen <strong>below</strong> the
-                  breakpoint size.
+                  Renders a fullscreen modal. Specifying a breakpoint will render the modal as
+                  fullscreen <strong>below</strong> the breakpoint size.
                 </p>
               </div>
             </td>
@@ -237,9 +233,8 @@ const ModalApi = () => (
             <td>
               <div>
                 <p>
-                  A ModalManager instance used to track and manage the state of
-                  open Modals. Useful when customizing how modals interact
-                  within a container
+                  A ModalManager instance used to track and manage the state of open Modals. Useful
+                  when customizing how modals interact within a container
                 </p>
               </div>
             </td>
@@ -289,8 +284,8 @@ const ModalApi = () => (
             <td>
               <div>
                 <p>
-                  A callback fired when the escape key, if specified in{" "}
-                  <code>keyboard</code>, is pressed.
+                  A callback fired when the escape key, if specified in <code>keyboard</code>, is
+                  pressed.
                 </p>
               </div>
             </td>
@@ -340,8 +335,8 @@ const ModalApi = () => (
             <td>
               <div>
                 <p>
-                  A callback fired when the header closeButton or non-static
-                  backdrop is clicked. Required if either are specified.
+                  A callback fired when the header closeButton or non-static backdrop is clicked.
+                  Required if either are specified.
                 </p>
               </div>
             </td>
@@ -369,8 +364,8 @@ const ModalApi = () => (
             <td>
               <div>
                 <p>
-                  When <code>true</code> The modal will restore focus to
-                  previously focused element once modal is hidden
+                  When <code>true</code> The modal will restore focus to previously focused element
+                  once modal is hidden
                 </p>
               </div>
             </td>
@@ -384,8 +379,8 @@ const ModalApi = () => (
             <td>
               <div>
                 <p>
-                  Options passed to focus function when{" "}
-                  <code>restoreFocus</code> is set to <code>true</code>
+                  Options passed to focus function when <code>restoreFocus</code> is set to{" "}
+                  <code>true</code>
                 </p>
               </div>
             </td>
@@ -399,8 +394,8 @@ const ModalApi = () => (
             <td>
               <div>
                 <p>
-                  Allows scrolling the <code>&lt;Modal.Body&gt;</code> instead
-                  of the entire Modal when overflowing.
+                  Allows scrolling the <code>&lt;Modal.Body&gt;</code> instead of the entire Modal
+                  when overflowing.
                 </p>
               </div>
             </td>
@@ -438,8 +433,8 @@ const ModalApi = () => (
             <td>
               <div>
                 <p>
-                  Render a large, extra large or small modal. When not provided,
-                  the modal is rendered with medium (default) size.
+                  Render a large, extra large or small modal. When not provided, the modal is
+                  rendered with medium (default) size.
                 </p>
               </div>
             </td>
@@ -455,10 +450,9 @@ const ModalApi = () => (
             <td>
               <div>
                 <p>
-                  Change the underlying component CSS base class name and
-                  modifier class names prefix.{" "}
-                  <strong>This is an escape hatch</strong> for working with
-                  heavily customized bootstrap css.
+                  Change the underlying component CSS base class name and modifier class names
+                  prefix. <strong>This is an escape hatch</strong> for working with heavily
+                  customized bootstrap css.
                 </p>
               </div>
             </td>
@@ -489,9 +483,7 @@ const ModalApi = () => (
             <td></td>
             <td>
               <div>
-                <p>
-                  Specify whether the Component should be vertically centered
-                </p>
+                <p>Specify whether the Component should be vertically centered</p>
               </div>
             </td>
           </tr>
@@ -528,9 +520,8 @@ const ModalApi = () => (
             <td>
               <div>
                 <p>
-                  Renders a fullscreen modal. Specifying a breakpoint will
-                  render the modal as fullscreen <strong>below</strong> the
-                  breakpoint size.
+                  Renders a fullscreen modal. Specifying a breakpoint will render the modal as
+                  fullscreen <strong>below</strong> the breakpoint size.
                 </p>
               </div>
             </td>
@@ -544,8 +535,8 @@ const ModalApi = () => (
             <td>
               <div>
                 <p>
-                  Allows scrolling the <code>&lt;Modal.Body&gt;</code> instead
-                  of the entire Modal when overflowing.
+                  Allows scrolling the <code>&lt;Modal.Body&gt;</code> instead of the entire Modal
+                  when overflowing.
                 </p>
               </div>
             </td>
@@ -579,10 +570,9 @@ const ModalApi = () => (
             <td>
               <div>
                 <p>
-                  Change the underlying component CSS base class name and
-                  modifier class names prefix.{" "}
-                  <strong>This is an escape hatch</strong> for working with
-                  heavily customized bootstrap css.
+                  Change the underlying component CSS base class name and modifier class names
+                  prefix. <strong>This is an escape hatch</strong> for working with heavily
+                  customized bootstrap css.
                 </p>
               </div>
             </td>
@@ -615,9 +605,7 @@ const ModalApi = () => (
             </td>
             <td>
               <div>
-                <p>
-                  Specify whether the Component should contain a close button
-                </p>
+                <p>Specify whether the Component should contain a close button</p>
               </div>
             </td>
           </tr>
@@ -632,8 +620,8 @@ const ModalApi = () => (
             <td>
               <div>
                 <p>
-                  Provides an accessible label for the close button. It is used
-                  for Assistive Technology when the label text is not readable.
+                  Provides an accessible label for the close button. It is used for Assistive
+                  Technology when the label text is not readable.
                 </p>
               </div>
             </td>
@@ -663,9 +651,8 @@ const ModalApi = () => (
             <td>
               <div>
                 <p>
-                  A Callback fired when the close button is clicked. If used
-                  directly inside a Modal component, the onHide will
-                  automatically be propagated up to the parent Modal{" "}
+                  A Callback fired when the close button is clicked. If used directly inside a Modal
+                  component, the onHide will automatically be propagated up to the parent Modal{" "}
                   <code>onHide</code>.
                 </p>
               </div>
@@ -682,10 +669,9 @@ const ModalApi = () => (
             <td>
               <div>
                 <p>
-                  Change the underlying component CSS base class name and
-                  modifier class names prefix.{" "}
-                  <strong>This is an escape hatch</strong> for working with
-                  heavily customized bootstrap css.
+                  Change the underlying component CSS base class name and modifier class names
+                  prefix. <strong>This is an escape hatch</strong> for working with heavily
+                  customized bootstrap css.
                 </p>
               </div>
             </td>
@@ -730,10 +716,9 @@ const ModalApi = () => (
               <td>
                 <div>
                   <p>
-                    Change the underlying component CSS base class name and
-                    modifier class names prefix.{" "}
-                    <strong>This is an escape hatch</strong> for working with
-                    heavily customized bootstrap css.
+                    Change the underlying component CSS base class name and modifier class names
+                    prefix. <strong>This is an escape hatch</strong> for working with heavily
+                    customized bootstrap css.
                   </p>
                 </div>
               </td>
@@ -785,10 +770,9 @@ const ModalApi = () => (
             <td>
               <div>
                 <p>
-                  Change the underlying component CSS base class name and
-                  modifier class names prefix.{" "}
-                  <strong>This is an escape hatch</strong> for working with
-                  heavily customized bootstrap css.
+                  Change the underlying component CSS base class name and modifier class names
+                  prefix. <strong>This is an escape hatch</strong> for working with heavily
+                  customized bootstrap css.
                 </p>
               </div>
             </td>
@@ -838,10 +822,9 @@ const ModalApi = () => (
             <td>
               <div>
                 <p>
-                  Change the underlying component CSS base class name and
-                  modifier class names prefix.{" "}
-                  <strong>This is an escape hatch</strong> for working with
-                  heavily customized bootstrap css.
+                  Change the underlying component CSS base class name and modifier class names
+                  prefix. <strong>This is an escape hatch</strong> for working with heavily
+                  customized bootstrap css.
                 </p>
               </div>
             </td>
@@ -892,10 +875,9 @@ const ModalApi = () => (
             <td>
               <div>
                 <p>
-                  Change the underlying component CSS base class name and
-                  modifier class names prefix.{" "}
-                  <strong>This is an escape hatch</strong> for working with
-                  heavily customized bootstrap css.
+                  Change the underlying component CSS base class name and modifier class names
+                  prefix. <strong>This is an escape hatch</strong> for working with heavily
+                  customized bootstrap css.
                 </p>
               </div>
             </td>

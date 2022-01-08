@@ -60,10 +60,7 @@ const SpinnerApi = () => (
             <td></td>
             <td>
               <div>
-                <p>
-                  This component may be used to wrap child elements or
-                  components.
-                </p>
+                <p>This component may be used to wrap child elements or components.</p>
               </div>
             </td>
           </tr>
@@ -76,8 +73,8 @@ const SpinnerApi = () => (
             <td>
               <div>
                 <p>
-                  An ARIA accessible role applied to the Menu component. This
-                  should generally be set to 'status'
+                  An ARIA accessible role applied to the Menu component. This should generally be
+                  set to 'status'
                 </p>
               </div>
             </td>
@@ -139,10 +136,9 @@ const SpinnerApi = () => (
             <td>
               <div>
                 <p>
-                  Change the underlying component CSS base class name and
-                  modifier class names prefix.{" "}
-                  <strong>This is an escape hatch</strong> for working with
-                  heavily customized bootstrap css.
+                  Change the underlying component CSS base class name and modifier class names
+                  prefix. <strong>This is an escape hatch</strong> for working with heavily
+                  customized bootstrap css.
                 </p>
               </div>
             </td>

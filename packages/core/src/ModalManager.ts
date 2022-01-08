@@ -1,5 +1,5 @@
 import css from "dom-helpers/css";
-import { dataAttr } from "./DataKey";
+import {dataAttr} from "./DataKey";
 import getBodyScrollbarWidth from "./getScrollbarWidth";
 
 export interface ModalInstance {
@@ -64,7 +64,7 @@ class ModalManager {
   }
 
   setContainerStyle(containerState: ModalContainerState) {
-    const style: Partial<CSSStyleDeclaration> = { overflow: "hidden" };
+    const style: Partial<CSSStyleDeclaration> = {overflow: "hidden"};
 
     // we are only interested in the actual `style` here
     // because we will override it
@@ -80,8 +80,7 @@ class ModalManager {
       // use computed style, here to get the real padding
       // to add our scrollbar width
       style[paddingProp] = `${
-        parseInt(css(container, paddingProp) || "0", 10) +
-        containerState.scrollBarWidth
+        parseInt(css(container, paddingProp) || "0", 10) + containerState.scrollBarWidth
       }px`;
     }
     container.setAttribute(OPEN_DATA_ATTRIBUTE, "");
@@ -144,9 +143,7 @@ class ModalManager {
   }
 
   isTopModal(modal: ModalInstance) {
-    return (
-      !!this.modals.length && this.modals[this.modals.length - 1] === modal
-    );
+    return !!this.modals.length && this.modals[this.modals.length - 1] === modal;
   }
 }
 

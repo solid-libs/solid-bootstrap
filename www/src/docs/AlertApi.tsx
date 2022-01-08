@@ -55,8 +55,8 @@ const AlertApi = () => (
             <td>
               <div>
                 <p>
-                  Renders a properly aligned dismiss button, as well as adding
-                  extra horizontal padding to the Alert.
+                  Renders a properly aligned dismiss button, as well as adding extra horizontal
+                  padding to the Alert.
                 </p>
               </div>
             </td>
@@ -95,8 +95,7 @@ const AlertApi = () => (
                 <small>
                   <em class="text-info">
                     <span>
-                      controlled by: <code>onClose</code>, initial prop:{" "}
-                      <code>defaultShow</code>
+                      controlled by: <code>onClose</code>, initial prop: <code>defaultShow</code>
                     </span>
                   </em>
                 </small>
@@ -118,11 +117,10 @@ const AlertApi = () => (
               <div>
                 <p>
                   Animate the alert dismissal. Defaults to using{" "}
-                  <code class=" language-text">&lt;Fade&gt;</code> animation or
-                  use <code class=" language-text">false</code> to disable. A
-                  custom{" "}
-                  <code class=" language-text">solid-react-transition</code>{" "}
-                  Transition can also be provided.
+                  <code class=" language-text">&lt;Fade&gt;</code> animation or use{" "}
+                  <code class=" language-text">false</code> to disable. A custom{" "}
+                  <code class=" language-text">solid-react-transition</code> Transition can also be
+                  provided.
                 </p>
               </div>
             </td>
@@ -131,8 +129,8 @@ const AlertApi = () => (
             <td class="font-monospace">variant </td>
             <td class="font-monospace">
               <div>
-                'primary' | 'secondary' | 'success' | 'danger' | 'warning' |
-                'info' | 'dark' | 'light'
+                'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info' | 'dark' |
+                'light'
               </div>
             </td>
             <td>
@@ -155,10 +153,9 @@ const AlertApi = () => (
             <td>
               <div>
                 <p>
-                  Change the underlying component CSS base class name and
-                  modifier class names prefix.{" "}
-                  <strong>This is an escape hatch</strong> for working with
-                  heavily customized bootstrap css.
+                  Change the underlying component CSS base class name and modifier class names
+                  prefix. <strong>This is an escape hatch</strong> for working with heavily
+                  customized bootstrap css.
                 </p>
               </div>
             </td>
@@ -206,10 +203,9 @@ const AlertApi = () => (
             <td>
               <div>
                 <p>
-                  Change the underlying component CSS base class name and
-                  modifier class names prefix.{" "}
-                  <strong>This is an escape hatch</strong> for working with
-                  heavily customized bootstrap css.
+                  Change the underlying component CSS base class name and modifier class names
+                  prefix. <strong>This is an escape hatch</strong> for working with heavily
+                  customized bootstrap css.
                 </p>
               </div>
             </td>
@@ -257,10 +253,9 @@ const AlertApi = () => (
             <td>
               <div>
                 <p>
-                  Change the underlying component CSS base class name and
-                  modifier class names prefix.{" "}
-                  <strong>This is an escape hatch</strong> for working with
-                  heavily customized bootstrap css.
+                  Change the underlying component CSS base class name and modifier class names
+                  prefix. <strong>This is an escape hatch</strong> for working with heavily
+                  customized bootstrap css.
                 </p>
               </div>
             </td>

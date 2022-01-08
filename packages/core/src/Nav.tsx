@@ -1,14 +1,10 @@
 import qsa from "dom-helpers/querySelectorAll";
 import NavContext from "./NavContext";
-import SelectableContext, { makeEventKey } from "./SelectableContext";
+import SelectableContext, {makeEventKey} from "./SelectableContext";
 import TabContext from "./TabContext";
-import {
-  EventKey,
-  DynamicRefForwardingComponent,
-  SelectCallback,
-} from "./types";
-import { dataAttr, dataProp } from "./DataKey";
-import NavItem, { UseNavItemOptions, NavItemProps } from "./NavItem";
+import {EventKey, DynamicRefForwardingComponent, SelectCallback} from "./types";
+import {dataAttr, dataProp} from "./DataKey";
+import NavItem, {UseNavItemOptions, NavItemProps} from "./NavItem";
 import {
   Component,
   createEffect,
@@ -18,16 +14,15 @@ import {
   splitProps,
   useContext,
 } from "solid-js";
-import { Dynamic } from "solid-js/web";
-import { callEventHandler } from "./utils";
+import {Dynamic} from "solid-js/web";
+import {callEventHandler} from "./utils";
 
-export type { UseNavItemOptions, NavItemProps };
+export type {UseNavItemOptions, NavItemProps};
 
 // eslint-disable-next-line @typescript-eslint/no-empty-function
 const noop = (e?: any) => "";
 
-export interface NavProps
-  extends Omit<JSX.HTMLAttributes<HTMLElement>, "onSelect"> {
+export interface NavProps extends Omit<JSX.HTMLAttributes<HTMLElement>, "onSelect"> {
   /**
    * Key for the currently active NavItem.
    */
@@ -69,14 +64,9 @@ const Nav = (p: NavProps) => {
     const currentListNode = listNode();
     if (!currentListNode) return null;
 
-    const items = qsa(
-      currentListNode,
-      `[${EVENT_KEY_ATTR}]:not([aria-disabled=true])`
-    );
+    const items = qsa(currentListNode, `[${EVENT_KEY_ATTR}]:not([aria-disabled=true])`);
 
-    const activeChild = currentListNode.querySelector<HTMLElement>(
-      "[aria-selected=true]"
-    );
+    const activeChild = currentListNode.querySelector<HTMLElement>("[aria-selected=true]");
     if (!activeChild) return null;
 
     const index = items.indexOf(activeChild);
@@ -126,7 +116,7 @@ const Nav = (p: NavProps) => {
   createEffect(() => {
     if (listNode() && needsRefocusRef()) {
       const activeChild = listNode()!.querySelector<HTMLElement>(
-        `[${EVENT_KEY_ATTR}][aria-selected=true]`
+        `[${EVENT_KEY_ATTR}][aria-selected=true]`,
       );
 
       activeChild?.focus();
@@ -142,7 +132,7 @@ const Nav = (p: NavProps) => {
     }
   };
 
-  const activeKey = () => makeEventKey(tabContext?.activeKey ?? local.activeKey)
+  const activeKey = () => makeEventKey(tabContext?.activeKey ?? local.activeKey);
 
   return (
     <SelectableContext.Provider value={handleSelect}>
@@ -168,7 +158,7 @@ const Nav = (p: NavProps) => {
           {...props}
           onKeyDown={handleKeyDown}
           ref={mergedRef}
-          >
+        >
           {props.children}
         </Dynamic>
       </NavContext.Provider>
@@ -176,4 +166,4 @@ const Nav = (p: NavProps) => {
   );
 };
 
-export default Object.assign(Nav, { Item: NavItem });
+export default Object.assign(Nav, {Item: NavItem});

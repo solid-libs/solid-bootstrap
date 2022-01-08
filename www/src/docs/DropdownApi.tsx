@@ -6,14 +6,14 @@ const DropdownApi = () => (
       import {"{"} DropdownButton {"}"} from 'solid-bootstrap'
     </code>
     <p>
-      A convenience component for simple or general use dropdowns. Renders a
-      Button toggle and all children are passed directly to the default
-      Dropdown.Menu. This component accepts all of Dropdown's props.
+      A convenience component for simple or general use dropdowns. Renders a Button toggle and all
+      children are passed directly to the default Dropdown.Menu. This component accepts all of
+      Dropdown's props.
     </p>
     <p>
-      All unknown props are passed through to the Dropdown component. Only the
-      Button variant, size and bsPrefix props are passed to the toggle, along
-      with menu-related props are passed to the Dropdown.Menu
+      All unknown props are passed through to the Dropdown component. Only the Button variant, size
+      and bsPrefix props are passed to the toggle, along with menu-related props are passed to the
+      Dropdown.Menu
     </p>
     <div class="overflow-auto mt-4 mb-5 border border-light">
       <table class="bg-white mb-0 table table-striped table-bordered">
@@ -30,9 +30,8 @@ const DropdownApi = () => (
             <td class="font-monospace">align </td>
             <td class="font-monospace">
               <div>
-                "start"|"end"|{"{"} sm: "start"|"end" {"}"}|{"{"} md:
-                "start"|"end" {"}"}|{"{"} lg: "start"|"end" {"}"}|{"{"} xl:
-                "start"|"end"{"}"}|{"{"} xxl: "start"|"end"{"}"}{" "}
+                "start"|"end"|{"{"} sm: "start"|"end" {"}"}|{"{"} md: "start"|"end" {"}"}|{"{"} lg:
+                "start"|"end" {"}"}|{"{"} xl: "start"|"end"{"}"}|{"{"} xxl: "start"|"end"{"}"}{" "}
               </div>
             </td>
             <td></td>
@@ -77,8 +76,8 @@ const DropdownApi = () => (
             <td>
               <div>
                 <p>
-                  An html id attribute for the Toggle button, necessary for
-                  assistive technologies, such as screen readers.
+                  An html id attribute for the Toggle button, necessary for assistive technologies,
+                  such as screen readers.
                 </p>
               </div>
             </td>
@@ -92,8 +91,8 @@ const DropdownApi = () => (
             <td>
               <div>
                 <p>
-                  An ARIA accessible role applied to the Menu component. When
-                  set to 'menu', The dropdown
+                  An ARIA accessible role applied to the Menu component. When set to 'menu', The
+                  dropdown
                 </p>
               </div>
             </td>
@@ -138,8 +137,7 @@ const DropdownApi = () => (
             <td>
               <div>
                 <p>
-                  Whether to render the dropdown menu in the DOM before the
-                  first time it is shown
+                  Whether to render the dropdown menu in the DOM before the first time it is shown
                 </p>
               </div>
             </td>
@@ -152,10 +150,7 @@ const DropdownApi = () => (
             <td></td>
             <td>
               <div>
-                <p>
-                  Which event when fired outside the component will cause it to
-                  be closed.
-                </p>
+                <p>Which event when fired outside the component will cause it to be closed.</p>
               </div>
             </td>
           </tr>
@@ -206,10 +201,9 @@ const DropdownApi = () => (
             <td>
               <div>
                 <p>
-                  Change the underlying component CSS base class name and
-                  modifier class names prefix.{" "}
-                  <strong>This is an escape hatch</strong> for working with
-                  heavily customized bootstrap css.
+                  Change the underlying component CSS base class name and modifier class names
+                  prefix. <strong>This is an escape hatch</strong> for working with heavily
+                  customized bootstrap css.
                 </p>
               </div>
             </td>
@@ -223,16 +217,15 @@ const DropdownApi = () => (
       import {"{"} SplitButton {"}"} from 'solid-bootstrap'
     </code>
     <p>
-      A convenience component for simple or general use split button dropdowns.
-      Renders a ButtonGroup containing a Button and a Button toggle for the
-      Dropdown. All children are passed directly to the default Dropdown.Menu.
-      This component accepts all of Dropdown's props.
+      A convenience component for simple or general use split button dropdowns. Renders a
+      ButtonGroup containing a Button and a Button toggle for the Dropdown. All children are passed
+      directly to the default Dropdown.Menu. This component accepts all of Dropdown's props.
     </p>
 
     <p>
-      All unknown props are passed through to the Dropdown component. The Button
-      variant, size and bsPrefix props are passed to the button and toggle, and
-      menu-related props are passed to the Dropdown.Menu
+      All unknown props are passed through to the Dropdown component. The Button variant, size and
+      bsPrefix props are passed to the button and toggle, and menu-related props are passed to the
+      Dropdown.Menu
     </p>
     <div class="overflow-auto mt-4 mb-5 border border-light">
       <table class="bg-white mb-0 table table-striped table-bordered">
@@ -249,9 +242,8 @@ const DropdownApi = () => (
             <td class="font-monospace">align </td>
             <td class="font-monospace">
               <div>
-                "start"|"end"|{"{"} sm: "start"|"end" {"}"}|{"{"} md:
-                "start"|"end" {"}"}|{"{"} lg: "start"|"end" {"}"}|{"{"} xl:
-                "start"|"end"{"}"}|{"{"} xxl: "start"|"end"{"}"}{" "}
+                "start"|"end"|{"{"} sm: "start"|"end" {"}"}|{"{"} md: "start"|"end" {"}"}|{"{"} lg:
+                "start"|"end" {"}"}|{"{"} xl: "start"|"end"{"}"}|{"{"} xxl: "start"|"end"{"}"}{" "}
               </div>
             </td>
             <td></td>
@@ -298,8 +290,8 @@ const DropdownApi = () => (
             <td>
               <div>
                 <p>
-                  An html id attribute for the Toggle button, necessary for
-                  assistive technologies, such as screen readers.
+                  An html id attribute for the Toggle button, necessary for assistive technologies,
+                  such as screen readers.
                 </p>
               </div>
             </td>
@@ -313,8 +305,8 @@ const DropdownApi = () => (
             <td>
               <div>
                 <p>
-                  An ARIA accessible role applied to the Menu component. When
-                  set to 'menu', The dropdown
+                  An ARIA accessible role applied to the Menu component. When set to 'menu', The
+                  dropdown
                 </p>
               </div>
             </td>
@@ -328,8 +320,7 @@ const DropdownApi = () => (
             <td>
               <div>
                 <p>
-                  An <code>onClick</code> handler passed to the non-toggle
-                  Button
+                  An <code>onClick</code> handler passed to the non-toggle Button
                 </p>
               </div>
             </td>
@@ -343,8 +334,7 @@ const DropdownApi = () => (
             <td>
               <div>
                 <p>
-                  Whether to render the dropdown menu in the DOM before the
-                  first time it is shown
+                  Whether to render the dropdown menu in the DOM before the first time it is shown
                 </p>
               </div>
             </td>
@@ -357,10 +347,7 @@ const DropdownApi = () => (
             <td></td>
             <td>
               <div>
-                <p>
-                  Which event when fired outside the component will cause it to
-                  be closed.
-                </p>
+                <p>Which event when fired outside the component will cause it to be closed.</p>
               </div>
             </td>
           </tr>
@@ -415,8 +402,7 @@ const DropdownApi = () => (
             <td>
               <div>
                 <p>
-                  Accessible label for the toggle; the value of{" "}
-                  <code>title</code> if not specified.
+                  Accessible label for the toggle; the value of <code>title</code> if not specified.
                 </p>
               </div>
             </td>
@@ -458,10 +444,9 @@ const DropdownApi = () => (
             <td>
               <div>
                 <p>
-                  Change the underlying component CSS base class name and
-                  modifier class names prefix.{" "}
-                  <strong>This is an escape hatch</strong> for working with
-                  heavily customized bootstrap css.
+                  Change the underlying component CSS base class name and modifier class names
+                  prefix. <strong>This is an escape hatch</strong> for working with heavily
+                  customized bootstrap css.
                 </p>
               </div>
             </td>
@@ -489,9 +474,8 @@ const DropdownApi = () => (
             <td class="font-monospace">align </td>
             <td class="font-monospace">
               <div>
-                "start"|"end"|{"{"} sm: "start"|"end" {"}"}|{"{"} md:
-                "start"|"end" {"}"}|{"{"} lg: "start"|"end" {"}"}|{"{"} xl:
-                "start"|"end"{"}"} {"{"} xxl: "start"|"end"{"}"}{" "}
+                "start"|"end"|{"{"} sm: "start"|"end" {"}"}|{"{"} md: "start"|"end" {"}"}|{"{"} lg:
+                "start"|"end" {"}"}|{"{"} xl: "start"|"end"{"}"} {"{"} xxl: "start"|"end"{"}"}{" "}
               </div>
             </td>
             <td>
@@ -500,15 +484,13 @@ const DropdownApi = () => (
             <td>
               <div>
                 <p>
-                  Aligns the dropdown menu to the specified side of the Dropdown
-                  toggle. You can also align the menu responsively for
-                  breakpoints starting at <code>sm</code> and up. The alignment
-                  direction will affect the specified breakpoint or larger.
+                  Aligns the dropdown menu to the specified side of the Dropdown toggle. You can
+                  also align the menu responsively for breakpoints starting at <code>sm</code> and
+                  up. The alignment direction will affect the specified breakpoint or larger.
                 </p>
                 <p>
                   <em>
-                    Note: Using responsive alignment will disable Popper usage
-                    for positioning.
+                    Note: Using responsive alignment will disable Popper usage for positioning.
                   </em>
                 </p>
               </div>
@@ -547,8 +529,8 @@ const DropdownApi = () => (
             <td>
               <div>
                 <p>
-                  Controls the auto close behaviour of the dropdown when
-                  clicking outside of the button or the list.
+                  Controls the auto close behaviour of the dropdown when clicking outside of the
+                  button or the list.
                 </p>
               </div>
             </td>
@@ -571,10 +553,7 @@ const DropdownApi = () => (
             <td></td>
             <td>
               <div>
-                <p>
-                  Determines the direction and location of the Menu in relation
-                  to it's Toggle.
-                </p>
+                <p>Determines the direction and location of the Menu in relation to it's Toggle.</p>
               </div>
             </td>
           </tr>
@@ -587,13 +566,9 @@ const DropdownApi = () => (
             <td>
               <div>
                 <p>
-                  Allow Dropdown to flip in case of an overlapping on the
-                  reference element. For more information refer to Popper.js's
-                  flip{" "}
-                  <a href="https://popper.js.org/docs/v2/modifiers/flip/">
-                    docs
-                  </a>
-                  .
+                  Allow Dropdown to flip in case of an overlapping on the reference element. For
+                  more information refer to Popper.js's flip{" "}
+                  <a href="https://popper.js.org/docs/v2/modifiers/flip/">docs</a>.
                 </p>
               </div>
             </td>
@@ -615,18 +590,15 @@ const DropdownApi = () => (
             <td>
               <div>
                 <p>
-                  Controls the focus behavior for when the Dropdown is opened.
-                  Set to
-                  <code>true</code> to always focus the first menu item,{" "}
-                  <code>keyboard</code> to focus only when navigating via the
-                  keyboard, or <code>false</code> to disable completely
+                  Controls the focus behavior for when the Dropdown is opened. Set to
+                  <code>true</code> to always focus the first menu item, <code>keyboard</code> to
+                  focus only when navigating via the keyboard, or <code>false</code> to disable
+                  completely
                 </p>
                 <p>
-                  The Default behavior is <code>false</code>{" "}
-                  <strong>unless</strong> the Menu has a{" "}
+                  The Default behavior is <code>false</code> <strong>unless</strong> the Menu has a{" "}
                   <code>role="menu"</code>
-                  where it will default to <code>keyboard</code> to match the
-                  recommended{" "}
+                  where it will default to <code>keyboard</code> to match the recommended{" "}
                   <a href="https://www.w3.org/TR/wai-aria-practices-1.1/#menubutton">
                     ARIA Authoring practices
                   </a>
@@ -682,17 +654,17 @@ const DropdownApi = () => (
               </div>
               <div>
                 <p>
-                  A callback fired when the Dropdown wishes to change
-                  visibility. Called with the requested
-                  <code>show</code> value, the DOM event, and the source that
-                  fired it: <code>'click'</code>,<code>'keydown'</code>,
-                  <code>'rootClose'</code>, or <code>'select'</code>.
+                  A callback fired when the Dropdown wishes to change visibility. Called with the
+                  requested
+                  <code>show</code> value, the DOM event, and the source that fired it:{" "}
+                  <code>'click'</code>,<code>'keydown'</code>,<code>'rootClose'</code>, or{" "}
+                  <code>'select'</code>.
                 </p>
                 <div>
                   <pre>
                     <code>
-                      function(isOpen: boolean,event: SyntheticEvent,metadata:{" "}
-                      {"{"}source: 'select' | 'click' | 'rootClose' | 'keydown'
+                      function(isOpen: boolean,event: SyntheticEvent,metadata: {"{"}source: 'select'
+                      | 'click' | 'rootClose' | 'keydown'
                       {"}"}): void
                     </code>
                   </pre>
@@ -711,8 +683,7 @@ const DropdownApi = () => (
                 <small>
                   <em class="text-info">
                     <span>
-                      controlled by: <code>onToggle</code>, initial prop:{" "}
-                      <code>defaultShow</code>
+                      controlled by: <code>onToggle</code>, initial prop: <code>defaultShow</code>
                     </span>
                   </em>
                 </small>
@@ -733,10 +704,9 @@ const DropdownApi = () => (
             <td>
               <div>
                 <p>
-                  Change the underlying component CSS base class name and
-                  modifier class names prefix.{" "}
-                  <strong>This is an escape hatch</strong> for working with
-                  heavily customized bootstrap css.
+                  Change the underlying component CSS base class name and modifier class names
+                  prefix. <strong>This is an escape hatch</strong> for working with heavily
+                  customized bootstrap css.
                 </p>
               </div>
             </td>
@@ -779,10 +749,7 @@ const DropdownApi = () => (
             <td></td>
             <td>
               <div>
-                <p>
-                  to passthrough to the underlying button or whatever from
-                  DropdownButton
-                </p>
+                <p>to passthrough to the underlying button or whatever from DropdownButton</p>
               </div>
             </td>
           </tr>
@@ -795,8 +762,8 @@ const DropdownApi = () => (
             <td>
               <div>
                 <p>
-                  An html id attribute, necessary for assistive technologies,
-                  such as screen readers.
+                  An html id attribute, necessary for assistive technologies, such as screen
+                  readers.
                 </p>
               </div>
             </td>
@@ -822,10 +789,9 @@ const DropdownApi = () => (
             <td>
               <div>
                 <p>
-                  Change the underlying component CSS base class name and
-                  modifier class names prefix.{" "}
-                  <strong>This is an escape hatch</strong> for working with
-                  heavily customized bootstrap css.
+                  Change the underlying component CSS base class name and modifier class names
+                  prefix. <strong>This is an escape hatch</strong> for working with heavily
+                  customized bootstrap css.
                 </p>
               </div>
             </td>
@@ -850,24 +816,21 @@ const DropdownApi = () => (
             <td class="font-monospace">align </td>
             <td class="font-monospace">
               <div>
-                "start"|"end"|{"{"} sm: "start"|"end" {"}"}|{"{"} md:
-                "start"|"end" {"}"}|{"{"} lg: "start"|"end" {"}"}|{"{"} xl:
-                "start"|"end"{"}"}|{"{"} xxl: "start"|"end"{"}"}{" "}
+                "start"|"end"|{"{"} sm: "start"|"end" {"}"}|{"{"} md: "start"|"end" {"}"}|{"{"} lg:
+                "start"|"end" {"}"}|{"{"} xl: "start"|"end"{"}"}|{"{"} xxl: "start"|"end"{"}"}{" "}
               </div>
             </td>
             <td></td>
             <td>
               <div>
                 <p>
-                  Aligns the dropdown menu to the specified side of the
-                  container. You can also align the menu responsively for
-                  breakpoints starting at <code>sm</code> and up. The alignment
-                  direction will affect the specified breakpoint or larger.
+                  Aligns the dropdown menu to the specified side of the container. You can also
+                  align the menu responsively for breakpoints starting at <code>sm</code> and up.
+                  The alignment direction will affect the specified breakpoint or larger.
                 </p>
                 <p>
                   <em>
-                    Note: Using responsive alignment will disable Popper usage
-                    for positioning.
+                    Note: Using responsive alignment will disable Popper usage for positioning.
                   </em>
                 </p>
               </div>
@@ -884,14 +847,13 @@ const DropdownApi = () => (
             <td>
               <div>
                 <p>
-                  Control the rendering of the DropdownMenu. All non-menu props
-                  (listed here) are passed through to the <code>as</code>{" "}
-                  Component.
+                  Control the rendering of the DropdownMenu. All non-menu props (listed here) are
+                  passed through to the <code>as</code> Component.
                 </p>
                 <p>
-                  If providing a custom, non DOM, component. the{" "}
-                  <code>show</code>, <code>close</code> and <code>align</code>{" "}
-                  props are also injected and should be handled appropriately.
+                  If providing a custom, non DOM, component. the <code>show</code>,{" "}
+                  <code>close</code> and <code>align</code> props are also injected and should be
+                  handled appropriately.
                 </p>
               </div>
             </td>
@@ -907,8 +869,8 @@ const DropdownApi = () => (
             <td>
               <div>
                 <p>
-                  Have the dropdown switch to it's opposite placement when
-                  necessary to stay on screen.
+                  Have the dropdown switch to it's opposite placement when necessary to stay on
+                  screen.
                 </p>
               </div>
             </td>
@@ -931,9 +893,7 @@ const DropdownApi = () => (
             <td></td>
             <td>
               <div>
-                <p>
-                  A set of popper options and props passed directly to Popper.
-                </p>
+                <p>A set of popper options and props passed directly to Popper.</p>
               </div>
             </td>
           </tr>
@@ -946,8 +906,7 @@ const DropdownApi = () => (
             <td>
               <div>
                 <p>
-                  Whether to render the dropdown menu in the DOM before the
-                  first time it is shown
+                  Whether to render the dropdown menu in the DOM before the first time it is shown
                 </p>
               </div>
             </td>
@@ -966,16 +925,12 @@ const DropdownApi = () => (
             <td></td>
             <td>
               <div>
-                <p>
-                  Which event when fired outside the component will cause it to
-                  be closed
-                </p>
+                <p>Which event when fired outside the component will cause it to be closed</p>
                 <p>
                   <em>
-                    Note: For custom dropdown components, you will have to pass
-                    the <code>rootCloseEvent</code> to{" "}
-                    <code>&lt;RootCloseWrapper&gt;</code> in your custom
-                    dropdown menu component ).
+                    Note: For custom dropdown components, you will have to pass the{" "}
+                    <code>rootCloseEvent</code> to <code>&lt;RootCloseWrapper&gt;</code> in your
+                    custom dropdown menu component ).
                   </em>
                 </p>
               </div>
@@ -1017,10 +972,9 @@ const DropdownApi = () => (
             <td>
               <div>
                 <p>
-                  Change the underlying component CSS base class name and
-                  modifier class names prefix.{" "}
-                  <strong>This is an escape hatch</strong> for working with
-                  heavily customized bootstrap css.
+                  Change the underlying component CSS base class name and modifier class names
+                  prefix. <strong>This is an escape hatch</strong> for working with heavily
+                  customized bootstrap css.
                 </p>
               </div>
             </td>
@@ -1090,8 +1044,8 @@ const DropdownApi = () => (
             <td>
               <div>
                 <p>
-                  Value passed to the <code>onSelect</code> handler, useful for
-                  identifying the selected menu item.
+                  Value passed to the <code>onSelect</code> handler, useful for identifying the
+                  selected menu item.
                 </p>
               </div>
             </td>
@@ -1105,8 +1059,7 @@ const DropdownApi = () => (
             <td>
               <div>
                 <p>
-                  HTML <code>href</code> attribute corresponding to{" "}
-                  <code>a.href</code>.
+                  HTML <code>href</code> attribute corresponding to <code>a.href</code>.
                 </p>
               </div>
             </td>
@@ -1134,10 +1087,9 @@ const DropdownApi = () => (
             <td>
               <div>
                 <p>
-                  Change the underlying component CSS base class name and
-                  modifier class names prefix.{" "}
-                  <strong>This is an escape hatch</strong> for working with
-                  heavily customized bootstrap css.
+                  Change the underlying component CSS base class name and modifier class names
+                  prefix. <strong>This is an escape hatch</strong> for working with heavily
+                  customized bootstrap css.
                 </p>
               </div>
             </td>
@@ -1185,10 +1137,9 @@ const DropdownApi = () => (
             <td>
               <div>
                 <p>
-                  Change the underlying component CSS base class name and
-                  modifier class names prefix.{" "}
-                  <strong>This is an escape hatch</strong> for working with
-                  heavily customized bootstrap css.
+                  Change the underlying component CSS base class name and modifier class names
+                  prefix. <strong>This is an escape hatch</strong> for working with heavily
+                  customized bootstrap css.
                 </p>
               </div>
             </td>
@@ -1236,10 +1187,9 @@ const DropdownApi = () => (
             <td>
               <div>
                 <p>
-                  Change the underlying component CSS base class name and
-                  modifier class names prefix.{" "}
-                  <strong>This is an escape hatch</strong> for working with
-                  heavily customized bootstrap css.
+                  Change the underlying component CSS base class name and modifier class names
+                  prefix. <strong>This is an escape hatch</strong> for working with heavily
+                  customized bootstrap css.
                 </p>
               </div>
             </td>

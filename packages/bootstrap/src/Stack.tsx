@@ -1,18 +1,14 @@
-import { JSX, mergeProps, splitProps } from "solid-js";
+import {JSX, mergeProps, splitProps} from "solid-js";
 import classNames from "./classnames";
-import { useBootstrapPrefix } from "./ThemeProvider";
-import { BsPrefixProps, BsPrefixRefForwardingComponent } from "./helpers";
-import { GapValue } from "./types";
-import createUtilityClassName, {
-  ResponsiveUtilityValue,
-} from "./createUtilityClasses";
-import { Dynamic } from "solid-js/web";
+import {useBootstrapPrefix} from "./ThemeProvider";
+import {BsPrefixProps, BsPrefixRefForwardingComponent} from "./helpers";
+import {GapValue} from "./types";
+import createUtilityClassName, {ResponsiveUtilityValue} from "./createUtilityClasses";
+import {Dynamic} from "solid-js/web";
 
 export type StackDirection = "horizontal" | "vertical";
 
-export interface StackProps
-  extends BsPrefixProps,
-    JSX.HTMLAttributes<HTMLElement> {
+export interface StackProps extends BsPrefixProps, JSX.HTMLAttributes<HTMLElement> {
   direction?: StackDirection;
   gap?: ResponsiveUtilityValue<GapValue>;
 }
@@ -21,9 +17,7 @@ const defaultProps = {
   as: "div",
 };
 
-const Stack: BsPrefixRefForwardingComponent<"span", StackProps> = (
-  p: StackProps
-) => {
+const Stack: BsPrefixRefForwardingComponent<"span", StackProps> = (p: StackProps) => {
   const [local, props] = splitProps(mergeProps(defaultProps, p), [
     "as",
     "bsPrefix",
@@ -33,7 +27,7 @@ const Stack: BsPrefixRefForwardingComponent<"span", StackProps> = (
   ]);
   const bsPrefix = useBootstrapPrefix(
     local.bsPrefix,
-    local.direction === "horizontal" ? "hstack" : "vstack"
+    local.direction === "horizontal" ? "hstack" : "vstack",
   );
 
   return (
@@ -45,7 +39,7 @@ const Stack: BsPrefixRefForwardingComponent<"span", StackProps> = (
         bsPrefix,
         ...createUtilityClassName({
           gap: local.gap,
-        })
+        }),
       )}
     >
       {props.children}

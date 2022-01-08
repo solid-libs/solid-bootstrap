@@ -1,7 +1,7 @@
-import { JSX, mergeProps, splitProps } from "solid-js";
+import {JSX, mergeProps, splitProps} from "solid-js";
 import classNames from "./classnames";
-import { AsProp, BsPrefixRefForwardingComponent } from "./helpers";
-import { Dynamic } from "solid-js/web";
+import {AsProp, BsPrefixRefForwardingComponent} from "./helpers";
+import {Dynamic} from "solid-js/web";
 
 export type FeedbackType = "valid" | "invalid";
 
@@ -19,9 +19,7 @@ const defaultProps = {
   tooltip: false,
 };
 
-const Feedback: BsPrefixRefForwardingComponent<"div", FeedbackProps> = (
-  p: FeedbackProps
-) => {
+const Feedback: BsPrefixRefForwardingComponent<"div", FeedbackProps> = (p: FeedbackProps) => {
   const [local, props] = splitProps(mergeProps(defaultProps, p), [
     "as",
     "className",
@@ -34,7 +32,7 @@ const Feedback: BsPrefixRefForwardingComponent<"div", FeedbackProps> = (
       {...props}
       className={classNames(
         local.className,
-        `${local.type}-${local.tooltip ? "tooltip" : "feedback"}`
+        `${local.type}-${local.tooltip ? "tooltip" : "feedback"}`,
       )}
     >
       {props.children}

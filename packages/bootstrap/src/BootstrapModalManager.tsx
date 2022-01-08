@@ -2,11 +2,7 @@ import addClass from "dom-helpers/addClass";
 import css from "dom-helpers/css";
 import qsa from "dom-helpers/querySelectorAll";
 import removeClass from "dom-helpers/removeClass";
-import {
-  ModalManager,
-  ModalContainerState,
-  ModalManagerOptions,
-} from "solid-bootstrap-core";
+import {ModalManager, ModalContainerState, ModalManagerOptions} from "solid-bootstrap-core";
 
 const Selector = {
   FIXED_CONTENT: ".fixed-top, .fixed-bottom, .is-fixed, .sticky-top",
@@ -18,7 +14,7 @@ export class BootstrapModalManager extends ModalManager {
   private adjustAndStore<T extends keyof CSSStyleDeclaration>(
     prop: T,
     element: HTMLElement,
-    adjust: number
+    adjust: number,
   ) {
     const actual = element.style[prop];
     // TODO: DOMStringMap and CSSStyleDeclaration aren't strictly compatible
@@ -29,16 +25,13 @@ export class BootstrapModalManager extends ModalManager {
     });
   }
 
-  private restore<T extends keyof CSSStyleDeclaration>(
-    prop: T,
-    element: HTMLElement
-  ) {
+  private restore<T extends keyof CSSStyleDeclaration>(prop: T, element: HTMLElement) {
     // @ts-ignore
     const value = element.dataset[prop];
     if (value !== undefined) {
       // @ts-ignore
       delete element.dataset[prop];
-      css(element, { [prop]: value });
+      css(element, {[prop]: value});
     }
   }
 
@@ -54,13 +47,13 @@ export class BootstrapModalManager extends ModalManager {
     const marginProp = this.isRTL ? "marginLeft" : "marginRight";
 
     qsa(container, Selector.FIXED_CONTENT).forEach((el) =>
-      this.adjustAndStore(paddingProp, el, containerState.scrollBarWidth)
+      this.adjustAndStore(paddingProp, el, containerState.scrollBarWidth),
     );
     qsa(container, Selector.STICKY_CONTENT).forEach((el) =>
-      this.adjustAndStore(marginProp, el, -containerState.scrollBarWidth)
+      this.adjustAndStore(marginProp, el, -containerState.scrollBarWidth),
     );
     qsa(container, Selector.NAVBAR_TOGGLER).forEach((el) =>
-      this.adjustAndStore(marginProp, el, containerState.scrollBarWidth)
+      this.adjustAndStore(marginProp, el, containerState.scrollBarWidth),
     );
   }
 
@@ -73,15 +66,9 @@ export class BootstrapModalManager extends ModalManager {
     const paddingProp = this.isRTL ? "paddingLeft" : "paddingRight";
     const marginProp = this.isRTL ? "marginLeft" : "marginRight";
 
-    qsa(container, Selector.FIXED_CONTENT).forEach((el) =>
-      this.restore(paddingProp, el)
-    );
-    qsa(container, Selector.STICKY_CONTENT).forEach((el) =>
-      this.restore(marginProp, el)
-    );
-    qsa(container, Selector.NAVBAR_TOGGLER).forEach((el) =>
-      this.restore(marginProp, el)
-    );
+    qsa(container, Selector.FIXED_CONTENT).forEach((el) => this.restore(paddingProp, el));
+    qsa(container, Selector.STICKY_CONTENT).forEach((el) => this.restore(marginProp, el));
+    qsa(container, Selector.NAVBAR_TOGGLER).forEach((el) => this.restore(marginProp, el));
   }
 }
 

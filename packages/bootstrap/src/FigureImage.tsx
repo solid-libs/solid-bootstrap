@@ -1,8 +1,8 @@
-import { mergeProps, splitProps } from "solid-js";
+import {mergeProps, splitProps} from "solid-js";
 import classNames from "./classnames";
-import Image, { ImageProps } from "./Image";
+import Image, {ImageProps} from "./Image";
 
-const defaultProps = { fluid: true };
+const defaultProps = {fluid: true};
 
 const FigureImage = (p: ImageProps) => {
   const [local, props] = splitProps(mergeProps(defaultProps, p), ["className"]);

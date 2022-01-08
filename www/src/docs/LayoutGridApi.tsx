@@ -54,10 +54,7 @@ const LayoutGridApi = () => (
             </td>
             <td>
               <div>
-                <p>
-                  Allow the Container to fill all of its available horizontal
-                  space.
-                </p>
+                <p>Allow the Container to fill all of its available horizontal space.</p>
               </div>
             </td>
           </tr>
@@ -72,10 +69,9 @@ const LayoutGridApi = () => (
             <td>
               <div>
                 <p>
-                  Change the underlying component CSS base class name and
-                  modifier class names prefix.{" "}
-                  <strong>This is an escape hatch</strong> for working with
-                  heavily customized bootstrap css.
+                  Change the underlying component CSS base class name and modifier class names
+                  prefix. <strong>This is an escape hatch</strong> for working with heavily
+                  customized bootstrap css.
                 </p>
               </div>
             </td>
@@ -122,9 +118,8 @@ const LayoutGridApi = () => (
             <td>
               <div>
                 <p>
-                  The number of columns that will fit next to each other on
-                  large devices (≥992px). Use <code>auto</code> to give columns
-                  their natural widths.
+                  The number of columns that will fit next to each other on large devices (≥992px).
+                  Use <code>auto</code> to give columns their natural widths.
                 </p>
               </div>
             </td>
@@ -138,9 +133,8 @@ const LayoutGridApi = () => (
             <td>
               <div>
                 <p>
-                  The number of columns that will fit next to each other on
-                  medium devices (≥768px). Use <code>auto</code> to give columns
-                  their natural widths.
+                  The number of columns that will fit next to each other on medium devices (≥768px).
+                  Use <code>auto</code> to give columns their natural widths.
                 </p>
               </div>
             </td>
@@ -154,9 +148,8 @@ const LayoutGridApi = () => (
             <td>
               <div>
                 <p>
-                  The number of columns that will fit next to each other on
-                  small devices (≥576px). Use <code>auto</code> to give columns
-                  their natural widths.
+                  The number of columns that will fit next to each other on small devices (≥576px).
+                  Use <code>auto</code> to give columns their natural widths.
                 </p>
               </div>
             </td>
@@ -170,9 +163,8 @@ const LayoutGridApi = () => (
             <td>
               <div>
                 <p>
-                  The number of columns that will fit next to each other on
-                  extra large devices (≥1200px). Use <code>auto</code> to give
-                  columns their natural widths.
+                  The number of columns that will fit next to each other on extra large devices
+                  (≥1200px). Use <code>auto</code> to give columns their natural widths.
                 </p>
               </div>
             </td>
@@ -186,9 +178,8 @@ const LayoutGridApi = () => (
             <td>
               <div>
                 <p>
-                  The number of columns that will fit next to each other on
-                  extra small devices (&lt;576px). Use <code>auto</code> to give
-                  columns their natural widths.
+                  The number of columns that will fit next to each other on extra small devices
+                  (&lt;576px). Use <code>auto</code> to give columns their natural widths.
                 </p>
               </div>
             </td>
@@ -202,9 +193,8 @@ const LayoutGridApi = () => (
             <td>
               <div>
                 <p>
-                  The number of columns that will fit next to each other on
-                  extra extra large devices (≥1400px). Use <code>auto</code> to
-                  give columns their natural widths.
+                  The number of columns that will fit next to each other on extra extra large
+                  devices (≥1400px). Use <code>auto</code> to give columns their natural widths.
                 </p>
               </div>
             </td>
@@ -220,10 +210,9 @@ const LayoutGridApi = () => (
             <td>
               <div>
                 <p>
-                  Change the underlying component CSS base class name and
-                  modifier class names prefix.{" "}
-                  <strong>This is an escape hatch</strong> for working with
-                  heavily customized bootstrap css.
+                  Change the underlying component CSS base class name and modifier class names
+                  prefix. <strong>This is an escape hatch</strong> for working with heavily
+                  customized bootstrap css.
                 </p>
               </div>
             </td>
@@ -303,9 +292,7 @@ const LayoutGridApi = () => (
             <td></td>
             <td>
               <div>
-                <p>
-                  The number of columns to span on extra large devices (≥1200px)
-                </p>
+                <p>The number of columns to span on extra large devices (≥1200px)</p>
               </div>
             </td>
           </tr>
@@ -317,10 +304,7 @@ const LayoutGridApi = () => (
             <td></td>
             <td>
               <div>
-                <p>
-                  The number of columns to span on extra small devices
-                  (&lt;576px)
-                </p>
+                <p>The number of columns to span on extra small devices (&lt;576px)</p>
               </div>
             </td>
           </tr>
@@ -332,10 +316,7 @@ const LayoutGridApi = () => (
             <td></td>
             <td>
               <div>
-                <p>
-                  The number of columns to span on extra extra large devices
-                  (≥1400px)
-                </p>
+                <p>The number of columns to span on extra extra large devices (≥1400px)</p>
               </div>
             </td>
           </tr>
@@ -350,10 +331,9 @@ const LayoutGridApi = () => (
             <td>
               <div>
                 <p>
-                  Change the underlying component CSS base class name and
-                  modifier class names prefix.{" "}
-                  <strong>This is an escape hatch</strong> for working with
-                  heavily customized bootstrap css.
+                  Change the underlying component CSS base class name and modifier class names
+                  prefix. <strong>This is an escape hatch</strong> for working with heavily
+                  customized bootstrap css.
                 </p>
               </div>
             </td>

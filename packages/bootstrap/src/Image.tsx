@@ -1,12 +1,10 @@
-import { JSX, mergeProps, splitProps } from "solid-js";
+import {JSX, mergeProps, splitProps} from "solid-js";
 import classNames from "./classnames";
 
-import { useBootstrapPrefix } from "./ThemeProvider";
-import { BsPrefixOnlyProps } from "./helpers";
+import {useBootstrapPrefix} from "./ThemeProvider";
+import {BsPrefixOnlyProps} from "./helpers";
 
-export interface ImageProps
-  extends BsPrefixOnlyProps,
-    JSX.ImgHTMLAttributes<HTMLImageElement> {
+export interface ImageProps extends BsPrefixOnlyProps, JSX.ImgHTMLAttributes<HTMLImageElement> {
   fluid?: boolean;
   rounded?: boolean;
   roundedCircle?: boolean;
@@ -38,7 +36,7 @@ const Image = (p: ImageProps) => {
         local.fluid && `${bsPrefix}-fluid`,
         local.rounded && `rounded`,
         local.roundedCircle && `rounded-circle`,
-        local.thumbnail && `${bsPrefix}-thumbnail`
+        local.thumbnail && `${bsPrefix}-thumbnail`,
       )}
     >
       {props.children}

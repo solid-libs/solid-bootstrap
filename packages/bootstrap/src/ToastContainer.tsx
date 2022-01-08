@@ -1,8 +1,8 @@
-import { JSX, mergeProps, splitProps } from "solid-js";
+import {JSX, mergeProps, splitProps} from "solid-js";
 import classNames from "./classnames";
-import { useBootstrapPrefix } from "./ThemeProvider";
-import { BsPrefixProps, BsPrefixRefForwardingComponent } from "./helpers";
-import { Dynamic } from "solid-js/web";
+import {useBootstrapPrefix} from "./ThemeProvider";
+import {BsPrefixProps, BsPrefixRefForwardingComponent} from "./helpers";
+import {Dynamic} from "solid-js/web";
 
 export type ToastPosition =
   | "top-start"
@@ -15,9 +15,7 @@ export type ToastPosition =
   | "bottom-center"
   | "bottom-end";
 
-export interface ToastContainerProps
-  extends BsPrefixProps,
-    JSX.HTMLAttributes<HTMLElement> {
+export interface ToastContainerProps extends BsPrefixProps, JSX.HTMLAttributes<HTMLElement> {
   position?: ToastPosition;
 }
 
@@ -37,10 +35,9 @@ const defaultProps = {
   as: "div",
 };
 
-const ToastContainer: BsPrefixRefForwardingComponent<
-  "div",
-  ToastContainerProps
-> = (p: ToastContainerProps) => {
+const ToastContainer: BsPrefixRefForwardingComponent<"div", ToastContainerProps> = (
+  p: ToastContainerProps,
+) => {
   const [local, props] = splitProps(mergeProps(defaultProps, p), [
     "as",
     "bsPrefix",
@@ -55,9 +52,8 @@ const ToastContainer: BsPrefixRefForwardingComponent<
       {...props}
       className={classNames(
         bsPrefix,
-        local.position &&
-          `position-absolute ${positionClasses[local.position]}`,
-        local.className
+        local.position && `position-absolute ${positionClasses[local.position]}`,
+        local.className,
       )}
     >
       {props.children}

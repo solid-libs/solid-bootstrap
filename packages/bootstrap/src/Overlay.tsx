@@ -1,12 +1,4 @@
-import {
-  Accessor,
-  batch,
-  children,
-  createSignal,
-  JSX,
-  mergeProps,
-  splitProps,
-} from "solid-js";
+import {Accessor, batch, children, createSignal, JSX, mergeProps, splitProps} from "solid-js";
 import {
   Overlay as BaseOverlay,
   OverlayProps as BaseOverlayProps,
@@ -15,13 +7,11 @@ import {
   OverlayInjectedProps,
 } from "solid-bootstrap-core";
 import Fade from "./Fade";
-import { TransitionType } from "./helpers";
-import { Placement, RootCloseEvent } from "./types";
+import {TransitionType} from "./helpers";
+import {Placement, RootCloseEvent} from "./types";
 import OverlayContext from "./OverlayContext";
 
-export type OverlayChildren =
-  | JSX.Element
-  | ((injected: OverlayInjectedProps) => JSX.Element);
+export type OverlayChildren = JSX.Element | ((injected: OverlayInjectedProps) => JSX.Element);
 
 export interface OverlayProps
   extends Omit<BaseOverlayProps, "children" | "transition" | "rootCloseEvent"> {
@@ -48,13 +38,10 @@ const Overlay = (p: OverlayProps /*outerRef*/) => {
     "ref",
   ]);
 
-  const actualTransition =
-    local.transition === true ? Fade : local.transition || undefined;
+  const actualTransition = local.transition === true ? Fade : local.transition || undefined;
 
-  const [wrapperProps, setWrapperProps] =
-    createSignal<Accessor<OverlayInjectedProps>>();
-  const [arrowProps, setArrowProps] =
-    createSignal<Accessor<Partial<OverlayArrowProps>>>();
+  const [wrapperProps, setWrapperProps] = createSignal<Accessor<OverlayInjectedProps>>();
+  const [arrowProps, setArrowProps] = createSignal<Accessor<Partial<OverlayArrowProps>>>();
   const [metadata, setMetadata] = createSignal<Accessor<OverlayMetadata>>();
 
   const overlayContext = {
@@ -71,11 +58,7 @@ const Overlay = (p: OverlayProps /*outerRef*/) => {
 
   return (
     <OverlayContext.Provider value={overlayContext}>
-      <BaseOverlay
-        {...outerProps}
-        popperConfig={local.popperConfig}
-        transition={actualTransition}
-      >
+      <BaseOverlay {...outerProps} popperConfig={local.popperConfig} transition={actualTransition}>
         {(wrapperProps, arrowProps, metadata) => {
           batch(() => {
             setWrapperProps(() => wrapperProps);

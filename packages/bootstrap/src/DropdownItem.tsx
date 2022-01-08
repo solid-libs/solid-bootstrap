@@ -1,4 +1,4 @@
-import { JSX, mergeProps, splitProps } from "solid-js";
+import {JSX, mergeProps, splitProps} from "solid-js";
 import classNames from "./classnames";
 import {
   Anchor,
@@ -7,23 +7,20 @@ import {
   useDropdownItem,
   DropdownItemProps as BaseDropdownItemProps,
 } from "solid-bootstrap-core";
-import { useBootstrapPrefix } from "./ThemeProvider";
-import { BsPrefixProps, BsPrefixRefForwardingComponent } from "./helpers";
-import { Dynamic } from "solid-js/web";
+import {useBootstrapPrefix} from "./ThemeProvider";
+import {BsPrefixProps, BsPrefixRefForwardingComponent} from "./helpers";
+import {Dynamic} from "solid-js/web";
 
-export interface DropdownItemProps
-  extends BaseDropdownItemProps<HTMLElement>,
-    BsPrefixProps {}
+export interface DropdownItemProps extends BaseDropdownItemProps<HTMLElement>, BsPrefixProps {}
 
 const defaultProps = {
   as: Anchor,
   disabled: false,
 };
 
-const DropdownItem: BsPrefixRefForwardingComponent<
-  typeof BaseDropdownItem,
-  DropdownItemProps
-> = (p: DropdownItemProps) => {
+const DropdownItem: BsPrefixRefForwardingComponent<typeof BaseDropdownItem, DropdownItemProps> = (
+  p: DropdownItemProps,
+) => {
   const [local, props] = splitProps(mergeProps(defaultProps, p), [
     "as",
     "bsPrefix",
@@ -61,7 +58,7 @@ const DropdownItem: BsPrefixRefForwardingComponent<
         local.className,
         prefix,
         meta.isActive && "active",
-        local.disabled && "disabled"
+        local.disabled && "disabled",
       )}
     >
       {props.children}

@@ -1,9 +1,9 @@
 // Copies index.html for each route endpoint to workaround limitations
 // of static server like Github pages not supporting SPA routing
 
-import path from "path"
-import fs from "fs-extra"
-import { fileURLToPath } from 'url';
+import path from "path";
+import fs from "fs-extra";
+import {fileURLToPath} from "url";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -53,41 +53,32 @@ function main() {
 
   // Core routes
   fs.mkdirSync(corePath);
-  [
-    "overview",
-    "dropdowns",
-    "modal",
-    "overlays",
-  ].forEach((dest) => {
+  ["overview", "dropdowns", "modal", "overlays"].forEach((dest) => {
     fs.copyFileSync(source, path.join(corePath, `${dest}.html`));
   });
 
   // Layout routes
   fs.mkdirSync(layoutPath);
-  [
-    "grid",
-    "stack",
-  ].forEach((dest) => {
+  ["grid", "stack"].forEach((dest) => {
     fs.copyFileSync(source, path.join(layoutPath, `${dest}.html`));
   });
 
   // Forms routes
   fs.mkdirSync(formsPath);
   [
-    "overview", 
-    "form-controls", 
-    "form-text", 
-    "select", 
-    "checks-radios", 
-    "range", 
-    "input-group", 
-    "floating-labels", 
-    "layout", 
-    "validation"
+    "overview",
+    "form-controls",
+    "form-text",
+    "select",
+    "checks-radios",
+    "range",
+    "input-group",
+    "floating-labels",
+    "layout",
+    "validation",
   ].forEach((dest) => {
     fs.copyFileSync(source, path.join(formsPath, `${dest}.html`));
   });
-  
 }
 
 main();

@@ -1,5 +1,5 @@
-import { createSignal } from "solid-js";
-import { Button, Col, Form, InputGroup, Row } from "solid-bootstrap";
+import {createSignal} from "solid-js";
+import {Button, Col, Form, InputGroup, Row} from "solid-bootstrap";
 
 export function Example1() {
   const [validated, setValidated] = createSignal(false);
@@ -23,7 +23,7 @@ export function Example1() {
             required
             type="text"
             placeholder="First name"
-            ref={r => r.defaultValue="Mark"}
+            ref={(r) => (r.defaultValue = "Mark")}
           />
           <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
         </Form.Group>
@@ -33,7 +33,7 @@ export function Example1() {
             required
             type="text"
             placeholder="Last name"
-            ref={r => r.defaultValue="Otto"}
+            ref={(r) => (r.defaultValue = "Otto")}
           />
           <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
         </Form.Group>
@@ -47,9 +47,7 @@ export function Example1() {
               aria-describedby="inputGroupPrepend"
               required
             />
-            <Form.Control.Feedback type="invalid">
-              Please choose a username.
-            </Form.Control.Feedback>
+            <Form.Control.Feedback type="invalid">Please choose a username.</Form.Control.Feedback>
           </InputGroup>
         </Form.Group>
       </Row>
@@ -57,9 +55,7 @@ export function Example1() {
         <Form.Group as={Col} md="6" controlId="validationCustom03">
           <Form.Label>City</Form.Label>
           <Form.Control type="text" placeholder="City" required />
-          <Form.Control.Feedback type="invalid">
-            Please provide a valid city.
-          </Form.Control.Feedback>
+          <Form.Control.Feedback type="invalid">Please provide a valid city.</Form.Control.Feedback>
         </Form.Group>
         <Form.Group as={Col} md="3" controlId="validationCustom04">
           <Form.Label>State</Form.Label>
@@ -71,9 +67,7 @@ export function Example1() {
         <Form.Group as={Col} md="3" controlId="validationCustom05">
           <Form.Label>Zip</Form.Label>
           <Form.Control type="text" placeholder="Zip" required />
-          <Form.Control.Feedback type="invalid">
-            Please provide a valid zip.
-          </Form.Control.Feedback>
+          <Form.Control.Feedback type="invalid">Please provide a valid zip.</Form.Control.Feedback>
         </Form.Group>
       </Row>
       <Form.Group className="mb-3">
@@ -88,4 +82,3 @@ export function Example1() {
     </Form>
   );
 }
-

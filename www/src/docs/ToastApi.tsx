@@ -127,8 +127,8 @@ const ToastApi = () => (
             <td>
               <div>
                 <p>
-                  A <code>solid-react-transition</code> Transition component
-                  used to animate the Toast on dismissal.
+                  A <code>solid-react-transition</code> Transition component used to animate the
+                  Toast on dismissal.
                 </p>
               </div>
             </td>
@@ -144,10 +144,9 @@ const ToastApi = () => (
             <td>
               <div>
                 <p>
-                  Change the underlying component CSS base class name and
-                  modifier class names prefix.{" "}
-                  <strong>This is an escape hatch</strong> for working with
-                  heavily customized bootstrap css.
+                  Change the underlying component CSS base class name and modifier class names
+                  prefix. <strong>This is an escape hatch</strong> for working with heavily
+                  customized bootstrap css.
                 </p>
               </div>
             </td>
@@ -181,9 +180,7 @@ const ToastApi = () => (
             </td>
             <td>
               <div>
-                <p>
-                  Specify whether the Component should contain a close button
-                </p>
+                <p>Specify whether the Component should contain a close button</p>
               </div>
             </td>
           </tr>
@@ -198,8 +195,8 @@ const ToastApi = () => (
             <td>
               <div>
                 <p>
-                  Provides an accessible label for the close button. It is used
-                  for Assistive Technology when the label text is not readable.
+                  Provides an accessible label for the close button. It is used for Assistive
+                  Technology when the label text is not readable.
                 </p>
               </div>
             </td>
@@ -229,10 +226,9 @@ const ToastApi = () => (
             <td>
               <div>
                 <p>
-                  Change the underlying component CSS base class name and
-                  modifier class names prefix.{" "}
-                  <strong>This is an escape hatch</strong> for working with
-                  heavily customized bootstrap css.
+                  Change the underlying component CSS base class name and modifier class names
+                  prefix. <strong>This is an escape hatch</strong> for working with heavily
+                  customized bootstrap css.
                 </p>
               </div>
             </td>
@@ -283,10 +279,9 @@ const ToastApi = () => (
             <td>
               <div>
                 <p>
-                  Change the underlying component CSS base class name and
-                  modifier class names prefix.{" "}
-                  <strong>This is an escape hatch</strong> for working with
-                  heavily customized bootstrap css.
+                  Change the underlying component CSS base class name and modifier class names
+                  prefix. <strong>This is an escape hatch</strong> for working with heavily
+                  customized bootstrap css.
                 </p>
               </div>
             </td>
@@ -353,10 +348,9 @@ const ToastApi = () => (
             <td>
               <div>
                 <p>
-                  Change the underlying component CSS base class name and
-                  modifier class names prefix.{" "}
-                  <strong>This is an escape hatch</strong> for working with
-                  heavily customized bootstrap css.
+                  Change the underlying component CSS base class name and modifier class names
+                  prefix. <strong>This is an escape hatch</strong> for working with heavily
+                  customized bootstrap css.
                 </p>
               </div>
             </td>

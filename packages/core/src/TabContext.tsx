@@ -1,6 +1,6 @@
-import { createContext } from "solid-js";
-import { TransitionComponent } from "solid-react-transition";
-import { EventKey, SelectCallback } from "./types";
+import {createContext} from "solid-js";
+import {TransitionComponent} from "solid-react-transition";
+import {EventKey, SelectCallback} from "./types";
 
 export interface TabContextType {
   onSelect: SelectCallback;

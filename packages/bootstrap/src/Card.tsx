@@ -1,13 +1,13 @@
-import { JSX, mergeProps, splitProps } from "solid-js";
+import {JSX, mergeProps, splitProps} from "solid-js";
 import classNames from "./classnames";
-import { useBootstrapPrefix } from "./ThemeProvider";
-import { createWithBsPrefix } from "./createWithBsPrefix";
-import { divWithClassName } from "./divWithClassName";
+import {useBootstrapPrefix} from "./ThemeProvider";
+import {createWithBsPrefix} from "./createWithBsPrefix";
+import {divWithClassName} from "./divWithClassName";
 import CardImg from "./CardImg";
 import CardHeader from "./CardHeader";
-import { BsPrefixProps, BsPrefixRefForwardingComponent } from "./helpers";
-import { Color, Variant } from "./types";
-import { Dynamic } from "solid-js/web";
+import {BsPrefixProps, BsPrefixRefForwardingComponent} from "./helpers";
+import {Color, Variant} from "./types";
+import {Dynamic} from "solid-js/web";
 
 const DivStyledAsH5 = divWithClassName("h5");
 const DivStyledAsH6 = divWithClassName("h6");
@@ -18,14 +18,12 @@ const CardTitle = createWithBsPrefix("card-title", {
 const CardSubtitle = createWithBsPrefix("card-subtitle", {
   Component: DivStyledAsH6,
 });
-const CardLink = createWithBsPrefix("card-link", { Component: "a" });
-const CardText = createWithBsPrefix("card-text", { Component: "p" });
+const CardLink = createWithBsPrefix("card-link", {Component: "a"});
+const CardText = createWithBsPrefix("card-text", {Component: "p"});
 const CardFooter = createWithBsPrefix("card-footer");
 const CardImgOverlay = createWithBsPrefix("card-img-overlay");
 
-export interface CardProps
-  extends BsPrefixProps,
-    JSX.HTMLAttributes<HTMLElement> {
+export interface CardProps extends BsPrefixProps, JSX.HTMLAttributes<HTMLElement> {
   bg?: Variant;
   text?: Color;
   border?: Variant;
@@ -37,9 +35,7 @@ const defaultProps = {
   body: false,
 };
 
-const Card: BsPrefixRefForwardingComponent<"div", CardProps> = (
-  p: CardProps
-) => {
+const Card: BsPrefixRefForwardingComponent<"div", CardProps> = (p: CardProps) => {
   const [local, props] = splitProps(mergeProps(defaultProps, p), [
     "as",
     "bsPrefix",
@@ -61,7 +57,7 @@ const Card: BsPrefixRefForwardingComponent<"div", CardProps> = (
         prefix,
         local.bg && `bg-${local.bg}`,
         local.text && `text-${local.text}`,
-        local.border && `border-${local.border}`
+        local.border && `border-${local.border}`,
       )}
     >
       {local.body ? <CardBody>{local.children}</CardBody> : local.children}

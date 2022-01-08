@@ -1,9 +1,9 @@
-import { JSX, mergeProps, splitProps, useContext } from "solid-js";
+import {JSX, mergeProps, splitProps, useContext} from "solid-js";
 import classNames from "./classnames";
 import FormContext from "./FormContext";
-import { useBootstrapPrefix } from "./ThemeProvider";
-import { BsPrefixProps, BsPrefixRefForwardingComponent } from "./helpers";
-import { Dynamic } from "solid-js/web";
+import {useBootstrapPrefix} from "./ThemeProvider";
+import {BsPrefixProps, BsPrefixRefForwardingComponent} from "./helpers";
+import {Dynamic} from "solid-js/web";
 
 type FormCheckInputType = "checkbox" | "radio";
 
@@ -22,10 +22,9 @@ const defaultProps = {
   isInvalid: false,
 };
 
-const FormCheckInput: BsPrefixRefForwardingComponent<
-  "input",
-  FormCheckInputProps
-> = (p: FormCheckInputProps) => {
+const FormCheckInput: BsPrefixRefForwardingComponent<"input", FormCheckInputProps> = (
+  p: FormCheckInputProps,
+) => {
   const [local, props] = splitProps(mergeProps(defaultProps, p), [
     "as",
     "id",
@@ -49,7 +48,7 @@ const FormCheckInput: BsPrefixRefForwardingComponent<
         local.className,
         bsPrefix,
         local.isValid && "is-valid",
-        local.isInvalid && "is-invalid"
+        local.isInvalid && "is-invalid",
       )}
     >
       {props.children}

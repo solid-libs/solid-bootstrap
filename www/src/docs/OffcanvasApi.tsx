@@ -37,10 +37,9 @@ const OffcanvasApi = () => (
             <td>
               <div>
                 <p>
-                  When <code>true</code> The offcanvas will automatically shift
-                  focus to itself when it opens, and replace it to the last
-                  focused element when it closes. Generally this should never be
-                  set to false as it makes the offcanvas less accessible to
+                  When <code>true</code> The offcanvas will automatically shift focus to itself when
+                  it opens, and replace it to the last focused element when it closes. Generally
+                  this should never be set to false as it makes the offcanvas less accessible to
                   assistive technologies, like screen-readers.
                 </p>
               </div>
@@ -93,10 +92,9 @@ const OffcanvasApi = () => (
             <td>
               <div>
                 <p>
-                  When <code>true</code> The offcanvas will prevent focus from
-                  leaving the offcanvas while open. Consider leaving the default
-                  value here, as it is necessary to make the offcanvas work well
-                  with assistive technologies, such as screen readers.
+                  When <code>true</code> The offcanvas will prevent focus from leaving the offcanvas
+                  while open. Consider leaving the default value here, as it is necessary to make
+                  the offcanvas work well with assistive technologies, such as screen readers.
                 </p>
               </div>
             </td>
@@ -135,9 +133,7 @@ const OffcanvasApi = () => (
             <td></td>
             <td>
               <div>
-                <p>
-                  Callback fired after the offcanvas finishes transitioning in
-                </p>
+                <p>Callback fired after the offcanvas finishes transitioning in</p>
               </div>
             </td>
           </tr>
@@ -162,8 +158,8 @@ const OffcanvasApi = () => (
             <td>
               <div>
                 <p>
-                  A callback fired when the escape key, if specified in{" "}
-                  <code>keyboard</code>, is pressed.
+                  A callback fired when the escape key, if specified in <code>keyboard</code>, is
+                  pressed.
                 </p>
               </div>
             </td>
@@ -188,9 +184,7 @@ const OffcanvasApi = () => (
             <td></td>
             <td>
               <div>
-                <p>
-                  Callback fired after the offcanvas finishes transitioning out
-                </p>
+                <p>Callback fired after the offcanvas finishes transitioning out</p>
               </div>
             </td>
           </tr>
@@ -215,8 +209,8 @@ const OffcanvasApi = () => (
             <td>
               <div>
                 <p>
-                  A callback fired when the header closeButton or backdrop is
-                  clicked. Required if either are specified.
+                  A callback fired when the header closeButton or backdrop is clicked. Required if
+                  either are specified.
                 </p>
               </div>
             </td>
@@ -253,9 +247,7 @@ const OffcanvasApi = () => (
             </td>
             <td>
               <div>
-                <p>
-                  Which side of the viewport the offcanvas will appear from.
-                </p>
+                <p>Which side of the viewport the offcanvas will appear from.</p>
               </div>
             </td>
           </tr>
@@ -270,8 +262,8 @@ const OffcanvasApi = () => (
             <td>
               <div>
                 <p>
-                  When <code>true</code> The offcanvas will restore focus to
-                  previously focused element once offcanvas is hidden
+                  When <code>true</code> The offcanvas will restore focus to previously focused
+                  element once offcanvas is hidden
                 </p>
               </div>
             </td>
@@ -285,8 +277,8 @@ const OffcanvasApi = () => (
             <td>
               <div>
                 <p>
-                  Options passed to focus function when{" "}
-                  <code>restoreFocus</code> is set to <code>true</code>
+                  Options passed to focus function when <code>restoreFocus</code> is set to{" "}
+                  <code>true</code>
                 </p>
               </div>
             </td>
@@ -332,10 +324,9 @@ const OffcanvasApi = () => (
             <td>
               <div>
                 <p>
-                  Change the underlying component CSS base class name and
-                  modifier class names prefix.{" "}
-                  <strong>This is an escape hatch</strong> for working with
-                  heavily customized bootstrap css.
+                  Change the underlying component CSS base class name and modifier class names
+                  prefix. <strong>This is an escape hatch</strong> for working with heavily
+                  customized bootstrap css.
                 </p>
               </div>
             </td>
@@ -368,9 +359,7 @@ const OffcanvasApi = () => (
             </td>
             <td>
               <div>
-                <p>
-                  Specify whether the Component should contain a close button
-                </p>
+                <p>Specify whether the Component should contain a close button</p>
               </div>
             </td>
           </tr>
@@ -385,8 +374,8 @@ const OffcanvasApi = () => (
             <td>
               <div>
                 <p>
-                  Provides an accessible label for the close button. It is used
-                  for Assistive Technology when the label text is not readable.
+                  Provides an accessible label for the close button. It is used for Assistive
+                  Technology when the label text is not readable.
                 </p>
               </div>
             </td>
@@ -416,10 +405,9 @@ const OffcanvasApi = () => (
             <td>
               <div>
                 <p>
-                  A Callback fired when the close button is clicked. If used
-                  directly inside a Offcanvas component, the onHide will
-                  automatically be propagated up to the parent Offcanvas{" "}
-                  <code>onHide</code>.
+                  A Callback fired when the close button is clicked. If used directly inside a
+                  Offcanvas component, the onHide will automatically be propagated up to the parent
+                  Offcanvas <code>onHide</code>.
                 </p>
               </div>
             </td>
@@ -435,10 +423,9 @@ const OffcanvasApi = () => (
             <td>
               <div>
                 <p>
-                  Change the underlying component CSS base class name and
-                  modifier class names prefix.{" "}
-                  <strong>This is an escape hatch</strong> for working with
-                  heavily customized bootstrap css.
+                  Change the underlying component CSS base class name and modifier class names
+                  prefix. <strong>This is an escape hatch</strong> for working with heavily
+                  customized bootstrap css.
                 </p>
               </div>
             </td>
@@ -489,10 +476,9 @@ const OffcanvasApi = () => (
             <td>
               <div>
                 <p>
-                  Change the underlying component CSS base class name and
-                  modifier class names prefix.{" "}
-                  <strong>This is an escape hatch</strong> for working with
-                  heavily customized bootstrap css.
+                  Change the underlying component CSS base class name and modifier class names
+                  prefix. <strong>This is an escape hatch</strong> for working with heavily
+                  customized bootstrap css.
                 </p>
               </div>
             </td>
@@ -543,10 +529,9 @@ const OffcanvasApi = () => (
             <td>
               <div>
                 <p>
-                  Change the underlying component CSS base class name and
-                  modifier class names prefix.{" "}
-                  <strong>This is an escape hatch</strong> for working with
-                  heavily customized bootstrap css.
+                  Change the underlying component CSS base class name and modifier class names
+                  prefix. <strong>This is an escape hatch</strong> for working with heavily
+                  customized bootstrap css.
                 </p>
               </div>
             </td>

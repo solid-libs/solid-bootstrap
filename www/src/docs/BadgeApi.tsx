@@ -73,8 +73,8 @@ const BadgeApi = () => (
             <td>
               <div>
                 <p>
-                  Add the <code>pill</code> modifier to make badges more rounded
-                  with some additional horizontal padding
+                  Add the <code>pill</code> modifier to make badges more rounded with some
+                  additional horizontal padding
                 </p>
               </div>
             </td>
@@ -120,10 +120,9 @@ const BadgeApi = () => (
             <td>
               <div>
                 <p>
-                  Change the underlying component CSS base class name and
-                  modifier class names prefix.{" "}
-                  <strong>This is an escape hatch</strong> for working with
-                  heavily customized bootstrap css.
+                  Change the underlying component CSS base class name and modifier class names
+                  prefix. <strong>This is an escape hatch</strong> for working with heavily
+                  customized bootstrap css.
                 </p>
               </div>
             </td>

@@ -1,4 +1,4 @@
-import { createWithBsPrefix } from "./createWithBsPrefix";
+import {createWithBsPrefix} from "./createWithBsPrefix";
 
 const FigureCaption = createWithBsPrefix("figure-caption", {
   Component: "figcaption",

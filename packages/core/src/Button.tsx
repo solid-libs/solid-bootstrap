@@ -1,6 +1,6 @@
-import { Accessor, createMemo, JSX, mergeProps, splitProps } from "solid-js";
-import { Dynamic } from "solid-js/web";
-import { callEventHandler } from "./utils";
+import {Accessor, createMemo, JSX, mergeProps, splitProps} from "solid-js";
+import {Dynamic} from "solid-js/web";
+import {callEventHandler} from "./utils";
 
 export type ButtonType = "button" | "reset" | "submit";
 
@@ -10,8 +10,7 @@ export interface AnchorOptions {
   target?: string;
 }
 
-export interface UseButtonPropsOptions<T extends HTMLElement>
-  extends AnchorOptions {
+export interface UseButtonPropsOptions<T extends HTMLElement> extends AnchorOptions {
   type?: ButtonType;
   disabled?: boolean;
   onClick?: JSX.EventHandlerUnion<T, MouseEvent>;
@@ -42,9 +41,11 @@ export interface UseButtonPropsMetadata {
 
 const defaultOptions = {
   tabIndex: 0,
-}
+};
 
-export function useButtonProps<T extends HTMLElement>(o : UseButtonPropsOptions<T>): [AriaButtonProps<T>, UseButtonPropsMetadata] {
+export function useButtonProps<T extends HTMLElement>(
+  o: UseButtonPropsOptions<T>,
+): [AriaButtonProps<T>, UseButtonPropsMetadata] {
   const options = mergeProps(defaultOptions, o);
 
   const tagName = createMemo(() => {
@@ -55,8 +56,8 @@ export function useButtonProps<T extends HTMLElement>(o : UseButtonPropsOptions<
         return "button";
       }
     }
-    return options.tagName
-  })
+    return options.tagName;
+  });
 
   const meta: UseButtonPropsMetadata = {
     get tagName() {
@@ -65,36 +66,41 @@ export function useButtonProps<T extends HTMLElement>(o : UseButtonPropsOptions<
   };
 
   if (tagName() === "button") {
-    return [{ 
-      get type() {
-        return (options.type as any) || "button"
-      }, 
-      get disabled() {
-        return options.disabled
-      } 
-    }, meta];
+    return [
+      {
+        get type() {
+          return (options.type as any) || "button";
+        },
+        get disabled() {
+          return options.disabled;
+        },
+      },
+      meta,
+    ];
   }
 
-  const getClickHandler: Accessor<JSX.EventHandler<T, MouseEvent>> = createMemo(() => (event: MouseEvent) => {
-    if (options.disabled || (tagName() === "a" && isTrivialHref(options.href))) {
-      event.preventDefault();
-    }
+  const getClickHandler: Accessor<JSX.EventHandler<T, MouseEvent>> = createMemo(
+    () => (event: MouseEvent) => {
+      if (options.disabled || (tagName() === "a" && isTrivialHref(options.href))) {
+        event.preventDefault();
+      }
 
-    if (options.disabled) {
-      event.stopPropagation();
-      return;
-    }
-    callEventHandler(options.onClick, event);
-  });
+      if (options.disabled) {
+        event.stopPropagation();
+        return;
+      }
+      callEventHandler(options.onClick, event);
+    },
+  );
 
-  const getKeyDownHandler: Accessor<JSX.EventHandler<T, KeyboardEvent>> = createMemo(() => (event: KeyboardEvent) => {
-    if (event.key === " ") {
-      event.preventDefault();
-      getClickHandler()(
-        event as any /*HACK calling click handler with keyboard event*/
-      );
-    }
-  });
+  const getKeyDownHandler: Accessor<JSX.EventHandler<T, KeyboardEvent>> = createMemo(
+    () => (event: KeyboardEvent) => {
+      if (event.key === " ") {
+        event.preventDefault();
+        getClickHandler()(event as any /*HACK calling click handler with keyboard event*/);
+      }
+    },
+  );
 
   return [
     {
@@ -122,7 +128,7 @@ export function useButtonProps<T extends HTMLElement>(o : UseButtonPropsOptions<
       },
       get onKeyDown() {
         return getKeyDownHandler();
-      }
+      },
     },
     meta,
   ];
@@ -147,16 +153,14 @@ export interface BaseButtonProps {
   rel?: string | undefined;
 }
 
-export interface ButtonProps
-  extends BaseButtonProps,
-    JSX.HTMLAttributes<HTMLButtonElement> {}
+export interface ButtonProps extends BaseButtonProps, JSX.HTMLAttributes<HTMLButtonElement> {}
 
 const Button = (props: ButtonProps) => {
   const [local, otherProps] = splitProps(props, ["as"]);
 
   let a = props.tabIndex;
 
-  const [buttonProps, { tagName }] = useButtonProps({
+  const [buttonProps, {tagName}] = useButtonProps({
     tagName: local.as,
     ...otherProps,
   });

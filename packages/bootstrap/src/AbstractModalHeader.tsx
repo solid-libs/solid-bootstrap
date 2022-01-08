@@ -1,9 +1,8 @@
-import { JSX, mergeProps, splitProps, useContext } from "solid-js";
-import CloseButton, { CloseButtonVariant } from "./CloseButton";
+import {JSX, mergeProps, splitProps, useContext} from "solid-js";
+import CloseButton, {CloseButtonVariant} from "./CloseButton";
 import ModalContext from "./ModalContext";
 
-export interface AbstractModalHeaderProps
-  extends JSX.HTMLAttributes<HTMLDivElement> {
+export interface AbstractModalHeaderProps extends JSX.HTMLAttributes<HTMLDivElement> {
   closeLabel?: string;
   closeVariant?: CloseButtonVariant;
   closeButton?: boolean;

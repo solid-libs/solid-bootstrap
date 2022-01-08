@@ -1,15 +1,13 @@
-import { JSX, mergeProps, splitProps, useContext } from "solid-js";
+import {JSX, mergeProps, splitProps, useContext} from "solid-js";
 import classNames from "./classnames";
 
-import { useBootstrapPrefix } from "./ThemeProvider";
+import {useBootstrapPrefix} from "./ThemeProvider";
 import NavbarContext from "./NavbarContext";
-import { BsPrefixProps, BsPrefixRefForwardingComponent } from "./helpers";
-import { callEventHandler } from "solid-bootstrap-core";
-import { Dynamic } from "solid-js/web";
+import {BsPrefixProps, BsPrefixRefForwardingComponent} from "./helpers";
+import {callEventHandler} from "solid-bootstrap-core";
+import {Dynamic} from "solid-js/web";
 
-export interface NavbarToggleProps
-  extends BsPrefixProps,
-    JSX.HTMLAttributes<HTMLElement> {
+export interface NavbarToggleProps extends BsPrefixProps, JSX.HTMLAttributes<HTMLElement> {
   label?: string;
 }
 
@@ -18,10 +16,9 @@ const defaultProps = {
   label: "Toggle navigation",
 };
 
-const NavbarToggle: BsPrefixRefForwardingComponent<
-  "button",
-  NavbarToggleProps
-> = (p: NavbarToggleProps) => {
+const NavbarToggle: BsPrefixRefForwardingComponent<"button", NavbarToggleProps> = (
+  p: NavbarToggleProps,
+) => {
   const [local, props] = splitProps(mergeProps(defaultProps, p), [
     "as",
     "bsPrefix",
@@ -50,11 +47,7 @@ const NavbarToggle: BsPrefixRefForwardingComponent<
       type={local.as === "button" ? "button" : undefined}
       onClick={handleClick}
       aria-label={local.label}
-      className={classNames(
-        local.className,
-        bsPrefix,
-        !context?.expanded && "collapsed"
-      )}
+      className={classNames(local.className, bsPrefix, !context?.expanded && "collapsed")}
     >
       {local.children || <span className={`${bsPrefix}-icon`} />}
     </Dynamic>

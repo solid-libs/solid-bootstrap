@@ -1,9 +1,9 @@
-import { JSX, mergeProps, splitProps, useContext } from "solid-js";
+import {JSX, mergeProps, splitProps, useContext} from "solid-js";
 import classNames from "./classnames";
 import FormContext from "./FormContext";
-import { useBootstrapPrefix } from "./ThemeProvider";
+import {useBootstrapPrefix} from "./ThemeProvider";
 
-import { BsPrefixProps } from "./helpers";
+import {BsPrefixProps} from "./helpers";
 import FormCheckContext from "./FormCheckContext";
 
 export interface FormCheckLabelProps

@@ -1,4 +1,4 @@
-import { JSX, mergeProps, splitProps } from "solid-js";
+import {JSX, mergeProps, splitProps} from "solid-js";
 import classNames from "./classnames";
 import {
   Anchor,
@@ -6,22 +6,18 @@ import {
   makeEventKey,
   NavItemProps as BaseNavItemProps,
 } from "solid-bootstrap-core";
-import { useBootstrapPrefix } from "./ThemeProvider";
-import { BsPrefixProps, BsPrefixRefForwardingComponent } from "./helpers";
-import { Dynamic } from "solid-js/web";
+import {useBootstrapPrefix} from "./ThemeProvider";
+import {BsPrefixProps, BsPrefixRefForwardingComponent} from "./helpers";
+import {Dynamic} from "solid-js/web";
 
-export interface NavLinkProps
-  extends BsPrefixProps,
-    Omit<BaseNavItemProps, "as"> {}
+export interface NavLinkProps extends BsPrefixProps, Omit<BaseNavItemProps, "as"> {}
 
 const defaultProps = {
   as: Anchor,
   disabled: false,
 };
 
-const NavLink: BsPrefixRefForwardingComponent<"a", NavLinkProps> = (
-  p: NavLinkProps
-) => {
+const NavLink: BsPrefixRefForwardingComponent<"a", NavLinkProps> = (p: NavLinkProps) => {
   const [local, props] = splitProps(mergeProps(defaultProps, p), [
     "as",
     "bsPrefix",
@@ -40,8 +36,8 @@ const NavLink: BsPrefixRefForwardingComponent<"a", NavLinkProps> = (
           return local.active;
         },
       },
-      props
-    )
+      props,
+    ),
   );
 
   return (
@@ -53,7 +49,7 @@ const NavLink: BsPrefixRefForwardingComponent<"a", NavLinkProps> = (
         local.className,
         bsPrefix,
         props.disabled && "disabled",
-        meta.isActive && "active"
+        meta.isActive && "active",
       )}
     >
       {props.children}

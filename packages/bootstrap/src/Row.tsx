@@ -1,8 +1,8 @@
-import { JSX, mergeProps, splitProps } from "solid-js";
+import {JSX, mergeProps, splitProps} from "solid-js";
 import classNames from "./classnames";
-import { useBootstrapPrefix } from "./ThemeProvider";
-import { BsPrefixProps, BsPrefixRefForwardingComponent } from "./helpers";
-import { Dynamic } from "solid-js/web";
+import {useBootstrapPrefix} from "./ThemeProvider";
+import {BsPrefixProps, BsPrefixRefForwardingComponent} from "./helpers";
+import {Dynamic} from "solid-js/web";
 
 type RowColWidth =
   | number
@@ -19,11 +19,9 @@ type RowColWidth =
   | "11"
   | "12"
   | "auto";
-type RowColumns = RowColWidth | { cols?: RowColWidth };
+type RowColumns = RowColWidth | {cols?: RowColWidth};
 
-export interface RowProps
-  extends BsPrefixProps,
-    JSX.HTMLAttributes<HTMLElement> {
+export interface RowProps extends BsPrefixProps, JSX.HTMLAttributes<HTMLElement> {
   xs?: RowColumns;
   sm?: RowColumns;
   md?: RowColumns;
@@ -39,11 +37,7 @@ const defaultProps = {
 };
 
 const Row: BsPrefixRefForwardingComponent<"div", RowProps> = (p: RowProps) => {
-  const [local, props] = splitProps(mergeProps(defaultProps, p), [
-    "as",
-    "bsPrefix",
-    "className",
-  ]);
+  const [local, props] = splitProps(mergeProps(defaultProps, p), ["as", "bsPrefix", "className"]);
   const decoratedBsPrefix = useBootstrapPrefix(local.bsPrefix, "row");
   const sizePrefix = `${decoratedBsPrefix}-cols`;
   const classes: string[] = [];
@@ -54,7 +48,7 @@ const Row: BsPrefixRefForwardingComponent<"div", RowProps> = (p: RowProps) => {
 
     let cols;
     if (propValue != null && typeof propValue === "object") {
-      ({ cols } = propValue);
+      ({cols} = propValue);
     } else {
       cols = propValue;
     }

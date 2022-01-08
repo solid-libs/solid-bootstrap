@@ -33,17 +33,16 @@ export type Color =
   | "white"
   | "muted";
 
-export type Placement =
-  import("solid-bootstrap-core").DropdownProps["placement"];
+export type Placement = import("solid-bootstrap-core").DropdownProps["placement"];
 
 export type AlignDirection = "start" | "end";
 
 export type ResponsiveAlignProp =
-  | { sm: AlignDirection }
-  | { md: AlignDirection }
-  | { lg: AlignDirection }
-  | { xl: AlignDirection }
-  | { xxl: AlignDirection };
+  | {sm: AlignDirection}
+  | {md: AlignDirection}
+  | {lg: AlignDirection}
+  | {xl: AlignDirection}
+  | {xxl: AlignDirection};
 
 export type AlignType = AlignDirection | ResponsiveAlignProp;
 

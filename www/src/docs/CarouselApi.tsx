@@ -60,10 +60,7 @@ const CarouselApi = () => (
             </td>
             <td>
               <div>
-                <p>
-                  Show the Carousel previous and next arrows for changing the
-                  current slide
-                </p>
+                <p>Show the Carousel previous and next arrows for changing the current slide</p>
               </div>
             </td>
           </tr>
@@ -78,8 +75,7 @@ const CarouselApi = () => (
             <td>
               <div>
                 <p>
-                  Animates slides with a crossfade animation instead of the
-                  default slide animation
+                  Animates slides with a crossfade animation instead of the default slide animation
                 </p>
               </div>
             </td>
@@ -96,10 +92,7 @@ const CarouselApi = () => (
             </td>
             <td>
               <div>
-                <p>
-                  An array of labels for the indicators. Defaults to "Slide #"
-                  if not provided.
-                </p>
+                <p>An array of labels for the indicators. Defaults to "Slide #" if not provided.</p>
               </div>
             </td>
           </tr>
@@ -128,9 +121,8 @@ const CarouselApi = () => (
             <td>
               <div>
                 <p>
-                  The amount of time to delay between automatically cycling an
-                  item. If <code>null</code>, carousel will not automatically
-                  cycle.
+                  The amount of time to delay between automatically cycling an item. If{" "}
+                  <code>null</code>, carousel will not automatically cycle.
                 </p>
               </div>
             </td>
@@ -155,10 +147,7 @@ const CarouselApi = () => (
               <div>node</div>
             </td>
             <td>
-              <code>
-                &lt;span aria-hidden="true"
-                className="carousel-control-next-icon" /&gt;
-              </code>
+              <code>&lt;span aria-hidden="true" className="carousel-control-next-icon" /&gt;</code>
             </td>
             <td>
               <div>
@@ -177,8 +166,8 @@ const CarouselApi = () => (
             <td>
               <div>
                 <p>
-                  Label shown to screen readers only, can be used to show the
-                  next element in the carousel. Set to null to deactivate.
+                  Label shown to screen readers only, can be used to show the next element in the
+                  carousel. Set to null to deactivate.
                 </p>
               </div>
             </td>
@@ -220,9 +209,7 @@ const CarouselApi = () => (
                 <p>Callback fired when a slide transition ends.</p>
                 <div>
                   <pre>
-                    <code>
-                      {`(eventKey: number, direction: 'left' | 'right') => void`}
-                    </code>
+                    <code>{`(eventKey: number, direction: 'left' | 'right') => void`}</code>
                   </pre>
                 </div>
               </div>
@@ -239,9 +226,7 @@ const CarouselApi = () => (
                 <p>Callback fired when a slide transition starts.</p>
                 <div>
                   <pre>
-                    <code>
-                      {`(eventKey: number, direction: 'left' | 'right') => void`}
-                    </code>
+                    <code>{`(eventKey: number, direction: 'left' | 'right') => void`}</code>
                   </pre>
                 </div>
               </div>
@@ -264,17 +249,16 @@ const CarouselApi = () => (
             <td>
               <div>
                 <p>
-                  If set to <code>"hover"</code>, pauses the cycling of the
-                  carousel on <code>mouseenter</code> and resumes the cycling of
-                  the carousel on <code>mouseleave</code>. If set to{" "}
-                  <code>false</code>, hovering over the carousel won't pause it.
+                  If set to <code>"hover"</code>, pauses the cycling of the carousel on{" "}
+                  <code>mouseenter</code> and resumes the cycling of the carousel on{" "}
+                  <code>mouseleave</code>. If set to <code>false</code>, hovering over the carousel
+                  won't pause it.
                 </p>
                 <p>
-                  On touch-enabled devices, when set to <code>"hover"</code>,
-                  cycling will pause on <code>touchend</code> (once the user
-                  finished interacting with the carousel) for two intervals,
-                  before automatically resuming. Note that this is in addition
-                  to the above mouse behavior.
+                  On touch-enabled devices, when set to <code>"hover"</code>, cycling will pause on{" "}
+                  <code>touchend</code> (once the user finished interacting with the carousel) for
+                  two intervals, before automatically resuming. Note that this is in addition to the
+                  above mouse behavior.
                 </p>
               </div>
             </td>
@@ -285,16 +269,11 @@ const CarouselApi = () => (
               <div>node</div>
             </td>
             <td>
-              <code>
-                &lt;span aria-hidden="true"
-                className="carousel-control-prev-icon" /&gt;
-              </code>
+              <code>&lt;span aria-hidden="true" className="carousel-control-prev-icon" /&gt;</code>
             </td>
             <td>
               <div>
-                <p>
-                  Override the default button icon for the "previous" control
-                </p>
+                <p>Override the default button icon for the "previous" control</p>
               </div>
             </td>
           </tr>
@@ -309,8 +288,8 @@ const CarouselApi = () => (
             <td>
               <div>
                 <p>
-                  Label shown to screen readers only, can be used to show the
-                  previous element in the carousel. Set to null to deactivate.
+                  Label shown to screen readers only, can be used to show the previous element in
+                  the carousel. Set to null to deactivate.
                 </p>
               </div>
             </td>
@@ -325,10 +304,7 @@ const CarouselApi = () => (
             </td>
             <td>
               <div>
-                <p>
-                  Enables animation on the Carousel as it transitions between
-                  slides.
-                </p>
+                <p>Enables animation on the Carousel as it transitions between slides.</p>
               </div>
             </td>
           </tr>
@@ -343,8 +319,8 @@ const CarouselApi = () => (
             <td>
               <div>
                 <p>
-                  Whether the carousel should support left/right swipe
-                  interactions on touchscreen devices.
+                  Whether the carousel should support left/right swipe interactions on touchscreen
+                  devices.
                 </p>
               </div>
             </td>
@@ -362,8 +338,7 @@ const CarouselApi = () => (
             <td>
               <div>
                 <p>
-                  Color variant that controls the colors of the controls,
-                  indicators and captions.
+                  Color variant that controls the colors of the controls, indicators and captions.
                 </p>
               </div>
             </td>
@@ -378,10 +353,7 @@ const CarouselApi = () => (
             </td>
             <td>
               <div>
-                <p>
-                  Whether the carousel should cycle continuously or have hard
-                  stops.
-                </p>
+                <p>Whether the carousel should cycle continuously or have hard stops.</p>
               </div>
             </td>
           </tr>
@@ -396,10 +368,9 @@ const CarouselApi = () => (
             <td>
               <div>
                 <p>
-                  Change the underlying component CSS base class name and
-                  modifier class names prefix.{" "}
-                  <strong>This is an escape hatch</strong> for working with
-                  heavily customized bootstrap css.
+                  Change the underlying component CSS base class name and modifier class names
+                  prefix. <strong>This is an escape hatch</strong> for working with heavily
+                  customized bootstrap css.
                 </p>
               </div>
             </td>
@@ -442,9 +413,8 @@ const CarouselApi = () => (
             <td>
               <div>
                 <p>
-                  The amount of time to delay between automatically cycling this
-                  specific item. Will default to the Carousel's{" "}
-                  <code>interval</code> prop value if none is specified.
+                  The amount of time to delay between automatically cycling this specific item. Will
+                  default to the Carousel's <code>interval</code> prop value if none is specified.
                 </p>
               </div>
             </td>
@@ -460,10 +430,9 @@ const CarouselApi = () => (
             <td>
               <div>
                 <p>
-                  Change the underlying component CSS base class name and
-                  modifier class names prefix.{" "}
-                  <strong>This is an escape hatch</strong> for working with
-                  heavily customized bootstrap css.
+                  Change the underlying component CSS base class name and modifier class names
+                  prefix. <strong>This is an escape hatch</strong> for working with heavily
+                  customized bootstrap css.
                 </p>
               </div>
             </td>
@@ -511,10 +480,9 @@ const CarouselApi = () => (
             <td>
               <div>
                 <p>
-                  Change the underlying component CSS base class name and
-                  modifier class names prefix.{" "}
-                  <strong>This is an escape hatch</strong> for working with
-                  heavily customized bootstrap css.
+                  Change the underlying component CSS base class name and modifier class names
+                  prefix. <strong>This is an escape hatch</strong> for working with heavily
+                  customized bootstrap css.
                 </p>
               </div>
             </td>

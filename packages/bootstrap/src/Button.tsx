@@ -1,17 +1,12 @@
-import { mergeProps, splitProps } from "solid-js";
+import {mergeProps, splitProps} from "solid-js";
 import classNames from "./classnames";
-import {
-  useButtonProps,
-  ButtonProps as BaseButtonProps,
-} from "solid-bootstrap-core";
-import { useBootstrapPrefix } from "./ThemeProvider";
-import { BsPrefixProps, BsPrefixRefForwardingComponent } from "./helpers";
-import { ButtonVariant } from "./types";
-import { Dynamic } from "solid-js/web";
+import {useButtonProps, ButtonProps as BaseButtonProps} from "solid-bootstrap-core";
+import {useBootstrapPrefix} from "./ThemeProvider";
+import {BsPrefixProps, BsPrefixRefForwardingComponent} from "./helpers";
+import {ButtonVariant} from "./types";
+import {Dynamic} from "solid-js/web";
 
-export interface ButtonProps
-  extends BaseButtonProps,
-    Omit<BsPrefixProps, "as"> {
+export interface ButtonProps extends BaseButtonProps, Omit<BsPrefixProps, "as"> {
   active?: boolean;
   variant?: ButtonVariant;
   size?: "sm" | "lg";
@@ -25,9 +20,7 @@ const defaultProps = {
   disabled: false,
 };
 
-const Button: BsPrefixRefForwardingComponent<"button", ButtonProps> = (
-  p: ButtonProps
-) => {
+const Button: BsPrefixRefForwardingComponent<"button", ButtonProps> = (p: ButtonProps) => {
   const [local, props] = splitProps(mergeProps(defaultProps, p), [
     "as",
     "bsPrefix",
@@ -37,7 +30,7 @@ const Button: BsPrefixRefForwardingComponent<"button", ButtonProps> = (
     "className",
   ]);
   const prefix = useBootstrapPrefix(local.bsPrefix, "btn");
-  const [buttonProps, { tagName }] = useButtonProps({
+  const [buttonProps, {tagName}] = useButtonProps({
     tagName: local.as,
     ...props,
   });
@@ -53,7 +46,7 @@ const Button: BsPrefixRefForwardingComponent<"button", ButtonProps> = (
         local.active && "active",
         local.variant && `${prefix}-${local.variant}`,
         local.size && `${prefix}-${local.size}`,
-        props.href && props.disabled && "disabled"
+        props.href && props.disabled && "disabled",
       )}
     >
       {props.children}

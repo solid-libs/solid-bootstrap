@@ -1,19 +1,12 @@
-import SelectableContext, { makeEventKey } from "./SelectableContext";
+import SelectableContext, {makeEventKey} from "./SelectableContext";
 import NavContext from "./NavContext";
 
-import { EventKey, DynamicRefForwardingComponent } from "./types";
+import {EventKey, DynamicRefForwardingComponent} from "./types";
 import Button from "./Button";
-import { dataAttr } from "./DataKey";
-import { Dynamic } from "solid-js/web";
-import {
-  Component,
-  createMemo,
-  JSX,
-  mergeProps,
-  splitProps,
-  useContext,
-} from "solid-js";
-import { callEventHandler } from "./utils";
+import {dataAttr} from "./DataKey";
+import {Dynamic} from "solid-js/web";
+import {Component, createMemo, JSX, mergeProps, splitProps, useContext} from "solid-js";
+import {callEventHandler} from "./utils";
 
 export interface DropdownItemProps<T> extends JSX.HTMLAttributes<T> {
   /**
@@ -58,13 +51,13 @@ export function useDropdownItem(options: UseDropdownItemOptions) {
   const onSelectCtx = useContext(SelectableContext);
   const navContext = useContext(NavContext);
 
-  const { activeKey } = navContext || {};
+  const {activeKey} = navContext || {};
   const eventKey = makeEventKey(options.key, options.href);
 
   const isActive = createMemo(() =>
     options.active == null && options.key != null
       ? makeEventKey(activeKey) === eventKey
-      : options.active
+      : options.active,
   );
 
   const handleClick: JSX.EventHandler<HTMLElement, MouseEvent> = (event) => {
@@ -102,9 +95,9 @@ const DropdownItem: DynamicRefForwardingComponent<
 > = (p: DropdownItemProps<HTMLButtonElement>) => {
   const [local, props] = splitProps(
     // merge in prop defaults
-    mergeProps({ as: Button }, p),
+    mergeProps({as: Button}, p),
     // split off local props with rest passed to Dynamic
-    ["eventKey", "disabled", "onClick", "active", "as"]
+    ["eventKey", "disabled", "onClick", "active", "as"],
   );
 
   const [dropdownItemProps] = useDropdownItem({

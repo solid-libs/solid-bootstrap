@@ -1,11 +1,11 @@
-import { JSX, mergeProps, splitProps } from "solid-js";
+import {JSX, mergeProps, splitProps} from "solid-js";
 import classNames from "./classnames";
-import { createWithBsPrefix } from "./createWithBsPrefix";
-import { useBootstrapPrefix } from "./ThemeProvider";
-import FormCheckInput, { FormCheckInputProps } from "./FormCheckInput";
+import {createWithBsPrefix} from "./createWithBsPrefix";
+import {useBootstrapPrefix} from "./ThemeProvider";
+import FormCheckInput, {FormCheckInputProps} from "./FormCheckInput";
 import InputGroupContext from "./InputGroupContext";
-import { BsPrefixProps, BsPrefixRefForwardingComponent } from "./helpers";
-import { Dynamic } from "solid-js/web";
+import {BsPrefixProps, BsPrefixRefForwardingComponent} from "./helpers";
+import {Dynamic} from "solid-js/web";
 
 const InputGroupText = createWithBsPrefix("input-group-text", {
   Component: "span",
@@ -27,9 +27,7 @@ const InputGroupRadio = (props: FormCheckInputProps) => (
   </InputGroupText>
 );
 
-export interface InputGroupProps
-  extends BsPrefixProps,
-    JSX.HTMLAttributes<HTMLElement> {
+export interface InputGroupProps extends BsPrefixProps, JSX.HTMLAttributes<HTMLElement> {
   size?: "sm" | "lg";
   hasValidation?: boolean;
 }
@@ -44,9 +42,7 @@ const defaultProps = {
  * @property {InputGroupRadio} Radio
  * @property {InputGroupCheckbox} Checkbox
  */
-const InputGroup: BsPrefixRefForwardingComponent<"div", InputGroupProps> = (
-  p: InputGroupProps
-) => {
+const InputGroup: BsPrefixRefForwardingComponent<"div", InputGroupProps> = (p: InputGroupProps) => {
   const [local, props] = splitProps(mergeProps(defaultProps, p), [
     "as",
     "bsPrefix",
@@ -69,7 +65,7 @@ const InputGroup: BsPrefixRefForwardingComponent<"div", InputGroupProps> = (
           local.className,
           bsPrefix,
           local.size && `${bsPrefix}-${local.size}`,
-          local.hasValidation && "has-validation"
+          local.hasValidation && "has-validation",
         )}
       >
         {props.children}

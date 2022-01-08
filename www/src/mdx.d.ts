@@ -1,9 +1,11 @@
-declare module '*.mdx' {
-  import { JSX } from 'solid-js';
-  
+declare module "*.mdx" {
+  import {JSX} from "solid-js";
+
   type MDXComponents = {
-    [key in keyof JSX.IntrinsicElements]: string | ((props: JSX.IntrinsicElements[key]) => JSX.Element);
-  }
+    [key in keyof JSX.IntrinsicElements]:
+      | string
+      | ((props: JSX.IntrinsicElements[key]) => JSX.Element);
+  };
   interface MDXProps {
     components?: MDXComponents;
     children?: JSX.Element;

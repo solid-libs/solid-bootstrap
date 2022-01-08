@@ -25,8 +25,7 @@ const LayoutStackApi = () => (
             <td>
               <div>
                 <p>
-                  Sets the spacing between each item. Valid values are{" "}
-                  <code>0-5</code>.
+                  Sets the spacing between each item. Valid values are <code>0-5</code>.
                 </p>
               </div>
             </td>
@@ -42,15 +41,14 @@ const LayoutStackApi = () => (
             <td>
               <div>
                 <p>
-                  Change the underlying component CSS base class name and
-                  modifier class names prefix.
-                  <strong>This is an escape hatch</strong> for working with
-                  heavily customized bootstrap css.
+                  Change the underlying component CSS base class name and modifier class names
+                  prefix.
+                  <strong>This is an escape hatch</strong> for working with heavily customized
+                  bootstrap css.
                 </p>
                 <p>
-                  Defaults to <code>hstack</code> if direction is{" "}
-                  <code>horizontal</code> or <code>vstack</code> if direction is{" "}
-                  <code>vertical</code>.
+                  Defaults to <code>hstack</code> if direction is <code>horizontal</code> or{" "}
+                  <code>vstack</code> if direction is <code>vertical</code>.
                 </p>
               </div>
             </td>

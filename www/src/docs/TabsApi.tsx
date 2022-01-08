@@ -61,8 +61,7 @@ const TabsApi = () => (
             <td>
               <div>
                 <p>
-                  HTML id attribute, required if no <code>generateChildId</code>{" "}
-                  prop is specified.
+                  HTML id attribute, required if no <code>generateChildId</code> prop is specified.
                 </p>
               </div>
             </td>
@@ -77,10 +76,7 @@ const TabsApi = () => (
             </td>
             <td>
               <div>
-                <p>
-                  Wait until the first "enter" transition to mount tabs (add
-                  them to the DOM)
-                </p>
+                <p>Wait until the first "enter" transition to mount tabs (add them to the DOM)</p>
               </div>
             </td>
           </tr>
@@ -130,13 +126,12 @@ const TabsApi = () => (
             <td>
               <div>
                 <p>
-                  Sets a default animation strategy for all children{" "}
-                  <code>&lt;TabPane&gt;</code>s.&lt;tbcont
+                  Sets a default animation strategy for all children <code>&lt;TabPane&gt;</code>
+                  s.&lt;tbcont
                 </p>
                 <p>
-                  Defaults to <code>&lt;Fade&gt;</code> animation, else use{" "}
-                  <code>false</code> to disable or a solid-react-transition{" "}
-                  <code>&lt;Transition/&gt;</code> component.
+                  Defaults to <code>&lt;Fade&gt;</code> animation, else use <code>false</code> to
+                  disable or a solid-react-transition <code>&lt;Transition/&gt;</code> component.
                 </p>
               </div>
             </td>
@@ -151,10 +146,7 @@ const TabsApi = () => (
             </td>
             <td>
               <div>
-                <p>
-                  Unmount tabs (remove it from the DOM) when it is no longer
-                  visible
-                </p>
+                <p>Unmount tabs (remove it from the DOM) when it is no longer visible</p>
               </div>
             </td>
           </tr>
@@ -218,9 +210,9 @@ const TabsApi = () => (
             <td>
               <div>
                 <p>
-                  A unique identifier for the Component, the{" "}
-                  <code>eventKey</code> makes it distinguishable from others in
-                  a set. It only needs to be unique amongst the Components siblings, not globally.
+                  A unique identifier for the Component, the <code>eventKey</code> makes it
+                  distinguishable from others in a set. It only needs to be unique amongst the
+                  Components siblings, not globally.
                 </p>
               </div>
             </td>
@@ -303,18 +295,17 @@ const TabsApi = () => (
             <td>
               <div>
                 <p>
-                  A function that takes an <code>eventKey</code> and{" "}
-                  <code>type</code> and returns a unique id for child tab{" "}
-                  <code>&lt;NavItem&gt;</code>s and <code>&lt;TabPane&gt;</code>
-                  s. The function <em>must</em> be a pure function, meaning it
-                  should always return the <em>same</em> id for the same set of
-                  inputs. The default value requires that an <code>id</code> to
-                  be set for the
+                  A function that takes an <code>eventKey</code> and <code>type</code> and returns a
+                  unique id for child tab <code>&lt;NavItem&gt;</code>s and{" "}
+                  <code>&lt;TabPane&gt;</code>
+                  s. The function <em>must</em> be a pure function, meaning it should always return
+                  the <em>same</em> id for the same set of inputs. The default value requires that
+                  an <code>id</code> to be set for the
                   <code>&lt;TabContainer&gt;</code>.
                 </p>
                 <p>
-                  The <code>type</code> argument will either be{" "}
-                  <code>"tab"</code> or <code>"pane"</code>.
+                  The <code>type</code> argument will either be <code>"tab"</code> or{" "}
+                  <code>"pane"</code>.
                 </p>
               </div>
             </td>
@@ -328,8 +319,7 @@ const TabsApi = () => (
             <td>
               <div>
                 <p>
-                  HTML id attribute, required if no <code>generateChildId</code>{" "}
-                  prop is specified.
+                  HTML id attribute, required if no <code>generateChildId</code> prop is specified.
                 </p>
               </div>
             </td>
@@ -342,10 +332,7 @@ const TabsApi = () => (
             <td></td>
             <td>
               <div>
-                <p>
-                  Wait until the first "enter" transition to mount tabs (add
-                  them to the DOM)
-                </p>
+                <p>Wait until the first "enter" transition to mount tabs (add them to the DOM)</p>
               </div>
             </td>
           </tr>
@@ -381,11 +368,9 @@ const TabsApi = () => (
             <td>
               <div>
                 <p>
-                  Sets a default animation strategy for all children{" "}
-                  <code>&lt;TabPane&gt;</code>s. Defaults to{" "}
-                  <code>&lt;Fade&gt;</code> animation; else, use{" "}
-                  <code>false</code> to disable, or a custom
-                  solid-react-transition <code>&lt;Transition/&gt;</code>{" "}
+                  Sets a default animation strategy for all children <code>&lt;TabPane&gt;</code>s.
+                  Defaults to <code>&lt;Fade&gt;</code> animation; else, use <code>false</code> to
+                  disable, or a custom solid-react-transition <code>&lt;Transition/&gt;</code>{" "}
                   component.
                 </p>
               </div>
@@ -399,10 +384,7 @@ const TabsApi = () => (
             <td></td>
             <td>
               <div>
-                <p>
-                  Unmount tabs (remove it from the DOM) when they are no longer
-                  visible
-                </p>
+                <p>Unmount tabs (remove it from the DOM) when they are no longer visible</p>
               </div>
             </td>
           </tr>
@@ -452,10 +434,9 @@ const TabsApi = () => (
             <td>
               <div>
                 <p>
-                  Change the underlying component CSS base class name and
-                  modifier class names prefix.{" "}
-                  <strong>This is an escape hatch</strong> for working with
-                  heavily customized bootstrap css.
+                  Change the underlying component CSS base class name and modifier class names
+                  prefix. <strong>This is an escape hatch</strong> for working with heavily
+                  customized bootstrap css.
                 </p>
               </div>
             </td>
@@ -488,8 +469,8 @@ const TabsApi = () => (
             <td>
               <div>
                 <p>
-                  Toggles the active state of the TabPane, this is generally
-                  controlled by a TabContainer.
+                  Toggles the active state of the TabPane, this is generally controlled by a
+                  TabContainer.
                 </p>
               </div>
             </td>
@@ -525,8 +506,8 @@ const TabsApi = () => (
             <td>
               <div>
                 <p>
-                  A key that associates the <code>TabPane</code> with it's
-                  controlling <code>NavLink</code>.
+                  A key that associates the <code>TabPane</code> with it's controlling{" "}
+                  <code>NavLink</code>.
                 </p>
               </div>
             </td>
@@ -549,10 +530,7 @@ const TabsApi = () => (
             <td></td>
             <td>
               <div>
-                <p>
-                  Wait until the first "enter" transition to mount the tab (add
-                  it to the DOM)
-                </p>
+                <p>Wait until the first "enter" transition to mount the tab (add it to the DOM)</p>
               </div>
             </td>
           </tr>
@@ -565,8 +543,7 @@ const TabsApi = () => (
             <td>
               <div>
                 <p>
-                  Transition onEnter callback when animation is not{" "}
-                  <code>false</code>
+                  Transition onEnter callback when animation is not <code>false</code>
                 </p>
               </div>
             </td>
@@ -580,8 +557,7 @@ const TabsApi = () => (
             <td>
               <div>
                 <p>
-                  Transition onEntered callback when animation is not{" "}
-                  <code>false</code>
+                  Transition onEntered callback when animation is not <code>false</code>
                 </p>
               </div>
             </td>
@@ -595,8 +571,7 @@ const TabsApi = () => (
             <td>
               <div>
                 <p>
-                  Transition onEntering callback when animation is not{" "}
-                  <code>false</code>
+                  Transition onEntering callback when animation is not <code>false</code>
                 </p>
               </div>
             </td>
@@ -610,8 +585,7 @@ const TabsApi = () => (
             <td>
               <div>
                 <p>
-                  Transition onExit callback when animation is not{" "}
-                  <code>false</code>
+                  Transition onExit callback when animation is not <code>false</code>
                 </p>
               </div>
             </td>
@@ -625,8 +599,7 @@ const TabsApi = () => (
             <td>
               <div>
                 <p>
-                  Transition onExited callback when animation is not{" "}
-                  <code>false</code>
+                  Transition onExited callback when animation is not <code>false</code>
                 </p>
               </div>
             </td>
@@ -640,8 +613,7 @@ const TabsApi = () => (
             <td>
               <div>
                 <p>
-                  Transition onExiting callback when animation is not{" "}
-                  <code>false</code>
+                  Transition onExiting callback when animation is not <code>false</code>
                 </p>
               </div>
             </td>
@@ -655,11 +627,9 @@ const TabsApi = () => (
             <td>
               <div>
                 <p>
-                  Use animation when showing or hiding{" "}
-                  <code>&lt;TabPane&gt;</code>s. Defaults to{" "}
+                  Use animation when showing or hiding <code>&lt;TabPane&gt;</code>s. Defaults to{" "}
                   <code>&lt;Fade&gt;</code>
-                  animation, else use <code>false</code> to disable or a
-                  solid-react-transition
+                  animation, else use <code>false</code> to disable or a solid-react-transition
                   <code>&lt;Transition/&gt;</code> component.
                 </p>
               </div>
@@ -673,10 +643,7 @@ const TabsApi = () => (
             <td></td>
             <td>
               <div>
-                <p>
-                  Unmount the tab (remove it from the DOM) when it is no longer
-                  visible
-                </p>
+                <p>Unmount the tab (remove it from the DOM) when it is no longer visible</p>
               </div>
             </td>
           </tr>
@@ -691,10 +658,9 @@ const TabsApi = () => (
             <td>
               <div>
                 <p>
-                  Change the underlying component CSS base class name and
-                  modifier class names prefix.{" "}
-                  <strong>This is an escape hatch</strong> for working with
-                  heavily customized bootstrap css.
+                  Change the underlying component CSS base class name and modifier class names
+                  prefix. <strong>This is an escape hatch</strong> for working with heavily
+                  customized bootstrap css.
                 </p>
               </div>
             </td>

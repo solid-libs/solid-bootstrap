@@ -1,4 +1,4 @@
-import {  createSignal } from "solid-js";
+import {createSignal} from "solid-js";
 
 const booleanSignal = createSignal(false);
 
@@ -15,10 +15,9 @@ export const handleClose = (name: string) => () => signal(name)[1](false);
 
 const [fullscreen1, setFullscreen1] = createSignal<string | null>(null);
 export const fullscreen = fullscreen1;
-export const setFullscreen = setFullscreen1
+export const setFullscreen = setFullscreen1;
 
 export const infoStyle = {
   "background-color": "#bbeffd",
   border: "1px solid #61dafb",
-}
-
+};

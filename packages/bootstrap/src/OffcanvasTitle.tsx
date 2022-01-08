@@ -1,5 +1,5 @@
-import { createWithBsPrefix } from "./createWithBsPrefix";
-import { divWithClassName } from "./divWithClassName";
+import {createWithBsPrefix} from "./createWithBsPrefix";
+import {divWithClassName} from "./divWithClassName";
 
 const DivStyledAsH5 = divWithClassName("h5");
 

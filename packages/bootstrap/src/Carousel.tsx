@@ -13,22 +13,17 @@ import {
   onCleanup,
   splitProps,
 } from "solid-js";
-import {
-  Anchor,
-  callEventHandler,
-  createControlledProp,
-  resolveClasses,
-} from "solid-bootstrap-core";
+import {Anchor, callEventHandler, createControlledProp, resolveClasses} from "solid-bootstrap-core";
 import classNames from "./classnames";
 import CarouselCaption from "./CarouselCaption";
-import CarouselItem, { CarouselItemReturnType } from "./CarouselItem";
-import { useBootstrapPrefix, useIsRTL } from "./ThemeProvider";
+import CarouselItem, {CarouselItemReturnType} from "./CarouselItem";
+import {useBootstrapPrefix, useIsRTL} from "./ThemeProvider";
 import transitionEndListener from "./transitionEndListener";
 import triggerBrowserReflow from "./triggerBrowserReflow";
-import { BsPrefixProps, BsPrefixRefForwardingComponent } from "./helpers";
-import { Dynamic } from "solid-js/web";
+import {BsPrefixProps, BsPrefixRefForwardingComponent} from "./helpers";
+import {Dynamic} from "solid-js/web";
 import TransitionWrapper from "./TransitionWrapper";
-import { TransitionStatus } from "solid-react-transition";
+import {TransitionStatus} from "solid-react-transition";
 
 export type CarouselVariant = "dark";
 
@@ -105,9 +100,7 @@ function isVisible(element: HTMLElement) {
   );
 }
 
-const Carousel: BsPrefixRefForwardingComponent<"div", CarouselProps> = (
-  p: CarouselProps
-) => {
+const Carousel: BsPrefixRefForwardingComponent<"div", CarouselProps> = (p: CarouselProps) => {
   const [local, props] = splitProps(mergeProps(defaultProps, p), [
     "as",
     "bsPrefix",
@@ -145,7 +138,7 @@ const Carousel: BsPrefixRefForwardingComponent<"div", CarouselProps> = (
   const [activeIndex, onSelect] = createControlledProp(
     () => local.activeIndex,
     () => local.defaultActiveIndex,
-    local.onSelect
+    local.onSelect,
   );
 
   const prefix = useBootstrapPrefix(local.bsPrefix, "carousel");
@@ -157,15 +150,11 @@ const Carousel: BsPrefixRefForwardingComponent<"div", CarouselProps> = (
       : [resolvedChildren]) as unknown as CarouselItemReturnType[];
   });
 
-  const [nextDirectionRef, setNextDirectionRef] = createSignal<string | null>(
-    null
-  );
+  const [nextDirectionRef, setNextDirectionRef] = createSignal<string | null>(null);
   const [direction, setDirection] = createSignal("next");
   const [paused, setPaused] = createSignal(false);
   const [isSliding, setIsSliding] = createSignal(false);
-  const [renderedActiveIndex, setRenderedActiveIndex] = createSignal<number>(
-    activeIndex() || 0
-  );
+  const [renderedActiveIndex, setRenderedActiveIndex] = createSignal<number>(activeIndex() || 0);
 
   createComputed(() =>
     batch(() => {
@@ -173,16 +162,14 @@ const Carousel: BsPrefixRefForwardingComponent<"div", CarouselProps> = (
         if (nextDirectionRef()) {
           setDirection(nextDirectionRef()!);
         } else {
-          setDirection(
-            (activeIndex() || 0) > renderedActiveIndex() ? "next" : "prev"
-          );
+          setDirection((activeIndex() || 0) > renderedActiveIndex() ? "next" : "prev");
         }
         if (local.slide) {
           setIsSliding(true);
         }
         setRenderedActiveIndex(activeIndex() || 0);
       }
-    })
+    }),
   );
 
   createEffect(() => {
@@ -259,9 +246,7 @@ const Carousel: BsPrefixRefForwardingComponent<"div", CarouselProps> = (
     }
   };
 
-  const slideDirection = createMemo(() =>
-    direction() === "next" ? "start" : "end"
-  );
+  const slideDirection = createMemo(() => (direction() === "next" ? "start" : "end"));
 
   createEffect(() => {
     if (local.slide) {
@@ -274,9 +259,7 @@ const Carousel: BsPrefixRefForwardingComponent<"div", CarouselProps> = (
   });
 
   const orderClassName = createMemo(() => `${prefix}-item-${direction()}`);
-  const directionalClassName = createMemo(
-    () => `${prefix}-item-${slideDirection()}`
-  );
+  const directionalClassName = createMemo(() => `${prefix}-item-${slideDirection()}`);
 
   const handleEnter = (node: any) => {
     triggerBrowserReflow(node!);
@@ -293,7 +276,7 @@ const Carousel: BsPrefixRefForwardingComponent<"div", CarouselProps> = (
       local.keyboard &&
       !/input|textarea/i.test(
         //@ts-ignore
-        event.target.tagName
+        event.target.tagName,
       )
     ) {
       switch (event.key) {
@@ -375,9 +358,7 @@ const Carousel: BsPrefixRefForwardingComponent<"div", CarouselProps> = (
     callEventHandler(local.onTouchEnd, event);
   };
 
-  const shouldPlay = createMemo(
-    () => local.interval != null && !paused() && !isSliding()
-  );
+  const shouldPlay = createMemo(() => local.interval != null && !paused() && !isSliding());
 
   const [intervalHandleRef, setIntervalHandleRef] = createSignal<number>();
 
@@ -390,8 +371,8 @@ const Carousel: BsPrefixRefForwardingComponent<"div", CarouselProps> = (
     setIntervalHandleRef(
       window.setInterval(
         document.visibilityState ? nextWhenVisible : nextFunc,
-        activeChildInterval() ?? local.interval ?? undefined
-      )
+        activeChildInterval() ?? local.interval ?? undefined,
+      ),
     );
 
     onCleanup(() => {
@@ -419,7 +400,7 @@ const Carousel: BsPrefixRefForwardingComponent<"div", CarouselProps> = (
         prefix,
         local.slide && "slide",
         local.fade && `${prefix}-fade`,
-        local.variant && `${prefix}-${local.variant}`
+        local.variant && `${prefix}-${local.variant}`,
       )}
     >
       {local.indicators && (
@@ -455,19 +436,12 @@ const Carousel: BsPrefixRefForwardingComponent<"div", CarouselProps> = (
                 addEndListener={transitionEndListener}
               >
                 {
-                  ((
-                    status: TransitionStatus,
-                    innerProps: { ref: (el: HTMLElement) => void }
-                  ) => {
+                  ((status: TransitionStatus, innerProps: {ref: (el: HTMLElement) => void}) => {
                     innerProps.ref(el);
                     const newClasses = classNames(
-                      isActive(index()) &&
-                        status !== "entered" &&
-                        orderClassName(),
-                      (status === "entered" || status === "exiting") &&
-                        "active",
-                      (status === "entering" || status === "exiting") &&
-                        directionalClassName()
+                      isActive(index()) && status !== "entered" && orderClassName(),
+                      (status === "entered" || status === "exiting") && "active",
+                      (status === "entering" || status === "exiting") && directionalClassName(),
                     );
                     resolveClasses(el, child.prevClasses, newClasses);
                     child.prevClasses = newClasses;
@@ -491,28 +465,14 @@ const Carousel: BsPrefixRefForwardingComponent<"div", CarouselProps> = (
         <>
           {(local.wrap || activeIndex() !== 0) && (
             <Anchor className={`${prefix}-control-prev`} onClick={prev}>
-              {local.prevIcon ?? (
-                <span
-                  aria-hidden="true"
-                  className="carousel-control-prev-icon"
-                />
-              )}
-              {local.prevLabel && (
-                <span className="visually-hidden">{local.prevLabel}</span>
-              )}
+              {local.prevIcon ?? <span aria-hidden="true" className="carousel-control-prev-icon" />}
+              {local.prevLabel && <span className="visually-hidden">{local.prevLabel}</span>}
             </Anchor>
           )}
           {(local.wrap || activeIndex() !== items().length - 1) && (
             <Anchor className={`${prefix}-control-next`} onClick={next}>
-              {local.nextIcon ?? (
-                <span
-                  aria-hidden="true"
-                  className="carousel-control-next-icon"
-                />
-              )}
-              {local.nextLabel && (
-                <span className="visually-hidden">{local.nextLabel}</span>
-              )}
+              {local.nextIcon ?? <span aria-hidden="true" className="carousel-control-next-icon" />}
+              {local.nextLabel && <span className="visually-hidden">{local.nextLabel}</span>}
             </Anchor>
           )}
         </>

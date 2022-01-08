@@ -1,12 +1,11 @@
-import { JSX, splitProps } from "solid-js";
+import {JSX, splitProps} from "solid-js";
 import classNames from "./classnames";
-import { useBootstrapPrefix } from "./ThemeProvider";
-import Button, { ButtonProps } from "./Button";
+import {useBootstrapPrefix} from "./ThemeProvider";
+import Button, {ButtonProps} from "./Button";
 
 export type ToggleButtonType = "checkbox" | "radio";
 
-export interface ToggleButtonProps
-  extends Omit<ButtonProps, "onChange" | "type"> {
+export interface ToggleButtonProps extends Omit<ButtonProps, "onChange" | "type"> {
   type?: ToggleButtonType;
   name?: string;
   checked?: boolean;

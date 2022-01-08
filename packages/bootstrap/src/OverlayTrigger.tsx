@@ -1,12 +1,12 @@
-import { children, createSignal, JSX, mergeProps, splitProps } from "solid-js";
-import { isServer } from "solid-js/web";
+import {children, createSignal, JSX, mergeProps, splitProps} from "solid-js";
+import {isServer} from "solid-js/web";
 import contains from "dom-helpers/contains";
-import { createControlledProp } from "solid-bootstrap-core";
-import Overlay, { OverlayProps } from "./Overlay";
+import {createControlledProp} from "solid-bootstrap-core";
+import Overlay, {OverlayProps} from "./Overlay";
 
 export type OverlayTriggerType = "hover" | "click" | "focus";
 
-export type OverlayDelay = number | { show: number; hide: number };
+export type OverlayDelay = number | {show: number; hide: number};
 
 export type OverlayInjectedProps = {
   onFocus?: (...args: any[]) => any;
@@ -16,8 +16,7 @@ export type OverlayTriggerRenderProps = OverlayInjectedProps & {
   ref: (ref: any) => void;
 };
 
-export interface OverlayTriggerProps
-  extends Omit<OverlayProps, "children" | "target"> {
+export interface OverlayTriggerProps extends Omit<OverlayProps, "children" | "target"> {
   children: JSX.Element;
   trigger?: OverlayTriggerType | OverlayTriggerType[];
   delay?: OverlayDelay;
@@ -48,16 +47,13 @@ function handleMouseOverOut(
   // eslint-disable-next-line @typescript-eslint/no-shadow
   handler: (...args: [Event, ...any[]]) => any,
   args: [Event, ...any[]],
-  relatedNative: "fromElement" | "toElement"
+  relatedNative: "fromElement" | "toElement",
 ) {
   const [e] = args;
   const target = e.currentTarget;
   const related = (e as MouseEvent).relatedTarget;
 
-  if (
-    (!related || related !== target) &&
-    !contains(target as Element, related as Element)
-  ) {
+  if ((!related || related !== target) && !contains(target as Element, related as Element)) {
     handler(...args);
   }
 }
@@ -75,7 +71,7 @@ function OverlayTrigger(p: OverlayTriggerProps) {
       {
         flip: p.placement && p.placement.indexOf("auto") !== -1,
       },
-      p
+      p,
     ),
     [
       "trigger",
@@ -88,7 +84,7 @@ function OverlayTrigger(p: OverlayTriggerProps) {
       "delay",
       "placement",
       "flip",
-    ]
+    ],
   );
   let [triggerNodeRef, setTriggerNodeRef] = createSignal<Element | undefined>();
   const mergedRef = (r: Element | undefined) => {
@@ -101,7 +97,7 @@ function OverlayTrigger(p: OverlayTriggerProps) {
   const [show, setShow] = createControlledProp(
     () => local.show,
     () => local.defaultShow,
-    local.onToggle
+    local.onToggle,
   );
 
   const delay = normalizeDelay(local.delay);
@@ -155,8 +151,7 @@ function OverlayTrigger(p: OverlayTriggerProps) {
   };
 
   const addListeners = (el: Element) => {
-    const triggers: string[] =
-      local.trigger == null ? [] : [].concat(local.trigger as any);
+    const triggers: string[] = local.trigger == null ? [] : [].concat(local.trigger as any);
     if (triggers.indexOf("click") !== -1) {
       el.addEventListener("click", handleClick);
     }

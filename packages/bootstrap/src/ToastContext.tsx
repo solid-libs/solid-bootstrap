@@ -1,4 +1,4 @@
-import { createContext } from "solid-js";
+import {createContext} from "solid-js";
 
 export interface ToastContextType {
   onClose?: (e?: MouseEvent | KeyboardEvent) => void;

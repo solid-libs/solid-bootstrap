@@ -1,4 +1,4 @@
-import { createContext } from "solid-js";
+import {createContext} from "solid-js";
 
 const context = createContext<unknown | null>(null);
 

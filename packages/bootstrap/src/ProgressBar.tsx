@@ -1,17 +1,9 @@
-import {
-  createContext,
-  JSX,
-  mergeProps,
-  splitProps,
-  useContext,
-} from "solid-js";
+import {createContext, JSX, mergeProps, splitProps, useContext} from "solid-js";
 import classNames from "./classnames";
-import { useBootstrapPrefix } from "./ThemeProvider";
-import { BsPrefixProps } from "./helpers";
+import {useBootstrapPrefix} from "./ThemeProvider";
+import {BsPrefixProps} from "./helpers";
 
-export interface ProgressBarProps
-  extends JSX.HTMLAttributes<HTMLDivElement>,
-    BsPrefixProps {
+export interface ProgressBarProps extends JSX.HTMLAttributes<HTMLDivElement>, BsPrefixProps {
   min?: number;
   now?: number;
   max?: number;
@@ -22,7 +14,7 @@ export interface ProgressBarProps
   variant?: "success" | "danger" | "warning" | "info" | string;
 }
 
-const ProgressContext = createContext<{ isStacked: boolean }>();
+const ProgressContext = createContext<{isStacked: boolean}>();
 
 const ROUND_PRECISION = 1000;
 
@@ -72,11 +64,7 @@ function renderProgressBar(p: ProgressBarProps) {
       aria-valuemin={local.min}
       aria-valuemax={local.max}
     >
-      {local.visuallyHidden ? (
-        <span className="visually-hidden">{local.label}</span>
-      ) : (
-        local.label
-      )}
+      {local.visuallyHidden ? <span className="visually-hidden">{local.label}</span> : local.label}
     </div>
   );
 }
@@ -111,7 +99,7 @@ const ProgressBar = (p: ProgressBarProps) => {
   return context?.isStacked ? (
     renderProgressBar(barProps)
   ) : (
-    <ProgressContext.Provider value={{ isStacked: true }}>
+    <ProgressContext.Provider value={{isStacked: true}}>
       <div {...wrapperProps} className={classNames(local.className, bsPrefix)}>
         {local.children ?? renderProgressBar(barProps)}
       </div>

@@ -1,19 +1,11 @@
-import { JSX, mergeProps, splitProps } from "solid-js";
+import {JSX, mergeProps, splitProps} from "solid-js";
 import classNames from "./classnames";
-import { useBootstrapPrefix } from "./ThemeProvider";
-import { BsPrefixProps } from "./helpers";
+import {useBootstrapPrefix} from "./ThemeProvider";
+import {BsPrefixProps} from "./helpers";
 
-export interface ModalDialogProps
-  extends JSX.HTMLAttributes<HTMLDivElement>,
-    BsPrefixProps {
+export interface ModalDialogProps extends JSX.HTMLAttributes<HTMLDivElement>, BsPrefixProps {
   size?: "sm" | "lg" | "xl";
-  fullscreen?:
-    | true
-    | "sm-down"
-    | "md-down"
-    | "lg-down"
-    | "xl-down"
-    | "xxl-down";
+  fullscreen?: true | "sm-down" | "md-down" | "lg-down" | "xl-down" | "xxl-down";
   centered?: boolean;
   scrollable?: boolean;
   contentClassName?: string;
@@ -49,12 +41,10 @@ const ModalDialog = (p: ModalDialogProps) => {
         local.size && `${bsPrefix}-${local.size}`,
         local.centered && `${dialogClass}-centered`,
         local.scrollable && `${dialogClass}-scrollable`,
-        local.fullscreen && fullScreenClass
+        local.fullscreen && fullScreenClass,
       )}
     >
-      <div
-        className={classNames(`${bsPrefix}-content`, local.contentClassName)}
-      >
+      <div className={classNames(`${bsPrefix}-content`, local.contentClassName)}>
         {local.children}
       </div>
     </div>

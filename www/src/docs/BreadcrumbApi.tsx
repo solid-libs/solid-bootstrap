@@ -60,8 +60,7 @@ const BreadcrumbApi = () => (
             <td>
               <div>
                 <p>
-                  Additional props passed as-is to the underlying{" "}
-                  <code>&lt;ol&gt;</code> element
+                  Additional props passed as-is to the underlying <code>&lt;ol&gt;</code> element
                 </p>
               </div>
             </td>
@@ -77,10 +76,9 @@ const BreadcrumbApi = () => (
             <td>
               <div>
                 <p>
-                  Change the underlying component CSS base class name and
-                  modifier class names prefix.{" "}
-                  <strong>This is an escape hatch</strong> for working with
-                  heavily customized bootstrap css.
+                  Change the underlying component CSS base class name and modifier class names
+                  prefix. <strong>This is an escape hatch</strong> for working with heavily
+                  customized bootstrap css.
                 </p>
               </div>
             </td>
@@ -110,10 +108,7 @@ const BreadcrumbApi = () => (
             </td>
             <td>
               <div>
-                <p>
-                  Adds a visual "active" state to a Breadcrumb Item and disables
-                  the link.
-                </p>
+                <p>Adds a visual "active" state to a Breadcrumb Item and disables the link.</p>
               </div>
             </td>
           </tr>
@@ -140,8 +135,7 @@ const BreadcrumbApi = () => (
             <td>
               <div>
                 <p>
-                  <code>href</code> attribute for the inner <code>a</code>{" "}
-                  element
+                  <code>href</code> attribute for the inner <code>a</code> element
                 </p>
               </div>
             </td>
@@ -156,10 +150,7 @@ const BreadcrumbApi = () => (
             </td>
             <td>
               <div>
-                <p>
-                  You can use a custom element type for this component's inner
-                  link.
-                </p>
+                <p>You can use a custom element type for this component's inner link.</p>
               </div>
             </td>
           </tr>
@@ -173,10 +164,7 @@ const BreadcrumbApi = () => (
             </td>
             <td>
               <div>
-                <p>
-                  Additional props passed as-is to the underlying link for
-                  non-active items.
-                </p>
+                <p>Additional props passed as-is to the underlying link for non-active items.</p>
               </div>
             </td>
           </tr>
@@ -189,8 +177,7 @@ const BreadcrumbApi = () => (
             <td>
               <div>
                 <p>
-                  <code>target</code> attribute for the inner <code>a</code>{" "}
-                  element
+                  <code>target</code> attribute for the inner <code>a</code> element
                 </p>
               </div>
             </td>
@@ -204,8 +191,7 @@ const BreadcrumbApi = () => (
             <td>
               <div>
                 <p>
-                  <code>title</code> attribute for the inner <code>a</code>{" "}
-                  element
+                  <code>title</code> attribute for the inner <code>a</code> element
                 </p>
               </div>
             </td>
@@ -221,10 +207,9 @@ const BreadcrumbApi = () => (
             <td>
               <div>
                 <p>
-                  Change the underlying component CSS base class name and
-                  modifier class names prefix.{" "}
-                  <strong>This is an escape hatch</strong> for working with
-                  heavily customized bootstrap css.
+                  Change the underlying component CSS base class name and modifier class names
+                  prefix. <strong>This is an escape hatch</strong> for working with heavily
+                  customized bootstrap css.
                 </p>
               </div>
             </td>

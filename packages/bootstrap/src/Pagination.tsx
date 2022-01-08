@@ -1,15 +1,13 @@
-import { JSX, mergeProps, splitProps } from "solid-js";
+import {JSX, mergeProps, splitProps} from "solid-js";
 import classNames from "./classnames";
 
-import { useBootstrapPrefix } from "./ThemeProvider";
-import PageItem, { Ellipsis, First, Last, Next, Prev } from "./PageItem";
-import { BsPrefixProps } from "./helpers";
+import {useBootstrapPrefix} from "./ThemeProvider";
+import PageItem, {Ellipsis, First, Last, Next, Prev} from "./PageItem";
+import {BsPrefixProps} from "./helpers";
 
 type PaginationSize = "sm" | "lg";
 
-export interface PaginationProps
-  extends BsPrefixProps,
-    JSX.HTMLAttributes<HTMLUListElement> {
+export interface PaginationProps extends BsPrefixProps, JSX.HTMLAttributes<HTMLUListElement> {
   size?: "sm" | "lg";
 }
 
@@ -24,11 +22,7 @@ const defaultProps = {};
  * @property {PageItem} Last
  */
 const Pagination = (p: PaginationProps) => {
-  const [local, props] = splitProps(mergeProps(defaultProps, p), [
-    "bsPrefix",
-    "className",
-    "size",
-  ]);
+  const [local, props] = splitProps(mergeProps(defaultProps, p), ["bsPrefix", "className", "size"]);
   const decoratedBsPrefix = useBootstrapPrefix(local.bsPrefix, "pagination");
   return (
     <ul
@@ -36,7 +30,7 @@ const Pagination = (p: PaginationProps) => {
       className={classNames(
         local.className,
         decoratedBsPrefix,
-        local.size && `${decoratedBsPrefix}-${local.size}`
+        local.size && `${decoratedBsPrefix}-${local.size}`,
       )}
     >
       {props.children}

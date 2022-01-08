@@ -1,4 +1,4 @@
-import { onMount } from "solid-js";
+import {onMount} from "solid-js";
 
 export const useHolderJSRefresh = () => {
   // workaround for holder.js not refreshing placeholder images
@@ -9,6 +9,6 @@ export const useHolderJSRefresh = () => {
 };
 
 export function HolderJSRefresh() {
-  useHolderJSRefresh()
+  useHolderJSRefresh();
   return null;
 }

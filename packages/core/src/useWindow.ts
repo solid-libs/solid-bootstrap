@@ -1,5 +1,5 @@
-import { createContext, useContext } from 'solid-js';
-import canUseDOM from 'dom-helpers/canUseDOM';
+import {createContext, useContext} from "solid-js";
+import canUseDOM from "dom-helpers/canUseDOM";
 
 const Context = createContext(canUseDOM ? window : undefined);
 

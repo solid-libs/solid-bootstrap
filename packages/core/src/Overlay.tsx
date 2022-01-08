@@ -1,10 +1,5 @@
-import usePopper, {
-  Offset,
-  Placement,
-  UsePopperOptions,
-  UsePopperState,
-} from "./usePopper";
-import useRootClose, { RootCloseOptions } from "./useRootClose";
+import usePopper, {Offset, Placement, UsePopperOptions, UsePopperState} from "./usePopper";
+import useRootClose, {RootCloseOptions} from "./useRootClose";
 import mergeOptionsWithPopperConfig from "./mergeOptionsWithPopperConfig";
 import {
   batch,
@@ -18,13 +13,10 @@ import {
   onCleanup,
   Show,
 } from "solid-js";
-import { createStore, reconcile } from "solid-js/store";
-import {
-  TransitionCallbacks,
-  TransitionComponent,
-} from "solid-react-transition";
-import { Portal } from "solid-js/web";
-import useWaitForDOMRef, { DOMContainer } from "./useWaitForDOMRef";
+import {createStore, reconcile} from "solid-js/store";
+import {TransitionCallbacks, TransitionComponent} from "solid-react-transition";
+import {Portal} from "solid-js/web";
+import useWaitForDOMRef, {DOMContainer} from "./useWaitForDOMRef";
 
 export interface OverlayArrowProps extends Record<string, any> {
   ref: (e: HTMLElement) => void;
@@ -124,7 +116,7 @@ export interface OverlayProps extends TransitionCallbacks {
   children: (
     wrapperProps: () => OverlayInjectedProps,
     arrowProps: () => Partial<OverlayArrowProps>,
-    meta: () => OverlayMetadata
+    meta: () => OverlayMetadata,
   ) => JSX.Element;
 }
 
@@ -145,9 +137,7 @@ const Overlay = (props: OverlayProps) => {
 
   const [popperOptions, setPopperOptions] = createStore<UsePopperOptions>({});
   const Transition = props.transition!;
-  const popperVisible = createMemo(
-    () => !!(props.show || (props.transition && !exited()))
-  );
+  const popperVisible = createMemo(() => !!(props.show || (props.transition && !exited())));
 
   /** sync popper options with props */
   createComputed(() => {
@@ -162,8 +152,8 @@ const Overlay = (props: OverlayProps) => {
           offset: props.offset,
           arrowElement: arrowElement(),
           popperConfig: props.popperConfig ?? {},
-        })
-      )
+        }),
+      ),
     );
   });
 

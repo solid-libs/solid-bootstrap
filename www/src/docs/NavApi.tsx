@@ -25,8 +25,8 @@ const NavApi = () => (
             <td>
               <div>
                 <p>
-                  Marks the NavItem with a matching <code>eventKey</code> (or{" "}
-                  <code>href</code> if present) as active.
+                  Marks the NavItem with a matching <code>eventKey</code> (or <code>href</code> if
+                  present) as active.
                 </p>
               </div>
             </td>
@@ -64,8 +64,7 @@ const NavApi = () => (
             <td>
               <div>
                 <p>
-                  Have all <code>NavItem</code>s proportionately fill all
-                  available width.
+                  Have all <code>NavItem</code>s proportionately fill all available width.
                 </p>
               </div>
             </td>
@@ -81,8 +80,7 @@ const NavApi = () => (
             <td>
               <div>
                 <p>
-                  Have all <code>NavItem</code>s evenly fill all available
-                  width.
+                  Have all <code>NavItem</code>s evenly fill all available width.
                 </p>
               </div>
             </td>
@@ -96,8 +94,8 @@ const NavApi = () => (
             <td>
               <div>
                 <p>
-                  Apply styling an alignment for use in a Navbar. This prop will
-                  be set automatically when the Nav is used inside a Navbar.
+                  Apply styling an alignment for use in a Navbar. This prop will be set
+                  automatically when the Nav is used inside a Navbar.
                 </p>
               </div>
             </td>
@@ -121,8 +119,7 @@ const NavApi = () => (
             <td>
               <div>
                 <p>
-                  Enable vertical scrolling within the toggleable contents of a
-                  collapsed Navbar.
+                  Enable vertical scrolling within the toggleable contents of a collapsed Navbar.
                 </p>
               </div>
             </td>
@@ -170,13 +167,12 @@ function (
             <td>
               <div>
                 <p>
-                  ARIA role for the Nav, in the context of a TabContainer, the
-                  default will be set to "tablist", but can be overridden by the
-                  Nav when set explicitly.
+                  ARIA role for the Nav, in the context of a TabContainer, the default will be set
+                  to "tablist", but can be overridden by the Nav when set explicitly.
                 </p>
                 <p>
-                  When the role is "tablist", NavLink focus is managed according
-                  to the ARIA authoring practices for tabs:
+                  When the role is "tablist", NavLink focus is managed according to the ARIA
+                  authoring practices for tabs:
                   <a href="https://www.w3.org/TR/2013/WD-wai-aria-practices-20130307/#tabpanel">
                     https://www.w3.org/TR/2013/WD-wai-aria-practices-20130307/#tabpanel
                   </a>
@@ -213,10 +209,9 @@ function (
             <td>
               <div>
                 <p>
-                  Change the underlying component CSS base class name and
-                  modifier class names prefix.{" "}
-                  <strong>This is an escape hatch</strong> for working with
-                  heavily customized bootstrap css.
+                  Change the underlying component CSS base class name and modifier class names
+                  prefix. <strong>This is an escape hatch</strong> for working with heavily
+                  customized bootstrap css.
                 </p>
               </div>
             </td>
@@ -267,10 +262,9 @@ function (
             <td>
               <div>
                 <p>
-                  Change the underlying component CSS base class name and
-                  modifier class names prefix.{" "}
-                  <strong>This is an escape hatch</strong> for working with
-                  heavily customized bootstrap css.
+                  Change the underlying component CSS base class name and modifier class names
+                  prefix. <strong>This is an escape hatch</strong> for working with heavily
+                  customized bootstrap css.
                 </p>
               </div>
             </td>
@@ -343,9 +337,8 @@ function (
             <td>
               <div>
                 <p>
-                  Uniquely identifies the <code>NavItem</code> amongst its
-                  siblings, used to determine and control the active state of
-                  the parent <code>Nav</code>
+                  Uniquely identifies the <code>NavItem</code> amongst its siblings, used to
+                  determine and control the active state of the parent <code>Nav</code>
                 </p>
               </div>
             </td>
@@ -373,8 +366,8 @@ function (
             <td>
               <div>
                 <p>
-                  The ARIA role for the <code>NavLink</code>, In the context of
-                  a 'tablist' parent Nav, the role defaults to 'tab'
+                  The ARIA role for the <code>NavLink</code>, In the context of a 'tablist' parent
+                  Nav, the role defaults to 'tab'
                 </p>
               </div>
             </td>
@@ -390,10 +383,9 @@ function (
             <td>
               <div>
                 <p>
-                  Change the underlying component CSS base class name and
-                  modifier class names prefix.{" "}
-                  <strong>This is an escape hatch</strong> for working with
-                  heavily customized bootstrap css.
+                  Change the underlying component CSS base class name and modifier class names
+                  prefix. <strong>This is an escape hatch</strong> for working with heavily
+                  customized bootstrap css.
                 </p>
               </div>
             </td>
@@ -449,8 +441,8 @@ function (
             <td>
               <div>
                 <p>
-                  An html id attribute for the Toggle button, necessary for
-                  assistive technologies, such as screen readers.
+                  An html id attribute for the Toggle button, necessary for assistive technologies,
+                  such as screen readers.
                 </p>
               </div>
             </td>
@@ -464,8 +456,8 @@ function (
             <td>
               <div>
                 <p>
-                  An ARIA accessible role applied to the Menu component. When
-                  set to 'menu', The dropdown
+                  An ARIA accessible role applied to the Menu component. When set to 'menu', The
+                  dropdown
                 </p>
               </div>
             </td>
@@ -510,8 +502,7 @@ function (
             <td>
               <div>
                 <p>
-                  Whether to render the dropdown menu in the DOM before the
-                  first time it is shown
+                  Whether to render the dropdown menu in the DOM before the first time it is shown
                 </p>
               </div>
             </td>
@@ -524,10 +515,7 @@ function (
             <td></td>
             <td>
               <div>
-                <p>
-                  Which event when fired outside the component will cause it to
-                  be closed.
-                </p>
+                <p>Which event when fired outside the component will cause it to be closed.</p>
               </div>
             </td>
           </tr>
@@ -554,10 +542,9 @@ function (
             <td>
               <div>
                 <p>
-                  Change the underlying component CSS base class name and
-                  modifier class names prefix.{" "}
-                  <strong>This is an escape hatch</strong> for working with
-                  heavily customized bootstrap css.
+                  Change the underlying component CSS base class name and modifier class names
+                  prefix. <strong>This is an escape hatch</strong> for working with heavily
+                  customized bootstrap css.
                 </p>
               </div>
             </td>

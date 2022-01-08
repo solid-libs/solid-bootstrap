@@ -1,5 +1,5 @@
-import { createContext } from "solid-js";
-import { EventKey } from "./types";
+import {createContext} from "solid-js";
+import {EventKey} from "./types";
 
 interface NavContextType {
   role?: string; // used by NavItem to determine it's role

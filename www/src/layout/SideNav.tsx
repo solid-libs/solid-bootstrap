@@ -1,29 +1,23 @@
 import startCase from "lodash/startCase";
 import classNames from "classnames";
-import {
-  Component,
-  ComponentProps,
-  createEffect,
-  createMemo,
-  createSignal,
-} from "solid-js";
-import { Button, Collapse, Nav } from "solid-bootstrap";
+import {Component, ComponentProps, createEffect, createMemo, createSignal} from "solid-js";
+import {Button, Collapse, Nav} from "solid-bootstrap";
 import styles from "./SideNav.module.css";
-import { Link, useLocation } from "solid-app-router";
+import {Link, useLocation} from "solid-app-router";
 
 const baseUrl = import.meta.env.BASE_URL;
 
 const forms = [
-  "overview", 
-  "form-controls", 
-  "form-text", 
-  "select", 
-  "checks-radios", 
-  "range", 
-  "input-group", 
-  "floating-labels", 
-  "layout", 
-  "validation"
+  "overview",
+  "form-controls",
+  "form-text",
+  "select",
+  "checks-radios",
+  "range",
+  "input-group",
+  "floating-labels",
+  "layout",
+  "validation",
 ];
 
 const layout = ["grid", "stack"];
@@ -71,43 +65,26 @@ const nameOverrides = {
 const MenuButton = (props: ComponentProps<typeof Button>) => (
   <Button
     {...props}
-    className={classNames(
-      props.className,
-      styles.MenuButton,
-      "p-0 d-md-none ms-auto"
-    )}
+    className={classNames(props.className, styles.MenuButton, "p-0 d-md-none ms-auto")}
   >
     {props.children}
   </Button>
 );
 
 const SidePanel = (props: ComponentProps<"div">) => (
-  <div
-    {...props}
-    className={classNames(
-      props.className,
-      styles.SidePanel,
-      "d-flex flex-column"
-    )}
-  >
+  <div {...props} className={classNames(props.className, styles.SidePanel, "d-flex flex-column")}>
     {props.children}
   </div>
 );
 
 const OverflowWrapper = (props: ComponentProps<"div">) => (
-  <div
-    {...props}
-    className={classNames(props.className, styles.OverflowWrapper)}
-  >
+  <div {...props} className={classNames(props.className, styles.OverflowWrapper)}>
     {props.children}
   </div>
 );
 
 const TableOfContents = (props: ComponentProps<"nav">) => (
-  <nav
-    {...props}
-    className={classNames(props.className, styles.TableOfContents, "pt-2 pb-4")}
-  >
+  <nav {...props} className={classNames(props.className, styles.TableOfContents, "pt-2 pb-4")}>
     {props.children}
   </nav>
 );
@@ -119,17 +96,14 @@ const TocLink = (props: ComponentProps<typeof Nav.Link>) => (
 );
 
 const TocSubLink = (props: ComponentProps<typeof TocLink>) => (
-  <TocLink
-    {...props}
-    className={classNames(props.className, styles.TocSubLink)}
-  >
+  <TocLink {...props} className={classNames(props.className, styles.TocSubLink)}>
     {props.children}
   </TocLink>
 );
 
 const NavSection = (props: {
   heading: string;
-  location: { pathname: string };
+  location: {pathname: string};
   items?: string[];
   path: string;
 }) => {
@@ -141,23 +115,14 @@ const NavSection = (props: {
       <TocLink
         active={active()}
         as={Link}
-        href={
-          props.items ? `${props.path}/${props.items[0]}/` : `${props.path}/`
-        }
-        className={classNames(
-          "js-search-toc-item",
-          active() && "js-search-active"
-        )}
+        href={props.items ? `${props.path}/${props.items[0]}/` : `${props.path}/`}
+        className={classNames("js-search-toc-item", active() && "js-search-active")}
       >
         {props.heading}
       </TocLink>
 
       {props.items && active() && (
-        <Nav
-          activeKey={props.location.pathname}
-          onSelect={() => {}}
-          className="d-block"
-        >
+        <Nav activeKey={props.location.pathname} onSelect={() => {}} className="d-block">
           {props.items.map((name: string) => (
             <Nav.Item>
               <TocSubLink as={Link} href={`${props.path}/${name}/`}>
@@ -192,12 +157,7 @@ const SideNav: Component = (props: ComponentProps<typeof SidePanel>) => {
   return (
     <SidePanel {...props}>
       <MenuButton onClick={handleCollapse} variant="light">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 30 30"
-          width="30"
-          height="30"
-        >
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" width="30" height="30">
           <title>Menu</title>
           <path
             stroke="currentColor"
@@ -211,30 +171,15 @@ const SideNav: Component = (props: ComponentProps<typeof SidePanel>) => {
       <Collapse in={!collapsed()}>
         <OverflowWrapper>
           <TableOfContents role="complementary">
-            <NavSection
-              heading="Layout"
-              location={location}
-              items={layout}
-              path="/layout"
-            />
-            <NavSection
-              heading="Forms"
-              location={location}
-              items={forms}
-              path="/forms"
-            />
+            <NavSection heading="Layout" location={location} items={layout} path="/layout" />
+            <NavSection heading="Forms" location={location} items={forms} path="/forms" />
             <NavSection
               heading="Components"
               location={location}
               items={components}
               path="/components"
             />
-            <NavSection
-              heading="Core"
-              location={location}
-              items={core}
-              path="/core"
-            />
+            <NavSection heading="Core" location={location} items={core} path="/core" />
             {/* <NavSection
               heading="Utilities"
               location={location}

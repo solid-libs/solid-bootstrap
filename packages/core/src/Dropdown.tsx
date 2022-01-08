@@ -1,7 +1,7 @@
 import qsa from "dom-helpers/querySelectorAll";
 import addEventListener from "dom-helpers/addEventListener";
 
-import DropdownContext, { DropdownContextValue } from "./DropdownContext";
+import DropdownContext, {DropdownContextValue} from "./DropdownContext";
 import DropdownMenu, {
   DropdownMenuProps,
   UseDropdownMenuMetadata,
@@ -12,23 +12,16 @@ import DropdownToggle, {
   UseDropdownToggleMetadata,
   isRoleMenu,
 } from "./DropdownToggle";
-import DropdownItem, { DropdownItemProps } from "./DropdownItem";
+import DropdownItem, {DropdownItemProps} from "./DropdownItem";
 import SelectableContext from "./SelectableContext";
-import { SelectCallback } from "./types";
-import { dataAttr } from "./DataKey";
-import { Placement } from "./usePopper";
-import useWindow from './useWindow';
-import {
-  createEffect,
-  createSignal,
-  JSX,
-  mergeProps,
-  onCleanup,
-  useContext,
-} from "solid-js";
-import { createControlledProp } from "./createControlledProp";
-import { callEventHandler } from "./utils";
-import { isServer } from "solid-js/web";
+import {SelectCallback} from "./types";
+import {dataAttr} from "./DataKey";
+import {Placement} from "./usePopper";
+import useWindow from "./useWindow";
+import {createEffect, createSignal, JSX, mergeProps, onCleanup, useContext} from "solid-js";
+import {createControlledProp} from "./createControlledProp";
+import {callEventHandler} from "./utils";
+import {isServer} from "solid-js/web";
 
 export type {
   DropdownMenuProps,
@@ -135,31 +128,29 @@ function Dropdown(p: DropdownProps) {
       itemSelector: `* [${dataAttr("dropdown-item")}]`,
       placement: "bottom-start" as Placement,
     },
-    p
+    p,
   );
 
   const window = useWindow();
   const [show, onToggle] = createControlledProp(
     () => props.show,
     () => props.defaultShow!,
-    props.onToggle
+    props.onToggle,
   );
 
   const [menuRef, setMenu] = createSignal<HTMLElement | null>();
   const [toggleRef, setToggle] = createSignal<HTMLElement | null>();
 
-  const [lastSourceEvent, setLastSourceEvent] = createSignal<string | null>(
-    null
-  );
+  const [lastSourceEvent, setLastSourceEvent] = createSignal<string | null>(null);
   const [focusInDropdown, setFocusInDropdown] = createSignal(false);
   const onSelectCtx = useContext(SelectableContext);
 
   const toggle = (
     nextShow: boolean,
     event: Event | undefined,
-    source: string | undefined = event?.type
+    source: string | undefined = event?.type,
   ) => {
-    onToggle(nextShow, { originalEvent: event as ToggleEvent, source });
+    onToggle(nextShow, {originalEvent: event as ToggleEvent, source});
   };
 
   const handleSelect: SelectCallback = (key: string | null, event: Event) => {
@@ -212,10 +203,7 @@ function Dropdown(p: DropdownProps) {
       focusType = menuRef() && isRoleMenu(menuRef()!) ? "keyboard" : false;
     }
 
-    if (
-      focusType === false ||
-      (focusType === "keyboard" && !/^key.+$/.test(type!))
-    ) {
+    if (focusType === false || (focusType === "keyboard" && !/^key.+$/.test(type!))) {
       return;
     }
 
@@ -244,7 +232,7 @@ function Dropdown(p: DropdownProps) {
   };
 
   const keydownHandler = (event: KeyboardEvent) => {
-    const { key } = event;
+    const {key} = event;
     const target = event.target as HTMLElement;
 
     const fromMenu = menuRef()?.contains(target);
@@ -266,7 +254,7 @@ function Dropdown(p: DropdownProps) {
     }
 
     setLastSourceEvent(event.type);
-    const meta = { originalEvent: event, source: event.type };
+    const meta = {originalEvent: event, source: event.type};
     switch (key) {
       case "ArrowUp": {
         const next = getNextFocusedChild(target, -1);
@@ -293,14 +281,11 @@ function Dropdown(p: DropdownProps) {
           target.ownerDocument as any,
           "keyup",
           (e) => {
-            if (
-              (e.key === "Tab" && !e.target) ||
-              !menuRef()?.contains(e.target as HTMLElement)
-            ) {
+            if ((e.key === "Tab" && !e.target) || !menuRef()?.contains(e.target as HTMLElement)) {
               onToggle(false, meta);
             }
           },
-          { once: true }
+          {once: true},
         );
         break;
       case "Escape":
@@ -322,9 +307,7 @@ function Dropdown(p: DropdownProps) {
 
   return (
     <SelectableContext.Provider value={handleSelect}>
-      <DropdownContext.Provider value={context}>
-        {props.children}
-      </DropdownContext.Provider>
+      <DropdownContext.Provider value={context}>{props.children}</DropdownContext.Provider>
     </SelectableContext.Provider>
   );
 }

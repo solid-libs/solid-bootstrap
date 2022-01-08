@@ -1,19 +1,13 @@
-import { Link } from "solid-app-router";
-import { Component } from "solid-js";
-import { Container, Nav, Navbar } from "solid-bootstrap";
-import { Bootstrap, Github, SolidBW } from "../icons";
+import {Link} from "solid-app-router";
+import {Component} from "solid-js";
+import {Container, Nav, Navbar} from "solid-bootstrap";
+import {Bootstrap, Github, SolidBW} from "../icons";
 import styles from "./TopNavbar.module.css";
 
 const baseUrl = import.meta.env.BASE_URL;
 
 const TopNavbar: Component = () => (
-  <Navbar
-    collapseOnSelect
-    expand="lg"
-    bg="dark"
-    variant="dark"
-    className={styles.Navbar}
-  >
+  <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" className={styles.Navbar}>
     <Container>
       <Navbar.Brand as={Link} href="/">
         <img
@@ -46,20 +40,10 @@ const TopNavbar: Component = () => (
           >
             <Github height={24} />
           </Nav.Link>
-          <Nav.Link
-            eventKey={3}
-            href="https://www.solidjs.com/"
-            target="_blank"
-            rel="noopener"
-          >
+          <Nav.Link eventKey={3} href="https://www.solidjs.com/" target="_blank" rel="noopener">
             <SolidBW height={24} />
           </Nav.Link>
-          <Nav.Link
-            eventKey={2}
-            href="https://getbootstrap.com/"
-            target="_blank"
-            rel="noopener"
-          >
+          <Nav.Link eventKey={2} href="https://getbootstrap.com/" target="_blank" rel="noopener">
             <Bootstrap height={24} />
           </Nav.Link>
         </Nav>

@@ -1,15 +1,15 @@
 // ported from https://github.com/react-bootstrap/react-bootstrap/blob/f11723114d532cfce840417834a73733a8436414/src/Alert.tsx
 
-import { JSX, mergeProps, Show, splitProps } from "solid-js";
+import {JSX, mergeProps, Show, splitProps} from "solid-js";
 import classNames from "./classnames";
-import { Anchor, createControlledProp } from "solid-bootstrap-core";
-import { useBootstrapPrefix } from "./ThemeProvider";
+import {Anchor, createControlledProp} from "solid-bootstrap-core";
+import {useBootstrapPrefix} from "./ThemeProvider";
 import Fade from "./Fade";
-import CloseButton, { CloseButtonVariant } from "./CloseButton";
-import { Variant } from "./types";
-import { divWithClassName } from "./divWithClassName";
-import { createWithBsPrefix } from "./createWithBsPrefix";
-import { TransitionType } from "./helpers";
+import CloseButton, {CloseButtonVariant} from "./CloseButton";
+import {Variant} from "./types";
+import {divWithClassName} from "./divWithClassName";
+import {createWithBsPrefix} from "./createWithBsPrefix";
+import {TransitionType} from "./helpers";
 
 export interface AlertProps extends JSX.HTMLAttributes<HTMLDivElement> {
   bsPrefix?: string;
@@ -41,28 +41,25 @@ const defaultProps = {
 };
 
 const Alert = (uncontrolledProps: AlertProps) => {
-  const [local, props] = splitProps(
-    mergeProps(defaultProps, uncontrolledProps),
-    [
-      "bsPrefix",
-      "children",
-      "defaultShow",
-      "show",
-      "closeLabel",
-      "closeVariant",
-      "className",
-      "children",
-      "variant",
-      "onClose",
-      "dismissible",
-      "transition",
-    ]
-  );
+  const [local, props] = splitProps(mergeProps(defaultProps, uncontrolledProps), [
+    "bsPrefix",
+    "children",
+    "defaultShow",
+    "show",
+    "closeLabel",
+    "closeVariant",
+    "className",
+    "children",
+    "variant",
+    "onClose",
+    "dismissible",
+    "transition",
+  ]);
 
   const [show, onClose] = createControlledProp(
     () => local.show,
     () => local.defaultShow,
-    local.onClose
+    local.onClose,
   );
 
   const prefix = useBootstrapPrefix(local.bsPrefix, "alert");
@@ -81,7 +78,7 @@ const Alert = (uncontrolledProps: AlertProps) => {
         local.className,
         prefix,
         local.variant && `${prefix}-${local.variant}`,
-        local.dismissible && `${prefix}-dismissible`
+        local.dismissible && `${prefix}-dismissible`,
       )}
     >
       {local.dismissible && (

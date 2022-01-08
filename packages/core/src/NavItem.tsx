@@ -1,18 +1,11 @@
 import NavContext from "./NavContext";
-import SelectableContext, { makeEventKey } from "./SelectableContext";
-import { EventKey, DynamicRefForwardingComponent } from "./types";
+import SelectableContext, {makeEventKey} from "./SelectableContext";
+import {EventKey, DynamicRefForwardingComponent} from "./types";
 import Button from "./Button";
-import { dataAttr } from "./DataKey";
-import {
-  Component,
-  createMemo,
-  JSX,
-  mergeProps,
-  splitProps,
-  useContext,
-} from "solid-js";
-import { Dynamic } from "solid-js/web";
-import { callEventHandler } from "./utils";
+import {dataAttr} from "./DataKey";
+import {Component, createMemo, JSX, mergeProps, splitProps, useContext} from "solid-js";
+import {Dynamic} from "solid-js/web";
+import {callEventHandler} from "./utils";
 
 export interface NavItemProps extends JSX.HTMLAttributes<HTMLElement> {
   /**
@@ -57,13 +50,11 @@ export function useNavItem(options: UseNavItemOptions) {
   const isActive = createMemo(() =>
     options.active == null && options.key != null
       ? navContext?.activeKey === options.key
-      : options.active
+      : options.active,
   );
 
   const role = createMemo(() =>
-    navContext && !options.role && navContext.role === "tablist"
-      ? "tab"
-      : options.role
+    navContext && !options.role && navContext.role === "tablist" ? "tab" : options.role,
   );
 
   const onClick = createMemo(() => (e: MouseEvent) => {
@@ -91,9 +82,7 @@ export function useNavItem(options: UseNavItemOptions) {
       return navContext ? navContext.getControllerId(options.key!) : undefined;
     },
     get tabIndex() {
-      return role() === "tab" && (options.disabled || !isActive())
-        ? -1
-        : undefined;
+      return role() === "tab" && (options.disabled || !isActive()) ? -1 : undefined;
     },
     get ["aria-controls"]() {
       return navContext ? navContext.getControlledId(options.key!) : undefined;
@@ -118,9 +107,7 @@ export function useNavItem(options: UseNavItemOptions) {
   return [props, meta] as const;
 }
 
-const NavItem: DynamicRefForwardingComponent<typeof Button, NavItemProps> = (
-  p
-) => {
+const NavItem: DynamicRefForwardingComponent<typeof Button, NavItemProps> = (p) => {
   const [local, options] = splitProps(p, ["as", "active", "eventKey"]);
   const [props, meta] = useNavItem(
     mergeProps(
@@ -132,8 +119,8 @@ const NavItem: DynamicRefForwardingComponent<typeof Button, NavItemProps> = (
           return makeEventKey(p.eventKey, p.href);
         },
       },
-      options
-    )
+      options,
+    ),
   );
 
   // @ts-ignore

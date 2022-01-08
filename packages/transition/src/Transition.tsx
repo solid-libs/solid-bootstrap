@@ -16,7 +16,7 @@ import {
   mergeProps,
 } from "solid-js";
 import TransitionGroupContext from "./TransitionGroupContext";
-import { nextFrame } from "./utils";
+import {nextFrame} from "./utils";
 
 /**
  * The Transition component lets you describe a transition from one component
@@ -133,10 +133,7 @@ export type TransitionComponent = Component<TransitionProps>;
  * Typescript seems to get grumpy if we just OR those types so this is a hack...
  */
 type EnterCallback = (arg1?: HTMLElement | boolean, arg2?: boolean) => void;
-type EndCallback = (
-  arg1?: HTMLElement | (() => void),
-  arg2?: () => void
-) => void;
+type EndCallback = (arg1?: HTMLElement | (() => void), arg2?: () => void) => void;
 
 export type TransitionCallbacks = {
   onEnter?: EnterCallback;
@@ -149,21 +146,19 @@ export type TransitionCallbacks = {
 
 export type TransitionProps = {
   nodeRef?: HTMLElement;
-  children?:
-    | JSX.Element
-    | ((status: TransitionStatus | null, childProps: any) => JSX.Element);
+  children?: JSX.Element | ((status: TransitionStatus | null, childProps: any) => JSX.Element);
   in?: boolean;
   mountOnEnter?: boolean;
   unmountOnExit?: boolean;
   appear?: boolean;
   enter?: boolean;
   exit?: boolean;
-  timeout?: number | { appear?: number; enter?: number; exit?: number };
+  timeout?: number | {appear?: number; enter?: number; exit?: number};
   addEndListener?: EndCallback;
 } & TransitionCallbacks;
 
 type Callback = (...args: any[]) => void;
-type Cancellable = Callback & { cancel: () => void };
+type Cancellable = Callback & {cancel: () => void};
 
 function noop() {}
 
@@ -227,9 +222,7 @@ export const Transition = (p: TransitionProps) => {
     }
   }
 
-  const [status, setStatus] = createSignal<TransitionStatus | null>(
-    initialStatus
-  );
+  const [status, setStatus] = createSignal<TransitionStatus | null>(initialStatus);
   let nextCallback: Cancellable | null = null;
 
   const [mounted, setMounted] = createSignal(false);
@@ -252,7 +245,7 @@ export const Transition = (p: TransitionProps) => {
         if (local.in && prevStatus === UNMOUNTED) {
           // prepate to show again
           setStatus(EXITED);
-        } 
+        }
 
         let nextStatus: TransitionStatus | null = null;
         if (local.in) {
@@ -266,8 +259,8 @@ export const Transition = (p: TransitionProps) => {
         }
 
         updateStatus(false, nextStatus);
-      }
-    )
+      },
+    ),
   );
 
   onCleanup(() => {
@@ -275,10 +268,8 @@ export const Transition = (p: TransitionProps) => {
   });
 
   function getTimeouts() {
-    const { timeout } = local;
-    let exit: number | undefined,
-      enter: number | undefined,
-      appear: number | undefined;
+    const {timeout} = local;
+    let exit: number | undefined, enter: number | undefined, appear: number | undefined;
 
     if (typeof timeout === "number") {
       exit = enter = appear = timeout;
@@ -288,7 +279,7 @@ export const Transition = (p: TransitionProps) => {
       // TODO: remove fallback for next major
       appear = timeout.appear !== undefined ? timeout.appear : enter;
     }
-    return { exit, enter, appear };
+    return {exit, enter, appear};
   }
 
   function updateStatus(mounting = false, nextStatus: TransitionStatus | null) {
@@ -307,11 +298,9 @@ export const Transition = (p: TransitionProps) => {
   }
 
   function performEnter(mounting: boolean) {
-    const { enter } = local;
+    const {enter} = local;
     const appearing = context ? context.isMounting : mounting;
-    const [maybeNode, maybeAppearing] = local.nodeRef
-      ? [appearing]
-      : [childRef, appearing];
+    const [maybeNode, maybeAppearing] = local.nodeRef ? [appearing] : [childRef, appearing];
 
     const timeouts = getTimeouts();
     const enterTimeout = appearing ? timeouts.appear : timeouts.enter;
@@ -335,12 +324,12 @@ export const Transition = (p: TransitionProps) => {
             local.onEntered!(maybeNode!, maybeAppearing!);
           });
         });
-      })
+      }),
     );
   }
 
   function performExit() {
-    const { exit } = local;
+    const {exit} = local;
     const timeouts = getTimeouts();
     const maybeNode = local.nodeRef ? undefined : childRef;
 
@@ -368,7 +357,7 @@ export const Transition = (p: TransitionProps) => {
             });
           }
         });
-      })
+      }),
     );
   }
 
@@ -411,17 +400,14 @@ export const Transition = (p: TransitionProps) => {
     setNextCallback(handler);
     const node = local.nodeRef ? local.nodeRef : childRef;
 
-    const doesNotHaveTimeoutOrListener =
-      timeout == null && !local.addEndListener;
+    const doesNotHaveTimeoutOrListener = timeout == null && !local.addEndListener;
     if (!node || doesNotHaveTimeoutOrListener) {
       nextCallback && setTimeout(nextCallback, 0);
       return;
     }
 
     if (local.addEndListener) {
-      const [maybeNode, maybeNextCallback] = local.nodeRef
-        ? [nextCallback]
-        : [node, nextCallback];
+      const [maybeNode, maybeNextCallback] = local.nodeRef ? [nextCallback] : [node, nextCallback];
       local.addEndListener(maybeNode!, maybeNextCallback!);
     }
 

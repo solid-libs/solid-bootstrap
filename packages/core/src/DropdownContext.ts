@@ -1,5 +1,5 @@
-import { createContext } from "solid-js";
-import type { Placement } from "./usePopper";
+import {createContext} from "solid-js";
+import type {Placement} from "./usePopper";
 
 export type DropdownContextValue = {
   toggle: (nextShow: boolean, event?: Event) => void;

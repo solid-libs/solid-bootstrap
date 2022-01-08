@@ -1,8 +1,8 @@
-import { JSX, mergeProps, splitProps } from "solid-js";
-import Dropdown, { DropdownProps } from "./Dropdown";
-import DropdownToggle, { PropsFromToggle } from "./DropdownToggle";
-import DropdownMenu, { DropdownMenuVariant } from "./DropdownMenu";
-import { BsPrefixProps, BsPrefixRefForwardingComponent } from "./helpers";
+import {JSX, mergeProps, splitProps} from "solid-js";
+import Dropdown, {DropdownProps} from "./Dropdown";
+import DropdownToggle, {PropsFromToggle} from "./DropdownToggle";
+import DropdownMenu, {DropdownMenuVariant} from "./DropdownMenu";
+import {BsPrefixProps, BsPrefixRefForwardingComponent} from "./helpers";
 
 export interface DropdownButtonProps
   extends Omit<DropdownProps, "title">,
@@ -26,10 +26,9 @@ const defaultProps = {};
  * the Button `variant`, `size` and `bsPrefix` props are passed to the toggle,
  * along with menu-related props are passed to the `Dropdown.Menu`
  */
-const DropdownButton: BsPrefixRefForwardingComponent<
-  "div",
-  DropdownButtonProps
-> = (p: DropdownButtonProps) => {
+const DropdownButton: BsPrefixRefForwardingComponent<"div", DropdownButtonProps> = (
+  p: DropdownButtonProps,
+) => {
   const [local, props] = splitProps(mergeProps(defaultProps, p), [
     "title",
     "children",

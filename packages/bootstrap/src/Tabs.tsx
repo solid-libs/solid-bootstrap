@@ -1,11 +1,4 @@
-import {
-  JSX,
-  mergeProps,
-  splitProps,
-  children,
-  createMemo,
-  For,
-} from "solid-js";
+import {JSX, mergeProps, splitProps, children, createMemo, For} from "solid-js";
 import {
   createControlledProp,
   EventKey,
@@ -17,9 +10,9 @@ import NavLink from "./NavLink";
 import NavItem from "./NavItem";
 import TabContent from "./TabContent";
 import TabPane from "./TabPane";
-import { getTabTransitionComponent } from "./getTabTransitionComponent";
-import { TransitionType } from "./helpers";
-import { TabProps } from "./Tab";
+import {getTabTransitionComponent} from "./getTabTransitionComponent";
+import {TransitionType} from "./helpers";
+import {TabProps} from "./Tab";
 
 export interface TabsProps
   extends Omit<BaseTabsProps, "transition">,
@@ -80,7 +73,7 @@ const Tabs = (p: TabsProps) => {
         },
       },
       defaultProps,
-      p
+      p,
     ),
     [
       "id",
@@ -92,12 +85,12 @@ const Tabs = (p: TabsProps) => {
       "activeKey",
       "defaultActiveKey",
       "mountOnEnter",
-    ]
+    ],
   );
   const [activeKey, onSelect] = createControlledProp(
     () => p.activeKey,
     () => p.defaultActiveKey ?? local.defaultActiveKey,
-    local.onSelect
+    local.onSelect,
   );
 
   return (
@@ -111,20 +104,14 @@ const Tabs = (p: TabsProps) => {
     >
       <Nav {...props} role="tablist" as="ul">
         <For each={tabs()}>
-          {(tabProps) => (
-            <RenderTab {...tabProps}>{tabProps.children}</RenderTab>
-          )}
+          {(tabProps) => <RenderTab {...tabProps}>{tabProps.children}</RenderTab>}
         </For>
       </Nav>
 
       <TabContent>
         <For each={tabs()}>
           {(tabProps) => {
-            const [_, childProps] = splitProps(tabProps, [
-              "title",
-              "disabled",
-              "tabClassName",
-            ]);
+            const [_, childProps] = splitProps(tabProps, ["title", "disabled", "tabClassName"]);
 
             return <TabPane {...childProps}>{childProps.children}</TabPane>;
           }}

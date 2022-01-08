@@ -1,4 +1,4 @@
-import { createContext } from "solid-js";
+import {createContext} from "solid-js";
 
 // TODO: check
 export interface NavbarContextType {

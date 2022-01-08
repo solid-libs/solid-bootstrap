@@ -1,11 +1,6 @@
-import DropdownContext, { DropdownContextValue } from "./DropdownContext";
-import usePopper, {
-  UsePopperOptions,
-  Placement,
-  Offset,
-  UsePopperState,
-} from "./usePopper";
-import useRootClose, { RootCloseOptions } from "./useRootClose";
+import DropdownContext, {DropdownContextValue} from "./DropdownContext";
+import usePopper, {UsePopperOptions, Placement, Offset, UsePopperState} from "./usePopper";
+import useRootClose, {RootCloseOptions} from "./useRootClose";
 import mergeOptionsWithPopperConfig from "./mergeOptionsWithPopperConfig";
 import {
   createComputed,
@@ -17,7 +12,7 @@ import {
   splitProps,
   useContext,
 } from "solid-js";
-import { createStore, reconcile } from "solid-js/store";
+import {createStore, reconcile} from "solid-js/store";
 
 export interface UseDropdownMenuOptions {
   /**
@@ -122,7 +117,7 @@ export function useDropdownMenu(o: UseDropdownMenuOptions = {}) {
       popperConfig: {},
       usePopper: !!context,
     },
-    o
+    o,
   );
 
   const show = createMemo(() => {
@@ -143,16 +138,14 @@ export function useDropdownMenu(o: UseDropdownMenuOptions = {}) {
           placement: options.placement || context?.placement || "bottom-start",
           enabled: options.usePopper ?? !!context,
           enableEvents:
-            options.enableEventListeners == null
-              ? show()
-              : options.enableEventListeners,
+            options.enableEventListeners == null ? show() : options.enableEventListeners,
           offset: options.offset,
           flip: options.flip,
           fixed: options.fixed,
           arrowElement: arrowElement(),
           popperConfig: options.popperConfig,
-        })
-      )
+        }),
+      ),
     );
   });
 
@@ -163,7 +156,7 @@ export function useDropdownMenu(o: UseDropdownMenuOptions = {}) {
   const popper = usePopper(
     () => context?.toggleElement,
     () => context?.menuElement,
-    popperOptions
+    popperOptions,
   );
 
   createEffect(() => {
@@ -191,7 +184,7 @@ export function useDropdownMenu(o: UseDropdownMenuOptions = {}) {
         return context?.toggleElement?.id;
       },
     },
-    popper()?.attributes.popper ?? {}
+    popper()?.attributes.popper ?? {},
   );
 
   const metadata: UseDropdownMenuMetadata = {
@@ -250,10 +243,7 @@ export interface DropdownMenuProps extends UseDropdownMenuOptions {
    *   },
    * }) => Element}
    */
-  children: (
-    props: UserDropdownMenuProps,
-    meta: UseDropdownMenuMetadata
-  ) => JSX.Element;
+  children: (props: UserDropdownMenuProps, meta: UseDropdownMenuMetadata) => JSX.Element;
 }
 
 /**

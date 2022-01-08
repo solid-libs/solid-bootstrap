@@ -1,6 +1,6 @@
 import * as Popper from "@popperjs/core";
-import { Accessor, createEffect, createMemo, createSignal, on } from "solid-js";
-import { createPopper } from "./popper";
+import {Accessor, createEffect, createMemo, createSignal, on} from "solid-js";
+import {createPopper} from "./popper";
 
 const disabledApplyStylesModifier = {
   name: "applyStyles",
@@ -17,10 +17,7 @@ export type Placement = Popper.Placement;
 export type VirtualElement = Popper.VirtualElement;
 export type State = Popper.State;
 
-export type OffsetValue = [
-  number | null | undefined,
-  number | null | undefined
-];
+export type OffsetValue = [number | null | undefined, number | null | undefined];
 export type OffsetFunction = (details: {
   popper: Popper.Rect;
   reference: Popper.Rect;
@@ -30,14 +27,9 @@ export type OffsetFunction = (details: {
 export type Offset = OffsetFunction | OffsetValue;
 
 export type ModifierMap = Record<string, Partial<Modifier<any, any>>>;
-export type Modifiers =
-  | Popper.Options["modifiers"]
-  | Record<string, Partial<Modifier<any, any>>>;
+export type Modifiers = Popper.Options["modifiers"] | Record<string, Partial<Modifier<any, any>>>;
 
-export type UsePopperOptions = Omit<
-  Options,
-  "modifiers" | "placement" | "strategy"
-> & {
+export type UsePopperOptions = Omit<Options, "modifiers" | "placement" | "strategy"> & {
   enabled?: boolean;
   placement?: Options["placement"];
   strategy?: Options["strategy"];
@@ -58,9 +50,9 @@ const ariaDescribedByModifier: Modifier<"ariaDescribedBy", undefined> = {
   enabled: true,
   phase: "afterWrite",
   effect:
-    ({ state }) =>
+    ({state}) =>
     () => {
-      const { reference, popper } = state.elements;
+      const {reference, popper} = state.elements;
       if ("removeAttribute" in reference) {
         const ids = (reference.getAttribute("aria-describedby") || "")
           .split(",")
@@ -70,8 +62,8 @@ const ariaDescribedByModifier: Modifier<"ariaDescribedBy", undefined> = {
         else reference.setAttribute("aria-describedby", ids.join(","));
       }
     },
-  fn: ({ state }) => {
-    const { popper, reference } = state.elements;
+  fn: ({state}) => {
+    const {popper, reference} = state.elements;
 
     const role = popper.getAttribute("role")?.toLowerCase();
 
@@ -81,10 +73,7 @@ const ariaDescribedByModifier: Modifier<"ariaDescribedBy", undefined> = {
         return;
       }
 
-      reference.setAttribute(
-        "aria-describedby",
-        ids ? `${ids},${popper.id}` : popper.id
-      );
+      reference.setAttribute("aria-describedby", ids ? `${ids},${popper.id}` : popper.id);
     }
   },
 };
@@ -108,7 +97,7 @@ const EMPTY_MODIFIERS = [] as any;
 function usePopper(
   referenceElement: () => VirtualElement | null | undefined,
   popperElement: () => HTMLElement | null | undefined,
-  options: UsePopperOptions
+  options: UsePopperOptions,
 ): Accessor<UsePopperState | undefined> {
   const [popperInstance, setPopperInstance] = createSignal<Instance>();
 
@@ -117,13 +106,13 @@ function usePopper(
   const update = createMemo(
     on(popperInstance, (popper) => () => {
       popper?.update();
-    })
+    }),
   );
 
   const forceUpdate = createMemo(
     on(popperInstance, (popper) => () => {
       popper?.forceUpdate();
-    })
+    }),
   );
 
   const [popperState, setPopperState] = createSignal<UsePopperState>({
@@ -146,7 +135,7 @@ function usePopper(
     enabled: true,
     phase: "write",
     requires: ["computeStyles"],
-    fn: ({ state }) => {
+    fn: ({state}) => {
       const styles: UsePopperState["styles"] = {};
       const attributes: UsePopperState["attributes"] = {};
 
@@ -200,7 +189,7 @@ function usePopper(
         setPopperState((s) => ({
           ...s,
           attributes: {},
-          styles: { popper: {} },
+          styles: {popper: {}},
         }));
       }
     }

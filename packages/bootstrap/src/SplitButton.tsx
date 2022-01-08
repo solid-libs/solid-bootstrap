@@ -1,10 +1,10 @@
-import { JSX, mergeProps, splitProps } from "solid-js";
-import { ButtonType } from "solid-bootstrap-core";
+import {JSX, mergeProps, splitProps} from "solid-js";
+import {ButtonType} from "solid-bootstrap-core";
 import Button from "./Button";
 import ButtonGroup from "./ButtonGroup";
-import Dropdown, { DropdownProps } from "./Dropdown";
-import { PropsFromToggle } from "./DropdownToggle";
-import { BsPrefixProps } from "./helpers";
+import Dropdown, {DropdownProps} from "./Dropdown";
+import {PropsFromToggle} from "./DropdownToggle";
+import {BsPrefixProps} from "./helpers";
 
 export interface SplitButtonProps
   extends Omit<DropdownProps, "title">,

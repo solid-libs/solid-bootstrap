@@ -1,4 +1,4 @@
-import { JSX } from "solid-js";
+import {JSX} from "solid-js";
 
 export const Bootstrap = (props: JSX.SvgSVGAttributes<SVGSVGElement>) => (
   <svg

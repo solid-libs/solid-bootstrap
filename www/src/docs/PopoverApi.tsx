@@ -24,14 +24,11 @@ const PopoverApi = () => (
             <td></td>
             <td>
               <div>
-                <p>
-                  An Overlay injected set of props for positioning the popover
-                  arrow.
-                </p>
+                <p>An Overlay injected set of props for positioning the popover arrow.</p>
                 <blockquote>
                   <p>
-                    This is generally provided by the <code>Overlay</code>{" "}
-                    component positioning the popover
+                    This is generally provided by the <code>Overlay</code> component positioning the
+                    popover
                   </p>
                 </blockquote>
               </div>
@@ -46,8 +43,8 @@ const PopoverApi = () => (
             <td>
               <div>
                 <p>
-                  When this prop is set, it creates a Popover with a
-                  Popover.Body inside passing the children directly to it
+                  When this prop is set, it creates a Popover with a Popover.Body inside passing the
+                  children directly to it
                 </p>
               </div>
             </td>
@@ -111,8 +108,8 @@ const PopoverApi = () => (
                 <p>Sets the direction the Popover is positioned towards.</p>
                 <blockquote>
                   <p>
-                    This is generally provided by the <code>Overlay</code>{" "}
-                    component positioning the popover
+                    This is generally provided by the <code>Overlay</code> component positioning the
+                    popover
                   </p>
                 </blockquote>
               </div>
@@ -149,10 +146,9 @@ const PopoverApi = () => (
             <td>
               <div>
                 <p>
-                  Change the underlying component CSS base class name and
-                  modifier class names prefix.{" "}
-                  <strong>This is an escape hatch</strong> for working with
-                  heavily customized bootstrap css.
+                  Change the underlying component CSS base class name and modifier class names
+                  prefix. <strong>This is an escape hatch</strong> for working with heavily
+                  customized bootstrap css.
                 </p>
               </div>
             </td>
@@ -202,10 +198,9 @@ const PopoverApi = () => (
             <td>
               <div>
                 <p>
-                  Change the underlying component CSS base class name and
-                  modifier class names prefix.{" "}
-                  <strong>This is an escape hatch</strong> for working with
-                  heavily customized bootstrap css.
+                  Change the underlying component CSS base class name and modifier class names
+                  prefix. <strong>This is an escape hatch</strong> for working with heavily
+                  customized bootstrap css.
                 </p>
               </div>
             </td>
@@ -255,10 +250,9 @@ const PopoverApi = () => (
             <td>
               <div>
                 <p>
-                  Change the underlying component CSS base class name and
-                  modifier class names prefix.{" "}
-                  <strong>This is an escape hatch</strong> for working with
-                  heavily customized bootstrap css.
+                  Change the underlying component CSS base class name and modifier class names
+                  prefix. <strong>This is an escape hatch</strong> for working with heavily
+                  customized bootstrap css.
                 </p>
               </div>
             </td>
@@ -290,9 +284,8 @@ const PopoverApi = () => (
             <td>
               <div>
                 <p>
-                  A component instance, DOM node. The <code>container</code>{" "}
-                  element will have the Overlay appended to it via a Solid
-                  portal.
+                  A component instance, DOM node. The <code>container</code> element will have the
+                  Overlay appended to it via a Solid portal.
                 </p>
               </div>
             </td>
@@ -317,9 +310,7 @@ const PopoverApi = () => (
             <td></td>
             <td>
               <div>
-                <p>
-                  Callback fired after the Overlay finishes transitioning in
-                </p>
+                <p>Callback fired after the Overlay finishes transitioning in</p>
               </div>
             </td>
           </tr>
@@ -355,9 +346,7 @@ const PopoverApi = () => (
             <td></td>
             <td>
               <div>
-                <p>
-                  Callback fired after the Overlay finishes transitioning out
-                </p>
+                <p>Callback fired after the Overlay finishes transitioning out</p>
               </div>
             </td>
           </tr>
@@ -382,8 +371,7 @@ const PopoverApi = () => (
             <td>
               <div>
                 <p>
-                  A callback invoked by the overlay when it wishes to be hidden.
-                  Required if
+                  A callback invoked by the overlay when it wishes to be hidden. Required if
                   <code>rootClose</code> is specified.
                 </p>
               </div>
@@ -432,8 +420,7 @@ const PopoverApi = () => (
             <td>
               <div>
                 <p>
-                  The placement of the Overlay in relation to it's{" "}
-                  <code>target</code>.
+                  The placement of the Overlay in relation to it's <code>target</code>.
                 </p>
               </div>
             </td>
@@ -446,9 +433,7 @@ const PopoverApi = () => (
             <td></td>
             <td>
               <div>
-                <p>
-                  A set of popper options and props passed directly to Popper.
-                </p>
+                <p>A set of popper options and props passed directly to Popper.</p>
               </div>
             </td>
           </tr>
@@ -463,8 +448,8 @@ const PopoverApi = () => (
             <td>
               <div>
                 <p>
-                  Specify whether the overlay should trigger onHide when the
-                  user clicks outside the overlay
+                  Specify whether the overlay should trigger onHide when the user clicks outside the
+                  overlay
                 </p>
               </div>
             </td>
@@ -510,8 +495,8 @@ const PopoverApi = () => (
             <td>
               <div>
                 <p>
-                  A component instance, DOM node. The overlay will be positioned
-                  in relation to the <code>target</code>
+                  A component instance, DOM node. The overlay will be positioned in relation to the{" "}
+                  <code>target</code>
                 </p>
               </div>
             </td>
@@ -527,9 +512,8 @@ const PopoverApi = () => (
             <td>
               <div>
                 <p>
-                  Animate the entering and exiting of the Overlay.{" "}
-                  <code>true</code> will use the <code>&lt;Fade&gt;</code>{" "}
-                  transition, or a custom solid-react-transition{" "}
+                  Animate the entering and exiting of the Overlay. <code>true</code> will use the{" "}
+                  <code>&lt;Fade&gt;</code> transition, or a custom solid-react-transition{" "}
                   <code>&lt;Transition&gt;</code> component can be provided.
                 </p>
               </div>
@@ -587,10 +571,7 @@ const PopoverApi = () => (
             <td></td>
             <td>
               <div>
-                <p>
-                  A millisecond delay amount to show and hide the Overlay once
-                  triggered
-                </p>
+                <p>A millisecond delay amount to show and hide the Overlay once triggered</p>
               </div>
             </td>
           </tr>
@@ -639,15 +620,11 @@ const PopoverApi = () => (
                 </small>
               </div>
               <div>
+                <p>A callback that fires when the user triggers a change in tooltip visibility.</p>
                 <p>
-                  A callback that fires when the user triggers a change in
-                  tooltip visibility.
-                </p>
-                <p>
-                  <code>onToggle</code> is called with the desired next{" "}
-                  <code>show</code>, and generally should be passed back to the{" "}
-                  <code>show</code> prop. <code>onToggle</code> fires{" "}
-                  <em>after</em> the configured <code>delay</code>
+                  <code>onToggle</code> is called with the desired next <code>show</code>, and
+                  generally should be passed back to the <code>show</code> prop.{" "}
+                  <code>onToggle</code> fires <em>after</em> the configured <code>delay</code>
                 </p>
               </div>
             </td>
@@ -707,8 +684,7 @@ const PopoverApi = () => (
             <td>
               <div>
                 <p>
-                  The placement of the Overlay in relation to it's{" "}
-                  <code>target</code>.
+                  The placement of the Overlay in relation to it's <code>target</code>.
                 </p>
               </div>
             </td>
@@ -721,10 +697,7 @@ const PopoverApi = () => (
             <td></td>
             <td>
               <div>
-                <p>
-                  A Popper.js config object passed to the the underlying popper
-                  instance.
-                </p>
+                <p>A Popper.js config object passed to the the underlying popper instance.</p>
               </div>
             </td>
           </tr>
@@ -739,21 +712,19 @@ const PopoverApi = () => (
                 <small>
                   <em class="text-info">
                     <span>
-                      controlled by: <code>onToggle</code>, initial prop:{" "}
-                      <code>defaultShow</code>
+                      controlled by: <code>onToggle</code>, initial prop: <code>defaultShow</code>
                     </span>
                   </em>
                 </small>
               </div>
               <div>
                 <p>
-                  The visibility of the Overlay. <code>show</code> is a{" "}
-                  <em>controlled</em> prop so should be paired with{" "}
-                  <code>onToggle</code> to avoid breaking user interactions.
+                  The visibility of the Overlay. <code>show</code> is a <em>controlled</em> prop so
+                  should be paired with <code>onToggle</code> to avoid breaking user interactions.
                 </p>
                 <p>
-                  Manually toggling <code>show</code> does <strong>not</strong>{" "}
-                  wait for <code>delay</code> to change the visibility.
+                  Manually toggling <code>show</code> does <strong>not</strong> wait for{" "}
+                  <code>delay</code> to change the visibility.
                 </p>
               </div>
             </td>
@@ -775,19 +746,14 @@ const PopoverApi = () => (
           <tr>
             <td class="font-monospace">trigger </td>
             <td class="font-monospace">
-              <div>
-                'hover' | 'click' |'focus' | Array&lt;'hover' | 'click'
-                |'focus'&gt;
-              </div>
+              <div>'hover' | 'click' |'focus' | Array&lt;'hover' | 'click' |'focus'&gt;</div>
             </td>
             <td>
               <code>{`['hover', 'focus']`}</code>
             </td>
             <td>
               <div>
-                <p>
-                  Specify which action or actions trigger Overlay visibility
-                </p>
+                <p>Specify which action or actions trigger Overlay visibility</p>
               </div>
             </td>
           </tr>

@@ -1,10 +1,4 @@
-import {
-  Component,
-  createSignal,
-  mergeProps,
-  onCleanup,
-  splitProps,
-} from "solid-js";
+import {Component, createSignal, mergeProps, onCleanup, splitProps} from "solid-js";
 import classNames from "./classnames";
 import addEventListener from "dom-helpers/addEventListener";
 import canUseDOM from "dom-helpers/canUseDOM";
@@ -18,36 +12,25 @@ import {
   ModalInstance,
   ModalProps as BaseModalProps,
 } from "solid-bootstrap-core";
-import { getSharedManager } from "./BootstrapModalManager";
-import Fade, { FadeProps } from "./Fade";
+import {getSharedManager} from "./BootstrapModalManager";
+import Fade, {FadeProps} from "./Fade";
 import ModalBody from "./ModalBody";
 import ModalContext from "./ModalContext";
 import ModalDialog from "./ModalDialog";
 import ModalFooter from "./ModalFooter";
 import ModalHeader from "./ModalHeader";
 import ModalTitle from "./ModalTitle";
-import { BsPrefixRefForwardingComponent } from "./helpers";
-import { useBootstrapPrefix, useIsRTL } from "./ThemeProvider";
-import { Dynamic } from "solid-js/web";
+import {BsPrefixRefForwardingComponent} from "./helpers";
+import {useBootstrapPrefix, useIsRTL} from "./ThemeProvider";
+import {Dynamic} from "solid-js/web";
 
 export interface ModalProps
   extends Omit<
     BaseModalProps,
-    | "role"
-    | "renderBackdrop"
-    | "renderDialog"
-    | "transition"
-    | "backdropTransition"
-    | "children"
+    "role" | "renderBackdrop" | "renderDialog" | "transition" | "backdropTransition" | "children"
   > {
   size?: "sm" | "lg" | "xl";
-  fullscreen?:
-    | true
-    | "sm-down"
-    | "md-down"
-    | "lg-down"
-    | "xl-down"
-    | "xxl-down";
+  fullscreen?: true | "sm-down" | "md-down" | "lg-down" | "xl-down" | "xxl-down";
   bsPrefix?: string;
   centered?: boolean;
   backdropClassName?: string;
@@ -88,9 +71,7 @@ function BackdropTransition(props: FadeProps) {
 }
 
 /* eslint-enable no-use-before-define */
-const Modal: BsPrefixRefForwardingComponent<"div", ModalProps> = (
-  p: ModalProps
-) => {
+const Modal: BsPrefixRefForwardingComponent<"div", ModalProps> = (p: ModalProps) => {
   const [local, props] = splitProps(mergeProps(defaultProps, p), [
     "bsPrefix",
     "className",
@@ -143,7 +124,7 @@ const Modal: BsPrefixRefForwardingComponent<"div", ModalProps> = (
 
   function getModalManager() {
     if (local.manager) return local.manager;
-    return getSharedManager({ isRTL });
+    return getSharedManager({isRTL});
   }
 
   function updateDialogStyle(node: Element) {
@@ -151,18 +132,11 @@ const Modal: BsPrefixRefForwardingComponent<"div", ModalProps> = (
 
     const containerIsOverflowing = getModalManager().getScrollbarWidth() > 0;
 
-    const modalIsOverflowing =
-      node.scrollHeight > ownerDocument(node).documentElement.clientHeight;
+    const modalIsOverflowing = node.scrollHeight > ownerDocument(node).documentElement.clientHeight;
 
     setStyle({
-      paddingRight:
-        containerIsOverflowing && !modalIsOverflowing
-          ? getScrollbarSize()
-          : undefined,
-      paddingLeft:
-        !containerIsOverflowing && modalIsOverflowing
-          ? getScrollbarSize()
-          : undefined,
+      paddingRight: containerIsOverflowing && !modalIsOverflowing ? getScrollbarSize() : undefined,
+      paddingLeft: !containerIsOverflowing && modalIsOverflowing ? getScrollbarSize() : undefined,
     });
   }
 
@@ -267,7 +241,7 @@ const Modal: BsPrefixRefForwardingComponent<"div", ModalProps> = (
       className={classNames(
         `${bsPrefix}-backdrop`,
         local.backdropClassName,
-        !local.animation && "show"
+        !local.animation && "show",
       )}
     >
       {backdropProps.children}
@@ -275,7 +249,7 @@ const Modal: BsPrefixRefForwardingComponent<"div", ModalProps> = (
   );
 
   const baseModalStyle = () => {
-    let s = { ...local.style, ...modalStyle() };
+    let s = {...local.style, ...modalStyle()};
 
     // Sets `display` always block when `animation` is false
     if (!local.animation) {
@@ -292,7 +266,7 @@ const Modal: BsPrefixRefForwardingComponent<"div", ModalProps> = (
       className={classNames(
         local.className,
         bsPrefix,
-        animateStaticModal() && `${bsPrefix}-static`
+        animateStaticModal() && `${bsPrefix}-static`,
       )}
       onClick={local.backdrop ? handleClick : undefined}
       onMouseUp={handleMouseUp}

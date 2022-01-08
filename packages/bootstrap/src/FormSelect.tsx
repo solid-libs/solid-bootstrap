@@ -1,7 +1,7 @@
-import { JSX, mergeProps, splitProps, useContext } from "solid-js";
+import {JSX, mergeProps, splitProps, useContext} from "solid-js";
 import classNames from "./classnames";
-import { useBootstrapPrefix } from "./ThemeProvider";
-import { BsPrefixOnlyProps, BsPrefixRefForwardingComponent } from "./helpers";
+import {useBootstrapPrefix} from "./ThemeProvider";
+import {BsPrefixOnlyProps, BsPrefixRefForwardingComponent} from "./helpers";
 import FormContext from "./FormContext";
 
 export interface FormSelectProps
@@ -19,7 +19,7 @@ const defaultProps = {
 };
 
 const FormSelect: BsPrefixRefForwardingComponent<"select", FormSelectProps> = (
-  p: FormSelectProps
+  p: FormSelectProps,
 ) => {
   const [local, props] = splitProps(mergeProps(defaultProps, p), [
     "bsPrefix",
@@ -42,7 +42,7 @@ const FormSelect: BsPrefixRefForwardingComponent<"select", FormSelectProps> = (
         bsPrefix,
         local.size && `${bsPrefix}-${local.size}`,
         local.isValid && `is-valid`,
-        local.isInvalid && `is-invalid`
+        local.isInvalid && `is-invalid`,
       )}
       id={local.id || formContext.controlId}
     >

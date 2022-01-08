@@ -1,10 +1,7 @@
-import { Alert, Card } from "solid-bootstrap";
+import {Alert, Card} from "solid-bootstrap";
 
 const GettingStarted = () => (
-  <div
-    class="container mb-5 overflow-hidden mt-5"
-    style={{ "padding-bottom": "200px" }}
-  >
+  <div class="container mb-5 overflow-hidden mt-5" style={{"padding-bottom": "200px"}}>
     <div class="row gy-5">
       <div>
         <h3>Overview</h3>
@@ -20,10 +17,9 @@ const GettingStarted = () => (
           .
         </p>
         <p>
-          This is a complete implementation of the Bootstrap components using
-          SolidJS. It has no dependency on either bootstrap.js or jQuery. If you
-          have SolidJS setup and Solid-Bootstrap installed, you have everything
-          you need.
+          This is a complete implementation of the Bootstrap components using SolidJS. It has no
+          dependency on either bootstrap.js or jQuery. If you have SolidJS setup and Solid-Bootstrap
+          installed, you have everything you need.
         </p>
       </div>
       <div>
@@ -47,8 +43,8 @@ const GettingStarted = () => (
             .
           </li>
           <li>
-            Install <code>solid-bootstrap</code> with <code>npm</code>,{" "}
-            <code>yarn</code>, <code>pnpm</code>, etc...
+            Install <code>solid-bootstrap</code> with <code>npm</code>, <code>yarn</code>,{" "}
+            <code>pnpm</code>, etc...
           </li>
         </ol>
         <Card>
@@ -60,23 +56,17 @@ const GettingStarted = () => (
         </Card>
       </div>
       <Alert variant="primary">
-        <strong>Tip!</strong> You may need to clear out some of the CSS that
-        comes in the default SolidJS template to get the full Bootstrap
-        experience.
+        <strong>Tip!</strong> You may need to clear out some of the CSS that comes in the default
+        SolidJS template to get the full Bootstrap experience.
       </Alert>
       <div>
         <h3>Porting approach</h3>
-        <p class="lead">
-          We have changed as little as possible while porting this code.
-        </p>
+        <p class="lead">We have changed as little as possible while porting this code.</p>
         Principles:
         <ul>
           <li>
             The goal is to capture all of the proven behaviour of{" "}
-            <a
-              href="https://react-bootstrap.github.io/components/alerts"
-              target="_blank"
-            >
+            <a href="https://react-bootstrap.github.io/components/alerts" target="_blank">
               <code>React-Bootstrap</code>
             </a>
             ,{" "}
@@ -87,13 +77,12 @@ const GettingStarted = () => (
           </li>
           <li>Keep the source file structure the same.</li>
           <li>
-            Keep the source code as similar as possible to enable future commits
-            to the original projects to also be pulled into this project.
+            Keep the source code as similar as possible to enable future commits to the original
+            projects to also be pulled into this project.
           </li>
           <li>
-            Enable validation of the porting approach using a side-by-side
-            comparison between the ported SolidJS code and the original
-            implementation.
+            Enable validation of the porting approach using a side-by-side comparison between the
+            ported SolidJS code and the original implementation.
           </li>
         </ul>
       </div>

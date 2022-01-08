@@ -1,5 +1,5 @@
-import { useContext } from "solid-js";
-import Offcanvas, { OffcanvasProps } from "./Offcanvas";
+import {useContext} from "solid-js";
+import Offcanvas, {OffcanvasProps} from "./Offcanvas";
 import NavbarContext from "./NavbarContext";
 
 const NavbarOffcanvas = (props: OffcanvasProps) => {

@@ -1,13 +1,9 @@
-import { JSX, mergeProps, splitProps } from "solid-js";
+import {JSX, mergeProps, splitProps} from "solid-js";
 import classNames from "./classnames";
 import Anchor from "./Anchor";
-import { useBootstrapPrefix } from "./ThemeProvider";
-import {
-  BsPrefixProps,
-  BsPrefixRefForwardingComponent,
-  ElementType,
-} from "./helpers";
-import { Dynamic } from "solid-js/web";
+import {useBootstrapPrefix} from "./ThemeProvider";
+import {BsPrefixProps, BsPrefixRefForwardingComponent, ElementType} from "./helpers";
+import {Dynamic} from "solid-js/web";
 
 export interface BreadcrumbItemProps
   extends BsPrefixProps,
@@ -27,10 +23,9 @@ const defaultProps = {
   linkProps: {},
 };
 
-const BreadcrumbItem: BsPrefixRefForwardingComponent<
-  "li",
-  BreadcrumbItemProps
-> = (p: BreadcrumbItemProps) => {
+const BreadcrumbItem: BsPrefixRefForwardingComponent<"li", BreadcrumbItemProps> = (
+  p: BreadcrumbItemProps,
+) => {
   const [local, props] = splitProps(mergeProps(defaultProps, p), [
     "bsPrefix",
     "active",
@@ -49,7 +44,7 @@ const BreadcrumbItem: BsPrefixRefForwardingComponent<
     <Dynamic
       component={local.as}
       {...props}
-      className={classNames(prefix, local.className, { active: local.active })}
+      className={classNames(prefix, local.className, {active: local.active})}
       aria-current={local.active ? "page" : undefined}
     >
       {local.active ? (

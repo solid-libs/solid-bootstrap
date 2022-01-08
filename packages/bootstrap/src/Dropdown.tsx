@@ -1,4 +1,4 @@
-import { JSX, mergeProps, splitProps, useContext } from "solid-js";
+import {JSX, mergeProps, splitProps, useContext} from "solid-js";
 import classNames from "./classnames";
 import {
   createControlledProp,
@@ -6,23 +6,23 @@ import {
   DropdownProps as BaseDropdownProps,
   DropdownToggleMetadata,
 } from "solid-bootstrap-core";
-import DropdownContext, { DropDirection } from "./DropdownContext";
+import DropdownContext, {DropDirection} from "./DropdownContext";
 import DropdownItem from "./DropdownItem";
-import DropdownMenu, { getDropdownMenuPlacement } from "./DropdownMenu";
+import DropdownMenu, {getDropdownMenuPlacement} from "./DropdownMenu";
 import DropdownToggle from "./DropdownToggle";
 import InputGroupContext from "./InputGroupContext";
-import { useBootstrapPrefix, useIsRTL } from "./ThemeProvider";
-import { createWithBsPrefix } from "./createWithBsPrefix";
-import { BsPrefixProps, BsPrefixRefForwardingComponent } from "./helpers";
-import { AlignType } from "./types";
-import { Dynamic } from "solid-js/web";
+import {useBootstrapPrefix, useIsRTL} from "./ThemeProvider";
+import {createWithBsPrefix} from "./createWithBsPrefix";
+import {BsPrefixProps, BsPrefixRefForwardingComponent} from "./helpers";
+import {AlignType} from "./types";
+import {Dynamic} from "solid-js/web";
 
 const DropdownHeader = createWithBsPrefix("dropdown-header", {
-  defaultProps: { role: "heading" },
+  defaultProps: {role: "heading"},
 });
 const DropdownDivider = createWithBsPrefix("dropdown-divider", {
   Component: "hr",
-  defaultProps: { role: "separator" },
+  defaultProps: {role: "separator"},
 });
 const DropdownItemText = createWithBsPrefix("dropdown-item-text", {
   Component: "span",
@@ -65,7 +65,7 @@ const Dropdown: BsPrefixRefForwardingComponent<"div", DropdownProps> = (p) => {
   const [show, onToggle] = createControlledProp(
     () => local.show,
     () => local.defaultShow,
-    local.onToggle
+    local.onToggle,
   );
   const isInputGroup = useContext(InputGroupContext);
   const prefix = useBootstrapPrefix(local.bsPrefix, "dropdown");
@@ -89,8 +89,7 @@ const Dropdown: BsPrefixRefForwardingComponent<"div", DropdownProps> = (p) => {
       // null option below is for "bug?" in Solid returning null instead of document
       (meta.originalEvent!.currentTarget === document ||
         meta.originalEvent!.currentTarget === null) &&
-      (meta.source !== "keydown" ||
-        (meta.originalEvent as any).key === "Escape")
+      (meta.source !== "keydown" || (meta.originalEvent as any).key === "Escape")
     ) {
       meta.source = "rootClose";
     }
@@ -134,7 +133,7 @@ const Dropdown: BsPrefixRefForwardingComponent<"div", DropdownProps> = (p) => {
               (!local.drop || local.drop === "down") && prefix,
               local.drop === "up" && "dropup",
               local.drop === "end" && "dropend",
-              local.drop === "start" && "dropstart"
+              local.drop === "start" && "dropstart",
             )}
           >
             {props.children}

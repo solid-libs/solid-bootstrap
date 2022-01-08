@@ -45,10 +45,9 @@ const PaginationApi = () => (
             <td>
               <div>
                 <p>
-                  Change the underlying component CSS base class name and
-                  modifier class names prefix.{" "}
-                  <strong>This is an escape hatch</strong> for working with
-                  heavily customized bootstrap css.
+                  Change the underlying component CSS base class name and modifier class names
+                  prefix. <strong>This is an escape hatch</strong> for working with heavily
+                  customized bootstrap css.
                 </p>
               </div>
             </td>
@@ -82,9 +81,8 @@ const PaginationApi = () => (
             <td>
               <div>
                 <p>
-                  Styles PageItem as active, and renders a{" "}
-                  <code>&lt;span&gt;</code> instead of an <code>&lt;a&gt;</code>
-                  .
+                  Styles PageItem as active, and renders a <code>&lt;span&gt;</code> instead of an{" "}
+                  <code>&lt;a&gt;</code>.
                 </p>
               </div>
             </td>

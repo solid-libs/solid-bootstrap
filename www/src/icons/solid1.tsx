@@ -1,12 +1,7 @@
-import { JSX } from "solid-js";
+import {JSX} from "solid-js";
 
 export const Solid1 = (props: JSX.SvgSVGAttributes<SVGSVGElement>) => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="382.23"
-    height="70.7"
-    {...props}
-  >
+  <svg xmlns="http://www.w3.org/2000/svg" width="382.23" height="70.7" {...props}>
     <defs>
       <linearGradient
         id="a"

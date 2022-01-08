@@ -1,13 +1,10 @@
-import { JSX } from "solid-js";
+import {JSX} from "solid-js";
 
 /**
  * Solid event handlers can be a plain callback OR a tuple [handler, item].
  * This function calls the handler appropriately (if defined).
  */
-export function callEventHandler(
-  h: JSX.EventHandlerUnion<any, any> | undefined,
-  e: Event
-) {
+export function callEventHandler(h: JSX.EventHandlerUnion<any, any> | undefined, e: Event) {
   // capture if propagationStopped
   let isPropagationStopped = false;
   const defaultFn = e.stopPropagation;

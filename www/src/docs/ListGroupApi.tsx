@@ -51,10 +51,9 @@ const ListGroupApi = () => (
             <td>
               <div>
                 <p>
-                  Changes the flow of the list group items from vertical to
-                  horizontal. A value of <code>null</code> (the default) sets it
-                  to vertical for all breakpoints; Just including the prop sets
-                  it for all breakpoints, while{" "}
+                  Changes the flow of the list group items from vertical to horizontal. A value of{" "}
+                  <code>null</code> (the default) sets it to vertical for all breakpoints; Just
+                  including the prop sets it for all breakpoints, while{" "}
                   <code>{`{sm | md | lg | xl | xxl}`}</code>
                   makes the list group horizontal starting at that breakpoint’s{" "}
                   <code>min-width</code>.
@@ -101,10 +100,9 @@ const ListGroupApi = () => (
             <td>
               <div>
                 <p>
-                  Change the underlying component CSS base class name and
-                  modifier class names prefix.{" "}
-                  <strong>This is an escape hatch</strong> for working with
-                  heavily customized bootstrap css.
+                  Change the underlying component CSS base class name and modifier class names
+                  prefix. <strong>This is an escape hatch</strong> for working with heavily
+                  customized bootstrap css.
                 </p>
               </div>
             </td>
@@ -137,8 +135,8 @@ const ListGroupApi = () => (
             <td>
               <div>
                 <p>
-                  Marks a ListGroupItem as actionable, applying additional
-                  hover, active and disabled styles for links and buttons.
+                  Marks a ListGroupItem as actionable, applying additional hover, active and
+                  disabled styles for links and buttons.
                 </p>
               </div>
             </td>
@@ -166,10 +164,9 @@ const ListGroupApi = () => (
             <td>
               <div>
                 <p>
-                  You can use a custom element type for this component. For none{" "}
-                  <code>action</code> items, items render as <code>li</code>.
-                  For actions the default is an achor or button element
-                  depending on whether a <code>href</code> is provided.
+                  You can use a custom element type for this component. For none <code>action</code>{" "}
+                  items, items render as <code>li</code>. For actions the default is an achor or
+                  button element depending on whether a <code>href</code> is provided.
                 </p>
               </div>
             </td>
@@ -195,8 +192,9 @@ const ListGroupApi = () => (
             <td>
               <div>
                 <p>
-                  A unique identifier for the Component, the <code>eventKey</code> makes it distinguishable from others in
-                  a set. It only needs to be unique amongst the Components siblings, not globally.
+                  A unique identifier for the Component, the <code>eventKey</code> makes it
+                  distinguishable from others in a set. It only needs to be unique amongst the
+                  Components siblings, not globally.
                 </p>
               </div>
             </td>
@@ -262,10 +260,9 @@ const ListGroupApi = () => (
             <td>
               <div>
                 <p>
-                  Change the underlying component CSS base class name and
-                  modifier class names prefix.{" "}
-                  <strong>This is an escape hatch</strong> for working with
-                  heavily customized bootstrap css.
+                  Change the underlying component CSS base class name and modifier class names
+                  prefix. <strong>This is an escape hatch</strong> for working with heavily
+                  customized bootstrap css.
                 </p>
               </div>
             </td>

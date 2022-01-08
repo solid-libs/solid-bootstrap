@@ -1,13 +1,10 @@
 // ported from https://github.com/react-bootstrap/react-bootstrap/blob/f11723114d532cfce840417834a73733a8436414/src/AccordionContext.ts
 
-import { createContext } from "solid-js";
+import {createContext} from "solid-js";
 
 export type AccordionEventKey = string | string[] | null | undefined;
 
-export declare type AccordionSelectCallback = (
-  eventKey: AccordionEventKey,
-  e: Event,
-) => void;
+export declare type AccordionSelectCallback = (eventKey: AccordionEventKey, e: Event) => void;
 
 export interface AccordionContextValue {
   activeEventKey?: AccordionEventKey;

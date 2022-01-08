@@ -1,12 +1,10 @@
-import { Component, JSX, mergeProps, splitProps } from "solid-js";
+import {Component, JSX, mergeProps, splitProps} from "solid-js";
 import classNames from "./classnames";
-import { useBootstrapPrefix } from "./ThemeProvider";
-import { BsPrefixProps, BsPrefixRefForwardingComponent } from "./helpers";
-import { Dynamic } from "solid-js/web";
+import {useBootstrapPrefix} from "./ThemeProvider";
+import {BsPrefixProps, BsPrefixRefForwardingComponent} from "./helpers";
+import {Dynamic} from "solid-js/web";
 
-export interface CarouselItemProps
-  extends BsPrefixProps,
-    JSX.HTMLAttributes<HTMLElement> {
+export interface CarouselItemProps extends BsPrefixProps, JSX.HTMLAttributes<HTMLElement> {
   interval?: number;
 }
 
@@ -34,10 +32,7 @@ const CarouselItem = (p: CarouselItemProps) => {
       <Dynamic
         component={local.as}
         {...props}
-        className={classNames(
-          local.className,
-          useBootstrapPrefix(local.bsPrefix, "carousel-item")
-        )}
+        className={classNames(local.className, useBootstrapPrefix(local.bsPrefix, "carousel-item"))}
       >
         {props.children}
       </Dynamic>

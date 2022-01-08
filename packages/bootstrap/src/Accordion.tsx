@@ -1,20 +1,17 @@
 // ported from https://github.com/react-bootstrap/react-bootstrap/blob/f11723114d532cfce840417834a73733a8436414/src/Accordion.tsx
 
 import classNames from "./classnames";
-import { JSX, mergeProps, splitProps } from "solid-js";
-import { createControlledProp } from "solid-bootstrap-core";
-import { useBootstrapPrefix } from "./ThemeProvider";
+import {JSX, mergeProps, splitProps} from "solid-js";
+import {createControlledProp} from "solid-bootstrap-core";
+import {useBootstrapPrefix} from "./ThemeProvider";
 import AccordionBody from "./AccordionBody";
 import AccordionButton from "./AccordionButton";
 import AccordionCollapse from "./AccordionCollapse";
-import AccordionContext, {
-  AccordionSelectCallback,
-  AccordionEventKey,
-} from './AccordionContext';
+import AccordionContext, {AccordionSelectCallback, AccordionEventKey} from "./AccordionContext";
 import AccordionHeader from "./AccordionHeader";
 import AccordionItem from "./AccordionItem";
-import { BsPrefixProps, BsPrefixRefForwardingComponent } from "./helpers";
-import { Dynamic } from "solid-js/web";
+import {BsPrefixProps, BsPrefixRefForwardingComponent} from "./helpers";
+import {Dynamic} from "solid-js/web";
 
 export interface AccordionProps
   extends Omit<JSX.HTMLAttributes<HTMLElement>, "onSelect">,
@@ -30,9 +27,7 @@ const defaultProps = {
   as: "div",
 };
 
-const Accordion: BsPrefixRefForwardingComponent<"div", AccordionProps> = (
-  p
-) => {
+const Accordion: BsPrefixRefForwardingComponent<"div", AccordionProps> = (p) => {
   const [local, props] = splitProps(mergeProps(defaultProps, p), [
     "as",
     "activeKey",
@@ -47,7 +42,7 @@ const Accordion: BsPrefixRefForwardingComponent<"div", AccordionProps> = (
   const [activeKey, onSelect] = createControlledProp(
     () => local.activeKey,
     () => local.defaultActiveKey,
-    local.onSelect
+    local.onSelect,
   );
 
   const prefix = useBootstrapPrefix(local.bsPrefix, "accordion");
@@ -69,11 +64,7 @@ const Accordion: BsPrefixRefForwardingComponent<"div", AccordionProps> = (
         component={local.as}
         {...props}
         classList={{}}
-        className={classNames(
-          local.className,
-          prefix,
-          local.flush && `${prefix}-flush`
-        )}
+        className={classNames(local.className, prefix, local.flush && `${prefix}-flush`)}
       >
         {props.children}
       </Dynamic>

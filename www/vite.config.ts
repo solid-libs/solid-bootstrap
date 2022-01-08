@@ -1,20 +1,21 @@
-import { defineConfig } from "vite";
+import {defineConfig} from "vite";
 import solid from "vite-plugin-solid";
-import mdx from '@mdx-js/rollup';
-import rehypeHighlight from 'rehype-highlight'
+import mdx from "@mdx-js/rollup";
+import rehypeHighlight from "rehype-highlight";
 
 export default defineConfig({
   base: "/solid-bootstrap/",
-  plugins: [{
+  plugins: [
+    {
       ...mdx({
         jsx: true,
-        jsxImportSource: 'solid-js',
-        providerImportSource: 'solid-mdx',
-        rehypePlugins: [rehypeHighlight]
+        jsxImportSource: "solid-js",
+        providerImportSource: "solid-mdx",
+        rehypePlugins: [rehypeHighlight],
       }),
-      enforce: 'pre',
+      enforce: "pre",
     },
-    solid({ extensions: ['.md', '.mdx'] }),
+    solid({extensions: [".md", ".mdx"]}),
   ],
   build: {
     target: "esnext",
@@ -23,7 +24,7 @@ export default defineConfig({
   },
   server: {
     fs: {
-      allow: [".."]
-    }
-  }
+      allow: [".."],
+    },
+  },
 });

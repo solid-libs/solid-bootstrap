@@ -1,12 +1,10 @@
-import { JSX, mergeProps, splitProps } from "solid-js";
+import {JSX, mergeProps, splitProps} from "solid-js";
 import classNames from "./classnames";
-import { useBootstrapPrefix } from "./ThemeProvider";
-import { BsPrefixProps, BsPrefixRefForwardingComponent } from "./helpers";
-import { Dynamic } from "solid-js/web";
+import {useBootstrapPrefix} from "./ThemeProvider";
+import {BsPrefixProps, BsPrefixRefForwardingComponent} from "./helpers";
+import {Dynamic} from "solid-js/web";
 
-export interface ButtonGroupProps
-  extends BsPrefixProps,
-    JSX.HTMLAttributes<HTMLElement> {
+export interface ButtonGroupProps extends BsPrefixProps, JSX.HTMLAttributes<HTMLElement> {
   size?: "sm" | "lg";
   vertical?: boolean;
 }
@@ -18,7 +16,7 @@ const defaultProps = {
 };
 
 const ButtonGroup: BsPrefixRefForwardingComponent<"div", ButtonGroupProps> = (
-  p: ButtonGroupProps
+  p: ButtonGroupProps,
 ) => {
   const [local, props] = splitProps(mergeProps(defaultProps, p), [
     "bsPrefix",
@@ -36,11 +34,7 @@ const ButtonGroup: BsPrefixRefForwardingComponent<"div", ButtonGroupProps> = (
     <Dynamic
       component={local.as}
       {...props}
-      className={classNames(
-        local.className,
-        baseClass,
-        local.size && `${prefix}-${local.size}`
-      )}
+      className={classNames(local.className, baseClass, local.size && `${prefix}-${local.size}`)}
     >
       {props.children}
     </Dynamic>

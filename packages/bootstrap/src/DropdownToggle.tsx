@@ -1,11 +1,11 @@
-import { ComponentProps, mergeProps, splitProps, useContext } from "solid-js";
+import {ComponentProps, mergeProps, splitProps, useContext} from "solid-js";
 import classNames from "./classnames";
-import { DropdownContext, useDropdownToggle } from "solid-bootstrap-core";
-import Button, { ButtonProps, CommonButtonProps } from "./Button";
+import {DropdownContext, useDropdownToggle} from "solid-bootstrap-core";
+import Button, {ButtonProps, CommonButtonProps} from "./Button";
 import InputGroupContext from "./InputGroupContext";
-import { useBootstrapPrefix } from "./ThemeProvider";
-import { BsPrefixRefForwardingComponent, ElementType } from "./helpers";
-import { Dynamic } from "solid-js/web";
+import {useBootstrapPrefix} from "./ThemeProvider";
+import {BsPrefixRefForwardingComponent, ElementType} from "./helpers";
+import {Dynamic} from "solid-js/web";
 
 export interface DropdownToggleProps extends Omit<ButtonProps, "as"> {
   as?: ElementType;
@@ -14,10 +14,7 @@ export interface DropdownToggleProps extends Omit<ButtonProps, "as"> {
   ref?: (ref: HTMLElement) => void;
 }
 
-type DropdownToggleComponent = BsPrefixRefForwardingComponent<
-  "button",
-  DropdownToggleProps
->;
+type DropdownToggleComponent = BsPrefixRefForwardingComponent<"button", DropdownToggleProps>;
 
 export type PropsFromToggle = Partial<
   Pick<ComponentProps<DropdownToggleComponent>, CommonButtonProps>
@@ -61,7 +58,7 @@ const DropdownToggle: DropdownToggleComponent = (p: DropdownToggleProps) => {
         local.className,
         prefix,
         local.split && `${prefix}-split`,
-        !!isInputGroup && dropdownContext?.show && "show"
+        !!isInputGroup && dropdownContext?.show && "show",
       )}
       {...toggleOther}
       {...props}

@@ -1,24 +1,19 @@
 // ported from https://github.com/react-bootstrap/react-bootstrap/blob/f11723114d532cfce840417834a73733a8436414/src/AccordionHeader.tsx
 
-import { JSX, mergeProps, splitProps } from "solid-js";
-import { Dynamic } from "solid-js/web";
+import {JSX, mergeProps, splitProps} from "solid-js";
+import {Dynamic} from "solid-js/web";
 import classNames from "./classnames";
-import { useBootstrapPrefix } from "./ThemeProvider";
+import {useBootstrapPrefix} from "./ThemeProvider";
 import AccordionButton from "./AccordionButton";
-import { BsPrefixRefForwardingComponent, BsPrefixProps } from "./helpers";
+import {BsPrefixRefForwardingComponent, BsPrefixProps} from "./helpers";
 
-export interface AccordionHeaderProps
-  extends BsPrefixProps,
-    JSX.HTMLAttributes<HTMLElement> {}
+export interface AccordionHeaderProps extends BsPrefixProps, JSX.HTMLAttributes<HTMLElement> {}
 
 const defaultProps = {
   as: "h2",
 };
 
-const AccordionHeader: BsPrefixRefForwardingComponent<
-  "h2",
-  AccordionHeaderProps
-> = (p) => {
+const AccordionHeader: BsPrefixRefForwardingComponent<"h2", AccordionHeaderProps> = (p) => {
   const [local, props] = splitProps(mergeProps(defaultProps, p), [
     "as",
     "bsPrefix",
@@ -29,14 +24,8 @@ const AccordionHeader: BsPrefixRefForwardingComponent<
   const bsPrefix = useBootstrapPrefix(local.bsPrefix, "accordion-header");
 
   return (
-    <Dynamic
-      component={local.as}
-      {...props}
-      className={classNames(local.className, bsPrefix)}
-    >
-      <AccordionButton onClick={local.onClick}>
-        {local.children}
-      </AccordionButton>
+    <Dynamic component={local.as} {...props} className={classNames(local.className, bsPrefix)}>
+      <AccordionButton onClick={local.onClick}>{local.children}</AccordionButton>
     </Dynamic>
   );
 };

@@ -1,9 +1,8 @@
-import { useSSRSafeId } from "./ssr";
-import DropdownContext, { DropdownContextValue } from "./DropdownContext";
-import { JSX, useContext } from "solid-js";
+import {useSSRSafeId} from "./ssr";
+import DropdownContext, {DropdownContextValue} from "./DropdownContext";
+import {JSX, useContext} from "solid-js";
 
-export const isRoleMenu = (el: HTMLElement) =>
-  el.getAttribute("role")?.toLowerCase() === "menu";
+export const isRoleMenu = (el: HTMLElement) => el.getAttribute("role")?.toLowerCase() === "menu";
 
 export interface UseDropdownToggleProps {
   id: string;
@@ -26,10 +25,7 @@ const noop = () => {};
  *
  * @memberOf Dropdown
  */
-export function useDropdownToggle(): [
-  UseDropdownToggleProps,
-  UseDropdownToggleMetadata
-] {
+export function useDropdownToggle(): [UseDropdownToggleProps, UseDropdownToggleMetadata] {
   const id = useSSRSafeId();
   const context = useContext(DropdownContext)!;
 
@@ -49,9 +45,7 @@ export function useDropdownToggle(): [
       },
       get "aria-haspopup"() {
         return (
-          context.menuElement && isRoleMenu(context.menuElement)
-            ? true
-            : undefined
+          context.menuElement && isRoleMenu(context.menuElement) ? true : undefined
         ) as UseDropdownToggleProps["aria-haspopup"];
       },
     },
@@ -84,10 +78,7 @@ export interface DropdownToggleProps {
    *   }
    * }) => Element}
    */
-  children: (
-    props: UseDropdownToggleProps,
-    meta: UseDropdownToggleMetadata
-  ) => JSX.Element;
+  children: (props: UseDropdownToggleProps, meta: UseDropdownToggleMetadata) => JSX.Element;
 }
 
 /**
@@ -96,7 +87,7 @@ export interface DropdownToggleProps {
  * @displayName DropdownToggle
  * @memberOf Dropdown
  */
-function DropdownToggle({ children }: DropdownToggleProps) {
+function DropdownToggle({children}: DropdownToggleProps) {
   const [props, meta] = useDropdownToggle();
 
   return <>{children(props, meta)}</>;

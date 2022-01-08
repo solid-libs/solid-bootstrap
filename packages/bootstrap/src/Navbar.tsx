@@ -1,20 +1,16 @@
-import { JSX, mergeProps, splitProps } from "solid-js";
+import {JSX, mergeProps, splitProps} from "solid-js";
 import classNames from "./classnames";
-import {
-  createControlledProp,
-  SelectableContext,
-  SelectCallback,
-} from "solid-bootstrap-core";
+import {createControlledProp, SelectableContext, SelectCallback} from "solid-bootstrap-core";
 
-import { createWithBsPrefix } from "./createWithBsPrefix";
+import {createWithBsPrefix} from "./createWithBsPrefix";
 import NavbarBrand from "./NavbarBrand";
 import NavbarCollapse from "./NavbarCollapse";
 import NavbarToggle from "./NavbarToggle";
 import NavbarOffcanvas from "./NavbarOffcanvas";
-import { useBootstrapPrefix } from "./ThemeProvider";
-import NavbarContext, { NavbarContextType } from "./NavbarContext";
-import { BsPrefixProps, BsPrefixRefForwardingComponent } from "./helpers";
-import { Dynamic } from "solid-js/web";
+import {useBootstrapPrefix} from "./ThemeProvider";
+import NavbarContext, {NavbarContextType} from "./NavbarContext";
+import {BsPrefixProps, BsPrefixRefForwardingComponent} from "./helpers";
+import {Dynamic} from "solid-js/web";
 
 const NavbarText = createWithBsPrefix("navbar-text", {
   Component: "span",
@@ -42,9 +38,7 @@ const defaultProps = {
   collapseOnSelect: false,
 };
 
-const Navbar: BsPrefixRefForwardingComponent<"nav", NavbarProps> = (
-  p: NavbarProps
-) => {
+const Navbar: BsPrefixRefForwardingComponent<"nav", NavbarProps> = (p: NavbarProps) => {
   const [local, props] = splitProps(mergeProps(defaultProps, p), [
     "as",
     "bsPrefix",
@@ -64,7 +58,7 @@ const Navbar: BsPrefixRefForwardingComponent<"nav", NavbarProps> = (
   const [expanded, onToggle] = createControlledProp(
     () => local.expanded,
     () => local.defaultExpanded,
-    local.onToggle
+    local.onToggle,
   );
 
   const handleCollapse: SelectCallback = (...args) => {
@@ -76,8 +70,7 @@ const Navbar: BsPrefixRefForwardingComponent<"nav", NavbarProps> = (
 
   const expandClass = () => {
     let expandClass = `${bsPrefix}-expand`;
-    if (typeof local.expand === "string")
-      expandClass = `${expandClass}-${local.expand}`;
+    if (typeof local.expand === "string") expandClass = `${expandClass}-${local.expand}`;
     return expandClass;
   };
 
@@ -101,9 +94,7 @@ const Navbar: BsPrefixRefForwardingComponent<"nav", NavbarProps> = (
             // will result in some false positives but that seems better
             // than false negatives. strict `undefined` check allows explicit
             // "nulling" of the role if the user really doesn't want one
-            props.role === undefined && local.as !== "nav"
-              ? "Navigation"
-              : props.role
+            props.role === undefined && local.as !== "nav" ? "Navigation" : props.role
           }
           className={classNames(
             local.className,
@@ -112,7 +103,7 @@ const Navbar: BsPrefixRefForwardingComponent<"nav", NavbarProps> = (
             local.variant && `${bsPrefix}-${local.variant}`,
             local.bg && `bg-${local.bg}`,
             local.sticky && `sticky-${local.sticky}`,
-            local.fixed && `fixed-${local.fixed}`
+            local.fixed && `fixed-${local.fixed}`,
           )}
         >
           {props.children}

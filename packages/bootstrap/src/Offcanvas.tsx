@@ -1,4 +1,4 @@
-import { mergeProps, splitProps, useContext } from "solid-js";
+import {mergeProps, splitProps, useContext} from "solid-js";
 import classNames from "./classnames";
 import {
   Modal as BaseModal,
@@ -13,24 +13,16 @@ import ModalContext from "./ModalContext";
 import NavbarContext from "./NavbarContext";
 import OffcanvasHeader from "./OffcanvasHeader";
 import OffcanvasTitle from "./OffcanvasTitle";
-import { BsPrefixRefForwardingComponent } from "./helpers";
-import { useBootstrapPrefix } from "./ThemeProvider";
-import {
-  BootstrapModalManager,
-  getSharedManager,
-} from "./BootstrapModalManager";
+import {BsPrefixRefForwardingComponent} from "./helpers";
+import {useBootstrapPrefix} from "./ThemeProvider";
+import {BootstrapModalManager, getSharedManager} from "./BootstrapModalManager";
 
 export type OffcanvasPlacement = "start" | "end" | "top" | "bottom";
 
 export interface OffcanvasProps
   extends Omit<
     BaseModalProps,
-    | "role"
-    | "renderBackdrop"
-    | "renderDialog"
-    | "transition"
-    | "backdrop"
-    | "backdropTransition"
+    "role" | "renderBackdrop" | "renderDialog" | "transition" | "backdrop" | "backdropTransition"
   > {
   bsPrefix?: string;
   backdropClassName?: string;
@@ -57,9 +49,7 @@ function BackdropTransition(props: any) {
   return <Fade {...props}>{props.children}</Fade>;
 }
 
-const Offcanvas: BsPrefixRefForwardingComponent<"div", OffcanvasProps> = (
-  p: OffcanvasProps
-) => {
+const Offcanvas: BsPrefixRefForwardingComponent<"div", OffcanvasProps> = (p: OffcanvasProps) => {
   const [local, props] = splitProps(mergeProps(defaultProps, p), [
     "bsPrefix",
     "className",
@@ -130,10 +120,7 @@ const Offcanvas: BsPrefixRefForwardingComponent<"div", OffcanvasProps> = (
   };
 
   const renderBackdrop = (backdropProps: RenderModalBackdropProps) => (
-    <div
-      {...backdropProps}
-      className={classNames(`${bsPrefix}-backdrop`, local.backdropClassName)}
-    >
+    <div {...backdropProps} className={classNames(`${bsPrefix}-backdrop`, local.backdropClassName)}>
       {props.children}
     </div>
   );
@@ -144,11 +131,7 @@ const Offcanvas: BsPrefixRefForwardingComponent<"div", OffcanvasProps> = (
       role="dialog"
       {...dialogProps}
       {...props}
-      className={classNames(
-        local.className,
-        bsPrefix,
-        `${bsPrefix}-${local.placement}`
-      )}
+      className={classNames(local.className, bsPrefix, `${bsPrefix}-${local.placement}`)}
       aria-labelledby={local["aria-labelledby"]}
     >
       {local.children}

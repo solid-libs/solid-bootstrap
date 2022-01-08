@@ -1,6 +1,6 @@
 // ported from https://github.com/react-bootstrap/react-bootstrap/blob/f11723114d532cfce840417834a73733a8436414/src/Collapse.tsx
 
-import { children, JSX, mergeProps, splitProps } from "solid-js";
+import {children, JSX, mergeProps, splitProps} from "solid-js";
 import css from "dom-helpers/css";
 import {
   TransitionStatus,
@@ -15,7 +15,7 @@ import triggerBrowserReflow from "./triggerBrowserReflow";
 import transitionEndListener from "./transitionEndListener";
 import TransitionWrapper from "./TransitionWrapper";
 import classNames from "./classnames";
-import { resolveClasses } from "solid-bootstrap-core";
+import {resolveClasses} from "solid-bootstrap-core";
 
 type Dimension = "height" | "width";
 
@@ -33,18 +33,13 @@ export interface CollapseProps
   children: JSX.Element;
 }
 
-const MARGINS: { [d in Dimension]: string[] } = {
+const MARGINS: {[d in Dimension]: string[]} = {
   height: ["marginTop", "marginBottom"],
   width: ["marginLeft", "marginRight"],
 };
 
-function getDefaultDimensionValue(
-  dimension: Dimension,
-  elem: HTMLElement
-): number {
-  const offset = `offset${dimension[0].toUpperCase()}${dimension.slice(
-    1
-  )}` as keyof HTMLElement;
+function getDefaultDimensionValue(dimension: Dimension, elem: HTMLElement): number {
+  const offset = `offset${dimension[0].toUpperCase()}${dimension.slice(1)}` as keyof HTMLElement;
   const value = elem[offset] as number;
   const margins = MARGINS[dimension];
 
@@ -90,9 +85,7 @@ const Collapse = (p: CollapseProps) => {
 
   /* Compute dimension */
   const computedDimension = () =>
-    typeof local.dimension === "function"
-      ? local.dimension()
-      : (local.dimension as Dimension);
+    typeof local.dimension === "function" ? local.dimension() : (local.dimension as Dimension);
 
   /* -- Expanding -- */
   const handleEnter = (elem?: any) => {
@@ -101,13 +94,10 @@ const Collapse = (p: CollapseProps) => {
   };
 
   const handleEntering = (elem: any) => {
-    const scroll =
-      `scroll${computedDimension()[0].toUpperCase()}${computedDimension().slice(
-        1
-      )}` as keyof HTMLElement;
-    (elem as HTMLElement).style[computedDimension()] = `${
-      (elem as HTMLElement)[scroll]
-    }px`;
+    const scroll = `scroll${computedDimension()[0].toUpperCase()}${computedDimension().slice(
+      1,
+    )}` as keyof HTMLElement;
+    (elem as HTMLElement).style[computedDimension()] = `${(elem as HTMLElement)[scroll]}px`;
     local.onEntering?.(elem as HTMLElement);
   };
 
@@ -119,11 +109,9 @@ const Collapse = (p: CollapseProps) => {
 
   /* -- Collapsing -- */
   const handleExit = (elem: Element) => {
-    (elem as HTMLElement).style[
-      computedDimension()
-    ] = `${local.getDimensionValue!(
+    (elem as HTMLElement).style[computedDimension()] = `${local.getDimensionValue!(
       computedDimension(),
-      elem as HTMLElement
+      elem as HTMLElement,
     )}px`;
     // @ts-ignore
     triggerBrowserReflow(elem);
@@ -151,16 +139,13 @@ const Collapse = (p: CollapseProps) => {
       onExiting={handleExiting}
     >
       {
-        ((
-          state: TransitionStatus,
-          innerProps: { ref: (el: HTMLElement) => void }
-        ) => {
+        ((state: TransitionStatus, innerProps: {ref: (el: HTMLElement) => void}) => {
           const el = child() as HTMLElement;
           innerProps.ref(el);
           const newClasses = classNames(
             local.className,
             collapseStyles[state],
-            computedDimension() === "width" && "collapse-horizontal"
+            computedDimension() === "width" && "collapse-horizontal",
           );
           resolveClasses(el, prevClasses, newClasses);
           prevClasses = newClasses;

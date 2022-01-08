@@ -1,6 +1,5 @@
-import { createContext } from "solid-js";
+import {createContext} from "solid-js";
 
-const FormCheckContext =
-  createContext<{ setHasFormCheckLabel: (value: boolean) => void }>();
+const FormCheckContext = createContext<{setHasFormCheckLabel: (value: boolean) => void}>();
 
 export default FormCheckContext;

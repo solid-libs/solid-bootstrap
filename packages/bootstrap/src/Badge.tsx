@@ -1,13 +1,11 @@
-import { JSX, mergeProps, splitProps } from "solid-js";
+import {JSX, mergeProps, splitProps} from "solid-js";
 import classNames from "./classnames";
-import { useBootstrapPrefix } from "./ThemeProvider";
-import { BsPrefixProps, BsPrefixRefForwardingComponent } from "./helpers";
-import { Color, Variant } from "./types";
-import { Dynamic } from "solid-js/web";
+import {useBootstrapPrefix} from "./ThemeProvider";
+import {BsPrefixProps, BsPrefixRefForwardingComponent} from "./helpers";
+import {Color, Variant} from "./types";
+import {Dynamic} from "solid-js/web";
 
-export interface BadgeProps
-  extends BsPrefixProps,
-    JSX.HTMLAttributes<HTMLElement> {
+export interface BadgeProps extends BsPrefixProps, JSX.HTMLAttributes<HTMLElement> {
   bg?: Variant;
   pill?: boolean;
   text?: Color;
@@ -19,9 +17,7 @@ const defaultProps = {
   pill: false,
 };
 
-const Badge: BsPrefixRefForwardingComponent<"span", BadgeProps> = (
-  p: BadgeProps
-) => {
+const Badge: BsPrefixRefForwardingComponent<"span", BadgeProps> = (p: BadgeProps) => {
   const [local, props] = splitProps(mergeProps(defaultProps, p), [
     "as",
     "bsPrefix",
@@ -41,7 +37,7 @@ const Badge: BsPrefixRefForwardingComponent<"span", BadgeProps> = (
         prefix,
         local.pill && `rounded-pill`,
         local.text && `text-${local.text}`,
-        local.bg && `bg-${local.bg}`
+        local.bg && `bg-${local.bg}`,
       )}
     >
       {props.children}

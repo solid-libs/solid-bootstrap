@@ -1,12 +1,12 @@
 // ported from https://github.com/react-bootstrap/react-bootstrap/blob/f11723114d532cfce840417834a73733a8436414/src/AccordionCollapse.tsx
 
 import classNames from "./classnames";
-import { mergeProps, splitProps, useContext } from "solid-js";
-import { Dynamic } from "solid-js/web";
-import { useBootstrapPrefix } from "./ThemeProvider";
-import Collapse, { CollapseProps } from "./Collapse";
-import AccordionContext, { isAccordionItemSelected } from './AccordionContext';
-import { BsPrefixRefForwardingComponent, BsPrefixProps } from "./helpers";
+import {mergeProps, splitProps, useContext} from "solid-js";
+import {Dynamic} from "solid-js/web";
+import {useBootstrapPrefix} from "./ThemeProvider";
+import Collapse, {CollapseProps} from "./Collapse";
+import AccordionContext, {isAccordionItemSelected} from "./AccordionContext";
+import {BsPrefixRefForwardingComponent, BsPrefixProps} from "./helpers";
 
 export interface AccordionCollapseProps extends BsPrefixProps, CollapseProps {
   eventKey: string;
@@ -16,10 +16,7 @@ const defaultProps = {
   as: "div",
 };
 
-const AccordionCollapse: BsPrefixRefForwardingComponent<
-  "div",
-  AccordionCollapseProps
-> = (p) => {
+const AccordionCollapse: BsPrefixRefForwardingComponent<"div", AccordionCollapseProps> = (p) => {
   const [local, props] = splitProps(mergeProps(defaultProps, p), [
     "as",
     "bsPrefix",
@@ -32,10 +29,7 @@ const AccordionCollapse: BsPrefixRefForwardingComponent<
 
   return (
     <Collapse in={isAccordionItemSelected(context.activeEventKey, local.eventKey)} {...props}>
-      <Dynamic
-        component={local.as}
-        className={classNames(local.className, bsPrefix)}
-      >
+      <Dynamic component={local.as} className={classNames(local.className, bsPrefix)}>
         {local.children}
       </Dynamic>
     </Collapse>
