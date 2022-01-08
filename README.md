@@ -10,8 +10,6 @@ Solid-Bootstrap is a port of [React-Bootstrap](https://react-bootstrap.github.io
 
 This is a complete implementation of the Bootstrap 5 components using SolidJS. It has no dependency on either bootstrap.js or jQuery. If you have SolidJS setup and Solid-Bootstrap installed, you have everything you need.
 
-Refer to the original [React Bootstrap documentation](https://react-bootstrap.github.io/components/alerts) to supplement this page.
-
 ## Getting started
 
 1. Create a new SolidJS website per [Solid's documentation](https://www.solidjs.com/guide) (if you don't have an existing site).

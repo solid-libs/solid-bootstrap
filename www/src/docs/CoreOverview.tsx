@@ -24,8 +24,8 @@ const CoreOverview: Component = () => (
         </p>
         <p>
           Refer to the original{" "}
-          <a href="https://react-bootstrap.github.io/react-overlays/">
-            React Overlays
+          <a href="https://react-restart.github.io/ui/">
+            restart/ui
           </a>{" "}
           documentation to supplement this page.
         </p>
