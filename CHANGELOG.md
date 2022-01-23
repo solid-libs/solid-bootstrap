@@ -1,3 +1,9 @@
+## 2022-01-23 - (1.0.0)
+
+### Bug Fixes
+
+- [Fix: Dropdown trigger not focused on Escape](https://github.com/solid-libs/solid-bootstrap/commit/13e35001731261d68cd95291fcd3f04dbe85c8e1)
+
 ## 2022-01-08 - solid-bootstrap (0.2.7)
 
 ### Bug Fixes
