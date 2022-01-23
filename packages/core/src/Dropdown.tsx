@@ -142,8 +142,9 @@ function Dropdown(p: DropdownProps) {
   const [toggleRef, setToggle] = createSignal<HTMLElement | null>();
 
   const [lastSourceEvent, setLastSourceEvent] = createSignal<string | null>(null);
-  const [focusInDropdown, setFocusInDropdown] = createSignal(false);
   const onSelectCtx = useContext(SelectableContext);
+
+  const focusInDropdown = () => menuRef()?.contains(menuRef()!.ownerDocument.activeElement);
 
   const toggle = (
     nextShow: boolean,
@@ -182,12 +183,6 @@ function Dropdown(p: DropdownProps) {
     },
   };
 
-  createEffect(() => {
-    if (menuRef() && show) {
-      setFocusInDropdown(() => menuRef()!.contains(menuRef()!.ownerDocument.activeElement));
-    }
-  });
-
   const focusToggle = () => {
     if (toggleRef() && toggleRef()!.focus) {
       toggleRef()!.focus();
@@ -215,7 +210,6 @@ function Dropdown(p: DropdownProps) {
     if (show()) {
       maybeFocusFirst();
     } else if (focusInDropdown()) {
-      setFocusInDropdown(false);
       focusToggle();
     }
   });
