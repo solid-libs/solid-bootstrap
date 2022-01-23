@@ -1,6 +1,6 @@
 {
   "name": "solid-bootstrap-core",
-  "version": "0.2.7",
+  "version": "1.0.0",
   "description": "Unstyled/headless components for Solid-Bootstrap",
   "homepage": "https://github.com/solid-libs/solid-bootstrap/tree/master#readme",
   "repository": {
@@ -28,7 +28,7 @@
   "dependencies": {
     "@popperjs/core": "^2.10.1",
     "dom-helpers": "^5.2.0",
-    "solid-react-transition": "^0.2.1"
+    "solid-react-transition": "^1.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.15.8",

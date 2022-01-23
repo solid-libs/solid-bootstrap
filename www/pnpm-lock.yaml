@@ -10,8 +10,8 @@ specifiers:
   rollup: 2.63.0
   shakespeare-data: ^3.0.0
   solid-app-router: ^0.2.0
-  solid-bootstrap: 0.2.7
-  solid-bootstrap-core: 0.2.7
+  solid-bootstrap: 1.0.0
+  solid-bootstrap-core: 1.0.0
   solid-js: ^1.3.1
   solid-mdx: ^0.0.5
   typescript: ^4.5.2
@@ -23,8 +23,8 @@ dependencies:
   classnames: 2.3.1
   lodash: 4.17.21
   solid-app-router: 0.2.0_solid-js@1.3.1
-  solid-bootstrap: 0.2.7_solid-js@1.3.1
-  solid-bootstrap-core: 0.2.7_solid-js@1.3.1
+  solid-bootstrap: 1.0.0_solid-js@1.3.1
+  solid-bootstrap-core: 1.0.0_solid-js@1.3.1
   solid-js: 1.3.1
 
 devDependencies:
@@ -1756,26 +1756,26 @@ packages:
       solid-js: 1.3.1
     dev: false
 
-  /solid-bootstrap-core/0.2.7_solid-js@1.3.1:
-    resolution: {integrity: sha512-sO8fqMCuzbqNPaBGV/D2yKmD+iOJyY5T/BBzYWAh+lkxVboapWxW9H2sQhE+clrOR8mT5PtLCqdwdI4UO7vG2w==}
+  /solid-bootstrap-core/1.0.0_solid-js@1.3.1:
+    resolution: {integrity: sha512-PQShqZieto38c9QNGtuLrY4n2p5GnsVAM5kkLA4ZBGBeNxGP/L/OIIgb9bl3pk5oAekN3jxdT3YVWE483ZNLCQ==}
     peerDependencies:
       solid-js: ^1.2.5
     dependencies:
       '@popperjs/core': 2.11.2
       dom-helpers: 5.2.1
       solid-js: 1.3.1
-      solid-react-transition: 0.2.1_solid-js@1.3.1
+      solid-react-transition: 1.0.0_solid-js@1.3.1
     dev: false
 
-  /solid-bootstrap/0.2.7_solid-js@1.3.1:
-    resolution: {integrity: sha512-i5lmpFtrTl28vUtiDBE/gAaivt5M6suQVA3enDlNcpPusybXcTgcOxoxIqi2gxcWQ450BUpZq8vJcGe57Q0ylQ==}
+  /solid-bootstrap/1.0.0_solid-js@1.3.1:
+    resolution: {integrity: sha512-bWg9wV5Mx9HTdpAP21oFI2Eq912g7F/5jK8/8iqtl1O+pSbrobQA/ipT11qcxqaE3huyHbeAqYeUZjuvwtPSiA==}
     peerDependencies:
       solid-js: ^1.2.5
     dependencies:
       dom-helpers: 5.2.1
-      solid-bootstrap-core: 0.2.7_solid-js@1.3.1
+      solid-bootstrap-core: 1.0.0_solid-js@1.3.1
       solid-js: 1.3.1
-      solid-react-transition: 0.2.1_solid-js@1.3.1
+      solid-react-transition: 1.0.0_solid-js@1.3.1
     dev: false
 
   /solid-js/1.3.1:
@@ -1795,8 +1795,8 @@ packages:
       - supports-color
     dev: true
 
-  /solid-react-transition/0.2.1_solid-js@1.3.1:
-    resolution: {integrity: sha512-qCWfSVrVuN4MDtZf3xerMXTwhnMD3nZH9s4q1VieI9UGlP3mDSy3luZOSJhSsZ8guuhXwQpvUxd3Cx6N04wkxg==}
+  /solid-react-transition/1.0.0_solid-js@1.3.1:
+    resolution: {integrity: sha512-KrJ6MwHsc1xxwHwPkPi+7nRByWebhpcYunU8+j8b3MBuDmlh3bxmX94ayy7nte1gWcs8M5pomQdaUD50zci8tg==}
     peerDependencies:
       solid-js: ^1.2.5
     dependencies:

@@ -9,15 +9,15 @@ specifiers:
   dom-helpers: ^5.2.0
   rollup: ^2.52.1
   rollup-plugin-terser: ^7.0.2
-  solid-bootstrap-core: ^0.2.7
+  solid-bootstrap-core: ^1.0.0
   solid-js: ^1.2.5
-  solid-react-transition: ^0.2.1
+  solid-react-transition: ^1.0.0
   typescript: ^4.5.2
 
 dependencies:
   dom-helpers: 5.2.1
-  solid-bootstrap-core: 0.2.7_solid-js@1.2.5
-  solid-react-transition: 0.2.1_solid-js@1.2.5
+  solid-bootstrap-core: 1.0.0_solid-js@1.2.5
+  solid-react-transition: 1.0.0_solid-js@1.2.5
 
 devDependencies:
   '@babel/core': 7.16.0
@@ -684,23 +684,23 @@ packages:
       randombytes: 2.1.0
     dev: true
 
-  /solid-bootstrap-core/0.2.7_solid-js@1.2.5:
-    resolution: {integrity: sha512-sO8fqMCuzbqNPaBGV/D2yKmD+iOJyY5T/BBzYWAh+lkxVboapWxW9H2sQhE+clrOR8mT5PtLCqdwdI4UO7vG2w==}
+  /solid-bootstrap-core/1.0.0_solid-js@1.2.5:
+    resolution: {integrity: sha512-PQShqZieto38c9QNGtuLrY4n2p5GnsVAM5kkLA4ZBGBeNxGP/L/OIIgb9bl3pk5oAekN3jxdT3YVWE483ZNLCQ==}
     peerDependencies:
       solid-js: ^1.2.5
     dependencies:
       '@popperjs/core': 2.11.2
       dom-helpers: 5.2.1
       solid-js: 1.2.5
-      solid-react-transition: 0.2.1_solid-js@1.2.5
+      solid-react-transition: 1.0.0_solid-js@1.2.5
     dev: false
 
   /solid-js/1.2.5:
     resolution: {integrity: sha512-XcPEULgqd/XbBu8LwtGWs5RGowvIpq88/ZNI/xgJ9PaxRJWwbVlSNsS+ywUWncxRdKsPoVe8vdcIsH4gBJjh3Q==}
     dev: true
 
-  /solid-react-transition/0.2.1_solid-js@1.2.5:
-    resolution: {integrity: sha512-qCWfSVrVuN4MDtZf3xerMXTwhnMD3nZH9s4q1VieI9UGlP3mDSy3luZOSJhSsZ8guuhXwQpvUxd3Cx6N04wkxg==}
+  /solid-react-transition/1.0.0_solid-js@1.2.5:
+    resolution: {integrity: sha512-KrJ6MwHsc1xxwHwPkPi+7nRByWebhpcYunU8+j8b3MBuDmlh3bxmX94ayy7nte1gWcs8M5pomQdaUD50zci8tg==}
     peerDependencies:
       solid-js: ^1.2.5
     dependencies:
