@@ -1,6 +1,6 @@
 import DropdownContext, {DropdownContextValue} from "./DropdownContext";
 import usePopper, {UsePopperOptions, Placement, Offset, UsePopperState} from "./usePopper";
-import useRootClose, {RootCloseOptions} from "./useRootClose";
+import useClickOutside, {ClickOutsideOptions} from "./useClickOutside";
 import mergeOptionsWithPopperConfig from "./mergeOptionsWithPopperConfig";
 import {
   createComputed,
@@ -64,7 +64,7 @@ export interface UseDropdownMenuOptions {
   /**
    * Override the default event used by RootCloseWrapper.
    */
-  rootCloseEvent?: RootCloseOptions["clickTrigger"];
+  rootCloseEvent?: ClickOutsideOptions["clickTrigger"];
 
   /**
    * A set of popper options and props passed directly to react-popper's Popper component.
@@ -161,7 +161,7 @@ export function useDropdownMenu(o: UseDropdownMenuOptions = {}) {
 
   createEffect(() => {
     if (context?.menuElement) {
-      useRootClose(() => context.menuElement, handleClose, {
+      useClickOutside(() => context.menuElement, handleClose, {
         get clickTrigger() {
           return options.rootCloseEvent;
         },

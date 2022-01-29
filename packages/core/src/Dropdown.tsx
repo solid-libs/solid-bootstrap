@@ -235,7 +235,12 @@ function Dropdown(p: DropdownProps) {
     // Second only to https://github.com/twbs/bootstrap/blob/8cfbf6933b8a0146ac3fbc369f19e520bd1ebdac/js/src/dropdown.js#L400
     // in inscrutability
     const isInput = /input|textarea/i.test(target.tagName);
-    if (isInput && (key === " " || (key !== "Escape" && fromMenu))) {
+    if (
+      isInput &&
+      (key === " " ||
+        (key !== "Escape" && fromMenu) ||
+        (key === "Escape" && (target as HTMLInputElement).type === "search"))
+    ) {
       return;
     }
 
