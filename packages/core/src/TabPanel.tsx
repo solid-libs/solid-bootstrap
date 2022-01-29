@@ -1,4 +1,4 @@
-import {Component, JSX, mergeProps, useContext} from "solid-js";
+import {Component, JSX, mergeProps, splitProps, useContext} from "solid-js";
 import TabContext from "./TabContext";
 import SelectableContext, {makeEventKey} from "./SelectableContext";
 import type {EventKey, DynamicRefForwardingComponent} from "./types";
@@ -52,7 +52,19 @@ export interface TabPanelMetadata extends TransitionCallbacks {
   unmountOnExit?: boolean;
 }
 
-export function useTabPanel(props: TabPanelProps): readonly [useTabPanel, TabPanelMetadata] {
+const defaultProps = {
+  role: "tabpanel",
+};
+
+export function useTabPanel(p: TabPanelProps): readonly [useTabPanel, TabPanelMetadata] {
+  const [local, props] = splitProps(mergeProps(defaultProps, p), [
+    "active",
+    "eventKey",
+    "mountOnEnter",
+    "transition",
+    "unmountOnExit",
+  ]);
+
   const context = useContext(TabContext);
 
   if (!context)
@@ -60,31 +72,31 @@ export function useTabPanel(props: TabPanelProps): readonly [useTabPanel, TabPan
       props,
       {
         get eventKey() {
-          return props.eventKey;
+          return local.eventKey;
         },
         get isActive() {
-          return props.active;
+          return local.active;
         },
         get mountOnEnter() {
-          return props.mountOnEnter;
+          return local.mountOnEnter;
         },
         get transition() {
-          return props.transition;
+          return local.transition;
         },
         get unmountOnExit() {
-          return props.unmountOnExit;
+          return local.unmountOnExit;
         },
       },
     ];
 
-  const key = makeEventKey(props.eventKey);
+  const key = makeEventKey(local.eventKey);
 
   const useTabPanel = mergeProps(props, {
     get id() {
-      return context?.getControlledId(props.eventKey!);
+      return context?.getControlledId(local.eventKey!);
     },
     get "aria-labelledby"() {
-      return context?.getControllerId(props.eventKey!);
+      return context?.getControllerId(local.eventKey!);
     },
   }) as useTabPanel;
 
@@ -92,21 +104,21 @@ export function useTabPanel(props: TabPanelProps): readonly [useTabPanel, TabPan
     useTabPanel,
     {
       get eventKey() {
-        return props.eventKey;
+        return local.eventKey;
       },
       get isActive() {
-        return props.active == null && key != null
+        return local.active == null && key != null
           ? makeEventKey(context?.activeKey) === key
-          : props.active;
+          : local.active;
       },
       get transition() {
-        return props.transition || context?.transition || NoopTransition;
+        return local.transition || context?.transition || NoopTransition;
       },
       get mountOnEnter() {
-        return props.mountOnEnter != null ? props.mountOnEnter : context?.mountOnEnter;
+        return local.mountOnEnter != null ? local.mountOnEnter : context?.mountOnEnter;
       },
       get unmountOnExit() {
-        return props.unmountOnExit != null ? props.unmountOnExit : context?.unmountOnExit;
+        return local.unmountOnExit != null ? local.unmountOnExit : context?.unmountOnExit;
       },
     },
   ];
