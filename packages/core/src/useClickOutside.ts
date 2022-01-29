@@ -42,7 +42,6 @@ function useClickOutside(
   {disabled, clickTrigger = "click"}: ClickOutsideOptions = {},
 ) {
   const [preventMouseClickOutsideRef, setPreventMouseClickOutsideRef] = createSignal(false);
-  console.log("useClickOutside");
 
   const handleMouseCapture = (e: any) => {
     const currentTarget = getRefTarget(ref());

@@ -294,6 +294,7 @@ function Dropdown(p: DropdownProps) {
         }
 
         onToggle(false, meta);
+        focusToggle();
         break;
       default:
     }
