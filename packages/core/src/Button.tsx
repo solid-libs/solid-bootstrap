@@ -174,7 +174,7 @@ const Button = (props: ButtonProps) => {
   });
 
   return (
-    <Dynamic {...otherProps} {...buttonProps} as={tagName}>
+    <Dynamic {...otherProps} {...buttonProps} component={tagName}>
       {otherProps.children}
     </Dynamic>
   );
