@@ -102,6 +102,14 @@ export function useButtonProps<T extends HTMLElement>(
     },
   );
 
+  const getHref = () => {
+    if (tagName() === "a") {
+      // Ensure there's a href so Enter can trigger anchor button.
+      return options.disabled ? undefined : options.href || "#";
+    }
+    return options.href;
+  };
+
   return [
     {
       role: "button",
@@ -112,7 +120,7 @@ export function useButtonProps<T extends HTMLElement>(
         return options.disabled ? undefined : options.tabIndex;
       },
       get href() {
-        return tagName() === "a" && options.disabled ? undefined : options.href;
+        return getHref();
       },
       get target() {
         return tagName() === "a" ? options.target : undefined;
