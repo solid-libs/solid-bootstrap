@@ -107,8 +107,12 @@ export function useNavItem(options: UseNavItemOptions) {
   return [props, meta] as const;
 }
 
+const defaultProps = {
+  as: Button,
+};
+
 const NavItem: DynamicRefForwardingComponent<typeof Button, NavItemProps> = (p) => {
-  const [local, options] = splitProps(p, ["as", "active", "eventKey"]);
+  const [local, options] = splitProps(mergeProps(defaultProps, p), ["as", "active", "eventKey"]);
   const [props, meta] = useNavItem(
     mergeProps(
       {
