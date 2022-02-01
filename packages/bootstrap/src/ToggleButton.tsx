@@ -51,6 +51,7 @@ const ToggleButton = (p: ToggleButtonProps) => {
         className={classNames(local.className, local.disabled && "disabled")}
         // @ts-ignore
         type={undefined}
+        role={undefined}
         as="label"
         htmlFor={local.id}
       >

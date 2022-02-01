@@ -38,8 +38,8 @@ const Button: BsPrefixRefForwardingComponent<"button", ButtonProps> = (p: Button
   return (
     <Dynamic
       component={tagName}
-      {...props}
       {...buttonProps}
+      {...props}
       className={classNames(
         local.className,
         prefix,
