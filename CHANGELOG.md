@@ -1,3 +1,15 @@
+## 2022-02-01 - (1.0.1)
+
+### Bug Fixes
+
+- [Upstream: fix dropdown close](https://github.com/solid-libs/solid-bootstrap/commit/e3b8393c153d0ea1dd1df1d05f2c42353fe0d2b3)
+- [Dropdown focus on escape - 2nd attempt](https://github.com/solid-libs/solid-bootstrap/commit/852b7320b7b76593a101ec8928a4cd77de6703f9)
+- [Upstream: export role from useTabPanel hook](https://github.com/solid-libs/solid-bootstrap/commit/b092a6bb9dec0206aca4d00408c4ff9bc1ddc1bf)
+- [Upstream: core Button add href="#" when no href provided for anchors](https://github.com/solid-libs/solid-bootstrap/commit/6f3ba80fbcc354e2cc6f6b9997a583be4dcddc81)
+- [Fix: core Button and NavItem incorrect Dynamic prop](https://github.com/solid-libs/solid-bootstrap/commit/6aa1cc04cfe700b73942c343c6fe29898a818d94)
+- [Core NavItem - default to render as Button](https://github.com/solid-libs/solid-bootstrap/commit/ff7758b37cc91e641116dd9f21a12a9190a2b964)
+- [Upstream: - ToggleButton: remove role="button" from label](https://github.com/solid-libs/solid-bootstrap/commit/dbe5a7df64a8fdb0e1ab351aeaeb25e8ef24e351)
+
 ## 2022-01-23 - (1.0.0)
 
 ### Bug Fixes
