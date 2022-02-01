@@ -1,0 +1,298 @@
+import {Nav, NavItem} from "solid-bootstrap-core"
+import Example from "../Example";
+
+# Navs and tabs (core)
+
+<p className="lead">
+  Create flexible navigation elements like tabs, navbars, and menus.
+</p>
+
+<div class="row gy-5 pt-3">
+
+  <Example title="Basic example">
+    <Example.Preview>
+      <Nav activeKey="#">
+        <NavItem href="#">Active</NavItem>
+        <NavItem eventKey="link-1">Link</NavItem>
+        <NavItem eventKey="link-2">Link</NavItem>
+        <NavItem eventKey="disabled" disabled>Disabled</NavItem>
+      </Nav>
+    </Example.Preview>
+    <Example.Code>
+      ```tsx
+      <Nav activeKey="#">
+        <NavItem href="#">Active</NavItem>
+        <NavItem eventKey="link-1">Link</NavItem>
+        <NavItem eventKey="link-2">Link</NavItem>
+        <NavItem eventKey="disabled" disabled>Disabled</NavItem>
+      </Nav>
+      ```
+    </Example.Code>
+  </Example>
+
+  <Example title="Styling">
+    <Example.Intro>
+      `NavItem`s implement a few bits of state that likely need visual styling to use.
+
+      - `disabled` whether the `NavItem` is actionable or not.
+      - `active` whether the nav item is "selected", this may be because the `activeKey`
+        on `Nav` matches the `NavItem`'s key, or because the `active` prop was passed to it.
+    </Example.Intro>
+    <Example.Preview>
+    </Example.Preview>
+    <Example.Code>
+    </Example.Code>
+  </Example>
+
+  <Example title="">
+    <Example.Intro>
+    </Example.Intro>
+    <Example.Preview>
+    </Example.Preview>
+    <Example.Code>
+    </Example.Code>
+  </Example>
+
+  <Example title="">
+    <Example.Intro>
+    </Example.Intro>
+    <Example.Preview>
+    </Example.Preview>
+    <Example.Code>
+    </Example.Code>
+  </Example>
+
+  <Example title="">
+    <Example.Intro>
+    </Example.Intro>
+    <Example.Preview>
+    </Example.Preview>
+    <Example.Code>
+    </Example.Code>
+  </Example>
+
+  <Example title="">
+    <Example.Intro>
+    </Example.Intro>
+    <Example.Preview>
+    </Example.Preview>
+    <Example.Code>
+    </Example.Code>
+  </Example>
+
+</div>
+
+```jsx live
+import { Nav, NavItem } from "solid-bootstrap-core";
+
+<Nav className="flex space-x-4" activeKey="/home">
+  <NavItem href="/home">Active</NavItem>
+
+  <NavItem eventKey="link-1">Link</NavItem>
+
+  <NavItem eventKey="link-2">Link</NavItem>
+
+  <NavItem eventKey="disabled" disabled>
+    Disabled
+  </NavItem>
+</Nav>;
+```
+
+## Styling
+
+`NavItem`s implement a few bits of state that likely need visual styling to use.
+
+- `disabled` whether the `NavItem` is actionable or not.
+- `active` whether the nav item is "selected", this may be because the `activeKey`
+  on `Nav` matches the `NavItem`'s key, or because the `active` prop was passed to it.
+
+```jsx live
+import clsx from "clsx";
+import { Nav, useNavItem } from "solid-bootstrap-core";
+
+function NavLink({ href, disabled, children }) {
+  const [navItemProps, meta] = useNavItem({
+    key: href,
+    disabled,
+  });
+
+  return (
+    <a
+      href={href}
+      {...navItemProps}
+      className={clsx(
+        "py-3 px-4 rounded",
+        disabled && "opacity-50 cursor-not-allowed",
+        meta.isActive
+          ? "bg-primary !text-white"
+          : "hover:text-primary hover:bg-gray-200"
+      )}
+    >
+      {children}
+    </a>
+  );
+}
+
+function Example() {
+  const [activeKey, setActiveKey] = useState("/home");
+
+  return (
+    <Nav
+      className="flex"
+      activeKey={activeKey}
+      onSelect={setActiveKey}
+    >
+      <NavLink href="/home">Home</NavLink>
+
+      <NavLink href="/about">About</NavLink>
+
+      <NavLink href="orderd" disabled>
+        Orders
+      </NavLink>
+    </Nav>
+  );
+}
+```
+
+## Dropdowns
+
+Dropdown components can be used in `Nav`s as well:
+
+```jsx live
+import clsx from "clsx";
+import {
+  Nav,
+  useNavItem,
+  useDropdownToggle,
+} from "solid-bootstrap-core";
+
+import Dropdown from "../src/Dropdown";
+
+const NavLink = React.forwardRef(
+  ({ href, disabled, children, onClick }, ref) => {
+    const [navItemProps, meta] = useNavItem({
+      key: href,
+      onClick,
+      disabled,
+    });
+
+    return (
+      <a
+        ref={ref}
+        href={href}
+        {...navItemProps}
+        className={clsx(
+          "py-3 px-4 rounded",
+          disabled && "opacity-50 cursor-not-allowed",
+          meta.isActive
+            ? "bg-primary !text-white"
+            : "hover:text-primary hover:bg-gray-200"
+        )}
+      >
+        {children}
+      </a>
+    );
+  }
+);
+
+function Example() {
+  const [activeKey, setActiveKey] = useState("/home");
+
+  return (
+    <Nav
+      className="flex"
+      activeKey={activeKey}
+      onSelect={setActiveKey}
+    >
+      <NavLink href="/home">Home</NavLink>
+
+      <NavLink href="/about">About</NavLink>
+
+      <NavLink href="orderd" disabled>
+        Orders
+      </NavLink>
+      <Dropdown>
+        <Dropdown.Toggle as={NavLink}>More</Dropdown.Toggle>
+        <Dropdown.Menu>
+          <Dropdown.Item eventKey="4.1">
+            Action
+          </Dropdown.Item>
+          <Dropdown.Item eventKey="4.2">
+            Another action
+          </Dropdown.Item>
+          <Dropdown.Item eventKey="4.3">
+            Something else here
+          </Dropdown.Item>
+        </Dropdown.Menu>
+      </Dropdown>
+    </Nav>
+  );
+}
+```
+
+## Tabs
+
+Create dynamic tabbed interfaces from a `Nav`, as described in the WAI-ARIA Authoring Practices.
+Note that tabbed UIs have specific behavior that sets them apart from a navigation menu, even
+when styled similarly.
+
+```jsx live
+import clsx from "clsx";
+
+import {
+  Button,
+  Tabs,
+  TabPanel,
+  Nav,
+  useNavItem,
+} from "solid-bootstrap-core";
+
+function Tab({ eventKey, ...props }) {
+  const [navItemProps, meta] = useNavItem({
+    key: eventKey,
+  });
+
+  return (
+    <Button
+      {...props}
+      {...navItemProps}
+      className={clsx(
+        "-mb-px py-2 px-4",
+        "hover:bg-gray-200 cursor-pointer rounded-t border",
+        meta.isActive
+          ? "border-gray-200"
+          : "border-transparent"
+      )}
+      style={
+        meta.isActive
+          ? { borderBottomColor: "white" }
+          : undefined
+      }
+    />
+  );
+}
+
+<Tabs defaultActiveKey="1">
+  <Nav className="flex border-b">
+    <Tab eventKey="1">One</Tab>
+    <Tab eventKey="2">Two</Tab>
+    <Tab eventKey="3">Three</Tab>
+  </Nav>
+  <div className="p-6">
+    <TabPanel eventKey="1">
+      <p>one!</p>
+    </TabPanel>
+    <TabPanel eventKey="2">
+      <p>two!</p>
+    </TabPanel>
+    <TabPanel eventKey="3">
+      <p>three!</p>
+    </TabPanel>
+  </div>
+</Tabs>;
+```
+
+### Accessibility
+
+In the context of a `Tabs` component the `Nav` and `NavItem`s will contextually
+apply the correct ARIA roles, as well as implement the required keyboard navigation.

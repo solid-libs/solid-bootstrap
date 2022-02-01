@@ -16,7 +16,7 @@ specifiers:
 
 dependencies:
   dom-helpers: 5.2.1
-  solid-bootstrap-core: 1.0.0_solid-js@1.2.5
+  solid-bootstrap-core: link:../core/dist
   solid-react-transition: 1.0.0_solid-js@1.2.5
 
 devDependencies:
@@ -328,10 +328,6 @@ packages:
       '@babel/helper-validator-identifier': 7.15.7
       to-fast-properties: 2.0.0
     dev: true
-
-  /@popperjs/core/2.11.2:
-    resolution: {integrity: sha512-92FRmppjjqz29VMJ2dn+xdyXZBrMlE42AV6Kq6BwjWV7CNUW1hs2FtxSNLQE+gJhaZ6AAmYuO9y8dshhcBl7vA==}
-    dev: false
 
   /@rollup/plugin-babel/5.3.0_@babel+core@7.16.0+rollup@2.60.1:
     resolution: {integrity: sha512-9uIC8HZOnVLrLHxayq/PTzw+uS25E14KPUBh5ktF+18Mjo5yK0ToMMx6epY0uEgkjwJw0aBW4x2horYXh8juWw==}
@@ -683,17 +679,6 @@ packages:
     dependencies:
       randombytes: 2.1.0
     dev: true
-
-  /solid-bootstrap-core/1.0.0_solid-js@1.2.5:
-    resolution: {integrity: sha512-PQShqZieto38c9QNGtuLrY4n2p5GnsVAM5kkLA4ZBGBeNxGP/L/OIIgb9bl3pk5oAekN3jxdT3YVWE483ZNLCQ==}
-    peerDependencies:
-      solid-js: ^1.2.5
-    dependencies:
-      '@popperjs/core': 2.11.2
-      dom-helpers: 5.2.1
-      solid-js: 1.2.5
-      solid-react-transition: 1.0.0_solid-js@1.2.5
-    dev: false
 
   /solid-js/1.2.5:
     resolution: {integrity: sha512-XcPEULgqd/XbBu8LwtGWs5RGowvIpq88/ZNI/xgJ9PaxRJWwbVlSNsS+ywUWncxRdKsPoVe8vdcIsH4gBJjh3Q==}

@@ -1,6 +1,6 @@
 import {Component, createSignal} from "solid-js";
 import {Overlay} from "solid-bootstrap-core";
-import GithubSource from "./GithubSource";
+import GithubSource from "../GithubSource";
 
 const PLACEMENTS = ["top", "right", "bottom", "left"];
 

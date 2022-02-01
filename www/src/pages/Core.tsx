@@ -5,10 +5,12 @@ import Layout from "../layout/Layout";
 const Core: Component = (props) => (
   <Layout>
     <Routes>
-      <Route path="Overview" component={lazy(() => import("../docs/CoreOverview"))} />
-      <Route path="dropdowns" component={lazy(() => import("../docs/CoreDropdownDocs"))} />
-      <Route path="modal" component={lazy(() => import("../docs/CoreModalDocs"))} />
-      <Route path="overlays" component={lazy(() => import("../docs/CoreOverlayDocs"))} />
+      <Route path="Overview" component={lazy(() => import("../docs/core/CoreOverview.mdx"))} />
+      <Route path="button" component={lazy(() => import("../docs/core/CoreButtonDocs.mdx"))} />
+      <Route path="dropdown" component={lazy(() => import("../docs/core/CoreDropdownDocs.mdx"))} />
+      <Route path="modal" component={lazy(() => import("../docs/core/CoreModalDocs.mdx"))} />
+      <Route path="navsandtabs" component={lazy(() => import("../docs/core/CoreNavDocs.mdx"))} />
+      <Route path="overlays" component={lazy(() => import("../docs/core/CoreOverlayDocs"))} />
     </Routes>
   </Layout>
 );

@@ -1,0 +1,147 @@
+import Example from "../Example";
+import {ModalExample1, ModalExample2} from "./CoreModalExamples"
+
+# Modals (core)
+
+<p className="lead">
+  Love them or hate them, `<Modal />` provides a solid foundation for creating dialogs,
+  lightboxes, or whatever else. The `Modal` component renders its `children` node in front
+  of a backdrop component.
+</p>
+
+
+<div class="row gy-5 pt-3">
+
+  <div>
+    The `Modal` offers a few helpful features over using just a `<Portal/>` component and
+    some styles:
+
+    - Manages dialog stacking when one-at-a-time just isn't enough.
+    - Creates a backdrop for disabling interaction below the modal.
+    - Properly manages focus; moving to the modal content, and keeping it there until
+      the modal is closed.
+    - Disables scrolling of the page content while open.
+    - Ensuring modal content is accessible with the appropriate ARIA.
+    - Allows easily-pluggable animations via a `<Transition/>` component.
+  </div>
+
+  <Example title="Example">
+    <Example.Intro>
+    </Example.Intro>
+    <Example.Preview>
+      <ModalExample1 />
+    </Example.Preview>
+    <Example.Code>
+      ```jsx
+      import {createSignal} from "solid-js";
+      import {Button, Modal} from "solid-bootstrap-core";
+
+
+      const ModalExample1 = () => {
+        const [show, setShow] = createSignal(false);
+        return (
+          <div>
+            {/* Using Bootstrap CSS here - but you can use whatever you like */}
+            <Button className="btn btn-primary" onClick={() => setShow(true)}>
+              Open Modal
+            </Button>
+
+            <Modal
+              show={show()}
+              aria-labelledby="modal-1-label"
+              onHide={() => setShow(false)}
+              renderBackdrop={(props: any) => <div class="modal-backdrop show" {...props} />}
+              className="modal d-block pe-none"
+            >
+              <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h4 id="modal-1-label">Alert!</h4>
+                  </div>
+                  <div class="modal-body">
+                    <p>Some important content!</p>
+                  </div>
+                  <div class="modal-footer">
+                    <Button onClick={() => setShow(false)} className="btn btn-secondary float-right">
+                      Close
+                    </Button>
+                  </div>
+                </div>
+              </div>
+            </Modal>
+          </div>
+        );
+      }
+      ```
+    </Example.Code>
+  </Example>
+
+  <Example title="Modal stacking">
+    <Example.Intro>
+      Modal supports stacking (if you really need it) out of the box
+    </Example.Intro>
+    <Example.Preview>
+      <ModalExample2 />
+    </Example.Preview>
+    <Example.Code>
+      ```jsx
+      import {createSignal} from "solid-js";
+      import {Button, Modal} from "solid-bootstrap-core";
+
+
+      let rand = (min: number, max: number) => min + Math.floor(Math.random() * (max - min));
+
+      const RandomlyPositionedModal = () => {
+        return (
+          <div
+            class="modal-dialog"
+            style={{
+              "margin-top": `${rand(5, 20)}%`,
+              "margin-left": `${rand(20, 60)}%`,
+            }}
+          >
+            <div class="modal-content">
+              <div class="modal-header">
+                <h4 id="modal-label">Text in a modal</h4>
+              </div>
+              <div class="modal-body">
+                <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula.</p>
+                <ModalExample2 />
+              </div>
+            </div>
+          </div>
+        );
+      };
+
+      export const ModalExample2 = () => {
+        const [show, setShow] = createSignal(false);
+        return (
+          <>
+            <div>
+              <button class="btn btn-primary" onClick={() => setShow(true)}>
+                Open modal
+              </button>
+              <div class="pt-3">Click to get the full Modal experience!</div>
+            </div>
+            <p></p>
+
+            <Modal
+              class="modal d-block pe-none"
+              show={show()}
+              onHide={() => setShow(false)}
+              renderBackdrop={(props: any) => (
+                <div class="modal-backdrop show" style={{"z-index": 1055}} {...props} />
+              )}
+              aria-labelledby="modal-label"
+            >
+              <RandomlyPositionedModal />
+            </Modal>
+          </>
+        );
+      };
+      ```
+    </Example.Code>
+  </Example>
+
+
+</div>

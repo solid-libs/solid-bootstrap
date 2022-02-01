@@ -23,7 +23,8 @@
   "scripts": {
     "build": "tsc && rollup -c && node dist/esm/prepublish.js",
     "prepublishOnly": "npm run build",
-    "buildpackage": "cd dist && npm pack"
+    "buildpackage": "cd dist && npm pack",
+    "watch": "tsc -noemit -watch"
   },
   "dependencies": {
     "@popperjs/core": "^2.10.1",

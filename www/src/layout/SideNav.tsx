@@ -51,7 +51,7 @@ const components = [
   "tooltips",
 ];
 
-const core = ["overview", "dropdowns", "modal", "overlays"];
+const core = ["overview", "button", "dropdown", "modal", "navs and tabs", "overlays"];
 
 const utilities = ["transitions", "ratio", "restart-ui"];
 
@@ -179,7 +179,7 @@ const SideNav: Component = (props: ComponentProps<typeof SidePanel>) => {
               items={components}
               path="/components"
             />
-            <NavSection heading="Core" location={location} items={core} path="/core" />
+            <NavSection heading="Core (headless)" location={location} items={core} path="/core" />
             {/* <NavSection
               heading="Utilities"
               location={location}

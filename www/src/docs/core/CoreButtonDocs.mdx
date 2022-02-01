@@ -1,0 +1,116 @@
+import {Button} from "solid-bootstrap-core"
+import Example from "../Example";
+
+# Button (core)
+
+<p className="lead">
+  An abstract button component for creating accessible buttons regardless of the HTML
+  element used to render it.
+</p>
+
+<div class="row gy-5 pt-3">
+
+  <Example title="Basic Example">
+    <Example.Preview>
+      <Button>I'm a Button</Button>
+    </Example.Preview>
+    <Example.Code>
+      ```jsx
+      import { Button } from "solid-bootstrap-core";
+
+      <Button>I'm a Button</Button>
+      ```
+    </Example.Code>
+  </Example>
+
+  <Example>
+    <Example.Intro>
+      Not very impressive on its own, but `Button` does come with a few conveniences
+      over the plain HTML element.
+
+      - `type` defaults to `button`
+      - Ensures that non `button` `as` options remain accessible
+      - contextually renders an `<a>` if href or other anchor props are added.
+    </Example.Intro>
+    <Example.Preview>
+      <Button>I'm a Button</Button>
+      <br />
+      <Button href="#">I'm a link</Button>
+      <br />
+      <Button as="span">I'm a span but also a button</Button>
+    </Example.Preview>
+    <Example.Code>
+      ```jsx live className=button-example
+      import { Button } from "solid-bootstrap-core";
+
+      <Button>I'm a Button</Button>
+      <br />
+      <Button href="#">I'm a link</Button>
+      <br />
+      <Button as="span">I'm a span but also a button</Button>
+      ```
+    </Example.Code>
+  </Example>
+</div>
+
+  ### `useButtonProps`
+
+  Most of the heavy lifting in Button comes from the `useButtonProps` hook. You
+  can use the hook directly to turn any component into an accessible button.
+
+  If an explicit `tagName` isn't provided, the hook will pick between 'button' and 'a'
+  depending on whether any anchor specific options, like `href`, were provided.
+
+  ```tsx
+  import { useButtonProps } from 'Button'
+
+
+  function CompanyButton(props) {
+    const [ariaButtonProps, { tagName: Tag }] = useButtonProps(props);
+
+    return <Tag {...props} {...ariaButtonProps} />
+  }
+
+  <div className="space-x-4">
+    <CompanyButton>Hey there<CompanyButton>
+    <CompanyButton href="/home">I'm a link</CompanyButton>
+  </div>;
+  ```
+
+  ## Styling
+
+  Styling options are straightforward for `Button` below is a minimal example using TailwindCSS.
+  There is one caveat around styling the button's disabled state. Styling should be based off
+  of `disabled` prop directly as opposed to using a `:disabled` CSS selector.
+  This is because the button may render an HTML element that does not support
+  the `disabled` attribute (such as an `<a>`). Alternatively, you can select for `[aria-disabled='true']`
+  in addition to `:disabled`.
+
+  ```jsx live
+  import { Button } from "solid-bootstrap-core";
+  import clsx from "clsx";
+
+  function StyledButton(props) {
+    return (
+      <Button
+        {...props}
+        className={clsx(
+          props.className,
+          "transition text-md",
+          "h-10 bg-white border border-primary text-primary rounded px-8 mt-4 appearance-none text-center whitespace-no-wrap",
+          "focus:outline-none focus:ring-4 ring-primary-200",
+          !props.disabled &&
+            "cursor-pointer hover:bg-primary hover:text-white",
+          "active:bg-primary-600 active:text-white",
+          props.disabled && "cursor-not-allowed opacity-60"
+        )}
+      />
+    );
+  }
+
+  <div className="space-x-4">
+    <StyledButton>Button</StyledButton>
+    <StyledButton disabled>Disabled</StyledButton>
+  </div>;
+  ```
+
