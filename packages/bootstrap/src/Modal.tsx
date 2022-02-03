@@ -22,7 +22,7 @@ import ModalHeader from "./ModalHeader";
 import ModalTitle from "./ModalTitle";
 import {BsPrefixRefForwardingComponent} from "./helpers";
 import {useBootstrapPrefix, useIsRTL} from "./ThemeProvider";
-import {Dynamic} from "solid-js/web";
+import {Dynamic, isServer} from "solid-js/web";
 
 export interface ModalProps
   extends Omit<
@@ -223,16 +223,20 @@ const Modal: BsPrefixRefForwardingComponent<"div", ModalProps> = (p: ModalProps)
   const handleEntering: BaseModalProps["onEntering"] = (...args) => {
     local.onEntering?.(...args);
 
-    // FIXME: This should work even when animation is disabled.
-    addEventListener(window as any, "resize", handleWindowResize);
+    if (!isServer) {
+      // FIXME: This should work even when animation is disabled.
+      addEventListener(window as any, "resize", handleWindowResize);
+    }
   };
 
   const handleExited: BaseModalProps["onExited"] = (node?: any) => {
     if (node) node.style.display = ""; // RHL removes it sometimes
     local.onExited?.(node);
 
-    // FIXME: This should work even when animation is disabled.
-    removeEventListener(window as any, "resize", handleWindowResize);
+    if (!isServer) {
+      // FIXME: This should work even when animation is disabled.
+      removeEventListener(window as any, "resize", handleWindowResize);
+    }
   };
 
   const renderBackdrop = (backdropProps: any) => (

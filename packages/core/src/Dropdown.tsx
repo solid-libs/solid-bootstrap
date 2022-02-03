@@ -276,16 +276,18 @@ function Dropdown(p: DropdownProps) {
         // to know if this event is relevant to this dropdown (e.g. in this menu).
         // On `keyup` the target is the element being tagged TO which we use to check
         // if focus has left the menu
-        addEventListener(
-          target.ownerDocument as any,
-          "keyup",
-          (e) => {
-            if ((e.key === "Tab" && !e.target) || !menuRef()?.contains(e.target as HTMLElement)) {
-              onToggle(false, meta);
-            }
-          },
-          {once: true},
-        );
+        if (!isServer) {
+          addEventListener(
+            target.ownerDocument as any,
+            "keyup",
+            (e) => {
+              if ((e.key === "Tab" && !e.target) || !menuRef()?.contains(e.target as HTMLElement)) {
+                onToggle(false, meta);
+              }
+            },
+            {once: true},
+          );
+        }
         break;
       case "Escape":
         if (key === "Escape") {
