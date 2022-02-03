@@ -1,3 +1,9 @@
+## 2022-02-01 - (1.0.2)
+
+### Bug Fixes
+
+- [SSR - suppress event listeners on server](https://github.com/solid-libs/solid-bootstrap/commit/49f2df94a0dfac7b401f2804caa0d9f12a87e87f)
+
 ## 2022-02-01 - (1.0.1)
 
 ### Bug Fixes
