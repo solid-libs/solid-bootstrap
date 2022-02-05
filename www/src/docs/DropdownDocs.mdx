@@ -105,7 +105,6 @@ compliant with the ARIA authoring guidelines for menus.
           (variant) => (
             <DropdownButton
               as={ButtonGroup}
-              key={variant}
               id={`dropdown-variants-${variant}`}
               variant={variant.toLowerCase()}
               title={variant}
@@ -129,7 +128,6 @@ compliant with the ARIA authoring guidelines for menus.
           (variant) => (
             <DropdownButton
               as={ButtonGroup}
-              key={variant}
               id={`dropdown-variants-${variant}`}
               variant={variant.toLowerCase()}
               title={variant}
@@ -170,7 +168,6 @@ compliant with the ARIA authoring guidelines for menus.
         {['Primary', 'Secondary', 'Success', 'Info', 'Warning', 'Danger'].map(
           (variant) => (
             <SplitButton
-              key={variant}
               id={`dropdown-split-variants-${variant}`}
               variant={variant.toLowerCase()}
               title={variant}
@@ -201,7 +198,6 @@ compliant with the ARIA authoring guidelines for menus.
         {['Primary', 'Secondary', 'Success', 'Info', 'Warning', 'Danger'].map(
           (variant) => (
             <SplitButton
-              key={variant}
               id={`dropdown-split-variants-${variant}`}
               variant={variant.toLowerCase()}
               title={variant}
@@ -229,7 +225,6 @@ compliant with the ARIA authoring guidelines for menus.
           {[DropdownButton, SplitButton].map((DropdownType, idx) => (
             <DropdownType
               as={ButtonGroup}
-              key={idx}
               id={`dropdown-button-drop-${idx}`}
               size="lg"
               title="Drop large"
@@ -247,7 +242,6 @@ compliant with the ARIA authoring guidelines for menus.
           {[DropdownButton, SplitButton].map((DropdownType, idx) => (
             <DropdownType
               as={ButtonGroup}
-              key={idx}
               id={`dropdown-button-drop-${idx}`}
               size="sm"
               variant="secondary"
@@ -269,7 +263,6 @@ compliant with the ARIA authoring guidelines for menus.
           {[DropdownButton, SplitButton].map((DropdownType, idx) => (
             <DropdownType
               as={ButtonGroup}
-              key={idx}
               id={`dropdown-button-drop-${idx}`}
               size="lg"
               title="Drop large"
@@ -287,7 +280,6 @@ compliant with the ARIA authoring guidelines for menus.
           {[DropdownButton, SplitButton].map((DropdownType, idx) => (
             <DropdownType
               as={ButtonGroup}
-              key={idx}
               id={`dropdown-button-drop-${idx}`}
               size="sm"
               variant="secondary"
@@ -433,7 +425,6 @@ compliant with the ARIA authoring guidelines for menus.
         {['up', 'down', 'start', 'end'].map((direction) => (
           <DropdownButton
             as={ButtonGroup}
-            key={direction}
             id={`dropdown-button-drop-${direction}`}
             drop={direction}
             variant="secondary"
@@ -451,7 +442,6 @@ compliant with the ARIA authoring guidelines for menus.
       <Stack direction="horizontal" gap={2} className="mt-2">
         {['up', 'down', 'start', 'end'].map((direction) => (
           <SplitButton
-            key={direction}
             id={`dropdown-button-drop-${direction}`}
             drop={direction}
             variant="secondary"
@@ -473,7 +463,6 @@ compliant with the ARIA authoring guidelines for menus.
         {['up', 'down', 'start', 'end'].map((direction) => (
           <DropdownButton
             as={ButtonGroup}
-            key={direction}
             id={`dropdown-button-drop-${direction}`}
             drop={direction}
             variant="secondary"
@@ -491,7 +480,6 @@ compliant with the ARIA authoring guidelines for menus.
       <Stack direction="horizontal" gap={2} className="mt-2">
         {['up', 'down', 'start', 'end'].map((direction) => (
           <SplitButton
-            key={direction}
             id={`dropdown-button-drop-${direction}`}
             drop={direction}
             variant="secondary"

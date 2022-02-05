@@ -243,7 +243,7 @@ import Sonnet from "./Sonnet";
     <Example.Preview>
       {
       ['sm', 'md', 'lg', 'xl', 'xxl'].map((breakpoint, idx) => (
-        <ListGroup horizontal={breakpoint} className="my-2" key={idx}>
+        <ListGroup horizontal={breakpoint} className="my-2">
           <ListGroup.Item>This ListGroup</ListGroup.Item>
           <ListGroup.Item>renders horizontally</ListGroup.Item>
           <ListGroup.Item>on {breakpoint}</ListGroup.Item>
@@ -255,7 +255,7 @@ import Sonnet from "./Sonnet";
     <Example.Code>
       ```js
       ['sm', 'md', 'lg', 'xl', 'xxl'].map((breakpoint, idx) => (
-        <ListGroup horizontal={breakpoint} className="my-2" key={idx}>
+        <ListGroup horizontal={breakpoint} className="my-2">
           <ListGroup.Item>This ListGroup</ListGroup.Item>
           <ListGroup.Item>renders horizontally</ListGroup.Item>
           <ListGroup.Item>on {breakpoint}</ListGroup.Item>

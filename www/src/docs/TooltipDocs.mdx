@@ -96,7 +96,6 @@ import TooltipApi from "./TooltipApi";
       <Stack direction="horizontal" gap={2}>
         {['top', 'right', 'bottom', 'left'].map((placement) => (
           <OverlayTrigger
-            key={placement}
             placement={placement}
             overlay={
               <Tooltip id={`tooltip-${placement}`}>
@@ -114,7 +113,6 @@ import TooltipApi from "./TooltipApi";
       <Stack direction="horizontal" gap={2}>
         {['top', 'right', 'bottom', 'left'].map((placement) => (
           <OverlayTrigger
-            key={placement}
             placement={placement}
             overlay={
               <Tooltip id={`tooltip-${placement}`}>

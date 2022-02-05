@@ -22,7 +22,7 @@ For the non-textual checkbox and radio controls, `FormCheck` provides a single c
     <Example.Preview>
       <Form>
         {['checkbox', 'radio'].map((type) => (
-          <div key={`default-${type}`} className="mb-3">
+          <div className="mb-3">
             <Form.Check 
               type={type}
               id={`default-${type}`}
@@ -43,7 +43,7 @@ For the non-textual checkbox and radio controls, `FormCheck` provides a single c
       ```js
       <Form>
         {['checkbox', 'radio'].map((type) => (
-          <div key={`default-${type}`} className="mb-3">
+          <div className="mb-3">
             <Form.Check 
               type={type}
               id={`default-${type}`}
@@ -114,7 +114,7 @@ For the non-textual checkbox and radio controls, `FormCheck` provides a single c
     <Example.Preview>
       <Form>
         {['checkbox', 'radio'].map((type) => (
-          <div key={`inline-${type}`} className="mb-3">
+          <div className="mb-3">
             <Form.Check
               inline
               label="1"
@@ -144,7 +144,7 @@ For the non-textual checkbox and radio controls, `FormCheck` provides a single c
       ```js
       <Form>
         {['checkbox', 'radio'].map((type) => (
-          <div key={`inline-${type}`} className="mb-3">
+          <div className="mb-3">
             <Form.Check
               inline
               label="1"
@@ -202,7 +202,7 @@ For the non-textual checkbox and radio controls, `FormCheck` provides a single c
     <Example.Preview>
       <Form>
         {['checkbox', 'radio'].map((type) => (
-          <div key={type} className="mb-3">
+          <div className="mb-3">
             <Form.Check type={type} id={`check-api-${type}`}>
               <Form.Check.Input type={type} isValid />
               <Form.Check.Label>{`Custom api ${type}`}</Form.Check.Label>
@@ -216,7 +216,7 @@ For the non-textual checkbox and radio controls, `FormCheck` provides a single c
       ```js
       <Form>
         {['checkbox', 'radio'].map((type) => (
-          <div key={type} className="mb-3">
+          <div className="mb-3">
             <Form.Check type={type} id={`check-api-${type}`}>
               <Form.Check.Input type={type} isValid />
               <Form.Check.Label>{`Custom api ${type}`}</Form.Check.Label>
