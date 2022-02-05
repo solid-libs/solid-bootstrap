@@ -10,8 +10,8 @@ specifiers:
   rollup: 2.63.0
   shakespeare-data: ^3.0.0
   solid-app-router: ^0.2.0
-  solid-bootstrap: 1.0.2
-  solid-bootstrap-core: 1.0.2
+  solid-bootstrap: 1.0.3
+  solid-bootstrap-core: 1.0.3
   solid-js: ^1.3.1
   solid-mdx: ^0.0.5
   typescript: ^4.5.2
@@ -23,8 +23,8 @@ dependencies:
   classnames: 2.3.1
   lodash: 4.17.21
   solid-app-router: 0.2.0_solid-js@1.3.1
-  solid-bootstrap: 1.0.2_solid-js@1.3.1
-  solid-bootstrap-core: 1.0.2_solid-js@1.3.1
+  solid-bootstrap: 1.0.3_solid-js@1.3.1
+  solid-bootstrap-core: 1.0.3_solid-js@1.3.1
   solid-js: 1.3.1
 
 devDependencies:
@@ -305,8 +305,8 @@ packages:
       - supports-color
     dev: true
 
-  /@babel/runtime/7.16.7:
-    resolution: {integrity: sha512-9E9FJowqAsytyOY6LG+1KuueckRL+aQW+mKvXRXnuFGyRAyepJPmEo9vgMfXUA6O9u3IeEdv9MAkppFcaQwogQ==}
+  /@babel/runtime/7.17.0:
+    resolution: {integrity: sha512-etcO/ohMNaNA2UBdaXBBSX/3aEzFMRrVfaPv8Ptc0k+cWpWW0QFiGZ2XnVqQZI1Cf734LbPGmqBKWESfW4x/dQ==}
     engines: {node: '>=6.9.0'}
     dependencies:
       regenerator-runtime: 0.13.9
@@ -697,7 +697,7 @@ packages:
   /dom-helpers/5.2.1:
     resolution: {integrity: sha512-nRCa7CK3VTrM2NmGkIy4cbK7IZlgBE/PYMn55rrXefr5xXDP0LdtfPnblFDoVdcAfslJ7or6iqAUnx0CCGIWQA==}
     dependencies:
-      '@babel/runtime': 7.16.7
+      '@babel/runtime': 7.17.0
       csstype: 3.0.10
     dev: false
 
@@ -1756,26 +1756,26 @@ packages:
       solid-js: 1.3.1
     dev: false
 
-  /solid-bootstrap-core/1.0.2_solid-js@1.3.1:
-    resolution: {integrity: sha512-BQoQeJGTTIgZeZO+YvBNd1T6a2Wib7QCSh9eCFVykxKmG6/6m1dTqZ/uHQCMIdvOcBXb98rGbTe4+uz9Cyu1jA==}
+  /solid-bootstrap-core/1.0.3_solid-js@1.3.1:
+    resolution: {integrity: sha512-YTOvTrWXLz93RNnugpejyBkWM8arqUM+Q4OnAunp253lm8Ehbzfty64Fte4r61RzTWr39faYGGKZcBYto4wqNQ==}
     peerDependencies:
       solid-js: ^1.2.5
     dependencies:
       '@popperjs/core': 2.11.2
       dom-helpers: 5.2.1
       solid-js: 1.3.1
-      solid-react-transition: 1.0.0_solid-js@1.3.1
+      solid-react-transition: 1.0.3_solid-js@1.3.1
     dev: false
 
-  /solid-bootstrap/1.0.2_solid-js@1.3.1:
-    resolution: {integrity: sha512-IIpG6XUBqxgv1lsU4wkyvbOfSIhppxlKFP2NfCo5tQ3K+ExkdXpFbjmfarAjjrY2tuegy8GtYyE/P8C5jPy6uw==}
+  /solid-bootstrap/1.0.3_solid-js@1.3.1:
+    resolution: {integrity: sha512-unB+wuAjsVzNkYLYa+oDm839SE27PPn4x/JBIUz2Ma6ci2iVA3DlJhtoAE2gUXSqzbjIM3Qb+ZUb3HLPe0lYSA==}
     peerDependencies:
       solid-js: ^1.2.5
     dependencies:
       dom-helpers: 5.2.1
-      solid-bootstrap-core: 1.0.2_solid-js@1.3.1
+      solid-bootstrap-core: 1.0.3_solid-js@1.3.1
       solid-js: 1.3.1
-      solid-react-transition: 1.0.0_solid-js@1.3.1
+      solid-react-transition: 1.0.3_solid-js@1.3.1
     dev: false
 
   /solid-js/1.3.1:
@@ -1795,8 +1795,8 @@ packages:
       - supports-color
     dev: true
 
-  /solid-react-transition/1.0.0_solid-js@1.3.1:
-    resolution: {integrity: sha512-KrJ6MwHsc1xxwHwPkPi+7nRByWebhpcYunU8+j8b3MBuDmlh3bxmX94ayy7nte1gWcs8M5pomQdaUD50zci8tg==}
+  /solid-react-transition/1.0.3_solid-js@1.3.1:
+    resolution: {integrity: sha512-B1b+luFZX7f7dmkIJGinHnEpFKupeZ12XFF5Mm7zbrSxmzgx6yXKYOBtGldpvVTXPrr1FCLxQ+2ol7YRgpGW4g==}
     peerDependencies:
       solid-js: ^1.2.5
     dependencies:

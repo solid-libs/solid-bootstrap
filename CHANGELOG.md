@@ -1,3 +1,10 @@
+## 2022-02-06 - (1.0.3)
+
+### Bug Fixes
+
+- [Upstream: core NavItem - do not include aria-controls if the related element is not mounted](https://github.com/solid-libs/solid-bootstrap/commit/10c789852676a779c56a0ac3d32a05d155c4ad92)
+- [Fix: Tooltips do not always close #12](https://github.com/solid-libs/solid-bootstrap/commit/fa46cf68cde62a1b2a2913820d1150c9624bb0e6)
+
 ## 2022-02-01 - (1.0.2)
 
 ### Bug Fixes
