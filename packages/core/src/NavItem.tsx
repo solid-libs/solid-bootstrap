@@ -6,6 +6,7 @@ import {dataAttr} from "./DataKey";
 import {Component, createMemo, JSX, mergeProps, splitProps, useContext} from "solid-js";
 import {Dynamic} from "solid-js/web";
 import {callEventHandler} from "./utils";
+import TabContext from "./TabContext";
 
 export interface NavItemProps extends JSX.HTMLAttributes<HTMLElement> {
   /**
@@ -46,6 +47,7 @@ export interface UseNavItemOptions {
 export function useNavItem(options: UseNavItemOptions) {
   const parentOnSelect = useContext(SelectableContext);
   const navContext = useContext(NavContext);
+  const tabContext = useContext(TabContext);
 
   const isActive = createMemo(() =>
     options.active == null && options.key != null
@@ -85,7 +87,20 @@ export function useNavItem(options: UseNavItemOptions) {
       return role() === "tab" && (options.disabled || !isActive()) ? -1 : undefined;
     },
     get ["aria-controls"]() {
-      return navContext ? navContext.getControlledId(options.key!) : undefined;
+      /**
+       * Simplified scenario for `mountOnEnter`.
+       *
+       * While it would make sense to keep 'aria-controls' for tabs that have been mounted at least
+       * once, it would also complicate the code quite a bit, for very little gain.
+       * The following implementation is probably good enough.
+       *
+       * @see https://github.com/react-restart/ui/pull/40#issuecomment-1009971561
+       */
+      return isActive() || (!tabContext?.unmountOnExit && !tabContext?.mountOnEnter)
+        ? navContext
+          ? navContext.getControlledId(options.key!)
+          : undefined
+        : undefined;
     },
     get ["aria-disabled"]() {
       return role() === "tab" && options.disabled ? true : undefined;
