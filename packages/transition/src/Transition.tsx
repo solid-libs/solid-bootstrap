@@ -258,7 +258,7 @@ export const Transition = (p: TransitionProps) => {
           }
         }
 
-        updateStatus(false, nextStatus);
+        updateStatus(false, nextStatus ?? EXITED);
       },
     ),
   );
