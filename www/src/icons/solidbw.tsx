@@ -8,6 +8,7 @@ export const SolidBW = (props: JSX.SvgSVGAttributes<SVGSVGElement>) => (
     viewBox="0 0 166 155.3"
     {...props}
   >
+    <title>Solid docs</title>
     <defs>
       <linearGradient
         id="a"

@@ -6,6 +6,7 @@ const GithubSource = (props: {name: string}) => {
         href={`https://github.com/solid-libs/solid-bootstrap/blob/master/www/src/docs/${name[0]}.${
           name[1] ?? "tsx"
         }?plain=1`}
+        rel="noopener"
         target="_blank"
       >
         View source on Github
