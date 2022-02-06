@@ -1,3 +1,9 @@
+## 2022-02-06 - (1.0.4)
+
+### Bug Fixes
+
+- [Fix: core Nav missing tablist role](https://github.com/solid-libs/solid-bootstrap/commit/46f82e9dfc8968895459a3ba5140b673a1cd1c93)
+
 ## 2022-02-06 - (1.0.3)
 
 ### Bug Fixes
