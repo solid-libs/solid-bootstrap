@@ -2,7 +2,7 @@ import qsa from "dom-helpers/querySelectorAll";
 import NavContext from "./NavContext";
 import SelectableContext, {makeEventKey} from "./SelectableContext";
 import TabContext from "./TabContext";
-import {EventKey, DynamicRefForwardingComponent, SelectCallback} from "./types";
+import {EventKey, SelectCallback} from "./types";
 import {dataAttr, dataProp} from "./DataKey";
 import NavItem, {UseNavItemOptions, NavItemProps} from "./NavItem";
 import {
@@ -134,12 +134,16 @@ const Nav = (p: NavProps) => {
 
   const activeKey = () => makeEventKey(tabContext?.activeKey ?? local.activeKey);
 
+  const getRole = () => {
+    return local.role || (tabContext ? "tablist" : undefined);
+  };
+
   return (
     <SelectableContext.Provider value={handleSelect}>
       <NavContext.Provider
         value={{
           get role() {
-            return local.role || (tabContext ? "tablist" : undefined);
+            return getRole();
           }, // used by NavLink to determine it's role
           get activeKey() {
             return activeKey();
@@ -158,6 +162,7 @@ const Nav = (p: NavProps) => {
           {...props}
           onKeyDown={handleKeyDown}
           ref={mergedRef}
+          role={getRole()}
         >
           {props.children}
         </Dynamic>
