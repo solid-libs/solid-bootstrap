@@ -65,10 +65,7 @@ const Overlay = (p: OverlayProps /*outerRef*/) => {
             setArrowProps(() => arrowProps);
             setMetadata(() => metadata);
           });
-          const resolvedChildren = children(() => local.children);
-          let el = resolvedChildren() as Element;
-          while (typeof el === "function") el = (el as Function)();
-          return el;
+          return local.children;
         }}
       </BaseOverlay>
     </OverlayContext.Provider>
