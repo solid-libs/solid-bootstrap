@@ -126,7 +126,7 @@ const defaultProps = {
   as: Button,
 };
 
-const NavItem: DynamicRefForwardingComponent<typeof Button, NavItemProps> = (p) => {
+const NavItem = (p: NavItemProps) => {
   const [local, options] = splitProps(mergeProps(defaultProps, p), ["as", "active", "eventKey"]);
   const [props, meta] = useNavItem(
     mergeProps(

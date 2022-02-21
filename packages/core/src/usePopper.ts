@@ -1,5 +1,6 @@
 import * as Popper from "@popperjs/core";
 import {Accessor, createEffect, createMemo, createSignal, on} from "solid-js";
+import {DeepReadonly} from "solid-js/store";
 import {createPopper} from "./popper";
 
 const disabledApplyStylesModifier = {
@@ -97,7 +98,7 @@ const EMPTY_MODIFIERS = [] as any;
 function usePopper(
   referenceElement: () => VirtualElement | null | undefined,
   popperElement: () => HTMLElement | null | undefined,
-  options: UsePopperOptions,
+  options: DeepReadonly<UsePopperOptions>,
 ): Accessor<UsePopperState | undefined> {
   const [popperInstance, setPopperInstance] = createSignal<Instance>();
 

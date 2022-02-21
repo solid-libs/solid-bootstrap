@@ -1,3 +1,7 @@
+## 2022-02-21 - (1.0.5)
+
+- bump dependancies and resolve typing issues with newer Solid versions
+
 ## 2022-02-06 - (1.0.4)
 
 ### Bug Fixes
