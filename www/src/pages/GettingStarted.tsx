@@ -48,7 +48,7 @@ const GettingStarted = () => (
           </li>
         </ol>
         <Card>
-          <Card.Body>
+          <Card.Body className="bg-light">
             <pre className="mb-0">
               <code>{"> npm install solid-bootstrap"}</code>
             </pre>
@@ -59,6 +59,32 @@ const GettingStarted = () => (
         <strong>Tip!</strong> You may need to clear out some of the CSS that comes in the default
         SolidJS template to get the full Bootstrap experience.
       </Alert>
+      <div>
+        <h3>Server side rendering with Solid Start</h3>
+        <p>
+          If you are using{" "}
+          <a href="https://github.com/solidjs/solid-start" target="_blank">
+            Solid-Start
+          </a>{" "}
+          for server-side (or static) rendering you will need to add a <code>ssr</code> setting in{" "}
+          <code>vite.config.ts</code>...
+        </p>
+        <Card>
+          <Card.Body className="bg-light">
+            <pre className="mb-0">
+              <code>{`import { defineConfig } from "vite";
+import solid from "solid-start";
+
+export default defineConfig({
+  plugins: [solid()],
+  ssr: {
+    noExternal: ["solid-bootstrap"]
+  }
+});`}</code>
+            </pre>
+          </Card.Body>
+        </Card>
+      </div>
       <div>
         <h3>Porting approach</h3>
         <p class="lead">We have changed as little as possible while porting this code.</p>
