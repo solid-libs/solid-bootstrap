@@ -1,6 +1,6 @@
 import {JSX, mergeProps, splitProps} from "solid-js";
 import classNames from "./classnames";
-import {useBootstrapPrefix} from "./ThemeProvider";
+import {useBootstrapPrefix, useBootstrapBreakpoints} from "./ThemeProvider";
 import {BsPrefixProps, BsPrefixRefForwardingComponent} from "./helpers";
 import {Dynamic} from "solid-js/web";
 
@@ -28,9 +28,8 @@ export interface RowProps extends BsPrefixProps, JSX.HTMLAttributes<HTMLElement>
   lg?: RowColumns;
   xl?: RowColumns;
   xxl?: RowColumns;
+  [key: string]: any;
 }
-
-const DEVICE_SIZES = ["xxl", "xl", "lg", "md", "sm", "xs"] as const;
 
 const defaultProps = {
   as: "div",
@@ -39,10 +38,11 @@ const defaultProps = {
 const Row: BsPrefixRefForwardingComponent<"div", RowProps> = (p: RowProps) => {
   const [local, props] = splitProps(mergeProps(defaultProps, p), ["as", "bsPrefix", "className"]);
   const decoratedBsPrefix = useBootstrapPrefix(local.bsPrefix, "row");
+  const breakpoints = useBootstrapBreakpoints();
   const sizePrefix = `${decoratedBsPrefix}-cols`;
   const classes: string[] = [];
 
-  DEVICE_SIZES.forEach((brkPoint) => {
+  breakpoints().forEach((brkPoint) => {
     const propValue = props[brkPoint];
     delete props[brkPoint];
 

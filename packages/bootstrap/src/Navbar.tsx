@@ -20,7 +20,7 @@ export interface NavbarProps
   extends BsPrefixProps,
     Omit<JSX.HTMLAttributes<HTMLElement>, "onSelect"> {
   variant?: "light" | "dark";
-  expand?: boolean | "sm" | "md" | "lg" | "xl" | "xxl";
+  expand?: boolean | string | "sm" | "md" | "lg" | "xl" | "xxl";
   bg?: string;
   fixed?: "top" | "bottom";
   sticky?: "top";

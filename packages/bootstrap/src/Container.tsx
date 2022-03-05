@@ -6,7 +6,7 @@ import {BsPrefixProps, BsPrefixRefForwardingComponent} from "./helpers";
 import {Dynamic} from "solid-js/web";
 
 export interface ContainerProps extends BsPrefixProps, JSX.HTMLAttributes<HTMLElement> {
-  fluid?: boolean | "sm" | "md" | "lg" | "xl" | "xxl";
+  fluid?: boolean | string | "sm" | "md" | "lg" | "xl" | "xxl";
 }
 
 const defaultProps = {

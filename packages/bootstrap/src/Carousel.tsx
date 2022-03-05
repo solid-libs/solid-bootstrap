@@ -238,7 +238,7 @@ const Carousel: BsPrefixRefForwardingComponent<"div", CarouselProps> = (p: Carou
   // This is used in the setInterval, so it should not invalidate.
   const nextWhenVisible = () => {
     if (!document.hidden && isVisible(elementRef()!)) {
-      if (isRTL) {
+      if (isRTL()) {
         prev();
       } else {
         next();
@@ -282,7 +282,7 @@ const Carousel: BsPrefixRefForwardingComponent<"div", CarouselProps> = (p: Carou
       switch (event.key) {
         case "ArrowLeft":
           event.preventDefault();
-          if (isRTL) {
+          if (isRTL()) {
             next(event);
           } else {
             prev(event);
@@ -290,7 +290,7 @@ const Carousel: BsPrefixRefForwardingComponent<"div", CarouselProps> = (p: Carou
           return;
         case "ArrowRight":
           event.preventDefault();
-          if (isRTL) {
+          if (isRTL()) {
             prev(event);
           } else {
             next(event);
@@ -367,7 +367,7 @@ const Carousel: BsPrefixRefForwardingComponent<"div", CarouselProps> = (p: Carou
       return undefined;
     }
 
-    const nextFunc = isRTL ? prev : next;
+    const nextFunc = isRTL() ? prev : next;
     setIntervalHandleRef(
       window.setInterval(
         document.visibilityState ? nextWhenVisible : nextFunc,

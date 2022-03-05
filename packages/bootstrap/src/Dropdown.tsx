@@ -97,7 +97,7 @@ const Dropdown: BsPrefixRefForwardingComponent<"div", DropdownProps> = (p) => {
   };
 
   const alignEnd = local.align === "end";
-  const placement = getDropdownMenuPlacement(alignEnd, local.drop, isRTL);
+  const placement = getDropdownMenuPlacement(alignEnd, local.drop, isRTL());
 
   const contextValue = {
     get align() {
@@ -107,7 +107,7 @@ const Dropdown: BsPrefixRefForwardingComponent<"div", DropdownProps> = (p) => {
       return local.drop;
     },
     get isRTL() {
-      return isRTL;
+      return isRTL();
     },
   };
 

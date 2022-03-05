@@ -12,7 +12,7 @@ import {BsPrefixProps, BsPrefixRefForwardingComponent} from "./helpers";
 
 export interface ListGroupProps extends BsPrefixProps, BaseNavProps {
   variant?: "flush";
-  horizontal?: boolean | "sm" | "md" | "lg" | "xl" | "xxl";
+  horizontal?: boolean | string | "sm" | "md" | "lg" | "xl" | "xxl";
   defaultActiveKey?: EventKey;
   numbered?: boolean;
 }

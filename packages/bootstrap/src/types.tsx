@@ -42,7 +42,8 @@ export type ResponsiveAlignProp =
   | {md: AlignDirection}
   | {lg: AlignDirection}
   | {xl: AlignDirection}
-  | {xxl: AlignDirection};
+  | {xxl: AlignDirection}
+  | Record<string, AlignDirection>;
 
 export type AlignType = AlignDirection | ResponsiveAlignProp;
 

@@ -1,6 +1,6 @@
 import {JSX, mergeProps, splitProps} from "solid-js";
 import classNames from "./classnames";
-import {useBootstrapPrefix} from "./ThemeProvider";
+import {useBootstrapPrefix, useBootstrapBreakpoints} from "./ThemeProvider";
 import {BsPrefixProps, BsPrefixRefForwardingComponent, ElementType} from "./helpers";
 import {Dynamic} from "solid-js/web";
 
@@ -18,6 +18,7 @@ export interface ColProps extends BsPrefixProps, JSX.HTMLAttributes<HTMLElement>
   lg?: ColSpec;
   xl?: ColSpec;
   xxl?: ColSpec;
+  [key: string]: any;
 }
 
 const DEVICE_SIZES = ["xxl", "xl", "lg", "md", "sm", "xs"] as const;
@@ -31,11 +32,12 @@ export interface UseColMetadata {
 export function useCol(o: ColProps): [any, UseColMetadata] {
   const [local, props] = splitProps(o, ["as", "bsPrefix", "className"]);
   const bsPrefix = useBootstrapPrefix(local.bsPrefix, "col");
+  const breakpoints = useBootstrapBreakpoints();
 
   const spans: string[] = [];
   const classes: string[] = [];
 
-  DEVICE_SIZES.forEach((brkPoint) => {
+  breakpoints().forEach((brkPoint) => {
     const propValue = props[brkPoint];
 
     let span: ColSize | undefined;

@@ -1,6 +1,6 @@
 import {JSX, mergeProps, splitProps} from "solid-js";
 import classNames from "./classnames";
-import {useBootstrapPrefix} from "./ThemeProvider";
+import {useBootstrapPrefix, useBootstrapBreakpoints} from "./ThemeProvider";
 import {BsPrefixProps, BsPrefixRefForwardingComponent} from "./helpers";
 import {GapValue} from "./types";
 import createUtilityClassName, {ResponsiveUtilityValue} from "./createUtilityClasses";
@@ -29,6 +29,7 @@ const Stack: BsPrefixRefForwardingComponent<"span", StackProps> = (p: StackProps
     local.bsPrefix,
     local.direction === "horizontal" ? "hstack" : "vstack",
   );
+  const breakpoints = useBootstrapBreakpoints();
 
   return (
     <Dynamic
@@ -39,6 +40,7 @@ const Stack: BsPrefixRefForwardingComponent<"span", StackProps> = (p: StackProps
         bsPrefix,
         ...createUtilityClassName({
           gap: local.gap,
+          breakpoints: breakpoints(),
         }),
       )}
     >

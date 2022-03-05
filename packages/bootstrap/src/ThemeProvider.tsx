@@ -2,8 +2,11 @@
 
 import {createContext, createMemo, JSX, useContext} from "solid-js";
 
+export const DEFAULT_BREAKPOINTS = ["xxl", "xl", "lg", "md", "sm", "xs"];
+
 export interface ThemeContextValue {
   prefixes: Record<string, string>;
+  breakpoints: string[];
   dir?: string;
 }
 
@@ -11,11 +14,20 @@ export interface ThemeProviderProps extends Partial<ThemeContextValue> {
   children: JSX.Element;
 }
 
-const ThemeContext = createContext<ThemeContextValue>({prefixes: {}});
+const ThemeContext = createContext<ThemeContextValue>({
+  prefixes: {},
+  breakpoints: DEFAULT_BREAKPOINTS,
+});
 
-function ThemeProvider({prefixes = {}, dir, children}: ThemeProviderProps) {
+function ThemeProvider({
+  prefixes = {},
+  breakpoints = DEFAULT_BREAKPOINTS,
+  dir,
+  children,
+}: ThemeProviderProps) {
   const contextValue = createMemo(() => ({
     prefixes: {...prefixes},
+    breakpoints,
     dir,
   }));
 
@@ -27,9 +39,14 @@ export function useBootstrapPrefix(prefix: string | undefined, defaultPrefix: st
   return prefix || themeContext.prefixes[defaultPrefix] || defaultPrefix;
 }
 
+export function useBootstrapBreakpoints() {
+  const ctx = useContext(ThemeContext);
+  return () => ctx.breakpoints;
+}
+
 export function useIsRTL() {
-  const themeContext = useContext(ThemeContext);
-  return themeContext.dir === "rtl";
+  const ctx = useContext(ThemeContext);
+  return () => ctx.dir === "rtl";
 }
 
 export default ThemeProvider;

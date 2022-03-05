@@ -30,7 +30,7 @@ export interface ModalProps
     "role" | "renderBackdrop" | "renderDialog" | "transition" | "backdropTransition" | "children"
   > {
   size?: "sm" | "lg" | "xl";
-  fullscreen?: true | "sm-down" | "md-down" | "lg-down" | "xl-down" | "xxl-down";
+  fullscreen?: true | string | "sm-down" | "md-down" | "lg-down" | "xl-down" | "xxl-down";
   bsPrefix?: string;
   centered?: boolean;
   backdropClassName?: string;
@@ -124,7 +124,7 @@ const Modal: BsPrefixRefForwardingComponent<"div", ModalProps> = (p: ModalProps)
 
   function getModalManager() {
     if (local.manager) return local.manager;
-    return getSharedManager({isRTL});
+    return getSharedManager({isRTL: isRTL()});
   }
 
   function updateDialogStyle(node: Element) {

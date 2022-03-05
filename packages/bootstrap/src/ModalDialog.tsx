@@ -5,7 +5,7 @@ import {BsPrefixProps} from "./helpers";
 
 export interface ModalDialogProps extends JSX.HTMLAttributes<HTMLDivElement>, BsPrefixProps {
   size?: "sm" | "lg" | "xl";
-  fullscreen?: true | "sm-down" | "md-down" | "lg-down" | "xl-down" | "xxl-down";
+  fullscreen?: true | string | "sm-down" | "md-down" | "lg-down" | "xl-down" | "xxl-down";
   centered?: boolean;
   scrollable?: boolean;
   contentClassName?: string;
