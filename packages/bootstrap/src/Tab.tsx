@@ -7,6 +7,7 @@ export interface TabProps extends Omit<TabPaneProps, "title"> {
   title: JSX.Element;
   disabled?: boolean;
   tabClassName?: string;
+  tabAttrs?: Record<string, any>;
 }
 
 const Tab = (props: TabProps) => {

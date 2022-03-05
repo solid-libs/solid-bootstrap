@@ -51,6 +51,7 @@ function RenderTab(props: TabProps) {
         disabled={props.disabled}
         id={props.id}
         className={props.tabClassName}
+        {...props.tabAttrs}
       >
         {props.title}
       </NavLink>
@@ -111,7 +112,12 @@ const Tabs = (p: TabsProps) => {
       <TabContent>
         <For each={tabs()}>
           {(tabProps) => {
-            const [_, childProps] = splitProps(tabProps, ["title", "disabled", "tabClassName"]);
+            const [_, childProps] = splitProps(tabProps, [
+              "title",
+              "disabled",
+              "tabClassName",
+              "tabAttrs",
+            ]);
 
             return <TabPane {...childProps}>{childProps.children}</TabPane>;
           }}
