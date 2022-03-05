@@ -67,7 +67,7 @@ const Nav = (p: NavProps) => {
     const items = qsa(currentListNode, `[${EVENT_KEY_ATTR}]:not([aria-disabled=true])`);
 
     const activeChild = currentListNode.querySelector<HTMLElement>("[aria-selected=true]");
-    if (!activeChild) return null;
+    if (!activeChild || activeChild !== document.activeElement) return null;
 
     const index = items.indexOf(activeChild);
     if (index === -1) return null;
