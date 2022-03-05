@@ -1,13 +1,8 @@
 import {JSX, mergeProps, splitProps} from "solid-js";
 import classNames from "./classnames";
-import {
-  EventKey,
-  NoopTransition,
-  SelectableContext,
-  TabContext,
-  useTabPanel,
-} from "solid-bootstrap-core";
+import {EventKey, SelectableContext, TabContext, useTabPanel} from "solid-bootstrap-core";
 import {useBootstrapPrefix} from "./ThemeProvider";
+import Fade from "./Fade";
 import {getTabTransitionComponent} from "./getTabTransitionComponent";
 import {BsPrefixProps, BsPrefixRefForwardingComponent, TransitionType} from "./helpers";
 import {Dynamic} from "solid-js/web";
@@ -42,7 +37,7 @@ const TabPane: BsPrefixRefForwardingComponent<"div", TabPaneProps> = (p: TabPane
     "unmountOnExit",
   ]);
   const prefix = useBootstrapPrefix(local.bsPrefix, "tab-pane");
-  const Transition = meta.transition || NoopTransition;
+  const Transition = meta.transition || Fade;
 
   // We provide an empty the TabContext so `<Nav>`s in `<TabPanel>`s don't
   // conflict with the top level one.
