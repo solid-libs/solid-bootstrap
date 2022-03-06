@@ -1,3 +1,10 @@
+## 2022-03-26 - (1.0.7)
+
+- [Upstream: fix: issue NavItem - do not include aria-controls if the related element is not mounted](https://github.com/react-restart/ui/commit/a81ec97dd32ade77217840a3a0f0d357959fe72f)
+- [Upstream: feat(Tabs): support passing custom attributes to Tab](https://github.com/react-bootstrap/react-bootstrap/commit/6afa734cf29027cda36e188181762dca88fc48d)
+- [Upstream feat: support custom breakpoint](https://github.com/react-bootstrap/react-bootstrap/commit/0910a21b7d35eb859ca9e160c4492ef41a33810e)
+- resolve more typing issues with newer Solid versions
+
 ## 2022-02-21 - (1.0.5)
 
 - bump dependancies and resolve typing issues with newer Solid versions
