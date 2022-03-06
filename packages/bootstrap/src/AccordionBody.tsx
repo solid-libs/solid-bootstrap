@@ -10,7 +10,7 @@ import {BsPrefixRefForwardingComponent, BsPrefixProps} from "./helpers";
 
 export interface AccordionBodyProps extends BsPrefixProps, JSX.HTMLAttributes<HTMLElement> {}
 
-const defaultProps = {
+const defaultProps: Partial<AccordionBodyProps> = {
   as: "div",
 };
 

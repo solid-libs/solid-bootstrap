@@ -12,7 +12,7 @@ export interface AccordionCollapseProps extends BsPrefixProps, CollapseProps {
   eventKey: string;
 }
 
-const defaultProps = {
+const defaultProps: Partial<AccordionCollapseProps> = {
   as: "div",
 };
 
@@ -28,7 +28,7 @@ const AccordionCollapse: BsPrefixRefForwardingComponent<"div", AccordionCollapse
   const bsPrefix = useBootstrapPrefix(local.bsPrefix, "accordion-collapse");
 
   return (
-    <Collapse in={isAccordionItemSelected(context.activeEventKey, local.eventKey)} {...props}>
+    <Collapse in={isAccordionItemSelected(context.activeEventKey, local.eventKey!)} {...props}>
       <Dynamic component={local.as} className={classNames(local.className, bsPrefix)}>
         {local.children}
       </Dynamic>

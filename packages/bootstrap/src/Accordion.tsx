@@ -23,7 +23,7 @@ export interface AccordionProps
   alwaysOpen?: boolean;
 }
 
-const defaultProps = {
+const defaultProps: Partial<AccordionProps> = {
   as: "div",
 };
 
@@ -39,7 +39,7 @@ const Accordion: BsPrefixRefForwardingComponent<"div", AccordionProps> = (p) => 
     "flush",
   ]);
 
-  const [activeKey, onSelect] = createControlledProp(
+  const [activeKey, onSelect] = createControlledProp<AccordionEventKey>(
     () => local.activeKey,
     () => local.defaultActiveKey,
     local.onSelect,

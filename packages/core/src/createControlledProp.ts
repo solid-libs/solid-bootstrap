@@ -1,4 +1,4 @@
-import {Accessor, createComputed, createMemo, createSignal, on} from "solid-js";
+import {createComputed, createMemo, createSignal, on} from "solid-js";
 
 // Ported from https://github.com/jquense/uncontrollable/blob/dd40d92600566b0af14e66e0942b3066e2f62528/src/hook.tsx
 
@@ -13,8 +13,8 @@ export declare type Handler = (...args: any[]) => any;
  * @returns
  */
 export function createControlledProp<TProp, THandler extends Handler = Handler>(
-  propValue: Accessor<TProp | undefined>,
-  defaultValue: Accessor<TProp | undefined>,
+  propValue: () => TProp | undefined,
+  defaultValue: () => TProp | undefined,
   handler?: THandler,
 ) {
   const [stateValue, setState] = createSignal<TProp | undefined>(defaultValue());

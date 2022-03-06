@@ -9,7 +9,7 @@ import AccordionItemContext from "./AccordionItemContext";
 import {BsPrefixProps, BsPrefixRefForwardingComponent} from "./helpers";
 import {useBootstrapPrefix} from "./ThemeProvider";
 
-type EventHandler = JSX.EventHandlerUnion<HTMLBodyElement, Event>;
+type EventHandler = JSX.EventHandlerUnion<HTMLButtonElement, MouseEvent>;
 
 export interface AccordionButtonProps
   extends JSX.ButtonHTMLAttributes<HTMLButtonElement>,
@@ -42,7 +42,7 @@ export function useAccordionButton(eventKey: string, onClick?: EventHandler): Ev
   };
 }
 
-const defaultProps = {
+const defaultProps: Partial<AccordionButtonProps> = {
   as: "button",
 };
 

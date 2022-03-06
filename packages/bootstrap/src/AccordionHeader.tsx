@@ -9,7 +9,7 @@ import {BsPrefixRefForwardingComponent, BsPrefixProps} from "./helpers";
 
 export interface AccordionHeaderProps extends BsPrefixProps, JSX.HTMLAttributes<HTMLElement> {}
 
-const defaultProps = {
+const defaultProps: Partial<AccordionHeaderProps> = {
   as: "h2",
 };
 

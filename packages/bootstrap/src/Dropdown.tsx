@@ -62,7 +62,7 @@ const Dropdown: BsPrefixRefForwardingComponent<"div", DropdownProps> = (p) => {
     "navbar",
     "autoClose",
   ]);
-  const [show, onToggle] = createControlledProp(
+  const [show, onToggle] = createControlledProp<boolean>(
     () => local.show,
     () => local.defaultShow,
     local.onToggle,

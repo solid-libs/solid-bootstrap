@@ -11,7 +11,7 @@ export interface AccordionItemProps extends BsPrefixProps, JSX.HTMLAttributes<HT
   eventKey: string;
 }
 
-const defaultProps = {
+const defaultProps: Partial<AccordionItemProps> = {
   as: "div",
 };
 
@@ -25,7 +25,7 @@ const AccordionItem: BsPrefixRefForwardingComponent<"div", AccordionItemProps> =
   const bsPrefix = useBootstrapPrefix(local.bsPrefix, "accordion-item");
   const contextValue: AccordionItemContextValue = {
     get eventKey() {
-      return local.eventKey;
+      return local.eventKey!;
     },
   };
 
