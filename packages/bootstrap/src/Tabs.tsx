@@ -51,7 +51,7 @@ function RenderTab(props: TabProps) {
         disabled={props.disabled}
         id={props.id}
         className={props.tabClassName}
-        {...props.tabAttrs}
+        {...(props.tabAttrs || {})}
       >
         {props.title}
       </NavLink>
