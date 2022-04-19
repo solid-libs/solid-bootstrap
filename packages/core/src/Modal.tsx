@@ -494,7 +494,7 @@ const Modal = (p: ModalProps) => {
 
   return (
     <Show when={container() && dialogVisible()}>
-      <Portal mount={container()!}>
+      <Portal mount={container()!} ref={portalRef}>
         <Backdrop />
         <Dialog />
       </Portal>
