@@ -48,9 +48,7 @@ const Button: BsPrefixRefForwardingComponent<"button", ButtonProps> = (p: Button
         local.size && `${prefix}-${local.size}`,
         props.href && props.disabled && "disabled",
       )}
-    >
-      {props.children}
-    </Dynamic>
+    />
   );
 };
 

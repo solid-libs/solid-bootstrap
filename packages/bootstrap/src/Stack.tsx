@@ -43,9 +43,7 @@ const Stack: BsPrefixRefForwardingComponent<"span", StackProps> = (p: StackProps
           breakpoints: breakpoints(),
         }),
       )}
-    >
-      {props.children}
-    </Dynamic>
+    />
   );
 };
 

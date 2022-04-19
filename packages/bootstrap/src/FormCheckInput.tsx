@@ -50,9 +50,7 @@ const FormCheckInput: BsPrefixRefForwardingComponent<"input", FormCheckInputProp
         local.isValid && "is-valid",
         local.isInvalid && "is-invalid",
       )}
-    >
-      {props.children}
-    </Dynamic>
+    />
   );
 };
 export default FormCheckInput;

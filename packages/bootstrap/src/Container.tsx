@@ -28,9 +28,7 @@ const Container: BsPrefixRefForwardingComponent<"div", ContainerProps> = (p: Con
       component={local.as}
       {...props}
       className={classNames(local.className, local.fluid ? `${prefix}${suffix}` : prefix)}
-    >
-      {props.children}
-    </Dynamic>
+    />
   );
 };
 

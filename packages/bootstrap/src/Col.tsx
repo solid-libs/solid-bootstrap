@@ -89,9 +89,7 @@ const Col: BsPrefixRefForwardingComponent<"div", ColProps> = (p: ColProps) => {
       component={meta.as ?? "div"}
       {...colProps}
       className={classNames(local.className, !meta.spans.length && meta.bsPrefix)}
-    >
-      {colProps.children}
-    </Dynamic>
+    />
   );
 };
 

@@ -51,9 +51,7 @@ const NavLink: BsPrefixRefForwardingComponent<"a", NavLinkProps> = (p: NavLinkPr
         props.disabled && "disabled",
         meta.isActive && "active",
       )}
-    >
-      {props.children}
-    </Dynamic>
+    />
   );
 };
 

@@ -16,9 +16,7 @@ const ModalHeader = (p: ModalHeaderProps) => {
   const [local, props] = splitProps(mergeProps(defaultProps, p), ["bsPrefix", "className"]);
   const bsPrefix = useBootstrapPrefix(local.bsPrefix, "modal-header");
   return (
-    <AbstractModalHeader {...props} className={classNames(local.className, bsPrefix)}>
-      {props.children}
-    </AbstractModalHeader>
+    <AbstractModalHeader {...props} className={classNames(local.className, bsPrefix)}/>
   );
 };
 

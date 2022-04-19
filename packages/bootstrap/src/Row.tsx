@@ -63,9 +63,7 @@ const Row: BsPrefixRefForwardingComponent<"div", RowProps> = (p: RowProps) => {
       component={local.as}
       {...props}
       className={classNames(local.className, decoratedBsPrefix, ...classes)}
-    >
-      {props.children}
-    </Dynamic>
+    />
   );
 };
 

@@ -28,9 +28,7 @@ const Form: BsPrefixRefForwardingComponent<"form", FormProps> = (p: FormProps) =
       component={local.as}
       {...props}
       className={classNames(local.className, local.validated && "was-validated")}
-    >
-      {props.children}
-    </Dynamic>
+    />
   );
 };
 

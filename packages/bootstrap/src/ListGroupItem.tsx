@@ -74,9 +74,7 @@ const ListGroupItem: BsPrefixRefForwardingComponent<"a", ListGroupItemProps> = (
         local.variant && `${bsPrefix}-${local.variant}`,
         local.action && `${bsPrefix}-action`,
       )}
-    >
-      {props.children}
-    </Dynamic>
+    />
   );
 };
 

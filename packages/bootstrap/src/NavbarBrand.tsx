@@ -21,9 +21,7 @@ const NavbarBrand: BsPrefixRefForwardingComponent<"a", NavbarBrandProps> = (
       component={local.as || (props.href ? "a" : "span")}
       {...props}
       className={classNames(local.className, bsPrefix)}
-    >
-      {props.children}
-    </Dynamic>
+    />
   );
 };
 

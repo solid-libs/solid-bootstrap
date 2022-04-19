@@ -175,9 +175,7 @@ const DropdownMenu: BsPrefixRefForwardingComponent<"div", DropdownMenuProps> = (
           local.variant && `${prefix}-${local.variant}`,
           ...alignClasses,
         )}
-      >
-        {props.children}
-      </Dynamic>
+      />
     </Show>
   );
 };

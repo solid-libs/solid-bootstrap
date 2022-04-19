@@ -42,9 +42,7 @@ const Tooltip = (p: TooltipProps) => {
       {...context?.wrapperProps}
       style={Object.assign({}, local.style, context?.wrapperProps.style)}
     >
-      <div className="tooltip-arrow" {...context?.arrowProps}>
-        {context?.arrowProps?.children}
-      </div>
+      <div className="tooltip-arrow" {...context?.arrowProps}/>
       <div className={`${bsPrefix}-inner`}>{local.children}</div>
     </div>
   );

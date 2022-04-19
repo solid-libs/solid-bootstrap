@@ -34,9 +34,7 @@ const Feedback: BsPrefixRefForwardingComponent<"div", FeedbackProps> = (p: Feedb
         local.className,
         `${local.type}-${local.tooltip ? "tooltip" : "feedback"}`,
       )}
-    >
-      {props.children}
-    </Dynamic>
+    />
   );
 };
 

@@ -31,9 +31,7 @@ const AccordionItem: BsPrefixRefForwardingComponent<"div", AccordionItemProps> =
 
   return (
     <AccordionItemContext.Provider value={contextValue}>
-      <Dynamic component={local.as} {...props} className={classNames(local.className, bsPrefix)}>
-        {props.children}
-      </Dynamic>
+      <Dynamic component={local.as} {...props} className={classNames(local.className, bsPrefix)}/>
     </AccordionItemContext.Provider>
   );
 };

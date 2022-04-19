@@ -6,9 +6,7 @@ const NavbarOffcanvas = (props: OffcanvasProps) => {
   const context = useContext(NavbarContext);
 
   return (
-    <Offcanvas show={!!context?.expanded} {...props}>
-      {props.children}
-    </Offcanvas>
+    <Offcanvas show={!!context?.expanded} {...props}/>
   );
 };
 

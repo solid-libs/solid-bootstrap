@@ -30,13 +30,9 @@ const Anchor = (props: AnchorProps) => {
   }) as JSX.EventHandler<HTMLAnchorElement, KeyboardEvent>;
 
   return (isTrivialHref(props.href) && !props.role) || props.role === "button" ? (
-    <a {...otherProps} {...buttonProps} onKeyDown={handleKeyDown}>
-      {otherProps.children}
-    </a>
+    <a {...otherProps} {...buttonProps} onKeyDown={handleKeyDown}/>
   ) : (
-    <a {...otherProps} onKeyDown={local.onKeyDown}>
-      {otherProps.children}
-    </a>
+    <a {...otherProps} onKeyDown={local.onKeyDown}/>
   );
 };
 

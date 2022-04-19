@@ -60,9 +60,7 @@ const TabPane: BsPrefixRefForwardingComponent<"div", TabPaneProps> = (p: TabPane
             {...rest}
             ref={props.ref}
             className={classNames(panelLocal.className, prefix, meta.isActive && "active")}
-          >
-            {rest.children}
-          </Dynamic>
+          />
         </Transition>
       </SelectableContext.Provider>
     </TabContext.Provider>

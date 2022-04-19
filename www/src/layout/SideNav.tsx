@@ -66,39 +66,27 @@ const MenuButton = (props: ComponentProps<typeof Button>) => (
   <Button
     {...props}
     className={classNames(props.className, styles.MenuButton, "p-0 d-md-none ms-auto")}
-  >
-    {props.children}
-  </Button>
+  />
 );
 
 const SidePanel = (props: ComponentProps<"div">) => (
-  <div {...props} className={classNames(props.className, styles.SidePanel, "d-flex flex-column")}>
-    {props.children}
-  </div>
+  <div {...props} className={classNames(props.className, styles.SidePanel, "d-flex flex-column")}/>
 );
 
 const OverflowWrapper = (props: ComponentProps<"div">) => (
-  <div {...props} className={classNames(props.className, styles.OverflowWrapper)}>
-    {props.children}
-  </div>
+  <div {...props} className={classNames(props.className, styles.OverflowWrapper)}/>
 );
 
 const TableOfContents = (props: ComponentProps<"nav">) => (
-  <nav {...props} className={classNames(props.className, styles.TableOfContents, "pt-2 pb-4")}>
-    {props.children}
-  </nav>
+  <nav {...props} className={classNames(props.className, styles.TableOfContents, "pt-2 pb-4")}/>
 );
 
 const TocLink = (props: ComponentProps<typeof Nav.Link>) => (
-  <Nav.Link {...props} className={classNames(props.className, styles.TocLink)}>
-    {props.children}
-  </Nav.Link>
+  <Nav.Link {...props} className={classNames(props.className, styles.TocLink)}/>
 );
 
 const TocSubLink = (props: ComponentProps<typeof TocLink>) => (
-  <TocLink {...props} className={classNames(props.className, styles.TocSubLink)}>
-    {props.children}
-  </TocLink>
+  <TocLink {...props} className={classNames(props.className, styles.TocSubLink)}/>
 );
 
 const NavSection = (props: {

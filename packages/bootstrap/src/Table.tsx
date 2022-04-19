@@ -42,9 +42,7 @@ const Table = (p: TableProps) => {
     );
 
   const table = () => (
-    <table {...props} className={classes()}>
-      {props.children}
-    </table>
+    <table {...props} className={classes()}/>
   );
   if (local.responsive) {
     let responsiveClass = `${decoratedBsPrefix}-responsive`;

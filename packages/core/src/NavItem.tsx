@@ -146,9 +146,7 @@ const NavItem = (p: NavItemProps) => {
   props[dataAttr("active")] = meta.isActive;
 
   return (
-    <Dynamic component={local.as} {...options} {...props}>
-      {options.children}
-    </Dynamic>
+    <Dynamic component={local.as} {...options} {...props}/>
   );
 };
 NavItem.displayName = "NavItem";

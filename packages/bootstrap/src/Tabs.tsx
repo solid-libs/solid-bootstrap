@@ -105,7 +105,7 @@ const Tabs = (p: TabsProps) => {
     >
       <Nav {...props} role="tablist" as="ul">
         <For each={tabs()}>
-          {(tabProps) => <RenderTab {...tabProps}>{tabProps.children}</RenderTab>}
+          {(tabProps) => <RenderTab {...tabProps}/>}
         </For>
       </Nav>
 
@@ -119,7 +119,7 @@ const Tabs = (p: TabsProps) => {
               "tabAttrs",
             ]);
 
-            return <TabPane {...childProps}>{childProps.children}</TabPane>;
+            return <TabPane {...childProps}/>;
           }}
         </For>
       </TabContent>

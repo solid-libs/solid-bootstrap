@@ -22,9 +22,7 @@ const CardHeader: BsPrefixRefForwardingComponent<"div", CardHeaderProps> = (p: C
 
   return (
     <CardHeaderContext.Provider value={contextValue}>
-      <Dynamic component={local.as} {...props} className={classNames(local.className, prefix)}>
-        {props.children}
-      </Dynamic>
+      <Dynamic component={local.as} {...props} className={classNames(local.className, prefix)}/>
     </CardHeaderContext.Provider>
   );
 };

@@ -81,9 +81,7 @@ const Nav: BsPrefixRefForwardingComponent<"div", NavProps> = (p: NavProps) => {
         [`${bsPrefix}-justified`]: local.justify,
       })}
       {...props}
-    >
-      {props.children}
-    </BaseNav>
+    />
   );
 };
 

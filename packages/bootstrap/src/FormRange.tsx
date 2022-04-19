@@ -23,9 +23,7 @@ const FormRange = (p: FormRangeProps) => {
       type="range"
       className={classNames(local.className, bsPrefix)}
       id={local.id || formContext.controlId}
-    >
-      {props.children}
-    </input>
+    />
   );
 };
 

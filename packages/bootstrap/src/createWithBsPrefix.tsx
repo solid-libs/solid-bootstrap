@@ -31,9 +31,7 @@ export function createWithBsPrefix<As extends ElementType = "div">(
         component={local.as}
         className={classNames(local.className, resolvedPrefix)}
         {...props}
-      >
-        {props.children}
-      </Dynamic>
+      />
     );
   };
   return BsComponent as any;

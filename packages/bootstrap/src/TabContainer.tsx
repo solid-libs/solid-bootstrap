@@ -13,9 +13,7 @@ const TabContainer = (p: PropsWithChildren<TabContainerProps>) => {
   const [local, props] = splitProps(mergeProps(defaultProps, p), ["transition"]);
 
   return (
-    <Tabs {...props} transition={getTabTransitionComponent(local.transition)}>
-      {props.children}
-    </Tabs>
+    <Tabs {...props} transition={getTabTransitionComponent(local.transition)}/>
   );
 };
 

@@ -26,9 +26,7 @@ const FormText: BsPrefixRefForwardingComponent<"small", FormTextProps> = (p: For
       component={local.as}
       {...props}
       className={classNames(local.className, bsPrefix, local.muted && "text-muted")}
-    >
-      {props.children}
-    </Dynamic>
+    />
   );
 };
 

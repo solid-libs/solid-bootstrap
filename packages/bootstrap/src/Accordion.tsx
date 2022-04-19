@@ -65,9 +65,7 @@ const Accordion: BsPrefixRefForwardingComponent<"div", AccordionProps> = (p) => 
         {...props}
         classList={{}}
         className={classNames(local.className, prefix, local.flush && `${prefix}-flush`)}
-      >
-        {props.children}
-      </Dynamic>
+      />
     </AccordionContext.Provider>
   );
 };

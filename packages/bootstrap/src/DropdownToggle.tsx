@@ -63,9 +63,7 @@ const DropdownToggle: DropdownToggleComponent = (p: DropdownToggleProps) => {
       {...toggleOther}
       {...props}
       ref={mergedRef}
-    >
-      {props.children}
-    </Dynamic>
+    />
   );
 };
 

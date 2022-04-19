@@ -33,9 +33,7 @@ const CarouselItem = (p: CarouselItemProps) => {
         component={local.as}
         {...props}
         className={classNames(local.className, useBootstrapPrefix(local.bsPrefix, "carousel-item"))}
-      >
-        {props.children}
-      </Dynamic>
+      />
     ),
     interval: local.interval,
   } as unknown as JSX.Element;

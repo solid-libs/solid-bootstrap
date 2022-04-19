@@ -25,9 +25,7 @@ const CloseButton = (p: CloseButtonProps) => {
         local.className,
       )}
       {...props}
-    >
-      {props.children}
-    </button>
+    />
   );
 };
 

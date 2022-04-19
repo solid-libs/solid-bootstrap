@@ -26,9 +26,7 @@ const CardImg: BsPrefixRefForwardingComponent<"img", CardImgProps> = (p: CardImg
       component={local.as}
       className={classNames(local.variant ? `${prefix}-${local.variant}` : prefix, local.className)}
       {...props}
-    >
-      {props.children}
-    </Dynamic>
+    />
   );
 };
 

@@ -39,9 +39,7 @@ const Badge: BsPrefixRefForwardingComponent<"span", BadgeProps> = (p: BadgeProps
         local.text && `text-${local.text}`,
         local.bg && `bg-${local.bg}`,
       )}
-    >
-      {props.children}
-    </Dynamic>
+    />
   );
 };
 export default Badge;

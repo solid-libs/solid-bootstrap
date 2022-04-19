@@ -21,9 +21,7 @@ const AccordionBody: BsPrefixRefForwardingComponent<"div", AccordionBodyProps> =
 
   return (
     <AccordionCollapse eventKey={context.eventKey}>
-      <Dynamic component={local.as} {...props} className={classNames(local.className, bsPrefix)}>
-        {props.children}
-      </Dynamic>
+      <Dynamic component={local.as} {...props} className={classNames(local.className, bsPrefix)}/>
     </AccordionCollapse>
   );
 };

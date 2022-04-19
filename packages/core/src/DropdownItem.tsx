@@ -119,9 +119,7 @@ const DropdownItem: DynamicRefForwardingComponent<
   });
 
   return (
-    <Dynamic component={local.as} {...props} {...dropdownItemProps}>
-      {props.children}
-    </Dynamic>
+    <Dynamic component={local.as} {...props} {...dropdownItemProps}/>
   );
 };
 

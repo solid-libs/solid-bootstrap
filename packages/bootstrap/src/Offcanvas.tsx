@@ -42,11 +42,11 @@ const defaultProps: Partial<OffcanvasProps> = {
 };
 
 function DialogTransition(props: any) {
-  return <OffcanvasToggling {...props}>{props.children}</OffcanvasToggling>;
+  return <OffcanvasToggling {...props}/>;
 }
 
 function BackdropTransition(props: any) {
-  return <Fade {...props}>{props.children}</Fade>;
+  return <Fade {...props}/>;
 }
 
 const Offcanvas: BsPrefixRefForwardingComponent<"div", OffcanvasProps> = (p: OffcanvasProps) => {

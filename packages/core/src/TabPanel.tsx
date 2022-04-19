@@ -149,9 +149,7 @@ const TabPanel: DynamicRefForwardingComponent<"div", TabPanelProps> = (props: Ta
           role="tabpanel"
           hidden={!other.isActive}
           aria-hidden={!other.isActive}
-        >
-          {tabPanelProps.children}
-        </Dynamic>
+        />
         {/* </Transition> */}
       </SelectableContext.Provider>
     </TabContext.Provider>

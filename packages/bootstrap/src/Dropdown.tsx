@@ -135,9 +135,7 @@ const Dropdown: BsPrefixRefForwardingComponent<"div", DropdownProps> = (p) => {
               local.drop === "end" && "dropend",
               local.drop === "start" && "dropstart",
             )}
-          >
-            {props.children}
-          </Dynamic>
+          />
         )}
       </BaseDropdown>
     </DropdownContext.Provider>

@@ -7,9 +7,7 @@ const defaultProps = {fluid: true};
 const FigureImage = (p: ImageProps) => {
   const [local, props] = splitProps(mergeProps(defaultProps, p), ["className"]);
   return (
-    <Image {...props} className={classNames(local.className, "figure-img")}>
-      {props.children}
-    </Image>
+    <Image {...props} className={classNames(local.className, "figure-img")}/>
   );
 };
 

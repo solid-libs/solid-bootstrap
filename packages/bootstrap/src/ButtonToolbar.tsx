@@ -14,9 +14,7 @@ const ButtonToolbar = (p: ButtonToolbarProps) => {
   const prefix = useBootstrapPrefix(local.bsPrefix, "btn-toolbar");
 
   return (
-    <div {...props} className={classNames(local.className, prefix)}>
-      {props.children}
-    </div>
+    <div {...props} className={classNames(local.className, prefix)}/>
   );
 };
 export default ButtonToolbar;
