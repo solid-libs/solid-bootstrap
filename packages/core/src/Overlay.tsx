@@ -136,7 +136,6 @@ const Overlay = (props: OverlayProps) => {
   });
 
   const [popperOptions, setPopperOptions] = createStore<UsePopperOptions>({});
-  const Transition = props.transition!;
   const popperVisible = createMemo(() => !!(props.show || (props.transition && !exited())));
 
   /** sync popper options with props */
@@ -206,13 +205,16 @@ const Overlay = (props: OverlayProps) => {
     show: !!props.show,
   }));
 
-  const c = children(() => props.children as JSX.Element)();
-  const InnerChild = () => (c as Function)(wrapperProps, arrowProps, metadata);
+  const resolvedChildren = children(() => props.children as JSX.Element);
+  const InnerChild = () => <>
+    {(resolvedChildren() as unknown as OverlayProps["children"])(wrapperProps, arrowProps, metadata)}
+  </>;
 
+  let Transition: TransitionComponent | undefined;
   return (
     <Show when={container() && popperVisible()}>
       <Portal mount={container()!}>
-        {Transition ? (
+        {(Transition = props.transition) ? (
           <Transition
             appear
             in={props.show}

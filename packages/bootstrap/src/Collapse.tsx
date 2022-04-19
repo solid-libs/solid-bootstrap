@@ -124,7 +124,7 @@ const Collapse = (p: CollapseProps) => {
     local.onExiting?.(elem as HTMLElement);
   };
 
-  let child = children(() => local.children);
+  const resolvedChildren = children(() => local.children);
   let prevClasses: string;
 
   return (
@@ -140,7 +140,7 @@ const Collapse = (p: CollapseProps) => {
     >
       {
         ((state: TransitionStatus, innerProps: {ref: (el: HTMLElement) => void}) => {
-          const el = child() as HTMLElement;
+          const el = resolvedChildren() as HTMLElement;
           innerProps.ref(el);
           const newClasses = classNames(
             local.className,

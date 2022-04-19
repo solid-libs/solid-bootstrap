@@ -62,8 +62,8 @@ function RenderTab(props: TabProps) {
 const Tabs = (p: TabsProps) => {
   const tabsAccessor = children(() => p.children);
   const tabs = createMemo<TabProps[]>(() => {
-    let t = tabsAccessor();
-    return (Array.isArray(t) ? t : [t]) as unknown as TabProps[];
+    const t = tabsAccessor();
+    return (Array.isArray(t) ? t : [t]) as unknown[] as TabProps[];
   });
 
   const [local, props] = splitProps(

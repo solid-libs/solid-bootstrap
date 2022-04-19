@@ -1,4 +1,4 @@
-import {createMemo, createSignal, JSX, mergeProps, splitProps, useContext} from "solid-js";
+import {children, createMemo, createSignal, JSX, mergeProps, splitProps, useContext} from "solid-js";
 import classNames from "./classnames";
 import Feedback, {FeedbackType} from "./Feedback";
 import FormCheckInput from "./FormCheckInput";
@@ -64,8 +64,9 @@ const FormCheck: BsPrefixRefForwardingComponent<"input", FormCheckProps> = (p: F
       return local.id || formContext.controlId;
     },
   };
+  const resolvedChildren = children(() => local.children);
   const hasLabel = createMemo(
-    () => (local.label != null && local.label !== false && !local.children) || hasFormCheckLabel(),
+    () => (local.label != null && local.label !== false && !resolvedChildren()) || hasFormCheckLabel(),
   );
 
   return (
@@ -80,7 +81,7 @@ const FormCheck: BsPrefixRefForwardingComponent<"input", FormCheckProps> = (p: F
             local.type === "switch" && bsSwitchPrefix,
           )}
         >
-          {local.children || (
+          {resolvedChildren() || (
             <>
               <FormCheckInput
                 {...props}

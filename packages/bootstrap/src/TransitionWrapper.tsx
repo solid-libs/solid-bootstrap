@@ -1,4 +1,4 @@
-import {children, createSignal, JSX, mergeProps, splitProps} from "solid-js";
+import {Accessor, children, createSignal, JSX, mergeProps, splitProps} from "solid-js";
 import {Transition, TransitionProps, TransitionStatus} from "solid-react-transition";
 
 export type TransitionWrapperChildFunction = (
@@ -75,19 +75,21 @@ const TransitionWrapper = (p: TransitionWrapperProps) => {
     },
   };
 
+  const resolvedChildren: Accessor<JSX.Element | TransitionWrapperChildFunction>
+    = children(() => local.children as JSX.Element);
   function renderChild() {
-    if (typeof local.children === "function") {
+    const child = resolvedChildren();
+    if (typeof child === "function") {
       // wrap function to get ref
       return (status: TransitionStatus, innerProps: Record<string, unknown>) =>
-        (local.children as Function)?.(status, {
+        child(status, {
           ...innerProps,
           ref: mergedRef,
         });
     } else {
       // get resolved ref now
-      let childRef = children(() => local.children as JSX.Element)();
-      mergedRef(childRef as HTMLElement);
-      return childRef;
+      mergedRef(child as HTMLElement);
+      return child;
     }
   }
 

@@ -433,17 +433,18 @@ const Modal = (p: ModalProps) => {
     },
   );
 
+  const child = children(() => local.children);
   const getChildAsDocument = () => {
-    const child = children(() => local.children);
-    (child() as HTMLElement)?.setAttribute?.("role", "document");
-    return child();
+    const c = child();
+    (c as HTMLElement)?.setAttribute?.("role", "document");
+    return c;
   };
 
   let innerDialog = () =>
     local.renderDialog ? (
       local.renderDialog(dialogProps)
     ) : (
-      <div {...dialogProps}>{getChildAsDocument}</div>
+      <div {...dialogProps}>{getChildAsDocument()}</div>
     );
 
   const Dialog = () => {

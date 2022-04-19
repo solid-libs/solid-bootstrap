@@ -143,11 +143,10 @@ const Carousel: BsPrefixRefForwardingComponent<"div", CarouselProps> = (p: Carou
 
   const prefix = useBootstrapPrefix(local.bsPrefix, "carousel");
   const isRTL = useIsRTL();
+  const resolvedChildren = children(() => local.children);
   const items = createMemo(() => {
-    const resolvedChildren = children(() => local.children as any)();
-    return (Array.isArray(resolvedChildren)
-      ? resolvedChildren
-      : [resolvedChildren]) as unknown as CarouselItemReturnType[];
+    const c = resolvedChildren();
+    return (Array.isArray(c) ? c : [c]) as unknown as CarouselItemReturnType[];
   });
 
   const [nextDirectionRef, setNextDirectionRef] = createSignal<string | null>(null);

@@ -166,16 +166,17 @@ function OverlayTrigger(p: OverlayTriggerProps) {
     // no need to cleanup as element will be removed anyway
   };
 
-  let resolvedChildren = children(() => local.children);
+  const resolvedChildren = children(() => local.children);
 
-  let Target = () => {
-    let el = resolvedChildren() as Element;
+  const Target = () => {
+    let el = resolvedChildren();
+    // children() returns a function if the function takes arguments
     while (typeof el === "function") el = (el as Function)();
-    mergedRef(el);
+    mergedRef(el as Element);
     if (!isServer) {
-      addListeners(el);
+      addListeners(el as Element);
     }
-    return el;
+    return el as Element;
   };
 
   return (

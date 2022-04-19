@@ -416,12 +416,10 @@ export const Transition = (p: TransitionProps) => {
     }
   }
 
+  const resolvedChildren = children(() => local.children as JSX.Element);
   function renderChild() {
-    const childRef =
-      typeof local.children === "function"
-        ? local.children(status(), childProps)
-        : children(() => local.children as JSX.Element)();
-    return childRef;
+    const c = resolvedChildren() as TransitionProps["children"];
+    return typeof c === "function" ? c(status(), childProps) : c;
   }
 
   return (

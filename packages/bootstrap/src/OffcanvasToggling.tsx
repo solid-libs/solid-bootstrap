@@ -43,14 +43,14 @@ const OffcanvasToggling = (p: OffcanvasTogglingProps) => {
   ]);
   const bsPrefix = useBootstrapPrefix(local.bsPrefix, "offcanvas");
 
-  let child = children(() => local.children);
+  const resolvedChildren = children(() => local.children);
   let prevClasses: string;
 
   return (
     <TransitionWrapper addEndListener={transitionEndListener} {...props}>
       {
         ((status: TransitionStatus, innerProps: {ref: (el: HTMLElement) => void}) => {
-          const el = child() as HTMLElement;
+          const el = resolvedChildren() as HTMLElement;
           innerProps.ref(el);
           const newClasses = classNames(
             local.className,
