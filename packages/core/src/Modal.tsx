@@ -405,7 +405,6 @@ const Modal = (p: ModalProps) => {
     local.onExited?.(...args);
   };
 
-  const Transition = local.transition;
   const dialogVisible = createMemo(() => !!(local.show || (local.transition && !exited())));
 
   const dialogProps = mergeProps(
@@ -448,6 +447,7 @@ const Modal = (p: ModalProps) => {
     );
 
   const Dialog = () => {
+    const Transition = local.transition;
     return !Transition ? (
       innerDialog
     ) : (
