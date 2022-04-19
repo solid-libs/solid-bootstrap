@@ -35,7 +35,7 @@ export function toModifierArray(map: Modifiers | undefined = {}) {
   });
 }
 
-export default function mergeOptionsWithPopperConfig({
+export function mergeOptionsWithPopperConfig({
   enabled,
   enableEvents,
   placement,
@@ -88,3 +88,5 @@ export default function mergeOptionsWithPopperConfig({
     }),
   };
 }
+
+export default mergeOptionsWithPopperConfig;

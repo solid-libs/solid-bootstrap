@@ -8,6 +8,6 @@ interface NavContextType {
   getControllerId: (key: EventKey) => string;
 }
 
-const NavContext = createContext<NavContextType | null>(null);
+export const NavContext = createContext<NavContextType | null>(null);
 
 export default NavContext;

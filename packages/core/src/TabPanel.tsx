@@ -124,7 +124,7 @@ export function useTabPanel(p: TabPanelProps): readonly [useTabPanel, TabPanelMe
   ];
 }
 
-const TabPanel: DynamicRefForwardingComponent<"div", TabPanelProps> = (props: TabPanelProps) => {
+export const TabPanel: DynamicRefForwardingComponent<"div", TabPanelProps> = (props: TabPanelProps) => {
   const [tabPanelProps, other] = useTabPanel(props);
 
   const Transition = other.transition!;

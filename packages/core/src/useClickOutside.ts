@@ -36,7 +36,7 @@ export interface ClickOutsideOptions {
  * @param {boolean=} options.disabled
  * @param {string=}  options.clickTrigger The DOM event name (click, mousedown, etc) to attach listeners on
  */
-function useClickOutside(
+export function useClickOutside(
   ref: () => Element | null | undefined,
   onClickOutside: (e: Event) => void = noop,
   {disabled, clickTrigger = "click"}: ClickOutsideOptions = {},

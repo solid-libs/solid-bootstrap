@@ -121,7 +121,7 @@ export interface DropdownProps {
  * @displayName Dropdown
  * @public
  */
-function Dropdown(p: DropdownProps) {
+export function Dropdown(p: DropdownProps) {
   // merge in props defaults
   const props = mergeProps(
     {

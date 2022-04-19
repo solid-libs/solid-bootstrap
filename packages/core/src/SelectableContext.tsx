@@ -1,7 +1,7 @@
 import {createContext} from "solid-js";
 import {EventKey, SelectCallback} from "./types";
 
-const SelectableContext = createContext<SelectCallback | null>(null);
+export const SelectableContext = createContext<SelectCallback | null>(null);
 
 export const makeEventKey = (
   eventKey?: EventKey | null,

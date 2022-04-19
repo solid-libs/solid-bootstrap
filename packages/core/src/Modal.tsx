@@ -224,7 +224,7 @@ const defaultProps = {
   onHide: () => {},
 };
 
-const Modal = (p: ModalProps) => {
+export const Modal = (p: ModalProps) => {
   const [local, props] = splitProps(
     mergeProps(defaultProps, p),
     // split off local props with rest passed as dialogProps

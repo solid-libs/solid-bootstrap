@@ -87,7 +87,7 @@ export interface DropdownToggleProps {
  * @displayName DropdownToggle
  * @memberOf Dropdown
  */
-function DropdownToggle({children}: DropdownToggleProps) {
+export function DropdownToggle({children}: DropdownToggleProps) {
   const [props, meta] = useDropdownToggle();
 
   return <>{children(props, meta)}</>;

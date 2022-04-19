@@ -89,7 +89,7 @@ export function useDropdownItem(options: UseDropdownItemOptions) {
   ] as const;
 }
 
-const DropdownItem: DynamicRefForwardingComponent<
+export const DropdownItem: DynamicRefForwardingComponent<
   typeof Button,
   DropdownItemProps<HTMLButtonElement>
 > = (p: DropdownItemProps<HTMLButtonElement>) => {

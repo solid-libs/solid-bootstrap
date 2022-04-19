@@ -12,6 +12,6 @@ export type DropdownContextValue = {
   placement: Placement;
 };
 
-const DropdownContext = createContext<DropdownContextValue | null>(null);
+export const DropdownContext = createContext<DropdownContextValue | null>(null);
 
 export default DropdownContext;

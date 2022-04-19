@@ -61,7 +61,7 @@ export interface TabsProps {
   defaultActiveKey?: EventKey;
 }
 
-const Tabs = (props: PropsWithChildren<TabsProps>) => {
+export const Tabs = (props: PropsWithChildren<TabsProps>) => {
   const [activeKey, onSelect] = createControlledProp(
     () => props.activeKey,
     () => props.defaultActiveKey,

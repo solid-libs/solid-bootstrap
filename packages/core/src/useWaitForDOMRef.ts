@@ -18,7 +18,7 @@ export const resolveContainerRef = <T extends HTMLElement>(
   return null;
 };
 
-export default function useWaitForDOMRef<T extends HTMLElement = HTMLElement>(props: {
+export function useWaitForDOMRef<T extends HTMLElement = HTMLElement>(props: {
   ref?: DOMContainer<T>;
   onResolved?: (element: T | HTMLBodyElement) => void;
 }) {
@@ -42,3 +42,5 @@ export default function useWaitForDOMRef<T extends HTMLElement = HTMLElement>(pr
 
   return resolvedRef;
 }
+
+export default useWaitForDOMRef;

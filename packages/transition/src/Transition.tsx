@@ -127,7 +127,7 @@ export type TransitionComponent = Component<TransitionProps>;
 /**
  * EnterCallback (and EndCallback) is complicated as the original JS version optionally omits the
  * first (element) parameter depending on whether nodeRef is passed in.
- * So it can technially be either of these:
+ * So it can technically be either of these:
  * (el: HTMLElement, isAppearing?: boolean) => void
  * (isAppearing?: boolean) => void
  * Typescript seems to get grumpy if we just OR those types so this is a hack...

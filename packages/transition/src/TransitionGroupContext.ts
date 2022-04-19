@@ -4,4 +4,7 @@ export type TransitionGroupContextType = {
   isMounting: boolean;
 };
 
-export default createContext<TransitionGroupContextType | null>(null);
+export const TransitionGroupContext =
+  createContext<TransitionGroupContextType | null>(null);
+
+export default TransitionGroupContext;

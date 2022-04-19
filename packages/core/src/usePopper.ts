@@ -95,7 +95,7 @@ const EMPTY_MODIFIERS = [] as any;
  *
  * @returns {UsePopperState} The popper state accessor
  */
-function usePopper(
+export function usePopper(
   referenceElement: () => VirtualElement | null | undefined,
   popperElement: () => HTMLElement | null | undefined,
   options: DeepReadonly<UsePopperOptions>,

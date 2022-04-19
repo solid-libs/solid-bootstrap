@@ -45,7 +45,7 @@ const defaultProps = {
   as: "div",
 };
 
-const Nav = (p: NavProps) => {
+export const Nav = (p: NavProps) => {
   const [local, props] = splitProps(mergeProps(defaultProps, p), [
     "as",
     "onSelect",

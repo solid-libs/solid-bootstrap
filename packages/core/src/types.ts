@@ -1,5 +1,4 @@
 import {Component, ComponentProps, JSX, PropsWithChildren} from "solid-js";
-import {Dynamic} from "solid-js/web";
 
 export type EventKey = string | number;
 

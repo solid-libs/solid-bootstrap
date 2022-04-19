@@ -12,6 +12,6 @@ export interface TabContextType {
   getControllerId: (key: EventKey) => any;
 }
 
-const TabContext = createContext<TabContextType | null>(null);
+export const TabContext = createContext<TabContextType | null>(null);
 
 export default TabContext;

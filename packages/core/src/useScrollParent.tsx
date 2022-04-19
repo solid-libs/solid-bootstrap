@@ -1,7 +1,7 @@
 import getScrollParent from "dom-helpers/scrollParent";
 import {createEffect, createSignal} from "solid-js";
 
-export default function useScrollParent(element: () => null | HTMLElement) {
+export function useScrollParent(element: () => null | HTMLElement) {
   const [parent, setParent] = createSignal<Document | HTMLElement | null | undefined>(null);
 
   createEffect(() => {
@@ -12,3 +12,5 @@ export default function useScrollParent(element: () => null | HTMLElement) {
 
   return parent;
 }
+
+export default useScrollParent;

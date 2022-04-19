@@ -252,7 +252,7 @@ export interface DropdownMenuProps extends UseDropdownMenuOptions {
  * @displayName DropdownMenu
  * @memberOf Dropdown
  */
-function DropdownMenu(p: DropdownMenuProps) {
+export function DropdownMenu(p: DropdownMenuProps) {
   const [local, options] = splitProps(p, ["children"]);
   const [props, meta] = useDropdownMenu(options);
 

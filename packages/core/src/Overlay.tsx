@@ -124,7 +124,7 @@ export interface OverlayProps extends TransitionCallbacks {
  * Built on top of `Popper.js`, the overlay component is
  * great for custom tooltip overlays.
  */
-const Overlay = (props: OverlayProps) => {
+export const Overlay = (props: OverlayProps) => {
   const [rootElement, attachRef] = createSignal<HTMLElement>();
   const [arrowElement, attachArrowRef] = createSignal<Element>();
   const [exited, setExited] = createSignal(!props.show);

@@ -25,7 +25,7 @@ export const OPEN_DATA_ATTRIBUTE = dataAttr("modal-open");
  * Manages a stack of Modals as well as ensuring
  * body scrolling is is disabled and padding accounted for
  */
-class ModalManager {
+export class ModalManager {
   readonly handleContainerOverflow: boolean;
 
   readonly isRTL: boolean;

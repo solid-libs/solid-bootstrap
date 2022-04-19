@@ -163,7 +163,7 @@ export interface BaseButtonProps {
 
 export interface ButtonProps extends BaseButtonProps, JSX.HTMLAttributes<HTMLButtonElement> {}
 
-const Button = (props: ButtonProps) => {
+export const Button = (props: ButtonProps) => {
   const [local, otherProps] = splitProps(props, ["as"]);
 
   let a = props.tabIndex;

@@ -11,6 +11,8 @@ export const WindowProvider = Context.Provider;
  *
  * @returns the current window
  */
-export default function useWindow() {
+export function useWindow() {
   return useContext(Context);
 }
+
+export default useWindow;
