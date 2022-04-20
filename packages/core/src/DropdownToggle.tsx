@@ -93,7 +93,5 @@ export function DropdownToggle({children}: DropdownToggleProps) {
   return <>{children(props, meta)}</>;
 }
 
-DropdownToggle.displayName = "DropdownToggle";
-
 /** @component */
 export default DropdownToggle;

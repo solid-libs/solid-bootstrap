@@ -314,8 +314,6 @@ export function Dropdown(p: DropdownProps) {
   );
 }
 
-Dropdown.displayName = "Dropdown";
-
 Dropdown.Menu = DropdownMenu;
 Dropdown.Toggle = DropdownToggle;
 Dropdown.Item = DropdownItem;

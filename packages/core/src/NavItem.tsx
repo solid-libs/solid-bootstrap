@@ -149,6 +149,5 @@ export const NavItem = (p: NavItemProps) => {
     <Dynamic component={local.as} {...options} {...props}/>
   );
 };
-NavItem.displayName = "NavItem";
 
 export default NavItem;

@@ -235,6 +235,4 @@ export const Overlay = (props: OverlayProps) => {
   );
 };
 
-Overlay.displayName = "Overlay";
-
 export default Overlay;

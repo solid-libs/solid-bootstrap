@@ -217,10 +217,6 @@ export function useDropdownMenu(o: UseDropdownMenuOptions = {}) {
   return [menuProps, metadata] as const;
 }
 
-const defaultProps = {
-  usePopper: true,
-};
-
 export interface DropdownMenuProps extends UseDropdownMenuOptions {
   /**
    * A render prop that returns a Menu element. The `props`
@@ -258,10 +254,6 @@ export function DropdownMenu(p: DropdownMenuProps) {
 
   return <>{local.children(props, meta)}</>;
 }
-
-DropdownMenu.displayName = "DropdownMenu";
-
-DropdownMenu.defaultProps = defaultProps;
 
 /** @component */
 export default DropdownMenu;

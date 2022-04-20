@@ -123,6 +123,4 @@ export const DropdownItem: DynamicRefForwardingComponent<
   );
 };
 
-DropdownItem.displayName = "DropdownItem";
-
 export default DropdownItem;

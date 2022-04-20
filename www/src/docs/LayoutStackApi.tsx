@@ -19,7 +19,7 @@ const LayoutStackApi = () => (
           <tr>
             <td class="font-monospace">gap </td>
             <td class="font-monospace">
-              <div>responsivePropType(PropTypes.number)</div>
+              <div>number</div>
             </td>
             <td></td>
             <td>

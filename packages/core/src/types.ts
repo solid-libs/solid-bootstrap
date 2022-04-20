@@ -18,10 +18,6 @@ export interface DynamicRefForwardingComponent<
     props: PropsWithChildren<AssignProps<As, {as?: As} & P>>,
     context?: any,
   ): JSX.Element | null;
-  propTypes?: any;
-  contextTypes?: any;
-  defaultProps?: Partial<P>;
-  displayName?: string;
 }
 
 export type SelectCallback = (eventKey: string | null, e: Event) => void;
