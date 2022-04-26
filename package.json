@@ -1,5 +1,14 @@
 {
   "devDependencies": {
     "prettier": "2.5.1"
-  }
+  },
+  "scripts": {
+    "build": "npm run build --workspaces"
+  },
+  "workspaces": [
+    "packages/transition",
+    "packages/core",
+    "packages/bootstrap"
+  ]
 }
+
