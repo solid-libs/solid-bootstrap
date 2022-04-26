@@ -6,13 +6,13 @@ import BadgeApi from "./BadgeApi";
 <GithubSource name="FormControlDocs.mdx" />
 # Form controls
 
-<p className="lead">
+<p class="lead">
   Give textual form controls like <code>{'<input>'}</code>s and{' '}
   <code>{'<textarea>'}</code>s an upgrade with custom styles, sizing, focus
   states, and more.
 </p>
 
-<div className="row gy-5 pt-3">
+<div class="row gy-5 pt-3">
 
   <Example title="Example">
     <Example.Intro>
@@ -22,12 +22,12 @@ import BadgeApi from "./BadgeApi";
     </Example.Intro>
     <Example.Preview>
       <Form>
-        <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+        <Form.Group class="mb-3" controlId="exampleForm.ControlInput1">
           <Form.Label>Email address</Form.Label>
           <Form.Control type="email" placeholder="name@example.com" />
         </Form.Group>
 
-        <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
+        <Form.Group class="mb-3" controlId="exampleForm.ControlTextarea1">
           <Form.Label>Example textarea</Form.Label>
           <Form.Control as="textarea" rows={3} />
         </Form.Group>
@@ -36,12 +36,12 @@ import BadgeApi from "./BadgeApi";
     <Example.Code>
       ```js
       <Form>
-        <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+        <Form.Group class="mb-3" controlId="exampleForm.ControlInput1">
           <Form.Label>Email address</Form.Label>
           <Form.Control type="email" placeholder="name@example.com" />
         </Form.Group>
         
-        <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
+        <Form.Group class="mb-3" controlId="exampleForm.ControlTextarea1">
           <Form.Label>Example textarea</Form.Label>
           <Form.Control as="textarea" rows={3} />
         </Form.Group>
@@ -136,14 +136,14 @@ import BadgeApi from "./BadgeApi";
     </Example.Intro>
     <Example.Preview>
       <Form>
-        <Form.Group as={Row} className="mb-3" controlId="formPlaintextEmail">
+        <Form.Group as={Row} class="mb-3" controlId="formPlaintextEmail">
           <Form.Label column sm="2">Email</Form.Label>
           <Col sm="10">
             <Form.Control plaintext readOnly value="email@example.com" />
           </Col>
         </Form.Group>
 
-        <Form.Group as={Row} className="mb-3" controlId="formPlaintextPassword">
+        <Form.Group as={Row} class="mb-3" controlId="formPlaintextPassword">
           <Form.Label column sm="2">Password</Form.Label>
           <Col sm="10">
             <Form.Control type="password" placeholder="Password" />
@@ -154,7 +154,7 @@ import BadgeApi from "./BadgeApi";
     <Example.Code>
       ```js
       <Form>
-        <Form.Group as={Row} className="mb-3" controlId="formPlaintextEmail">
+        <Form.Group as={Row} class="mb-3" controlId="formPlaintextEmail">
           <Form.Label column sm="2">
             Email
           </Form.Label>
@@ -163,7 +163,7 @@ import BadgeApi from "./BadgeApi";
           </Col>
         </Form.Group>
 
-        <Form.Group as={Row} className="mb-3" controlId="formPlaintextPassword">
+        <Form.Group as={Row} class="mb-3" controlId="formPlaintextPassword">
           <Form.Label column sm="2">
             Password
           </Form.Label>
@@ -180,54 +180,54 @@ import BadgeApi from "./BadgeApi";
     <Example.Intro>
     </Example.Intro>
     <Example.Preview>
-      <Form.Group controlId="formFile" className="mb-3">
+      <Form.Group controlId="formFile" class="mb-3">
         <Form.Label>Default file input example</Form.Label>
         <Form.Control type="file" />
       </Form.Group>
 
-      <Form.Group controlId="formFileMultiple" className="mb-3">
+      <Form.Group controlId="formFileMultiple" class="mb-3">
         <Form.Label>Multiple files input example</Form.Label>
         <Form.Control type="file" multiple />
       </Form.Group>
 
-      <Form.Group controlId="formFileDisabled" className="mb-3">
+      <Form.Group controlId="formFileDisabled" class="mb-3">
         <Form.Label>Disabled file input example</Form.Label>
         <Form.Control type="file" disabled />
       </Form.Group>
 
-      <Form.Group controlId="formFileSm" className="mb-3">
+      <Form.Group controlId="formFileSm" class="mb-3">
         <Form.Label>Small file input example</Form.Label>
         <Form.Control type="file" size="sm" />
       </Form.Group>
 
-      <Form.Group controlId="formFileLg" className="mb-3">
+      <Form.Group controlId="formFileLg" class="mb-3">
         <Form.Label>Large file input example</Form.Label>
         <Form.Control type="file" size="lg" />
       </Form.Group>
     </Example.Preview>
     <Example.Code>
       ```js
-      <Form.Group controlId="formFile" className="mb-3">
+      <Form.Group controlId="formFile" class="mb-3">
         <Form.Label>Default file input example</Form.Label>
         <Form.Control type="file" />
       </Form.Group>
 
-      <Form.Group controlId="formFileMultiple" className="mb-3">
+      <Form.Group controlId="formFileMultiple" class="mb-3">
         <Form.Label>Multiple files input example</Form.Label>
         <Form.Control type="file" multiple />
       </Form.Group>
 
-      <Form.Group controlId="formFileDisabled" className="mb-3">
+      <Form.Group controlId="formFileDisabled" class="mb-3">
         <Form.Label>Disabled file input example</Form.Label>
         <Form.Control type="file" disabled />
       </Form.Group>
 
-      <Form.Group controlId="formFileSm" className="mb-3">
+      <Form.Group controlId="formFileSm" class="mb-3">
         <Form.Label>Small file input example</Form.Label>
         <Form.Control type="file" size="sm" />
       </Form.Group>
 
-      <Form.Group controlId="formFileLg" className="mb-3">
+      <Form.Group controlId="formFileLg" class="mb-3">
         <Form.Label>Large file input example</Form.Label>
         <Form.Control type="file" size="lg" />
       </Form.Group>

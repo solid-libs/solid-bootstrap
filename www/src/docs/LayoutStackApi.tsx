@@ -1,5 +1,5 @@
 const LayoutStackApi = () => (
-  <div className="mt-5">
+  <div class="mt-5">
     <h2>API</h2>
     <h3>Stack</h3>
     <code>

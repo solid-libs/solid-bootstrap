@@ -16,6 +16,7 @@ const FloatingLabel: BsPrefixRefForwardingComponent<"div", FloatingLabelProps> =
 ) => {
   const [local, props] = splitProps(mergeProps(defaultProps, p), [
     "bsPrefix",
+    "class",
     "className",
     "children",
     "controlId",
@@ -25,7 +26,7 @@ const FloatingLabel: BsPrefixRefForwardingComponent<"div", FloatingLabelProps> =
 
   return (
     <FormGroup
-      className={classNames(local.className, bsPrefix)}
+      class={classNames(local.class, local.className, bsPrefix)}
       controlId={local.controlId}
       {...props}
     >

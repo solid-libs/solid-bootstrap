@@ -6,11 +6,11 @@ import BadgeApi from "./BadgeApi";
 <GithubSource name="FormFloatingLabelDocs.mdx" />
 # Floating labels
 
-<p className="lead">
+<p class="lead">
   Create beautifully simple form labels that float over your input fields.
 </p>
 
-<div className="row gy-5 pt-3">
+<div class="row gy-5 pt-3">
 
   <Example title="Example">
     <Example.Intro>
@@ -20,7 +20,7 @@ import BadgeApi from "./BadgeApi";
       floating labels uses the `:placeholder-shown` pseudo-element.
     </Example.Intro>
     <Example.Preview>
-      <FloatingLabel controlId="floatingInput" label="Email address" className="mb-3">
+      <FloatingLabel controlId="floatingInput" label="Email address" class="mb-3">
         <Form.Control type="email" placeholder="name@example.com" />
       </FloatingLabel>
 
@@ -30,7 +30,7 @@ import BadgeApi from "./BadgeApi";
     </Example.Preview>
     <Example.Code>
       ```js
-      <FloatingLabel controlId="floatingInput" label="Email address" className="mb-3">
+      <FloatingLabel controlId="floatingInput" label="Email address" class="mb-3">
         <Form.Control type="email" placeholder="name@example.com" />
       </FloatingLabel>
 
@@ -48,7 +48,7 @@ import BadgeApi from "./BadgeApi";
       explicit `height` (either inline or via custom CSS).
     </Example.Intro>
     <Example.Preview>
-      <FloatingLabel controlId="floatingTextarea" label="Comments" className="mb-3">
+      <FloatingLabel controlId="floatingTextarea" label="Comments" class="mb-3">
         <Form.Control as="textarea" placeholder="Leave a comment here" />
       </FloatingLabel>
 
@@ -58,7 +58,7 @@ import BadgeApi from "./BadgeApi";
     </Example.Preview>
     <Example.Code>
       ```js
-      <FloatingLabel controlId="floatingTextarea" label="Comments" className="mb-3">
+      <FloatingLabel controlId="floatingTextarea" label="Comments" class="mb-3">
         <Form.Control as="textarea" placeholder="Leave a comment here" />
       </FloatingLabel>
 
@@ -105,7 +105,7 @@ import BadgeApi from "./BadgeApi";
       elements within column classes.
     </Example.Intro>
     <Example.Preview>
-      <Row className="g-2">
+      <Row class="g-2">
         <Col md>
           <FloatingLabel controlId="floatingInputGrid" label="Email address">
             <Form.Control type="email" placeholder="name@example.com" />
@@ -125,7 +125,7 @@ import BadgeApi from "./BadgeApi";
     </Example.Preview>
     <Example.Code>
       ```js
-      <Row className="g-2">
+      <Row class="g-2">
         <Col md>
           <FloatingLabel controlId="floatingInputGrid" label="Email address">
             <Form.Control type="email" placeholder="name@example.com" />
@@ -153,7 +153,7 @@ import BadgeApi from "./BadgeApi";
       so we can utilize a sibling selector (e.g., ~).
     </Example.Intro>
     <Example.Preview>
-      <FormFloating className="mb-3">
+      <FormFloating class="mb-3">
         <Form.Control id="floatingInputCustom" type="email"placeholder="name@example.com" />
         <label htmlFor="floatingInputCustom">Email address</label>
       </FormFloating>
@@ -165,7 +165,7 @@ import BadgeApi from "./BadgeApi";
     </Example.Preview>
     <Example.Code>
       ```js
-      <FormFloating className="mb-3">
+      <FormFloating class="mb-3">
         <Form.Control id="floatingInputCustom" type="email"placeholder="name@example.com" />
         <label htmlFor="floatingInputCustom">Email address</label>
       </FormFloating>

@@ -29,6 +29,7 @@ const DropdownToggle: DropdownToggleComponent = (p: DropdownToggleProps) => {
     "as",
     "bsPrefix",
     "split",
+    "class",
     "className",
     "childBsPrefix",
     "ref",
@@ -54,7 +55,8 @@ const DropdownToggle: DropdownToggleComponent = (p: DropdownToggleProps) => {
   return (
     <Dynamic
       component={local.as}
-      className={classNames(
+      class={classNames(
+        local.class,
         local.className,
         prefix,
         local.split && `${prefix}-split`,

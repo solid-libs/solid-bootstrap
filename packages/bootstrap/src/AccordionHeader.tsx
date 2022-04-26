@@ -17,6 +17,7 @@ const AccordionHeader: BsPrefixRefForwardingComponent<"h2", AccordionHeaderProps
   const [local, props] = splitProps(mergeProps(defaultProps, p), [
     "as",
     "bsPrefix",
+    "class",
     "className",
     "children",
     "onClick",
@@ -24,7 +25,7 @@ const AccordionHeader: BsPrefixRefForwardingComponent<"h2", AccordionHeaderProps
   const bsPrefix = useBootstrapPrefix(local.bsPrefix, "accordion-header");
 
   return (
-    <Dynamic component={local.as} {...props} className={classNames(local.className, bsPrefix)}>
+    <Dynamic component={local.as} {...props} class={classNames(local.class, local.className, bsPrefix)}>
       <AccordionButton onClick={local.onClick}>{local.children}</AccordionButton>
     </Dynamic>
   );

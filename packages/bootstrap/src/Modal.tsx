@@ -33,9 +33,12 @@ export interface ModalProps
   fullscreen?: true | string | "sm-down" | "md-down" | "lg-down" | "xl-down" | "xxl-down";
   bsPrefix?: string;
   centered?: boolean;
+  backdropClass?: string;
   backdropClassName?: string;
   animation?: boolean;
+  dialogClass?: string;
   dialogClassName?: string;
+  contentClass?: string;
   contentClassName?: string;
   dialogAs?: Component;
   scrollable?: boolean;
@@ -70,9 +73,12 @@ function BackdropTransition(props: FadeProps) {
 const Modal: BsPrefixRefForwardingComponent<"div", ModalProps> = (p: ModalProps) => {
   const [local, props] = splitProps(mergeProps(defaultProps, p), [
     "bsPrefix",
+    "class",
     "className",
     "style",
+    "dialogClass",
     "dialogClassName",
+    "contentClass",
     "contentClassName",
     "children",
     "dialogAs",
@@ -96,6 +102,7 @@ const Modal: BsPrefixRefForwardingComponent<"div", ModalProps> = (p: ModalProps)
     "onEnter",
     "onEntering",
     "onExited",
+    "backdropClass",
     "backdropClassName",
     "manager",
   ]);
@@ -238,8 +245,9 @@ const Modal: BsPrefixRefForwardingComponent<"div", ModalProps> = (p: ModalProps)
   const renderBackdrop = (backdropProps: any) => (
     <div
       {...backdropProps}
-      className={classNames(
+      class={classNames(
         `${bsPrefix}-backdrop`,
+        local.backdropClass,
         local.backdropClassName,
         !local.animation && "show",
       )}
@@ -261,7 +269,8 @@ const Modal: BsPrefixRefForwardingComponent<"div", ModalProps> = (p: ModalProps)
       role="dialog"
       {...dialogProps}
       style={baseModalStyle()}
-      className={classNames(
+      class={classNames(
+        local.class,
         local.className,
         bsPrefix,
         animateStaticModal() && `${bsPrefix}-static`,
@@ -274,8 +283,8 @@ const Modal: BsPrefixRefForwardingComponent<"div", ModalProps> = (p: ModalProps)
         component={local.dialogAs as typeof ModalDialog}
         {...props}
         onMouseDown={handleDialogMouseDown}
-        className={local.dialogClassName}
-        contentClassName={local.contentClassName}
+        class={classNames(local.dialogClass, local.dialogClassName)}
+        contentClass={classNames(local.contentClass, local.contentClassName)}
       >
         {local.children}
       </Dynamic>

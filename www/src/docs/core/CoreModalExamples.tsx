@@ -6,7 +6,7 @@ export const ModalExample1 = () => {
   return (
     <div>
       {/* Using Bootstrap CSS here - but you can use whatever you like */}
-      <Button className="btn btn-primary" onClick={() => setShow(true)}>
+      <Button class="btn btn-primary" onClick={() => setShow(true)}>
         Open Modal
       </Button>
 
@@ -15,7 +15,7 @@ export const ModalExample1 = () => {
         aria-labelledby="modal-1-label"
         onHide={() => setShow(false)}
         renderBackdrop={(props: any) => <div class="modal-backdrop show" {...props} />}
-        className="modal d-block pe-none"
+        class="modal d-block pe-none"
       >
         <div class="modal-dialog modal-dialog-centered">
           <div class="modal-content">
@@ -26,7 +26,7 @@ export const ModalExample1 = () => {
               <p>Some important content!</p>
             </div>
             <div class="modal-footer">
-              <Button onClick={() => setShow(false)} className="btn btn-secondary float-right">
+              <Button onClick={() => setShow(false)} class="btn btn-secondary float-right">
                 Close
               </Button>
             </div>

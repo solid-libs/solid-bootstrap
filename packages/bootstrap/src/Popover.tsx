@@ -26,6 +26,7 @@ const Popover = (p: PopoverProps) => {
   const [local, props] = splitProps(mergeProps(defaultProps, p), [
     "bsPrefix",
     "placement",
+    "class",
     "className",
     "style",
     "children",
@@ -43,7 +44,8 @@ const Popover = (p: PopoverProps) => {
     <div
       role="tooltip"
       x-placement={primaryPlacement()}
-      className={classNames(
+      class={classNames(
+        local.class,
         local.className,
         decoratedBsPrefix,
         primaryPlacement() && `bs-popover-auto`,
@@ -52,7 +54,7 @@ const Popover = (p: PopoverProps) => {
       {...context?.wrapperProps}
       style={Object.assign({}, local.style, context?.wrapperProps.style)}
     >
-      <div className="popover-arrow" {...local.arrowProps} {...context?.arrowProps} />
+      <div class="popover-arrow" {...local.arrowProps} {...context?.arrowProps} />
       {local.body ? <PopoverBody>{local.children}</PopoverBody> : local.children}
     </div>
   );

@@ -25,6 +25,7 @@ export interface OffcanvasProps
     "role" | "renderBackdrop" | "renderDialog" | "transition" | "backdrop" | "backdropTransition"
   > {
   bsPrefix?: string;
+  backdropClass?: string;
   backdropClassName?: string;
   scroll?: boolean;
   placement?: OffcanvasPlacement;
@@ -52,6 +53,7 @@ function BackdropTransition(props: any) {
 const Offcanvas: BsPrefixRefForwardingComponent<"div", OffcanvasProps> = (p: OffcanvasProps) => {
   const [local, props] = splitProps(mergeProps(defaultProps, p), [
     "bsPrefix",
+    "class",
     "className",
     "children",
     "aria-labelledby",
@@ -75,6 +77,7 @@ const Offcanvas: BsPrefixRefForwardingComponent<"div", OffcanvasProps> = (p: Off
     "onEnter",
     "onEntering",
     "onExited",
+    "backdropClass",
     "backdropClassName",
     "manager",
     "ref",
@@ -120,7 +123,7 @@ const Offcanvas: BsPrefixRefForwardingComponent<"div", OffcanvasProps> = (p: Off
   };
 
   const renderBackdrop = (backdropProps: RenderModalBackdropProps) => (
-    <div {...backdropProps} className={classNames(`${bsPrefix}-backdrop`, local.backdropClassName)}>
+    <div {...backdropProps} class={classNames(`${bsPrefix}-backdrop`, local.backdropClass, local.backdropClassName)}>
       {props.children}
     </div>
   );
@@ -131,7 +134,7 @@ const Offcanvas: BsPrefixRefForwardingComponent<"div", OffcanvasProps> = (p: Off
       role="dialog"
       {...dialogProps}
       {...props}
-      className={classNames(local.className, bsPrefix, `${bsPrefix}-${local.placement}`)}
+      class={classNames(local.class, local.className, bsPrefix, `${bsPrefix}-${local.placement}`)}
       aria-labelledby={local["aria-labelledby"]}
     >
       {local.children}

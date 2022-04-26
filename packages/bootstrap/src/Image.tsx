@@ -21,6 +21,7 @@ const defaultProps = {
 const Image = (p: ImageProps) => {
   const [local, props] = splitProps(mergeProps(defaultProps, p), [
     "bsPrefix",
+    "class",
     "className",
     "fluid",
     "rounded",
@@ -31,7 +32,8 @@ const Image = (p: ImageProps) => {
   return (
     <img // eslint-disable-line jsx-a11y/alt-text
       {...props}
-      className={classNames(
+      class={classNames(
+        local.class,
         local.className,
         local.fluid && `${bsPrefix}-fluid`,
         local.rounded && `rounded`,

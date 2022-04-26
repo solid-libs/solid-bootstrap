@@ -29,6 +29,7 @@ const FormCheckInput: BsPrefixRefForwardingComponent<"input", FormCheckInputProp
     "as",
     "id",
     "bsPrefix",
+    "class",
     "className",
     "type",
     "isValid",
@@ -44,7 +45,8 @@ const FormCheckInput: BsPrefixRefForwardingComponent<"input", FormCheckInputProp
       {...props}
       type={local.type}
       id={local.id || formContext.controlId}
-      className={classNames(
+      class={classNames(
+        local.class,
         local.className,
         bsPrefix,
         local.isValid && "is-valid",

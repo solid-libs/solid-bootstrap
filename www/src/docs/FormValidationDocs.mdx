@@ -7,12 +7,12 @@ import BadgeApi from "./BadgeApi";
 <GithubSource name="FormValidationDocs.mdx" />
 # Validation
 
-<p className="lead">
+<p class="lead">
   Provide valuable, actionable feedback to your users with HTML5 form
   validation, via browser default behaviors or custom styles and JavaScript.
 </p>
 
-<div className="row gy-5 pt-3">
+<div class="row gy-5 pt-3">
 
   <Example title="Native HTML5 form validation">
     <Example.Intro>
@@ -45,7 +45,7 @@ import BadgeApi from "./BadgeApi";
 
       return (
         <Form noValidate validated={validated()} onSubmit={handleSubmit}>
-          <Row className="mb-3">
+          <Row class="mb-3">
             <Form.Group as={Col} md="4" controlId="validationCustom01">
               <Form.Label>First name</Form.Label>
               <Form.Control
@@ -82,7 +82,7 @@ import BadgeApi from "./BadgeApi";
               </InputGroup>
             </Form.Group>
           </Row>
-          <Row className="mb-3">
+          <Row class="mb-3">
             <Form.Group as={Col} md="6" controlId="validationCustom03">
               <Form.Label>City</Form.Label>
               <Form.Control type="text" placeholder="City" required />
@@ -105,7 +105,7 @@ import BadgeApi from "./BadgeApi";
               </Form.Control.Feedback>
             </Form.Group>
           </Row>
-          <Form.Group className="mb-3">
+          <Form.Group class="mb-3">
             <Form.Check
               required
               label="Agree to terms and conditions"

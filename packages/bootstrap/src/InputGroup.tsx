@@ -44,6 +44,7 @@ const InputGroup: BsPrefixRefForwardingComponent<"div", InputGroupProps> = (p: I
     "bsPrefix",
     "size",
     "hasValidation",
+    "class",
     "className",
   ]);
   const bsPrefix = useBootstrapPrefix(local.bsPrefix, "input-group");
@@ -57,7 +58,8 @@ const InputGroup: BsPrefixRefForwardingComponent<"div", InputGroupProps> = (p: I
       <Dynamic
         component={local.as}
         {...props}
-        className={classNames(
+        class={classNames(
+          local.class,
           local.className,
           bsPrefix,
           local.size && `${bsPrefix}-${local.size}`,

@@ -16,6 +16,7 @@ const FormText: BsPrefixRefForwardingComponent<"small", FormTextProps> = (p: For
   const [local, props] = splitProps(mergeProps(defaultProps, p), [
     "as",
     "bsPrefix",
+    "class",
     "className",
     "muted",
   ]);
@@ -25,7 +26,7 @@ const FormText: BsPrefixRefForwardingComponent<"small", FormTextProps> = (p: For
     <Dynamic
       component={local.as}
       {...props}
-      className={classNames(local.className, bsPrefix, local.muted && "text-muted")}
+      class={classNames(local.class, local.className, bsPrefix, local.muted && "text-muted")}
     />
   );
 };

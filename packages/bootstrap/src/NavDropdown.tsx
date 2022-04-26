@@ -28,6 +28,7 @@ const NavDropdown: BsPrefixRefForwardingComponent<"div", NavDropdownProps> = (
     "title",
     "children",
     "bsPrefix",
+    "class",
     "className",
     "rootCloseEvent",
     "menuRole",
@@ -39,7 +40,7 @@ const NavDropdown: BsPrefixRefForwardingComponent<"div", NavDropdownProps> = (
   const navItemPrefix = useBootstrapPrefix(undefined, "nav-item");
 
   return (
-    <Dropdown {...props} className={classNames(local.className, navItemPrefix)}>
+    <Dropdown {...props} class={classNames(local.class, local.className, navItemPrefix)}>
       <Dropdown.Toggle
         id={local.id}
         eventKey={null}

@@ -48,6 +48,7 @@ const Alert = (uncontrolledProps: AlertProps) => {
     "show",
     "closeLabel",
     "closeVariant",
+    "class",
     "className",
     "children",
     "variant",
@@ -74,7 +75,8 @@ const Alert = (uncontrolledProps: AlertProps) => {
     <div
       role="alert"
       {...(!Transition ? props : {})}
-      className={classNames(
+      class={classNames(
+        local.class,
         local.className,
         prefix,
         local.variant && `${prefix}-${local.variant}`,

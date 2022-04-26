@@ -36,7 +36,12 @@ const defaultProps = {
 };
 
 const Row: BsPrefixRefForwardingComponent<"div", RowProps> = (p: RowProps) => {
-  const [local, props] = splitProps(mergeProps(defaultProps, p), ["as", "bsPrefix", "className"]);
+  const [local, props] = splitProps(mergeProps(defaultProps, p), [
+    "as",
+    "bsPrefix",
+    "class",
+    "className",
+  ]);
   const decoratedBsPrefix = useBootstrapPrefix(local.bsPrefix, "row");
   const breakpoints = useBootstrapBreakpoints();
   const sizePrefix = `${decoratedBsPrefix}-cols`;
@@ -62,7 +67,7 @@ const Row: BsPrefixRefForwardingComponent<"div", RowProps> = (p: RowProps) => {
     <Dynamic
       component={local.as}
       {...props}
-      className={classNames(local.className, decoratedBsPrefix, ...classes)}
+      class={classNames(local.class, local.className, decoratedBsPrefix, ...classes)}
     />
   );
 };

@@ -50,6 +50,7 @@ const AccordionButton: BsPrefixRefForwardingComponent<"button", AccordionButtonP
   const [local, props] = splitProps(mergeProps(defaultProps, p), [
     "as",
     "bsPrefix",
+    "class",
     "className",
     "onClick",
   ]);
@@ -65,7 +66,8 @@ const AccordionButton: BsPrefixRefForwardingComponent<"button", AccordionButtonP
       {...props}
       type={local.as === "button" ? "button" : undefined}
       aria-expanded={itemContext.eventKey === accordionContext.activeEventKey}
-      className={classNames(
+      class={classNames(
+        local.class,
         local.className,
         bsPrefix,
         !isAccordionItemSelected(accordionContext.activeEventKey, itemContext.eventKey) &&

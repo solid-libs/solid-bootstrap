@@ -130,6 +130,7 @@ const Carousel: BsPrefixRefForwardingComponent<"div", CarouselProps> = (p: Carou
     "nextIcon",
     "nextLabel",
     "variant",
+    "class",
     "className",
     "children",
     "ref",
@@ -394,7 +395,8 @@ const Carousel: BsPrefixRefForwardingComponent<"div", CarouselProps> = (p: Carou
       onTouchStart={handleTouchStart}
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
-      className={classNames(
+      class={classNames(
+        local.class,
         local.className,
         prefix,
         local.slide && "slide",
@@ -403,7 +405,7 @@ const Carousel: BsPrefixRefForwardingComponent<"div", CarouselProps> = (p: Carou
       )}
     >
       {local.indicators && (
-        <div className={`${prefix}-indicators`}>
+        <div class={`${prefix}-indicators`}>
           <For each={items()}>
             {(_, index: Accessor<number>) => (
               <button
@@ -414,7 +416,7 @@ const Carousel: BsPrefixRefForwardingComponent<"div", CarouselProps> = (p: Carou
                     ? local.indicatorLabels[index()]
                     : `Slide ${index() + 1}`
                 }
-                className={isActive(index()) ? "active" : undefined}
+                class={isActive(index()) ? "active" : undefined}
                 onClick={(e) => onSelect?.(index(), e as any)}
                 aria-current={isActive(index())}
               />
@@ -423,7 +425,7 @@ const Carousel: BsPrefixRefForwardingComponent<"div", CarouselProps> = (p: Carou
         </div>
       )}
 
-      <div className={`${prefix}-inner`}>
+      <div class={`${prefix}-inner`}>
         <For<ItemWithClasses, JSX.Element> each={items() as ItemWithClasses[]}>
           {(child, index: Accessor<number>) => {
             const el = (child.item as () => HTMLElement)();
@@ -463,15 +465,15 @@ const Carousel: BsPrefixRefForwardingComponent<"div", CarouselProps> = (p: Carou
       {local.controls && (
         <>
           {(local.wrap || activeIndex() !== 0) && (
-            <Anchor className={`${prefix}-control-prev`} onClick={prev}>
-              {local.prevIcon ?? <span aria-hidden="true" className="carousel-control-prev-icon" />}
-              {local.prevLabel && <span className="visually-hidden">{local.prevLabel}</span>}
+            <Anchor class={`${prefix}-control-prev`} onClick={prev}>
+              {local.prevIcon ?? <span aria-hidden="true" class="carousel-control-prev-icon" />}
+              {local.prevLabel && <span class="visually-hidden">{local.prevLabel}</span>}
             </Anchor>
           )}
           {(local.wrap || activeIndex() !== items().length - 1) && (
-            <Anchor className={`${prefix}-control-next`} onClick={next}>
-              {local.nextIcon ?? <span aria-hidden="true" className="carousel-control-next-icon" />}
-              {local.nextLabel && <span className="visually-hidden">{local.nextLabel}</span>}
+            <Anchor class={`${prefix}-control-next`} onClick={next}>
+              {local.nextIcon ?? <span aria-hidden="true" class="carousel-control-next-icon" />}
+              {local.nextLabel && <span class="visually-hidden">{local.nextLabel}</span>}
             </Anchor>
           )}
         </>

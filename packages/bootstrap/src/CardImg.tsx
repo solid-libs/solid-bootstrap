@@ -16,6 +16,7 @@ const CardImg: BsPrefixRefForwardingComponent<"img", CardImgProps> = (p: CardImg
   const [local, props] = splitProps(mergeProps(defaultProps, p), [
     "as",
     "bsPrefix",
+    "class",
     "className",
     "variant",
   ]);
@@ -24,7 +25,7 @@ const CardImg: BsPrefixRefForwardingComponent<"img", CardImgProps> = (p: CardImg
   return (
     <Dynamic
       component={local.as}
-      className={classNames(local.variant ? `${prefix}-${local.variant}` : prefix, local.className)}
+      class={classNames(local.variant ? `${prefix}-${local.variant}` : prefix, local.class, local.className)}
       {...props}
     />
   );

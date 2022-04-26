@@ -20,6 +20,7 @@ const AccordionCollapse: BsPrefixRefForwardingComponent<"div", AccordionCollapse
   const [local, props] = splitProps(mergeProps(defaultProps, p), [
     "as",
     "bsPrefix",
+    "class",
     "className",
     "children",
     "eventKey",
@@ -29,7 +30,7 @@ const AccordionCollapse: BsPrefixRefForwardingComponent<"div", AccordionCollapse
 
   return (
     <Collapse in={isAccordionItemSelected(context.activeEventKey, local.eventKey!)} {...props}>
-      <Dynamic component={local.as} className={classNames(local.className, bsPrefix)}>
+      <Dynamic component={local.as} class={classNames(local.class, local.className, bsPrefix)}>
         {local.children}
       </Dynamic>
     </Collapse>

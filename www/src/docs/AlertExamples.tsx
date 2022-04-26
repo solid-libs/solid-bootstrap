@@ -12,7 +12,7 @@ export function ControlledDismissAlert() {
           elit. Cras mattis consectetur purus sit amet fermentum.
         </p>
         <hr />
-        <div className="d-flex justify-content-end">
+        <div class="d-flex justify-content-end">
           <Button onClick={() => setShow(false)} variant="outline-success">
             Close me y'all!
           </Button>

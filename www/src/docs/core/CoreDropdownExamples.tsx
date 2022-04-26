@@ -22,8 +22,8 @@ const DropdownMenu = (p: ComponentProps<"div">) => {
         show: meta.show,
       }}
     >
-      <Dropdown.Item className="dropdown-item">Item 1</Dropdown.Item>
-      <Dropdown.Item className="dropdown-item">Item 2</Dropdown.Item>
+      <Dropdown.Item class="dropdown-item">Item 1</Dropdown.Item>
+      <Dropdown.Item class="dropdown-item">Item 2</Dropdown.Item>
     </div>
   );
 };
@@ -32,7 +32,7 @@ const DropdownToggle = (p: ComponentProps<"button">) => {
   const [props] = useDropdownToggle();
 
   return (
-    <Button {...props} className="btn btn-primary dropdown-toggle">
+    <Button {...props} class="btn btn-primary dropdown-toggle">
       {p.children}
     </Button>
   );
@@ -58,7 +58,7 @@ export function DropdownExample1() {
   const [show, setShow] = createSignal(false);
 
   return (
-    <div className="d-flex justify-content-center">
+    <div class="d-flex justify-content-center">
       <DropdownButton
         show={show()}
         onToggle={(nextShow) => setShow(nextShow)}

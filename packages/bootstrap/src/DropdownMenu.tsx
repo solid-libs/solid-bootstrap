@@ -57,6 +57,7 @@ const DropdownMenu: BsPrefixRefForwardingComponent<"div", DropdownMenuProps> = (
   const [local, props] = splitProps(mergeProps(defaultProps, p), [
     "as",
     "bsPrefix",
+    "class",
     "className",
     "align",
     "rootCloseEvent",
@@ -167,7 +168,8 @@ const DropdownMenu: BsPrefixRefForwardingComponent<"div", DropdownMenuProps> = (
               "data-bs-popper": "static",
             }
           : {})}
-        className={classNames(
+        class={classNames(
+          local.class,
           local.className,
           prefix,
           menuMeta.show && "show",

@@ -48,8 +48,8 @@ const GettingStarted = () => (
           </li>
         </ol>
         <Card>
-          <Card.Body className="bg-light">
-            <pre className="mb-0">
+          <Card.Body class="bg-light">
+            <pre class="mb-0">
               <code>{"> npm install solid-bootstrap"}</code>
             </pre>
           </Card.Body>
@@ -70,8 +70,8 @@ const GettingStarted = () => (
           <code>vite.config.ts</code>...
         </p>
         <Card>
-          <Card.Body className="bg-light">
-            <pre className="mb-0">
+          <Card.Body class="bg-light">
+            <pre class="mb-0">
               <code>{`import { defineConfig } from "vite";
 import solid from "solid-start";
 

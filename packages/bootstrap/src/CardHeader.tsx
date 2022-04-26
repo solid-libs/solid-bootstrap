@@ -12,7 +12,12 @@ const defaultProps = {
 };
 
 const CardHeader: BsPrefixRefForwardingComponent<"div", CardHeaderProps> = (p: CardHeaderProps) => {
-  const [local, props] = splitProps(mergeProps(defaultProps, p), ["as", "bsPrefix", "className"]);
+  const [local, props] = splitProps(mergeProps(defaultProps, p), [
+    "as",
+    "bsPrefix",
+    "class",
+    "className"
+  ]);
   const prefix = useBootstrapPrefix(local.bsPrefix, "card-header");
   const contextValue = {
     get cardHeaderBsPrefix() {
@@ -22,7 +27,7 @@ const CardHeader: BsPrefixRefForwardingComponent<"div", CardHeaderProps> = (p: C
 
   return (
     <CardHeaderContext.Provider value={contextValue}>
-      <Dynamic component={local.as} {...props} className={classNames(local.className, prefix)}/>
+      <Dynamic component={local.as} {...props} class={classNames(local.class, local.className, prefix)}/>
     </CardHeaderContext.Provider>
   );
 };

@@ -13,14 +13,19 @@ const defaultProps = {};
 const NavbarBrand: BsPrefixRefForwardingComponent<"a", NavbarBrandProps> = (
   p: NavbarBrandProps,
 ) => {
-  const [local, props] = splitProps(mergeProps(defaultProps, p), ["as", "bsPrefix", "className"]);
+  const [local, props] = splitProps(mergeProps(defaultProps, p), [
+    "as",
+    "bsPrefix",
+    "class",
+    "className"
+  ]);
   const bsPrefix = useBootstrapPrefix(local.bsPrefix, "navbar-brand");
 
   return (
     <Dynamic
       component={local.as || (props.href ? "a" : "span")}
       {...props}
-      className={classNames(local.className, bsPrefix)}
+      class={classNames(local.class, local.className, bsPrefix)}
     />
   );
 };

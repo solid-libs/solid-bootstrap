@@ -31,6 +31,7 @@ const defaultProps = {
 const Toast: BsPrefixRefForwardingComponent<"div", ToastProps> = (p: ToastProps) => {
   const [local, props] = splitProps(mergeProps(defaultProps, p), [
     "bsPrefix",
+    "class",
     "className",
     "transition",
     "show",
@@ -85,8 +86,9 @@ const Toast: BsPrefixRefForwardingComponent<"div", ToastProps> = (p: ToastProps)
   const ToastInner = () => (
     <div
       {...props}
-      className={classNames(
+      class={classNames(
         bsPrefix,
+        local.class,
         local.className,
         local.bg && `bg-${local.bg}`,
         !hasAnimation && (local.show ? "show" : "hide"),

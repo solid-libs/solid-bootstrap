@@ -47,6 +47,7 @@ const Navbar: BsPrefixRefForwardingComponent<"nav", NavbarProps> = (p: NavbarPro
     "bg",
     "fixed",
     "sticky",
+    "class",
     "className",
     "expanded",
     "defaultExpanded",
@@ -96,7 +97,8 @@ const Navbar: BsPrefixRefForwardingComponent<"nav", NavbarProps> = (p: NavbarPro
             // "nulling" of the role if the user really doesn't want one
             props.role === undefined && local.as !== "nav" ? "Navigation" : props.role
           }
-          className={classNames(
+          class={classNames(
+            local.class,
             local.className,
             bsPrefix,
             local.expand && expandClass(),

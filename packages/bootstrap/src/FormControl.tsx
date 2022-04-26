@@ -36,6 +36,7 @@ const FormControl: BsPrefixRefForwardingComponent<"input", FormControlProps> = (
     "size",
     "htmlSize",
     "id",
+    "class",
     "className",
     "isValid",
     "isInvalid",
@@ -66,7 +67,7 @@ const FormControl: BsPrefixRefForwardingComponent<"input", FormControlProps> = (
       size={local.htmlSize}
       readOnly={local.readOnly}
       id={local.id || formContext.controlId}
-      className={classNames(
+      class={classNames(
         local.className,
         classes(),
         local.isValid && `is-valid`,

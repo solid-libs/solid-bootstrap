@@ -1,5 +1,5 @@
 const CarouselApi = () => (
-  <div className="mt-5">
+  <div class="mt-5">
     <h2>API</h2>
     <h3>Carousel</h3>
     <code>
@@ -147,7 +147,7 @@ const CarouselApi = () => (
               <div>node</div>
             </td>
             <td>
-              <code>&lt;span aria-hidden="true" className="carousel-control-next-icon" /&gt;</code>
+              <code>&lt;span aria-hidden="true" class="carousel-control-next-icon" /&gt;</code>
             </td>
             <td>
               <div>
@@ -269,7 +269,7 @@ const CarouselApi = () => (
               <div>node</div>
             </td>
             <td>
-              <code>&lt;span aria-hidden="true" className="carousel-control-prev-icon" /&gt;</code>
+              <code>&lt;span aria-hidden="true" class="carousel-control-prev-icon" /&gt;</code>
             </td>
             <td>
               <div>

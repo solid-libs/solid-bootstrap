@@ -22,6 +22,7 @@ const ButtonGroup: BsPrefixRefForwardingComponent<"div", ButtonGroupProps> = (
     "bsPrefix",
     "size",
     "vertical",
+    "class",
     "className",
     "as",
   ]);
@@ -34,7 +35,7 @@ const ButtonGroup: BsPrefixRefForwardingComponent<"div", ButtonGroupProps> = (
     <Dynamic
       component={local.as}
       {...props}
-      className={classNames(local.className, baseClass, local.size && `${prefix}-${local.size}`)}
+      class={classNames(local.class, local.className, baseClass, local.size && `${prefix}-${local.size}`)}
     />
   );
 };

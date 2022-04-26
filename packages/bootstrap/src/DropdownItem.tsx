@@ -24,6 +24,7 @@ const DropdownItem: BsPrefixRefForwardingComponent<typeof BaseDropdownItem, Drop
   const [local, props] = splitProps(mergeProps(defaultProps, p), [
     "as",
     "bsPrefix",
+    "class",
     "className",
     "eventKey",
     "disabled",
@@ -54,7 +55,8 @@ const DropdownItem: BsPrefixRefForwardingComponent<typeof BaseDropdownItem, Drop
       component={local.as}
       {...(props as AnchorProps)}
       {...dropdownItemProps}
-      className={classNames(
+      class={classNames(
+        local.class,
         local.className,
         prefix,
         meta.isActive && "active",

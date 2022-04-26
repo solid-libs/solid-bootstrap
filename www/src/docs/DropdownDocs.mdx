@@ -19,7 +19,7 @@ import { Row } from "solid-bootstrap";
 <GithubSource name="DropdownDocs.mdx" />
 # Dropdowns
 
-<p className="lead">
+<p class="lead">
   Toggle contextual overlays for displaying lists of links and more with
   the Bootstrap dropdown plugin.
 </p>
@@ -45,7 +45,7 @@ basic keyboard navigation, and if you do provide the "menu" role,
 `solid-bootstrap` will do its best to ensure the focus management is
 compliant with the ARIA authoring guidelines for menus.
 
-<div className="row gy-5 pt-3">
+<div class="row gy-5 pt-3">
 
     <Example title="Single button dropdowns">
     <Example.Intro>
@@ -63,7 +63,7 @@ compliant with the ARIA authoring guidelines for menus.
           <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
         </Dropdown.Menu>
       </Dropdown>
-      <div className="mt-4 mb-3">
+      <div class="mt-4 mb-3">
         Since the above is such a common configuration solid-bootstrap provides
         the `<DropdownButton>` component to help reduce typing. Provide
         a `title` prop and some `<DropdownItem>`s and you're
@@ -161,7 +161,7 @@ compliant with the ARIA authoring guidelines for menus.
           <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
         </Dropdown.Menu>
       </Dropdown>
-      <div className="mt-4 mb-3">
+      <div class="mt-4 mb-3">
         As with DropdownButton, `SplitButton` is provided as convenience component.
       </div>
       <Stack direction="horizontal" gap={2}>
@@ -238,7 +238,7 @@ compliant with the ARIA authoring guidelines for menus.
           ))}
         </Stack>
 
-        <Stack direction="horizontal" gap={2} className="mt-2">
+        <Stack direction="horizontal" gap={2} class="mt-2">
           {[DropdownButton, SplitButton].map((DropdownType, idx) => (
             <DropdownType
               as={ButtonGroup}
@@ -276,7 +276,7 @@ compliant with the ARIA authoring guidelines for menus.
           ))}
         </Stack>
 
-        <Stack direction="horizontal" gap={2} className="mt-2">
+        <Stack direction="horizontal" gap={2} class="mt-2">
           {[DropdownButton, SplitButton].map((DropdownType, idx) => (
             <DropdownType
               as={ButtonGroup}
@@ -321,7 +321,7 @@ compliant with the ARIA authoring guidelines for menus.
           variant="secondary"
           menuVariant="dark"
           title="Dropdown button"
-          className="mt-2"
+          class="mt-2"
         >
           <Dropdown.Item href="#/action-1" active>Action</Dropdown.Item>
           <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
@@ -349,7 +349,7 @@ compliant with the ARIA authoring guidelines for menus.
           variant="secondary"
           menuVariant="dark"
           title="Dropdown button"
-          className="mt-2"
+          class="mt-2"
         >
           <Dropdown.Item href="#/action-1" active>Action</Dropdown.Item>
           <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
@@ -439,7 +439,7 @@ compliant with the ARIA authoring guidelines for menus.
         ))}
       </Stack>
 
-      <Stack direction="horizontal" gap={2} className="mt-2">
+      <Stack direction="horizontal" gap={2} class="mt-2">
         {['up', 'down', 'start', 'end'].map((direction) => (
           <SplitButton
             id={`dropdown-button-drop-${direction}`}
@@ -477,7 +477,7 @@ compliant with the ARIA authoring guidelines for menus.
         ))}
       </Stack>
 
-      <Stack direction="horizontal" gap={2} className="mt-2">
+      <Stack direction="horizontal" gap={2} class="mt-2">
         {['up', 'down', 'start', 'end'].map((direction) => (
           <SplitButton
             id={`dropdown-button-drop-${direction}`}
@@ -573,7 +573,7 @@ compliant with the ARIA authoring guidelines for menus.
           </DropdownButton>
         </div>
 
-        <div className="mt-2">
+        <div class="mt-2">
           <SplitButton
             align={{ lg: 'start' }}
             title="Right-aligned but left aligned when large screen"
@@ -584,7 +584,7 @@ compliant with the ARIA authoring guidelines for menus.
           </SplitButton>
         </div>
 
-        <Alert variant="warning" className="mt-3">{
+        <Alert variant="warning" class="mt-3">{
           "Using responsive alignment will disable Popper usage so any dynamic positioning features such as `flip` will not work."
         }</Alert>
       </>
@@ -603,7 +603,7 @@ compliant with the ARIA authoring guidelines for menus.
           </DropdownButton>
         </div>
 
-        <div className="mt-2">
+        <div class="mt-2">
           <SplitButton
             align={{ lg: 'start' }}
             title="Right-aligned but left aligned when large screen"

@@ -16,7 +16,7 @@ export function Example1() {
 
   return (
     <Form noValidate validated={validated()} onSubmit={handleSubmit}>
-      <Row className="mb-3">
+      <Row class="mb-3">
         <Form.Group as={Col} md="4" controlId="validationCustom01">
           <Form.Label>First name</Form.Label>
           <Form.Control
@@ -51,7 +51,7 @@ export function Example1() {
           </InputGroup>
         </Form.Group>
       </Row>
-      <Row className="mb-3">
+      <Row class="mb-3">
         <Form.Group as={Col} md="6" controlId="validationCustom03">
           <Form.Label>City</Form.Label>
           <Form.Control type="text" placeholder="City" required />
@@ -70,7 +70,7 @@ export function Example1() {
           <Form.Control.Feedback type="invalid">Please provide a valid zip.</Form.Control.Feedback>
         </Form.Group>
       </Row>
-      <Form.Group className="mb-3">
+      <Form.Group class="mb-3">
         <Form.Check
           required
           label="Agree to terms and conditions"

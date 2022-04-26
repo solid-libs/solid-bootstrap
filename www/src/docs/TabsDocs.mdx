@@ -8,11 +8,11 @@ import TabsApi from "./TabsApi";
 <GithubSource name="TabsDocs.mdx" />
 # Tabbed components
 
-<p className="lead">
+<p class="lead">
   Dynamic tabbed interfaces
 </p>
 
-<div className="row gy-5 pt-3">
+<div class="row gy-5 pt-3">
 
   <Example title="Examples">
     <Example.Intro>
@@ -22,7 +22,7 @@ import TabsApi from "./TabsApi";
       `Nav` matched with a set of `TabPane`s.
     </Example.Intro>
     <Example.Preview>
-      <Tabs defaultActiveKey="profile" id="uncontrolled-tab-example" className="mb-3">
+      <Tabs defaultActiveKey="profile" id="uncontrolled-tab-example" class="mb-3">
         <Tab eventKey="home" title="Home">
           <Sonnet />
         </Tab>
@@ -36,7 +36,7 @@ import TabsApi from "./TabsApi";
     </Example.Preview>
     <Example.Code>
       ```js
-      <Tabs defaultActiveKey="profile" id="uncontrolled-tab-example" className="mb-3">
+      <Tabs defaultActiveKey="profile" id="uncontrolled-tab-example" class="mb-3">
         <Tab eventKey="home" title="Home">
           <Sonnet />
         </Tab>
@@ -63,7 +63,7 @@ export const [key, setKey] = createSignal('home');
         id="controlled-tab-example"
         activeKey={key()}
         onSelect={(k) => setKey(k)}
-        className="mb-3"
+        class="mb-3"
       >
         <Tab eventKey="home" title="Home">
           <Sonnet />
@@ -84,7 +84,7 @@ export const [key, setKey] = createSignal('home');
         id="controlled-tab-example"
         activeKey={key()}
         onSelect={(k) => setKey(k)}
-        className="mb-3"
+        class="mb-3"
       >
         <Tab eventKey="home" title="Home">
           <Sonnet />
@@ -134,7 +134,7 @@ export const [key, setKey] = createSignal('home');
       <Tab.Container id="left-tabs-example" defaultActiveKey="first">
         <Row>
           <Col sm={3}>
-            <Nav variant="pills" className="flex-column">
+            <Nav variant="pills" class="flex-column">
               <Nav.Item>
                 <Nav.Link eventKey="first">Tab 1</Nav.Link>
               </Nav.Item>
@@ -161,7 +161,7 @@ export const [key, setKey] = createSignal('home');
       <Tab.Container id="left-tabs-example" defaultActiveKey="first">
         <Row>
           <Col sm={3}>
-            <Nav variant="pills" className="flex-column">
+            <Nav variant="pills" class="flex-column">
               <Nav.Item>
                 <Nav.Link eventKey="first">Tab 1</Nav.Link>
               </Nav.Item>

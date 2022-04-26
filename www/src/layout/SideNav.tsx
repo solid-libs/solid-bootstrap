@@ -65,28 +65,28 @@ const nameOverrides = {
 const MenuButton = (props: ComponentProps<typeof Button>) => (
   <Button
     {...props}
-    className={classNames(props.className, styles.MenuButton, "p-0 d-md-none ms-auto")}
+    class={classNames(props.className, styles.MenuButton, "p-0 d-md-none ms-auto")}
   />
 );
 
 const SidePanel = (props: ComponentProps<"div">) => (
-  <div {...props} className={classNames(props.className, styles.SidePanel, "d-flex flex-column")}/>
+  <div {...props} class={classNames(props.className, styles.SidePanel, "d-flex flex-column")}/>
 );
 
 const OverflowWrapper = (props: ComponentProps<"div">) => (
-  <div {...props} className={classNames(props.className, styles.OverflowWrapper)}/>
+  <div {...props} class={classNames(props.className, styles.OverflowWrapper)}/>
 );
 
 const TableOfContents = (props: ComponentProps<"nav">) => (
-  <nav {...props} className={classNames(props.className, styles.TableOfContents, "pt-2 pb-4")}/>
+  <nav {...props} class={classNames(props.className, styles.TableOfContents, "pt-2 pb-4")}/>
 );
 
 const TocLink = (props: ComponentProps<typeof Nav.Link>) => (
-  <Nav.Link {...props} className={classNames(props.className, styles.TocLink)}/>
+  <Nav.Link {...props} class={classNames(props.className, styles.TocLink)}/>
 );
 
 const TocSubLink = (props: ComponentProps<typeof TocLink>) => (
-  <TocLink {...props} className={classNames(props.className, styles.TocSubLink)}/>
+  <TocLink {...props} class={classNames(props.className, styles.TocSubLink)}/>
 );
 
 const NavSection = (props: {
@@ -104,13 +104,13 @@ const NavSection = (props: {
         active={active()}
         as={Link}
         href={props.items ? `${props.path}/${props.items[0]}/` : `${props.path}/`}
-        className={classNames("js-search-toc-item", active() && "js-search-active")}
+        class={classNames("js-search-toc-item", active() && "js-search-active")}
       >
         {props.heading}
       </TocLink>
 
       {props.items && active() && (
-        <Nav activeKey={props.location.pathname} onSelect={() => {}} className="d-block">
+        <Nav activeKey={props.location.pathname} onSelect={() => {}} class="d-block">
           {props.items.map((name: string) => (
             <Nav.Item>
               <TocSubLink as={Link} href={`${props.path}/${name}/`}>

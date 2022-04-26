@@ -32,6 +32,7 @@ const TabPane: BsPrefixRefForwardingComponent<"div", TabPaneProps> = (p: TabPane
   );
   const [panelLocal, rest] = splitProps(panelProps, [
     "as",
+    "class",
     "className",
     "mountOnEnter",
     "unmountOnExit",
@@ -59,7 +60,7 @@ const TabPane: BsPrefixRefForwardingComponent<"div", TabPaneProps> = (p: TabPane
             component={panelLocal.as ?? "div"}
             {...rest}
             ref={props.ref}
-            className={classNames(panelLocal.className, prefix, meta.isActive && "active")}
+            class={classNames(panelLocal.class, panelLocal.className, prefix, meta.isActive && "active")}
           />
         </Transition>
       </SelectableContext.Provider>

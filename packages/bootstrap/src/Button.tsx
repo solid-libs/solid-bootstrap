@@ -27,6 +27,7 @@ const Button: BsPrefixRefForwardingComponent<"button", ButtonProps> = (p: Button
     "variant",
     "size",
     "active",
+    "class",
     "className",
   ]);
   const prefix = useBootstrapPrefix(local.bsPrefix, "btn");
@@ -40,7 +41,8 @@ const Button: BsPrefixRefForwardingComponent<"button", ButtonProps> = (p: Button
       component={tagName}
       {...buttonProps}
       {...props}
-      className={classNames(
+      class={classNames(
+        local.class,
         local.className,
         prefix,
         local.active && "active",

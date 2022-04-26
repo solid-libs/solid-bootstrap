@@ -22,12 +22,18 @@ const defaultProps = {};
  * @property {PageItem} Last
  */
 const Pagination = (p: PaginationProps) => {
-  const [local, props] = splitProps(mergeProps(defaultProps, p), ["bsPrefix", "className", "size"]);
+  const [local, props] = splitProps(mergeProps(defaultProps, p), [
+    "bsPrefix",
+    "class",
+    "className",
+    "size"
+  ]);
   const decoratedBsPrefix = useBootstrapPrefix(local.bsPrefix, "pagination");
   return (
     <ul
       {...props}
-      className={classNames(
+      class={classNames(
+        local.class,
         local.className,
         decoratedBsPrefix,
         local.size && `${decoratedBsPrefix}-${local.size}`,

@@ -15,6 +15,7 @@ const defaultProps = {};
 const NavbarCollapse = (p: NavbarCollapseProps) => {
   const [local, props] = splitProps(mergeProps(defaultProps, p), [
     "bsPrefix",
+    "class",
     "className",
     "children",
     "ref",
@@ -24,7 +25,7 @@ const NavbarCollapse = (p: NavbarCollapseProps) => {
 
   return (
     <Collapse in={!!context?.expanded} {...props}>
-      <div ref={local.ref} className={classnames(bsPrefix, local.className)}>
+      <div ref={local.ref} class={classnames(bsPrefix, local.class, local.className)}>
         {local.children}
       </div>
     </Collapse>

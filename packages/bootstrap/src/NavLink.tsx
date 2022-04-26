@@ -21,6 +21,7 @@ const NavLink: BsPrefixRefForwardingComponent<"a", NavLinkProps> = (p: NavLinkPr
   const [local, props] = splitProps(mergeProps(defaultProps, p), [
     "as",
     "bsPrefix",
+    "class",
     "className",
     "active",
     "eventKey",
@@ -45,7 +46,8 @@ const NavLink: BsPrefixRefForwardingComponent<"a", NavLinkProps> = (p: NavLinkPr
       component={local.as}
       {...props}
       {...(navItemProps as any)}
-      className={classNames(
+      class={classNames(
+        local.class,
         local.className,
         bsPrefix,
         props.disabled && "disabled",

@@ -22,6 +22,7 @@ const Spinner: BsPrefixRefForwardingComponent<"div", SpinnerProps> = (p: Spinner
     "variant",
     "animation",
     "size",
+    "class",
     "className",
   ]);
   const bsPrefix = useBootstrapPrefix(local.bsPrefix, "spinner");
@@ -31,7 +32,8 @@ const Spinner: BsPrefixRefForwardingComponent<"div", SpinnerProps> = (p: Spinner
     <Dynamic
       component={local.as}
       {...props}
-      className={classNames(
+      class={classNames(
+        local.class,
         local.className,
         bsSpinnerPrefix,
         local.size && `${bsSpinnerPrefix}-${local.size}`,

@@ -74,7 +74,7 @@ const SplitButton = (p: SplitButtonProps) => {
         disabled={props.disabled}
         childBsPrefix={local.bsPrefix}
       >
-        <span className="visually-hidden">{local.toggleLabel}</span>
+        <span class="visually-hidden">{local.toggleLabel}</span>
       </Dropdown.Toggle>
 
       <Dropdown.Menu

@@ -19,6 +19,7 @@ const defaultProps = {
 const Breadcrumb: BsPrefixRefForwardingComponent<"nav", BreadcrumbProps> = (p: BreadcrumbProps) => {
   const [local, props] = splitProps(mergeProps(defaultProps, p), [
     "bsPrefix",
+    "class",
     "className",
     "listProps",
     "children",
@@ -28,8 +29,8 @@ const Breadcrumb: BsPrefixRefForwardingComponent<"nav", BreadcrumbProps> = (p: B
   const prefix = useBootstrapPrefix(local.bsPrefix, "breadcrumb");
 
   return (
-    <Dynamic component={local.as} aria-label={local.label} className={local.className} {...props}>
-      <ol {...local.listProps} className={classNames(prefix, local.listProps?.className)}>
+    <Dynamic component={local.as} aria-label={local.label} class={classNames(local.class, local.className)} {...props}>
+      <ol {...local.listProps} class={classNames(prefix, local.listProps?.class, local.listProps?.className)}>
         {local.children}
       </ol>
     </Dynamic>

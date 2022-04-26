@@ -15,6 +15,7 @@ const defaultProps = {};
 const FormCheckLabel = (p: FormCheckLabelProps) => {
   const [local, props] = splitProps(mergeProps(defaultProps, p), [
     "bsPrefix",
+    "class",
     "className",
     "htmlFor",
   ]);
@@ -27,7 +28,7 @@ const FormCheckLabel = (p: FormCheckLabelProps) => {
     <label // eslint-disable-line jsx-a11y/label-has-associated-control
       {...props}
       htmlFor={local.htmlFor || formContext.controlId}
-      className={classNames(local.className, bsPrefix)}
+      class={classNames(local.class, local.className, bsPrefix)}
     />
   );
 };

@@ -15,7 +15,7 @@ import styles from "./ModalDocs.module.css";
 <GithubSource name="ModalDocs.mdx" />
 # Modals
 
-<p className="lead">
+<p class="lead">
   Add dialogs to your site for lightboxes, user notifications, or completely
   custom content.
 </p>
@@ -35,7 +35,7 @@ import styles from "./ModalDocs.module.css";
   because Solid handles the implementation.
 
 
-<div className="row gy-5 pt-3">
+<div class="row gy-5 pt-3">
 
   <Example title="Static Markup">
     <Example.Intro>
@@ -312,7 +312,7 @@ import styles from "./ModalDocs.module.css";
             Modal heading
           </Modal.Title>
         </Modal.Header>
-        <Modal.Body className="show-grid">
+        <Modal.Body class="show-grid">
           <Container>
             <Row>
               <Col xs={12} md={8} style={infoStyle}>
@@ -359,7 +359,7 @@ import styles from "./ModalDocs.module.css";
             Modal heading
           </Modal.Title>
         </Modal.Header>
-        <Modal.Body className="show-grid">
+        <Modal.Body class="show-grid">
           <Container>
             <Row>
               <Col xs={12} md={8} style={infoStyle}>
@@ -484,7 +484,7 @@ import styles from "./ModalDocs.module.css";
         "xl-down",
         "xxl-down",
       ].map((v, idx) => (
-        <Button className="me-2 mb-2" onClick={() => setFullscreen(v)}>
+        <Button class="me-2 mb-2" onClick={() => setFullscreen(v)}>
           Full screen
           {v !== "true" && `below ${v.split("-")[0]}`}
         </Button>
@@ -513,7 +513,7 @@ import styles from "./ModalDocs.module.css";
         "xl-down",
         "xxl-down",
       ].map((v, idx) => (
-        <Button className="me-2 mb-2" onClick={() => setFullscreen(v)}>
+        <Button class="me-2 mb-2" onClick={() => setFullscreen(v)}>
           Full screen
           {v !== "true" && `below ${v.split("-")[0]}`}
         </Button>
@@ -545,7 +545,7 @@ import styles from "./ModalDocs.module.css";
       <Modal
         show={show("custom")}
         onHide={handleClose("custom")}
-        dialogClassName={styles.modal90w}
+        dialogclass={styles.modal90w}
         aria-labelledby="example-custom-modal-styling-title"
       >
         <Modal.Header closeButton>
@@ -577,7 +577,7 @@ import styles from "./ModalDocs.module.css";
       <Modal
         show={show()}
         onHide={handleClose}
-        dialogClassName={styles.modal90w}
+        dialogclass={styles.modal90w}
         aria-labelledby="example-custom-modal-styling-title"
       >
         <Modal.Header closeButton>

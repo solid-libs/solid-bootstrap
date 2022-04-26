@@ -9,6 +9,7 @@ import classNames from "./classnames";
 import {resolveClasses} from "solid-bootstrap-core";
 
 export interface FadeProps extends TransitionCallbacks {
+  class?: string;
   className?: string;
   in?: boolean;
   mountOnEnter?: boolean;
@@ -34,6 +35,7 @@ const fadeStyles = {
 
 const Fade = (p: FadeProps) => {
   const [local, props] = splitProps(mergeProps(defaultProps, p), [
+    "class",
     "className",
     "children",
     "transitionClasses",
@@ -56,6 +58,7 @@ const Fade = (p: FadeProps) => {
           innerProps.ref(el);
           const newClasses = classNames(
             "fade",
+            local.class,
             local.className,
             // @ts-ignore
             fadeStyles?.[status],

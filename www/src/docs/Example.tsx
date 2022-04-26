@@ -19,13 +19,13 @@ const Example = (props: PreviewProps) => {
     <div>
       <ExampleContext.Provider value={setIntro}>
         <Tab.Container defaultActiveKey="preview">
-          <div className="d-flex">
-            <div className="w-100">
+          <div class="d-flex">
+            <div class="w-100">
               <div
-                className="float-end h-100 d-flex align-items-end ps-2"
+                class="float-end h-100 d-flex align-items-end ps-2"
                 style={{"shape-outside": "inset(calc(100% - 45px) 0 0)"}}
               >
-                <Nav variant="tabs" className="d-flex flex-nowrap">
+                <Nav variant="tabs" class="d-flex flex-nowrap">
                   <Nav.Item>
                     <Nav.Link as="button" eventKey="preview">
                       Preview
@@ -38,7 +38,7 @@ const Example = (props: PreviewProps) => {
                   </Nav.Item>
                 </Nav>
               </div>
-              <div className="pb-2">
+              <div class="pb-2">
                 <h3>{props.title}</h3>
                 {intro()}
               </div>

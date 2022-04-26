@@ -7,7 +7,7 @@ import styles from "./TopNavbar.module.css";
 const baseUrl = import.meta.env.BASE_URL;
 
 const TopNavbar: Component = () => (
-  <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" className={styles.Navbar}>
+  <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" class={styles.Navbar}>
     <Container>
       <Navbar.Brand as={Link} href="/">
         <img
@@ -15,13 +15,13 @@ const TopNavbar: Component = () => (
           src={baseUrl + "logo.svg"}
           width="30"
           height="30"
-          className="d-inline-block align-top"
+          class="d-inline-block align-top"
         />{" "}
         Solid-Bootstrap
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">
-        <Nav className="me-auto">
+        <Nav class="me-auto">
           <Nav.Link as={Link} href="/">
             Home
           </Nav.Link>

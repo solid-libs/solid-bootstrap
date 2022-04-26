@@ -12,10 +12,14 @@ const defaultProps = {
 };
 
 const OffcanvasHeader = (p: OffcanvasHeaderProps) => {
-  const [local, props] = splitProps(mergeProps(defaultProps, p), ["bsPrefix", "className"]);
+  const [local, props] = splitProps(mergeProps(defaultProps, p), [
+    "bsPrefix",
+    "class",
+    "className"
+  ]);
   const bsPrefix = useBootstrapPrefix(local.bsPrefix, "offcanvas-header");
   return (
-    <AbstractModalHeader {...props} className={classNames(local.className, bsPrefix)}/>
+    <AbstractModalHeader {...props} class={classNames(local.class, local.className, bsPrefix)}/>
   );
 };
 

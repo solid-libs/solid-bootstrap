@@ -39,6 +39,7 @@ const Card: BsPrefixRefForwardingComponent<"div", CardProps> = (p: CardProps) =>
   const [local, props] = splitProps(mergeProps(defaultProps, p), [
     "as",
     "bsPrefix",
+    "class",
     "className",
     "bg",
     "text",
@@ -52,7 +53,8 @@ const Card: BsPrefixRefForwardingComponent<"div", CardProps> = (p: CardProps) =>
     <Dynamic
       component={local.as}
       {...props}
-      className={classNames(
+      class={classNames(
+        local.class,
         local.className,
         prefix,
         local.bg && `bg-${local.bg}`,

@@ -41,6 +41,7 @@ const Nav: BsPrefixRefForwardingComponent<"div", NavProps> = (p: NavProps) => {
     "justify",
     "navbar",
     "navbarScroll",
+    "class",
     "className",
     "onSelect",
   ]);
@@ -71,7 +72,7 @@ const Nav: BsPrefixRefForwardingComponent<"div", NavProps> = (p: NavProps) => {
       as={local.as}
       activeKey={activeKey()}
       onSelect={onSelect}
-      className={classNames(local.className, {
+      class={classNames(local.class, local.className, {
         [bsPrefix]: !isNavbar,
         [`${navbarBsPrefix}-nav`]: isNavbar,
         [`${navbarBsPrefix}-nav-scroll`]: isNavbar && local.navbarScroll,

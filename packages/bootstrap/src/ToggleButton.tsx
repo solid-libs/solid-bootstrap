@@ -21,6 +21,7 @@ const ToggleButton = (p: ToggleButtonProps) => {
   const [local, props] = splitProps(p, [
     "bsPrefix",
     "name",
+    "class",
     "className",
     "checked",
     "type",
@@ -35,7 +36,7 @@ const ToggleButton = (p: ToggleButtonProps) => {
   return (
     <>
       <input
-        className={bsPrefix}
+        class={bsPrefix}
         name={local.name}
         type={local.type}
         value={local.value}
@@ -48,7 +49,7 @@ const ToggleButton = (p: ToggleButtonProps) => {
       />
       <Button
         {...props}
-        className={classNames(local.className, local.disabled && "disabled")}
+        class={classNames(local.class, local.className, local.disabled && "disabled")}
         // @ts-ignore
         type={undefined}
         role={undefined}

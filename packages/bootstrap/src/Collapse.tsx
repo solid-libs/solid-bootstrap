@@ -22,6 +22,7 @@ type Dimension = "height" | "width";
 export interface CollapseProps
   extends TransitionCallbacks,
     Pick<JSX.HTMLAttributes<HTMLElement>, "role"> {
+  class?: string;
   className?: string;
   in?: boolean;
   mountOnEnter?: boolean;
@@ -77,6 +78,7 @@ const Collapse = (p: CollapseProps) => {
     "onEntered",
     "onExit",
     "onExiting",
+    "class",
     "className",
     "children",
     "dimension",
@@ -143,6 +145,7 @@ const Collapse = (p: CollapseProps) => {
           const el = resolvedChildren() as HTMLElement;
           innerProps.ref(el);
           const newClasses = classNames(
+            local.class,
             local.className,
             collapseStyles[state],
             computedDimension() === "width" && "collapse-horizontal",

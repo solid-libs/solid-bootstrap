@@ -23,6 +23,7 @@ const ListGroupItem: BsPrefixRefForwardingComponent<"a", ListGroupItemProps> = (
     "active",
     "disabled",
     "eventKey",
+    "class",
     "className",
     "variant",
     "action",
@@ -66,7 +67,8 @@ const ListGroupItem: BsPrefixRefForwardingComponent<"a", ListGroupItemProps> = (
       {...navItemProps}
       {...disabledProps()}
       onClick={handleClick()}
-      className={classNames(
+      class={classNames(
+        local.class,
         local.className,
         bsPrefix,
         meta.isActive && "active",

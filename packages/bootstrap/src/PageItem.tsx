@@ -22,6 +22,7 @@ const PageItem: BsPrefixRefForwardingComponent<"li", PageItemProps> = (p: PageIt
   const [local, props] = splitProps(mergeProps(defaultProps, p), [
     "active",
     "disabled",
+    "class",
     "className",
     "style",
     "activeLabel",
@@ -32,20 +33,20 @@ const PageItem: BsPrefixRefForwardingComponent<"li", PageItemProps> = (p: PageIt
     <li
       ref={local.ref}
       style={local.style}
-      className={classNames(local.className, "page-item", {
+      class={classNames(local.class, local.className, "page-item", {
         active: local.active,
         disabled: local.disabled,
       })}
     >
       <Dynamic
         component={local.active || local.disabled ? "span" : Anchor}
-        className="page-link"
+        class="page-link"
         disabled={local.disabled}
         {...props}
       >
         {local.children}
         {local.active && local.activeLabel && (
-          <span className="visually-hidden">{local.activeLabel}</span>
+          <span class="visually-hidden">{local.activeLabel}</span>
         )}
       </Dynamic>
     </li>
@@ -59,7 +60,7 @@ function createButton(name: string, defaultValue: JSX.Element, label = name) {
     return (
       <PageItem {...props}>
         <span aria-hidden="true">{children || defaultValue}</span>
-        <span className="visually-hidden">{label}</span>
+        <span class="visually-hidden">{label}</span>
       </PageItem>
     );
   }

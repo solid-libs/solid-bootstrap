@@ -47,6 +47,7 @@ const FormCheck: BsPrefixRefForwardingComponent<"input", FormCheckProps> = (p: F
     "feedbackTooltip",
     "feedback",
     "feedbackType",
+    "class",
     "className",
     "style",
     "title",
@@ -74,7 +75,8 @@ const FormCheck: BsPrefixRefForwardingComponent<"input", FormCheckProps> = (p: F
       <FormCheckContext.Provider value={{setHasFormCheckLabel}}>
         <div
           style={local.style}
-          className={classNames(
+          class={classNames(
+            local.class,
             local.className,
             hasLabel() && bsPrefix,
             local.inline && `${bsPrefix}-inline`,

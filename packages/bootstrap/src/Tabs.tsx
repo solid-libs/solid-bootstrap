@@ -5,6 +5,7 @@ import {
   Tabs as BaseTabs,
   TabsProps as BaseTabsProps,
 } from "solid-bootstrap-core";
+import classNames from "./classnames";
 import Nav from "./Nav";
 import NavLink from "./NavLink";
 import NavItem from "./NavItem";
@@ -50,7 +51,7 @@ function RenderTab(props: TabProps) {
         eventKey={props.eventKey}
         disabled={props.disabled}
         id={props.id}
-        className={props.tabClassName}
+        class={classNames(props.tabClass, props.tabClassName)}
         {...(props.tabAttrs || {})}
       >
         {props.title}
@@ -115,6 +116,7 @@ const Tabs = (p: TabsProps) => {
             const [_, childProps] = splitProps(tabProps, [
               "title",
               "disabled",
+              "tabClass",
               "tabClassName",
               "tabAttrs",
             ]);

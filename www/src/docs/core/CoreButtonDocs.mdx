@@ -3,7 +3,7 @@ import Example from "../Example";
 
 # Button (core)
 
-<p className="lead">
+<p class="lead">
   An abstract button component for creating accessible buttons regardless of the HTML
   element used to render it.
 </p>
@@ -71,7 +71,7 @@ import Example from "../Example";
     return <Tag {...props} {...ariaButtonProps} />
   }
 
-  <div className="space-x-4">
+  <div class="space-x-4">
     <CompanyButton>Hey there<CompanyButton>
     <CompanyButton href="/home">I'm a link</CompanyButton>
   </div>;
@@ -94,7 +94,7 @@ import Example from "../Example";
     return (
       <Button
         {...props}
-        className={clsx(
+        class={clsx(
           props.className,
           "transition text-md",
           "h-10 bg-white border border-primary text-primary rounded px-8 mt-4 appearance-none text-center whitespace-no-wrap",
@@ -108,7 +108,7 @@ import Example from "../Example";
     );
   }
 
-  <div className="space-x-4">
+  <div class="space-x-4">
     <StyledButton>Button</StyledButton>
     <StyledButton disabled>Disabled</StyledButton>
   </div>;

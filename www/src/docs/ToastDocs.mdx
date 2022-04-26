@@ -26,7 +26,7 @@ import ToastApi from "./ToastApi";
 <GithubSource name="ToastDocs.mdx" />
 # Toasts
 
-<p className="lead">
+<p class="lead">
   Push notifications to your visitors with a toast, a lightweight and
   easily customizable alert message.
 </p>
@@ -34,7 +34,7 @@ import ToastApi from "./ToastApi";
 Toasts are lightweight notifications designed to mimic the push notifications that have been popularized by mobile and desktop operating systems.
 They’re built with flexbox, so they’re easy to align and position.
 
-<div className="row gy-5 pt-3">
+<div class="row gy-5 pt-3">
 
   <Example title="Basic">
     <Example.Intro>
@@ -45,8 +45,8 @@ They’re built with flexbox, so they’re easy to align and position.
     <Example.Preview>
       <Toast>
         <Toast.Header>
-          <img src="holder.js/20x20?text=%20" className="rounded me-2" alt="" />
-          <strong className="me-auto">Bootstrap</strong>
+          <img src="holder.js/20x20?text=%20" class="rounded me-2" alt="" />
+          <strong class="me-auto">Bootstrap</strong>
           <small>11 mins ago</small>
         </Toast.Header>
         <Toast.Body>Hello, world! This is a toast message.</Toast.Body>
@@ -56,8 +56,8 @@ They’re built with flexbox, so they’re easy to align and position.
       ```js
       <Toast>
         <Toast.Header>
-          <img src="holder.js/20x20?text=%20" className="rounded me-2" alt="" />
-          <strong className="me-auto">Bootstrap</strong>
+          <img src="holder.js/20x20?text=%20" class="rounded me-2" alt="" />
+          <strong class="me-auto">Bootstrap</strong>
           <small>11 mins ago</small>
         </Toast.Header>
         <Toast.Body>Hello, world! This is a toast message.</Toast.Body>
@@ -69,23 +69,23 @@ They’re built with flexbox, so they’re easy to align and position.
   <Example title="Dismissible">
     <Example.Preview>
       <Row>
-        <Col md={6} className="mb-2">
-          <Button onClick={() => setShow1((s) => !s)} className="mb-2">Toggle Toast <strong>with</strong> Animation</Button>
+        <Col md={6} class="mb-2">
+          <Button onClick={() => setShow1((s) => !s)} class="mb-2">Toggle Toast <strong>with</strong> Animation</Button>
           <Toast show={show1()} onClose={() => setShow1(false)}>
             <Toast.Header>
               <img
                 src="holder.js/20x20?text=%20"
-                className="rounded me-2"
+                class="rounded me-2"
                 alt=""
               />
-              <strong className="me-auto">Bootstrap</strong>
+              <strong class="me-auto">Bootstrap</strong>
               <small>11 mins ago</small>
             </Toast.Header>
             <Toast.Body>Woohoo, you're reading this text in a Toast!</Toast.Body>
           </Toast>
         </Col>
-        <Col md={6} className="mb-2">
-          <Button onClick={() => setShow2((s) => !s)} className="mb-2">Toggle Toast <strong>without</strong> Animation</Button>
+        <Col md={6} class="mb-2">
+          <Button onClick={() => setShow2((s) => !s)} class="mb-2">Toggle Toast <strong>without</strong> Animation</Button>
           <Toast
             show={show2()}
             onClose={() => setShow2(false)}
@@ -94,10 +94,10 @@ They’re built with flexbox, so they’re easy to align and position.
             <Toast.Header>
               <img
                 src="holder.js/20x20?text=%20"
-                className="rounded me-2"
+                class="rounded me-2"
                 alt=""
               />
-              <strong className="me-auto">Bootstrap</strong>
+              <strong class="me-auto">Bootstrap</strong>
               <small>11 mins ago</small>
             </Toast.Header>
             <Toast.Body>Woohoo, you're reading this text in a Toast!</Toast.Body>
@@ -111,23 +111,23 @@ They’re built with flexbox, so they’re easy to align and position.
       const [show2, setShow2] = createSignal(true);
 
       <Row>
-        <Col md={6} className="mb-2">
-          <Button onClick={() => setShow1((s) => !s)} className="mb-2">Toggle Toast <strong>with</strong> Animation</Button>
+        <Col md={6} class="mb-2">
+          <Button onClick={() => setShow1((s) => !s)} class="mb-2">Toggle Toast <strong>with</strong> Animation</Button>
           <Toast show={show1()} onClose={() => setShow1(false)}>
             <Toast.Header>
               <img
                 src="holder.js/20x20?text=%20"
-                className="rounded me-2"
+                class="rounded me-2"
                 alt=""
               />
-              <strong className="me-auto">Bootstrap</strong>
+              <strong class="me-auto">Bootstrap</strong>
               <small>11 mins ago</small>
             </Toast.Header>
             <Toast.Body>Woohoo, you're reading this text in a Toast!</Toast.Body>
           </Toast>
         </Col>
-        <Col md={6} className="mb-2">
-          <Button onClick={() => setShow2((s) => !s)} className="mb-2">Toggle Toast <strong>without</strong> Animation</Button>
+        <Col md={6} class="mb-2">
+          <Button onClick={() => setShow2((s) => !s)} class="mb-2">Toggle Toast <strong>without</strong> Animation</Button>
           <Toast
             show={show2()}
             onClose={() => setShow2(false)}
@@ -136,10 +136,10 @@ They’re built with flexbox, so they’re easy to align and position.
             <Toast.Header>
               <img
                 src="holder.js/20x20?text=%20"
-                className="rounded me-2"
+                class="rounded me-2"
                 alt=""
               />
-              <strong className="me-auto">Bootstrap</strong>
+              <strong class="me-auto">Bootstrap</strong>
               <small>11 mins ago</small>
             </Toast.Header>
             <Toast.Body>Woohoo, you're reading this text in a Toast!</Toast.Body>
@@ -158,17 +158,17 @@ They’re built with flexbox, so they’re easy to align and position.
       <ToastContainer>
         <Toast>
           <Toast.Header>
-            <img src="holder.js/20x20?text=%20" className="rounded me-2" alt="" />
-            <strong className="me-auto">Bootstrap</strong>
-            <small className="text-muted">just now</small>
+            <img src="holder.js/20x20?text=%20" class="rounded me-2" alt="" />
+            <strong class="me-auto">Bootstrap</strong>
+            <small class="text-muted">just now</small>
           </Toast.Header>
           <Toast.Body>See? Just like this.</Toast.Body>
         </Toast>
         <Toast>
           <Toast.Header>
-            <img src="holder.js/20x20?text=%20" className="rounded me-2" alt="" />
-            <strong className="me-auto">Bootstrap</strong>
-            <small className="text-muted">2 seconds ago</small>
+            <img src="holder.js/20x20?text=%20" class="rounded me-2" alt="" />
+            <strong class="me-auto">Bootstrap</strong>
+            <small class="text-muted">2 seconds ago</small>
           </Toast.Header>
           <Toast.Body>Heads up, toasts will stack automatically</Toast.Body>
         </Toast>
@@ -179,17 +179,17 @@ They’re built with flexbox, so they’re easy to align and position.
       <ToastContainer>
         <Toast>
           <Toast.Header>
-            <img src="holder.js/20x20?text=%20" className="rounded me-2" alt="" />
-            <strong className="me-auto">Bootstrap</strong>
-            <small className="text-muted">just now</small>
+            <img src="holder.js/20x20?text=%20" class="rounded me-2" alt="" />
+            <strong class="me-auto">Bootstrap</strong>
+            <small class="text-muted">just now</small>
           </Toast.Header>
           <Toast.Body>See? Just like this.</Toast.Body>
         </Toast>
         <Toast>
           <Toast.Header>
-            <img src="holder.js/20x20?text=%20" className="rounded me-2" alt="" />
-            <strong className="me-auto">Bootstrap</strong>
-            <small className="text-muted">2 seconds ago</small>
+            <img src="holder.js/20x20?text=%20" class="rounded me-2" alt="" />
+            <strong class="me-auto">Bootstrap</strong>
+            <small class="text-muted">2 seconds ago</small>
           </Toast.Header>
           <Toast.Body>Heads up, toasts will stack automatically</Toast.Body>
         </Toast>
@@ -203,11 +203,11 @@ They’re built with flexbox, so they’re easy to align and position.
       Place toasts by setting a `position` in a `ToastContainer`. The top right is often used for notifications, as is the top middle.
     </Example.Intro>
     <Example.Preview>
-      <div className="mb-3">
+      <div class="mb-3">
         <label htmlFor="selectToastPlacement">Toast position</label>
         <Form.Select
           id="selectToastPlacement"
-          className="mt-2"
+          class="mt-2"
           onChange={(e) => setPosition(e.currentTarget.value)}
         >
           {[
@@ -228,18 +228,18 @@ They’re built with flexbox, so they’re easy to align and position.
       <div
         aria-live="polite"
         aria-atomic="true"
-        className="bg-dark position-relative"
+        class="bg-dark position-relative"
         style={{ "min-height": "240px" }}
       >
-        <ToastContainer className="p-3" position={position()}>
+        <ToastContainer class="p-3" position={position()}>
           <Toast>
             <Toast.Header closeButton={false}>
               <img
                 src="holder.js/20x20?text=%20"
-                className="rounded me-2"
+                class="rounded me-2"
                 alt=""
               />
-              <strong className="me-auto">Bootstrap</strong>
+              <strong class="me-auto">Bootstrap</strong>
               <small>11 mins ago</small>
             </Toast.Header>
             <Toast.Body>Hello, world! This is a toast message.</Toast.Body>
@@ -251,11 +251,11 @@ They’re built with flexbox, so they’re easy to align and position.
       ```js
       const [position, setPosition] = createSignal<any>("top-start");
 
-      <div className="mb-3">
+      <div class="mb-3">
         <label htmlFor="selectToastPlacement">Toast position</label>
         <Form.Select
           id="selectToastPlacement"
-          className="mt-2"
+          class="mt-2"
           onChange={(e: any) => setPosition(e.currentTarget.value)}
         >
           {[
@@ -276,18 +276,18 @@ They’re built with flexbox, so they’re easy to align and position.
       <div
         aria-live="polite"
         aria-atomic="true"
-        className="bg-dark position-relative"
+        class="bg-dark position-relative"
         style={{ "min-height": "240px" }}
       >
-        <ToastContainer className="p-3" position={position()}>
+        <ToastContainer class="p-3" position={position()}>
           <Toast>
             <Toast.Header closeButton={false}>
               <img
                 src="holder.js/20x20?text=%20"
-                className="rounded me-2"
+                class="rounded me-2"
                 alt=""
               />
-              <strong className="me-auto">Bootstrap</strong>
+              <strong class="me-auto">Bootstrap</strong>
               <small>11 mins ago</small>
             </Toast.Header>
             <Toast.Body>
@@ -308,19 +308,19 @@ They’re built with flexbox, so they’re easy to align and position.
       <div
         aria-live="polite"
         aria-atomic="true"
-        className="bg-dark position-relative"
+        class="bg-dark position-relative"
         style={{ "min-height": "240px" }}
       >
-        <ToastContainer position="top-end" className="p-3">
+        <ToastContainer position="top-end" class="p-3">
           <Toast>
             <Toast.Header>
               <img
                 src="holder.js/20x20?text=%20"
-                className="rounded me-2"
+                class="rounded me-2"
                 alt=""
               />
-              <strong className="me-auto">Bootstrap</strong>
-              <small className="text-muted">just now</small>
+              <strong class="me-auto">Bootstrap</strong>
+              <small class="text-muted">just now</small>
             </Toast.Header>
             <Toast.Body>See? Just like this.</Toast.Body>
           </Toast>
@@ -328,11 +328,11 @@ They’re built with flexbox, so they’re easy to align and position.
             <Toast.Header>
               <img
                 src="holder.js/20x20?text=%20"
-                className="rounded me-2"
+                class="rounded me-2"
                 alt=""
               />
-              <strong className="me-auto">Bootstrap</strong>
-              <small className="text-muted">2 seconds ago</small>
+              <strong class="me-auto">Bootstrap</strong>
+              <small class="text-muted">2 seconds ago</small>
             </Toast.Header>
             <Toast.Body>Heads up, toasts will stack automatically</Toast.Body>
           </Toast>
@@ -344,19 +344,19 @@ They’re built with flexbox, so they’re easy to align and position.
       <div
         aria-live="polite"
         aria-atomic="true"
-        className="bg-dark position-relative"
+        class="bg-dark position-relative"
         style={{ "min-height": "240px" }}
       >
-        <ToastContainer position="top-end" className="p-3">
+        <ToastContainer position="top-end" class="p-3">
           <Toast>
             <Toast.Header>
               <img
                 src="holder.js/20x20?text=%20"
-                className="rounded me-2"
+                class="rounded me-2"
                 alt=""
               />
-              <strong className="me-auto">Bootstrap</strong>
-              <small className="text-muted">just now</small>
+              <strong class="me-auto">Bootstrap</strong>
+              <small class="text-muted">just now</small>
             </Toast.Header>
             <Toast.Body>See? Just like this.</Toast.Body>
           </Toast>
@@ -364,11 +364,11 @@ They’re built with flexbox, so they’re easy to align and position.
             <Toast.Header>
               <img
                 src="holder.js/20x20?text=%20"
-                className="rounded me-2"
+                class="rounded me-2"
                 alt=""
               />
-              <strong className="me-auto">Bootstrap</strong>
-              <small className="text-muted">2 seconds ago</small>
+              <strong class="me-auto">Bootstrap</strong>
+              <small class="text-muted">2 seconds ago</small>
             </Toast.Header>
             <Toast.Body>Heads up, toasts will stack automatically</Toast.Body>
           </Toast>
@@ -395,10 +395,10 @@ They’re built with flexbox, so they’re easy to align and position.
             <Toast.Header>
               <img
                 src="holder.js/20x20?text=%20"
-                className="rounded me-2"
+                class="rounded me-2"
                 alt=""
               />
-              <strong className="me-auto">Bootstrap</strong>
+              <strong class="me-auto">Bootstrap</strong>
               <small>11 mins ago</small>
             </Toast.Header>
             <Toast.Body>
@@ -426,10 +426,10 @@ They’re built with flexbox, so they’re easy to align and position.
             <Toast.Header>
               <img
                 src="holder.js/20x20?text=%20"
-                className="rounded me-2"
+                class="rounded me-2"
                 alt=""
               />
-              <strong className="me-auto">Bootstrap</strong>
+              <strong class="me-auto">Bootstrap</strong>
               <small>11 mins ago</small>
             </Toast.Header>
             <Toast.Body>
@@ -460,17 +460,17 @@ They’re built with flexbox, so they’re easy to align and position.
         "Light",
         "Dark",
       ].map((variant, idx) => (
-        <Toast className="d-inline-block m-2" bg={variant.toLowerCase()}>
+        <Toast class="d-inline-block m-2" bg={variant.toLowerCase()}>
           <Toast.Header>
             <img
               src="holder.js/20x20?text=%20"
-              className="rounded me-2"
+              class="rounded me-2"
               alt=""
             />
-            <strong className="me-auto">Bootstrap</strong>
+            <strong class="me-auto">Bootstrap</strong>
             <small>11 mins ago</small>
           </Toast.Header>
-          <Toast.Body className={variant === "Dark" ? "text-white" : ""}>
+          <Toast.Body class={variant === "Dark" ? "text-white" : ""}>
             Hello, world! This is a toast message.
           </Toast.Body>
         </Toast>
@@ -488,17 +488,17 @@ They’re built with flexbox, so they’re easy to align and position.
         "Light",
         "Dark",
       ].map((variant, idx) => (
-        <Toast className="d-inline-block m-2" bg={variant.toLowerCase()}>
+        <Toast class="d-inline-block m-2" bg={variant.toLowerCase()}>
           <Toast.Header>
             <img
               src="holder.js/20x20?text=%20"
-              className="rounded me-2"
+              class="rounded me-2"
               alt=""
             />
-            <strong className="me-auto">Bootstrap</strong>
+            <strong class="me-auto">Bootstrap</strong>
             <small>11 mins ago</small>
           </Toast.Header>
-          <Toast.Body className={variant === "Dark" ? "text-white" : ""}>
+          <Toast.Body class={variant === "Dark" ? "text-white" : ""}>
             Hello, world! This is a toast message.
           </Toast.Body>
         </Toast>

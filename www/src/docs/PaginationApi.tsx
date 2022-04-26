@@ -1,5 +1,5 @@
 const PaginationApi = () => (
-  <div className="mt-5">
+  <div class="mt-5">
     <h2>API</h2>
     <h3>Pagination</h3>
     <code>

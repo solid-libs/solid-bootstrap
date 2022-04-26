@@ -23,6 +23,7 @@ const CarouselItem = (p: CarouselItemProps) => {
   const [local, props] = splitProps(mergeProps(defaultProps, p), [
     "as",
     "bsPrefix",
+    "class",
     "className",
     "interval",
   ]);
@@ -32,7 +33,7 @@ const CarouselItem = (p: CarouselItemProps) => {
       <Dynamic
         component={local.as}
         {...props}
-        className={classNames(local.className, useBootstrapPrefix(local.bsPrefix, "carousel-item"))}
+        class={classNames(local.class, local.className, useBootstrapPrefix(local.bsPrefix, "carousel-item"))}
       />
     ),
     interval: local.interval,

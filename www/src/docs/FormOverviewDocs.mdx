@@ -6,12 +6,12 @@ import BadgeApi from "./BadgeApi";
 <GithubSource name="FormOverviewDocs.mdx" />
 # Forms
 
-<p className="lead">
+<p class="lead">
   Examples and usage guidelines for form control styles, layout options, and
   custom components for creating a wide variety of forms.
 </p>
 
-<div className="row gy-5 pt-3">
+<div class="row gy-5 pt-3">
 
     <Example title="Overview">
     <Example.Intro>
@@ -23,20 +23,20 @@ import BadgeApi from "./BadgeApi";
     </Example.Intro>
     <Example.Preview>
       <Form>
-        <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form.Group class="mb-3" controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
           <Form.Control type="email" placeholder="Enter email" />
-          <Form.Text className="text-muted">
+          <Form.Text class="text-muted">
             We'll never share your email with anyone else.
           </Form.Text>
         </Form.Group>
 
-        <Form.Group className="mb-3" controlId="formBasicPassword">
+        <Form.Group class="mb-3" controlId="formBasicPassword">
           <Form.Label>Password</Form.Label>
           <Form.Control type="password" placeholder="Password" />
         </Form.Group>
 
-        <Form.Group className="mb-3" controlId="formBasicCheckbox">
+        <Form.Group class="mb-3" controlId="formBasicCheckbox">
           <Form.Check type="checkbox" label="Check me out" />
         </Form.Group>
 
@@ -46,20 +46,20 @@ import BadgeApi from "./BadgeApi";
     <Example.Code>
       ```js
       <Form>
-        <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form.Group class="mb-3" controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
           <Form.Control type="email" placeholder="Enter email" />
-          <Form.Text className="text-muted">
+          <Form.Text class="text-muted">
             We'll never share your email with anyone else.
           </Form.Text>
         </Form.Group>
 
-        <Form.Group className="mb-3" controlId="formBasicPassword">
+        <Form.Group class="mb-3" controlId="formBasicPassword">
           <Form.Label>Password</Form.Label>
           <Form.Control type="password" placeholder="Password" />
         </Form.Group>
 
-        <Form.Group className="mb-3" controlId="formBasicCheckbox">
+        <Form.Group class="mb-3" controlId="formBasicCheckbox">
           <Form.Check type="checkbox" label="Check me out" />
         </Form.Group>
 
@@ -88,37 +88,37 @@ import BadgeApi from "./BadgeApi";
       Add the `disabled` boolean attribute on an input to prevent user interactions and make it appear lighter.
     </Example.Intro>
     <Example.Preview>
-      <Form.Group className="mb-3">
+      <Form.Group class="mb-3">
         <Form.Label>Disabled input</Form.Label>
         <Form.Control placeholder="Disabled input" disabled />
       </Form.Group>
 
-      <Form.Group className="mb-3">
+      <Form.Group class="mb-3">
         <Form.Label>Disabled select menu</Form.Label>
         <Form.Select disabled>
           <option>Disabled select</option>
         </Form.Select>
       </Form.Group>
 
-      <Form.Group className="mb-3">
+      <Form.Group class="mb-3">
         <Form.Check type="checkbox" label="Can't check this" disabled />
       </Form.Group>
     </Example.Preview>
     <Example.Code>
       ```js
-      <Form.Group className="mb-3">
+      <Form.Group class="mb-3">
         <Form.Label>Disabled input</Form.Label>
         <Form.Control placeholder="Disabled input" disabled />
       </Form.Group>
 
-      <Form.Group className="mb-3">
+      <Form.Group class="mb-3">
         <Form.Label>Disabled select menu</Form.Label>
         <Form.Select disabled>
           <option>Disabled select</option>
         </Form.Select>
       </Form.Group>
 
-      <Form.Group className="mb-3">
+      <Form.Group class="mb-3">
         <Form.Check type="checkbox" label="Can't check this" disabled />
       </Form.Group>
       ```
@@ -132,19 +132,19 @@ import BadgeApi from "./BadgeApi";
     <Example.Preview>
       <Form>
         <fieldset disabled>
-          <Form.Group className="mb-3">
+          <Form.Group class="mb-3">
             <Form.Label htmlFor="disabledTextInput">Disabled input</Form.Label>
             <Form.Control id="disabledTextInput" placeholder="Disabled input" />
           </Form.Group>
 
-          <Form.Group className="mb-3">
+          <Form.Group class="mb-3">
             <Form.Label htmlFor="disabledSelect">Disabled select menu</Form.Label>
             <Form.Select id="disabledSelect">
               <option>Disabled select</option>
             </Form.Select>
           </Form.Group>
 
-          <Form.Group className="mb-3">
+          <Form.Group class="mb-3">
             <Form.Check
               type="checkbox"
               id="disabledFieldsetCheck"
@@ -160,19 +160,19 @@ import BadgeApi from "./BadgeApi";
       ```js
       <Form>
         <fieldset disabled>
-          <Form.Group className="mb-3">
+          <Form.Group class="mb-3">
             <Form.Label htmlFor="disabledTextInput">Disabled input</Form.Label>
             <Form.Control id="disabledTextInput" placeholder="Disabled input" />
           </Form.Group>
 
-          <Form.Group className="mb-3">
+          <Form.Group class="mb-3">
             <Form.Label htmlFor="disabledSelect">Disabled select menu</Form.Label>
             <Form.Select id="disabledSelect">
               <option>Disabled select</option>
             </Form.Select>
           </Form.Group>
 
-          <Form.Group className="mb-3">
+          <Form.Group class="mb-3">
             <Form.Check
               type="checkbox"
               id="disabledFieldsetCheck"

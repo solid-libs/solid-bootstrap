@@ -3,7 +3,7 @@ import {ModalExample1, ModalExample2} from "./CoreModalExamples"
 
 # Modals (core)
 
-<p className="lead">
+<p class="lead">
   Love them or hate them, `<Modal />` provides a solid foundation for creating dialogs,
   lightboxes, or whatever else. The `Modal` component renders its `children` node in front
   of a backdrop component.
@@ -42,7 +42,7 @@ import {ModalExample1, ModalExample2} from "./CoreModalExamples"
         return (
           <div>
             {/* Using Bootstrap CSS here - but you can use whatever you like */}
-            <Button className="btn btn-primary" onClick={() => setShow(true)}>
+            <Button class="btn btn-primary" onClick={() => setShow(true)}>
               Open Modal
             </Button>
 
@@ -51,7 +51,7 @@ import {ModalExample1, ModalExample2} from "./CoreModalExamples"
               aria-labelledby="modal-1-label"
               onHide={() => setShow(false)}
               renderBackdrop={(props: any) => <div class="modal-backdrop show" {...props} />}
-              className="modal d-block pe-none"
+              class="modal d-block pe-none"
             >
               <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
@@ -62,7 +62,7 @@ import {ModalExample1, ModalExample2} from "./CoreModalExamples"
                     <p>Some important content!</p>
                   </div>
                   <div class="modal-footer">
-                    <Button onClick={() => setShow(false)} className="btn btn-secondary float-right">
+                    <Button onClick={() => setShow(false)} class="btn btn-secondary float-right">
                       Close
                     </Button>
                   </div>

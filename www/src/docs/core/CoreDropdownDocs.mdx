@@ -13,7 +13,7 @@ import classnames from "classnames";
 import {DropdownExample1} from "./CoreDropdownExamples";
 
 # Dropdown (core)
-<p className="lead">
+<p class="lead">
   `Dropdown` is a set of structural components for building accessible dropdown menus with close-on-click,
   keyboard navigation, and correct focus handling. Like all of `solid-bootstrap-core`
   components, it's BYOS (Bring Your Own Styles). `Dropdown` is primarily
@@ -56,8 +56,8 @@ import {DropdownExample1} from "./CoreDropdownExamples";
               show: meta.show,
             }}
           >
-            <Dropdown.Item className="dropdown-item">Item 1</Dropdown.Item>
-            <Dropdown.Item className="dropdown-item">Item 2</Dropdown.Item>
+            <Dropdown.Item class="dropdown-item">Item 1</Dropdown.Item>
+            <Dropdown.Item class="dropdown-item">Item 2</Dropdown.Item>
           </div>
         );
       };
@@ -66,7 +66,7 @@ import {DropdownExample1} from "./CoreDropdownExamples";
         const [props] = useDropdownToggle();
 
         return (
-          <Button {...props} className="btn btn-primary dropdown-toggle">
+          <Button {...props} class="btn btn-primary dropdown-toggle">
             {p.children}
           </Button>
         );
@@ -92,7 +92,7 @@ import {DropdownExample1} from "./CoreDropdownExamples";
         const [show, setShow] = createSignal(false);
 
         return (
-          <div className="d-flex justify-content-center">
+          <div class="d-flex justify-content-center">
             <DropdownButton
               show={show()}
               onToggle={(nextShow) => setShow(nextShow)}
@@ -245,7 +245,7 @@ import {DropdownExample1} from "./CoreDropdownExamples";
       <Dropdown>
         <Dropdown.Toggle>
           {(props) => (
-            <Button {...props} className="btn btn-secondary dropdown-toggle">
+            <Button {...props} class="btn btn-secondary dropdown-toggle">
               Open
             </Button>
           )}
@@ -254,7 +254,7 @@ import {DropdownExample1} from "./CoreDropdownExamples";
           {(menuProps, meta) => (
             <ul
               {...menuProps}
-              className="dropdown-menu show"
+              class="dropdown-menu show"
               style={{
                 transition: "visibility 500ms, opacity 500ms",
                 visibility: meta.show ? "visible" : "hidden",
@@ -262,7 +262,7 @@ import {DropdownExample1} from "./CoreDropdownExamples";
                 ...menuProps.style
               }}
             >
-              <li className="dropdown-item">Hey there</li>
+              <li class="dropdown-item">Hey there</li>
             </ul>
           )}
         </Dropdown.Menu>
@@ -275,7 +275,7 @@ import {DropdownExample1} from "./CoreDropdownExamples";
       <Dropdown>
         <Dropdown.Toggle>
           {(props) => (
-            <Button {...props} className="btn btn-secondary dropdown-toggle">
+            <Button {...props} class="btn btn-secondary dropdown-toggle">
               Open
             </Button>
           )}
@@ -284,7 +284,7 @@ import {DropdownExample1} from "./CoreDropdownExamples";
           {(menuProps, meta) => (
             <ul
               {...menuProps}
-              className="dropdown-menu show"
+              class="dropdown-menu show"
               style={{
                 transition: "visibility 500ms, opacity 500ms",
                 visibility: meta.show ? "visible" : "hidden",
@@ -292,7 +292,7 @@ import {DropdownExample1} from "./CoreDropdownExamples";
                 ...menuProps.style
               }}
             >
-              <li className="dropdown-item">Hey there</li>
+              <li class="dropdown-item">Hey there</li>
             </ul>
           )}
         </Dropdown.Menu>

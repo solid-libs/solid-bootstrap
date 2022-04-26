@@ -10,11 +10,15 @@ const defaultProps = {
 };
 
 const ButtonToolbar = (p: ButtonToolbarProps) => {
-  const [local, props] = splitProps(mergeProps(defaultProps, p), ["bsPrefix", "className"]);
+  const [local, props] = splitProps(mergeProps(defaultProps, p), [
+    "bsPrefix",
+    "class",
+    "className"
+  ]);
   const prefix = useBootstrapPrefix(local.bsPrefix, "btn-toolbar");
 
   return (
-    <div {...props} className={classNames(local.className, prefix)}/>
+    <div {...props} class={classNames(local.class, local.className, prefix)}/>
   );
 };
 export default ButtonToolbar;

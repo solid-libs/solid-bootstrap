@@ -6,7 +6,7 @@ import BadgeApi from "./BadgeApi";
 <GithubSource name="FormLayoutDocs.mdx" />
 # Layout
 
-<p className="lead">
+<p class="lead">
   Give your forms some structure—from inline to horizontal to custom grid
   implementations—with our form layout options.
 </p>
@@ -28,7 +28,7 @@ Since Bootstrap applies `display: block` and `width: 100%` to almost all our
 form controls, forms will by default stack vertically. Additional classes can
 be used to vary this layout on a per-form basis.
 
-<div className="row gy-5 pt-3">
+<div class="row gy-5 pt-3">
 
   <Example title="Form groups">
     <Example.Intro>
@@ -42,12 +42,12 @@ be used to vary this layout on a per-form basis.
     </Example.Intro>
     <Example.Preview>
       <Form>
-        <Form.Group className="mb-3" controlId="formGroupEmail">
+        <Form.Group class="mb-3" controlId="formGroupEmail">
           <Form.Label>Email address</Form.Label>
           <Form.Control type="email" placeholder="Enter email" />
         </Form.Group>
 
-        <Form.Group className="mb-3" controlId="formGroupPassword">
+        <Form.Group class="mb-3" controlId="formGroupPassword">
           <Form.Label>Password</Form.Label>
           <Form.Control type="password" placeholder="Password" />
         </Form.Group>
@@ -56,12 +56,12 @@ be used to vary this layout on a per-form basis.
     <Example.Code>
       ```js
       <Form>
-        <Form.Group className="mb-3" controlId="formGroupEmail">
+        <Form.Group class="mb-3" controlId="formGroupEmail">
           <Form.Label>Email address</Form.Label>
           <Form.Control type="email" placeholder="Enter email" />
         </Form.Group>
 
-        <Form.Group className="mb-3" controlId="formGroupPassword">
+        <Form.Group class="mb-3" controlId="formGroupPassword">
           <Form.Label>Password</Form.Label>
           <Form.Control type="password" placeholder="Password" />
         </Form.Group>
@@ -78,7 +78,7 @@ be used to vary this layout on a per-form basis.
     </Example.Intro>
     <Example.Preview>
       <Form>
-        <Row className="mb-3">
+        <Row class="mb-3">
           <Form.Group as={Col} controlId="formGridEmail">
             <Form.Label>Email</Form.Label>
             <Form.Control type="email" placeholder="Enter email" />
@@ -90,17 +90,17 @@ be used to vary this layout on a per-form basis.
           </Form.Group>
         </Row>
 
-        <Form.Group className="mb-3" controlId="formGridAddress1">
+        <Form.Group class="mb-3" controlId="formGridAddress1">
           <Form.Label>Address</Form.Label>
           <Form.Control placeholder="1234 Main St" />
         </Form.Group>
 
-        <Form.Group className="mb-3" controlId="formGridAddress2">
+        <Form.Group class="mb-3" controlId="formGridAddress2">
           <Form.Label>Address 2</Form.Label>
           <Form.Control placeholder="Apartment, studio, or floor" />
         </Form.Group>
 
-        <Row className="mb-3">
+        <Row class="mb-3">
           <Form.Group as={Col} controlId="formGridCity">
             <Form.Label>City</Form.Label>
             <Form.Control />
@@ -120,7 +120,7 @@ be used to vary this layout on a per-form basis.
           </Form.Group>
         </Row>
 
-        <Form.Group className="mb-3" id="formGridCheckbox">
+        <Form.Group class="mb-3" id="formGridCheckbox">
           <Form.Check type="checkbox" label="Check me out" />
         </Form.Group>
 
@@ -130,7 +130,7 @@ be used to vary this layout on a per-form basis.
     <Example.Code>
       ```js
       <Form>
-        <Row className="mb-3">
+        <Row class="mb-3">
           <Form.Group as={Col} controlId="formGridEmail">
             <Form.Label>Email</Form.Label>
             <Form.Control type="email" placeholder="Enter email" />
@@ -142,17 +142,17 @@ be used to vary this layout on a per-form basis.
           </Form.Group>
         </Row>
 
-        <Form.Group className="mb-3" controlId="formGridAddress1">
+        <Form.Group class="mb-3" controlId="formGridAddress1">
           <Form.Label>Address</Form.Label>
           <Form.Control placeholder="1234 Main St" />
         </Form.Group>
 
-        <Form.Group className="mb-3" controlId="formGridAddress2">
+        <Form.Group class="mb-3" controlId="formGridAddress2">
           <Form.Label>Address 2</Form.Label>
           <Form.Control placeholder="Apartment, studio, or floor" />
         </Form.Group>
 
-        <Row className="mb-3">
+        <Row class="mb-3">
           <Form.Group as={Col} controlId="formGridCity">
             <Form.Label>City</Form.Label>
             <Form.Control />
@@ -172,7 +172,7 @@ be used to vary this layout on a per-form basis.
           </Form.Group>
         </Row>
 
-        <Form.Group className="mb-3" id="formGridCheckbox">
+        <Form.Group class="mb-3" id="formGridCheckbox">
           <Form.Check type="checkbox" label="Check me out" />
         </Form.Group>
 
@@ -195,7 +195,7 @@ be used to vary this layout on a per-form basis.
     </Example.Intro>
     <Example.Preview>
       <Form>
-        <Form.Group as={Row} className="mb-3" controlId="formHorizontalEmail">
+        <Form.Group as={Row} class="mb-3" controlId="formHorizontalEmail">
           <Form.Label column sm={2}>
             Email
           </Form.Label>
@@ -204,7 +204,7 @@ be used to vary this layout on a per-form basis.
           </Col>
         </Form.Group>
 
-        <Form.Group as={Row} className="mb-3" controlId="formHorizontalPassword">
+        <Form.Group as={Row} class="mb-3" controlId="formHorizontalPassword">
           <Form.Label column sm={2}>
             Password
           </Form.Label>
@@ -213,7 +213,7 @@ be used to vary this layout on a per-form basis.
           </Col>
         </Form.Group>
         <fieldset>
-          <Form.Group as={Row} className="mb-3">
+          <Form.Group as={Row} class="mb-3">
             <Form.Label as="legend" column sm={2}>
               Radios
             </Form.Label>
@@ -239,13 +239,13 @@ be used to vary this layout on a per-form basis.
             </Col>
           </Form.Group>
         </fieldset>
-        <Form.Group as={Row} className="mb-3" controlId="formHorizontalCheck">
+        <Form.Group as={Row} class="mb-3" controlId="formHorizontalCheck">
           <Col sm={{ span: 10, offset: 2 }}>
             <Form.Check label="Remember me" />
           </Col>
         </Form.Group>
 
-        <Form.Group as={Row} className="mb-3">
+        <Form.Group as={Row} class="mb-3">
           <Col sm={{ span: 10, offset: 2 }}>
             <Button type="submit">Sign in</Button>
           </Col>
@@ -255,7 +255,7 @@ be used to vary this layout on a per-form basis.
     <Example.Code>
       ```js
       <Form>
-        <Form.Group as={Row} className="mb-3" controlId="formHorizontalEmail">
+        <Form.Group as={Row} class="mb-3" controlId="formHorizontalEmail">
           <Form.Label column sm={2}>
             Email
           </Form.Label>
@@ -264,7 +264,7 @@ be used to vary this layout on a per-form basis.
           </Col>
         </Form.Group>
 
-        <Form.Group as={Row} className="mb-3" controlId="formHorizontalPassword">
+        <Form.Group as={Row} class="mb-3" controlId="formHorizontalPassword">
           <Form.Label column sm={2}>
             Password
           </Form.Label>
@@ -273,7 +273,7 @@ be used to vary this layout on a per-form basis.
           </Col>
         </Form.Group>
         <fieldset>
-          <Form.Group as={Row} className="mb-3">
+          <Form.Group as={Row} class="mb-3">
             <Form.Label as="legend" column sm={2}>
               Radios
             </Form.Label>
@@ -299,13 +299,13 @@ be used to vary this layout on a per-form basis.
             </Col>
           </Form.Group>
         </fieldset>
-        <Form.Group as={Row} className="mb-3" controlId="formHorizontalCheck">
+        <Form.Group as={Row} class="mb-3" controlId="formHorizontalCheck">
           <Col sm={{ span: 10, offset: 2 }}>
             <Form.Check label="Remember me" />
           </Col>
         </Form.Group>
 
-        <Form.Group as={Row} className="mb-3">
+        <Form.Group as={Row} class="mb-3">
           <Col sm={{ span: 10, offset: 2 }}>
             <Button type="submit">Sign in</Button>
           </Col>
@@ -429,13 +429,13 @@ be used to vary this layout on a per-form basis.
     </Example.Intro>
     <Example.Preview>
       <Form>
-        <Row className="align-items-center">
+        <Row class="align-items-center">
           <Col xs="auto">
             <Form.Label htmlFor="inlineFormInput" visuallyHidden>
               Name
             </Form.Label>
             <Form.Control
-              className="mb-2"
+              class="mb-2"
               id="inlineFormInput"
               placeholder="Jane Doe"
             />
@@ -444,7 +444,7 @@ be used to vary this layout on a per-form basis.
             <Form.Label htmlFor="inlineFormInputGroup" visuallyHidden>
               Username
             </Form.Label>
-            <InputGroup className="mb-2">
+            <InputGroup class="mb-2">
               <InputGroup.Text>@</InputGroup.Text>
               <FormControl id="inlineFormInputGroup" placeholder="Username" />
             </InputGroup>
@@ -453,12 +453,12 @@ be used to vary this layout on a per-form basis.
             <Form.Check
               type="checkbox"
               id="autoSizingCheck"
-              className="mb-2"
+              class="mb-2"
               label="Remember me"
             />
           </Col>
           <Col xs="auto">
-            <Button type="submit" className="mb-2">Submit</Button>
+            <Button type="submit" class="mb-2">Submit</Button>
           </Col>
         </Row>
       </Form>
@@ -466,13 +466,13 @@ be used to vary this layout on a per-form basis.
     <Example.Code>
       ```js
       <Form>
-        <Row className="align-items-center">
+        <Row class="align-items-center">
           <Col xs="auto">
             <Form.Label htmlFor="inlineFormInput" visuallyHidden>
               Name
             </Form.Label>
             <Form.Control
-              className="mb-2"
+              class="mb-2"
               id="inlineFormInput"
               placeholder="Jane Doe"
             />
@@ -481,7 +481,7 @@ be used to vary this layout on a per-form basis.
             <Form.Label htmlFor="inlineFormInputGroup" visuallyHidden>
               Username
             </Form.Label>
-            <InputGroup className="mb-2">
+            <InputGroup class="mb-2">
               <InputGroup.Text>@</InputGroup.Text>
               <FormControl id="inlineFormInputGroup" placeholder="Username" />
             </InputGroup>
@@ -490,12 +490,12 @@ be used to vary this layout on a per-form basis.
             <Form.Check
               type="checkbox"
               id="autoSizingCheck"
-              className="mb-2"
+              class="mb-2"
               label="Remember me"
             />
           </Col>
           <Col xs="auto">
-            <Button type="submit" className="mb-2">Submit</Button>
+            <Button type="submit" class="mb-2">Submit</Button>
           </Col>
         </Row>
       </Form>

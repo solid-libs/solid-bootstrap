@@ -4,6 +4,7 @@ import activeElement from "dom-helpers/activeElement";
 import contains from "dom-helpers/contains";
 import canUseDOM from "dom-helpers/canUseDOM";
 import listen from "dom-helpers/listen";
+import classNames from "./classnames";
 import ModalManager from "./ModalManager";
 import {TransitionCallbacks} from "solid-react-transition";
 import useWindow from "./useWindow";
@@ -37,6 +38,7 @@ export type ModalTransitionComponent = Component<
 
 export interface RenderModalDialogProps {
   style: JSX.CSSProperties | undefined;
+  class: string | undefined;
   className: string | undefined;
   tabIndex: number;
   role: string;
@@ -57,6 +59,7 @@ export interface BaseModalProps extends TransitionCallbacks {
   children?: JSX.Element;
   role?: string;
   style?: JSX.CSSProperties;
+  class?: string;
   className?: string;
 
   /**
@@ -231,6 +234,7 @@ export const Modal = (p: ModalProps) => {
     [
       "show",
       "role",
+      "class",
       "className",
       "style",
       "children",
@@ -425,8 +429,8 @@ export const Modal = (p: ModalProps) => {
       get style() {
         return local.style;
       },
-      get className() {
-        return local.className;
+      get class() {
+        return classNames(local.class, local.className);
       },
       tabIndex: -1,
     },

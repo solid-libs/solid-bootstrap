@@ -1,5 +1,5 @@
 const ModalApi = () => (
-  <div className="mt-5">
+  <div class="mt-5">
     <h2>API</h2>
     <h3>Modal</h3>
     <code>

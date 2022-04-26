@@ -41,7 +41,7 @@ export function ToggleButtonExample() {
 
   return (
     <>
-      <ButtonGroup className="mb-2">
+      <ButtonGroup class="mb-2">
         <ToggleButton
           id="toggle-check"
           type="checkbox"
@@ -55,7 +55,7 @@ export function ToggleButtonExample() {
       </ButtonGroup>
       <br />
       <ToggleButton
-        className="mb-2"
+        class="mb-2"
         id="toggle-check"
         type="checkbox"
         variant="outline-primary"
@@ -66,7 +66,7 @@ export function ToggleButtonExample() {
         Checked
       </ToggleButton>
       <br />
-      <ButtonGroup className="mb-2">
+      <ButtonGroup class="mb-2">
         <For each={radios}>
           {(radio, idx) => (
             <ToggleButton

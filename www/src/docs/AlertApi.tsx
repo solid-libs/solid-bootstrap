@@ -1,5 +1,5 @@
 const AlertApi = () => (
-  <div className="mt-5">
+  <div class="mt-5">
     <h2>API</h2>
     <h3>Alert</h3>
     <code>

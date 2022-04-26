@@ -15,7 +15,7 @@ export function ControlledExample() {
     <Carousel activeIndex={index()} onSelect={handleSelect}>
       <Carousel.Item>
         <div
-          className="d-block w-100 bg-secondary d-flex justify-content-center align-items-center"
+          class="d-block w-100 bg-secondary d-flex justify-content-center align-items-center"
           style={{height: "400px"}}
         >
           <Solid1 />
@@ -27,7 +27,7 @@ export function ControlledExample() {
       </Carousel.Item>
       <Carousel.Item>
         <div
-          className="d-block w-100 bg-secondary d-flex justify-content-center align-items-center"
+          class="d-block w-100 bg-secondary d-flex justify-content-center align-items-center"
           style={{height: "400px"}}
         >
           <Solid2 />
@@ -39,7 +39,7 @@ export function ControlledExample() {
       </Carousel.Item>
       <Carousel.Item>
         <div
-          className="d-block w-100 bg-secondary d-flex justify-content-center align-items-center"
+          class="d-block w-100 bg-secondary d-flex justify-content-center align-items-center"
           style={{height: "400px"}}
         >
           <Solid3 />

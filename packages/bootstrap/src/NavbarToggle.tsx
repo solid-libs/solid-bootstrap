@@ -22,6 +22,7 @@ const NavbarToggle: BsPrefixRefForwardingComponent<"button", NavbarToggleProps> 
   const [local, props] = splitProps(mergeProps(defaultProps, p), [
     "as",
     "bsPrefix",
+    "class",
     "className",
     "children",
     "label",
@@ -47,9 +48,9 @@ const NavbarToggle: BsPrefixRefForwardingComponent<"button", NavbarToggleProps> 
       type={local.as === "button" ? "button" : undefined}
       onClick={handleClick}
       aria-label={local.label}
-      className={classNames(local.className, bsPrefix, !context?.expanded && "collapsed")}
+      class={classNames(local.class, local.className, bsPrefix, !context?.expanded && "collapsed")}
     >
-      {local.children || <span className={`${bsPrefix}-icon`} />}
+      {local.children || <span class={`${bsPrefix}-icon`} />}
     </Dynamic>
   );
 };

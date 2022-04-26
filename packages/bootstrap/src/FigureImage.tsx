@@ -5,9 +5,9 @@ import Image, {ImageProps} from "./Image";
 const defaultProps = {fluid: true};
 
 const FigureImage = (p: ImageProps) => {
-  const [local, props] = splitProps(mergeProps(defaultProps, p), ["className"]);
+  const [local, props] = splitProps(mergeProps(defaultProps, p), ["class", "className"]);
   return (
-    <Image {...props} className={classNames(local.className, "figure-img")}/>
+    <Image {...props} class={classNames(local.class, local.className, "figure-img")}/>
   );
 };
 

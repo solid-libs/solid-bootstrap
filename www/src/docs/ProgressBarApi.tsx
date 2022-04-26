@@ -1,5 +1,5 @@
 const ProgressBarApi = () => (
-  <div className="mt-5">
+  <div class="mt-5">
     <h2>API</h2>
     <h3>ProgressBar</h3>
     <code>

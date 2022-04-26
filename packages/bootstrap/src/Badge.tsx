@@ -24,6 +24,7 @@ const Badge: BsPrefixRefForwardingComponent<"span", BadgeProps> = (p: BadgeProps
     "bg",
     "pill",
     "text",
+    "class",
     "className",
   ]);
 
@@ -32,7 +33,8 @@ const Badge: BsPrefixRefForwardingComponent<"span", BadgeProps> = (p: BadgeProps
     <Dynamic
       component={local.as}
       {...props}
-      className={classNames(
+      class={classNames(
+        local.class,
         local.className,
         prefix,
         local.pill && `rounded-pill`,

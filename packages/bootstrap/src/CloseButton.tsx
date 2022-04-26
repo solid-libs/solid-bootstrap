@@ -14,14 +14,19 @@ const defaultProps = {
 };
 
 const CloseButton = (p: CloseButtonProps) => {
-  const [local, props] = splitProps(mergeProps(defaultProps, p), ["className", "variant"]);
+  const [local, props] = splitProps(mergeProps(defaultProps, p), [
+    "class",
+    "className",
+    "variant"
+  ]);
 
   return (
     <button
       type="button"
-      className={classNames(
+      class={classNames(
         "btn-close",
         local.variant && `btn-close-${local.variant}`,
+        local.class,
         local.className,
       )}
       {...props}

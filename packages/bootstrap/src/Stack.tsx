@@ -21,6 +21,7 @@ const Stack: BsPrefixRefForwardingComponent<"span", StackProps> = (p: StackProps
   const [local, props] = splitProps(mergeProps(defaultProps, p), [
     "as",
     "bsPrefix",
+    "class",
     "className",
     "direction",
     "gap",
@@ -35,7 +36,8 @@ const Stack: BsPrefixRefForwardingComponent<"span", StackProps> = (p: StackProps
     <Dynamic
       component={local.as}
       {...props}
-      className={classNames(
+      class={classNames(
+        local.class,
         local.className,
         bsPrefix,
         ...createUtilityClassName({

@@ -20,6 +20,7 @@ export function createWithBsPrefix<As extends ElementType = "div">(
 ): BsPrefixRefForwardingComponent<As> {
   const BsComponent = (p: any) => {
     const [local, props] = splitProps(mergeProps({as: Component || "div"}, defaultProps, p), [
+      "class",
       "className",
       "bsPrefix",
       "as",
@@ -29,7 +30,7 @@ export function createWithBsPrefix<As extends ElementType = "div">(
     return (
       <Dynamic
         component={local.as}
-        className={classNames(local.className, resolvedPrefix)}
+        class={classNames(local.class, local.className, resolvedPrefix)}
         {...props}
       />
     );

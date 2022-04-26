@@ -25,6 +25,7 @@ const FormSelect: BsPrefixRefForwardingComponent<"select", FormSelectProps> = (
     "bsPrefix",
     "size",
     "htmlSize",
+    "class",
     "className",
     "isValid",
     "isInvalid",
@@ -37,7 +38,8 @@ const FormSelect: BsPrefixRefForwardingComponent<"select", FormSelectProps> = (
     <select
       {...props}
       size={local.htmlSize}
-      className={classNames(
+      class={classNames(
+        local.class,
         local.className,
         bsPrefix,
         local.size && `${bsPrefix}-${local.size}`,

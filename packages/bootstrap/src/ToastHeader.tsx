@@ -22,6 +22,7 @@ const ToastHeader = (p: ToastHeaderProps) => {
     "closeLabel",
     "closeVariant",
     "closeButton",
+    "class",
     "className",
     "children",
   ]);
@@ -33,7 +34,7 @@ const ToastHeader = (p: ToastHeaderProps) => {
   };
 
   return (
-    <div {...props} className={classNames(bsPrefix, local.className)}>
+    <div {...props} class={classNames(bsPrefix, local.class, local.className)}>
       {local.children}
 
       {local.closeButton && (

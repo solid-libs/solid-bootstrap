@@ -22,6 +22,7 @@ const Tooltip = (p: TooltipProps) => {
   const [local, props] = splitProps(mergeProps(defaultProps, p), [
     "bsPrefix",
     "placement",
+    "class",
     "className",
     "style",
     "children",
@@ -37,13 +38,13 @@ const Tooltip = (p: TooltipProps) => {
     <div
       role="tooltip"
       x-placement={primaryPlacement()}
-      className={classNames(local.className, bsPrefix, `bs-tooltip-auto`)}
+      class={classNames(local.class, local.className, bsPrefix, `bs-tooltip-auto`)}
       {...props}
       {...context?.wrapperProps}
       style={Object.assign({}, local.style, context?.wrapperProps.style)}
     >
-      <div className="tooltip-arrow" {...context?.arrowProps}/>
-      <div className={`${bsPrefix}-inner`}>{local.children}</div>
+      <div class="tooltip-arrow" {...context?.arrowProps}/>
+      <div class={`${bsPrefix}-inner`}>{local.children}</div>
     </div>
   );
 };

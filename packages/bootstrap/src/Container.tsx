@@ -19,6 +19,7 @@ const Container: BsPrefixRefForwardingComponent<"div", ContainerProps> = (p: Con
     "as",
     "bsPrefix",
     "fluid",
+    "class",
     "className",
   ]);
   const prefix = useBootstrapPrefix(local.bsPrefix, "container");
@@ -27,7 +28,7 @@ const Container: BsPrefixRefForwardingComponent<"div", ContainerProps> = (p: Con
     <Dynamic
       component={local.as}
       {...props}
-      className={classNames(local.className, local.fluid ? `${prefix}${suffix}` : prefix)}
+      class={classNames(local.class, local.className, local.fluid ? `${prefix}${suffix}` : prefix)}
     />
   );
 };

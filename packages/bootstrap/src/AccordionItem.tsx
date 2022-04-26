@@ -19,6 +19,7 @@ const AccordionItem: BsPrefixRefForwardingComponent<"div", AccordionItemProps> =
   const [local, props] = splitProps(mergeProps(defaultProps, p), [
     "as",
     "bsPrefix",
+    "class",
     "className",
     "eventKey",
   ]);
@@ -31,7 +32,7 @@ const AccordionItem: BsPrefixRefForwardingComponent<"div", AccordionItemProps> =
 
   return (
     <AccordionItemContext.Provider value={contextValue}>
-      <Dynamic component={local.as} {...props} className={classNames(local.className, bsPrefix)}/>
+      <Dynamic component={local.as} {...props} class={classNames(local.class, local.className, bsPrefix)}/>
     </AccordionItemContext.Provider>
   );
 };

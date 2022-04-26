@@ -27,6 +27,7 @@ const ListGroup: BsPrefixRefForwardingComponent<"div", ListGroupProps> = (p: Lis
     "activeKey",
     "defaultActiveKey",
     "bsPrefix",
+    "class",
     "className",
     "variant",
     "horizontal",
@@ -52,7 +53,8 @@ const ListGroup: BsPrefixRefForwardingComponent<"div", ListGroupProps> = (p: Lis
       {...props}
       activeKey={activeKey()}
       onSelect={onSelect}
-      className={classNames(
+      class={classNames(
+        local.class,
         local.className,
         bsPrefix,
         local.variant && `${bsPrefix}-${local.variant}`,
