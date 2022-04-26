@@ -1,6 +1,6 @@
 import {JSX, mergeProps, splitProps, useContext} from "solid-js";
 import classNames from "./classnames";
-import {OverlayArrowProps} from "solid-bootstrap-core";
+import {OverlayArrowProps, OverlayInjectedProps} from "solid-bootstrap-core";
 import {useBootstrapPrefix} from "./ThemeProvider";
 import PopoverHeader from "./PopoverHeader";
 import PopoverBody from "./PopoverBody";
@@ -36,9 +36,9 @@ const Popover = (p: PopoverProps) => {
     "show",
   ]);
   const decoratedBsPrefix = useBootstrapPrefix(local.bsPrefix, "popover");
-  const primaryPlacement = () => local.placement?.split("-")?.[0];
-
   const context = useContext(OverlayContext);
+  const primaryPlacement = () =>
+    (context?.metadata?.placement || local.placement)?.split("-")?.[0];
 
   return (
     <div
@@ -52,7 +52,7 @@ const Popover = (p: PopoverProps) => {
       )}
       {...props}
       {...context?.wrapperProps}
-      style={Object.assign({}, local.style, context?.wrapperProps.style)}
+      style={Object.assign({}, local.style, context?.wrapperProps?.style)}
     >
       <div class="popover-arrow" {...local.arrowProps} {...context?.arrowProps} />
       {local.body ? <PopoverBody>{local.children}</PopoverBody> : local.children}

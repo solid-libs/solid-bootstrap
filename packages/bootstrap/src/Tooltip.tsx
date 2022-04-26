@@ -1,6 +1,6 @@
 import {JSX, mergeProps, splitProps, useContext} from "solid-js";
 import classNames from "./classnames";
-import {OverlayArrowProps} from "solid-bootstrap-core";
+import {OverlayArrowProps, OverlayInjectedProps} from "solid-bootstrap-core";
 import {useBootstrapPrefix} from "./ThemeProvider";
 import {Placement} from "./types";
 import {BsPrefixProps} from "./helpers";
@@ -31,9 +31,10 @@ const Tooltip = (p: TooltipProps) => {
     "show",
   ]);
   const bsPrefix = useBootstrapPrefix(local.bsPrefix, "tooltip");
-  const primaryPlacement = () => local.placement?.split("-")?.[0];
-
   const context = useContext(OverlayContext);
+  const primaryPlacement = () =>
+    (context?.metadata?.placement || local.placement)?.split("-")?.[0];
+
   return (
     <div
       role="tooltip"
@@ -43,7 +44,7 @@ const Tooltip = (p: TooltipProps) => {
       {...context?.wrapperProps}
       style={Object.assign({}, local.style, context?.wrapperProps.style)}
     >
-      <div class="tooltip-arrow" {...context?.arrowProps}/>
+      <div class="tooltip-arrow" {...local.arrowProps} {...context?.arrowProps}/>
       <div class={`${bsPrefix}-inner`}>{local.children}</div>
     </div>
   );
