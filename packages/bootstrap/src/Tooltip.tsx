@@ -30,13 +30,13 @@ const Tooltip = (p: TooltipProps) => {
     "show",
   ]);
   const bsPrefix = useBootstrapPrefix(local.bsPrefix, "tooltip");
-  const [primaryPlacement] = local.placement?.split("-") || [];
+  const primaryPlacement = () => local.placement?.split("-")?.[0];
 
   const context = useContext(OverlayContext);
   return (
     <div
       role="tooltip"
-      x-placement={primaryPlacement}
+      x-placement={primaryPlacement()}
       className={classNames(local.className, bsPrefix, `bs-tooltip-auto`)}
       {...props}
       {...context?.wrapperProps}
