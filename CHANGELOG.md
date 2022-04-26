@@ -1,3 +1,12 @@
+## Unreleased
+
+- [Feat: Support `class` attribute in addition to `className` attribute (for adding classes to components) #17](https://github.com/solid-libs/solid-bootstrap/commit/7d4055ce0bd09cc9794aa743a90a4c3d025c9639)
+- [Fix: Make `x-placement` attribute reactive #16](https://github.com/solid-libs/solid-bootstrap/commit/5e10673a430fda8bfb11274b210e3d822d51d022)
+- [Feat: All submodules now have named exports in addition to default exports](https://github.com/solid-libs/solid-bootstrap/commit/11518f5a9b6ac927e2fcc091ea11d77be82b7f75)
+- [Fix: Portal position fixed](https://github.com/solid-libs/solid-bootstrap/commit/7428cd7f1cfebb30c6501c518af8ea46f7a5514a)
+- [Fix: React to children changes without constructing multiple times](https://github.com/solid-libs/solid-bootstrap/commit/e81432380d131859f28471f5447955a4b6c2d142)
+- Various code cleanup
+
 ## 2022-03-26 - (1.0.7)
 
 - [Upstream: fix: issue NavItem - do not include aria-controls if the related element is not mounted](https://github.com/react-restart/ui/commit/a81ec97dd32ade77217840a3a0f0d357959fe72f)
@@ -7,7 +16,7 @@
 
 ## 2022-02-21 - (1.0.5)
 
-- bump dependancies and resolve typing issues with newer Solid versions
+- bump dependencies and resolve typing issues with newer Solid versions
 
 ## 2022-02-06 - (1.0.4)
 
