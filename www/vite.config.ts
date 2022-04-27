@@ -20,7 +20,7 @@ export default defineConfig({
   build: {
     target: "esnext",
     polyfillDynamicImport: false,
-    outDir: "../docs",
+    outDir: "dist",
   },
   server: {
     fs: {

@@ -7,7 +7,7 @@ import {fileURLToPath} from "url";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const docsPath = path.resolve(__dirname, "../../docs/");
+const docsPath = path.resolve(__dirname, "../dist");
 const formsPath = path.join(docsPath, "forms");
 const layoutPath = path.join(docsPath, "layout");
 const componentsPath = path.join(docsPath, "components");
