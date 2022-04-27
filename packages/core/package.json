@@ -14,9 +14,9 @@
   "types": "dist/esm/index.d.ts",
   "exports": {
     ".": {
-      "types": "./esm/index.d.ts",
-      "solid": "./esm/index.jsx",
-      "default": "./esm/index.js"
+      "types": "./dist/esm/index.d.ts",
+      "solid": "./dist/esm/index.jsx",
+      "default": "./dist/esm/index.js"
     }
   },
   "sideEffects": false,
@@ -28,7 +28,8 @@
   },
   "dependencies": {
     "@popperjs/core": "^2.10.1",
-    "dom-helpers": "^5.2.0"
+    "dom-helpers": "^5.2.0",
+    "solid-react-transition": "^1.0.5"
   },
   "devDependencies": {
     "@babel/core": "^7.17.5",

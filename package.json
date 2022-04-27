@@ -3,7 +3,7 @@
     "prettier": "2.5.1"
   },
   "scripts": {
-    "build": "npm run build --workspaces"
+    "build": "npm run build --workspaces --if-present"
   },
   "workspaces": [
     "packages/transition",
@@ -11,4 +11,3 @@
     "packages/bootstrap"
   ]
 }
-

@@ -14,9 +14,9 @@
   "types": "dist/esm/index.d.ts",
   "exports": {
     ".": {
-      "types": "./esm/index.d.ts",
-      "solid": "./esm/index.jsx",
-      "default": "./esm/index.js"
+      "types": "./dist/esm/index.d.ts",
+      "solid": "./dist/esm/index.jsx",
+      "default": "./dist/esm/index.js"
     }
   },
   "sideEffects": false,
