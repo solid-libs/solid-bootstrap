@@ -1,0 +1,94 @@
+import{t as i,g as j,c as e,v as a,q as m,j as v,an as p}from"./index.5ae66943.js";import{M as g}from"./index.e525610a.js";import{E as t}from"./Example.7f10c31b.js";import{G as f}from"./GithubSource.8f1815a8.js";import{A as l}from"./Alert.51742666.js";import{B as u}from"./Layout.6bb79e31.js";import"./Card.c15ac305.js";const b=i(`<div class="mt-5"><h2>API</h2><h3>Alert</h3><code>import { Alert } from 'solid-bootstrap'</code><div class="overflow-auto mt-4 mb-5 border border-light"><table class="bg-white mb-0 table table-striped table-bordered"><thead><tr><th>Name</th><th>Type</th><th>Default</th><th>Description</th></tr></thead><tbody><tr><td class="font-monospace">closeLabel </td><td class="font-monospace"><div>string</div></td><td><code>'Close alert'</code></td><td><div><p>Sets the text for alert close button.</p></div></td></tr><tr><td class="font-monospace">closeVariant </td><td class="font-monospace"><div><span><code>'white'</code></span></div></td><td></td><td><div><p>Sets the variant for close button.</p></div></td></tr><tr><td class="font-monospace">dismissible </td><td class="font-monospace"><div>boolean</div></td><td></td><td><div><p>Renders a properly aligned dismiss button, as well as adding extra horizontal padding to the Alert.</p></div></td></tr><tr><td class="font-monospace">onClose </td><td class="font-monospace"><div>function</div></td><td></td><td><div class="mb-2"><small><em class="text-info"><span>controls <code>show</code></span></em></small></div><div><p>Callback fired when alert is closed.</p></div></td></tr><tr><td class="font-monospace">show</td><td class="font-monospace"><div>boolean</div></td><td><code>true</code></td><td><div class="mb-2"><small><em class="text-info"><span>controlled by: <code>onClose</code>, initial prop: <code>defaultShow</code></span></em></small></div><div><p>Controls the visual state of the Alert.</p></div></td></tr><tr><td class="font-monospace">transition </td><td class="font-monospace"><div>boolean | elementType</div></td><td><code>Fade</code></td><td><div><p>Animate the alert dismissal. Defaults to using <code class=" language-text">&lt;Fade&gt;</code> animation or use <code class=" language-text">false</code> to disable. A custom <code class=" language-text">solid-react-transition</code> Transition can also be provided.</p></div></td></tr><tr><td class="font-monospace">variant </td><td class="font-monospace"><div>'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info' | 'dark' | 'light'</div></td><td><code>'primary'</code></td><td><div><p>The Alert visual variant</p></div></td></tr><tr><td class="font-monospace">bsPrefix </td><td class="font-monospace"><div>string</div></td><td><code>'alert'</code></td><td><div><p>Change the underlying component CSS base class name and modifier class names prefix. <strong>This is an escape hatch</strong> for working with heavily customized bootstrap css.</p></div></td></tr></tbody></table></div><h3>Alert.Heading</h3><div class="overflow-auto mt-4 mb-5 border border-light"><table class="bg-white mb-0 table table-striped table-bordered"><thead><tr><th>Name</th><th>Type</th><th>Default</th><th>Description</th></tr></thead><tbody><tr><td class="font-monospace">as </td><td class="font-monospace"><div>elementType</div></td><td><code>&lt;DivStyledAsH4&gt;</code></td><td><div><p>You can use a custom element type for this component.</p></div></td></tr><tr><td class="font-monospace">bsPrefix <sup class="text-danger">required</sup></td><td class="font-monospace"><div>string</div></td><td><code>'alert-heading'</code></td><td><div><p>Change the underlying component CSS base class name and modifier class names prefix. <strong>This is an escape hatch</strong> for working with heavily customized bootstrap css.</p></div></td></tr></tbody></table></div><h3>Alert.Link</h3><div class="overflow-auto mt-4 mb-5 border border-light"><table class="bg-white mb-0 table table-striped table-bordered"><thead><tr><th>Name</th><th>Type</th><th>Default</th><th>Description</th></tr></thead><tbody><tr><td class="font-monospace">as </td><td class="font-monospace"><div>elementType</div></td><td><code>&lt;Anchor&gt;</code></td><td><div><p>You can use a custom element type for this component.</p></div></td></tr><tr><td class="font-monospace">bsPrefix <sup class="text-danger">required</sup></td><td class="font-monospace"><div>string</div></td><td><code>'alert-link'</code></td><td><div><p>Change the underlying component CSS base class name and modifier class names prefix. <strong>This is an escape hatch</strong> for working with heavily customized bootstrap css.</p></div></td></tr></tbody></table></div></div>`),y=()=>b.cloneNode(!0),w=i("<p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum.</p>"),A=i("<hr>"),x=i('<div class="d-flex justify-content-end"></div>');function k(){const[c,d]=j(!0);return[e(l,{get show(){return c()},variant:"success",get children(){return[e(l.Heading,{children:"How's it going?!"}),w.cloneNode(!0),A.cloneNode(!0),(()=>{const o=x.cloneNode(!0);return a(o,e(u,{onClick:()=>d(!1),variant:"outline-success",children:"Close me y'all!"})),o})()]}}),m((()=>{const o=m(()=>!c(),!0);return()=>o()&&e(u,{onClick:()=>d(!0),children:"Show Alert"})})())]}const C=i('<p class="lead"></p>'),N=i("<p></p>"),_=i("<hr>"),$=i('<p class="mb-0"></p>'),S=i('<div class="row gy-5 pt-3"></div>');function L(c={}){const{wrapper:d}=Object.assign({},g(),c.components);return d?e(d,v(c,{get children(){return e(o,{})}})):o();function o(){const s=Object.assign({h1:"h1",p:"p",pre:"pre",code:"code",span:"span"},g(),c.components);return l||h("Alert",!1),l.Heading||h("Alert.Heading",!0),t||h("Example",!1),t.Code||h("Example.Code",!0),t.Intro||h("Example.Intro",!0),t.Preview||h("Example.Preview",!0),[e(f,{name:"AlertDocs.mdx"}),`
+`,e(s.h1,{children:"Alerts"}),`
+`,(()=>{const r=C.cloneNode(!0);return a(r,e(s.p,{children:`Provide contextual feedback messages for typical user actions with the handful
+of available and flexible alert messages.`})),r})(),`
+`,(()=>{const r=S.cloneNode(!0);return a(r,e(t,{title:"Examples",get children(){return[e(t.Intro,{get children(){return e(s.p,{children:`Alerts are available for any length of text, as well as an optional dismiss button.
+For proper styling, use one of the eight variants.`})}}),e(t.Preview,{get children(){return e(p,{each:["primary","secondary","success","danger","warning","info","light","dark"],children:n=>e(l,{variant:n,get children(){return["This is a ",n," alert\u2014check it out!"," "]}})})}}),e(t.Code,{get children(){return e(s.pre,{get children(){return e(s.code,{className:"hljs language-js",get children(){return["<",e(s.span,{className:"hljs-title class_",children:"For"}),`
+  each={[
+    `,e(s.span,{className:"hljs-string",children:'"primary"'}),`,
+    `,e(s.span,{className:"hljs-string",children:'"secondary"'}),`,
+    `,e(s.span,{className:"hljs-string",children:'"success"'}),`,
+    `,e(s.span,{className:"hljs-string",children:'"danger"'}),`,
+    `,e(s.span,{className:"hljs-string",children:'"warning"'}),`,
+    `,e(s.span,{className:"hljs-string",children:'"info"'}),`,
+    `,e(s.span,{className:"hljs-string",children:'"light"'}),`,
+    `,e(s.span,{className:"hljs-string",children:'"dark"'}),`,
+  ]}
+>
+  {`,e(s.span,{className:"hljs-function",get children(){return["(",e(s.span,{className:"hljs-params",children:"variant"}),") =>"]}}),` (
+    `,e(s.span,{className:"xml",get children(){return[e(s.span,{className:"hljs-tag",get children(){return["<",e(s.span,{className:"hljs-name",children:"Alert"})," ",e(s.span,{className:"hljs-attr",children:"variant"}),"=",e(s.span,{className:"hljs-string",children:"{variant}"}),">"]}}),`
+      This is a {variant} alert\u2014check it out!{" "}
+    `,e(s.span,{className:"hljs-tag",get children(){return["</",e(s.span,{className:"hljs-name",children:"Alert"}),">"]}})]}}),`
+  )}
+</`,e(s.span,{className:"hljs-title class_",children:"For"}),`>
+`]}})}})}})]}}),null),a(r,e(l,{variant:"warning",get children(){return e(s.p,{get children(){return[`Using color to add meaning only provides a visual indication, which will not
+be conveyed to users of assistive technologies \u2013 such as screen readers.
+Ensure that information denoted by the color is either obvious from the content
+itself (e.g. the visible text), or is included through alternative means,
+such as additional text hidden with the `,e(s.code,{children:".visually-hidden"})," class."]}})}}),null),a(r,e(t,{title:"Links",get children(){return[e(t.Intro,{get children(){return e(s.p,{get children(){return["For links, use the ",e(s.code,{children:"<Alert.Link>"}),` component to provide matching
+colored links within any alert.`]}})}}),e(t.Preview,{get children(){return e(p,{each:["primary","secondary","success","danger","warning","info","light","dark"],children:n=>e(l,{variant:n,get children(){return["This is a ",n," alert with ",e(l.Link,{href:"#",children:"an example link."}),". Give it a try if you like."]}})})}}),e(t.Code,{get children(){return e(s.pre,{get children(){return e(s.code,{className:"hljs language-js",get children(){return["<",e(s.span,{className:"hljs-title class_",children:"For"}),`
+  each={[
+    `,e(s.span,{className:"hljs-string",children:'"primary"'}),`,
+    `,e(s.span,{className:"hljs-string",children:'"secondary"'}),`,
+    `,e(s.span,{className:"hljs-string",children:'"success"'}),`,
+    `,e(s.span,{className:"hljs-string",children:'"danger"'}),`,
+    `,e(s.span,{className:"hljs-string",children:'"warning"'}),`,
+    `,e(s.span,{className:"hljs-string",children:'"info"'}),`,
+    `,e(s.span,{className:"hljs-string",children:'"light"'}),`,
+    `,e(s.span,{className:"hljs-string",children:'"dark"'}),`,
+  ]}
+>
+  {`,e(s.span,{className:"hljs-function",get children(){return["(",e(s.span,{className:"hljs-params",children:"variant"}),") =>"]}}),` (
+    `,e(s.span,{className:"xml",get children(){return[e(s.span,{className:"hljs-tag",get children(){return["<",e(s.span,{className:"hljs-name",children:"Alert"})," ",e(s.span,{className:"hljs-attr",children:"variant"}),"=",e(s.span,{className:"hljs-string",children:"{variant}"}),">"]}}),`
+      This is a {variant} alert with `,e(s.span,{className:"hljs-tag",get children(){return["<",e(s.span,{className:"hljs-name",children:"Alert.Link"})," ",e(s.span,{className:"hljs-attr",children:"href"}),"=",e(s.span,{className:"hljs-string",children:'"#"'}),">"]}}),"an example link.",e(s.span,{className:"hljs-tag",get children(){return["</",e(s.span,{className:"hljs-name",children:"Alert.Link"}),">"]}}),`. Give it a try if you like.
+    `,e(s.span,{className:"hljs-tag",get children(){return["</",e(s.span,{className:"hljs-name",children:"Alert"}),">"]}})]}}),`
+  )}
+</`,e(s.span,{className:"hljs-title class_",children:"For"}),`>
+`]}})}})}})]}}),null),a(r,e(t,{title:"Additional content",get children(){return[e(t.Intro,{get children(){return e(s.p,{children:"Alerts can contain whatever content you like. Headers, paragraphs, dividers, go crazy."})}}),e(t.Preview,{get children(){return e(l,{variant:"success",get children(){return[e(l.Heading,{children:"Hey, nice to see you"}),(()=>{const n=N.cloneNode(!0);return a(n,e(s.p,{children:`Aww yeah, you successfully read this important alert message. This example
+text is going to run a bit longer so that you can see how spacing within an
+alert works with this kind of content.`})),n})(),_.cloneNode(!0),(()=>{const n=$.cloneNode(!0);return a(n,e(s.p,{children:`Whenever you need to, be sure to use margin utilities to keep things nice
+and tidy.`})),n})()]}})}}),e(t.Code,{get children(){return e(s.pre,{get children(){return e(s.code,{className:"hljs language-js",get children(){return["<",e(s.span,{className:"hljs-title class_",children:"Alert"})," variant=",e(s.span,{className:"hljs-string",children:'"success"'}),`>
+  `,e(s.span,{className:"xml",get children(){return[e(s.span,{className:"hljs-tag",get children(){return["<",e(s.span,{className:"hljs-name",children:"Alert.Heading"}),">"]}}),"Hey, nice to see you",e(s.span,{className:"hljs-tag",get children(){return["</",e(s.span,{className:"hljs-name",children:"Alert.Heading"}),">"]}})]}}),`
+  `,e(s.span,{className:"xml",get children(){return[e(s.span,{className:"hljs-tag",get children(){return["<",e(s.span,{className:"hljs-name",children:"p"}),">"]}}),`
+    Aww yeah, you successfully read this important alert message. This example
+    text is going to run a bit longer so that you can see how spacing within an
+    alert works with this kind of content.
+  `,e(s.span,{className:"hljs-tag",get children(){return["</",e(s.span,{className:"hljs-name",children:"p"}),">"]}})]}}),`
+  `,e(s.span,{className:"xml",get children(){return e(s.span,{className:"hljs-tag",get children(){return["<",e(s.span,{className:"hljs-name",children:"hr"})," />"]}})}}),`
+  `,e(s.span,{className:"xml",get children(){return[e(s.span,{className:"hljs-tag",get children(){return["<",e(s.span,{className:"hljs-name",children:"p"})," ",e(s.span,{className:"hljs-attr",children:"class"}),"=",e(s.span,{className:"hljs-string",children:'"mb-0"'}),">"]}}),`
+    Whenever you need to, be sure to use margin utilities to keep things nice
+    and tidy.
+  `,e(s.span,{className:"hljs-tag",get children(){return["</",e(s.span,{className:"hljs-name",children:"p"}),">"]}})]}}),`
+</`,e(s.span,{className:"hljs-title class_",children:"Alert"}),`>
+`]}})}})}})]}}),null),a(r,e(t,{title:"Dismissing",get children(){return[e(t.Intro,{get children(){return e(s.p,{get children(){return["Add the ",e(s.code,{children:"dismissible"})," prop to add a functioning dismiss button to the Alert."]}})}}),e(t.Preview,{get children(){return e(l,{variant:"danger",dismissible:!0,get children(){return[e(l.Heading,{children:"Oh snap! You got an error!"}),(()=>{const n=N.cloneNode(!0);return a(n,e(s.p,{children:`Change this and that and try again. Duis mollis, est non commodo
+luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.
+Cras mattis consectetur purus sit amet fermentum.`})),n})()]}})}}),e(t.Code,{get children(){return e(s.pre,{get children(){return e(s.code,{className:"hljs language-js",get children(){return["<",e(s.span,{className:"hljs-title class_",children:"Alert"})," variant=",e(s.span,{className:"hljs-string",children:'"danger"'}),` dismissible>
+  `,e(s.span,{className:"xml",get children(){return[e(s.span,{className:"hljs-tag",get children(){return["<",e(s.span,{className:"hljs-name",children:"Alert.Heading"}),">"]}}),"Oh snap! You got an error!",e(s.span,{className:"hljs-tag",get children(){return["</",e(s.span,{className:"hljs-name",children:"Alert.Heading"}),">"]}})]}}),`
+  `,e(s.span,{className:"xml",get children(){return[e(s.span,{className:"hljs-tag",get children(){return["<",e(s.span,{className:"hljs-name",children:"p"}),">"]}}),`
+    Change this and that and try again. Duis mollis, est non commodo
+    luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.
+    Cras mattis consectetur purus sit amet fermentum.
+  `,e(s.span,{className:"hljs-tag",get children(){return["</",e(s.span,{className:"hljs-name",children:"p"}),">"]}})]}}),`
+</`,e(s.span,{className:"hljs-title class_",children:"Alert"}),`>
+`]}})}})}})]}}),null),a(r,e(t,{title:"Controlling visibility",get children(){return[e(t.Intro,{get children(){return e(s.p,{children:"You can also control the visual state directly which is great if you want to build more complicated alerts."})}}),e(t.Preview,{get children(){return e(k,{})}}),e(t.Code,{get children(){return e(s.pre,{get children(){return e(s.code,{className:"hljs language-js",get children(){return[e(s.span,{className:"hljs-keyword",children:"const"})," [show, setShow] = ",e(s.span,{className:"hljs-title function_",children:"createSignal"}),"(",e(s.span,{className:"hljs-literal",children:"true"}),`);
+`,e(s.span,{className:"hljs-keyword",children:"return"}),` (
+  `,e(s.span,{className:"xml",get children(){return[e(s.span,{className:"hljs-tag",children:"<>"}),`
+    `,e(s.span,{className:"hljs-tag",get children(){return["<",e(s.span,{className:"hljs-name",children:"Alert"})," ",e(s.span,{className:"hljs-attr",children:"show"}),"=",e(s.span,{className:"hljs-string",children:"{show()}"})," ",e(s.span,{className:"hljs-attr",children:"variant"}),"=",e(s.span,{className:"hljs-string",children:'"success"'}),">"]}}),`
+      `,e(s.span,{className:"hljs-tag",get children(){return["<",e(s.span,{className:"hljs-name",children:"Alert.Heading"}),">"]}}),"How's it going?!",e(s.span,{className:"hljs-tag",get children(){return["</",e(s.span,{className:"hljs-name",children:"Alert.Heading"}),">"]}}),`
+      `,e(s.span,{className:"hljs-tag",get children(){return["<",e(s.span,{className:"hljs-name",children:"p"}),">"]}}),`
+        Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget
+        lacinia odio sem nec elit. Cras mattis consectetur purus sit amet
+        fermentum.
+      `,e(s.span,{className:"hljs-tag",get children(){return["</",e(s.span,{className:"hljs-name",children:"p"}),">"]}}),`
+      `,e(s.span,{className:"hljs-tag",get children(){return["<",e(s.span,{className:"hljs-name",children:"hr"})," />"]}}),`
+      `,e(s.span,{className:"hljs-tag",get children(){return["<",e(s.span,{className:"hljs-name",children:"div"})," ",e(s.span,{className:"hljs-attr",children:"class"}),"=",e(s.span,{className:"hljs-string",children:'"d-flex justify-content-end"'}),">"]}}),`
+        `,e(s.span,{className:"hljs-tag",get children(){return["<",e(s.span,{className:"hljs-name",children:"Button"})," ",e(s.span,{className:"hljs-attr",children:"onClick"}),"=",e(s.span,{className:"hljs-string",children:"{()"})," =>"]}}),` setShow(false)} variant="outline-success">
+          Close me y'all!
+        `,e(s.span,{className:"hljs-tag",get children(){return["</",e(s.span,{className:"hljs-name",children:"Button"}),">"]}}),`
+      `,e(s.span,{className:"hljs-tag",get children(){return["</",e(s.span,{className:"hljs-name",children:"div"}),">"]}}),`
+    `,e(s.span,{className:"hljs-tag",get children(){return["</",e(s.span,{className:"hljs-name",children:"Alert"}),">"]}}),`
+
+    {!show() && `,e(s.span,{className:"hljs-tag",get children(){return["<",e(s.span,{className:"hljs-name",children:"Button"})," ",e(s.span,{className:"hljs-attr",children:"onClick"}),"=",e(s.span,{className:"hljs-string",children:"{()"})," =>"]}})," setShow(true)}>Show Alert",e(s.span,{className:"hljs-tag",get children(){return["</",e(s.span,{className:"hljs-name",children:"Button"}),">"]}}),`}
+  `,e(s.span,{className:"hljs-tag",children:"</>"})]}}),`
+)
+`]}})}})}})]}}),null),a(r,e(y,{}),null),r})()]}}function h(c,d){throw new Error("Expected "+(d?"component":"object")+" `"+c+"` to be defined: you likely forgot to import, pass, or provide it.")}export{L as default};
