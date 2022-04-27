@@ -4,7 +4,6 @@
 - [Fix: Make `x-placement` attribute reactive #16](https://github.com/solid-libs/solid-bootstrap/commit/5e10673a430fda8bfb11274b210e3d822d51d022)
 - [Fix: `x-placement` attribute inherits from `Overlay`](https://github.com/solid-libs/solid-bootstrap/commit/63f3a3e8853e8fe7aabee7e1e7592d4e7303e217)
 - [Feat: All submodules now have named exports in addition to default exports](https://github.com/solid-libs/solid-bootstrap/commit/11518f5a9b6ac927e2fcc091ea11d77be82b7f75)
-- [Fix: Portal position fixed](https://github.com/solid-libs/solid-bootstrap/commit/7428cd7f1cfebb30c6501c518af8ea46f7a5514a)
 - [Fix: React to children changes without constructing multiple times](https://github.com/solid-libs/solid-bootstrap/commit/e81432380d131859f28471f5447955a4b6c2d142)
 - Various code cleanup
 

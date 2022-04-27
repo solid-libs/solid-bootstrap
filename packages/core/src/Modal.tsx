@@ -494,13 +494,9 @@ export const Modal = (p: ModalProps) => {
     return backdropElement;
   };
 
-  const portalRef = (ref: HTMLDivElement) => {
-    ref.style.position = "fixed";
-  };
-
   return (
     <Show when={container() && dialogVisible()}>
-      <Portal mount={container()!} ref={portalRef}>
+      <Portal mount={container()!}>
         <Backdrop />
         <Dialog />
       </Portal>
