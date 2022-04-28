@@ -234,21 +234,23 @@ export const Transition = (p: TransitionProps) => {
     setMounted(true);
   });
 
+  // Detect actual changes to `in` prop via memo
+  const inMemo = createMemo(() => local.in);
   createComputed(
     on(
-      () => local.in,
+      inMemo,
       () => {
         // componentDidUpdate
         if (!mounted()) return;
         const prevStatus = status();
 
-        if (local.in && prevStatus === UNMOUNTED) {
-          // prepate to show again
+        if (inMemo() && prevStatus === UNMOUNTED) {
+          // prepare to show again
           setStatus(EXITED);
         }
 
         let nextStatus: TransitionStatus | null = null;
-        if (local.in) {
+        if (inMemo()) {
           if (prevStatus !== ENTERING && prevStatus !== ENTERED) {
             nextStatus = ENTERING;
           }
