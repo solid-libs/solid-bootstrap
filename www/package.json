@@ -5,7 +5,7 @@
   "scripts": {
     "start": "vite",
     "dev": "vite",
-    "build": "vite build --emptyOutDir",
+    "build:docs": "vite build --emptyOutDir",
     "deploy": "npm run build && gh-pages -d dist",
     "postbuild": "node ./scripts/postbuild.js",
     "serve": "vite preview",

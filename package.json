@@ -8,6 +8,7 @@
   "workspaces": [
     "packages/transition",
     "packages/core",
-    "packages/bootstrap"
+    "packages/bootstrap",
+    "www"
   ]
 }

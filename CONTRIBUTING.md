@@ -20,7 +20,6 @@ In particular, `npm run build` runs `npm run build` within each package.
 In the `www` directory, you can start a development server like so:
 
 ```sh
-npm install
 npm run dev
 ```
 
@@ -31,7 +30,7 @@ To build a deployable site in the `dist` subdirectory,
 run the following in the `www` directory:
 
 ```sh
-npm run build
+npm run build:docs
 ```
 
 To build a deployable site and deploy it to GitHub Pages,

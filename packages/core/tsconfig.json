@@ -8,8 +8,8 @@
     "jsx": "preserve",
     "jsxImportSource": "solid-js",
     "outDir": "./dist/esm",
-    "module": "esnext"
+    "module": "esnext",
+    "types": ["@types/node"]
   },
-  "include": ["./src"],
-  "exclude": ["node_modules/"]
+  "include": ["./src"]
 }
