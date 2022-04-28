@@ -1,3 +1,7 @@
+## Unreleased
+
+- [Fix: No-op transitions, as needed in Accordion `alwaysOpen` #19](https://github.com/solid-libs/solid-bootstrap/commit/e606ab2e5f067ed9f79e95d59359368d327af5c6)
+
 ## 2022-04-28 - (1.0.8)
 
 - [Feat: Support `class` attribute in addition to `className` attribute (for adding classes to components) #17](https://github.com/solid-libs/solid-bootstrap/commit/7d4055ce0bd09cc9794aa743a90a4c3d025c9639)
