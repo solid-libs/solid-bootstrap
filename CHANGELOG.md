@@ -1,4 +1,4 @@
-## Unreleased
+## 2022-04-28 - (1.0.8)
 
 - [Feat: Support `class` attribute in addition to `className` attribute (for adding classes to components) #17](https://github.com/solid-libs/solid-bootstrap/commit/7d4055ce0bd09cc9794aa743a90a4c3d025c9639)
 - [Fix: Make `x-placement` attribute reactive #16](https://github.com/solid-libs/solid-bootstrap/commit/5e10673a430fda8bfb11274b210e3d822d51d022)
