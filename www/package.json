@@ -6,8 +6,8 @@
     "start": "vite",
     "dev": "vite",
     "build:docs": "vite build --emptyOutDir",
-    "deploy": "npm run build && gh-pages -d dist",
-    "postbuild": "node ./scripts/postbuild.js",
+    "deploy": "npm run build:docs && gh-pages -d dist",
+    "postbuild:docs": "node ./scripts/postbuild.js",
     "serve": "vite preview",
     "watch": "tsc -noemit -watch"
   },
