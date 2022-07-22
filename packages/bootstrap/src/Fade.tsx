@@ -1,7 +1,7 @@
 // ported from https://github.com/react-bootstrap/react-bootstrap/blob/f11723114d532cfce840417834a73733a8436414/src/Fade.tsx
 
-import {children, JSX, mergeProps, splitProps} from "solid-js";
-import {TransitionStatus, ENTERED, ENTERING, TransitionCallbacks} from "solid-react-transition";
+import {children, createSignal, JSX, mergeProps, splitProps} from "solid-js";
+import {TransitionStatus, ENTERED, ENTERING, TransitionCallbacks, UNMOUNTED} from "solid-react-transition";
 import TransitionWrapper from "./TransitionWrapper";
 import transitionEndListener from "./transitionEndListener";
 import triggerBrowserReflow from "./triggerBrowserReflow";
@@ -46,13 +46,15 @@ const Fade = (p: FadeProps) => {
     props.onEnter?.(node, isAppearing);
   };
 
-  const resolvedChildren = children(() => local.children);
+  const [mounted, setMounted] = createSignal(props.in);
+  const resolvedChildren = children(() => mounted() && local.children);
   let prevClasses: string;
 
   return (
     <TransitionWrapper addEndListener={transitionEndListener} onEnter={handleEnter} {...props}>
       {
         ((status: TransitionStatus, innerProps: {ref: (el: Element) => void}) => {
+          setMounted(status !== UNMOUNTED);
           let el = resolvedChildren() as Element;
           while (typeof el === "function") el = (el as Function)();
           innerProps.ref(el);

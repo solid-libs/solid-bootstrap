@@ -1,3 +1,4 @@
+import { onCleanup } from "solid-js";
 import { Accordion } from "solid-bootstrap";
 import Example from "./Example";
 import GithubSource from "./GithubSource";
@@ -18,23 +19,28 @@ Click the accordions below to expand/collapse the accordion content.
 
   <Example title="Basic Example">
     <Example.Preview>
-      <Accordion defaultActiveKey="0">
+      <Accordion defaultActiveKey="0" unmountOnExit={true}>
         <Accordion.Item eventKey="0">
           <Accordion.Header>Accordion Item #1</Accordion.Header>
-          <Accordion.Body>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
+          <Accordion.Body unmountOnExit={true}>
+          {() => {
+            console.log('mounting #1');
+            onCleanup(() => console.log('unmounting #1'));
+            return "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
+          }}
           </Accordion.Body>
         </Accordion.Item>
         <Accordion.Item eventKey="1">
           <Accordion.Header>Accordion Item #2</Accordion.Header>
-          <Accordion.Body>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+          <Accordion.Body unmountOnExit={true}>
+          {() => {
+            console.log('mounting #2');
+            onCleanup(() => console.log('unmounting #2'));
+            return `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
             ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
             reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
+            culpa qui officia deserunt mollit anim id est laborum.`;
+          }}
           </Accordion.Body>
         </Accordion.Item>
       </Accordion>
@@ -67,7 +73,7 @@ Click the accordions below to expand/collapse the accordion content.
 
   <Example title="Fully Collapsed State" >
     <Example.Intro>
-      If you want your `Accordion` to start in a fully-collapsed state, then simply dont pass in a `defaultActiveKey` prop to `Accordion`.
+      If you want your `Accordion` to start in a fully-collapsed state, then simply don't pass in a `defaultActiveKey` prop to `Accordion`.
     </Example.Intro>
     <Example.Preview>
       <Accordion>

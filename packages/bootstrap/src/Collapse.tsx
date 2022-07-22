@@ -1,6 +1,6 @@
 // ported from https://github.com/react-bootstrap/react-bootstrap/blob/f11723114d532cfce840417834a73733a8436414/src/Collapse.tsx
 
-import {children, JSX, mergeProps, splitProps} from "solid-js";
+import {children, createSignal, JSX, mergeProps, splitProps} from "solid-js";
 import css from "dom-helpers/css";
 import {
   TransitionStatus,
@@ -126,7 +126,8 @@ const Collapse = (p: CollapseProps) => {
     local.onExiting?.(elem as HTMLElement);
   };
 
-  const resolvedChildren = children(() => local.children);
+  const [mounted, setMounted] = createSignal(props.in);
+  const resolvedChildren = children(() => mounted() && local.children);
   let prevClasses: string;
 
   return (
@@ -142,6 +143,7 @@ const Collapse = (p: CollapseProps) => {
     >
       {
         ((state: TransitionStatus, innerProps: {ref: (el: HTMLElement) => void}) => {
+          setMounted(state !== UNMOUNTED);
           const el = resolvedChildren() as HTMLElement;
           innerProps.ref(el);
           const newClasses = classNames(

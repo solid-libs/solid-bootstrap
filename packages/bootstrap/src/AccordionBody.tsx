@@ -8,24 +8,30 @@ import AccordionCollapse from "./AccordionCollapse";
 import AccordionItemContext from "./AccordionItemContext";
 import {BsPrefixRefForwardingComponent, BsPrefixProps} from "./helpers";
 
-export interface AccordionBodyProps extends BsPrefixProps, JSX.HTMLAttributes<HTMLElement> {}
+export interface AccordionBodyProps extends BsPrefixProps, JSX.HTMLAttributes<HTMLElement> {
+  unmountOnExit?: boolean;
+}
 
 const defaultProps: Partial<AccordionBodyProps> = {
   as: "div",
 };
 
 const AccordionBody: BsPrefixRefForwardingComponent<"div", AccordionBodyProps> = (p) => {
-  const [local, props] = splitProps(mergeProps(defaultProps, p), [
+  const [local, q] = splitProps(mergeProps(defaultProps, p), [
     "as",
     "bsPrefix",
     "class",
-    "className"
+    "className",
+  ]);
+  const [cProps, props] = splitProps(q, [
+    "unmountOnExit",
   ]);
   const bsPrefix = useBootstrapPrefix(local.bsPrefix, "accordion-body");
   const context = useContext(AccordionItemContext);
+  console.log(cProps);
 
   return (
-    <AccordionCollapse eventKey={context.eventKey}>
+    <AccordionCollapse eventKey={context.eventKey} {...cProps}>
       <Dynamic component={local.as} {...props} class={classNames(local.class, local.className, bsPrefix)}/>
     </AccordionCollapse>
   );

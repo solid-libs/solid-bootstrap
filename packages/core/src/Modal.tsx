@@ -438,7 +438,8 @@ export const Modal = (p: ModalProps) => {
     },
   );
 
-  const child = children(() => local.children);
+  const show = () => container() && dialogVisible()
+  const child = children(() => show() && local.children);
   const getChildAsDocument = () => {
     const c = child();
     (c as HTMLElement)?.setAttribute?.("role", "document");
@@ -495,7 +496,7 @@ export const Modal = (p: ModalProps) => {
   };
 
   return (
-    <Show when={container() && dialogVisible()}>
+    <Show when={show()}>
       <Portal mount={container()!}>
         <Backdrop />
         <Dialog />

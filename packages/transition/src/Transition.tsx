@@ -4,7 +4,6 @@ import {
   createSignal,
   createComputed,
   Component,
-  children,
   JSX,
   useContext,
   on,
@@ -418,9 +417,8 @@ export const Transition = (p: TransitionProps) => {
     }
   }
 
-  const resolvedChildren = children(() => local.children as JSX.Element);
   function renderChild() {
-    const c = resolvedChildren() as TransitionProps["children"];
+    const c = local.children;
     return typeof c === "function" ? c(status(), childProps) : c;
   }
 
