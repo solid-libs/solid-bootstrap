@@ -429,19 +429,19 @@ export const Modal = (p: ModalProps) => {
         return local.style;
       },
       get class() {
-        if (local.class && local.className)
+        if (local.class && local.className) {
           return `${local.class} ${local.className}`;
-        else
+        } else {
           return local.class || local.className;
+        }
       },
       tabIndex: -1,
     },
   );
 
-  const child = children(() => local.children);
   const getChildAsDocument = () => {
-    const c = child();
-    (c as HTMLElement)?.setAttribute?.("role", "document");
+    const c = children(() => local.children);
+    (c() as HTMLElement)?.setAttribute?.("role", "document");
     return c;
   };
 
@@ -449,7 +449,7 @@ export const Modal = (p: ModalProps) => {
     local.renderDialog ? (
       local.renderDialog(dialogProps)
     ) : (
-      <div {...dialogProps}>{getChildAsDocument()}</div>
+      <div {...dialogProps}>{getChildAsDocument}</div>
     );
 
   const Dialog = () => {
