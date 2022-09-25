@@ -11,7 +11,7 @@ export interface NavbarToggleProps extends BsPrefixProps, JSX.HTMLAttributes<HTM
   label?: string;
 }
 
-const defaultProps = {
+const defaultProps: Partial<NavbarToggleProps> = {
   as: "button",
   label: "Toggle navigation",
 };
@@ -23,7 +23,6 @@ const NavbarToggle: BsPrefixRefForwardingComponent<"button", NavbarToggleProps> 
     "as",
     "bsPrefix",
     "class",
-    "className",
     "children",
     "label",
     "onClick",
@@ -48,7 +47,7 @@ const NavbarToggle: BsPrefixRefForwardingComponent<"button", NavbarToggleProps> 
       type={local.as === "button" ? "button" : undefined}
       onClick={handleClick}
       aria-label={local.label}
-      class={classNames(local.class, local.className, bsPrefix, !context?.expanded && "collapsed")}
+      class={classNames(local.class, bsPrefix, !context?.expanded && "collapsed")}
     >
       {local.children || <span class={`${bsPrefix}-icon`} />}
     </Dynamic>

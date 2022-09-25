@@ -7,7 +7,7 @@ import {useBootstrapPrefix} from "./ThemeProvider";
 import AccordionItemContext, {AccordionItemContextValue} from "./AccordionItemContext";
 import {BsPrefixRefForwardingComponent, BsPrefixProps} from "./helpers";
 
-export interface AccordionItemProps extends BsPrefixProps, JSX.HTMLAttributes<HTMLElement> {
+export interface AccordionItemProps extends BsPrefixProps, JSX.HTMLAttributes<HTMLDivElement> {
   eventKey: string;
 }
 
@@ -20,7 +20,6 @@ const AccordionItem: BsPrefixRefForwardingComponent<"div", AccordionItemProps> =
     "as",
     "bsPrefix",
     "class",
-    "className",
     "eventKey",
   ]);
   const bsPrefix = useBootstrapPrefix(local.bsPrefix, "accordion-item");
@@ -32,7 +31,7 @@ const AccordionItem: BsPrefixRefForwardingComponent<"div", AccordionItemProps> =
 
   return (
     <AccordionItemContext.Provider value={contextValue}>
-      <Dynamic component={local.as} {...props} class={classNames(local.class, local.className, bsPrefix)}/>
+      <Dynamic component={local.as} {...props} class={classNames(local.class, bsPrefix)} />
     </AccordionItemContext.Provider>
   );
 };

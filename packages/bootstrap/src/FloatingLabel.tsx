@@ -9,7 +9,7 @@ export interface FloatingLabelProps extends FormGroupProps, BsPrefixProps {
   label: JSX.Element;
 }
 
-const defaultProps = {};
+const defaultProps: Partial<FloatingLabelProps> = {};
 
 const FloatingLabel: BsPrefixRefForwardingComponent<"div", FloatingLabelProps> = (
   p: FloatingLabelProps,
@@ -17,7 +17,6 @@ const FloatingLabel: BsPrefixRefForwardingComponent<"div", FloatingLabelProps> =
   const [local, props] = splitProps(mergeProps(defaultProps, p), [
     "bsPrefix",
     "class",
-    "className",
     "children",
     "controlId",
     "label",
@@ -25,13 +24,9 @@ const FloatingLabel: BsPrefixRefForwardingComponent<"div", FloatingLabelProps> =
   const bsPrefix = useBootstrapPrefix(local.bsPrefix, "form-floating");
 
   return (
-    <FormGroup
-      class={classNames(local.class, local.className, bsPrefix)}
-      controlId={local.controlId}
-      {...props}
-    >
+    <FormGroup class={classNames(local.class, bsPrefix)} controlId={local.controlId} {...props}>
       {local.children}
-      <label htmlFor={local.controlId}>{local.label}</label>
+      <label for={local.controlId}>{local.label}</label>
     </FormGroup>
   );
 };

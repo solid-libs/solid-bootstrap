@@ -2,15 +2,15 @@ import {JSX, mergeProps, splitProps} from "solid-js";
 import classNames from "./classnames";
 import {useBootstrapPrefix} from "./ThemeProvider";
 import {createWithBsPrefix} from "./createWithBsPrefix";
-import {divWithClassName} from "./divWithClassName";
+import {divWithClass} from "./divWithClass";
 import CardImg from "./CardImg";
 import CardHeader from "./CardHeader";
 import {BsPrefixProps, BsPrefixRefForwardingComponent} from "./helpers";
 import {Color, Variant} from "./types";
 import {Dynamic} from "solid-js/web";
 
-const DivStyledAsH5 = divWithClassName("h5");
-const DivStyledAsH6 = divWithClassName("h6");
+const DivStyledAsH5 = divWithClass("h5");
+const DivStyledAsH6 = divWithClass("h6");
 const CardBody = createWithBsPrefix("card-body");
 const CardTitle = createWithBsPrefix("card-title", {
   Component: DivStyledAsH5,
@@ -40,7 +40,6 @@ const Card: BsPrefixRefForwardingComponent<"div", CardProps> = (p: CardProps) =>
     "as",
     "bsPrefix",
     "class",
-    "className",
     "bg",
     "text",
     "border",
@@ -55,7 +54,6 @@ const Card: BsPrefixRefForwardingComponent<"div", CardProps> = (p: CardProps) =>
       {...props}
       class={classNames(
         local.class,
-        local.className,
         prefix,
         local.bg && `bg-${local.bg}`,
         local.text && `text-${local.text}`,

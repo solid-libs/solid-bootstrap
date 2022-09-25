@@ -18,14 +18,13 @@ const AccordionHeader: BsPrefixRefForwardingComponent<"h2", AccordionHeaderProps
     "as",
     "bsPrefix",
     "class",
-    "className",
     "children",
     "onClick",
   ]);
   const bsPrefix = useBootstrapPrefix(local.bsPrefix, "accordion-header");
 
   return (
-    <Dynamic component={local.as} {...props} class={classNames(local.class, local.className, bsPrefix)}>
+    <Dynamic component={local.as} {...props} class={classNames(local.class, bsPrefix)}>
       <AccordionButton onClick={local.onClick}>{local.children}</AccordionButton>
     </Dynamic>
   );

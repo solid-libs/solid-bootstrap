@@ -85,7 +85,7 @@ const ModalApi = () => (
             </td>
           </tr>
           <tr>
-            <td class="font-monospace">backdropClassName </td>
+            <td class="font-monospace">backdropClass </td>
             <td class="font-monospace">
               <div>string</div>
             </td>
@@ -122,7 +122,7 @@ const ModalApi = () => (
             </td>
           </tr>
           <tr>
-            <td class="font-monospace">contentClassName </td>
+            <td class="font-monospace">contentClass </td>
             <td class="font-monospace">
               <div>string</div>
             </td>
@@ -152,7 +152,7 @@ const ModalApi = () => (
             </td>
           </tr>
           <tr>
-            <td class="font-monospace">dialogClassName </td>
+            <td class="font-monospace">dialogClass </td>
             <td class="font-monospace">
               <div>string</div>
             </td>
@@ -488,7 +488,7 @@ const ModalApi = () => (
             </td>
           </tr>
           <tr>
-            <td class="font-monospace">contentClassName </td>
+            <td class="font-monospace">contentClass </td>
             <td class="font-monospace">
               <div>string</div>
             </td>

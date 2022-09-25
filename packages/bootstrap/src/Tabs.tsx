@@ -5,7 +5,6 @@ import {
   Tabs as BaseTabs,
   TabsProps as BaseTabsProps,
 } from "solid-bootstrap-core";
-import classNames from "./classnames";
 import Nav from "./Nav";
 import NavLink from "./NavLink";
 import NavItem from "./NavItem";
@@ -22,7 +21,7 @@ export interface TabsProps
   transition?: TransitionType;
 }
 
-const defaultProps = {
+const defaultProps: Partial<TabsProps> = {
   variant: "tabs",
   mountOnEnter: false,
   unmountOnExit: false,
@@ -51,7 +50,7 @@ function RenderTab(props: TabProps) {
         eventKey={props.eventKey}
         disabled={props.disabled}
         id={props.id}
-        class={classNames(props.tabClass, props.tabClassName)}
+        class={props.tabClass}
         {...(props.tabAttrs || {})}
       >
         {props.title}
@@ -105,9 +104,7 @@ const Tabs = (p: TabsProps) => {
       unmountOnExit={local.unmountOnExit}
     >
       <Nav {...props} role="tablist" as="ul">
-        <For each={tabs()}>
-          {(tabProps) => <RenderTab {...tabProps}/>}
-        </For>
+        <For each={tabs()}>{(tabProps) => <RenderTab {...tabProps} />}</For>
       </Nav>
 
       <TabContent>
@@ -117,11 +114,10 @@ const Tabs = (p: TabsProps) => {
               "title",
               "disabled",
               "tabClass",
-              "tabClassName",
               "tabAttrs",
             ]);
 
-            return <TabPane {...childProps}/>;
+            return <TabPane {...childProps} />;
           }}
         </For>
       </TabContent>

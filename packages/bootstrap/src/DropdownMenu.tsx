@@ -58,7 +58,6 @@ const DropdownMenu: BsPrefixRefForwardingComponent<"div", DropdownMenuProps> = (
     "as",
     "bsPrefix",
     "class",
-    "className",
     "align",
     "rootCloseEvent",
     "flip",
@@ -170,7 +169,6 @@ const DropdownMenu: BsPrefixRefForwardingComponent<"div", DropdownMenuProps> = (
           : {})}
         class={classNames(
           local.class,
-          local.className,
           prefix,
           menuMeta.show && "show",
           alignEnd && `${prefix}-end`,

@@ -14,7 +14,7 @@ export interface ButtonProps extends BaseButtonProps, Omit<BsPrefixProps, "as"> 
 
 export type CommonButtonProps = "href" | "size" | "variant" | "disabled";
 
-const defaultProps = {
+const defaultProps: Partial<ButtonProps> = {
   variant: "primary",
   active: false,
   disabled: false,
@@ -28,7 +28,6 @@ const Button: BsPrefixRefForwardingComponent<"button", ButtonProps> = (p: Button
     "size",
     "active",
     "class",
-    "className",
   ]);
   const prefix = useBootstrapPrefix(local.bsPrefix, "btn");
   const [buttonProps, {tagName}] = useButtonProps({
@@ -43,7 +42,6 @@ const Button: BsPrefixRefForwardingComponent<"button", ButtonProps> = (p: Button
       {...props}
       class={classNames(
         local.class,
-        local.className,
         prefix,
         local.active && "active",
         local.variant && `${prefix}-${local.variant}`,

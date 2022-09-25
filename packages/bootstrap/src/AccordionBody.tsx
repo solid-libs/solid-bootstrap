@@ -15,18 +15,13 @@ const defaultProps: Partial<AccordionBodyProps> = {
 };
 
 const AccordionBody: BsPrefixRefForwardingComponent<"div", AccordionBodyProps> = (p) => {
-  const [local, props] = splitProps(mergeProps(defaultProps, p), [
-    "as",
-    "bsPrefix",
-    "class",
-    "className"
-  ]);
+  const [local, props] = splitProps(mergeProps(defaultProps, p), ["as", "bsPrefix", "class"]);
   const bsPrefix = useBootstrapPrefix(local.bsPrefix, "accordion-body");
   const context = useContext(AccordionItemContext);
 
   return (
     <AccordionCollapse eventKey={context.eventKey}>
-      <Dynamic component={local.as} {...props} class={classNames(local.class, local.className, bsPrefix)}/>
+      <Dynamic component={local.as} {...props} class={classNames(local.class, bsPrefix)} />
     </AccordionCollapse>
   );
 };

@@ -23,7 +23,6 @@ const ButtonGroup: BsPrefixRefForwardingComponent<"div", ButtonGroupProps> = (
     "size",
     "vertical",
     "class",
-    "className",
     "as",
   ]);
   const prefix = useBootstrapPrefix(local.bsPrefix, "btn-group");
@@ -35,7 +34,7 @@ const ButtonGroup: BsPrefixRefForwardingComponent<"div", ButtonGroupProps> = (
     <Dynamic
       component={local.as}
       {...props}
-      class={classNames(local.class, local.className, baseClass, local.size && `${prefix}-${local.size}`)}
+      class={classNames(local.class, baseClass, local.size && `${prefix}-${local.size}`)}
     />
   );
 };

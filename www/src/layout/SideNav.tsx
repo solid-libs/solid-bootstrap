@@ -63,30 +63,27 @@ const nameOverrides = {
 };
 
 const MenuButton = (props: ComponentProps<typeof Button>) => (
-  <Button
-    {...props}
-    class={classNames(props.class, props.className, styles.MenuButton, "p-0 d-md-none ms-auto")}
-  />
+  <Button {...props} class={classNames(props.class, styles.MenuButton, "p-0 d-md-none ms-auto")} />
 );
 
 const SidePanel = (props: ComponentProps<"div">) => (
-  <div {...props} class={classNames(props.class, props.className, styles.SidePanel, "d-flex flex-column")}/>
+  <div {...props} class={classNames(props.class, styles.SidePanel, "d-flex flex-column")} />
 );
 
 const OverflowWrapper = (props: ComponentProps<"div">) => (
-  <div {...props} class={classNames(props.class, props.className, styles.OverflowWrapper)}/>
+  <div {...props} class={classNames(props.class, styles.OverflowWrapper)} />
 );
 
 const TableOfContents = (props: ComponentProps<"nav">) => (
-  <nav {...props} class={classNames(props.class, props.className, styles.TableOfContents, "pt-2 pb-4")}/>
+  <nav {...props} class={classNames(props.class, styles.TableOfContents, "pt-2 pb-4")} />
 );
 
 const TocLink = (props: ComponentProps<typeof Nav.Link>) => (
-  <Nav.Link {...props} class={classNames(props.class, props.className, styles.TocLink)}/>
+  <Nav.Link {...props} class={classNames(props.class, styles.TocLink)} />
 );
 
 const TocSubLink = (props: ComponentProps<typeof TocLink>) => (
-  <TocLink {...props} class={classNames(props.class, props.className, styles.TocSubLink)}/>
+  <TocLink {...props} class={classNames(props.class, styles.TocSubLink)} />
 );
 
 const NavSection = (props: {

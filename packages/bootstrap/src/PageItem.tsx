@@ -12,7 +12,7 @@ export interface PageItemProps extends Omit<JSX.HTMLAttributes<HTMLElement>, "re
   ref?: JSX.HTMLAttributes<HTMLLIElement>["ref"];
 }
 
-const defaultProps = {
+const defaultProps: Partial<PageItemProps> = {
   active: false,
   disabled: false,
   activeLabel: "(current)",
@@ -23,7 +23,6 @@ const PageItem: BsPrefixRefForwardingComponent<"li", PageItemProps> = (p: PageIt
     "active",
     "disabled",
     "class",
-    "className",
     "style",
     "activeLabel",
     "children",
@@ -33,7 +32,7 @@ const PageItem: BsPrefixRefForwardingComponent<"li", PageItemProps> = (p: PageIt
     <li
       ref={local.ref}
       style={local.style}
-      class={classNames(local.class, local.className, "page-item", {
+      class={classNames(local.class, "page-item", {
         active: local.active,
         disabled: local.disabled,
       })}

@@ -34,12 +34,9 @@ export interface ModalProps
   bsPrefix?: string;
   centered?: boolean;
   backdropClass?: string;
-  backdropClassName?: string;
   animation?: boolean;
   dialogClass?: string;
-  dialogClassName?: string;
   contentClass?: string;
-  contentClassName?: string;
   dialogAs?: Component;
   scrollable?: boolean;
   [other: string]: any;
@@ -58,15 +55,11 @@ const defaultProps: Partial<ModalProps> = {
 
 /* eslint-disable no-use-before-define, react/no-multi-comp */
 function DialogTransition(props: FadeProps) {
-  return (
-    <Fade {...props} timeout={undefined}/>
-  );
+  return <Fade {...props} timeout={undefined} />;
 }
 
 function BackdropTransition(props: FadeProps) {
-  return (
-    <Fade {...props} timeout={undefined}/>
-  );
+  return <Fade {...props} timeout={undefined} />;
 }
 
 /* eslint-enable no-use-before-define */
@@ -74,12 +67,9 @@ const Modal: BsPrefixRefForwardingComponent<"div", ModalProps> = (p: ModalProps)
   const [local, props] = splitProps(mergeProps(defaultProps, p), [
     "bsPrefix",
     "class",
-    "className",
     "style",
     "dialogClass",
-    "dialogClassName",
     "contentClass",
-    "contentClassName",
     "children",
     "dialogAs",
     "aria-labelledby",
@@ -103,7 +93,6 @@ const Modal: BsPrefixRefForwardingComponent<"div", ModalProps> = (p: ModalProps)
     "onEntering",
     "onExited",
     "backdropClass",
-    "backdropClassName",
     "manager",
   ]);
   const [modalStyle, setStyle] = createSignal({});
@@ -245,12 +234,7 @@ const Modal: BsPrefixRefForwardingComponent<"div", ModalProps> = (p: ModalProps)
   const renderBackdrop = (backdropProps: any) => (
     <div
       {...backdropProps}
-      class={classNames(
-        `${bsPrefix}-backdrop`,
-        local.backdropClass,
-        local.backdropClassName,
-        !local.animation && "show",
-      )}
+      class={classNames(`${bsPrefix}-backdrop`, local.backdropClass, !local.animation && "show")}
     />
   );
 
@@ -269,12 +253,7 @@ const Modal: BsPrefixRefForwardingComponent<"div", ModalProps> = (p: ModalProps)
       role="dialog"
       {...dialogProps}
       style={baseModalStyle()}
-      class={classNames(
-        local.class,
-        local.className,
-        bsPrefix,
-        animateStaticModal() && `${bsPrefix}-static`,
-      )}
+      class={classNames(local.class, bsPrefix, animateStaticModal() && `${bsPrefix}-static`)}
       onClick={local.backdrop ? handleClick : undefined}
       onMouseUp={handleMouseUp}
       aria-labelledby={local["aria-labelledby"]}
@@ -283,8 +262,8 @@ const Modal: BsPrefixRefForwardingComponent<"div", ModalProps> = (p: ModalProps)
         component={local.dialogAs as typeof ModalDialog}
         {...props}
         onMouseDown={handleDialogMouseDown}
-        class={classNames(local.dialogClass, local.dialogClassName)}
-        contentClass={classNames(local.contentClass, local.contentClassName)}
+        class={local.dialogClass}
+        contentClass={local.contentClass}
       >
         {local.children}
       </Dynamic>

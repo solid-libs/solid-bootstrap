@@ -3,7 +3,7 @@ import classNames from "./classnames";
 import {useBootstrapPrefix, useBootstrapBreakpoints} from "./ThemeProvider";
 import {BsPrefixProps, BsPrefixRefForwardingComponent} from "./helpers";
 import {GapValue} from "./types";
-import createUtilityClassName, {ResponsiveUtilityValue} from "./createUtilityClasses";
+import createUtilityClass, {ResponsiveUtilityValue} from "./createUtilityClasses";
 import {Dynamic} from "solid-js/web";
 
 export type StackDirection = "horizontal" | "vertical";
@@ -22,7 +22,6 @@ const Stack: BsPrefixRefForwardingComponent<"span", StackProps> = (p: StackProps
     "as",
     "bsPrefix",
     "class",
-    "className",
     "direction",
     "gap",
   ]);
@@ -38,9 +37,8 @@ const Stack: BsPrefixRefForwardingComponent<"span", StackProps> = (p: StackProps
       {...props}
       class={classNames(
         local.class,
-        local.className,
         bsPrefix,
-        ...createUtilityClassName({
+        ...createUtilityClass({
           gap: local.gap,
           breakpoints: breakpoints(),
         }),

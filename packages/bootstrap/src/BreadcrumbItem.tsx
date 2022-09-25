@@ -31,7 +31,6 @@ const BreadcrumbItem: BsPrefixRefForwardingComponent<"li", BreadcrumbItemProps> 
     "active",
     "children",
     "class",
-    "className",
     "as",
     "linkAs",
     "linkProps",
@@ -45,7 +44,7 @@ const BreadcrumbItem: BsPrefixRefForwardingComponent<"li", BreadcrumbItemProps> 
     <Dynamic
       component={local.as}
       {...props}
-      class={classNames(prefix, local.class, local.className, {active: local.active})}
+      class={classNames(prefix, local.class, {active: local.active})}
       aria-current={local.active ? "page" : undefined}
     >
       {local.active ? (

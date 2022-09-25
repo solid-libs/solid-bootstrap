@@ -22,7 +22,6 @@ const ToggleButton = (p: ToggleButtonProps) => {
     "bsPrefix",
     "name",
     "class",
-    "className",
     "checked",
     "type",
     "onChange",
@@ -49,7 +48,7 @@ const ToggleButton = (p: ToggleButtonProps) => {
       />
       <Button
         {...props}
-        class={classNames(local.class, local.className, local.disabled && "disabled")}
+        class={classNames(local.class, local.disabled && "disabled")}
         // @ts-ignore
         type={undefined}
         role={undefined}

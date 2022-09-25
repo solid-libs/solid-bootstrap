@@ -60,7 +60,7 @@ const OffcanvasApi = () => (
             </td>
           </tr>
           <tr>
-            <td class="font-monospace">backdropClassName </td>
+            <td class="font-monospace">backdropClass </td>
             <td class="font-monospace">
               <div>string</div>
             </td>

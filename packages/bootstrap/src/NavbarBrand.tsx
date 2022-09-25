@@ -8,24 +8,19 @@ import {Dynamic} from "solid-js/web";
 export interface NavbarBrandProps extends BsPrefixProps, JSX.HTMLAttributes<HTMLElement> {
   href?: string;
 }
-const defaultProps = {};
+const defaultProps: Partial<NavbarBrandProps> = {};
 
 const NavbarBrand: BsPrefixRefForwardingComponent<"a", NavbarBrandProps> = (
   p: NavbarBrandProps,
 ) => {
-  const [local, props] = splitProps(mergeProps(defaultProps, p), [
-    "as",
-    "bsPrefix",
-    "class",
-    "className"
-  ]);
+  const [local, props] = splitProps(mergeProps(defaultProps, p), ["as", "bsPrefix", "class"]);
   const bsPrefix = useBootstrapPrefix(local.bsPrefix, "navbar-brand");
 
   return (
     <Dynamic
       component={local.as || (props.href ? "a" : "span")}
       {...props}
-      class={classNames(local.class, local.className, bsPrefix)}
+      class={classNames(local.class, bsPrefix)}
     />
   );
 };

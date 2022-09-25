@@ -23,7 +23,6 @@ const ToastHeader = (p: ToastHeaderProps) => {
     "closeVariant",
     "closeButton",
     "class",
-    "className",
     "children",
   ]);
   const bsPrefix = useBootstrapPrefix(local.bsPrefix, "toast-header");
@@ -34,7 +33,7 @@ const ToastHeader = (p: ToastHeaderProps) => {
   };
 
   return (
-    <div {...props} class={classNames(bsPrefix, local.class, local.className)}>
+    <div {...props} class={classNames(bsPrefix, local.class)}>
       {local.children}
 
       {local.closeButton && (

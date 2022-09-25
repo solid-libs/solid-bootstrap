@@ -34,7 +34,6 @@ const Accordion: BsPrefixRefForwardingComponent<"div", AccordionProps> = (p) => 
     "alwaysOpen",
     "bsPrefix",
     "class",
-    "className",
     "defaultActiveKey",
     "onSelect",
     "flush",
@@ -64,7 +63,7 @@ const Accordion: BsPrefixRefForwardingComponent<"div", AccordionProps> = (p) => 
       <Dynamic
         component={local.as}
         {...props}
-        class={classNames(local.class, local.className, prefix, local.flush && `${prefix}-flush`)}
+        class={classNames(local.class, prefix, local.flush && `${prefix}-flush`)}
       />
     </AccordionContext.Provider>
   );

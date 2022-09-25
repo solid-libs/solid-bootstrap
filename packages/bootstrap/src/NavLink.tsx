@@ -12,7 +12,7 @@ import {Dynamic} from "solid-js/web";
 
 export interface NavLinkProps extends BsPrefixProps, Omit<BaseNavItemProps, "as"> {}
 
-const defaultProps = {
+const defaultProps: Partial<NavLinkProps> = {
   as: Anchor,
   disabled: false,
 };
@@ -22,7 +22,6 @@ const NavLink: BsPrefixRefForwardingComponent<"a", NavLinkProps> = (p: NavLinkPr
     "as",
     "bsPrefix",
     "class",
-    "className",
     "active",
     "eventKey",
   ]);
@@ -48,7 +47,6 @@ const NavLink: BsPrefixRefForwardingComponent<"a", NavLinkProps> = (p: NavLinkPr
       {...(navItemProps as any)}
       class={classNames(
         local.class,
-        local.className,
         bsPrefix,
         props.disabled && "disabled",
         meta.isActive && "active",

@@ -19,7 +19,7 @@ export interface TabPaneProps
   unmountOnExit?: boolean;
 }
 
-const defaultProps = {};
+const defaultProps: Partial<TabPaneProps> = {};
 
 const TabPane: BsPrefixRefForwardingComponent<"div", TabPaneProps> = (p: TabPaneProps) => {
   const [local, props] = splitProps(mergeProps(defaultProps, p), ["bsPrefix", "transition"]);
@@ -33,7 +33,6 @@ const TabPane: BsPrefixRefForwardingComponent<"div", TabPaneProps> = (p: TabPane
   const [panelLocal, rest] = splitProps(panelProps, [
     "as",
     "class",
-    "className",
     "mountOnEnter",
     "unmountOnExit",
   ]);
@@ -60,7 +59,7 @@ const TabPane: BsPrefixRefForwardingComponent<"div", TabPaneProps> = (p: TabPane
             component={panelLocal.as ?? "div"}
             {...rest}
             ref={props.ref}
-            class={classNames(panelLocal.class, panelLocal.className, prefix, meta.isActive && "active")}
+            class={classNames(panelLocal.class, prefix, meta.isActive && "active")}
           />
         </Transition>
       </SelectableContext.Provider>

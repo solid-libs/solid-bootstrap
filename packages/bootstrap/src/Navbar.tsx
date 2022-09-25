@@ -31,7 +31,7 @@ export interface NavbarProps
   defaultExpanded?: boolean;
 }
 
-const defaultProps = {
+const defaultProps: Partial<NavbarProps> = {
   as: "nav",
   expand: true,
   variant: "light" as const,
@@ -48,7 +48,6 @@ const Navbar: BsPrefixRefForwardingComponent<"nav", NavbarProps> = (p: NavbarPro
     "fixed",
     "sticky",
     "class",
-    "className",
     "expanded",
     "defaultExpanded",
     "onToggle",
@@ -99,7 +98,6 @@ const Navbar: BsPrefixRefForwardingComponent<"nav", NavbarProps> = (p: NavbarPro
           }
           class={classNames(
             local.class,
-            local.className,
             bsPrefix,
             local.expand && expandClass(),
             local.variant && `${bsPrefix}-${local.variant}`,

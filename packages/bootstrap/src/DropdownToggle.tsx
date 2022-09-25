@@ -30,7 +30,6 @@ const DropdownToggle: DropdownToggleComponent = (p: DropdownToggleProps) => {
     "bsPrefix",
     "split",
     "class",
-    "className",
     "childBsPrefix",
     "ref",
   ]);
@@ -57,7 +56,6 @@ const DropdownToggle: DropdownToggleComponent = (p: DropdownToggleProps) => {
       component={local.as}
       class={classNames(
         local.class,
-        local.className,
         prefix,
         local.split && `${prefix}-split`,
         !!isInputGroup && dropdownContext?.show && "show",

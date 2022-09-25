@@ -13,7 +13,7 @@ const defaultProps = {
 };
 
 const FormRange = (p: FormRangeProps) => {
-  const [local, props] = splitProps(mergeProps(defaultProps, p), ["bsPrefix", "className", "id"]);
+  const [local, props] = splitProps(mergeProps(defaultProps, p), ["bsPrefix", "class", "id"]);
   const formContext = useContext(FormContext);
   const bsPrefix = useBootstrapPrefix(local.bsPrefix, "form-range");
 
@@ -21,7 +21,7 @@ const FormRange = (p: FormRangeProps) => {
     <input
       {...props}
       type="range"
-      class={classNames(local.className, bsPrefix)}
+      class={classNames(local.class, bsPrefix)}
       id={local.id || formContext.controlId}
     />
   );

@@ -22,17 +22,12 @@ const defaultProps = {
 };
 
 const Form: BsPrefixRefForwardingComponent<"form", FormProps> = (p: FormProps) => {
-  const [local, props] = splitProps(mergeProps(defaultProps, p), [
-    "as",
-    "class",
-    "className",
-    "validated"
-  ]);
+  const [local, props] = splitProps(mergeProps(defaultProps, p), ["as", "class", "validated"]);
   return (
     <Dynamic
       component={local.as}
       {...props}
-      class={classNames(local.class, local.className, local.validated && "was-validated")}
+      class={classNames(local.class, local.validated && "was-validated")}
     />
   );
 };

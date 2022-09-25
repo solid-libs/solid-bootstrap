@@ -23,7 +23,6 @@ const Tooltip = (p: TooltipProps) => {
     "bsPrefix",
     "placement",
     "class",
-    "className",
     "style",
     "children",
     "arrowProps",
@@ -32,19 +31,18 @@ const Tooltip = (p: TooltipProps) => {
   ]);
   const bsPrefix = useBootstrapPrefix(local.bsPrefix, "tooltip");
   const context = useContext(OverlayContext);
-  const primaryPlacement = () =>
-    (context?.metadata?.placement || local.placement)?.split("-")?.[0];
+  const primaryPlacement = () => (context?.metadata?.placement || local.placement)?.split("-")?.[0];
 
   return (
     <div
       role="tooltip"
       x-placement={primaryPlacement()}
-      class={classNames(local.class, local.className, bsPrefix, `bs-tooltip-auto`)}
+      class={classNames(local.class, bsPrefix, `bs-tooltip-auto`)}
       {...props}
       {...context?.wrapperProps}
       style={Object.assign({}, local.style, context?.wrapperProps.style)}
     >
-      <div class="tooltip-arrow" {...local.arrowProps} {...context?.arrowProps}/>
+      <div class="tooltip-arrow" {...local.arrowProps} {...context?.arrowProps} />
       <div class={`${bsPrefix}-inner`}>{local.children}</div>
     </div>
   );

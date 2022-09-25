@@ -3,10 +3,10 @@
 import classNames from "./classnames";
 import {useBootstrapPrefix} from "./ThemeProvider";
 import {BsPrefixRefForwardingComponent} from "./helpers";
-import {Component, ComponentProps, JSX, mergeProps, splitProps} from "solid-js";
+import {Component, ComponentProps, JSX, mergeProps, splitProps, ValidComponent} from "solid-js";
 import {Dynamic} from "solid-js/web";
 
-type ElementType = keyof JSX.IntrinsicElements | Component<any>;
+type ElementType = ValidComponent;
 
 interface BsPrefixOptions<As extends ElementType = "div"> {
   Component?: As;
@@ -21,18 +21,13 @@ export function createWithBsPrefix<As extends ElementType = "div">(
   const BsComponent = (p: any) => {
     const [local, props] = splitProps(mergeProps({as: Component || "div"}, defaultProps, p), [
       "class",
-      "className",
       "bsPrefix",
       "as",
     ]);
 
     const resolvedPrefix = useBootstrapPrefix(local.bsPrefix, prefix);
     return (
-      <Dynamic
-        component={local.as}
-        class={classNames(local.class, local.className, resolvedPrefix)}
-        {...props}
-      />
+      <Dynamic component={local.as} class={classNames(local.class, resolvedPrefix)} {...props} />
     );
   };
   return BsComponent as any;

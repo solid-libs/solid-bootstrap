@@ -7,7 +7,7 @@ export interface FormGroupProps extends JSX.HTMLAttributes<HTMLElement>, AsProp 
   controlId?: string;
 }
 
-const defaultProps = {
+const defaultProps: Partial<FormGroupProps> = {
   as: "div",
 };
 
@@ -21,7 +21,7 @@ const FormGroup: BsPrefixRefForwardingComponent<"div", FormGroupProps> = (p: For
 
   return (
     <FormContext.Provider value={context}>
-      <Dynamic component={local.as} {...props}/>
+      <Dynamic component={local.as} {...props} />
     </FormContext.Provider>
   );
 };

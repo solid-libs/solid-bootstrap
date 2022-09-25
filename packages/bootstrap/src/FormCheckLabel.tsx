@@ -13,12 +13,7 @@ export interface FormCheckLabelProps
 const defaultProps = {};
 
 const FormCheckLabel = (p: FormCheckLabelProps) => {
-  const [local, props] = splitProps(mergeProps(defaultProps, p), [
-    "bsPrefix",
-    "class",
-    "className",
-    "htmlFor",
-  ]);
+  const [local, props] = splitProps(mergeProps(defaultProps, p), ["bsPrefix", "class", "for"]);
   const bsPrefix = useBootstrapPrefix(local.bsPrefix, "form-check-label");
   const formContext = useContext(FormContext);
   const formCheckContext = useContext(FormCheckContext);
@@ -27,8 +22,8 @@ const FormCheckLabel = (p: FormCheckLabelProps) => {
   return (
     <label // eslint-disable-line jsx-a11y/label-has-associated-control
       {...props}
-      htmlFor={local.htmlFor || formContext.controlId}
-      class={classNames(local.class, local.className, bsPrefix)}
+      for={local.for || formContext.controlId}
+      class={classNames(local.class, bsPrefix)}
     />
   );
 };

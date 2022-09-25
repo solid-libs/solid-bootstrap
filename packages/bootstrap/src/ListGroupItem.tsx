@@ -12,7 +12,7 @@ export interface ListGroupItemProps extends Omit<BaseNavItemProps, "onSelect">, 
   variant?: Variant;
 }
 
-const defaultProps = {};
+const defaultProps: Partial<ListGroupItemProps> = {};
 
 const ListGroupItem: BsPrefixRefForwardingComponent<"a", ListGroupItemProps> = (
   p: ListGroupItemProps,
@@ -24,7 +24,6 @@ const ListGroupItem: BsPrefixRefForwardingComponent<"a", ListGroupItemProps> = (
     "disabled",
     "eventKey",
     "class",
-    "className",
     "variant",
     "action",
   ]);
@@ -69,7 +68,6 @@ const ListGroupItem: BsPrefixRefForwardingComponent<"a", ListGroupItemProps> = (
       onClick={handleClick()}
       class={classNames(
         local.class,
-        local.className,
         bsPrefix,
         meta.isActive && "active",
         local.disabled && "disabled",

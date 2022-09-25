@@ -43,7 +43,6 @@ const ToastContainer: BsPrefixRefForwardingComponent<"div", ToastContainerProps>
     "bsPrefix",
     "position",
     "class",
-    "className",
   ]);
   const bsPrefix = useBootstrapPrefix(local.bsPrefix, "toast-container");
 
@@ -55,7 +54,6 @@ const ToastContainer: BsPrefixRefForwardingComponent<"div", ToastContainerProps>
         bsPrefix,
         local.position && `position-absolute ${positionClasses[local.position]}`,
         local.class,
-        local.className,
       )}
     />
   );

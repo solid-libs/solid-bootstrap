@@ -17,7 +17,6 @@ const FormText: BsPrefixRefForwardingComponent<"small", FormTextProps> = (p: For
     "as",
     "bsPrefix",
     "class",
-    "className",
     "muted",
   ]);
   const bsPrefix = useBootstrapPrefix(local.bsPrefix, "form-text");
@@ -26,7 +25,7 @@ const FormText: BsPrefixRefForwardingComponent<"small", FormTextProps> = (p: For
     <Dynamic
       component={local.as}
       {...props}
-      class={classNames(local.class, local.className, bsPrefix, local.muted && "text-muted")}
+      class={classNames(local.class, bsPrefix, local.muted && "text-muted")}
     />
   );
 };

@@ -20,7 +20,7 @@ export interface ToastProps extends BsPrefixProps, JSX.HTMLAttributes<HTMLDivEle
   bg?: Variant;
 }
 
-const defaultProps = {
+const defaultProps: Partial<ToastProps> = {
   transition: ToastFade,
   show: true,
   animation: true,
@@ -32,7 +32,6 @@ const Toast: BsPrefixRefForwardingComponent<"div", ToastProps> = (p: ToastProps)
   const [local, props] = splitProps(mergeProps(defaultProps, p), [
     "bsPrefix",
     "class",
-    "className",
     "transition",
     "show",
     "animation",
@@ -81,7 +80,7 @@ const Toast: BsPrefixRefForwardingComponent<"div", ToastProps> = (p: ToastProps)
   };
 
   const hasAnimation = !!(local.transition! && local.animation);
-  const Transition = local.transition;
+  const Transition = local.transition!;
 
   const ToastInner = () => (
     <div
@@ -89,7 +88,6 @@ const Toast: BsPrefixRefForwardingComponent<"div", ToastProps> = (p: ToastProps)
       class={classNames(
         bsPrefix,
         local.class,
-        local.className,
         local.bg && `bg-${local.bg}`,
         !hasAnimation && (local.show ? "show" : "hide"),
       )}

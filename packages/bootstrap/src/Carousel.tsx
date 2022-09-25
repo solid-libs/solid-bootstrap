@@ -40,7 +40,7 @@ export interface CarouselProps
   defaultActiveIndex?: number;
   onSlide?: (eventKey: number, direction: "start" | "end") => void;
   onSlid?: (eventKey: number, direction: "start" | "end") => void;
-  interval?: number | null;
+  interval?: number;
   keyboard?: boolean;
   pause?: "hover" | false;
   wrap?: boolean;
@@ -63,7 +63,7 @@ type ItemWithClasses = CarouselItemReturnType & {
 
 const SWIPE_THRESHOLD = 40;
 
-const defaultProps = {
+const defaultProps: Partial<CarouselProps> = {
   as: "div",
   slide: true,
   fade: false,
@@ -131,7 +131,6 @@ const Carousel: BsPrefixRefForwardingComponent<"div", CarouselProps> = (p: Carou
     "nextLabel",
     "variant",
     "class",
-    "className",
     "children",
     "ref",
   ]);
@@ -258,8 +257,8 @@ const Carousel: BsPrefixRefForwardingComponent<"div", CarouselProps> = (p: Carou
     local.onSlid?.(renderedActiveIndex(), slideDirection());
   });
 
-  const orderClassName = createMemo(() => `${prefix}-item-${direction()}`);
-  const directionalClassName = createMemo(() => `${prefix}-item-${slideDirection()}`);
+  const orderClass = createMemo(() => `${prefix}-item-${direction()}`);
+  const directionalClass = createMemo(() => `${prefix}-item-${slideDirection()}`);
 
   const handleEnter = (node: any) => {
     triggerBrowserReflow(node!);
@@ -397,7 +396,6 @@ const Carousel: BsPrefixRefForwardingComponent<"div", CarouselProps> = (p: Carou
       onTouchEnd={handleTouchEnd}
       class={classNames(
         local.class,
-        local.className,
         prefix,
         local.slide && "slide",
         local.fade && `${prefix}-fade`,
@@ -440,9 +438,9 @@ const Carousel: BsPrefixRefForwardingComponent<"div", CarouselProps> = (p: Carou
                   ((status: TransitionStatus, innerProps: {ref: (el: HTMLElement) => void}) => {
                     innerProps.ref(el);
                     const newClasses = classNames(
-                      isActive(index()) && status !== "entered" && orderClassName(),
+                      isActive(index()) && status !== "entered" && orderClass(),
                       (status === "entered" || status === "exiting") && "active",
-                      (status === "entering" || status === "exiting") && directionalClassName(),
+                      (status === "entering" || status === "exiting") && directionalClass(),
                     );
                     resolveClasses(el, child.prevClasses, newClasses);
                     child.prevClasses = newClasses;

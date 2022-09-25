@@ -1,4 +1,12 @@
-import {children, createMemo, createSignal, JSX, mergeProps, splitProps, useContext} from "solid-js";
+import {
+  children,
+  createMemo,
+  createSignal,
+  JSX,
+  mergeProps,
+  splitProps,
+  useContext,
+} from "solid-js";
 import classNames from "./classnames";
 import Feedback, {FeedbackType} from "./Feedback";
 import FormCheckInput from "./FormCheckInput";
@@ -23,7 +31,7 @@ export interface FormCheckProps extends BsPrefixProps, JSX.InputHTMLAttributes<H
   bsSwitchPrefix?: string;
 }
 
-const defaultProps = {
+const defaultProps: Partial<FormCheckProps> = {
   as: "input",
   title: "",
   type: "checkbox",
@@ -48,7 +56,6 @@ const FormCheck: BsPrefixRefForwardingComponent<"input", FormCheckProps> = (p: F
     "feedback",
     "feedbackType",
     "class",
-    "className",
     "style",
     "title",
     "type",
@@ -67,7 +74,8 @@ const FormCheck: BsPrefixRefForwardingComponent<"input", FormCheckProps> = (p: F
   };
   const resolvedChildren = children(() => local.children);
   const hasLabel = createMemo(
-    () => (local.label != null && local.label !== false && !resolvedChildren()) || hasFormCheckLabel(),
+    () =>
+      (local.label != null && local.label !== false && !resolvedChildren()) || hasFormCheckLabel(),
   );
 
   return (
@@ -77,7 +85,6 @@ const FormCheck: BsPrefixRefForwardingComponent<"input", FormCheckProps> = (p: F
           style={local.style}
           class={classNames(
             local.class,
-            local.className,
             hasLabel() && bsPrefix,
             local.inline && `${bsPrefix}-inline`,
             local.type === "switch" && bsSwitchPrefix,

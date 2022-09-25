@@ -20,7 +20,7 @@ export interface FadeProps extends TransitionCallbacks {
   transitionClasses?: Record<string, string>;
 }
 
-const defaultProps = {
+const defaultProps: Partial<FadeProps> = {
   in: false,
   timeout: 300,
   mountOnEnter: false,
@@ -36,7 +36,6 @@ const fadeStyles = {
 const Fade = (p: FadeProps) => {
   const [local, props] = splitProps(mergeProps(defaultProps, p), [
     "class",
-    "className",
     "children",
     "transitionClasses",
   ]);
@@ -59,7 +58,6 @@ const Fade = (p: FadeProps) => {
           const newClasses = classNames(
             "fade",
             local.class,
-            local.className,
             // @ts-ignore
             fadeStyles?.[status],
             local.transitionClasses?.[status],

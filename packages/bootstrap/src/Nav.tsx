@@ -24,7 +24,7 @@ export interface NavProps extends BsPrefixProps, BaseNavProps {
   navbarScroll?: boolean;
 }
 
-const defaultProps = {
+const defaultProps: Partial<NavProps> = {
   as: "div",
   justify: false,
   fill: false,
@@ -42,7 +42,6 @@ const Nav: BsPrefixRefForwardingComponent<"div", NavProps> = (p: NavProps) => {
     "navbar",
     "navbarScroll",
     "class",
-    "className",
     "onSelect",
   ]);
 
@@ -72,7 +71,7 @@ const Nav: BsPrefixRefForwardingComponent<"div", NavProps> = (p: NavProps) => {
       as={local.as}
       activeKey={activeKey()}
       onSelect={onSelect}
-      class={classNames(local.class, local.className, {
+      class={classNames(local.class, {
         [bsPrefix]: !isNavbar,
         [`${navbarBsPrefix}-nav`]: isNavbar,
         [`${navbarBsPrefix}-nav-scroll`]: isNavbar && local.navbarScroll,

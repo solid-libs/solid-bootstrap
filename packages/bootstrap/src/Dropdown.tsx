@@ -55,7 +55,6 @@ const Dropdown: BsPrefixRefForwardingComponent<"div", DropdownProps> = (p) => {
     "show",
     "defaultShow",
     "class",
-    "className",
     "align",
     "onSelect",
     "onToggle",
@@ -130,7 +129,6 @@ const Dropdown: BsPrefixRefForwardingComponent<"div", DropdownProps> = (p) => {
             {...props}
             class={classNames(
               local.class,
-              local.className,
               show() && "show",
               (!local.drop || local.drop === "down") && prefix,
               local.drop === "up" && "dropup",

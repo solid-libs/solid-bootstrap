@@ -218,7 +218,7 @@ const TabsApi = () => (
             </td>
           </tr>
           <tr>
-            <td class="font-monospace">tabClassName </td>
+            <td class="font-monospace">tabClass </td>
             <td class="font-monospace">
               <div>string</div>
             </td>

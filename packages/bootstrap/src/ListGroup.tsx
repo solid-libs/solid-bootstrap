@@ -17,7 +17,7 @@ export interface ListGroupProps extends BsPrefixProps, BaseNavProps {
   numbered?: boolean;
 }
 
-const defaultProps = {
+const defaultProps: Partial<ListGroupProps> = {
   as: "div",
 };
 
@@ -28,7 +28,6 @@ const ListGroup: BsPrefixRefForwardingComponent<"div", ListGroupProps> = (p: Lis
     "defaultActiveKey",
     "bsPrefix",
     "class",
-    "className",
     "variant",
     "horizontal",
     "numbered",
@@ -55,7 +54,6 @@ const ListGroup: BsPrefixRefForwardingComponent<"div", ListGroupProps> = (p: Lis
       onSelect={onSelect}
       class={classNames(
         local.class,
-        local.className,
         bsPrefix,
         local.variant && `${bsPrefix}-${local.variant}`,
         horizontalVariant && `${bsPrefix}-${horizontalVariant}`,

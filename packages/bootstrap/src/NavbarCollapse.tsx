@@ -10,13 +10,12 @@ export interface NavbarCollapseProps
     JSX.HTMLAttributes<HTMLDivElement>,
     BsPrefixProps {}
 
-const defaultProps = {};
+const defaultProps: Partial<NavbarCollapseProps> = {};
 
 const NavbarCollapse = (p: NavbarCollapseProps) => {
   const [local, props] = splitProps(mergeProps(defaultProps, p), [
     "bsPrefix",
     "class",
-    "className",
     "children",
     "ref",
   ]);
@@ -25,7 +24,7 @@ const NavbarCollapse = (p: NavbarCollapseProps) => {
 
   return (
     <Collapse in={!!context?.expanded} {...props}>
-      <div ref={local.ref} class={classnames(bsPrefix, local.class, local.className)}>
+      <div ref={local.ref} class={classnames(bsPrefix, local.class)}>
         {local.children}
       </div>
     </Collapse>

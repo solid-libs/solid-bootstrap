@@ -13,7 +13,7 @@ import {Dynamic} from "solid-js/web";
 
 export interface DropdownItemProps extends BaseDropdownItemProps<HTMLElement>, BsPrefixProps {}
 
-const defaultProps = {
+const defaultProps: Partial<DropdownItemProps> = {
   as: Anchor,
   disabled: false,
 };
@@ -25,7 +25,6 @@ const DropdownItem: BsPrefixRefForwardingComponent<typeof BaseDropdownItem, Drop
     "as",
     "bsPrefix",
     "class",
-    "className",
     "eventKey",
     "disabled",
     "onClick",
@@ -57,7 +56,6 @@ const DropdownItem: BsPrefixRefForwardingComponent<typeof BaseDropdownItem, Drop
       {...dropdownItemProps}
       class={classNames(
         local.class,
-        local.className,
         prefix,
         meta.isActive && "active",
         local.disabled && "disabled",

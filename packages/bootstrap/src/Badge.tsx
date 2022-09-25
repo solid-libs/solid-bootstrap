@@ -25,7 +25,6 @@ const Badge: BsPrefixRefForwardingComponent<"span", BadgeProps> = (p: BadgeProps
     "pill",
     "text",
     "class",
-    "className",
   ]);
 
   const prefix = useBootstrapPrefix(local.bsPrefix, "badge");
@@ -35,7 +34,6 @@ const Badge: BsPrefixRefForwardingComponent<"span", BadgeProps> = (p: BadgeProps
       {...props}
       class={classNames(
         local.class,
-        local.className,
         prefix,
         local.pill && `rounded-pill`,
         local.text && `text-${local.text}`,

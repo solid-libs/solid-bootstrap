@@ -10,6 +10,7 @@ import Fade from "./Fade";
 import {TransitionType} from "./helpers";
 import {Placement, RootCloseEvent} from "./types";
 import OverlayContext from "./OverlayContext";
+import {TransitionComponent} from "solid-react-transition";
 
 export type OverlayChildren = JSX.Element | ((injected: OverlayInjectedProps) => JSX.Element);
 

@@ -31,17 +31,12 @@ export interface RowProps extends BsPrefixProps, JSX.HTMLAttributes<HTMLElement>
   [key: string]: any;
 }
 
-const defaultProps = {
+const defaultProps: Partial<RowProps> = {
   as: "div",
 };
 
 const Row: BsPrefixRefForwardingComponent<"div", RowProps> = (p: RowProps) => {
-  const [local, props] = splitProps(mergeProps(defaultProps, p), [
-    "as",
-    "bsPrefix",
-    "class",
-    "className",
-  ]);
+  const [local, props] = splitProps(mergeProps(defaultProps, p), ["as", "bsPrefix", "class"]);
   const decoratedBsPrefix = useBootstrapPrefix(local.bsPrefix, "row");
   const breakpoints = useBootstrapBreakpoints();
   const sizePrefix = `${decoratedBsPrefix}-cols`;
@@ -67,7 +62,7 @@ const Row: BsPrefixRefForwardingComponent<"div", RowProps> = (p: RowProps) => {
     <Dynamic
       component={local.as}
       {...props}
-      class={classNames(local.class, local.className, decoratedBsPrefix, ...classes)}
+      class={classNames(local.class, decoratedBsPrefix, ...classes)}
     />
   );
 };

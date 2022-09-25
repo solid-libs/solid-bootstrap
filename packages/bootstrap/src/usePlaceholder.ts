@@ -20,13 +20,12 @@ export default function usePlaceholder({
   ...props
 }: UsePlaceholderProps) {
   bsPrefix = useBootstrapPrefix(bsPrefix, "placeholder");
-  const [{class: class_, className, ...colProps}] = useCol(props);
+  const [{class: class_, ...colProps}] = useCol(props);
 
   return {
     ...colProps,
     class: classNames(
       class_,
-      className,
       animation ? `${bsPrefix}-${animation}` : bsPrefix,
       size && `${bsPrefix}-${size}`,
       bg && `bg-${bg}`,

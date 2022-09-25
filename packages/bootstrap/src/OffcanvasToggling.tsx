@@ -15,7 +15,6 @@ import {resolveClasses} from "solid-bootstrap-core";
 
 export interface OffcanvasTogglingProps extends TransitionCallbacks, BsPrefixOnlyProps {
   class?: string;
-  className?: string;
   in?: boolean;
   mountOnEnter?: boolean;
   unmountOnExit?: boolean;
@@ -24,7 +23,7 @@ export interface OffcanvasTogglingProps extends TransitionCallbacks, BsPrefixOnl
   children: JSX.Element;
 }
 
-const defaultProps = {
+const defaultProps: Partial<OffcanvasTogglingProps> = {
   in: false,
   mountOnEnter: false,
   unmountOnExit: false,
@@ -37,12 +36,7 @@ const transitionStyles = {
 };
 
 const OffcanvasToggling = (p: OffcanvasTogglingProps) => {
-  const [local, props] = splitProps(mergeProps(defaultProps, p), [
-    "bsPrefix",
-    "class",
-    "className",
-    "children",
-  ]);
+  const [local, props] = splitProps(mergeProps(defaultProps, p), ["bsPrefix", "class", "children"]);
   const bsPrefix = useBootstrapPrefix(local.bsPrefix, "offcanvas");
 
   const resolvedChildren = children(() => local.children);
@@ -56,7 +50,6 @@ const OffcanvasToggling = (p: OffcanvasTogglingProps) => {
           innerProps.ref(el);
           const newClasses = classNames(
             local.class,
-            local.className,
             (status === ENTERING || status === EXITING) && `${bsPrefix}-toggling`,
             // @ts-ignore
             transitionStyles[status],

@@ -11,7 +11,7 @@ export interface PaginationProps extends BsPrefixProps, JSX.HTMLAttributes<HTMLU
   size?: "sm" | "lg";
 }
 
-const defaultProps = {};
+const defaultProps: Partial<PaginationProps> = {};
 
 /**
  * @property {PageItem} Item
@@ -22,19 +22,13 @@ const defaultProps = {};
  * @property {PageItem} Last
  */
 const Pagination = (p: PaginationProps) => {
-  const [local, props] = splitProps(mergeProps(defaultProps, p), [
-    "bsPrefix",
-    "class",
-    "className",
-    "size"
-  ]);
+  const [local, props] = splitProps(mergeProps(defaultProps, p), ["bsPrefix", "class", "size"]);
   const decoratedBsPrefix = useBootstrapPrefix(local.bsPrefix, "pagination");
   return (
     <ul
       {...props}
       class={classNames(
         local.class,
-        local.className,
         decoratedBsPrefix,
         local.size && `${decoratedBsPrefix}-${local.size}`,
       )}

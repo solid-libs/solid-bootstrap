@@ -20,7 +20,6 @@ const Table = (p: TableProps) => {
   const [local, props] = splitProps(mergeProps(defaultProps, p), [
     "bsPrefix",
     "class",
-    "className",
     "striped",
     "bordered",
     "borderless",
@@ -33,7 +32,6 @@ const Table = (p: TableProps) => {
   const classes = () =>
     classNames(
       local.class,
-      local.className,
       decoratedBsPrefix,
       local.variant && `${decoratedBsPrefix}-${local.variant}`,
       local.size && `${decoratedBsPrefix}-${local.size}`,
@@ -43,9 +41,7 @@ const Table = (p: TableProps) => {
       local.hover && `${decoratedBsPrefix}-hover`,
     );
 
-  const table = () => (
-    <table {...props} class={classes()}/>
-  );
+  const table = () => <table {...props} class={classes()} />;
   if (local.responsive) {
     let responsiveClass = `${decoratedBsPrefix}-responsive`;
     if (typeof local.responsive === "string") {

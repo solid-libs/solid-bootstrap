@@ -7,7 +7,7 @@ import {useBootstrapPrefix} from "./ThemeProvider";
 import Fade from "./Fade";
 import CloseButton, {CloseButtonVariant} from "./CloseButton";
 import {Variant} from "./types";
-import {divWithClassName} from "./divWithClassName";
+import {divWithClass} from "./divWithClass";
 import {createWithBsPrefix} from "./createWithBsPrefix";
 import {TransitionType} from "./helpers";
 
@@ -23,7 +23,7 @@ export interface AlertProps extends JSX.HTMLAttributes<HTMLDivElement> {
   transition?: TransitionType;
 }
 
-const DivStyledAsH4 = divWithClassName("h4");
+const DivStyledAsH4 = divWithClass("h4");
 
 const AlertHeading = createWithBsPrefix("alert-heading", {
   Component: DivStyledAsH4,
@@ -49,7 +49,6 @@ const Alert = (uncontrolledProps: AlertProps) => {
     "closeLabel",
     "closeVariant",
     "class",
-    "className",
     "children",
     "variant",
     "onClose",
@@ -77,7 +76,6 @@ const Alert = (uncontrolledProps: AlertProps) => {
       {...(!Transition ? props : {})}
       class={classNames(
         local.class,
-        local.className,
         prefix,
         local.variant && `${prefix}-${local.variant}`,
         local.dismissible && `${prefix}-dismissible`,

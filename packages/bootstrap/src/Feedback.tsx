@@ -23,7 +23,6 @@ const Feedback: BsPrefixRefForwardingComponent<"div", FeedbackProps> = (p: Feedb
   const [local, props] = splitProps(mergeProps(defaultProps, p), [
     "as",
     "class",
-    "className",
     "type",
     "tooltip",
   ]);
@@ -31,11 +30,7 @@ const Feedback: BsPrefixRefForwardingComponent<"div", FeedbackProps> = (p: Feedb
     <Dynamic
       component={local.as}
       {...props}
-      class={classNames(
-        local.class,
-        local.className,
-        `${local.type}-${local.tooltip ? "tooltip" : "feedback"}`,
-      )}
+      class={classNames(local.class, `${local.type}-${local.tooltip ? "tooltip" : "feedback"}`)}
     />
   );
 };

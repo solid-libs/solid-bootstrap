@@ -34,7 +34,6 @@ const FormLabel: BsPrefixRefForwardingComponent<"label", FormLabelProps> = (p: F
     "column",
     "visuallyHidden",
     "class",
-    "className",
     "htmlFor",
   ]);
   const formContext = useContext(FormContext);
@@ -47,19 +46,13 @@ const FormLabel: BsPrefixRefForwardingComponent<"label", FormLabelProps> = (p: F
   const classes = () =>
     classNames(
       local.class,
-      local.className,
       bsPrefix,
       local.visuallyHidden && "visually-hidden",
       local.column && columnClass,
     );
 
   return !!local.column ? (
-    <Col
-      as="label"
-      class={classes()}
-      htmlFor={local.htmlFor || formContext.controlId}
-      {...props}
-    />
+    <Col as="label" class={classes()} htmlFor={local.htmlFor || formContext.controlId} {...props} />
   ) : (
     <Dynamic
       component={local.as}

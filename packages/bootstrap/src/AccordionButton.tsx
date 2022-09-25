@@ -51,7 +51,6 @@ const AccordionButton: BsPrefixRefForwardingComponent<"button", AccordionButtonP
     "as",
     "bsPrefix",
     "class",
-    "className",
     "onClick",
   ]);
   const bsPrefix = useBootstrapPrefix(local.bsPrefix, "accordion-button");
@@ -68,7 +67,6 @@ const AccordionButton: BsPrefixRefForwardingComponent<"button", AccordionButtonP
       aria-expanded={itemContext.eventKey === accordionContext.activeEventKey}
       class={classNames(
         local.class,
-        local.className,
         bsPrefix,
         !isAccordionItemSelected(accordionContext.activeEventKey, itemContext.eventKey) &&
           "collapsed",

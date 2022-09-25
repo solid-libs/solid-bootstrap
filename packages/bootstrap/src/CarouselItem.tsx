@@ -24,7 +24,6 @@ const CarouselItem = (p: CarouselItemProps) => {
     "as",
     "bsPrefix",
     "class",
-    "className",
     "interval",
   ]);
   // custom response to allow <Carousel /> to access interval
@@ -33,7 +32,7 @@ const CarouselItem = (p: CarouselItemProps) => {
       <Dynamic
         component={local.as}
         {...props}
-        class={classNames(local.class, local.className, useBootstrapPrefix(local.bsPrefix, "carousel-item"))}
+        class={classNames(local.class, useBootstrapPrefix(local.bsPrefix, "carousel-item"))}
       />
     ),
     interval: local.interval,

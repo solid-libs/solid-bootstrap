@@ -17,7 +17,6 @@ const CardImg: BsPrefixRefForwardingComponent<"img", CardImgProps> = (p: CardImg
     "as",
     "bsPrefix",
     "class",
-    "className",
     "variant",
   ]);
   const prefix = useBootstrapPrefix(local.bsPrefix, "card-img");
@@ -25,7 +24,7 @@ const CardImg: BsPrefixRefForwardingComponent<"img", CardImgProps> = (p: CardImg
   return (
     <Dynamic
       component={local.as}
-      class={classNames(local.variant ? `${prefix}-${local.variant}` : prefix, local.class, local.className)}
+      class={classNames(local.variant ? `${prefix}-${local.variant}` : prefix, local.class)}
       {...props}
     />
   );

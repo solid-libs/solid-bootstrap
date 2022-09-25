@@ -27,7 +27,6 @@ const Popover = (p: PopoverProps) => {
     "bsPrefix",
     "placement",
     "class",
-    "className",
     "style",
     "children",
     "body",
@@ -37,19 +36,13 @@ const Popover = (p: PopoverProps) => {
   ]);
   const decoratedBsPrefix = useBootstrapPrefix(local.bsPrefix, "popover");
   const context = useContext(OverlayContext);
-  const primaryPlacement = () =>
-    (context?.metadata?.placement || local.placement)?.split("-")?.[0];
+  const primaryPlacement = () => (context?.metadata?.placement || local.placement)?.split("-")?.[0];
 
   return (
     <div
       role="tooltip"
       x-placement={primaryPlacement()}
-      class={classNames(
-        local.class,
-        local.className,
-        decoratedBsPrefix,
-        primaryPlacement() && `bs-popover-auto`,
-      )}
+      class={classNames(local.class, decoratedBsPrefix, primaryPlacement() && `bs-popover-auto`)}
       {...props}
       {...context?.wrapperProps}
       style={Object.assign({}, local.style, context?.wrapperProps?.style)}

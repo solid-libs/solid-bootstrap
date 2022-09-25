@@ -17,7 +17,7 @@ export interface NavDropdownProps extends Omit<DropdownProps, "title"> {
   menuVariant?: DropdownMenuVariant;
 }
 
-const defaultProps = {};
+const defaultProps: Partial<NavDropdownProps> = {};
 
 const NavDropdown: BsPrefixRefForwardingComponent<"div", NavDropdownProps> = (
   p: NavDropdownProps,
@@ -29,7 +29,6 @@ const NavDropdown: BsPrefixRefForwardingComponent<"div", NavDropdownProps> = (
     "children",
     "bsPrefix",
     "class",
-    "className",
     "rootCloseEvent",
     "menuRole",
     "disabled",
@@ -40,7 +39,7 @@ const NavDropdown: BsPrefixRefForwardingComponent<"div", NavDropdownProps> = (
   const navItemPrefix = useBootstrapPrefix(undefined, "nav-item");
 
   return (
-    <Dropdown {...props} class={classNames(local.class, local.className, navItemPrefix)}>
+    <Dropdown {...props} class={classNames(local.class, navItemPrefix)}>
       <Dropdown.Toggle
         id={local.id}
         eventKey={null}

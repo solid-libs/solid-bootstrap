@@ -22,7 +22,6 @@ const Image = (p: ImageProps) => {
   const [local, props] = splitProps(mergeProps(defaultProps, p), [
     "bsPrefix",
     "class",
-    "className",
     "fluid",
     "rounded",
     "roundedCircle",
@@ -34,7 +33,6 @@ const Image = (p: ImageProps) => {
       {...props}
       class={classNames(
         local.class,
-        local.className,
         local.fluid && `${bsPrefix}-fluid`,
         local.rounded && `rounded`,
         local.roundedCircle && `rounded-circle`,

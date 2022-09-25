@@ -9,18 +9,15 @@ export interface ModalDialogProps extends JSX.HTMLAttributes<HTMLDivElement>, Bs
   centered?: boolean;
   scrollable?: boolean;
   contentClass?: string;
-  contentClassName?: string;
 }
 
-const defaultProps = {};
+const defaultProps: Partial<ModalDialogProps> = {};
 
 const ModalDialog = (p: ModalDialogProps) => {
   const [local, props] = splitProps(mergeProps(defaultProps, p), [
     "bsPrefix",
     "class",
-    "className",
     "contentClass",
-    "contentClassName",
     "centered",
     "size",
     "fullscreen",
@@ -41,14 +38,13 @@ const ModalDialog = (p: ModalDialogProps) => {
       class={classNames(
         dialogClass,
         local.class,
-        local.className,
         local.size && `${bsPrefix}-${local.size}`,
         local.centered && `${dialogClass}-centered`,
         local.scrollable && `${dialogClass}-scrollable`,
         local.fullscreen && fullScreenClass,
       )}
     >
-      <div class={classNames(`${bsPrefix}-content`, local.contentClass, local.contentClassName)}>
+      <div class={classNames(`${bsPrefix}-content`, local.contentClass, local.contentClass)}>
         {local.children}
       </div>
     </div>

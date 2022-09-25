@@ -18,7 +18,7 @@ const ProgressContext = createContext<{isStacked: boolean}>();
 
 const ROUND_PRECISION = 1000;
 
-const defaultProps = {
+const defaultProps: Partial<ProgressBarProps> = {
   min: 0,
   max: 100,
   animated: false,
@@ -41,7 +41,6 @@ function renderProgressBar(p: ProgressBarProps) {
     "striped",
     "animated",
     "class",
-    "className",
     "style",
     "variant",
     "bsPrefix",
@@ -52,7 +51,7 @@ function renderProgressBar(p: ProgressBarProps) {
     <div
       {...props}
       role="progressbar"
-      class={classNames(local.class, local.className, `${bsPrefix}-bar`, {
+      class={classNames(local.class, `${bsPrefix}-bar`, {
         [`bg-${local.variant}`]: local.variant,
         [`${bsPrefix}-bar-animated`]: local.animated,
         [`${bsPrefix}-bar-striped`]: local.animated || local.striped,
@@ -71,12 +70,7 @@ function renderProgressBar(p: ProgressBarProps) {
 }
 
 const ProgressBar = (p: ProgressBarProps) => {
-  const [local, props] = splitProps(mergeProps(defaultProps, p), [
-    "children",
-    "class",
-    "className",
-    "bsPrefix",
-  ]);
+  const [local, props] = splitProps(mergeProps(defaultProps, p), ["children", "class", "bsPrefix"]);
   const bsPrefix = useBootstrapPrefix(local.bsPrefix, "progress");
   const context = useContext(ProgressContext);
 
@@ -102,7 +96,7 @@ const ProgressBar = (p: ProgressBarProps) => {
     renderProgressBar(barProps)
   ) : (
     <ProgressContext.Provider value={{isStacked: true}}>
-      <div {...wrapperProps} class={classNames(local.class, local.className, bsPrefix)}>
+      <div {...wrapperProps} class={classNames(local.class, bsPrefix)}>
         {local.children ?? renderProgressBar(barProps)}
       </div>
     </ProgressContext.Provider>

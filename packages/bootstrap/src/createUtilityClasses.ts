@@ -13,7 +13,7 @@ export type ResponsiveUtilityValue<T> =
 
 export const DEVICE_SIZES = ["xxl", "xl", "lg", "md", "sm", "xs"] as const;
 
-export default function createUtilityClassName(
+export default function createUtilityClass(
   utilityValues: Record<string, ResponsiveUtilityValue<unknown>>,
   breakpoints = DEFAULT_BREAKPOINTS,
 ) {

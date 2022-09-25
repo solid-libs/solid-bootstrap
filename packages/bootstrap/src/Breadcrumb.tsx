@@ -10,7 +10,7 @@ export interface BreadcrumbProps extends BsPrefixProps, JSX.HTMLAttributes<HTMLE
   listProps?: JSX.OlHTMLAttributes<HTMLOListElement>;
 }
 
-const defaultProps = {
+const defaultProps: Partial<BreadcrumbProps> = {
   as: "nav",
   label: "breadcrumb",
   listProps: {},
@@ -20,7 +20,6 @@ const Breadcrumb: BsPrefixRefForwardingComponent<"nav", BreadcrumbProps> = (p: B
   const [local, props] = splitProps(mergeProps(defaultProps, p), [
     "bsPrefix",
     "class",
-    "className",
     "listProps",
     "children",
     "label",
@@ -29,8 +28,13 @@ const Breadcrumb: BsPrefixRefForwardingComponent<"nav", BreadcrumbProps> = (p: B
   const prefix = useBootstrapPrefix(local.bsPrefix, "breadcrumb");
 
   return (
-    <Dynamic component={local.as} aria-label={local.label} class={classNames(local.class, local.className)} {...props}>
-      <ol {...local.listProps} class={classNames(prefix, local.listProps?.class, local.listProps?.className)}>
+    <Dynamic
+      component={local.as}
+      aria-label={local.label}
+      class={classNames(local.class)}
+      {...props}
+    >
+      <ol {...local.listProps} class={classNames(prefix, local.listProps?.class)}>
         {local.children}
       </ol>
     </Dynamic>
