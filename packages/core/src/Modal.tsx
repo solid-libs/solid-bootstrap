@@ -21,13 +21,14 @@ import {
   splitProps,
   Show,
   createMemo,
+  ParentComponent,
 } from "solid-js";
 import {Portal} from "solid-js/web";
 import useWaitForDOMRef, {DOMContainer} from "./useWaitForDOMRef";
 
 let manager: ModalManager;
 
-export type ModalTransitionComponent = Component<
+export type ModalTransitionComponent = ParentComponent<
   {
     in: boolean;
     appear?: boolean;
@@ -38,7 +39,6 @@ export type ModalTransitionComponent = Component<
 export interface RenderModalDialogProps {
   style: JSX.CSSProperties | undefined;
   class?: string;
-  className?: string;
   tabIndex: number;
   role: string;
   ref: (e: HTMLElement) => void;
@@ -59,7 +59,6 @@ export interface BaseModalProps extends TransitionCallbacks {
   role?: string;
   style?: JSX.CSSProperties;
   class?: string;
-  className?: string;
 
   /**
    * Set the visibility of the Modal
@@ -234,7 +233,6 @@ export const Modal = (p: ModalProps) => {
       "show",
       "role",
       "class",
-      "className",
       "style",
       "children",
       "backdrop",
@@ -429,11 +427,7 @@ export const Modal = (p: ModalProps) => {
         return local.style;
       },
       get class() {
-        if (local.class && local.className) {
-          return `${local.class} ${local.className}`;
-        } else {
-          return local.class || local.className;
-        }
+        return local.class;
       },
       tabIndex: -1,
     },

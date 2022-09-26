@@ -1,18 +1,28 @@
 import SelectableContext, {makeEventKey} from "./SelectableContext";
 import NavContext from "./NavContext";
 
-import {EventKey, DynamicRefForwardingComponent} from "./types";
+import {EventKey} from "./types";
 import Button from "./Button";
 import {dataAttr} from "./DataKey";
 import {Dynamic} from "solid-js/web";
-import {Component, createMemo, JSX, mergeProps, splitProps, useContext} from "solid-js";
+import {
+  Accessor,
+  Component,
+  ComponentProps,
+  createMemo,
+  JSX,
+  mergeProps,
+  splitProps,
+  useContext,
+  ValidComponent,
+} from "solid-js";
 import {callEventHandler} from "./utils";
 
 export interface DropdownItemProps<T> extends JSX.HTMLAttributes<T> {
   /**
    * Element used to render the component.
    */
-  as?: keyof JSX.IntrinsicElements | Component<any>;
+  as?: ValidComponent;
 
   /**
    * Highlight the menu item as active.
@@ -89,10 +99,7 @@ export function useDropdownItem(options: UseDropdownItemOptions) {
   ] as const;
 }
 
-export const DropdownItem: DynamicRefForwardingComponent<
-  typeof Button,
-  DropdownItemProps<HTMLButtonElement>
-> = (p: DropdownItemProps<HTMLButtonElement>) => {
+export const DropdownItem = (p: DropdownItemProps<HTMLButtonElement>) => {
   const [local, props] = splitProps(
     // merge in prop defaults
     mergeProps({as: Button}, p),
@@ -118,9 +125,7 @@ export const DropdownItem: DynamicRefForwardingComponent<
     },
   });
 
-  return (
-    <Dynamic component={local.as} {...props} {...dropdownItemProps}/>
-  );
+  return <Dynamic component={local.as} {...props} {...dropdownItemProps} />;
 };
 
 export default DropdownItem;

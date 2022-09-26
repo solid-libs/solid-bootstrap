@@ -1,11 +1,11 @@
 // ported from https://github.com/react-bootstrap/react-bootstrap/blob/f11723114d532cfce840417834a73733a8436414/src/helpers.ts
 
 import {TransitionComponent} from "solid-react-transition";
-import {Component, ComponentProps, JSX} from "solid-js";
+import {Component, ComponentProps, JSX, ValidComponent} from "solid-js";
 
 export type Omit<T, U> = Pick<T, Exclude<keyof T, keyof U>>;
 
-export type ElementType = keyof JSX.IntrinsicElements | Component<any>;
+export type ElementType = ValidComponent;
 
 export type ReplaceProps<Inner extends ElementType, P> = Omit<ComponentProps<Inner>, P> & P;
 

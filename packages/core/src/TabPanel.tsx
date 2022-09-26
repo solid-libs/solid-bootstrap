@@ -1,16 +1,16 @@
-import {Component, JSX, mergeProps, splitProps, useContext} from "solid-js";
+import {JSX, mergeProps, splitProps, useContext, ValidComponent} from "solid-js";
 import TabContext from "./TabContext";
 import SelectableContext, {makeEventKey} from "./SelectableContext";
-import type {EventKey, DynamicRefForwardingComponent} from "./types";
+import type {EventKey} from "./types";
 import NoopTransition from "./NoopTransition";
 import {Dynamic} from "solid-js/web";
 import {TransitionCallbacks, TransitionComponent} from "solid-react-transition";
 
-export interface TabPanelProps extends TransitionCallbacks, JSX.HTMLAttributes<HTMLElement> {
+export interface TabPanelProps extends TransitionCallbacks, JSX.HTMLAttributes<HTMLDivElement> {
   /**
    * Element used to render the component.
    */
-  as?: keyof JSX.IntrinsicElements | Component<any>;
+  as?: ValidComponent;
 
   /**
    * A key that associates the `TabPanel` with it's controlling `NavLink`.
@@ -52,7 +52,7 @@ export interface TabPanelMetadata extends TransitionCallbacks {
   unmountOnExit?: boolean;
 }
 
-const defaultProps = {
+const defaultProps: Partial<TabPanelProps> = {
   role: "tabpanel",
 };
 
@@ -124,7 +124,7 @@ export function useTabPanel(p: TabPanelProps): readonly [useTabPanel, TabPanelMe
   ];
 }
 
-export const TabPanel: DynamicRefForwardingComponent<"div", TabPanelProps> = (props: TabPanelProps) => {
+export const TabPanel = (props: TabPanelProps) => {
   const [tabPanelProps, other] = useTabPanel(props);
 
   const Transition = other.transition!;

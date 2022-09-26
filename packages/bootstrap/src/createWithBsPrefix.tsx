@@ -6,20 +6,18 @@ import {BsPrefixRefForwardingComponent} from "./helpers";
 import {Component, ComponentProps, JSX, mergeProps, splitProps, ValidComponent} from "solid-js";
 import {Dynamic} from "solid-js/web";
 
-type ElementType = ValidComponent;
-
-interface BsPrefixOptions<As extends ElementType = "div"> {
+interface BsPrefixOptions<As extends ValidComponent = "div"> {
   Component?: As;
   defaultProps?: Partial<ComponentProps<As>>;
 }
 
 // TODO: emstricten & fix the typing here! `createWithBsPrefix<TElementType>...`
-export function createWithBsPrefix<As extends ElementType = "div">(
+export function createWithBsPrefix<As extends ValidComponent = "div">(
   prefix: string,
   {Component, defaultProps = {}}: BsPrefixOptions<As> = {},
 ): BsPrefixRefForwardingComponent<As> {
   const BsComponent = (p: any) => {
-    const [local, props] = splitProps(mergeProps({as: Component || "div"}, defaultProps, p), [
+    const [local, props] = splitProps(mergeProps({as: Component}, defaultProps, p), [
       "class",
       "bsPrefix",
       "as",
@@ -27,7 +25,11 @@ export function createWithBsPrefix<As extends ElementType = "div">(
 
     const resolvedPrefix = useBootstrapPrefix(local.bsPrefix, prefix);
     return (
-      <Dynamic component={local.as} class={classNames(local.class, resolvedPrefix)} {...props} />
+      <Dynamic
+        component={local.as || "div"}
+        class={classNames(local.class, resolvedPrefix)}
+        {...props}
+      />
     );
   };
   return BsComponent as any;

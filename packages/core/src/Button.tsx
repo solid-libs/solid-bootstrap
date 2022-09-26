@@ -147,7 +147,7 @@ export interface BaseButtonProps {
    * Control the underlying rendered element directly by passing in a valid
    * component type
    */
-  as?: keyof JSX.IntrinsicElements | undefined;
+  as?: keyof JSX.IntrinsicElements;
 
   /** The disabled state of the button */
   disabled?: boolean | undefined;
@@ -173,9 +173,7 @@ export const Button = (props: ButtonProps) => {
     ...otherProps,
   });
 
-  return (
-    <Dynamic {...otherProps} {...buttonProps} component={tagName}/>
-  );
+  return <Dynamic {...otherProps} {...buttonProps} component={tagName} />;
 };
 
 export default Button;

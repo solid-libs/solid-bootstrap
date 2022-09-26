@@ -1,9 +1,9 @@
 import NavContext from "./NavContext";
 import SelectableContext, {makeEventKey} from "./SelectableContext";
-import {EventKey, DynamicRefForwardingComponent} from "./types";
+import {EventKey} from "./types";
 import Button from "./Button";
 import {dataAttr} from "./DataKey";
-import {Component, createMemo, JSX, mergeProps, splitProps, useContext} from "solid-js";
+import {createMemo, JSX, mergeProps, splitProps, useContext, ValidComponent} from "solid-js";
 import {Dynamic} from "solid-js/web";
 import {callEventHandler} from "./utils";
 import TabContext from "./TabContext";
@@ -17,7 +17,7 @@ export interface NavItemProps extends JSX.HTMLAttributes<HTMLElement> {
   /**
    * Element used to render the component.
    */
-  as?: keyof JSX.IntrinsicElements | Component<any>;
+  as?: ValidComponent;
 
   /**
    * Disable the NavItem, making it unselectable.
@@ -145,9 +145,7 @@ export const NavItem = (p: NavItemProps) => {
   // @ts-ignore
   props[dataAttr("active")] = meta.isActive;
 
-  return (
-    <Dynamic component={local.as} {...options} {...props}/>
-  );
+  return <Dynamic component={local.as} {...options} {...props} />;
 };
 
 export default NavItem;

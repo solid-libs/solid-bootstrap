@@ -6,13 +6,13 @@ import {EventKey, SelectCallback} from "./types";
 import {dataAttr, dataProp} from "./DataKey";
 import NavItem, {UseNavItemOptions, NavItemProps} from "./NavItem";
 import {
-  Component,
   createEffect,
   createSignal,
   JSX,
   mergeProps,
   splitProps,
   useContext,
+  ValidComponent,
 } from "solid-js";
 import {Dynamic} from "solid-js/web";
 import {callEventHandler} from "./utils";
@@ -31,7 +31,7 @@ export interface NavProps extends Omit<JSX.HTMLAttributes<HTMLElement>, "onSelec
   /**
    * Element used to render the component.
    */
-  as?: keyof JSX.IntrinsicElements | Component<any>;
+  as?: ValidComponent;
 
   /**
    * A callback fired when a NavItem has been selected.

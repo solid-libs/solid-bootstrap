@@ -184,8 +184,9 @@ export function Dropdown(p: DropdownProps) {
   };
 
   const focusToggle = () => {
-    if (toggleRef() && toggleRef()!.focus) {
-      toggleRef()!.focus();
+    const ref: any = toggleRef();
+    if (ref && ref.focus) {
+      ref.focus();
     }
   };
 
