@@ -47,7 +47,7 @@ const defaultProps: Partial<DropdownProps> = {
   autoClose: true,
 };
 
-const Dropdown: BsPrefixRefForwardingComponent<"div", DropdownProps> = (p) => {
+const Dropdown: BsPrefixRefForwardingComponent<"div", DropdownProps> = (p: DropdownProps) => {
   const [local, props] = splitProps(mergeProps(defaultProps, p), [
     "as",
     "bsPrefix",

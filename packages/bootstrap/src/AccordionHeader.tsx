@@ -13,7 +13,9 @@ const defaultProps: Partial<AccordionHeaderProps> = {
   as: "h2",
 };
 
-const AccordionHeader: BsPrefixRefForwardingComponent<"h2", AccordionHeaderProps> = (p) => {
+const AccordionHeader: BsPrefixRefForwardingComponent<"h2", AccordionHeaderProps> = (
+  p: AccordionHeaderProps,
+) => {
   const [local, props] = splitProps(mergeProps(defaultProps, p), [
     "as",
     "bsPrefix",

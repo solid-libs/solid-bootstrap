@@ -16,7 +16,9 @@ const defaultProps: Partial<AccordionCollapseProps> = {
   as: "div",
 };
 
-const AccordionCollapse: BsPrefixRefForwardingComponent<"div", AccordionCollapseProps> = (p) => {
+const AccordionCollapse: BsPrefixRefForwardingComponent<"div", AccordionCollapseProps> = (
+  p: AccordionCollapseProps,
+) => {
   const [local, props] = splitProps(mergeProps(defaultProps, p), [
     "as",
     "bsPrefix",

@@ -27,7 +27,7 @@ const defaultProps: Partial<AccordionProps> = {
   as: "div",
 };
 
-const Accordion: BsPrefixRefForwardingComponent<"div", AccordionProps> = (p) => {
+const Accordion: BsPrefixRefForwardingComponent<"div", AccordionProps> = (p: AccordionProps) => {
   const [local, props] = splitProps(mergeProps(defaultProps, p), [
     "as",
     "activeKey",

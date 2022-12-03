@@ -11,7 +11,7 @@ import {TransitionCallbacks} from "solid-react-transition";
 export interface TabPaneProps
   extends TransitionCallbacks,
     BsPrefixProps,
-    JSX.HTMLAttributes<HTMLElement> {
+    JSX.HTMLAttributes<HTMLDivElement> {
   eventKey?: EventKey;
   active?: boolean;
   transition?: TransitionType;

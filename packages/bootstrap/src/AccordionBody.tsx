@@ -14,7 +14,9 @@ const defaultProps: Partial<AccordionBodyProps> = {
   as: "div",
 };
 
-const AccordionBody: BsPrefixRefForwardingComponent<"div", AccordionBodyProps> = (p) => {
+const AccordionBody: BsPrefixRefForwardingComponent<"div", AccordionBodyProps> = (
+  p: AccordionBodyProps,
+) => {
   const [local, props] = splitProps(mergeProps(defaultProps, p), ["as", "bsPrefix", "class"]);
   const bsPrefix = useBootstrapPrefix(local.bsPrefix, "accordion-body");
   const context = useContext(AccordionItemContext);

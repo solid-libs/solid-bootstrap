@@ -46,7 +46,9 @@ const defaultProps: Partial<AccordionButtonProps> = {
   as: "button",
 };
 
-const AccordionButton: BsPrefixRefForwardingComponent<"button", AccordionButtonProps> = (p) => {
+const AccordionButton: BsPrefixRefForwardingComponent<"button", AccordionButtonProps> = (
+  p: AccordionButtonProps,
+) => {
   const [local, props] = splitProps(mergeProps(defaultProps, p), [
     "as",
     "bsPrefix",
