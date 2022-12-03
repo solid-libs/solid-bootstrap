@@ -36,16 +36,19 @@ const defaultProps: Partial<RowProps> = {
 };
 
 const Row: BsPrefixRefForwardingComponent<"div", RowProps> = (p: RowProps) => {
-  const [local, props] = splitProps(mergeProps(defaultProps, p), ["as", "bsPrefix", "class"]);
-  const decoratedBsPrefix = useBootstrapPrefix(local.bsPrefix, "row");
   const breakpoints = useBootstrapBreakpoints();
+  const [local, props] = splitProps(mergeProps(defaultProps, p), [
+    "as",
+    "bsPrefix",
+    "class",
+    ...breakpoints(),
+  ]);
+  const decoratedBsPrefix = useBootstrapPrefix(local.bsPrefix, "row");
   const sizePrefix = `${decoratedBsPrefix}-cols`;
   const classes: string[] = [];
 
   breakpoints().forEach((brkPoint) => {
-    const propValue = props[brkPoint];
-    delete props[brkPoint];
-
+    const propValue = local[brkPoint];
     let cols;
     if (propValue != null && typeof propValue === "object") {
       ({cols} = propValue);
