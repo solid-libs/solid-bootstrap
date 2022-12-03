@@ -9,7 +9,7 @@ const Core: Component = (props) => (
       <Route path="button" component={lazy(() => import("../docs/core/CoreButtonDocs.mdx"))} />
       <Route path="dropdown" component={lazy(() => import("../docs/core/CoreDropdownDocs.mdx"))} />
       <Route path="modal" component={lazy(() => import("../docs/core/CoreModalDocs.mdx"))} />
-      <Route path="navsandtabs" component={lazy(() => import("../docs/core/CoreNavDocs.mdx"))} />
+      <Route path="navs and tabs" component={lazy(() => import("../docs/core/CoreNavDocs.mdx"))} />
       <Route path="overlays" component={lazy(() => import("../docs/core/CoreOverlayDocs"))} />
     </Routes>
   </Layout>
