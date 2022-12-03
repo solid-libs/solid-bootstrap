@@ -10,6 +10,7 @@ import {Variant} from "./types";
 import {divWithClass} from "./divWithClass";
 import {createWithBsPrefix} from "./createWithBsPrefix";
 import {TransitionType} from "./helpers";
+import {TransitionComponent} from "solid-react-transition";
 
 export interface AlertProps extends JSX.HTMLAttributes<HTMLDivElement> {
   bsPrefix?: string;
@@ -68,7 +69,7 @@ const Alert = (uncontrolledProps: AlertProps) => {
       onClose(false, e);
     }
   };
-  const Transition = local.transition === true ? Fade : local.transition;
+  const Transition = (local.transition === true ? Fade : local.transition) as TransitionComponent;
 
   const alert = () => (
     <div

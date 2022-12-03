@@ -1,9 +1,9 @@
 import {Container, Col, Row} from "solid-bootstrap";
 import SideNav from "./SideNav";
 import styles from "./Layout.module.css";
-import {Component} from "solid-js";
+import {ParentProps} from "solid-js";
 
-const Layout: Component = (props) => (
+const Layout = (props: ParentProps) => (
   <Container fluid>
     <Row class="flex-xl-nowrap">
       <Col as={SideNav} xs={12} md={3} xl={2} />

@@ -4,6 +4,8 @@
     "declaration": true,
     "target": "esnext",
     "moduleResolution": "node",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "skipLibCheck": true,
     "strict": true,
     "jsx": "preserve",
     "jsxImportSource": "solid-js",

@@ -1,24 +1,17 @@
 // ported from https://github.com/react-bootstrap/react-bootstrap/blob/f11723114d532cfce840417834a73733a8436414/src/Fade.tsx
 
 import {children, JSX, mergeProps, splitProps} from "solid-js";
-import {TransitionStatus, ENTERED, ENTERING, TransitionCallbacks} from "solid-react-transition";
+import {TransitionStatus, ENTERED, ENTERING, TransitionProps} from "solid-react-transition";
 import TransitionWrapper from "./TransitionWrapper";
 import transitionEndListener from "./transitionEndListener";
 import triggerBrowserReflow from "./triggerBrowserReflow";
 import classNames from "./classnames";
 import {resolveClasses} from "solid-bootstrap-core";
 
-export interface FadeProps extends TransitionCallbacks {
+export type FadeProps = Omit<TransitionProps, "addEndListener"> & {
   class?: string;
-  className?: string;
-  in?: boolean;
-  mountOnEnter?: boolean;
-  unmountOnExit?: boolean;
-  appear?: boolean;
-  timeout?: number | {appear?: number; enter?: number; exit?: number};
-  children?: JSX.Element;
   transitionClasses?: Record<string, string>;
-}
+};
 
 const defaultProps: Partial<FadeProps> = {
   in: false,
@@ -45,7 +38,7 @@ const Fade = (p: FadeProps) => {
     props.onEnter?.(node, isAppearing);
   };
 
-  const resolvedChildren = children(() => local.children);
+  const resolvedChildren = children(() => local.children as JSX.Element);
   let prevClasses: string;
 
   return (
