@@ -3,12 +3,14 @@
     "allowSyntheticDefaultImports": true,
     "declaration": true,
     "target": "esnext",
+    "module": "esnext",
+    "lib": ["dom", "dom.iterable", "esnext"],
     "moduleResolution": "node",
+    "skipLibCheck": true,
     "strict": true,
     "jsx": "preserve",
     "jsxImportSource": "solid-js",
     "outDir": "./dist/esm",
-    "module": "esnext",
     "types": ["@types/node"]
   },
   "include": ["./src"]
