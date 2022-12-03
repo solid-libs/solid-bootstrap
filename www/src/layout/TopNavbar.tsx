@@ -1,4 +1,4 @@
-import {Link} from "solid-app-router";
+import {Link} from "@solidjs/router";
 import {Component} from "solid-js";
 import {Container, Nav, Navbar} from "solid-bootstrap";
 import {Bootstrap, Github, SolidBW} from "../icons";

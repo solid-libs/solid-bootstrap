@@ -1,5 +1,5 @@
 import classnames from "classnames";
-import {Link} from "solid-app-router";
+import {Link} from "@solidjs/router";
 import styles from "./Home.module.css";
 
 const Home = () => (

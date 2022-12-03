@@ -3,7 +3,7 @@ import classNames from "classnames";
 import {Component, ComponentProps, createEffect, createMemo, createSignal} from "solid-js";
 import {Button, Collapse, Nav} from "solid-bootstrap";
 import styles from "./SideNav.module.css";
-import {Link, useLocation} from "solid-app-router";
+import {Link, useLocation} from "@solidjs/router";
 
 const baseUrl = import.meta.env.BASE_URL;
 

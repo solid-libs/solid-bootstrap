@@ -1,4 +1,4 @@
-import {Route, Router, Routes} from "solid-app-router";
+import {Route, Router, Routes} from "@solidjs/router";
 import {Component, lazy} from "solid-js";
 import TopNavbar from "./layout/TopNavbar";
 import Home from "./pages/Home";

@@ -14,11 +14,11 @@
   "license": "MIT",
   "type": "module",
   "devDependencies": {
-    "@mdx-js/rollup": "2.1.1",
+    "@mdx-js/rollup": "2.1.5",
     "fs-extra": "10.0.0",
     "gh-pages": "^3.2.3",
-    "rehype-highlight": "5.0.2",
-    "rollup": "2.70.2",
+    "rehype-highlight": "6.0.0",
+    "rollup": "2.79.1",
     "shakespeare-data": "^3.0.0",
     "solid-mdx": "^0.0.6",
     "typescript": "^4.9.3",
@@ -29,7 +29,7 @@
     "@types/lodash": "4.14.177",
     "classnames": "2.3.1",
     "lodash": "4.17.21",
-    "solid-app-router": "^0.4.2",
+    "@solidjs/router": "0.5.1",
     "solid-js": "^1.6.2"
   }
 }
