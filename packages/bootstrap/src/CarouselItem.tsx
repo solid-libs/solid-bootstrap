@@ -10,7 +10,7 @@ export interface CarouselItemProps extends BsPrefixProps, JSX.HTMLAttributes<HTM
 
 // return type is actually this - but Typescript only allows JSX.Elements
 export type CarouselItemReturnType = {
-  item: JSX.Element;
+  item: HTMLElement | (() => HTMLElement);
   interval: number;
 };
 

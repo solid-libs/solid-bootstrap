@@ -426,7 +426,7 @@ const Carousel: BsPrefixRefForwardingComponent<"div", CarouselProps> = (p: Carou
       <div class={`${prefix}-inner`}>
         <For<ItemWithClasses, JSX.Element> each={items() as ItemWithClasses[]}>
           {(child, index: Accessor<number>) => {
-            const el = (child.item as () => HTMLElement)();
+            const el = typeof child.item === "function" ? child.item() : child.item;
             return local.slide ? (
               <TransitionWrapper
                 in={isActive(index())}
