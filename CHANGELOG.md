@@ -1,6 +1,9 @@
-## Unreleased
+## 2022-12-04 - (1.0.10)
 
 - [Fix: No-op transitions, as needed in Accordion `alwaysOpen` #19](https://github.com/solid-libs/solid-bootstrap/commit/e606ab2e5f067ed9f79e95d59359368d327af5c6)
+- Fix various hydration issues when [used with Solid Start](https://start.solidjs.com/getting-started/what-is-solidstart).
+
+There are no known issues remaining when using Solid Start when using `pnpm`. There is one [outstanding issue](https://github.com/solid-libs/solid-bootstrap/issues/25) related to using npm and the Solid Start templates.
 
 ## 2022-04-28 - (1.0.8)
 
