@@ -14,6 +14,7 @@ import {
   createMemo,
   splitProps,
   mergeProps,
+  ChildrenReturn,
 } from "solid-js";
 import TransitionGroupContext from "./TransitionGroupContext";
 import {nextFrame} from "./utils";
@@ -237,32 +238,29 @@ export const Transition = (p: TransitionProps) => {
   // Detect actual changes to `in` prop via memo
   const inMemo = createMemo(() => local.in);
   createComputed(
-    on(
-      inMemo,
-      () => {
-        // componentDidUpdate
-        if (!mounted()) return;
-        const prevStatus = status();
+    on(inMemo, () => {
+      // componentDidUpdate
+      if (!mounted()) return;
+      const prevStatus = status();
 
-        if (inMemo() && prevStatus === UNMOUNTED) {
-          // prepare to show again
-          setStatus(EXITED);
+      if (inMemo() && prevStatus === UNMOUNTED) {
+        // prepare to show again
+        setStatus(EXITED);
+      }
+
+      let nextStatus: TransitionStatus | null = null;
+      if (inMemo()) {
+        if (prevStatus !== ENTERING && prevStatus !== ENTERED) {
+          nextStatus = ENTERING;
         }
-
-        let nextStatus: TransitionStatus | null = null;
-        if (inMemo()) {
-          if (prevStatus !== ENTERING && prevStatus !== ENTERED) {
-            nextStatus = ENTERING;
-          }
-        } else {
-          if (prevStatus === ENTERING || prevStatus === ENTERED) {
-            nextStatus = EXITING;
-          }
+      } else {
+        if (prevStatus === ENTERING || prevStatus === ENTERED) {
+          nextStatus = EXITING;
         }
+      }
 
-        updateStatus(false, nextStatus ?? EXITED);
-      },
-    ),
+      updateStatus(false, nextStatus ?? EXITED);
+    }),
   );
 
   onCleanup(() => {
@@ -418,8 +416,10 @@ export const Transition = (p: TransitionProps) => {
     }
   }
 
-  const resolvedChildren = children(() => local.children as JSX.Element);
+  let resolvedChildren: ChildrenReturn;
   function renderChild() {
+    // lazily resolve children first time to avoid hydration errors
+    if (!resolvedChildren) resolvedChildren = children(() => local.children as JSX.Element);
     const c = resolvedChildren() as TransitionProps["children"];
     return typeof c === "function" ? c(status(), childProps) : c;
   }

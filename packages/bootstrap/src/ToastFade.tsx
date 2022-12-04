@@ -3,11 +3,9 @@ import {ENTERING, EXITING} from "solid-react-transition";
 
 const fadeStyles = {
   [ENTERING]: "showing",
-  [EXITING]: "showing show",
+  [EXITING]: "",
 };
 
-const ToastFade = (props: FadeProps) => (
-  <Fade {...props} transitionClasses={fadeStyles}/>
-);
+const ToastFade = (props: FadeProps) => <Fade {...props} transitionClasses={fadeStyles} />;
 
 export default ToastFade;

@@ -1,6 +1,6 @@
 // ported from https://github.com/react-bootstrap/react-bootstrap/blob/f11723114d532cfce840417834a73733a8436414/src/Fade.tsx
 
-import {children, JSX, mergeProps, splitProps} from "solid-js";
+import {children, ChildrenReturn, JSX, mergeProps, splitProps} from "solid-js";
 import {TransitionStatus, ENTERED, ENTERING, TransitionProps} from "solid-react-transition";
 import TransitionWrapper from "./TransitionWrapper";
 import transitionEndListener from "./transitionEndListener";
@@ -38,13 +38,15 @@ const Fade = (p: FadeProps) => {
     props.onEnter?.(node, isAppearing);
   };
 
-  const resolvedChildren = children(() => local.children as JSX.Element);
+  let resolvedChildren: ChildrenReturn;
   let prevClasses: string;
 
   return (
     <TransitionWrapper addEndListener={transitionEndListener} onEnter={handleEnter} {...props}>
       {
         ((status: TransitionStatus, innerProps: {ref: (el: Element) => void}) => {
+          // lazily resolve children first time to avoid hydration errors
+          if (!resolvedChildren) resolvedChildren = children(() => local.children as JSX.Element);
           let el = resolvedChildren() as Element;
           while (typeof el === "function") el = (el as Function)();
           innerProps.ref(el);
