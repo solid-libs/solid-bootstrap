@@ -24,6 +24,7 @@ const Button: BsPrefixRefForwardingComponent<"button", ButtonProps> = (p: Button
   const [local, props] = splitProps(mergeProps(defaultProps, p), [
     "as",
     "bsPrefix",
+    "children",
     "variant",
     "size",
     "active",
@@ -48,7 +49,9 @@ const Button: BsPrefixRefForwardingComponent<"button", ButtonProps> = (p: Button
         local.size && `${prefix}-${local.size}`,
         props.href && props.disabled && "disabled",
       )}
-    />
+    >
+      {local.children}
+    </Dynamic>
   );
 };
 
