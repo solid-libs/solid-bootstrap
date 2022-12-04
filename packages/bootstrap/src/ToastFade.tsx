@@ -3,7 +3,7 @@ import {ENTERING, EXITING} from "solid-react-transition";
 
 const fadeStyles = {
   [ENTERING]: "showing",
-  [EXITING]: "",
+  [EXITING]: "showing show",
 };
 
 const ToastFade = (props: FadeProps) => <Fade {...props} transitionClasses={fadeStyles} />;
