@@ -87,10 +87,6 @@ function OverlayTrigger(p: OverlayTriggerProps) {
     ],
   );
   let [triggerNodeRef, setTriggerNodeRef] = createSignal<Element | undefined>();
-  const mergedRef = (r: Element | undefined) => {
-    setTriggerNodeRef(r);
-    (local.children as any).ref?.(r);
-  };
   let timeout: number;
   let hoverStateRef: string = "";
 
@@ -172,7 +168,7 @@ function OverlayTrigger(p: OverlayTriggerProps) {
     let el = resolvedChildren();
     // children() returns a function if the function takes arguments
     while (typeof el === "function") el = (el as Function)();
-    mergedRef(el as Element);
+    setTriggerNodeRef(el as Element);
     if (!isServer) {
       addListeners(el as Element);
     }
