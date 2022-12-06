@@ -1,0 +1,1 @@
+import{s as o,m as e,u as p,c as l,d as n,D as c}from"./index.0dfe7da1.js";const i={as:"span",bg:"primary",pill:!1},g=t=>{const[s,a]=o(e(i,t),["as","bsPrefix","bg","pill","text","class"]),r=p(s.bsPrefix,"badge");return l(c,e({get component(){return s.as}},a,{get class(){return n(s.class,r,s.pill&&"rounded-pill",s.text&&`text-${s.text}`,s.bg&&`bg-${s.bg}`)}}))},x=g;export{x as B};
