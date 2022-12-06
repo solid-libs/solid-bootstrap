@@ -5,7 +5,6 @@ import {
   flip,
   hide,
   offset,
-  placements,
   popperOffsets,
   preventOverflow,
   popperGenerator,
@@ -23,5 +22,3 @@ export const createPopper = popperGenerator({
     arrow,
   ],
 });
-
-export {placements};
