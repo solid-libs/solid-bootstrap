@@ -1,3 +1,7 @@
+## 2022-12-22 - (1.0.12)
+
+- [Fix: Modal content is not reactive #16](https://github.com/solid-libs/solid-bootstrap/issues/26)
+
 ## 2022-12-04 - (1.0.10)
 
 - [Fix: No-op transitions, as needed in Accordion `alwaysOpen` #19](https://github.com/solid-libs/solid-bootstrap/commit/e606ab2e5f067ed9f79e95d59359368d327af5c6)
