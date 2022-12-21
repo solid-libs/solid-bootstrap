@@ -1,4 +1,12 @@
-import {Component, createSignal, mergeProps, onCleanup, splitProps} from "solid-js";
+import {
+  Component,
+  createSignal,
+  getOwner,
+  mergeProps,
+  onCleanup,
+  runWithOwner,
+  splitProps,
+} from "solid-js";
 import classNames from "./classnames";
 import addEventListener from "dom-helpers/addEventListener";
 import canUseDOM from "dom-helpers/canUseDOM";
@@ -97,6 +105,7 @@ const Modal: BsPrefixRefForwardingComponent<"div", ModalProps> = (p: ModalProps)
   ]);
   const [modalStyle, setStyle] = createSignal({});
   const [animateStaticModal, setAnimateStaticModal] = createSignal(false);
+  const owner = getOwner()!;
   let waitingForMouseUpRef = false;
   let ignoreBackdropClickRef = false;
   let removeStaticModalAnimationRef: (() => void) | null = null;
@@ -248,27 +257,28 @@ const Modal: BsPrefixRefForwardingComponent<"div", ModalProps> = (p: ModalProps)
     return s;
   };
 
-  const renderDialog = (dialogProps: any) => (
-    <div
-      role="dialog"
-      {...dialogProps}
-      style={baseModalStyle()}
-      class={classNames(local.class, bsPrefix, animateStaticModal() && `${bsPrefix}-static`)}
-      onClick={local.backdrop ? handleClick : undefined}
-      onMouseUp={handleMouseUp}
-      aria-labelledby={local["aria-labelledby"]}
-    >
-      <Dynamic
-        component={local.dialogAs as typeof ModalDialog}
-        {...props}
-        onMouseDown={handleDialogMouseDown}
-        class={local.dialogClass}
-        contentClass={local.contentClass}
+  const renderDialog = (dialogProps: any) =>
+    runWithOwner(owner, () => (
+      <div
+        role="dialog"
+        {...dialogProps}
+        style={baseModalStyle()}
+        class={classNames(local.class, bsPrefix, animateStaticModal() && `${bsPrefix}-static`)}
+        onClick={local.backdrop ? handleClick : undefined}
+        onMouseUp={handleMouseUp}
+        aria-labelledby={local["aria-labelledby"]}
       >
-        {local.children}
-      </Dynamic>
-    </div>
-  );
+        <Dynamic
+          component={local.dialogAs as typeof ModalDialog}
+          {...props}
+          onMouseDown={handleDialogMouseDown}
+          class={local.dialogClass}
+          contentClass={local.contentClass}
+        >
+          {local.children}
+        </Dynamic>
+      </div>
+    ));
 
   return (
     <ModalContext.Provider value={modalContext}>
