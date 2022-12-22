@@ -9,7 +9,6 @@ import {TransitionCallbacks} from "solid-react-transition";
 import useWindow from "./useWindow";
 import {
   children,
-  Component,
   createComputed,
   createEffect,
   createSignal,
@@ -22,6 +21,8 @@ import {
   Show,
   createMemo,
   ParentComponent,
+  getOwner,
+  runWithOwner,
 } from "solid-js";
 import {Portal} from "solid-js/web";
 import useWaitForDOMRef, {DOMContainer} from "./useWaitForDOMRef";
@@ -266,6 +267,7 @@ export const Modal = (p: ModalProps) => {
     },
   });
   const modal = useModalManager(local.manager);
+  const owner = getOwner()!;
 
   const [isMounted, setIsMounted] = createSignal(false);
   onMount(() => setIsMounted(true));
@@ -440,10 +442,12 @@ export const Modal = (p: ModalProps) => {
   };
 
   let innerDialog = () =>
-    local.renderDialog ? (
-      local.renderDialog(dialogProps)
-    ) : (
-      <div {...dialogProps}>{getChildAsDocument}</div>
+    runWithOwner(owner, () =>
+      local.renderDialog ? (
+        local.renderDialog(dialogProps)
+      ) : (
+        <div {...dialogProps}>{getChildAsDocument}</div>
+      ),
     );
 
   const Dialog = () => {
