@@ -1,6 +1,7 @@
-## 2022-12-22 - (1.0.12)
+## 2022-12-22 - (1.0.13)
 
-- [Fix: Modal content is not reactive #16](https://github.com/solid-libs/solid-bootstrap/issues/26)
+- [Fix: Modal content is not reactive #26](https://github.com/solid-libs/solid-bootstrap/issues/26)
+- [Fix: Modal header close button #27](https://github.com/solid-libs/solid-bootstrap/issues/27)
 
 ## 2022-12-04 - (1.0.10)
 
