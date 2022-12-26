@@ -1,0 +1,394 @@
+import { Alert, Badge, Card, Tab, Row, Col, ListGroup } from "solid-bootstrap";
+import Example from "../../components/Example";
+import GithubSource from "../../components/GithubSource";
+import ListGroupApi from "../../api/ListGroupApi";
+import Sonnet from "../../components/Sonnet";
+
+<GithubSource name="components/list-group.mdx" />
+# List groups
+
+<div class="lead">
+  List groups are a flexible and powerful component for displaying a series of
+  content. Modify and extend them to support just about any content within.
+</div>
+
+<div class="row gy-5 pt-3">
+
+  <Example title="Basic Example">
+    <Example.Preview>
+      <ListGroup>
+        <ListGroup.Item>Cras justo odio</ListGroup.Item>
+        <ListGroup.Item>Dapibus ac facilisis in</ListGroup.Item>
+        <ListGroup.Item>Morbi leo risus</ListGroup.Item>
+        <ListGroup.Item>Porta ac consectetur ac</ListGroup.Item>
+        <ListGroup.Item>Vestibulum at eros</ListGroup.Item>
+      </ListGroup>
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      <ListGroup>
+        <ListGroup.Item>Cras justo odio</ListGroup.Item>
+        <ListGroup.Item>Dapibus ac facilisis in</ListGroup.Item>
+        <ListGroup.Item>Morbi leo risus</ListGroup.Item>
+        <ListGroup.Item>Porta ac consectetur ac</ListGroup.Item>
+        <ListGroup.Item>Vestibulum at eros</ListGroup.Item>
+      </ListGroup>
+      ```
+    </Example.Code>
+  </Example>
+
+  <Example title="Active items">
+    <Example.Intro>
+      Set the `active` prop to indicate the list groups current active selection.
+    </Example.Intro>
+    <Example.Preview>
+      <ListGroup as="ul">
+        <ListGroup.Item as="li" active>Cras justo odio</ListGroup.Item>
+        <ListGroup.Item as="li">Dapibus ac facilisis in</ListGroup.Item>
+        <ListGroup.Item as="li" disabled>Morbi leo risus</ListGroup.Item>
+        <ListGroup.Item as="li">Porta ac consectetur ac</ListGroup.Item>
+      </ListGroup>
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      <ListGroup as="ul">
+        <ListGroup.Item as="li" active>Cras justo odio</ListGroup.Item>
+        <ListGroup.Item as="li">Dapibus ac facilisis in</ListGroup.Item>
+        <ListGroup.Item as="li" disabled>Morbi leo risus</ListGroup.Item>
+        <ListGroup.Item as="li">Porta ac consectetur ac</ListGroup.Item>
+      </ListGroup>
+      ```
+    </Example.Code>
+  </Example>
+
+  <Example title="Disabled items">
+    <Example.Intro>
+      Set the `disabled` prop to prevent actions on a `<ListGroup.Item>`. For elements
+      that aren't naturally disable-able (like anchors) `onClick` handlers are added
+      that call `preventDefault` to mimick disabled behavior.
+    </Example.Intro>
+    <Example.Preview>
+      <ListGroup>
+        <ListGroup.Item disabled>Cras justo odio</ListGroup.Item>
+        <ListGroup.Item>Dapibus ac facilisis in</ListGroup.Item>
+        <ListGroup.Item>Morbi leo risus</ListGroup.Item>
+        <ListGroup.Item>Porta ac consectetur ac</ListGroup.Item>
+      </ListGroup>
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      <ListGroup>
+        <ListGroup.Item disabled>Cras justo odio</ListGroup.Item>
+        <ListGroup.Item>Dapibus ac facilisis in</ListGroup.Item>
+        <ListGroup.Item>Morbi leo risus</ListGroup.Item>
+        <ListGroup.Item>Porta ac consectetur ac</ListGroup.Item>
+      </ListGroup>
+      ```
+    </Example.Code>
+  </Example>
+
+  <Example title="Actionable items">
+    <Example.Intro>
+      Toggle the `action` prop to create <em>actionable</em> list group
+      items, with disabled, hover and active styles. List item actions will render
+      a `<button>` or `<a>` (depending on the presence of an `href`) by default but
+      can be overridden by setting the `as` prop as usual.
+
+      List items `actions` are distinct from plain items to ensure that click or tap
+      affordances aren't applied to non-interactive items.
+    </Example.Intro>
+    <Example.Preview>
+      <ListGroup defaultActiveKey="#link1">
+        <ListGroup.Item action href="#link1">Link 1</ListGroup.Item>
+        <ListGroup.Item action href="#link2" disabled>Link 2</ListGroup.Item>
+        <ListGroup.Item action 
+            onClick={()=> alert('You clicked the third ListGroupItem')}
+          >This one is a button</ListGroup.Item>
+      </ListGroup>
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      <ListGroup defaultActiveKey="#link1">
+        <ListGroup.Item action href="#link1">Link 1</ListGroup.Item>
+        <ListGroup.Item action href="#link2" disabled>Link 2</ListGroup.Item>
+        <ListGroup.Item action 
+            onClick={()=> alert('You clicked the third ListGroupItem')}
+          >This one is a button</ListGroup.Item>
+      </ListGroup>
+      ```
+    </Example.Code>
+  </Example>
+
+  <Example title="Flush">
+    <Example.Intro>
+      Add the `flush` variant to remove outer borders and rounded corners to render list group items
+      edge-to-edge in a parent container [such as a `Card`](/components/cards/#list-groups).
+    </Example.Intro>
+    <Example.Preview>
+      <ListGroup variant="flush">
+        <ListGroup.Item>Cras justo odio</ListGroup.Item>
+        <ListGroup.Item>Dapibus ac facilisis in</ListGroup.Item>
+        <ListGroup.Item>Morbi leo risus</ListGroup.Item>
+        <ListGroup.Item>Porta ac consectetur ac</ListGroup.Item>
+      </ListGroup>
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      <ListGroup variant="flush">
+        <ListGroup.Item>Cras justo odio</ListGroup.Item>
+        <ListGroup.Item>Dapibus ac facilisis in</ListGroup.Item>
+        <ListGroup.Item>Morbi leo risus</ListGroup.Item>
+        <ListGroup.Item>Porta ac consectetur ac</ListGroup.Item>
+      </ListGroup>
+      ```
+    </Example.Code>
+  </Example>
+
+  <Example title="Numbered">
+    <Example.Intro>
+      Add the `numbered` prop to opt into numbered list group items. Numbers are generated via CSS
+      (as opposed to a `<ol>`s default browser styling) for better placement inside list group items
+      and to allow for better customization.
+    </Example.Intro>
+    <Example.Preview>
+      <ListGroup as="ol" numbered>
+        <ListGroup.Item as="li">Cras justo odio</ListGroup.Item>
+        <ListGroup.Item as="li">Cras justo odio</ListGroup.Item>
+        <ListGroup.Item as="li">Cras justo odio</ListGroup.Item>
+      </ListGroup>
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      <ListGroup as="ol" numbered>
+        <ListGroup.Item as="li">Cras justo odio</ListGroup.Item>
+        <ListGroup.Item as="li">Cras justo odio</ListGroup.Item>
+        <ListGroup.Item as="li">Cras justo odio</ListGroup.Item>
+      </ListGroup>
+      ```
+    </Example.Code>
+  </Example>
+
+  <Example title="Numbered with custom content">
+    <Example.Intro>
+      These work great with custom content as well.
+    </Example.Intro>
+    <Example.Preview >
+      <div class="col-md-4">
+        <ListGroup as="ol" numbered>
+          <ListGroup.Item as="li" class="d-flex justify-content-between align-items-start" >
+            <div class="ms-2 me-auto"><div class="fw-bold">Subheading</div>Cras justo odio</div>
+            <Badge variant="primary" pill>14</Badge>
+          </ListGroup.Item>
+          <ListGroup.Item as="li" class="d-flex justify-content-between align-items-start" >
+            <div class="ms-2 me-auto"><div class="fw-bold">Subheading</div>Cras justo odio</div>
+            <Badge variant="primary" pill>14</Badge>
+          </ListGroup.Item>
+          <ListGroup.Item as="li" class="d-flex justify-content-between align-items-start" >
+            <div class="ms-2 me-auto"><div class="fw-bold">Subheading</div>Cras justo odio</div>
+            <Badge variant="primary" pill>14</Badge>
+          </ListGroup.Item>
+        </ListGroup>
+      </div>
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      <div class="col-md-4">
+        <ListGroup as="ol" numbered>
+          <ListGroup.Item as="li" class="d-flex justify-content-between align-items-start" >
+            <div class="ms-2 me-auto"><div class="fw-bold">Subheading</div>Cras justo odio</div>
+            <Badge variant="primary" pill>14</Badge>
+          </ListGroup.Item>
+          <ListGroup.Item as="li" class="d-flex justify-content-between align-items-start" >
+            <div class="ms-2 me-auto"><div class="fw-bold">Subheading</div>Cras justo odio</div>
+            <Badge variant="primary" pill>14</Badge>
+          </ListGroup.Item>
+          <ListGroup.Item as="li" class="d-flex justify-content-between align-items-start" >
+            <div class="ms-2 me-auto"><div class="fw-bold">Subheading</div>Cras justo odio</div>
+            <Badge variant="primary" pill>14</Badge>
+          </ListGroup.Item>
+        </ListGroup>
+      </div>
+      ```
+    </Example.Code>
+  </Example>
+
+  <Example title="Horizontal">
+    <Example.Intro>
+      Use the `horizontal` prop to make the ListGroup render horizontally. Currently **horizontal list groups cannot be combined with flush list groups.**
+    </Example.Intro>
+    <Example.Preview>
+      <ListGroup horizontal>
+        <ListGroup.Item>This</ListGroup.Item>
+        <ListGroup.Item>ListGroup</ListGroup.Item>
+        <ListGroup.Item>renders</ListGroup.Item>
+        <ListGroup.Item>horizontally!</ListGroup.Item>
+      </ListGroup>
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      <ListGroup horizontal>
+        <ListGroup.Item>This</ListGroup.Item>
+        <ListGroup.Item>ListGroup</ListGroup.Item>
+        <ListGroup.Item>renders</ListGroup.Item>
+        <ListGroup.Item>horizontally!</ListGroup.Item>
+      </ListGroup>
+      ```
+    </Example.Code>
+  </Example>
+
+  <Example title="Horizontal responsive">
+    <Example.Intro>
+      There are responsive variants to `horizontal`: setting it to `{sm|md|lg|xl|xxl}` makes the list group horizontal starting at that breakpoint’s `min-width`.
+    </Example.Intro>
+    <Example.Preview>
+      {
+      ['sm', 'md', 'lg', 'xl', 'xxl'].map((breakpoint, idx) => (
+        <ListGroup horizontal={breakpoint} class="my-2">
+          <ListGroup.Item>This ListGroup</ListGroup.Item>
+          <ListGroup.Item>renders horizontally</ListGroup.Item>
+          <ListGroup.Item>on {breakpoint}</ListGroup.Item>
+          <ListGroup.Item>and above!</ListGroup.Item>
+        </ListGroup>
+      ))
+      }
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      ['sm', 'md', 'lg', 'xl', 'xxl'].map((breakpoint, idx) => (
+        <ListGroup horizontal={breakpoint} class="my-2">
+          <ListGroup.Item>This ListGroup</ListGroup.Item>
+          <ListGroup.Item>renders horizontally</ListGroup.Item>
+          <ListGroup.Item>on {breakpoint}</ListGroup.Item>
+          <ListGroup.Item>and above!</ListGroup.Item>
+        </ListGroup>
+      ));
+      ```
+    </Example.Code>
+  </Example>
+
+  <Example title="Contextual classes">
+    <Example.Intro>
+      Use contextual variants on `<ListGroup.Item>`s to style them with a stateful background and color.
+    </Example.Intro>
+    <Example.Preview>
+      <ListGroup>
+        <ListGroup.Item>No style</ListGroup.Item>
+        <ListGroup.Item variant="primary">Primary</ListGroup.Item>
+        <ListGroup.Item variant="secondary">Secondary</ListGroup.Item>
+        <ListGroup.Item variant="success">Success</ListGroup.Item>
+        <ListGroup.Item variant="danger">Danger</ListGroup.Item>
+        <ListGroup.Item variant="warning">Warning</ListGroup.Item>
+        <ListGroup.Item variant="info">Info</ListGroup.Item>
+        <ListGroup.Item variant="light">Light</ListGroup.Item>
+        <ListGroup.Item variant="dark">Dark</ListGroup.Item>
+      </ListGroup>
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      <ListGroup>
+        <ListGroup.Item>No style</ListGroup.Item>
+        <ListGroup.Item variant="primary">Primary</ListGroup.Item>
+        <ListGroup.Item variant="secondary">Secondary</ListGroup.Item>
+        <ListGroup.Item variant="success">Success</ListGroup.Item>
+        <ListGroup.Item variant="danger">Danger</ListGroup.Item>
+        <ListGroup.Item variant="warning">Warning</ListGroup.Item>
+        <ListGroup.Item variant="info">Info</ListGroup.Item>
+        <ListGroup.Item variant="light">Light</ListGroup.Item>
+        <ListGroup.Item variant="dark">Dark</ListGroup.Item>
+      </ListGroup>
+      ```
+    </Example.Code>
+  </Example>
+
+  <Example title="Contextual with actions">
+    <Example.Intro>
+      When paired with `action`s, additional hover and active styles apply.
+    </Example.Intro>
+    <Example.Preview>
+      <ListGroup>
+        <ListGroup.Item>No style</ListGroup.Item>
+        <ListGroup.Item variant="primary">Primary</ListGroup.Item>
+        <ListGroup.Item action variant="secondary">Secondary</ListGroup.Item>
+        <ListGroup.Item action variant="success">Success</ListGroup.Item>
+        <ListGroup.Item action variant="danger">Danger</ListGroup.Item>
+        <ListGroup.Item action variant="warning">Warning</ListGroup.Item>
+        <ListGroup.Item action variant="info">Info</ListGroup.Item>
+        <ListGroup.Item action variant="light">Light</ListGroup.Item>
+        <ListGroup.Item action variant="dark">Dark</ListGroup.Item>
+      </ListGroup>
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      <ListGroup>
+        <ListGroup.Item>No style</ListGroup.Item>
+        <ListGroup.Item variant="primary">Primary</ListGroup.Item>
+        <ListGroup.Item action variant="secondary">Secondary</ListGroup.Item>
+        <ListGroup.Item action variant="success">Success</ListGroup.Item>
+        <ListGroup.Item action variant="danger">Danger</ListGroup.Item>
+        <ListGroup.Item action variant="warning">Warning</ListGroup.Item>
+        <ListGroup.Item action variant="info">Info</ListGroup.Item>
+        <ListGroup.Item action variant="light">Light</ListGroup.Item>
+        <ListGroup.Item action variant="dark">Dark</ListGroup.Item>
+      </ListGroup>
+      ```
+    </Example.Code>
+  </Example>
+
+  <Alert variant="warning">
+    <Alert.Heading>Conveying meaning to assistive technologies</Alert.Heading>
+    Using color to add meaning only provides a visual indication, which will not
+    be conveyed to users of assistive technologies – such as screen readers.
+    Ensure that information denoted by the color is either obvious from the
+    content itself (e.g. the visible text), or is included through alternative
+    means, such as additional text hidden with the <code>.visually-hidden</code>{' '}
+    class.
+  </Alert>
+
+  <Example title="Tabbed Interfaces">
+    <Example.Intro>
+      You can also use the [Tab](tabs) components to create ARIA compliant tabbable
+      interfaces with the `<ListGroup>` component. Swap out the `<Nav>` component
+      for the list group and you are good to go.
+    </Example.Intro>
+    <Example.Preview>
+      <Tab.Container id="list-group-tabs-example" defaultActiveKey="#link1">
+        <Row>
+          <Col sm={4}>
+            <ListGroup>
+              <ListGroup.Item action href="#link1">Link 1</ListGroup.Item>
+              <ListGroup.Item action href="#link2">Link 2</ListGroup.Item>
+            </ListGroup>
+          </Col>
+          <Col sm={8}>
+            <Tab.Content>
+              <Tab.Pane eventKey="#link1"><Sonnet /></Tab.Pane>
+              <Tab.Pane eventKey="#link2"><Sonnet /></Tab.Pane>
+            </Tab.Content>
+          </Col>
+        </Row>
+      </Tab.Container>
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      <Tab.Container id="list-group-tabs-example" defaultActiveKey="#link1">
+        <Row>
+          <Col sm={4}>
+            <ListGroup>
+              <ListGroup.Item action href="#link1">Link 1</ListGroup.Item>
+              <ListGroup.Item action href="#link2">Link 2</ListGroup.Item>
+            </ListGroup>
+          </Col>
+          <Col sm={8}>
+            <Tab.Content>
+              <Tab.Pane eventKey="#link1"><Sonnet /></Tab.Pane>
+              <Tab.Pane eventKey="#link2"><Sonnet /></Tab.Pane>
+            </Tab.Content>
+          </Col>
+        </Row>
+      </Tab.Container>
+      ```
+    </Example.Code>
+  </Example>
+
+  <ListGroupApi />
+</div>

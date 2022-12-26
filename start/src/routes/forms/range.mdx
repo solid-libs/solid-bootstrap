@@ -1,0 +1,53 @@
+import { Alert, Form  } from "solid-bootstrap";
+import Example from "../../components/Example";
+import GithubSource from "../../components/GithubSource";
+import BadgeApi from "../../api/BadgeApi";
+
+<GithubSource name="forms/range.mdx" />
+# Range
+
+<div class="lead">
+  Use our custom range inputs for consistent cross-browser styling and built-in customization.
+</div>
+
+<div class="row gy-5 pt-3">
+
+  <Example title="Example">
+    <Example.Intro>
+      Create custom `<input type="range">` controls with `<FormRange>`. The track
+      (the background) and thumb (the value) are both styled to appear the same
+      across browsers. As only Firefox supports “filling” their track from the left
+      or right of the thumb as a means to visually indicate progress, we do not
+      currently support it.
+    </Example.Intro>
+    <Example.Preview>
+      <Form.Label>Range</Form.Label>
+      <Form.Range />
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      <Form.Label>Range</Form.Label>
+      <Form.Range />
+      ```
+    </Example.Code>
+  </Example>
+
+
+</div>
+
+## Api
+### Form.Range
+`import { Form } from "solid-bootstrap"'`
+
+<table class="bg-white mb-0 table table-striped table-bordered">
+  <thead>
+    <tr><th>Name</th><th>Type</th><th>Default</th><th>Description</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>disabled </td><td><div>boolean</div></td><td></td><td><div><p>Make the control disabled</p></div></td></tr>
+    <tr><td>id </td><td><div>string</div></td><td></td><td><div><p>Uses <code>controlId</code> from <code>&lt;FormGroup&gt;</code> if not explicitly specified.</p></div></td></tr>
+    <tr><td>onChange </td><td><div>function</div></td><td></td><td><div><p>A callback fired when the <code>value</code> prop changes</p></div></td></tr>
+    <tr><td>value </td><td><div>string | arrayOf | number</div></td><td></td><td><div class="mb-2"><small><em class="text-info"><span>controlled by: <code>onChange</code>, initial prop: <code>defaultValue</code></span></em></small></div><div><p>The <code>value</code> attribute of underlying input</p></div></td></tr>
+    <tr><td>bsPrefix </td><td><div>string</div></td><td><code>{'form-range'}</code></td><td><div><p>Change the underlying component CSS base class name and modifier class names prefix. <strong>This is an escape hatch</strong> for working with heavily customized bootstrap css.</p></div></td></tr>
+  </tbody>
+</table>

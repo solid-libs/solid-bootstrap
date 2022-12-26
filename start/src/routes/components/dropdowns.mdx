@@ -1,0 +1,760 @@
+import {
+  Alert,
+  Container,
+  Dropdown,
+  DropdownButton,
+  Button,
+  ButtonGroup,
+  SplitButton,
+  Nav,
+  Navbar,
+  NavDropdown,
+  Stack,
+} from "solid-bootstrap";
+import Example from "../../components/Example";
+import GithubSource from "../../components/GithubSource";
+import DropdownApi from "../../api/DropdownApi";
+import { Row } from "solid-bootstrap";
+
+<GithubSource name="components/dropdowns.mdx" />
+# Dropdowns
+
+<div class="lead">
+  Toggle contextual overlays for displaying lists of links and more with
+  the Bootstrap dropdown plugin.
+</div>
+
+## Overview
+
+Dropdowns are toggleable, contextual overlays for displaying lists of
+links and more. Like overlays, Dropdowns are built using a third-party
+library <a href="https://popper.js.org/">Popper.js</a>, which provides
+dynamic positioning and viewport detection.
+
+
+## Accessibility
+
+The <a href="https://www.w3.org/TR/wai-aria/"><abbr title="Web Accessibility Initiative">WAI</abbr>-ARIA</a> standard
+defines a `role="menu"` widget, but it's very specific to a certain kind of menu. ARIA menus, must
+only contain `role="menuitem"`, `role="menuitemcheckbox"`, or `role="menuitemradio"`.
+
+On the other hand, Bootstrap's dropdowns are designed to more generic
+and application in a variety of situations. For this reason we don't
+automatically add the menu roles to the markup. We do implement some
+basic keyboard navigation, and if you do provide the "menu" role,
+`solid-bootstrap` will do its best to ensure the focus management is
+compliant with the ARIA authoring guidelines for menus.
+
+<div class="row gy-5 pt-3">
+
+    <Example title="Single button dropdowns">
+    <Example.Intro>
+      The basic Dropdown is composed of a wrapping `Dropdown` and
+      inner `<DropdownMenu>`, and `<DropdownToggle>`. By
+      default the `<DropdownToggle>` will render a
+      `Button` component and accepts all the same props.
+    </Example.Intro>
+    <Example.Preview>
+      <Dropdown>
+        <Dropdown.Toggle variant="success" id="dropdown-basic">Dropdown Button</Dropdown.Toggle>
+        <Dropdown.Menu>
+          <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
+          <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
+          <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+        </Dropdown.Menu>
+      </Dropdown>
+      <div class="mt-4 mb-3">
+        Since the above is such a common configuration solid-bootstrap provides
+        the `<DropdownButton>` component to help reduce typing. Provide
+        a `title` prop and some `<DropdownItem>`s and you're
+        ready to go.
+      </div>
+      <DropdownButton id="dropdown-basic-button" title="Dropdown button">
+        <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
+        <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
+        <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+      </DropdownButton>
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      <Dropdown>
+        <Dropdown.Toggle variant="success" id="dropdown-basic">Dropdown Button</Dropdown.Toggle>
+        <Dropdown.Menu>
+          <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
+          <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
+          <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+        </Dropdown.Menu>
+      </Dropdown>
+
+      <DropdownButton id="dropdown-basic-button" title="Dropdown button">
+        <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
+        <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
+        <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+      </DropdownButton>
+      ```
+    </Example.Code>
+  </Example>
+
+    <Example title="DropdownButton props">
+    <Example.Intro>
+      DropdownButton will forward Button props to the underlying Toggle component
+    </Example.Intro>
+    <Example.Preview>
+      <Stack direction="horizontal" gap={2}>
+        {['Primary', 'Secondary', 'Success', 'Info', 'Warning', 'Danger'].map(
+          (variant) => (
+            <DropdownButton
+              as={ButtonGroup}
+              id={`dropdown-variants-${variant}`}
+              variant={variant.toLowerCase()}
+              title={variant}
+            >
+              <Dropdown.Item eventKey="1">Action</Dropdown.Item>
+              <Dropdown.Item eventKey="2">Another action</Dropdown.Item>
+              <Dropdown.Item eventKey="3" active>
+                Active Item
+              </Dropdown.Item>
+              <Dropdown.Divider />
+              <Dropdown.Item eventKey="4">Separated link</Dropdown.Item>
+            </DropdownButton>
+          ),
+        )}
+      </Stack>
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      <Stack direction="horizontal" gap={2}>
+        {['Primary', 'Secondary', 'Success', 'Info', 'Warning', 'Danger'].map(
+          (variant) => (
+            <DropdownButton
+              as={ButtonGroup}
+              id={`dropdown-variants-${variant}`}
+              variant={variant.toLowerCase()}
+              title={variant}
+            >
+              <Dropdown.Item eventKey="1">Action</Dropdown.Item>
+              <Dropdown.Item eventKey="2">Another action</Dropdown.Item>
+              <Dropdown.Item eventKey="3" active>
+                Active Item
+              </Dropdown.Item>
+              <Dropdown.Divider />
+              <Dropdown.Item eventKey="4">Separated link</Dropdown.Item>
+            </DropdownButton>
+          ),
+        )}
+      </Stack>
+      ```
+    </Example.Code>
+  </Example>
+
+    <Example title="Split button dropdowns">
+    <Example.Intro>
+      Similarly, You create a split dropdown by combining the Dropdown components with another Button and a ButtonGroup.
+    </Example.Intro>
+    <Example.Preview>
+      <Dropdown as={ButtonGroup}>
+        <Button variant="success">Split Button</Button>
+        <Dropdown.Toggle split variant="success" id="dropdown-split-basic" />
+        <Dropdown.Menu>
+          <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
+          <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
+          <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+        </Dropdown.Menu>
+      </Dropdown>
+      <div class="mt-4 mb-3">
+        As with DropdownButton, `SplitButton` is provided as convenience component.
+      </div>
+      <Stack direction="horizontal" gap={2}>
+        {['Primary', 'Secondary', 'Success', 'Info', 'Warning', 'Danger'].map(
+          (variant) => (
+            <SplitButton
+              id={`dropdown-split-variants-${variant}`}
+              variant={variant.toLowerCase()}
+              title={variant}
+            >
+              <Dropdown.Item eventKey="1">Action</Dropdown.Item>
+              <Dropdown.Item eventKey="2">Another action</Dropdown.Item>
+              <Dropdown.Item eventKey="3" active>Active Item</Dropdown.Item>
+              <Dropdown.Divider />
+              <Dropdown.Item eventKey="4">Separated link</Dropdown.Item>
+            </SplitButton>
+          ),
+        )}
+      </Stack>
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      <Dropdown as={ButtonGroup}>
+        <Button variant="success">Split Button</Button>
+        <Dropdown.Toggle split variant="success" id="dropdown-split-basic" />
+        <Dropdown.Menu>
+          <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
+          <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
+          <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+        </Dropdown.Menu>
+      </Dropdown>
+
+      <Stack direction="horizontal" gap={2}>
+        {['Primary', 'Secondary', 'Success', 'Info', 'Warning', 'Danger'].map(
+          (variant) => (
+            <SplitButton
+              id={`dropdown-split-variants-${variant}`}
+              variant={variant.toLowerCase()}
+              title={variant}
+            >
+              <Dropdown.Item eventKey="1">Action</Dropdown.Item>
+              <Dropdown.Item eventKey="2">Another action</Dropdown.Item>
+              <Dropdown.Item eventKey="3" active>Active Item</Dropdown.Item>
+              <Dropdown.Divider />
+              <Dropdown.Item eventKey="4">Separated link</Dropdown.Item>
+            </SplitButton>
+          ),
+        )}
+      </Stack>
+      ```
+    </Example.Code>
+  </Example>
+
+    <Example title="Sizing">
+    <Example.Intro>
+      Dropdowns work with buttons of all sizes.
+    </Example.Intro>
+    <Example.Preview>
+      <>
+        <Stack direction="horizontal" gap={2}>
+          {[DropdownButton, SplitButton].map((DropdownType, idx) => (
+            <DropdownType
+              as={ButtonGroup}
+              id={`dropdown-button-drop-${idx}`}
+              size="lg"
+              title="Drop large"
+            >
+              <Dropdown.Item eventKey="1">Action</Dropdown.Item>
+              <Dropdown.Item eventKey="2">Another action</Dropdown.Item>
+              <Dropdown.Item eventKey="3">Something else here</Dropdown.Item>
+              <Dropdown.Divider />
+              <Dropdown.Item eventKey="4">Separated link</Dropdown.Item>
+            </DropdownType>
+          ))}
+        </Stack>
+
+        <Stack direction="horizontal" gap={2} class="mt-2">
+          {[DropdownButton, SplitButton].map((DropdownType, idx) => (
+            <DropdownType
+              as={ButtonGroup}
+              id={`dropdown-button-drop-${idx}`}
+              size="sm"
+              variant="secondary"
+              title="Drop small"
+            >
+              <Dropdown.Item eventKey="1">Action</Dropdown.Item>
+              <Dropdown.Item eventKey="2">Another action</Dropdown.Item>
+              <Dropdown.Item eventKey="3">Something else here</Dropdown.Item>
+              <Dropdown.Divider />
+              <Dropdown.Item eventKey="4">Separated link</Dropdown.Item>
+            </DropdownType>
+          ))}
+        </Stack>
+      </>
+    </Example.Preview>
+    <Example.Code>
+      ```js
+        <Stack direction="horizontal" gap={2}>
+          {[DropdownButton, SplitButton].map((DropdownType, idx) => (
+            <DropdownType
+              as={ButtonGroup}
+              id={`dropdown-button-drop-${idx}`}
+              size="lg"
+              title="Drop large"
+            >
+              <Dropdown.Item eventKey="1">Action</Dropdown.Item>
+              <Dropdown.Item eventKey="2">Another action</Dropdown.Item>
+              <Dropdown.Item eventKey="3">Something else here</Dropdown.Item>
+              <Dropdown.Divider />
+              <Dropdown.Item eventKey="4">Separated link</Dropdown.Item>
+            </DropdownType>
+          ))}
+        </Stack>
+
+        <Stack direction="horizontal" gap={2} class="mt-2">
+          {[DropdownButton, SplitButton].map((DropdownType, idx) => (
+            <DropdownType
+              as={ButtonGroup}
+              id={`dropdown-button-drop-${idx}`}
+              size="sm"
+              variant="secondary"
+              title="Drop small"
+            >
+              <Dropdown.Item eventKey="1">Action</Dropdown.Item>
+              <Dropdown.Item eventKey="2">Another action</Dropdown.Item>
+              <Dropdown.Item eventKey="3">Something else here</Dropdown.Item>
+              <Dropdown.Divider />
+              <Dropdown.Item eventKey="4">Separated link</Dropdown.Item>
+            </DropdownType>
+          ))}
+        </Stack>
+      ```
+    </Example.Code>
+  </Example>
+
+    <Example title="Dark dropdowns">
+    <Example.Intro>
+      Opt into darker dropdowns to match a dark navbar or custom style by adding 
+      `variant="dark"` onto an existing `DropdownMenu`. Alternatively, use
+      `menuVariant="dark"` when using the `DropdownButton` component.
+    </Example.Intro>
+    <Example.Preview>
+      <>
+        <Dropdown>
+          <Dropdown.Toggle id="dropdown-button-dark-example1" variant="secondary">Dropdown Button</Dropdown.Toggle>
+          <Dropdown.Menu variant="dark">
+            <Dropdown.Item href="#/action-1" active>Action</Dropdown.Item>
+            <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
+            <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+            <Dropdown.Divider />
+            <Dropdown.Item href="#/action-4">Separated link</Dropdown.Item>
+          </Dropdown.Menu>
+        </Dropdown>
+
+        <DropdownButton
+          id="dropdown-button-dark-example2"
+          variant="secondary"
+          menuVariant="dark"
+          title="Dropdown button"
+          class="mt-2"
+        >
+          <Dropdown.Item href="#/action-1" active>Action</Dropdown.Item>
+          <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
+          <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+          <Dropdown.Divider />
+          <Dropdown.Item href="#/action-4">Separated link</Dropdown.Item>
+        </DropdownButton>
+      </>
+    </Example.Preview>
+    <Example.Code>
+      ```js
+        <Dropdown>
+          <Dropdown.Toggle id="dropdown-button-dark-example1" variant="secondary">Dropdown Button</Dropdown.Toggle>
+          <Dropdown.Menu variant="dark">
+            <Dropdown.Item href="#/action-1" active>Action</Dropdown.Item>
+            <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
+            <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+            <Dropdown.Divider />
+            <Dropdown.Item href="#/action-4">Separated link</Dropdown.Item>
+          </Dropdown.Menu>
+        </Dropdown>
+
+        <DropdownButton
+          id="dropdown-button-dark-example2"
+          variant="secondary"
+          menuVariant="dark"
+          title="Dropdown button"
+          class="mt-2"
+        >
+          <Dropdown.Item href="#/action-1" active>Action</Dropdown.Item>
+          <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
+          <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+          <Dropdown.Divider />
+          <Dropdown.Item href="#/action-4">Separated link</Dropdown.Item>
+        </DropdownButton>
+      ```
+    </Example.Code>
+  </Example>
+
+    <Example title="NavDropdown">
+    <Example.Intro>
+      Using `menuVariant="dark"` in a NavDropdown
+    </Example.Intro>
+    <Example.Preview>
+      <Navbar variant="dark" bg="dark" expand="lg">
+        <Container fluid>
+          <Navbar.Brand href="#home">Solid-Bootstrap</Navbar.Brand>
+          <Navbar.Toggle aria-controls="navbar-dark-example" />
+          <Navbar.Collapse id="navbar-dark-example">
+            <Nav>
+              <NavDropdown
+                id="nav-dropdown-dark-example"
+                title="Dropdown"
+                menuVariant="dark"
+              >
+                <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+                <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
+                <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+                <NavDropdown.Divider />
+                <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
+              </NavDropdown>
+            </Nav>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      <Navbar variant="dark" bg="dark" expand="lg">
+        <Container fluid>
+          <Navbar.Brand href="#home">Solid-Bootstrap</Navbar.Brand>
+          <Navbar.Toggle aria-controls="navbar-dark-example" />
+          <Navbar.Collapse id="navbar-dark-example">
+            <Nav>
+              <NavDropdown
+                id="nav-dropdown-dark-example"
+                title="Dropdown"
+                menuVariant="dark"
+              >
+                <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+                <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
+                <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+                <NavDropdown.Divider />
+                <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
+              </NavDropdown>
+            </Nav>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
+      ```
+    </Example.Code>
+  </Example>
+
+    <Example title="Drop directions">
+    <Example.Intro>
+      Trigger dropdown menus above, below, left, or to the right of their toggle elements, with the `drop` prop.
+    </Example.Intro>
+    <Example.Preview>
+    <>
+      <Stack direction="horizontal" gap={2}>
+        {['up', 'down', 'start', 'end'].map((direction) => (
+          <DropdownButton
+            as={ButtonGroup}
+            id={`dropdown-button-drop-${direction}`}
+            drop={direction}
+            variant="secondary"
+            title={` Drop ${direction} `}
+          >
+            <Dropdown.Item eventKey="1">Action</Dropdown.Item>
+            <Dropdown.Item eventKey="2">Another action</Dropdown.Item>
+            <Dropdown.Item eventKey="3">Something else here</Dropdown.Item>
+            <Dropdown.Divider />
+            <Dropdown.Item eventKey="4">Separated link</Dropdown.Item>
+          </DropdownButton>
+        ))}
+      </Stack>
+
+      <Stack direction="horizontal" gap={2} class="mt-2">
+        {['up', 'down', 'start', 'end'].map((direction) => (
+          <SplitButton
+            id={`dropdown-button-drop-${direction}`}
+            drop={direction}
+            variant="secondary"
+            title={`Drop ${direction}`}
+          >
+            <Dropdown.Item eventKey="1">Action</Dropdown.Item>
+            <Dropdown.Item eventKey="2">Another action</Dropdown.Item>
+            <Dropdown.Item eventKey="3">Something else here</Dropdown.Item>
+            <Dropdown.Divider />
+            <Dropdown.Item eventKey="4">Separated link</Dropdown.Item>
+          </SplitButton>
+        ))}
+      </Stack>
+    </>
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      <Stack direction="horizontal" gap={2}>
+        {['up', 'down', 'start', 'end'].map((direction) => (
+          <DropdownButton
+            as={ButtonGroup}
+            id={`dropdown-button-drop-${direction}`}
+            drop={direction}
+            variant="secondary"
+            title={` Drop ${direction} `}
+          >
+            <Dropdown.Item eventKey="1">Action</Dropdown.Item>
+            <Dropdown.Item eventKey="2">Another action</Dropdown.Item>
+            <Dropdown.Item eventKey="3">Something else here</Dropdown.Item>
+            <Dropdown.Divider />
+            <Dropdown.Item eventKey="4">Separated link</Dropdown.Item>
+          </DropdownButton>
+        ))}
+      </Stack>
+
+      <Stack direction="horizontal" gap={2} class="mt-2">
+        {['up', 'down', 'start', 'end'].map((direction) => (
+          <SplitButton
+            id={`dropdown-button-drop-${direction}`}
+            drop={direction}
+            variant="secondary"
+            title={`Drop ${direction}`}
+          >
+            <Dropdown.Item eventKey="1">Action</Dropdown.Item>
+            <Dropdown.Item eventKey="2">Another action</Dropdown.Item>
+            <Dropdown.Item eventKey="3">Something else here</Dropdown.Item>
+            <Dropdown.Divider />
+            <Dropdown.Item eventKey="4">Separated link</Dropdown.Item>
+          </SplitButton>
+        ))}
+      </Stack>
+      ```
+    </Example.Code>
+  </Example>
+
+    <Example title="Dropdown items">
+    <Example.Intro>
+      Historically dropdown menu contents had to be links, but that’s no
+      longer the case with v4. Now you can optionally use
+      `<button>` elements in your dropdowns instead of just `<a>`s.
+
+      You can also create non-interactive dropdown items with `<Dropdown.ItemText>`.
+      Feel free to style further with custom CSS or text utilities.
+    </Example.Intro>
+    <Example.Preview>
+      <DropdownButton id="dropdown-item-button" title="Dropdown button">
+        <Dropdown.ItemText>Dropdown item text</Dropdown.ItemText>
+        <Dropdown.Item as="button">Action</Dropdown.Item>
+        <Dropdown.Item as="button">Another action</Dropdown.Item>
+        <Dropdown.Item as="button">Something else</Dropdown.Item>
+      </DropdownButton>
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      <DropdownButton id="dropdown-item-button" title="Dropdown button">
+        <Dropdown.ItemText>Dropdown item text</Dropdown.ItemText>
+        <Dropdown.Item as="button">Action</Dropdown.Item>
+        <Dropdown.Item as="button">Another action</Dropdown.Item>
+        <Dropdown.Item as="button">Something else</Dropdown.Item>
+      </DropdownButton>
+      ```
+    </Example.Code>
+  </Example>
+
+    <Example title="Menu alignment">
+    <Example.Intro>
+      By default, a dropdown menu is aligned to the left, but you can switch
+      it by passing `align="end"` to a `<Dropdown>`, `<DropdownButton>`, or `<SplitButton>`.
+    </Example.Intro>
+    <Example.Preview>
+      <DropdownButton align="end" title="Dropdown end" id="dropdown-menu-align-end">
+        <Dropdown.Item eventKey="1">Action</Dropdown.Item>
+        <Dropdown.Item eventKey="2">Another action</Dropdown.Item>
+        <Dropdown.Item eventKey="3">Something else here</Dropdown.Item>
+        <Dropdown.Divider />
+        <Dropdown.Item eventKey="4">Separated link</Dropdown.Item>
+      </DropdownButton>
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      <DropdownButton align="end" title="Dropdown end" id="dropdown-menu-align-end">
+        <Dropdown.Item eventKey="1">Action</Dropdown.Item>
+        <Dropdown.Item eventKey="2">Another action</Dropdown.Item>
+        <Dropdown.Item eventKey="3">Something else here</Dropdown.Item>
+        <Dropdown.Divider />
+        <Dropdown.Item eventKey="4">Separated link</Dropdown.Item>
+      </DropdownButton>
+      ```
+    </Example.Code>
+  </Example>
+
+    <Example title="Responsive alignment">
+    <Example.Intro>
+      If you want to use responsive menu alignment, pass an object containing a breakpoint to the 
+      `align` prop on the `<DropdownMenu>`, `<DropdownButton>`, or `<SplitButton>`. 
+      You can specify `start` or `end` for the various breakpoints.
+    </Example.Intro>
+    <Example.Preview>
+      <>
+        <div>
+          <DropdownButton
+            as={ButtonGroup}
+            align={{ lg: 'end' }}
+            title="Left-aligned but right aligned when large screen"
+            id="dropdown-menu-align-responsive-1"
+          >
+            <Dropdown.Item eventKey="1">Action 1</Dropdown.Item>
+            <Dropdown.Item eventKey="2">Action 2</Dropdown.Item>
+          </DropdownButton>
+        </div>
+
+        <div class="mt-2">
+          <SplitButton
+            align={{ lg: 'start' }}
+            title="Right-aligned but left aligned when large screen"
+            id="dropdown-menu-align-responsive-2"
+          >
+            <Dropdown.Item eventKey="1">Action 1</Dropdown.Item>
+            <Dropdown.Item eventKey="2">Action 2</Dropdown.Item>
+          </SplitButton>
+        </div>
+
+        <Alert variant="warning" class="mt-3">{
+          "Using responsive alignment will disable Popper usage so any dynamic positioning features such as `flip` will not work."
+        }</Alert>
+      </>
+    </Example.Preview>
+    <Example.Code>
+      ```js
+        <div>
+          <DropdownButton
+            as={ButtonGroup}
+            align={{ lg: 'end' }}
+            title="Left-aligned but right aligned when large screen"
+            id="dropdown-menu-align-responsive-1"
+          >
+            <Dropdown.Item eventKey="1">Action 1</Dropdown.Item>
+            <Dropdown.Item eventKey="2">Action 2</Dropdown.Item>
+          </DropdownButton>
+        </div>
+
+        <div class="mt-2">
+          <SplitButton
+            align={{ lg: 'start' }}
+            title="Right-aligned but left aligned when large screen"
+            id="dropdown-menu-align-responsive-2"
+          >
+            <Dropdown.Item eventKey="1">Action 1</Dropdown.Item>
+            <Dropdown.Item eventKey="2">Action 2</Dropdown.Item>
+          </SplitButton>
+        </div>
+      ```
+    </Example.Code>
+  </Example>
+
+    <Example title="Menu headers">
+    <Example.Intro>
+      Add a header to label sections of actions.
+    </Example.Intro>
+    <Example.Preview>
+      <Dropdown.Menu show style={{ position: "relative" }}>
+        <Dropdown.Header>Dropdown header</Dropdown.Header>
+        <Dropdown.Item eventKey="2">Another action</Dropdown.Item>
+        <Dropdown.Item eventKey="3">Something else here</Dropdown.Item>
+      </Dropdown.Menu>
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      <Dropdown.Menu show>
+        <Dropdown.Header>Dropdown header</Dropdown.Header>
+        <Dropdown.Item eventKey="2">Another action</Dropdown.Item>
+        <Dropdown.Item eventKey="3">Something else here</Dropdown.Item>
+      </Dropdown.Menu>
+      ```
+    </Example.Code>
+  </Example>
+
+    <Example title="Menu dividers">
+    <Example.Intro>
+      Separate groups of related menu items with a divider.
+    </Example.Intro>
+    <Example.Preview>
+      <Dropdown.Menu show style={{ position: "relative" }}>
+        <Dropdown.Item eventKey="1">Action</Dropdown.Item>
+        <Dropdown.Item eventKey="2">Another action</Dropdown.Item>
+        <Dropdown.Item eventKey="3">Something else here</Dropdown.Item>
+        <Dropdown.Divider />
+        <Dropdown.Item eventKey="4">Separated link</Dropdown.Item>
+      </Dropdown.Menu>
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      <Dropdown.Menu show>
+        <Dropdown.Item eventKey="1">Action</Dropdown.Item>
+        <Dropdown.Item eventKey="2">Another action</Dropdown.Item>
+        <Dropdown.Item eventKey="3">Something else here</Dropdown.Item>
+        <Dropdown.Divider />
+        <Dropdown.Item eventKey="4">Separated link</Dropdown.Item>
+      </Dropdown.Menu>
+      ```
+    </Example.Code>
+  </Example>
+
+  <Example title="AutoClose">
+    <Example.Intro>
+      By default, the dropdown menu is closed when selecting a menu item or clicking outside of the
+      dropdown menu. This behaviour can be changed by using the `autoClose` property.
+
+      By default, `autoClose` is set to the default value `true` and behaves like expected. By choosing `false`, the dropdown
+      menu can only be toggled by clicking on the dropdown button. `inside` makes the dropdown disappear __only__
+      by choosing a menu item and `outside` closes the dropdown menu __only__ by clicking outside.
+
+      __Notice__ how the dropdown is toggled in each scenario by clicking on the button.
+    </Example.Intro>
+    <Example.Preview>
+      <Stack direction="horizontal" gap={2}>
+        <Dropdown>
+          <Dropdown.Toggle id="dropdown-autoclose-true">Default Dropdown</Dropdown.Toggle>
+          <Dropdown.Menu>
+            <Dropdown.Item href="#">Menu Item</Dropdown.Item>
+            <Dropdown.Item href="#">Menu Item</Dropdown.Item>
+            <Dropdown.Item href="#">Menu Item</Dropdown.Item>
+          </Dropdown.Menu>
+        </Dropdown>
+
+        <Dropdown autoClose="inside">
+          <Dropdown.Toggle id="dropdown-autoclose-inside">Clickable Outside</Dropdown.Toggle>
+          <Dropdown.Menu>
+            <Dropdown.Item href="#">Menu Item</Dropdown.Item>
+            <Dropdown.Item href="#">Menu Item</Dropdown.Item>
+            <Dropdown.Item href="#">Menu Item</Dropdown.Item>
+          </Dropdown.Menu>
+        </Dropdown>
+
+        <Dropdown autoClose="outside">
+          <Dropdown.Toggle id="dropdown-autoclose-outside">Clickable Inside</Dropdown.Toggle>
+          <Dropdown.Menu>
+            <Dropdown.Item href="#">Menu Item</Dropdown.Item>
+            <Dropdown.Item href="#">Menu Item</Dropdown.Item>
+            <Dropdown.Item href="#">Menu Item</Dropdown.Item>
+          </Dropdown.Menu>
+        </Dropdown>
+
+        <Dropdown autoClose={false}>
+          <Dropdown.Toggle id="dropdown-autoclose-false">Manual Close</Dropdown.Toggle>
+          <Dropdown.Menu>
+            <Dropdown.Item href="#">Menu Item</Dropdown.Item>
+            <Dropdown.Item href="#">Menu Item</Dropdown.Item>
+            <Dropdown.Item href="#">Menu Item</Dropdown.Item>
+          </Dropdown.Menu>
+        </Dropdown>
+      </Stack>
+    </Example.Preview>
+    <Example.Code>
+      ```js
+        <Dropdown>
+          <Dropdown.Toggle id="dropdown-autoclose-true">Default Dropdown</Dropdown.Toggle>
+          <Dropdown.Menu>
+            <Dropdown.Item href="#">Menu Item</Dropdown.Item>
+            <Dropdown.Item href="#">Menu Item</Dropdown.Item>
+            <Dropdown.Item href="#">Menu Item</Dropdown.Item>
+          </Dropdown.Menu>
+        </Dropdown>
+
+        <Dropdown autoClose="inside">
+          <Dropdown.Toggle id="dropdown-autoclose-inside">Clickable Outside</Dropdown.Toggle>
+          <Dropdown.Menu>
+            <Dropdown.Item href="#">Menu Item</Dropdown.Item>
+            <Dropdown.Item href="#">Menu Item</Dropdown.Item>
+            <Dropdown.Item href="#">Menu Item</Dropdown.Item>
+          </Dropdown.Menu>
+        </Dropdown>
+
+        <Dropdown autoClose="outside">
+          <Dropdown.Toggle id="dropdown-autoclose-outside">Clickable Inside</Dropdown.Toggle>
+          <Dropdown.Menu>
+            <Dropdown.Item href="#">Menu Item</Dropdown.Item>
+            <Dropdown.Item href="#">Menu Item</Dropdown.Item>
+            <Dropdown.Item href="#">Menu Item</Dropdown.Item>
+          </Dropdown.Menu>
+        </Dropdown>
+
+        <Dropdown autoClose={false}>
+          <Dropdown.Toggle id="dropdown-autoclose-false">Manual Close</Dropdown.Toggle>
+          <Dropdown.Menu>
+            <Dropdown.Item href="#">Menu Item</Dropdown.Item>
+            <Dropdown.Item href="#">Menu Item</Dropdown.Item>
+            <Dropdown.Item href="#">Menu Item</Dropdown.Item>
+          </Dropdown.Menu>
+        </Dropdown>
+      ```
+    </Example.Code>
+  </Example>
+
+  <DropdownApi />
+</div>

@@ -1,0 +1,291 @@
+import { Alert, Form  } from "solid-bootstrap";
+import Example from "../../components/Example";
+import GithubSource from "../../components/GithubSource";
+import BadgeApi from "../../api/BadgeApi";
+
+<GithubSource name="forms/checks-radios.mdx" />
+# Checks and radios
+
+<div class="lead">
+  Create consistent cross-browser and cross-device checkboxes and radios with
+  our completely rewritten checks component.
+</div>
+
+For the non-textual checkbox and radio controls, `FormCheck` provides a single component for both types that adds some additional styling and improved layout.
+
+<div class="row gy-5 pt-3">
+
+  <Example title="Default (stacked)">
+    <Example.Intro>
+      By default, any number of checkboxes and radios that are immediate sibling will be vertically stacked and appropriately spaced with FormCheck.
+    </Example.Intro>
+    <Example.Preview>
+      <Form>
+        {['checkbox', 'radio'].map((type) => (
+          <div class="mb-3">
+            <Form.Check 
+              type={type}
+              id={`default-${type}`}
+              label={`default ${type}`}
+            />
+
+            <Form.Check
+              disabled
+              type={type}
+              label={`disabled ${type}`}
+              id={`disabled-default-${type}`}
+            />
+          </div>
+        ))}
+      </Form>
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      <Form>
+        {['checkbox', 'radio'].map((type) => (
+          <div class="mb-3">
+            <Form.Check 
+              type={type}
+              id={`default-${type}`}
+              label={`default ${type}`}
+            />
+
+            <Form.Check
+              disabled
+              type={type}
+              label={`disabled ${type}`}
+              id={`disabled-default-${type}`}
+            />
+          </div>
+        ))}
+      </Form>
+      ```
+    </Example.Code>
+  </Example>
+
+  <Example title="Switches">
+    <Example.Intro>
+      A switch has the markup of a custom checkbox but uses `type="switch"`
+      to render a toggle switch. Switches also support the same customizable
+      children as `<FormCheck>`.
+    </Example.Intro>
+    <Example.Preview>
+      <Form>
+        <Form.Check 
+          type="switch"
+          id="custom-switch"
+          label="Check this switch"
+        />
+        <Form.Check 
+          disabled
+          type="switch"
+          label="disabled switch"
+          id="disabled-custom-switch"
+        />
+      </Form>
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      <Form>
+        <Form.Check 
+          type="switch"
+          id="custom-switch"
+          label="Check this switch"
+        />
+        <Form.Check 
+          disabled
+          type="switch"
+          label="disabled switch"
+          id="disabled-custom-switch"
+        />
+      </Form>
+      ```
+    </Example.Code>
+  </Example>
+
+  <Alert variant="warning">
+      You can also use the `<Form.Switch>` alias which encapsulates the above, in a very small component wrapper.
+  </Alert>
+
+  <Example title="Inline">
+    <Example.Intro>
+      Group checkboxes or radios on the same horizontal row by adding the `inline` prop.
+    </Example.Intro>
+    <Example.Preview>
+      <Form>
+        {['checkbox', 'radio'].map((type) => (
+          <div class="mb-3">
+            <Form.Check
+              inline
+              label="1"
+              name="group1"
+              type={type}
+              id={`inline-${type}-1`}
+            />
+            <Form.Check
+              inline
+              label="2"
+              name="group1"
+              type={type}
+              id={`inline-${type}-2`}
+            />
+            <Form.Check
+              inline
+              disabled
+              label="3 (disabled)"
+              type={type}
+              id={`inline-${type}-3`}
+            />
+          </div>
+        ))}
+      </Form>
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      <Form>
+        {['checkbox', 'radio'].map((type) => (
+          <div class="mb-3">
+            <Form.Check
+              inline
+              label="1"
+              name="group1"
+              type={type}
+              id={`inline-${type}-1`}
+            />
+            <Form.Check
+              inline
+              label="2"
+              name="group1"
+              type={type}
+              id={`inline-${type}-2`}
+            />
+            <Form.Check
+              inline
+              disabled
+              label="3 (disabled)"
+              type={type}
+              id={`inline-${type}-3`}
+            />
+          </div>
+        ))}
+      </Form>
+      ```
+    </Example.Code>
+  </Example>
+
+  <Example title="Without labels">
+    <Example.Intro>
+      When you render a FormCheck without a label (no `children`)
+      some additional styling is applied to keep the inputs from collapsing.
+    </Example.Intro>
+    <Example.Preview>
+      <Form.Check aria-label="option 1" />
+      <Form.Check type="radio" aria-label="radio 1" />
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      <Form.Check aria-label="option 1" />
+      <Form.Check type="radio" aria-label="radio 1" />
+      ```
+    </Example.Code>
+  </Example>
+
+  <Example title="Customizing FormCheck rendering">
+    <Example.Intro>
+      When you need tighter control, or want to customize how the `FormCheck` component
+      renders, it may better to use its constituent parts directly.
+
+      By provided `children` to the `FormCheck` you can forgo the default rendering and
+      handle it yourself. (You can still provide an `id` to the `FormCheck` or
+      `FormGroup` and have it propagate to the label and input).
+    </Example.Intro>
+    <Example.Preview>
+      <Form>
+        {['checkbox', 'radio'].map((type) => (
+          <div class="mb-3">
+            <Form.Check type={type} id={`check-api-${type}`}>
+              <Form.Check.Input type={type} isValid />
+              <Form.Check.Label>{`Custom api ${type}`}</Form.Check.Label>
+              <Form.Control.Feedback type="valid">You did it!</Form.Control.Feedback>
+            </Form.Check>
+          </div>
+        ))}
+      </Form>
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      <Form>
+        {['checkbox', 'radio'].map((type) => (
+          <div class="mb-3">
+            <Form.Check type={type} id={`check-api-${type}`}>
+              <Form.Check.Input type={type} isValid />
+              <Form.Check.Label>{`Custom api ${type}`}</Form.Check.Label>
+              <Form.Control.Feedback type="valid">You did it!</Form.Control.Feedback>
+            </Form.Check>
+          </div>
+        ))}
+      </Form>
+      ```
+    </Example.Code>
+  </Example>
+
+
+</div>
+
+## Api
+### Form.Check
+`import { Form } from "solid-bootstrap"'`
+
+<table class="bg-white mb-0 table table-striped table-bordered mb-5">
+  <thead>
+    <tr><th>Name</th><th>Type</th><th>Default</th><th>Description</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>ref </td><td><div></div></td><td></td><td><div><p>The FormCheck <code>ref</code> will be forwarded to the underlying input element, which means it will be a DOM node, when resolved.</p></div></td></tr>
+    <tr><td>as </td><td><div>'input' | elementType</div></td><td><code>'input'</code></td><td><div><p>The underlying HTML element to use when rendering the FormCheck.</p></div></td></tr>
+    <tr><td>disabled </td><td><div>boolean</div></td><td><code>false</code></td><td><div><p>Disables the control.</p></div></td></tr>
+    <tr><td>feedback </td><td><div>node</div></td><td></td><td><div><p>A message to display when the input is in a validation state</p></div></td></tr>
+    <tr><td>feedbackTooltip </td><td><div>boolean</div></td><td><code>false</code></td><td><div><p>Display feedback as a tooltip.</p></div></td></tr>
+    <tr><td>id </td><td><div>string</div></td><td></td><td><div><p>A HTML id attribute, necessary for proper form accessibility. An id is recommended for allowing label clicks to toggle the check control.</p><p>This is <strong>required</strong> when <code>type="switch"</code> due to how they are rendered.</p></div></td></tr>
+    <tr><td>inline </td><td><div>boolean</div></td><td><code>false</code></td><td><div><p>Groups controls horizontally with other <code>FormCheck</code>s.</p></div></td></tr>
+    <tr><td>isInvalid </td><td><div>boolean</div></td><td><code>false</code></td><td><div><p>Manually style the input as invalid</p></div></td></tr>
+    <tr><td>isValid </td><td><div>boolean</div></td><td><code>false</code></td><td><div><p>Manually style the input as valid</p></div></td></tr>
+    <tr><td>label </td><td><div>node</div></td><td></td><td><div><p>Label for the control.</p></div></td></tr>
+    <tr><td>title </td><td><div>string</div></td><td><code>''</code></td><td><div><p><code>title</code> attribute for the underlying <code>FormCheckLabel</code>.</p></div></td></tr>
+    <tr><td>type </td><td><div><span><code>'radio'</code><span> | </span><code>'checkbox'</code><span> | </span><code>'switch'</code></span></div></td><td><code>'checkbox'</code></td><td><div><p>The type of checkable.</p></div></td></tr>
+    <tr><td>bsPrefix </td><td><div>string</div></td><td><code>'form-check'</code></td><td><div><p>Change the underlying component CSS base class name and modifier class names prefix. <strong>This is an escape hatch</strong> for working with heavily customized bootstrap css.</p></div></td></tr>
+    <tr><td>bsSwitchPrefix </td><td><div>string</div></td><td><code>'form-switch'</code></td><td><div><p>bsPrefix override for the base switch class.</p></div></td></tr>
+  </tbody>
+</table>
+
+
+### FormCheck.Input
+`import { FormCheck } from "solid-bootstrap"'`
+
+<table class="bg-white mb-0 table table-striped table-bordered mb-5">
+  <thead>
+    <tr><th>Name</th><th>Type</th><th>Default</th><th>Description</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>as </td><td><div>'input' | elementType</div></td><td><code>'input'</code></td><td><div><p>The underlying HTML element to use when rendering the FormCheckInput.</p></div></td></tr>
+    <tr><td>id </td><td><div>string</div></td><td></td><td><div><p>A HTML id attribute, necessary for proper form accessibility.</p></div></td></tr>
+    <tr><td>isInvalid </td><td><div>boolean</div></td><td><code>false</code></td><td><div><p>Manually style the input as invalid</p></div></td></tr>
+    <tr><td>isValid </td><td><div>boolean</div></td><td><code>false</code></td><td><div><p>Manually style the input as valid</p></div></td></tr>
+    <tr><td>type </td><td><div><span><code>'radio'</code><span> | </span><code>'checkbox'</code></span></div></td><td><code>'checkbox'</code></td><td><div><p>The type of checkable.</p></div></td></tr>
+    <tr><td>bsPrefix </td><td><div>string</div></td><td><code>'form-check-input'</code></td><td><div><p>Change the underlying component CSS base class name and modifier class names prefix. <strong>This is an escape hatch</strong> for working with heavily customized bootstrap css.</p></div></td></tr>
+  </tbody>
+</table>
+
+
+### FormCheck.Label
+`import { FormCheck } from "solid-bootstrap"'`
+
+<table class="bg-white mb-0 table table-striped table-bordered">
+  <thead>
+    <tr><th>Name</th><th>Type</th><th>Default</th><th>Description</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>htmlFor </td><td><div>string</div></td><td></td><td><div><p>The HTML for attribute for associating the label with an input</p></div></td></tr>
+    <tr><td>bsPrefix </td><td><div>string</div></td><td><code>'form-check-label'</code></td><td><div><p>Change the underlying component CSS base class name and modifier class names prefix. <strong>This is an escape hatch</strong> for working with heavily customized bootstrap css.</p></div></td></tr>
+  </tbody>
+</table>

@@ -1,0 +1,62 @@
+<div class="mt-5">
+  ## API 
+  ### Button 
+  `import { Button } from 'solid-bootstrap'`
+  <div class="overflow-auto mt-4 mb-5 border border-light">
+    <table class="bg-white mb-0 table table-striped table-bordered">
+      <thead>
+        <tr><th>Name</th><th>Type</th><th>Default</th><th>Description</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>active</td><td><div>boolean</div></td><td>`false`</td><td><div><p>Manually set the visual state of the button to `:active`</p></div></td></tr>
+        <tr><td>as</td><td><div>elementType</div></td><td></td><td><div><p>You can use a custom element type for this component.</p></div></td></tr>
+        <tr><td>disabled</td><td><div>boolean</div></td><td>`false`</td><td><div><p>Disables the Button, preventing mouse events, even if the underlying component is an `<a>` element</p></div></td></tr>
+        <tr><td>href</td><td><div>string</div></td><td></td><td><div><p>Providing a `href` will render an `<a>` element, <em>styled</em> as a button.</p></div></td></tr>
+        <tr><td>size</td><td><div><span>`'sm'`<span> | </span>`'lg'`</span></div></td><td></td><td><div><p>Specifies a large or small button.</p></div></td></tr>
+        <tr><td>type</td><td><div><span>`'button'`<span> | </span>`'reset'`<span> | </span>`'submit'`<span> | </span>`null`</span></div></td><td>`'button'`</td><td><div><p>Defines HTML button type attribute.</p></div></td></tr>
+        <tr><td>variant</td><td><div>string</div></td><td>`'primary'`</td><td><div><p>One or more button variant combinations</p><p>buttons may be one of a variety of visual variants such as:</p><p>`'primary', 'secondary', 'success', 'danger', 'warning', 'info', 'dark', 'light', 'link'`</p><p>as well as "outline" versions (prefixed by 'outline-*')</p><p>`'outline-primary', 'outline-secondary', 'outline-success', 'outline-danger', 'outline-warning', 'outline-info', 'outline-dark', 'outline-light'`</p></div></td></tr>
+        <tr><td>bsPrefix</td><td><div>string</div></td><td>`'btn'`</td><td><div><p>Change the underlying component CSS base class name and modifier class names prefix. <strong>This is an escape hatch</strong> for working with heavily customized bootstrap css.</p></div></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  ### ToggleButtonGroup
+  `import { ToggleButtonGroup } from 'solid-bootstrap'`
+  <div class="overflow-auto mt-4 mb-5 border border-light">
+    <table class="bg-white mb-0 table table-striped table-bordered">
+      <thead>
+        <tr><th>Name</th><th>Type</th><th>Default</th><th>Description</th></tr>
+      </thead>
+      <tbody>
+          <tr><td>name</td><td><div>string</div></td><td></td><td><div><p>An HTML `<input>` name for each child button.</p><p><strong>Required if `type` is set to `'radio'`</strong></p></div></td></tr>
+          <tr><td>onChange</td><td><div>function</div></td><td></td><td><div class="mb-2"><small><em class="text-info"><span>controls `value`</span></em></small></div><div><p>Callback fired when a button is pressed, depending on whether the `type`is `'radio'` or `'checkbox'`, `onChange` will be called with the value or array of active values</p></div></td></tr>
+          <tr><td>size</td><td><div><span>`'sm'`<span> | </span>`'lg'`</span></div></td><td></td><td><div><p>Sets the size for all Buttons in the group.</p></div></td></tr>
+          <tr><td>type</td><td><div><span>`'checkbox'`<span> | </span>`'radio'`</span></div></td><td>`'radio'`</td><td><div><p>The input `type` of the rendered buttons, determines the toggle behavior of the buttons</p></div></td></tr>
+          <tr><td>value</td><td><div>any</div></td><td></td><td><div class="mb-2"><small><em class="text-info"><span>controlled by: `onChange`, initial prop:`defaultValue`</span></em></small></div><div><p>The value, or array of values, of the active (pressed) buttons</p></div></td></tr>
+          <tr><td>vertical</td><td><div>boolean</div></td><td>`false`</td><td><div><p>Make the set of Buttons appear vertically stacked.</p></div></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  ### ToggleButton
+  `import { ToggleButton } from 'solid-bootstrap'`
+  <div class="overflow-auto mt-4 mb-5 border border-light">
+    <table class="bg-white mb-0 table table-striped table-bordered">
+      <thead>
+        <tr><th>Name</th><th>Type</th><th>Default</th><th>Description</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>checked</td><td><div>boolean</div></td><td></td><td><div><p>The checked state of the input, managed by `<ToggleButtonGroup>` automatically</p></div></td></tr>
+        <tr><td>disabled</td><td><div>boolean</div></td><td></td><td><div><p>The disabled state of both the label and input</p></div></td></tr>
+        <tr><td>id<sup class="text-danger">required</sup></td><td><div>string</div></td><td></td><td><div><p>`id` is required for button clicks to toggle input.</p></div></td></tr>
+        <tr><td>inputRef</td><td><div></div></td><td></td><td><div><p>A ref attached to the `<input>` element</p></div></td></tr>
+        <tr><td>name</td><td><div>string</div></td><td></td><td><div><p>The HTML input name, used to group like checkboxes or radio buttons together semantically</p></div></td></tr>
+        <tr><td>onChange</td><td><div>function</div></td><td></td><td><div><p>A callback fired when the underlying input element changes. This is passed directly to the `<input>` so shares the same signature as a native `onChange` event.</p></div></td></tr>
+        <tr><td>type</td><td><div><span>`'checkbox'`<span> | </span>`'radio'`</span></div></td><td></td><td><div><p>The `<input>` element `type`</p></div></td></tr>
+        <tr><td>value<sup class="text-danger">required</sup></td><td><div>string|arrayOf|number</div></td><td></td><td><div><p>The value of the input, should be unique amongst it's siblings when nested in a `ToggleButtonGroup`.</p></div></td></tr>
+        <tr><td>bsPrefix</td><td><div>string</div></td><td>`'btn-check'`</td><td><div><p>Change the underlying component CSS base class name and modifier class names prefix. <strong>This is an escape hatch</strong> for working with heavily customized bootstrap css.</p></div></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>

@@ -1,0 +1,456 @@
+import { Card, Container, Col, Row } from "solid-bootstrap";
+import Example from "../../components/Example";
+import "./styles.css";
+import GithubSource from "../../components/GithubSource";
+import LayoutGridApi from "../../api/LayoutGridApi";
+
+<GithubSource name="layout/grid.mdx" />
+# Grid system
+
+<div class="lead">
+  Bootstrap’s grid system uses a series of containers, rows, and columns
+  to layout and align content. It’s built with flexbox and is fully
+  responsive. Below is an example and an in-depth look at how the grid
+  comes together.
+</div>
+
+<div class="row gy-5 pt-3 show-grid">
+
+  <Example title="Container">
+    <Example.Intro>
+      Containers provide a means to center and horizontally pad your site's contents. Use `Container` for a responsive pixel width.
+    </Example.Intro>
+    <Example.Preview>
+      <Container>
+        <Row>
+          <Col>1 of 1</Col>
+        </Row>
+      </Container>
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      <Container>
+        <Row>
+          <Col>1 of 1</Col>
+        </Row>
+      </Container>
+      ```
+    </Example.Code>
+  </Example>
+
+  <Example title="Fluid Container">
+    <Example.Intro>
+      You can use `<Container fluid />` for width: 100% across all viewport and device sizes.
+    </Example.Intro>
+    <Example.Preview>
+      <Container fluid>
+        <Row>
+          <Col>1 of 1</Col>
+        </Row>
+      </Container>
+      <div class="mt-4 mb-3">
+        You can set breakpoints for the `fluid` prop. Setting it to a breakpoint (`sm, md, lg, xl, xxl`) will set the `Container` as fluid until the specified breakpoint.
+      </div>
+      <Container fluid="md">
+        <Row>
+          <Col>1 of 1</Col>
+        </Row>
+      </Container>
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      <Container fluid>
+        <Row>
+          <Col>1 of 1</Col>
+        </Row>
+      </Container>
+
+      <Container fluid="md">
+        <Row>
+          <Col>1 of 1</Col>
+        </Row>
+      </Container>
+      ```
+    </Example.Code>
+  </Example>
+
+  <Example title="Auto-layout columns">
+    <Example.Intro>
+      When no column widths are specified the `Col` component will render equal width columns
+    </Example.Intro>
+    <Example.Preview>
+      <Container>
+        <Row>
+          <Col>1 of 2</Col>
+          <Col>2 of 2</Col>
+        </Row>
+        <Row>
+          <Col>1 of 3</Col>
+          <Col>2 of 3</Col>
+          <Col>3 of 3</Col>
+        </Row>
+      </Container>
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      <Container>
+        <Row>
+          <Col>1 of 2</Col>
+          <Col>2 of 2</Col>
+        </Row>
+        <Row>
+          <Col>1 of 3</Col>
+          <Col>2 of 3</Col>
+          <Col>3 of 3</Col>
+        </Row>
+      </Container>
+      ```
+    </Example.Code>
+  </Example>
+
+  <Example title="Setting one column width">
+    <Example.Intro>
+      Auto-layout for flexbox grid columns also means you can set the width of one column and have the sibling columns automatically resize around it. You may use predefined grid classes (as shown below), grid mixins, or inline widths. Note that the other columns will resize no matter the width of the center column.
+    </Example.Intro>
+    <Example.Preview>
+      <Container>
+        <Row>
+          <Col>1 of 3</Col>
+          <Col xs={6}>2 of 3 (wider)</Col>
+          <Col>3 of 3</Col>
+        </Row>
+        <Row>
+          <Col>1 of 3</Col>
+          <Col xs={5}>2 of 3 (wider)</Col>
+          <Col>3 of 3</Col>
+        </Row>
+      </Container>
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      <Container>
+        <Row>
+          <Col>1 of 3</Col>
+          <Col xs={6}>2 of 3 (wider)</Col>
+          <Col>3 of 3</Col>
+        </Row>
+        <Row>
+          <Col>1 of 3</Col>
+          <Col xs={5}>2 of 3 (wider)</Col>
+          <Col>3 of 3</Col>
+        </Row>
+      </Container>
+      ```
+    </Example.Code>
+  </Example>
+
+  <Example title="Variable width content">
+    <Example.Intro>
+      Set the column value (for any breakpoint size) to `auto` to size columns based on the natural width of their content.
+    </Example.Intro>
+    <Example.Preview>
+      <Container>
+        <Row class="justify-content-md-center">
+          <Col xs lg="2">
+            1 of 3
+          </Col>
+          <Col md="auto">Variable width content</Col>
+          <Col xs lg="2">
+            3 of 3
+          </Col>
+        </Row>
+        <Row>
+          <Col>1 of 3</Col>
+          <Col md="auto">Variable width content</Col>
+          <Col xs lg="2">
+            3 of 3
+          </Col>
+        </Row>
+      </Container>
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      <Container>
+        <Row class="justify-content-md-center">
+          <Col xs lg="2">
+            1 of 3
+          </Col>
+          <Col md="auto">Variable width content</Col>
+          <Col xs lg="2">
+            3 of 3
+          </Col>
+        </Row>
+        <Row>
+          <Col>1 of 3</Col>
+          <Col md="auto">Variable width content</Col>
+          <Col xs lg="2">
+            3 of 3
+          </Col>
+        </Row>
+      </Container>
+      ```
+    </Example.Code>
+  </Example>
+
+  <Example title="Responsive grids">
+    <Example.Intro>
+      The `Col` lets you specify column widths across 6 breakpoint sizes (xs, sm, md, lg, xl and xxl). For every breakpoint, you can specify the amount of columns to span, or set the prop to `<Col lg={true} />` for auto layout widths.
+    </Example.Intro>
+    <Example.Preview>
+      <Container>
+        <Row>
+          <Col sm={8}>sm=8</Col>
+          <Col sm={4}>sm=4</Col>
+        </Row>
+        <Row>
+          <Col sm>sm=true</Col>
+          <Col sm>sm=true</Col>
+          <Col sm>sm=true</Col>
+        </Row>
+      </Container>
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      <Container>
+        <Row>
+          <Col sm={8}>sm=8</Col>
+          <Col sm={4}>sm=4</Col>
+        </Row>
+        <Row>
+          <Col sm>sm=true</Col>
+          <Col sm>sm=true</Col>
+          <Col sm>sm=true</Col>
+        </Row>
+      </Container>
+      ```
+    </Example.Code>
+  </Example>
+
+    <Example title="Mix and match">
+    <Example.Intro>
+      You can also mix and match breakpoints to create different grids depending on the screen size.
+    </Example.Intro>
+    <Example.Preview>
+      <Container>
+        {/* Stack the columns on mobile by making one full-width and the other half-width */}
+        <Row>
+          <Col xs={12} md={8}>
+            xs=12 md=8
+          </Col>
+          <Col xs={6} md={4}>
+            xs=6 md=4
+          </Col>
+        </Row>
+
+        {/* Columns start at 50% wide on mobile and bump up to 33.3% wide on desktop */}
+        <Row>
+          <Col xs={6} md={4}>
+            xs=6 md=4
+          </Col>
+          <Col xs={6} md={4}>
+            xs=6 md=4
+          </Col>
+          <Col xs={6} md={4}>
+            xs=6 md=4
+          </Col>
+        </Row>
+
+        {/* Columns are always 50% wide, on mobile and desktop */}
+        <Row>
+          <Col xs={6}>xs=6</Col>
+          <Col xs={6}>xs=6</Col>
+        </Row>
+      </Container>
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      <Container>
+        {/* Stack the columns on mobile by making one full-width and the other half-width */}
+        <Row>
+          <Col xs={12} md={8}>
+            xs=12 md=8
+          </Col>
+          <Col xs={6} md={4}>
+            xs=6 md=4
+          </Col>
+        </Row>
+
+        {/* Columns start at 50% wide on mobile and bump up to 33.3% wide on desktop */}
+        <Row>
+          <Col xs={6} md={4}>
+            xs=6 md=4
+          </Col>
+          <Col xs={6} md={4}>
+            xs=6 md=4
+          </Col>
+          <Col xs={6} md={4}>
+            xs=6 md=4
+          </Col>
+        </Row>
+
+        {/* Columns are always 50% wide, on mobile and desktop */}
+        <Row>
+          <Col xs={6}>xs=6</Col>
+          <Col xs={6}>xs=6</Col>
+        </Row>
+      </Container>
+      ```
+    </Example.Code>
+  </Example>
+
+    <Example title="Complex breakpoints">
+    <Example.Intro>
+      The `Col` breakpoint props also have a more complicated `object` prop form: `{span: number, order: number, offset: number}` for specifying offsets and ordering effects.
+
+      You can use the `order` property to control the visual order of your content.
+    </Example.Intro>
+    <Example.Preview>
+      <Container>
+        <Row>
+          <Col xs>First, but unordered</Col>
+          <Col xs={{ order: 5 }}>Second, but last</Col>
+          <Col xs={{ order: 1 }}>Third, but second</Col>
+        </Row>
+      </Container>
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      <Container>
+        <Row>
+          <Col xs>First, but unordered</Col>
+          <Col xs={{ order: 5 }}>Second, but last</Col>
+          <Col xs={{ order: 1 }}>Third, but second</Col>
+        </Row>
+      </Container>
+      ```
+    </Example.Code>
+  </Example>
+
+    <Example title="Special Order">
+    <Example.Intro>
+      The `order` property also supports `first` (order: -1) and `last` (order: $columns+1).
+    </Example.Intro>
+    <Example.Preview>
+      <Container>
+        <Row>
+          <Col xs={{ order: 'last' }}>First, but last</Col>
+          <Col xs>Second, but unordered</Col>
+          <Col xs={{ order: 'first' }}>Third, but first</Col>
+        </Row>
+      </Container>
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      <Container>
+        <Row>
+          <Col xs={{ order: 'last' }}>First, but last</Col>
+          <Col xs>Second, but unordered</Col>
+          <Col xs={{ order: 'first' }}>Third, but first</Col>
+        </Row>
+      </Container>
+      ```
+    </Example.Code>
+  </Example>
+
+    <Example title="Offset columns">
+    <Example.Intro>
+      For offsetting grid columns you can set an `offset` value or for a more general layout, use the margin class utilities.
+    </Example.Intro>
+    <Example.Preview>
+      <Container>
+        <Row>
+          <Col md={4}>md=4</Col>
+          <Col md={{ span: 4, offset: 4 }}>{`md={{ span: 4, offset: 4 }}`}</Col>
+        </Row>
+        <Row>
+          <Col md={{ span: 3, offset: 3 }}>{`md={{ span: 3, offset: 3 }}`}</Col>
+          <Col md={{ span: 3, offset: 3 }}>{`md={{ span: 3, offset: 3 }}`}</Col>
+        </Row>
+        <Row>
+          <Col md={{ span: 6, offset: 3 }}>{`md={{ span: 6, offset: 3 }}`}</Col>
+        </Row>
+      </Container>
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      <Container>
+        <Row>
+          <Col md={4}>md=4</Col>
+          <Col md={{ span: 4, offset: 4 }}>{`md={{ span: 4, offset: 4 }}`}</Col>
+        </Row>
+        <Row>
+          <Col md={{ span: 3, offset: 3 }}>{`md={{ span: 3, offset: 3 }}`}</Col>
+          <Col md={{ span: 3, offset: 3 }}>{`md={{ span: 3, offset: 3 }}`}</Col>
+        </Row>
+        <Row>
+          <Col md={{ span: 6, offset: 3 }}>{`md={{ span: 6, offset: 3 }}`}</Col>
+        </Row>
+      </Container>
+      ```
+    </Example.Code>
+  </Example>
+
+    <Example title="Setting column widths in Row">
+    <Example.Intro>
+      The `Row` lets you specify column widths across 6 breakpoint sizes (xs, sm, md, lg, xl and xxl). For every breakpoint, you can specify the amount of columns that will fit next to each other. You can also specify `auto` to set the columns to their natural widths.
+    </Example.Intro>
+    <Example.Preview>
+      <Container>
+        <Row xs={2} md={4} lg={6}>
+          <Col>1 of 2</Col>
+          <Col>2 of 2</Col>
+        </Row>
+        <Row xs={1} md={2}>
+          <Col>1 of 3</Col>
+          <Col>2 of 3</Col>
+          <Col>3 of 3</Col>
+        </Row>
+        <Row xs="auto">
+          <Col>1 of 3</Col>
+          <Col>2 of 3</Col>
+          <Col>3 of 3</Col>
+        </Row>
+      </Container>
+      <div class="mt-4 mb-3">
+        Note that `Row` column widths will override `Col` widths set on lower breakpoints when viewed on larger screens. The `<Col xs={6} />` size will be overriden by `<Row md={4} />` on medium and larger screens.
+      </div>
+      <Container>
+        <Row md={4}>
+          <Col>1 of 3</Col>
+          <Col xs={6}>2 of 3</Col>
+          <Col>3 of 3</Col>
+        </Row>
+      </Container>
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      <Container>
+        <Row xs={2} md={4} lg={6}>
+          <Col>1 of 2</Col>
+          <Col>2 of 2</Col>
+        </Row>
+        <Row xs={1} md={2}>
+          <Col>1 of 3</Col>
+          <Col>2 of 3</Col>
+          <Col>3 of 3</Col>
+        </Row>
+        <Row xs="auto">
+          <Col>1 of 3</Col>
+          <Col>2 of 3</Col>
+          <Col>3 of 3</Col>
+        </Row>
+      </Container>
+
+      <Container>
+        <Row md={4}>
+          <Col>1 of 3</Col>
+          <Col xs={6}>2 of 3</Col>
+          <Col>3 of 3</Col>
+        </Row>
+      </Container>
+      ```
+    </Example.Code>
+  </Example>
+
+  <LayoutGridApi />
+</div>

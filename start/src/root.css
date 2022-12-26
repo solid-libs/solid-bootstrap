@@ -1,0 +1,21 @@
+:root {
+  --divider: ##ececec; /* very light grey */
+  --primary: ##0d6efd;
+  --subtle-on-dark: #999;
+  --text: #1a1a1a; /*very dark grey / black substitute*/
+}
+
+/*
+  $grid-breakpoints: (
+    xs: 0,
+    sm: 576px,
+    md: 768px,
+    lg: 992px,
+    xl: 1200px,
+    xxl: 1400px
+  );
+
+media-breakpoint-down =  @media (max-width: 575.98px)
+media-breakpoint-up(lg) =  @media (min-width: 992px)
+*/
+

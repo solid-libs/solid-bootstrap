@@ -1,0 +1,214 @@
+import { Button, Card, Spinner } from "solid-bootstrap";
+import Example from "../../components/Example";
+import GithubSource from "../../components/GithubSource";
+import SpinnerApi from "../../api/SpinnerApi";
+
+<GithubSource name="components/spinners.mdx" />
+# Spinners
+
+<div class="lead">
+  Spinners can be used to show the loading state in your projects.
+</div>
+
+<div class="row gy-5 pt-3">
+
+  <Example>
+    <Example.Intro>
+      Spinners can be used to show the loading state in your projects.
+    </Example.Intro>
+    <Example.Preview>
+      <Spinner animation="border" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </Spinner>
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      <Spinner animation="border" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </Spinner>
+      ```
+    </Example.Code>
+  </Example>
+
+  <Example title="Animations">
+    <Example.Intro>
+      Bootstrap offers two animation styles for spinners. The animation style
+      can be configured with the `animation` property. An animation style
+      must always be provided when creating a spinner.
+
+      **`animation="border"`**
+    </Example.Intro>
+    <Example.Preview>
+      <Spinner animation="border" />
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      <Spinner animation="border" />
+      ```
+    </Example.Code>
+  </Example>
+
+  <Example>
+    <Example.Intro>
+      **`animation="grow"`**
+    </Example.Intro>
+    <Example.Preview>
+      <Spinner animation="grow" />
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      <Spinner animation="grow" />
+      ```
+    </Example.Code>
+  </Example>
+
+  <Example title="Variants">
+    <Example.Intro>
+      All standard visual variants are available for both animation styles by
+      setting the `variant` property. Alternatively spinners can be custom
+      sized with the `style` property, or custom CSS classes.
+    </Example.Intro>
+    <Example.Preview>
+      <Spinner animation="border" variant="primary" />
+      <Spinner animation="border" variant="secondary" />
+      <Spinner animation="border" variant="success" />
+      <Spinner animation="border" variant="danger" />
+      <Spinner animation="border" variant="warning" />
+      <Spinner animation="border" variant="info" />
+      <Spinner animation="border" variant="light" />
+      <Spinner animation="border" variant="dark" />
+      <Spinner animation="grow" variant="primary" />
+      <Spinner animation="grow" variant="secondary" />
+      <Spinner animation="grow" variant="success" />
+      <Spinner animation="grow" variant="danger" />
+      <Spinner animation="grow" variant="warning" />
+      <Spinner animation="grow" variant="info" />
+      <Spinner animation="grow" variant="light" />
+      <Spinner animation="grow" variant="dark" />
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      <Spinner animation="border" variant="primary" />
+      <Spinner animation="border" variant="secondary" />
+      <Spinner animation="border" variant="success" />
+      <Spinner animation="border" variant="danger" />
+      <Spinner animation="border" variant="warning" />
+      <Spinner animation="border" variant="info" />
+      <Spinner animation="border" variant="light" />
+      <Spinner animation="border" variant="dark" />
+      <Spinner animation="grow" variant="primary" />
+      <Spinner animation="grow" variant="secondary" />
+      <Spinner animation="grow" variant="success" />
+      <Spinner animation="grow" variant="danger" />
+      <Spinner animation="grow" variant="warning" />
+      <Spinner animation="grow" variant="info" />
+      <Spinner animation="grow" variant="light" />
+      <Spinner animation="grow" variant="dark" />
+      ```
+    </Example.Code>
+  </Example>
+
+  <Example title="Sizing">
+    <Example.Intro>
+      In addition to the standard size, a smaller additional preconfigured
+      size is available by configuring the `size` property to `sm`.
+    </Example.Intro>
+    <Example.Preview>
+      <Spinner animation="border" size="sm" />
+      <Spinner animation="border" />
+      <Spinner animation="grow" size="sm" />
+      <Spinner animation="grow" />
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      <Spinner animation="border" size="sm" />
+      <Spinner animation="border" />
+      <Spinner animation="grow" size="sm" />
+      <Spinner animation="grow" />
+      ```
+    </Example.Code>
+  </Example>
+
+  <Example title="Buttons">
+    <Example.Intro>
+      Like the original Bootstrap spinners, these can also be used with
+      buttons. To use this component out-of-the-box it is recommended you
+      change the element type to `span` by configuring the `as` property when
+      using spinners inside buttons.
+    </Example.Intro>
+    <Example.Preview>
+      <Button variant="primary" disabled>
+        <Spinner
+          as="span"
+          animation="border"
+          size="sm"
+          role="status"
+          aria-hidden="true"
+        />
+        <span class="visually-hidden">Loading...</span>
+      </Button>
+      {" "}
+      <Button variant="primary" disabled>
+        <Spinner
+          as="span"
+          animation="grow"
+          size="sm"
+          role="status"
+          aria-hidden="true"/>
+          {" Loading..."}
+        </Button>
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      <Button variant="primary" disabled>
+        <Spinner
+          as="span"
+          animation="border"
+          size="sm"
+          role="status"
+          aria-hidden="true"
+        />
+        <span class="visually-hidden">Loading...</span>
+      </Button>
+      <Button variant="primary" disabled>
+        <Spinner
+          as="span"
+          animation="grow"
+          size="sm"
+          role="status"
+          aria-hidden="true"
+        /> 
+        Loading...
+      </Button>
+      ```
+    </Example.Code>
+  </Example>
+
+  <Example title="Accessibility">
+    <Example.Intro>
+      To ensure the maximum accessibility for spinner components it is
+      recommended you provide a relevant ARIA `role` property,
+      and include screenreader-only readable text representation of the
+      spinner's meaning inside the component using Bootstrap's `visually-hidden`
+      class.
+
+      The example below provides an example of accessible usage of this
+      component.
+    </Example.Intro>
+    <Example.Preview>
+      <Spinner animation="border" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </Spinner>
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      <Spinner animation="border" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </Spinner>
+      ```
+    </Example.Code>
+  </Example>
+
+
+  <SpinnerApi />
+</div>

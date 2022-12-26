@@ -1,0 +1,211 @@
+import { Alert, Col, Form, FormFloating, FloatingLabel, Row  } from "solid-bootstrap";
+import Example from "../../components/Example";
+import GithubSource from "../../components/GithubSource";
+import BadgeApi from "../../api/BadgeApi";
+
+<GithubSource name="forms/floating-labels.mdx" />
+# Floating labels
+
+<div class="lead">
+  Create beautifully simple form labels that float over your input fields.
+</div>
+
+<div class="row gy-5 pt-3">
+
+  <Example title="Example">
+    <Example.Intro>
+      Wrap a `<Form.Control>` element in `<FloatingLabel>` to enable floating labels with
+      Bootstrap’s textual form fields. A `placeholder` is required
+      on each `<Form.Control>` as our method of CSS-only
+      floating labels uses the `:placeholder-shown` pseudo-element.
+    </Example.Intro>
+    <Example.Preview>
+      <FloatingLabel controlId="floatingInput" label="Email address" class="mb-3">
+        <Form.Control type="email" placeholder="name@example.com" />
+      </FloatingLabel>
+
+      <FloatingLabel controlId="floatingPassword" label="Password">
+        <Form.Control type="password" placeholder="Password" />
+      </FloatingLabel>
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      <FloatingLabel controlId="floatingInput" label="Email address" class="mb-3">
+        <Form.Control type="email" placeholder="name@example.com" />
+      </FloatingLabel>
+
+      <FloatingLabel controlId="floatingPassword" label="Password">
+        <Form.Control type="password" placeholder="Password" />
+      </FloatingLabel>
+      ```
+    </Example.Code>
+  </Example>
+
+  <Example title="Textareas">
+    <Example.Intro>
+      By default, `<textarea>`s will be the same height as `<input>`s. To set a custom
+      height on your `<textarea>`, do not use the `rows` attribute. Instead, set an
+      explicit `height` (either inline or via custom CSS).
+    </Example.Intro>
+    <Example.Preview>
+      <FloatingLabel controlId="floatingTextarea" label="Comments" class="mb-3">
+        <Form.Control as="textarea" placeholder="Leave a comment here" />
+      </FloatingLabel>
+
+      <FloatingLabel controlId="floatingTextarea2" label="Comments">
+        <Form.Control as="textarea" placeholder="Leave a comment here" style={{ height: '100px' }} />
+      </FloatingLabel>
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      <FloatingLabel controlId="floatingTextarea" label="Comments" class="mb-3">
+        <Form.Control as="textarea" placeholder="Leave a comment here" />
+      </FloatingLabel>
+
+      <FloatingLabel controlId="floatingTextarea2" label="Comments">
+        <Form.Control as="textarea" placeholder="Leave a comment here" style={{ height: '100px' }} />
+      </FloatingLabel>
+      ```
+    </Example.Code>
+  </Example>
+
+  <Example title="Selects">
+    <Example.Intro>
+      Other than `<Form.Control>`, floating labels are only available on `<Form.Select>`s.
+      They work in the same way, but unlike `<input>`s, they’ll always show the `<label>`
+      in its floated state.
+    </Example.Intro>
+    <Example.Preview>
+      <FloatingLabel controlId="floatingSelect" label="Works with selects">
+        <Form.Select aria-label="Floating label select example">
+          <option>Open this select menu</option>
+          <option value="1">One</option>
+          <option value="2">Two</option>
+          <option value="3">Three</option>
+        </Form.Select>
+      </FloatingLabel>
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      <FloatingLabel controlId="floatingSelect" label="Works with selects">
+        <Form.Select aria-label="Floating label select example">
+          <option>Open this select menu</option>
+          <option value="1">One</option>
+          <option value="2">Two</option>
+          <option value="3">Three</option>
+        </Form.Select>
+      </FloatingLabel>
+      ```
+    </Example.Code>
+  </Example>
+
+  <Example title="Layout">
+    <Example.Intro>
+      When working with the Bootstrap grid system, be sure to place form
+      elements within column classes.
+    </Example.Intro>
+    <Example.Preview>
+      <Row class="g-2">
+        <Col md>
+          <FloatingLabel controlId="floatingInputGrid" label="Email address">
+            <Form.Control type="email" placeholder="name@example.com" />
+          </FloatingLabel>
+        </Col>
+        <Col md>
+          <FloatingLabel controlId="floatingSelectGrid" label="Works with selects">
+            <Form.Select aria-label="Floating label select example">
+              <option>Open this select menu</option>
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+            </Form.Select>
+          </FloatingLabel>
+        </Col>
+      </Row>
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      <Row class="g-2">
+        <Col md>
+          <FloatingLabel controlId="floatingInputGrid" label="Email address">
+            <Form.Control type="email" placeholder="name@example.com" />
+          </FloatingLabel>
+        </Col>
+        <Col md>
+          <FloatingLabel controlId="floatingSelectGrid" label="Works with selects">
+            <Form.Select aria-label="Floating label select example">
+              <option>Open this select menu</option>
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+            </Form.Select>
+          </FloatingLabel>
+        </Col>
+      </Row>
+      ```
+    </Example.Code>
+  </Example>
+
+  <Example title="Customizing rendering">
+    <Example.Intro>
+      If you need greater control over the rendering, use the `<FormFloating>` component
+      to wrap your input and label. Also note that the `<Form.Control>` must come first
+      so we can utilize a sibling selector (e.g., ~).
+    </Example.Intro>
+    <Example.Preview>
+      <FormFloating class="mb-3">
+        <Form.Control id="floatingInputCustom" type="email"placeholder="name@example.com" />
+        <label htmlFor="floatingInputCustom">Email address</label>
+      </FormFloating>
+
+      <FormFloating>
+        <Form.Control id="floatingPasswordCustom" type="password" placeholder="Password" />
+        <label htmlFor="floatingPasswordCustom">Password</label>
+      </FormFloating>
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      <FormFloating class="mb-3">
+        <Form.Control id="floatingInputCustom" type="email"placeholder="name@example.com" />
+        <label htmlFor="floatingInputCustom">Email address</label>
+      </FormFloating>
+
+      <FormFloating>
+        <Form.Control id="floatingPasswordCustom" type="password" placeholder="Password" />
+        <label htmlFor="floatingPasswordCustom">Password</label>
+      </FormFloating>
+      ```
+    </Example.Code>
+  </Example>
+
+
+</div>
+
+## Api
+### Form.Floating
+`import { Form } from "solid-bootstrap"'`
+
+<table class="bg-white mb-0 table table-striped table-bordered">
+  <thead>
+    <tr><th>Name</th><th>Type</th><th>Default</th><th>Description</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>as </td><td><div>elementType</div></td><td><code>`<div>`</code></td><td><div><p>You can use a custom element type for this component.</p></div></td></tr>
+    <tr><td>bsPrefix <sup class="text-danger">required</sup></td><td><div>string</div></td><td><code>'form-floating'</code></td><td><div><p>Change the underlying component CSS base class name and modifier class names prefix. <strong>This is an escape hatch</strong> for working with heavily customized bootstrap css.</p></div></td></tr>
+  </tbody>
+</table>
+
+
+### FloatingLabel
+`import { FloatingLabel } from "solid-bootstrap"'`
+
+<table class="bg-white mb-0 table table-striped table-bordered">
+  <thead>
+    <tr><th>Name</th><th>Type</th><th>Default</th><th>Description</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>as </td><td><div>elementType</div></td><td></td><td><div><p>You can use a custom element type for this component.</p></div></td></tr>
+    <tr><td>controlId </td><td><div>string</div></td><td></td><td><div><p>Sets <code>id</code> on <code>&lt;FormControl&gt;</code> and <code>htmlFor</code> on <code>&lt;label&gt;</code>.</p></div></td></tr>
+    <tr><td>label <sup class="text-danger">required</sup></td><td><div>node</div></td><td></td><td><div><p>Form control label.</p></div></td></tr>
+  </tbody>
+</table>

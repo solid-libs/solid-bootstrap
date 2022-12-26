@@ -9,6 +9,7 @@
     "packages/transition",
     "packages/core",
     "packages/bootstrap",
+    "start",
     "www"
   ]
 }

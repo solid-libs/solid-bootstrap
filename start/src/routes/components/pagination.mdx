@@ -1,0 +1,90 @@
+import { Pagination } from "solid-bootstrap";
+import { items } from "../../api/PaginationExamples";
+import Example from "../../components/Example";
+import GithubSource from "../../components/GithubSource";
+import PaginationApi from "../../api/PaginationApi";
+
+<GithubSource name="components/pagination.mdx" />
+# Pagination
+
+<div class="row gy-5 pt-3">
+
+  <Example title="Example">
+    <Example.Intro>
+      A set of _presentational_ components for building pagination UI.
+    </Example.Intro>
+    <Example.Preview>
+      <Pagination>{items}</Pagination>
+      <br />
+
+      <Pagination size="lg">{items}</Pagination>
+      <br />
+
+      <Pagination size="sm">{items}</Pagination>
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      <Pagination>{items}</Pagination>
+      <br />
+
+      <Pagination size="lg">{items}</Pagination>
+      <br />
+
+      <Pagination size="sm">{items}</Pagination>
+      ```
+    </Example.Code>
+  </Example>
+
+  <Example title="More options">
+    <Example.Intro>
+      For building more complex pagination UI, there are few convenient
+      sub-components for adding "First", "Previous", "Next", and "Last"
+      buttons, as well as an "Ellipsis" item for indicating
+      previous or continuing results.
+    </Example.Intro>
+    <Example.Preview>
+      <Pagination>
+        <Pagination.First />
+        <Pagination.Prev />
+        <Pagination.Item>{1}</Pagination.Item>
+        <Pagination.Ellipsis />
+
+        <Pagination.Item>{10}</Pagination.Item>
+        <Pagination.Item>{11}</Pagination.Item>
+        <Pagination.Item active>{12}</Pagination.Item>
+        <Pagination.Item>{13}</Pagination.Item>
+        <Pagination.Item disabled>{14}</Pagination.Item>
+
+        <Pagination.Ellipsis />
+        <Pagination.Item>{20}</Pagination.Item>
+        <Pagination.Next />
+        <Pagination.Last />
+      </Pagination>
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      <Pagination>
+        <Pagination.First />
+        <Pagination.Prev />
+        <Pagination.Item>{1}</Pagination.Item>
+        <Pagination.Ellipsis />
+
+        <Pagination.Item>{10}</Pagination.Item>
+        <Pagination.Item>{11}</Pagination.Item>
+        <Pagination.Item active>{12}</Pagination.Item>
+        <Pagination.Item>{13}</Pagination.Item>
+        <Pagination.Item disabled>{14}</Pagination.Item>
+
+        <Pagination.Ellipsis />
+        <Pagination.Item>{20}</Pagination.Item>
+        <Pagination.Next />
+        <Pagination.Last />
+      </Pagination>
+      ```
+    </Example.Code>
+  </Example>
+
+
+
+  <PaginationApi />
+</div>

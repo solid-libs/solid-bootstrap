@@ -1,0 +1,78 @@
+import { Badge, CloseButton } from "solid-bootstrap";
+import Example from "../../components/Example";
+import GithubSource from "../../components/GithubSource";
+import CloseButtonApi from "../../api/CloseButtonApi";
+
+<GithubSource name="components/close-button.mdx" />
+# Close Button
+
+<div class="lead">
+  A generic close button for dismissing content such as modals and
+          alerts.
+</div>
+
+<div class="row gy-5 pt-3">
+  <Example title="Example">
+    <Example.Intro>
+      A generic close button for dismissing content such as modals and alerts.
+    </Example.Intro>
+    <Example.Preview>
+      <CloseButton />
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      <CloseButton />
+      ```
+    </Example.Code>
+  </Example>
+
+  <Example title="Disabled state">
+    <Example.Intro>
+      Bootstrap adds relevant styling to a disabled close button to prevent user interactions.
+    </Example.Intro>
+    <Example.Preview>
+      <CloseButton disabled />
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      <CloseButton disabled />
+      ```
+    </Example.Code>
+  </Example>
+
+  <Example title="Variants">
+    <Example.Intro>
+      Change the default dark color to white using `variant="white"`.
+    </Example.Intro>
+    <Example.Preview>
+      <div class="bg-dark p-3">
+        <CloseButton variant="white" />
+        <CloseButton variant="white" disabled />
+      </div>
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      <div class="bg-dark p-3">
+        <CloseButton variant="white" />
+        <CloseButton variant="white" disabled />
+      </div>
+      ```
+    </Example.Code>
+  </Example>
+
+  <Example title="Accessibility">
+    <Example.Intro>
+      To ensure the maximum accessibility for Close Button components, it is recommended that you provide relevant text for screen readers. The example below provides an example of accessible usage of this component by way of the `aria-label` property.
+    </Example.Intro>
+    <Example.Preview>
+      <CloseButton aria-label="Hide" />
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      <CloseButton aria-label="Hide" />
+      ```
+    </Example.Code>
+  </Example>
+
+  <CloseButtonApi />
+</div>

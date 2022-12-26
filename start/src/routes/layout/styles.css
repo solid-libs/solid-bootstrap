@@ -1,0 +1,11 @@
+.show-grid .row > .col,
+.show-grid .row > [class^="col-"] {
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  background-color: #bbeffd;
+  border: 1px solid #61dafb;
+}
+
+.show-grid .row + .row {
+  margin-top: 1rem;
+}

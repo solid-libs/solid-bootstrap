@@ -1,0 +1,602 @@
+import {
+  Alert,
+  Button,
+  Card,
+  Container,
+  Form,
+  FormControl,
+  Offcanvas,
+  Nav,
+  Navbar,
+  NavDropdown,
+} from "solid-bootstrap";
+import Example from "../../components/Example";
+import GithubSource from "../../components/GithubSource";
+import NavbarApi from "../../api/NavbarApi";
+
+<GithubSource name="components/navbar.mdx" />
+# Navbars
+
+<div class="lead">
+  A powerful, responsive navigation header, the navbar. Includes support for
+  branding, navigation, and more
+</div>
+
+<div class="row gy-5 pt-3">
+
+  <Example title="Overview">
+    <Example.Intro>
+      Here's what you need to know before getting started with the Navbar:
+
+      - Use the `expand` prop to allow for collapsing the `Navbar` at
+        lower breakpoints.
+      - `Navbar`s and their contents are fluid by default. Use optional
+        [containers](#containers) to limit their horizontal width.
+      - Use spacing and flex utilities to size and position content
+
+      A responsive navigation header, including support for branding,
+      navigation, and more. Here's an example of all the sub-components
+      included in a responsive light-themed navbar that automatically
+      collapses at the lg (large) breakpoint.
+    </Example.Intro>
+    <Example.Preview>
+      <Navbar bg="light" expand="lg">
+        <Container>
+          <Navbar.Brand href="#home">Solid-Bootstrap</Navbar.Brand>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse id="basic-navbar-nav">
+            <Nav class="me-auto">
+              <Nav.Link href="#home">Home</Nav.Link>
+              <Nav.Link href="#link">Link</Nav.Link>
+              <NavDropdown title="Dropdown" id="basic-nav-dropdown">
+                <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+                <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
+                <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+                <NavDropdown.Divider />
+                <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
+              </NavDropdown>
+            </Nav>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      <Navbar bg="light" expand="lg">
+        <Container>
+          <Navbar.Brand href="#home">Solid-Bootstrap</Navbar.Brand>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse id="basic-navbar-nav">
+            <Nav class="me-auto">
+              <Nav.Link href="#home">Home</Nav.Link>
+              <Nav.Link href="#link">Link</Nav.Link>
+              <NavDropdown title="Dropdown" id="basic-nav-dropdown">
+                <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+                <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
+                <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+                <NavDropdown.Divider />
+                <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
+              </NavDropdown>
+            </Nav>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
+      ```
+    </Example.Code>
+  </Example>
+
+  <Example title="Brand">
+    <Example.Intro>
+      A simple flexible branding component. Images are supported but will
+      likely require custom styling to work well.
+    </Example.Intro>
+    <Example.Preview>
+      <Navbar bg="light">
+        <Container>
+          <Navbar.Brand href="#">Brand link</Navbar.Brand>
+        </Container>
+      </Navbar>
+      <br />
+      <Navbar bg="light">
+        <Container>
+          <Navbar.Brand>Brand text</Navbar.Brand>
+        </Container>
+      </Navbar>
+      <br />
+      <Navbar bg="dark">
+        <Container>
+          <Navbar.Brand href="#">
+            <img alt="" src={import.meta.env.BASE_URL + "logo.svg"} width="30" height="30" class="d-inline-block align-top"/>
+          </Navbar.Brand>
+        </Container>
+      </Navbar>
+      <br />
+      <Navbar bg="dark" variant="dark">
+        <Container>
+          <Navbar.Brand href="#">
+            <img alt="" src={import.meta.env.BASE_URL + "logo.svg"} width="30" height="30" class="d-inline-block align-top"/>
+            {" Solid Bootstrap"}
+          </Navbar.Brand>
+        </Container>
+      </Navbar>
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      <Navbar bg="light">
+        <Container>
+          <Navbar.Brand href="#">Brand link</Navbar.Brand>
+        </Container>
+      </Navbar>
+      <br />
+      <Navbar bg="light">
+        <Container>
+          <Navbar.Brand>Brand text</Navbar.Brand>
+        </Container>
+      </Navbar>
+      <br />
+      <Navbar bg="dark">
+        <Container>
+          <Navbar.Brand href="#">
+            <img alt="" src={"logo.svg"} width="30" height="30">
+          </Navbar.Brand>
+        </Container>
+      </Navbar>
+      <br />
+      <Navbar bg="dark" variant="dark">
+        <Container>
+          <Navbar.Brand href="#">
+            <img alt="" src={"logo.svg"} width="30" height="30"/>
+            {" Solid Bootstrap"}
+          </Navbar.Brand>
+        </Container>
+      </Navbar>
+      ```
+    </Example.Code>
+  </Example>
+
+  <Example title="Text and Non-nav links">
+    <Example.Intro>
+      Loose text and links can be wrapped `Navbar.Text` in order to
+      correctly align it vertically.
+    </Example.Intro>
+    <Example.Preview>
+      <Navbar>
+        <Container>
+          <Navbar.Brand href="#home">Navbar with text</Navbar.Brand>
+          <Navbar.Toggle />
+          <Navbar.Collapse class="justify-content-end">
+            <Navbar.Text>Signed in as: <a href="#login">Mark Otto</a></Navbar.Text>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      <Navbar>
+        <Container>
+          <Navbar.Brand href="#home">Navbar with text</Navbar.Brand>
+          <Navbar.Toggle />
+          <Navbar.Collapse class="justify-content-end">
+            <Navbar.Text>Signed in as: <a href="#login">Mark Otto</a></Navbar.Text>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
+      ```
+    </Example.Code>
+  </Example>
+
+  <Example title="Color schemes">
+    <Example.Intro>
+      Theming the navbar has never been easier thanks to the combination of
+      theming classes and background-color utilities. Choose from
+      `variant="light"` for use with light background colors, or
+      `variant="dark"` for dark background colors. Then, customize
+      with the `bg` prop or any custom css!
+    </Example.Intro>
+    <Example.Preview>
+      <Navbar bg="dark" variant="dark">
+        <Container>
+        <Navbar.Brand href="#home">Navbar</Navbar.Brand>
+        <Nav class="me-auto">
+          <Nav.Link href="#home">Home</Nav.Link>
+          <Nav.Link href="#features">Features</Nav.Link>
+          <Nav.Link href="#pricing">Pricing</Nav.Link>
+        </Nav>
+        </Container>
+      </Navbar>
+
+      <br />
+      <Navbar bg="primary" variant="dark">
+        <Container>
+        <Navbar.Brand href="#home">Navbar</Navbar.Brand>
+        <Nav class="me-auto">
+          <Nav.Link href="#home">Home</Nav.Link>
+          <Nav.Link href="#features">Features</Nav.Link>
+          <Nav.Link href="#pricing">Pricing</Nav.Link>
+        </Nav>
+        </Container>
+      </Navbar>
+
+      <br />
+      <Navbar bg="light" variant="light">
+        <Container>
+        <Navbar.Brand href="#home">Navbar</Navbar.Brand>
+        <Nav class="me-auto">
+          <Nav.Link href="#home">Home</Nav.Link>
+          <Nav.Link href="#features">Features</Nav.Link>
+          <Nav.Link href="#pricing">Pricing</Nav.Link>
+        </Nav>
+        </Container>
+      </Navbar>
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      <Navbar bg="dark" variant="dark">
+        <Container>
+        <Navbar.Brand href="#home">Navbar</Navbar.Brand>
+        <Nav class="me-auto">
+          <Nav.Link href="#home">Home</Nav.Link>
+          <Nav.Link href="#features">Features</Nav.Link>
+          <Nav.Link href="#pricing">Pricing</Nav.Link>
+        </Nav>
+        </Container>
+      </Navbar>
+
+      <br />
+      <Navbar bg="primary" variant="dark">
+        <Container>
+        <Navbar.Brand href="#home">Navbar</Navbar.Brand>
+        <Nav class="me-auto">
+          <Nav.Link href="#home">Home</Nav.Link>
+          <Nav.Link href="#features">Features</Nav.Link>
+          <Nav.Link href="#pricing">Pricing</Nav.Link>
+        </Nav>
+        </Container>
+      </Navbar>
+
+      <br />
+      <Navbar bg="light" variant="light">
+        <Container>
+        <Navbar.Brand href="#home">Navbar</Navbar.Brand>
+        <Nav class="me-auto">
+          <Nav.Link href="#home">Home</Nav.Link>
+          <Nav.Link href="#features">Features</Nav.Link>
+          <Nav.Link href="#pricing">Pricing</Nav.Link>
+        </Nav>
+        </Container>
+      </Navbar>
+      ```
+    </Example.Code>
+  </Example>
+
+  <Example title="Containers">
+    <Example.Intro>
+      While not required, you can wrap the Navbar in a `<Container>` component
+      to center it on a page, or add one within to only center the contents of a
+      [fixed or static top navbar](#placement).
+    </Example.Intro>
+    <Example.Preview>
+      <Container>
+        <Navbar expand="lg" variant="light" bg="light">
+          <Container>
+            <Navbar.Brand href="#">Navbar</Navbar.Brand>
+          </Container>
+        </Navbar>
+      </Container>
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      <Container>
+        <Navbar expand="lg" variant="light" bg="light">
+          <Container>
+            <Navbar.Brand href="#">Navbar</Navbar.Brand>
+          </Container>
+        </Navbar>
+      </Container>
+      ```
+    </Example.Code>
+  </Example>
+
+  <Example>
+    <Example.Intro>
+      When the container is within your navbar, its horizontal padding is
+      removed at breakpoints lower than your specified
+      `expand={'sm' | 'md' | 'lg' | 'xl' | 'xxl'}` prop. This
+      ensures we’re not doubling up on padding unnecessarily on lower
+      viewports when your navbar is collapsed.
+    </Example.Intro>
+    <Example.Preview>
+      <Navbar expand="lg" variant="light" bg="light">
+        <Container>
+          <Navbar.Brand href="#">Navbar</Navbar.Brand>
+        </Container>
+      </Navbar>
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      <Navbar expand="lg" variant="light" bg="light">
+        <Container>
+          <Navbar.Brand href="#">Navbar</Navbar.Brand>
+        </Container>
+      </Navbar>
+      ```
+    </Example.Code>
+  </Example>
+
+  <div>
+    ### Position
+
+    You can use Bootstrap's `position` utilities to
+    place navbars in non-static positions. Choose from fixed to the top,
+    fixed to the bottom, or stickied to the top (scrolls with the page until
+    it reaches the top, then stays there). Fixed navbars use
+    `position: fixed`, meaning they’re pulled from the normal
+    flow of the DOM and may require custom CSS (e.g., padding-top on the
+    `<body>`) to prevent overlap with other elements. Also
+    note that `.sticky-top` uses `position: sticky`, which
+    [isn’t fully supported in every browser](https://caniuse.com/#feat=css-sticky).
+
+    Since these positioning needs are so common for Navbars, we've added
+    convenience props for them.
+
+    #### Fixed top
+    ```
+    <Navbar fixed="top" />
+    ```
+
+    #### Fixed bottom
+    ```
+    <Navbar fixed="bottom" />
+    ```
+
+    #### Sticky top
+    ```
+    <Navbar sticky="top" />
+    ```
+  </div>
+
+  <Example title="Scrolling">
+    <Example.Intro>
+      You can use the `navbarScroll` prop in a `<Nav>` to enable vertical scrolling within the
+      toggleable contents of a collapsed navbar. See the Bootstrap docs for more information.
+    </Example.Intro>
+    <Example.Preview>
+      <Navbar bg="light" expand="lg">
+        <Container fluid>
+          <Navbar.Brand href="#">Navbar scroll</Navbar.Brand>
+          <Navbar.Toggle aria-controls="navbarScroll" />
+          <Navbar.Collapse id="navbarScroll">
+            <Nav
+              class="me-auto my-2 my-lg-0"
+              style={{ maxHeight: '100px' }}
+              navbarScroll
+            >
+              <Nav.Link href="#action1">Home</Nav.Link>
+              <Nav.Link href="#action2">Link</Nav.Link>
+              <NavDropdown title="Link" id="navbarScrollingDropdown">
+                <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
+                <NavDropdown.Item href="#action4">Another action</NavDropdown.Item>
+                <NavDropdown.Divider />
+                <NavDropdown.Item href="#action5">
+                  Something else here
+                </NavDropdown.Item>
+              </NavDropdown>
+              <Nav.Link href="#" disabled>Link</Nav.Link>
+            </Nav>
+            <Form class="d-flex">
+              <FormControl
+                type="search"
+                placeholder="Search"
+                class="me-2"
+                aria-label="Search"
+              />
+              <Button variant="outline-success">Search</Button>
+            </Form>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      <Navbar bg="light" expand="lg">
+        <Container fluid>
+          <Navbar.Brand href="#">Navbar scroll</Navbar.Brand>
+          <Navbar.Toggle aria-controls="navbarScroll" />
+          <Navbar.Collapse id="navbarScroll">
+            <Nav
+              class="me-auto my-2 my-lg-0"
+              style={{ maxHeight: '100px' }}
+              navbarScroll
+            >
+              <Nav.Link href="#action1">Home</Nav.Link>
+              <Nav.Link href="#action2">Link</Nav.Link>
+              <NavDropdown title="Link" id="navbarScrollingDropdown">
+                <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
+                <NavDropdown.Item href="#action4">Another action</NavDropdown.Item>
+                <NavDropdown.Divider />
+                <NavDropdown.Item href="#action5">
+                  Something else here
+                </NavDropdown.Item>
+              </NavDropdown>
+              <Nav.Link href="#" disabled>Link</Nav.Link>
+            </Nav>
+            <Form class="d-flex">
+              <FormControl
+                type="search"
+                placeholder="Search"
+                class="me-2"
+                aria-label="Search"
+              />
+              <Button variant="outline-success">Search</Button>
+            </Form>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
+      ```
+    </Example.Code>
+  </Example>
+
+  <Example title="Responsive behaviors">
+    <Example.Intro>
+      Use the `expand` prop as well as the
+      `Navbar.Toggle` and `Navbar.Collapse` components
+      to control when content collapses behind a button.
+
+      Set the `defaultExpanded` prop to make the Navbar start
+      expanded. Set `collapseOnSelect` to make the Navbar collapse
+      automatically when the user selects an item. You can also finely control
+      the collapsing behavior by using the `expanded` and
+      `onToggle` props.
+    </Example.Intro>
+    <Example.Preview>
+      <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+        <Container>
+        <Navbar.Brand href="#home">Solid-Bootstrap</Navbar.Brand>
+        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+        <Navbar.Collapse id="responsive-navbar-nav">
+          <Nav class="me-auto">
+            <Nav.Link href="#features">Features</Nav.Link>
+            <Nav.Link href="#pricing">Pricing</Nav.Link>
+            <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
+              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+              <NavDropdown.Divider />
+              <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
+            </NavDropdown>
+          </Nav>
+          <Nav>
+            <Nav.Link href="#deets">More deets</Nav.Link>
+            <Nav.Link eventKey={2} href="#memes">Dank memes</Nav.Link>
+          </Nav>
+        </Navbar.Collapse>
+        </Container>
+      </Navbar>
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+        <Container>
+        <Navbar.Brand href="#home">Solid-Bootstrap</Navbar.Brand>
+        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+        <Navbar.Collapse id="responsive-navbar-nav">
+          <Nav class="me-auto">
+            <Nav.Link href="#features">Features</Nav.Link>
+            <Nav.Link href="#pricing">Pricing</Nav.Link>
+            <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
+              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+              <NavDropdown.Divider />
+              <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
+            </NavDropdown>
+          </Nav>
+          <Nav>
+            <Nav.Link href="#deets">More deets</Nav.Link>
+            <Nav.Link eventKey={2} href="#memes">Dank memes</Nav.Link>
+          </Nav>
+        </Navbar.Collapse>
+        </Container>
+      </Navbar>
+      ```
+    </Example.Code>
+    <Alert variant="warning" class="mt-3">Watch out! You <strong>need</strong> to provide a breakpoint value to <code>expand</code> inorder for the Navbar to collapse at all.</Alert>
+  </Example>
+
+
+  <Example title="Offcanvas">
+    <Example.Intro>
+      Transform your expanding and collapsing navbar into an offcanvas drawer
+      with the offcanvas component. We extend both the offcanvas default
+      styles and use the `expand` prop to create a dynamic and
+      flexible navigation sidebar.
+
+      In the example below, to create an offcanvas navbar that is always
+      collapsed across all breakpoints, set the `expand` prop to `false`.
+    </Example.Intro>
+    <Example.Preview>
+      <Navbar bg="light" expand={false}>
+        <Container fluid>
+          <Navbar.Brand href="#">Navbar Offcanvas</Navbar.Brand>
+          <Navbar.Toggle aria-controls="offcanvasNavbar" />
+          <Navbar.Offcanvas
+            id="offcanvasNavbar"
+            aria-labelledby="offcanvasNavbarLabel"
+            placement="end"
+          >
+            <Offcanvas.Header closeButton>
+              <Offcanvas.Title id="offcanvasNavbarLabel">Offcanvas</Offcanvas.Title>
+            </Offcanvas.Header>
+            <Offcanvas.Body>
+              <Nav class="justify-content-end flex-grow-1 pe-3">
+                <Nav.Link href="#action1">Home</Nav.Link>
+                <Nav.Link href="#action2">Link</Nav.Link>
+                <NavDropdown title="Dropdown" id="offcanvasNavbarDropdown">
+                  <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
+                  <NavDropdown.Item href="#action4">Another action</NavDropdown.Item>
+                  <NavDropdown.Divider />
+                  <NavDropdown.Item href="#action5">
+                    Something else here
+                  </NavDropdown.Item>
+                </NavDropdown>
+              </Nav>
+              <Form class="d-flex">
+                <FormControl
+                  type="search"
+                  placeholder="Search"
+                  class="me-2"
+                  aria-label="Search"
+                />
+                <Button variant="outline-success">Search</Button>
+              </Form>
+            </Offcanvas.Body>
+          </Navbar.Offcanvas>
+        </Container>
+      </Navbar>
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      <Navbar bg="light" expand={false}>
+        <Container fluid>
+          <Navbar.Brand href="#">Navbar Offcanvas</Navbar.Brand>
+          <Navbar.Toggle aria-controls="offcanvasNavbar" />
+          <Navbar.Offcanvas
+            id="offcanvasNavbar"
+            aria-labelledby="offcanvasNavbarLabel"
+            placement="end"
+          >
+            <Offcanvas.Header closeButton>
+              <Offcanvas.Title id="offcanvasNavbarLabel">Offcanvas</Offcanvas.Title>
+            </Offcanvas.Header>
+            <Offcanvas.Body>
+              <Nav class="justify-content-end flex-grow-1 pe-3">
+                <Nav.Link href="#action1">Home</Nav.Link>
+                <Nav.Link href="#action2">Link</Nav.Link>
+                <NavDropdown title="Dropdown" id="offcanvasNavbarDropdown">
+                  <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
+                  <NavDropdown.Item href="#action4">Another action</NavDropdown.Item>
+                  <NavDropdown.Divider />
+                  <NavDropdown.Item href="#action5">
+                    Something else here
+                  </NavDropdown.Item>
+                </NavDropdown>
+              </Nav>
+              <Form class="d-flex">
+                <FormControl
+                  type="search"
+                  placeholder="Search"
+                  class="me-2"
+                  aria-label="Search"
+                />
+                <Button variant="outline-success">Search</Button>
+              </Form>
+            </Offcanvas.Body>
+          </Navbar.Offcanvas>
+        </Container>
+      </Navbar>
+      ```
+    </Example.Code>
+  </Example>
+
+  <NavbarApi />
+</div>
