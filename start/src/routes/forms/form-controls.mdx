@@ -1,0 +1,289 @@
+import { Button, Col, Form, Row  } from "solid-bootstrap";
+import Example from "../../components/Example";
+import GithubSource from "../../components/GithubSource";
+import BadgeApi from "../../api/BadgeApi";
+
+<GithubSource name="forms/form-controls.mdx" />
+# Form controls
+
+<div class="lead">
+  Give textual form controls like <code>{'<input>'}</code>s and{' '}
+  <code>{'<textarea>'}</code>s an upgrade with custom styles, sizing, focus
+  states, and more.
+</div>
+
+<div class="row gy-5 pt-3">
+
+  <Example title="Example">
+    <Example.Intro>
+      For textual form controls—like `input`s and `textarea`s—use the `FormControl` component.
+      FormControl adds some additional styles for general appearance, focus
+      state, sizing, and more.
+    </Example.Intro>
+    <Example.Preview>
+      <Form>
+        <Form.Group class="mb-3" controlId="exampleForm.ControlInput1">
+          <Form.Label>Email address</Form.Label>
+          <Form.Control type="email" placeholder="name@example.com" />
+        </Form.Group>
+
+        <Form.Group class="mb-3" controlId="exampleForm.ControlTextarea1">
+          <Form.Label>Example textarea</Form.Label>
+          <Form.Control as="textarea" rows={3} />
+        </Form.Group>
+      </Form>
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      <Form>
+        <Form.Group class="mb-3" controlId="exampleForm.ControlInput1">
+          <Form.Label>Email address</Form.Label>
+          <Form.Control type="email" placeholder="name@example.com" />
+        </Form.Group>
+        
+        <Form.Group class="mb-3" controlId="exampleForm.ControlTextarea1">
+          <Form.Label>Example textarea</Form.Label>
+          <Form.Control as="textarea" rows={3} />
+        </Form.Group>
+      </Form>
+      ```
+    </Example.Code>
+  </Example>
+
+  <Example title="Sizing">
+    <Example.Intro>
+      Use `size` on `<FormControl>` to change the size of the input.
+    </Example.Intro>
+    <Example.Preview>
+      <Form.Control size="lg" type="text" placeholder="Large text" />
+      <br />
+      <Form.Control type="text" placeholder="Normal text" />
+      <br />
+      <Form.Control size="sm" type="text" placeholder="Small text" />
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      <Form.Control size="lg" type="text" placeholder="Large text" />
+      <br />
+      <Form.Control type="text" placeholder="Normal text" />
+      <br />
+      <Form.Control size="sm" type="text" placeholder="Small text" />
+      ```
+    </Example.Code>
+  </Example>
+
+  <Example title="Disabled">
+    <Example.Intro>
+      Add the `disabled` prop on an input to give it a grayed out appearance and remove pointer events.
+    </Example.Intro>
+    <Example.Preview>
+      <Form.Control
+        type="text"
+        placeholder="Disabled input"
+        aria-label="Disabled input example"
+        disabled
+        readOnly
+      />
+      <br />
+      <Form.Control
+        type="text"
+        placeholder="Disabled readonly input"
+        aria-label="Disabled input example"
+        readOnly
+      />
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      <Form.Control
+        type="text"
+        placeholder="Disabled input"
+        aria-label="Disabled input example"
+        disabled
+        readOnly
+      />
+      <br />
+      <Form.Control
+        type="text"
+        placeholder="Disabled readonly input"
+        aria-label="Disabled input example"
+        readOnly
+      />
+      ```
+    </Example.Code>
+  </Example>
+
+  <Example title="Readonly">
+    <Example.Intro>
+      Add the `readOnly` prop on an input to prevent modification
+      of the input's value. Read-only inputs appear lighter (just like
+      disabled inputs), but retain the standard cursor.
+    </Example.Intro>
+    <Example.Preview>
+      <Form.Control type="text" placeholder="Readonly input here..." readOnly />
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      <Form.Control type="text" placeholder="Readonly input here..." readOnly />
+      ```
+    </Example.Code>
+  </Example>
+
+  <Example title="Readonly plain text">
+    <Example.Intro>
+      If you want to have readonly elements in your form styled as plain text,
+      use the `plaintext` prop on FormControls to remove the
+      default form field styling and preserve the correct margin and padding.
+    </Example.Intro>
+    <Example.Preview>
+      <Form>
+        <Form.Group as={Row} class="mb-3" controlId="formPlaintextEmail">
+          <Form.Label column sm="2">Email</Form.Label>
+          <Col sm="10">
+            <Form.Control plaintext readOnly value="email@example.com" />
+          </Col>
+        </Form.Group>
+
+        <Form.Group as={Row} class="mb-3" controlId="formPlaintextPassword">
+          <Form.Label column sm="2">Password</Form.Label>
+          <Col sm="10">
+            <Form.Control type="password" placeholder="Password" />
+          </Col>
+        </Form.Group>
+      </Form>
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      <Form>
+        <Form.Group as={Row} class="mb-3" controlId="formPlaintextEmail">
+          <Form.Label column sm="2">
+            Email
+          </Form.Label>
+          <Col sm="10">
+            <Form.Control plaintext readOnly value="email@example.com" />
+          </Col>
+        </Form.Group>
+
+        <Form.Group as={Row} class="mb-3" controlId="formPlaintextPassword">
+          <Form.Label column sm="2">
+            Password
+          </Form.Label>
+          <Col sm="10">
+            <Form.Control type="password" placeholder="Password" />
+          </Col>
+        </Form.Group>
+      </Form>
+      ```
+    </Example.Code>
+  </Example>
+
+  <Example title="File input">
+    <Example.Intro>
+    </Example.Intro>
+    <Example.Preview>
+      <Form.Group controlId="formFile" class="mb-3">
+        <Form.Label>Default file input example</Form.Label>
+        <Form.Control type="file" />
+      </Form.Group>
+
+      <Form.Group controlId="formFileMultiple" class="mb-3">
+        <Form.Label>Multiple files input example</Form.Label>
+        <Form.Control type="file" multiple />
+      </Form.Group>
+
+      <Form.Group controlId="formFileDisabled" class="mb-3">
+        <Form.Label>Disabled file input example</Form.Label>
+        <Form.Control type="file" disabled />
+      </Form.Group>
+
+      <Form.Group controlId="formFileSm" class="mb-3">
+        <Form.Label>Small file input example</Form.Label>
+        <Form.Control type="file" size="sm" />
+      </Form.Group>
+
+      <Form.Group controlId="formFileLg" class="mb-3">
+        <Form.Label>Large file input example</Form.Label>
+        <Form.Control type="file" size="lg" />
+      </Form.Group>
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      <Form.Group controlId="formFile" class="mb-3">
+        <Form.Label>Default file input example</Form.Label>
+        <Form.Control type="file" />
+      </Form.Group>
+
+      <Form.Group controlId="formFileMultiple" class="mb-3">
+        <Form.Label>Multiple files input example</Form.Label>
+        <Form.Control type="file" multiple />
+      </Form.Group>
+
+      <Form.Group controlId="formFileDisabled" class="mb-3">
+        <Form.Label>Disabled file input example</Form.Label>
+        <Form.Control type="file" disabled />
+      </Form.Group>
+
+      <Form.Group controlId="formFileSm" class="mb-3">
+        <Form.Label>Small file input example</Form.Label>
+        <Form.Control type="file" size="sm" />
+      </Form.Group>
+
+      <Form.Group controlId="formFileLg" class="mb-3">
+        <Form.Label>Large file input example</Form.Label>
+        <Form.Control type="file" size="lg" />
+      </Form.Group>
+      ```
+    </Example.Code>
+  </Example>
+
+  <Example title="Color">
+    <Example.Intro>
+    </Example.Intro>
+    <Example.Preview>
+      <Form.Label htmlFor="exampleColorInput">Color picker</Form.Label>
+      <Form.Control
+        type="color"
+        id="exampleColorInput"
+        ref={r => r.defaultValue = "#563d7c"}
+        title="Choose your color"
+      />
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      <Form.Label htmlFor="exampleColorInput">Color picker</Form.Label>
+      <Form.Control
+        type="color"
+        id="exampleColorInput"
+        ref={r => r.defaultValue = "#563d7c"}
+        title="Choose your color"
+      />
+      ```
+    </Example.Code>
+  </Example>
+
+
+</div>
+
+## Api
+### Form.Control
+`import { Form } from "solid-bootstrap"'`
+
+<table class="bg-white mb-0 table table-striped table-bordered">
+  <thead>
+    <tr><th>Name</th><th>Type</th><th>Default</th><th>Description</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>ref </td><td><div></div></td><td></td><td><div><p>The FormControl <code>ref</code> will be forwarded to the underlying input element, which means unless <code>as</code> is a composite component, it will be a DOM node, when resolved.</p></div></td></tr><tr><td>as </td><td><div>'input' | 'textarea' | elementType</div></td><td><code >'input'</code></td><td><div><p>The underlying HTML element to use when rendering the FormControl.</p></div></td></tr>
+    <tr><td>disabled </td><td><div>boolean</div></td><td></td><td><div><p>Make the control disabled</p></div></td></tr>
+    <tr><td>htmlSize </td><td><div>number</div></td><td></td><td><div><p>The size attribute of the underlying HTML element. Specifies the visible width in characters if <code>as</code> is <code>'input'</code>.</p></div></td></tr>
+    <tr><td>id </td><td><div>string</div></td><td></td><td><div><p>Uses <code>controlId</code> from <code>&lt;FormGroup&gt;</code> if not explicitly specified.</p></div></td></tr>
+    <tr><td>isInvalid </td><td><div>boolean</div></td><td><code >false</code></td><td><div><p>Add "invalid" validation styles to the control and accompanying label</p></div></td></tr>
+    <tr><td>isValid </td><td><div>boolean</div></td><td><code >false</code></td><td><div><p>Add "valid" validation styles to the control</p></div></td></tr>
+    <tr><td>onChange </td><td><div>function</div></td><td></td><td><div><p>A callback fired when the <code>value</code> prop changes</p></div></td></tr>
+    <tr><td>plaintext </td><td><div>boolean</div></td><td></td><td><div><p>Render the input as plain text. Generally used along side <code>readOnly</code>.</p></div></td></tr>
+    <tr><td>readOnly </td><td><div>boolean</div></td><td></td><td><div><p>Make the control readonly</p></div></td></tr>
+    <tr><td>size </td><td><div><span><code>'sm'</code><span> | </span><code>'lg'</code></span></div></td><td></td><td><div><p>Input size variants</p></div></td></tr>
+    <tr><td>type </td><td><div>string</div></td><td></td><td><div><p>The HTML input <code>type</code>, which is only relevant if <code>as</code> is <code>'input'</code> (the default).</p></div></td></tr>
+    <tr><td>value </td><td><div>string | arrayOf | number</div></td><td></td><td><p>The <code>value</code> attribute of underlying input</p></td></tr>
+    <tr><td>bsPrefix </td><td><div>string</div></td><td><code >{'form-control'}</code></td><td><div><p>Change the underlying component CSS base class name and modifier class names prefix. <strong>This is an escape hatch</strong> for working with heavily customized bootstrap css.</p></div></td></tr>
+  </tbody>
+</table>

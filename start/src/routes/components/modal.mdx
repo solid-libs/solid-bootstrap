@@ -1,0 +1,601 @@
+import {
+  Button,
+  Card,
+  Modal,
+  Container,
+  Row,
+  Col,
+} from "solid-bootstrap";
+import Example from "../../components/Example";
+import GithubSource from "../../components/GithubSource";
+import ModalApi from "../../api/ModalApi";
+import { show, handleClose, handleOpen, infoStyle, fullscreen, setFullscreen } from "../../api/ModalExamples";
+import styles from "./modal.module.css";
+
+<GithubSource name="components/modal.mdx" />
+# Modals
+
+<div class="lead">
+  Add dialogs to your site for lightboxes, user notifications, or completely
+  custom content.
+</div>
+
+## Overview
+
+- Modals are positioned over everything else in the document and remove
+  scroll from the `<body>` so that modal content scrolls instead.
+- Modals are <em>unmounted</em> when closed.
+- Bootstrap only supports <strong>one</strong> modal window at a time.
+  Nested modals aren't supported, but if you really need them, the
+  underlying [Core components](../core/modal) can support them if you're
+  willing.
+- Modal's "trap" focus in them, ensuring the keyboard navigation cycles
+  through the modal, and not the rest of the page.
+- Unlike vanilla Bootstrap, <code>autoFocus</code> works in Modals
+  because Solid handles the implementation.
+
+
+<div class="row gy-5 pt-3">
+
+  <Example title="Static Markup">
+    <Example.Intro>
+      Below is a <em>static</em> modal dialog (without the positioning) to
+      demonstrate the look and feel of the Modal.
+    </Example.Intro>
+    <Example.Preview>
+      <Modal.Dialog>
+        <Modal.Header closeButton>
+          <Modal.Title>Modal title</Modal.Title>
+        </Modal.Header>
+
+        <Modal.Body>
+          Modal body text goes here.
+        </Modal.Body>
+
+        <Modal.Footer>
+          <Button variant="secondary">Close</Button>
+          <Button variant="primary">Save changes</Button>
+        </Modal.Footer>
+      </Modal.Dialog>
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      <Modal.Dialog>
+        <Modal.Header closeButton>
+          <Modal.Title>Modal title</Modal.Title>
+        </Modal.Header>
+
+        <Modal.Body>
+          Modal body text goes here.
+        </Modal.Body>
+
+        <Modal.Footer>
+          <Button variant="secondary">Close</Button>
+          <Button variant="primary">Save changes</Button>
+        </Modal.Footer>
+      </Modal.Dialog>
+      ```
+    </Example.Code>
+  </Example>
+
+  <Example title="Live demo">
+    <Example.Intro>
+      A modal with header, body, and set of actions in the footer. Use
+      `<Modal/>` in combination with other components to show or hide your
+      Modal. The `<Modal/>` Component comes with a few convenient "sub components": `<Modal.Header/>`,
+      `<Modal.Title/>`, `<Modal.Body/>`, and `<Modal.Footer/>`, which you can use to build the Modal content.
+    </Example.Intro>
+    <Example.Preview>
+      <Button variant="primary" onClick={handleOpen("live")}>Launch demo modal</Button>
+
+      <Modal show={show("live")} onHide={handleClose("live")}>
+        <Modal.Header closeButton>
+          <Modal.Title>Modal heading</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          Woohoo, you're reading this text in a modal!
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose("live")}>Close</Button>
+          <Button variant="primary" onClick={handleClose("live")}>Save Changes</Button>
+        </Modal.Footer>
+      </Modal>
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      const [show, setShow] = createSignal(false);
+      const handleOpen = () => setShow(true);
+      const handleClose = () => setShow(false);
+
+      <Button variant="primary" onClick={handleOpen}>Launch demo modal</Button>
+
+      <Modal show={show()} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Modal heading</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          Woohoo, you're reading this text in a modal!
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>Close</Button>
+          <Button variant="primary" onClick={handleClose}>Save Changes</Button>
+        </Modal.Footer>
+      </Modal>
+      ```
+    </Example.Code>
+  </Example>
+
+  <Example title="Static backdrop">
+    <Example.Intro>
+      When backdrop is set to static, the modal will not close when clicking
+      outside it. Click the button below to try it.
+    </Example.Intro>
+    <Example.Preview>
+      <Button variant="primary" onClick={handleOpen("static")}>Launch static backdrop modal</Button>
+
+      <Modal
+        show={show("static")}
+        onHide={handleClose("static")}
+        backdrop="static"
+        keyboard={false}
+      >
+        <Modal.Header closeButton>
+          <Modal.Title>Modal title</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          I will not close if you click outside me. Don't even try to press
+          escape key.
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose("static")}>Close</Button>
+          <Button variant="primary">Understood</Button>
+        </Modal.Footer>
+      </Modal>
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      const [show, setShow] = createSignal(false);
+      const handleOpen = () => setShow(true);
+      const handleClose = () => setShow(false);
+
+      <Button variant="primary" onClick={handleOpen}>Launch static backdrop modal</Button>
+
+      <Modal
+        show={show()}
+        onHide={handleClose}
+        backdrop="static"
+        keyboard={false}
+      >
+        <Modal.Header closeButton>
+          <Modal.Title>Modal title</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          I will not close if you click outside me. Don't even try to press
+          escape key.
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>Close</Button>
+          <Button variant="primary">Understood</Button>
+        </Modal.Footer>
+      </Modal>
+      ```
+    </Example.Code>
+  </Example>
+
+  <Example title="Without Animation">
+    <Example.Intro>
+      A Modal can also be without an animation. For that set the `animation`
+      prop to `false`.
+    </Example.Intro>
+    <Example.Preview>
+      <Button variant="primary" onClick={handleOpen("noanim")}>Launch demo modal</Button>
+
+      <Modal show={show("noanim")} onHide={handleClose("noanim")} animation={false}>
+        <Modal.Header closeButton>
+          <Modal.Title>Modal heading</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          Woohoo, you're reading this text in a modal!
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose("noanim")}>Close</Button>
+          <Button variant="primary" onClick={handleClose("noanim")}>Save Changes</Button>
+        </Modal.Footer>
+      </Modal>
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      const [show, setShow] = createSignal(false);
+      const handleOpen = () => setShow(true);
+      const handleClose = () => setShow(false);
+
+      <Button variant="primary" onClick={handleOpen}>Launch demo modal</Button>
+
+      <Modal show={show()} onHide={handleClose} animation={false}>
+        <Modal.Header closeButton>
+          <Modal.Title>Modal heading</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          Woohoo, you're reading this text in a modal!
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>Close</Button>
+          <Button variant="primary" onClick={handleClose}>Save Changes</Button>
+        </Modal.Footer>
+      </Modal>
+      ```
+    </Example.Code>
+  </Example>
+
+  <Example title="Vertically centered">
+    <Example.Intro>
+      You can vertically center a modal by passing the `centered` prop.
+    </Example.Intro>
+    <Example.Preview>
+      <Button variant="primary" onClick={handleOpen("vertc")}>Launch vertically centered modal</Button>
+      <Modal
+        show={show("vertc")}
+        onHide={handleClose("vertc")}
+        size="lg"
+        aria-labelledby="contained-modal-title-vcenter"
+        centered
+      >
+        <Modal.Header closeButton>
+          <Modal.Title id="contained-modal-title-vcenter">
+            Modal heading
+          </Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <h4>Centered Modal</h4>
+          <p>
+            Cras mattis consectetur purus sit amet fermentum. Cras justo
+            odio, dapibus ac facilisis in, egestas eget quam. Morbi leo
+            risus, porta ac consectetur ac, vestibulum at eros.
+          </p>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button onClick={handleClose("vertc")}>Close</Button>
+        </Modal.Footer>
+      </Modal>
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      const [show, setShow] = createSignal(false);
+      const handleOpen = () => setShow(true);
+      const handleClose = () => setShow(false);
+
+      <Button variant="primary" onClick={handleOpen}>Launch vertically centered modal</Button>
+
+      <Modal
+        show={show()}
+        onHide={handleClose}
+        size="lg"
+        aria-labelledby="contained-modal-title-vcenter"
+        centered
+      >
+        <Modal.Header closeButton>
+          <Modal.Title id="contained-modal-title-vcenter">
+            Modal heading
+          </Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <h4>Centered Modal</h4>
+          <p>
+            Cras mattis consectetur purus sit amet fermentum. Cras justo
+            odio, dapibus ac facilisis in, egestas eget quam. Morbi leo
+            risus, porta ac consectetur ac, vestibulum at eros.
+          </p>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button onClick={handleClose}>Close</Button>
+        </Modal.Footer>
+      </Modal>
+      ```
+    </Example.Code>
+  </Example>
+
+  <Example title="Using the grid">
+    <Example.Intro>
+      You can use grid layouts within a model using regular grid components
+      inside the modal content.
+    </Example.Intro>
+    <Example.Preview>
+      <Button variant="primary" onClick={handleOpen("grid")}>Launch modal with grid</Button>
+
+      <Modal
+        show={show("grid")}
+        onHide={handleClose("grid")}
+        aria-labelledby="contained-modal-title-vcenter"
+      >
+        <Modal.Header closeButton>
+          <Modal.Title id="contained-modal-title-vcenter">
+            Modal heading
+          </Modal.Title>
+        </Modal.Header>
+        <Modal.Body class="show-grid">
+          <Container>
+            <Row>
+              <Col xs={12} md={8} style={infoStyle}>
+                .col-xs-12 .col-md-8
+              </Col>
+              <Col xs={6} md={4} style={infoStyle}>
+                .col-xs-6 .col-md-4
+              </Col>
+            </Row>
+
+            <Row>
+              <Col xs={6} md={4} style={infoStyle}>
+                .col-xs-6 .col-md-4
+              </Col>
+              <Col xs={6} md={4} style={infoStyle}>
+                .col-xs-6 .col-md-4
+              </Col>
+              <Col xs={6} md={4} style={infoStyle}>
+                .col-xs-6 .col-md-4
+              </Col>
+            </Row>
+          </Container>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button onClick={handleClose("grid")}>Close</Button>
+        </Modal.Footer>
+      </Modal>
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      const [show, setShow] = createSignal(false);
+      const handleOpen = () => setShow(true);
+      const handleClose = () => setShow(false);
+
+      <Button variant="primary" onClick={handleOpen}>Launch modal with grid</Button>
+
+      <Modal
+        show={show()}
+        onHide={handleClose}
+        aria-labelledby="contained-modal-title-vcenter"
+      >
+        <Modal.Header closeButton>
+          <Modal.Title id="contained-modal-title-vcenter">
+            Modal heading
+          </Modal.Title>
+        </Modal.Header>
+        <Modal.Body class="show-grid">
+          <Container>
+            <Row>
+              <Col xs={12} md={8} style={infoStyle}>
+                .col-xs-12 .col-md-8
+              </Col>
+              <Col xs={6} md={4} style={infoStyle}>
+                .col-xs-6 .col-md-4
+              </Col>
+            </Row>
+
+            <Row>
+              <Col xs={6} md={4} style={infoStyle}>
+                .col-xs-6 .col-md-4
+              </Col>
+              <Col xs={6} md={4} style={infoStyle}>
+                .col-xs-6 .col-md-4
+              </Col>
+              <Col xs={6} md={4} style={infoStyle}>
+                .col-xs-6 .col-md-4
+              </Col>
+            </Row>
+          </Container>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button onClick={handleClose}>Close</Button>
+        </Modal.Footer>
+      </Modal>
+      ```
+    </Example.Code>
+  </Example>
+
+  <Example title="Optional Sizes">
+    <Example.Intro>
+      You can specify a bootstrap large or small modal by using the
+      `size` prop.
+    </Example.Intro>
+    <Example.Preview>
+      <Button onClick={handleOpen("small")}>Small modal</Button>
+      <Button onClick={handleOpen("large")}>Large modal</Button>
+      <Modal
+        size="sm"
+        show={show("small")}
+        onHide={handleClose("small")}
+        aria-labelledby="example-modal-sizes-title-sm"
+      >
+        <Modal.Header closeButton>
+          <Modal.Title id="example-modal-sizes-title-sm">
+            Small Modal
+          </Modal.Title>
+        </Modal.Header>
+        <Modal.Body>...</Modal.Body>
+      </Modal>
+      <Modal
+        size="lg"
+        show={show("large")}
+        onHide={handleClose("large")}
+        aria-labelledby="example-modal-sizes-title-lg"
+      >
+        <Modal.Header closeButton>
+          <Modal.Title id="example-modal-sizes-title-lg">
+            Large Modal
+          </Modal.Title>
+        </Modal.Header>
+        <Modal.Body>...</Modal.Body>
+      </Modal>
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      const [showSm, setShowSm] = createSignal(false);
+      const [showLg, setShowLg] = createSignal(false);
+      const handleOpenSm = () => setShow(true);
+      const handleOpenLg = () => setShow(true);
+      const handleCloseSm = () => setShow(false);
+      const handleCloseLg = () => setShow(false);
+
+      <Button onClick={handleOpenSm}>Small modal</Button>
+      <Button onClick={handleOpenLg}>Large modal</Button>
+
+      <Modal
+        size="sm"
+        show={showSm()}
+        onHide={handleCloseSm}
+        aria-labelledby="example-modal-sizes-title-sm"
+      >
+        <Modal.Header closeButton>
+          <Modal.Title id="example-modal-sizes-title-sm">
+            Small Modal
+          </Modal.Title>
+        </Modal.Header>
+        <Modal.Body>...</Modal.Body>
+      </Modal>
+
+      <Modal
+        size="lg"
+        show={showLg()}
+        onHide={handleCloseLg}
+        aria-labelledby="example-modal-sizes-title-lg"
+      >
+        <Modal.Header closeButton>
+          <Modal.Title id="example-modal-sizes-title-lg">
+            Large Modal
+          </Modal.Title>
+        </Modal.Header>
+        <Modal.Body>...</Modal.Body>
+      </Modal>
+      ```
+    </Example.Code>
+  </Example>
+
+  <Example title="Fullscreen Modal">
+    <Example.Intro>
+      You can use the `fullscreen` prop to make the modal
+      fullscreen. Specifying a breakpoint will only set the modal as
+      fullscreen **below** the breakpoint size.
+    </Example.Intro>
+    <Example.Preview>
+      {[
+        "true",
+        "sm-down",
+        "md-down",
+        "lg-down",
+        "xl-down",
+        "xxl-down",
+      ].map((v, idx) => (
+        <Button class="me-2 mb-2" onClick={() => setFullscreen(v)}>
+          Full screen
+          {v !== "true" && `below ${v.split("-")[0]}`}
+        </Button>
+      ))}
+     
+      <Modal 
+        show={!!fullscreen()} 
+        fullscreen={fullscreen() === "true" || (fullscreen())} 
+        onHide={() => setFullscreen(null)}
+      >
+        <Modal.Header closeButton>
+          <Modal.Title>Modal</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>Modal body content</Modal.Body>
+      </Modal>
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      const [fullscreen1, setFullscreen1] = createSignal<string | null>(null);
+
+      {[
+        "true",
+        "sm-down",
+        "md-down",
+        "lg-down",
+        "xl-down",
+        "xxl-down",
+      ].map((v, idx) => (
+        <Button class="me-2 mb-2" onClick={() => setFullscreen(v)}>
+          Full screen
+          {v !== "true" && `below ${v.split("-")[0]}`}
+        </Button>
+      ))}
+     
+      <Modal 
+        show={!!fullscreen()} 
+        fullscreen={fullscreen() === "true" || (fullscreen())} 
+        onHide={() => setFullscreen(null)}
+      >
+        <Modal.Header closeButton>
+          <Modal.Title>Modal</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>Modal body content</Modal.Body>
+      </Modal>
+      ```
+    </Example.Code>
+  </Example>
+
+  <Example title="Sizing modals using custom CSS">
+    <Example.Intro>
+      You can apply custom css to the modal dialog div using the
+      `dialogClassName` prop. Example is using a custom css class with width
+      set to 90%.
+    </Example.Intro>
+    <Example.Preview>
+      <Button variant="primary" onClick={handleOpen("custom")}>Custom Width Modal</Button>
+
+      <Modal
+        show={show("custom")}
+        onHide={handleClose("custom")}
+        dialogClass={styles.modal90w}
+        aria-labelledby="example-custom-modal-styling-title"
+      >
+        <Modal.Header closeButton>
+          <Modal.Title id="example-custom-modal-styling-title">
+            Custom Modal Styling
+          </Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+            Ipsum molestiae natus adipisci modi eligendi? Debitis amet
+            quae unde commodi aspernatur enim, consectetur. Cumque
+            deleniti temporibus ipsam atque a dolores quisquam quisquam
+            adipisci possimus laboriosam. Quibusdam facilis doloribus
+            debitis! Sit quasi quod accusamus eos quod. Ab quos
+            consequuntur eaque quo rem! Mollitia reiciendis porro quo
+            magni incidunt dolore amet atque facilis ipsum deleniti rem!
+        </Modal.Body>
+      </Modal>
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      const [show, setShow] = createSignal(false);
+      const handleOpen = () => setShow(true);
+      const handleClose = () => setShow(false);
+
+      <Button variant="primary" onClick={handleOpen}>Custom Width Modal</Button>
+
+      <Modal
+        show={show()}
+        onHide={handleClose}
+        dialogClass={styles.modal90w}
+        aria-labelledby="example-custom-modal-styling-title"
+      >
+        <Modal.Header closeButton>
+          <Modal.Title id="example-custom-modal-styling-title">
+            Custom Modal Styling
+          </Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+            Ipsum molestiae natus adipisci modi eligendi? Debitis amet
+            quae unde commodi aspernatur enim, consectetur. Cumque
+            deleniti temporibus ipsam atque a dolores quisquam quisquam
+            adipisci possimus laboriosam. Quibusdam facilis doloribus
+            debitis! Sit quasi quod accusamus eos quod. Ab quos
+            consequuntur eaque quo rem! Mollitia reiciendis porro quo
+            magni incidunt dolore amet atque facilis ipsum deleniti rem!
+        </Modal.Body>
+      </Modal>
+      ```
+    </Example.Code>
+  </Example>
+
+  <ModalApi />
+</div>

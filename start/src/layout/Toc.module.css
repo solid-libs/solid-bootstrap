@@ -1,0 +1,30 @@
+.SidePanel {
+  order: 2;
+  position: sticky;
+  top: c;
+  height: calc(100vh -4rem);
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  font-size: 0.875rem;
+  overflow-y: auto;
+}
+
+.SidePanel > ul {
+  padding-left: 0;
+  border-left: 1px solid var(--divider);
+}
+
+.SidePanel > ul ul {
+  padding-left: 1rem;
+}
+
+.ListItem a {
+  display: block;
+  padding: 0.125rem 1.5rem;
+  color: var(--text);
+}
+
+.ListItem :hover {
+  color: var(--primary);
+  text-decoration: none;
+}

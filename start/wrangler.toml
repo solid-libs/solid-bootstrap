@@ -1,0 +1,7 @@
+name = "solid-bootstrap"
+compatibility_date = "2022-12-05"
+main = "./dist/server.js"
+route = "https://solid-bootstrap.csel.workers.dev/*"
+
+[site]
+bucket= "./dist/public"

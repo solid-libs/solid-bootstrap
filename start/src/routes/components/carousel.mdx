@@ -1,0 +1,505 @@
+import { createSignal } from "solid-js";
+import { Card, Carousel } from "solid-bootstrap";
+import Example from "../../components/Example";
+import GithubSource from "../../components/GithubSource";
+import CarouselApi from "../../api/CarouselApi";
+import { ControlledExample } from "../../api/CarouselExamples";
+import { Solid1 } from "../../icons/solid1";
+import { Solid2 } from "../../icons/solid2";
+import { Solid3 } from "../../icons/solid3";
+
+
+<GithubSource name="components/carousel.mdx" />
+# Carousel
+
+<div class="lead">
+  A slideshow component for cycling through elements—images or slides of text—like a carousel.
+</div>
+
+<div class="row gy-5 pt-3">
+
+  <Example title="Example">
+    <Example.Intro>
+      Carousels don’t automatically normalize slide dimensions. As such, you may need to use additional utilities or custom styles to appropriately size content. While carousels support previous/next controls and indicators, they’re not explicitly required. Add and customize as you see fit.
+    </Example.Intro>
+    <Example.Preview>
+      <Carousel>
+        <Carousel.Item>
+          <div
+            class="d-block w-100 bg-secondary d-flex justify-content-center align-items-center"
+            style={{ height: "400px" }}
+          >
+            <Solid1 />
+          </div>
+          <Carousel.Caption>
+            <h2>First slide label</h2>
+            <p>
+              Nulla vitae elit libero, a pharetra augue mollis interdum.
+            </p>
+          </Carousel.Caption>
+        </Carousel.Item>
+        <Carousel.Item>
+          <div
+            class="d-block w-100 bg-secondary d-flex justify-content-center align-items-center"
+            style={{ height: "400px" }}
+          >
+            <Solid2 />
+          </div>
+
+          <Carousel.Caption>
+            <h2>Second slide label</h2>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            </p>
+          </Carousel.Caption>
+        </Carousel.Item>
+        <Carousel.Item>
+          <div
+            class="d-block w-100 bg-secondary d-flex justify-content-center align-items-center"
+            style={{ height: "400px" }}
+          >
+            <Solid3 style={{ height: "150px" }} />
+          </div>
+
+          <Carousel.Caption>
+            <h2>Third slide label</h2>
+            <p>
+              Praesent commodo cursus magna, vel scelerisque nisl
+              consectetur.
+            </p>
+          </Carousel.Caption>
+        </Carousel.Item>
+      </Carousel>
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      <Carousel>
+        <Carousel.Item>
+          <div
+            class="d-block w-100 bg-secondary d-flex justify-content-center align-items-center"
+            style={{ height: "400px" }}
+          >
+            <Solid1 />
+          </div>
+          <Carousel.Caption>
+            <h2>First slide label</h2>
+            <p>
+              Nulla vitae elit libero, a pharetra augue mollis interdum.
+            </p>
+          </Carousel.Caption>
+        </Carousel.Item>
+        <Carousel.Item>
+          <div
+            class="d-block w-100 bg-secondary d-flex justify-content-center align-items-center"
+            style={{ height: "400px" }}
+          >
+            <Solid2 />
+          </div>
+
+          <Carousel.Caption>
+            <h2>Second slide label</h2>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            </p>
+          </Carousel.Caption>
+        </Carousel.Item>
+        <Carousel.Item>
+          <div
+            class="d-block w-100 bg-secondary d-flex justify-content-center align-items-center"
+            style={{ height: "400px" }}
+          >
+            <Solid3 style={{ height: "150px" }} />
+          </div>
+
+          <Carousel.Caption>
+            <h2>Third slide label</h2>
+            <p>
+              Praesent commodo cursus magna, vel scelerisque nisl
+              consectetur.
+            </p>
+          </Carousel.Caption>
+        </Carousel.Item>
+      </Carousel>
+      ```
+    </Example.Code>
+  </Example>
+
+  <Example title="Controlled">
+    <Example.Intro>
+      You can also control the Carousel state, via the `activeIndex` prop and `onSelect` handler.
+    </Example.Intro>
+    <Example.Preview>
+      <ControlledExample />
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      const [index, setIndex] = createSignal(0);
+
+      const handleSelect = (
+        selectedIndex: number,
+        e: Record<string, unknown> | null
+      ) => {
+        setIndex(selectedIndex);
+      };
+
+      return (
+        <Carousel activeIndex={index()} onSelect={handleSelect}>
+          <Carousel.Item>
+            <div
+              class="d-block w-100 bg-secondary d-flex justify-content-center align-items-center"
+              style={{ height: "400px" }}
+            >
+              <Solid1 />
+            </div>
+            <Carousel.Caption>
+              <h3>First slide label</h3>
+              <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+            </Carousel.Caption>
+          </Carousel.Item>
+          <Carousel.Item>
+            <div
+              class="d-block w-100 bg-secondary d-flex justify-content-center align-items-center"
+              style={{ height: "400px" }}
+            >
+              <Solid2 />
+            </div>
+            <Carousel.Caption>
+              <h3>Second slide label</h3>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              </p>
+            </Carousel.Caption>
+          </Carousel.Item>
+          <Carousel.Item>
+            <div
+              class="d-block w-100 bg-secondary d-flex justify-content-center align-items-center"
+              style={{ height: "400px" }}
+            >
+              <Solid3 />
+            </div>
+            <Carousel.Caption>
+              <h3>Third slide label</h3>
+              <p>
+                Praesent commodo cursus magna, vel scelerisque nisl
+                consectetur.
+              </p>
+            </Carousel.Caption>
+          </Carousel.Item>
+        </Carousel>
+      )
+      ```
+    </Example.Code>
+  </Example>
+
+  <Example title="Crossfade">
+    <Example.Intro>
+      Add the fade prop to your carousel to animate slides with a fade transition instead of a slide.
+    </Example.Intro>
+    <Example.Preview>
+      <Carousel fade>
+        <Carousel.Item>
+          <div
+            class="d-block w-100 bg-secondary d-flex justify-content-center align-items-center"
+            style={{ height: "400px" }}
+          >
+            <Solid1 />
+          </div>
+          <Carousel.Caption>
+            <h3>First slide label</h3>
+            <p>
+              Nulla vitae elit libero, a pharetra augue mollis interdum.
+            </p>
+          </Carousel.Caption>
+        </Carousel.Item>
+        <Carousel.Item>
+          <div
+            class="d-block w-100 bg-secondary d-flex justify-content-center align-items-center"
+            style={{ height: "400px" }}
+          >
+            <Solid2 />
+          </div>
+          <Carousel.Caption>
+            <h3>Second slide label</h3>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            </p>
+          </Carousel.Caption>
+        </Carousel.Item>
+        <Carousel.Item>
+          <div
+            class="d-block w-100 bg-secondary d-flex justify-content-center align-items-center"
+            style={{ height: "400px" }}
+          >
+            <Solid3 />
+          </div>
+          <Carousel.Caption>
+            <h3>Third slide label</h3>
+            <p>
+              Praesent commodo cursus magna, vel scelerisque nisl
+              consectetur.
+            </p>
+          </Carousel.Caption>
+        </Carousel.Item>
+      </Carousel>
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      <Carousel fade>
+        <Carousel.Item>
+          <div
+            class="d-block w-100 bg-secondary d-flex justify-content-center align-items-center"
+            style={{ height: "400px" }}
+          >
+            <Solid1 />
+          </div>
+          <Carousel.Caption>
+            <h3>First slide label</h3>
+            <p>
+              Nulla vitae elit libero, a pharetra augue mollis interdum.
+            </p>
+          </Carousel.Caption>
+        </Carousel.Item>
+        <Carousel.Item>
+          <div
+            class="d-block w-100 bg-secondary d-flex justify-content-center align-items-center"
+            style={{ height: "400px" }}
+          >
+            <Solid2 />
+          </div>
+          <Carousel.Caption>
+            <h3>Second slide label</h3>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            </p>
+          </Carousel.Caption>
+        </Carousel.Item>
+        <Carousel.Item>
+          <div
+            class="d-block w-100 bg-secondary d-flex justify-content-center align-items-center"
+            style={{ height: "400px" }}
+          >
+            <Solid3 />
+          </div>
+          <Carousel.Caption>
+            <h3>Third slide label</h3>
+            <p>
+              Praesent commodo cursus magna, vel scelerisque nisl
+              consectetur.
+            </p>
+          </Carousel.Caption>
+        </Carousel.Item>
+      </Carousel>
+      ```
+    </Example.Code>
+  </Example>
+
+  <Example title="Individual Item Intervals">
+    <Example.Intro>
+      You can specify individual intervals for each carousel item via the `interval` prop.
+    </Example.Intro>
+    <Example.Preview>
+      <Carousel>
+        <Carousel.Item interval={1000}>
+          <div
+            class="d-block w-100 bg-secondary d-flex justify-content-center align-items-center"
+            style={{ height: "400px" }}
+          >
+            <Solid1 />
+          </div>
+          <Carousel.Caption>
+            <h3>First slide label (1 sec)</h3>
+            <p>
+              Nulla vitae elit libero, a pharetra augue mollis interdum.
+            </p>
+          </Carousel.Caption>
+        </Carousel.Item>
+        <Carousel.Item interval={2000}>
+          <div
+            class="d-block w-100 bg-secondary d-flex justify-content-center align-items-center"
+            style={{ height: "400px" }}
+          >
+            <Solid2 />
+          </div>
+          <Carousel.Caption>
+            <h3>Second slide label (2 secs)</h3>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            </p>
+          </Carousel.Caption>
+        </Carousel.Item>
+        <Carousel.Item interval={3000}>
+          <div
+            class="d-block w-100 bg-secondary d-flex justify-content-center align-items-center"
+            style={{ height: "400px" }}
+          >
+            <Solid3 />
+          </div>
+          <Carousel.Caption>
+            <h3>Third slide label (3 secs)</h3>
+            <p>
+              Praesent commodo cursus magna, vel scelerisque nisl
+              consectetur.
+            </p>
+          </Carousel.Caption>
+        </Carousel.Item>
+      </Carousel>
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      <Carousel>
+        <Carousel.Item interval={1000}>
+          <div
+            class="d-block w-100 bg-secondary d-flex justify-content-center align-items-center"
+            style={{ height: "400px" }}
+          >
+            <Solid1 />
+          </div>
+          <Carousel.Caption>
+            <h3>First slide label (1 sec)</h3>
+            <p>
+              Nulla vitae elit libero, a pharetra augue mollis interdum.
+            </p>
+          </Carousel.Caption>
+        </Carousel.Item>
+        <Carousel.Item interval={2000}>
+          <div
+            class="d-block w-100 bg-secondary d-flex justify-content-center align-items-center"
+            style={{ height: "400px" }}
+          >
+            <Solid2 />
+          </div>
+          <Carousel.Caption>
+            <h3>Second slide label (2 secs)</h3>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            </p>
+          </Carousel.Caption>
+        </Carousel.Item>
+        <Carousel.Item interval={3000}>
+          <div
+            class="d-block w-100 bg-secondary d-flex justify-content-center align-items-center"
+            style={{ height: "400px" }}
+          >
+            <Solid3 />
+          </div>
+          <Carousel.Caption>
+            <h3>Third slide label (3 secs)</h3>
+            <p>
+              Praesent commodo cursus magna, vel scelerisque nisl
+              consectetur.
+            </p>
+          </Carousel.Caption>
+        </Carousel.Item>
+      </Carousel>
+      ```
+    </Example.Code>
+  </Example>
+
+  <Example title="Dark variant">
+    <Example.Intro>
+      Add `variant="dark"` to the `Carousel` for darker controls, indicators, and captions.
+    </Example.Intro>
+    <Example.Preview>
+      <Carousel variant="dark">
+        <Carousel.Item>
+          <div
+            class="d-block w-100 bg-secondary d-flex justify-content-center align-items-center"
+            style={{ height: "400px" }}
+          >
+            <Solid1 />
+          </div>
+          <Carousel.Caption>
+            <h2>First slide label</h2>
+            <p>
+              Nulla vitae elit libero, a pharetra augue mollis interdum.
+            </p>
+          </Carousel.Caption>
+        </Carousel.Item>
+        <Carousel.Item>
+          <div
+            class="d-block w-100 bg-secondary d-flex justify-content-center align-items-center"
+            style={{ height: "400px" }}
+          >
+            <Solid2 />
+          </div>
+
+          <Carousel.Caption>
+            <h2>Second slide label</h2>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            </p>
+          </Carousel.Caption>
+        </Carousel.Item>
+        <Carousel.Item>
+          <div
+            class="d-block w-100 bg-secondary d-flex justify-content-center align-items-center"
+            style={{ height: "400px" }}
+          >
+            <Solid3 style={{ height: "150px" }} />
+          </div>
+
+          <Carousel.Caption>
+            <h2>Third slide label</h2>
+            <p>
+              Praesent commodo cursus magna, vel scelerisque nisl
+              consectetur.
+            </p>
+          </Carousel.Caption>
+        </Carousel.Item>
+      </Carousel>
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      <Carousel variant="dark">
+        <Carousel.Item>
+          <div
+            class="d-block w-100 bg-secondary d-flex justify-content-center align-items-center"
+            style={{ height: "400px" }}
+          >
+            <Solid1 />
+          </div>
+          <Carousel.Caption>
+            <h2>First slide label</h2>
+            <p>
+              Nulla vitae elit libero, a pharetra augue mollis interdum.
+            </p>
+          </Carousel.Caption>
+        </Carousel.Item>
+        <Carousel.Item>
+          <div
+            class="d-block w-100 bg-secondary d-flex justify-content-center align-items-center"
+            style={{ height: "400px" }}
+          >
+            <Solid2 />
+          </div>
+
+          <Carousel.Caption>
+            <h2>Second slide label</h2>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            </p>
+          </Carousel.Caption>
+        </Carousel.Item>
+        <Carousel.Item>
+          <div
+            class="d-block w-100 bg-secondary d-flex justify-content-center align-items-center"
+            style={{ height: "400px" }}
+          >
+            <Solid3 style={{ height: "150px" }} />
+          </div>
+
+          <Carousel.Caption>
+            <h2>Third slide label</h2>
+            <p>
+              Praesent commodo cursus magna, vel scelerisque nisl
+              consectetur.
+            </p>
+          </Carousel.Caption>
+        </Carousel.Item>
+      </Carousel>
+      ```
+    </Example.Code>
+  </Example>
+
+  <CarouselApi />
+</div>

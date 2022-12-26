@@ -1,0 +1,340 @@
+import { createEffect, createSignal, For } from "solid-js";
+import { Alert, Button, ButtonGroup, ToggleButton } from "solid-bootstrap";
+import { LoadingButton, ToggleButtonExample } from "../../api/ButtonExamples"
+import Example from "../../components/Example";
+import GithubSource from "../../components/GithubSource";
+import ButtonApi from "../../api/ButtonApi.mdx";
+
+<GithubSource name="components/buttons.mdx" />
+# Buttons
+
+<div class="lead">
+  Custom button styles for actions in forms, dialogs, and more with
+  support for multiple sizes, states, and more.
+</div>
+
+<div class="row gy-5 pt-3">
+
+  <Example title="Examples">
+    <Example.Intro>
+      Use any of the available button style types to quickly create a styled button. Just modify the variant prop.
+    </Example.Intro>
+    <Example.Preview>
+    {<>
+      <Button variant="primary">Primary</Button>{" "}
+      <Button variant="secondary">Secondary</Button>{" "}
+      <Button variant="success">Success</Button>{" "}
+      <Button variant="warning">Warning</Button>{" "}
+      <Button variant="danger">Danger</Button>{" "}
+      <Button variant="info">Info</Button>{" "}
+      <Button variant="light">Light</Button>{" "}
+      <Button variant="dark">Dark</Button>{" "}
+      <Button variant="link">Link</Button>
+    </>}
+    </Example.Preview>
+    <Example.Code>
+      ```js
+        <Button variant="primary">Primary</Button>
+        <Button variant="secondary">Secondary</Button>
+        <Button variant="success">Success</Button>
+        <Button variant="warning">Warning</Button>
+        <Button variant="danger">Danger</Button>
+        <Button variant="info">Info</Button>
+        <Button variant="light">Light</Button>
+        <Button variant="dark">Dark</Button>
+        <Button variant="link">Link</Button>
+      ```
+    </Example.Code>
+  </Example>
+
+  <Example title="Outline buttons">
+    <Example.Intro>
+      For a lighter touch, Buttons also come in `outline-*` variants with no background color.
+    </Example.Intro>
+    <Example.Preview>
+    {<>
+      <Button variant="outline-primary">Primary</Button>{" "}
+      <Button variant="outline-secondary">Secondary</Button>{" "}
+      <Button variant="outline-success">Success</Button>{" "}
+      <Button variant="outline-warning">Warning</Button>{" "}
+      <Button variant="outline-danger">Danger</Button>{" "}
+      <Button variant="outline-info">Info</Button>{" "}
+      <Button variant="outline-light">Light</Button>{" "}
+      <Button variant="outline-dark">Dark</Button>
+    </>}
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      <Button variant="outline-primary">Primary</Button>{" "}
+      <Button variant="outline-secondary">Secondary</Button>{" "}
+      <Button variant="outline-success">Success</Button>{" "}
+      <Button variant="outline-warning">Warning</Button>{" "}
+      <Button variant="outline-danger">Danger</Button>{" "}
+      <Button variant="outline-info">Info</Button>{" "}
+      <Button variant="outline-light">Light</Button>{" "}
+      <Button variant="outline-dark">Dark</Button>
+      ```
+    </Example.Code>
+  </Example>
+
+  <Example title="Button tags">
+    <Example.Intro>
+      Normally `<Button>` components will render a HTML `<button>` element. However you can render whatever you'd like, adding a href prop will automatically render an `<a />` element. You can use the `as` prop to render whatever your heart desires. Solid Bootstrap will take care of the proper ARIA roles for you.
+    </Example.Intro>
+    <Example.Preview>
+    {<>
+      <Button href="#">Link</Button>{' '}
+      <Button type="submit">Button</Button>{' '}
+      <Button as="input" type="button" value="Input" />{' '}
+      <Button as="input" type="submit" value="Submit" />{' '}
+      <Button as="input" type="reset" value="Reset" />
+    </>}
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      <Button href="#">Link</Button>{' '}
+      <Button type="submit">Button</Button>{' '}
+      <Button as="input" type="button" value="Input" />{' '}
+      <Button as="input" type="submit" value="Submit" />{' '}
+      <Button as="input" type="reset" value="Reset" />
+      ```
+    </Example.Code>
+  </Example>
+
+  <Example title="Sizes">
+    <Example.Intro>
+      Fancy larger or smaller buttons? Add `size="lg"`, `size="sm"` for additional sizes.
+    </Example.Intro>
+    <Example.Preview>
+    {<>
+      <div class="mb-2">
+        <Button variant="primary" size="lg">Large button</Button>{' '}
+        <Button variant="secondary" size="lg">Large button</Button>
+      </div>
+      <div>
+        <Button variant="primary" size="sm">Small button</Button>{' '}
+        <Button variant="secondary" size="sm">Small button</Button>
+      </div>
+    </>}
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      <div class="mb-2">
+        <Button variant="primary" size="lg">Large button</Button>{' '}
+        <Button variant="secondary" size="lg">Large button</Button>
+      </div>
+      <div>
+        <Button variant="primary" size="sm">Small button</Button>{' '}
+        <Button variant="secondary" size="sm">Small button</Button>
+      </div>
+      ```
+    </Example.Code>
+  </Example>
+
+  <Example title="Block buttons">
+    <Example.Intro>
+      Create responsive stacks of full-width, “block buttons” like those in Bootstrap 4 with a mix of our display and gap utilities.
+    </Example.Intro>
+    <Example.Preview>
+    {<>
+      <div class="d-grid gap-2">
+        <Button variant="primary" size="lg">Block level button</Button>
+        <Button variant="secondary" size="lg">Block level button</Button>
+      </div>
+    </>}
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      <div class="d-grid gap-2">
+        <Button variant="primary" size="lg">Block level button</Button>
+        <Button variant="secondary" size="lg">Block level button</Button>
+      </div>
+    ```
+    </Example.Code>
+  </Example>
+
+  <Example title="Active state">
+    <Example.Intro>
+      To set a button's active state simply set the component's `active` prop.
+    </Example.Intro>
+    <Example.Preview>
+    {<>
+      <Button variant="primary" size="lg" active>Primary button</Button>{' '}
+      <Button variant="secondary" size="lg" active>Button</Button>
+    </>}
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      <Button variant="primary" size="lg" active>Primary button</Button>{' '}
+      <Button variant="secondary" size="lg" active>Button</Button>
+    ```
+    </Example.Code>
+  </Example>
+
+  <Example title="Disabled state">
+    <Example.Intro>
+      Make buttons look inactive by adding the `disabled` prop to.
+    </Example.Intro>
+    <Example.Preview>
+    {<>
+      <Button variant="primary" size="lg" disabled>Primary button</Button>{' '}
+      <Button variant="secondary" size="lg" disabled>Button</Button>{' '}
+      <Button href="#" variant="secondary" size="lg" disabled>Link</Button>
+    </>}
+      <Alert variant="warning" class="mt-3 pb-0">
+        Watch out! `<a>` elements don't naturally support a disabled attribute. In browsers that support it this is handled with a `pointer-events: none` style but not all browsers support it yet.
+
+        Solid Bootstrap will prevent any onClick handlers from firing regardless of the rendered element.
+      </Alert>
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      <Button variant="primary" size="lg" disabled>Primary button</Button>{' '}
+      <Button variant="secondary" size="lg" disabled>Button</Button>{' '}
+      <Button href="#" variant="secondary" size="lg" disabled>Link</Button>
+      ```
+    </Example.Code>
+  </Example>
+
+  <Example title="Button loading state">
+    <Example.Intro>
+      When activating an asynchronous action from a button it is a good UX pattern to give the user feedback as to the loading state, this can easily be done by updating your `<Button />`s props from a state change like below.
+    </Example.Intro>
+    <Example.Preview>
+      <LoadingButton />
+    </Example.Preview>
+    <Example.Code>
+      ```js
+        function LoadingButton() {
+          const [isLoading, setLoading] = createSignal(false);
+
+          function simulateNetworkRequest() {
+            return new Promise((resolve) => setTimeout(resolve, 2000));
+          }
+
+          createEffect(() => {
+            if (isLoading()) {
+              simulateNetworkRequest().then(() => {
+                setLoading(false);
+              });
+            }
+          });
+
+          const handleClick = () => setLoading(true);
+
+          return (
+            <Button
+              variant="primary"
+              disabled={isLoading()}
+              onClick={!isLoading() ? handleClick : undefined}
+            >
+              {isLoading() ? "Loading…" : "Click to load"}
+            </Button>
+          );
+        }
+      ```
+    </Example.Code>
+  </Example>
+
+
+  <Example title="Checkbox / Radio">
+    <Example.Intro>
+      Buttons can also be used to style `checkbox` and `radio` form elements. This is helpful when you want a toggle button that works neatly inside an HTML form.
+    </Example.Intro>
+    <Example.Preview>
+      <ToggleButtonExample />
+      <div class="mt-4">
+        The above handles styling, But requires manually controlling the
+        `checked` state for each radio or checkbox in the group.
+
+
+        For a nicer experience with checked state management use the
+        `<ToggleButtonGroup>` instead of a `<ButtonGroup>` component.
+        The group behaves as a form component, where the `value` is an array of the selected
+        `value`s for a named checkbox group or the single toggled
+        `value` in a similarly named radio group.
+      </div>
+    </Example.Preview>
+    <Example.Code>
+      ```js
+      function ToggleButtonExample() {
+        const [checked, setChecked] = createSignal(false);
+        const [radioValue, setRadioValue] = createSignal("1");
+
+        const radios = [
+          { name: "Active", value: "1" },
+          { name: "Radio", value: "2" },
+          { name: "Radio", value: "3" },
+        ];
+
+        return (
+          <>
+            <ButtonGroup class="mb-2">
+              <ToggleButton
+                id="toggle-check"
+                type="checkbox"
+                variant="secondary"
+                checked={checked()}
+                value="1"
+                onChange={(e: any) => setChecked(e.currentTarget.checked)}
+              >
+                Checked
+              </ToggleButton>
+            </ButtonGroup>
+            <br />
+            <ToggleButton
+              class="mb-2"
+              id="toggle-check"
+              type="checkbox"
+              variant="outline-primary"
+              checked={checked()}
+              value="1"
+              onChange={(e: any) => setChecked(e.currentTarget.checked)}
+            >
+              Checked
+            </ToggleButton>
+            <br />
+            <ButtonGroup class="mb-2">
+              <For each={radios}>
+                {(radio, idx) => (
+                  <ToggleButton
+                    id={`radio-${idx()}`}
+                    type="radio"
+                    variant="secondary"
+                    name="radio"
+                    value={radio.value}
+                    checked={radioValue() === radio.value}
+                    onChange={(e: any) => setRadioValue(e.currentTarget.value)}
+                  >
+                    {radio.name}
+                  </ToggleButton>
+                )}
+              </For>
+            </ButtonGroup>
+            <br />
+            <ButtonGroup>
+              <For each={radios}>
+                {(radio, idx) => (
+                  <ToggleButton
+                    id={`radio2-${idx()}`}
+                    type="radio"
+                    variant={idx() % 2 ? "outline-success" : "outline-danger"}
+                    name="radio2"
+                    value={radio.value}
+                    checked={radioValue() === radio.value}
+                    onChange={(e: any) => setRadioValue(e.currentTarget.value)}
+                  >
+                    {radio.name}
+                  </ToggleButton>
+                )}
+              </For>
+            </ButtonGroup>
+          </>
+        );
+      }
+      ```
+    </Example.Code>
+  </Example>
+
+  <ButtonApi />
+</div>

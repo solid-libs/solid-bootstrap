@@ -1,0 +1,52 @@
+.nav {
+  position: sticky;
+  top: 4rem;
+  height: calc(100vh - 4rem);
+  background-color: #f7f7f7;
+}
+
+.main {
+  order: 1;
+  padding: 2rem 4rem;
+}
+
+@media (max-width: 575.98px) {
+  .main {
+    padding: 1rem 0.83rem;
+  }
+}
+
+.main > h2:not(:first-child) {
+  margin-top: 3rem;
+}
+
+.main > h3 {
+  margin-top: 1.5rem;
+}
+
+.main > ul li,
+.main > ol li {
+  margin-bottom: 0.25rem;
+}
+
+.main > table {
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 575.98px) {
+  .main > table {
+    display: block;
+    overflow-x: auto;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+  }
+}
+
+@media (min-width: 992px) {
+  .main > ul,
+  .main > ol,
+  .main > p {
+    max-width: 80%;
+  }
+}

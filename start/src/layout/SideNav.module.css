@@ -1,0 +1,75 @@
+.MenuButton {
+  line-height: 1;
+  color: #212529;
+}
+
+.SidePanel {
+  background-color: #f7f7f7;
+}
+
+@media (min-width: 768px) {
+  .SidePanel {
+    position: sticky;
+    top: 4rem;
+    z-index: 1000;
+    height: calc(100vh - 4rem);
+    background-color: #f7f7f7;
+    border-right: 1px solid var(--divider);
+  }
+}
+
+.SidePanel > * + * {
+  border-top: 1px solid var(--divider);
+}
+
+@media (min-width: 768px) {
+  .OverflowWrapper {
+    display: block !important;
+    height: 100% !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .TableOfContents {
+    height: 100% !important;
+    overflow: auto;
+    margin-right: -15px;
+    padding-right: calc(15px + 1rem);
+  }
+}
+
+.TocLink.active,
+.TocLink:global(.active) {
+  font-weight: 500;
+  color: var(--text) !important;
+}
+
+.TocLink.active {
+  margin-top: 1rem;
+}
+
+.TocLink.active + * {
+  margin-bottom: 1rem;
+}
+
+.TocLink,
+.TocLink:hover,
+.TocLink:focus,
+.TocLink:active {
+  text-decoration: none;
+  color: rgba(26, 26, 26, 0.75); /* transparentize($text, 0.25);*/
+  transition: color 0.2s ease-out;
+}
+
+.TocLink:hover,
+.TocLink:focus,
+.TocLink:active {
+  text-decoration: none;
+  color: var(--subtle-on-dark);
+}
+
+.TocSubLink {
+  font-size: 90%;
+  padding-left: 1.75rem;
+  padding-top: 0.25rem;
+}

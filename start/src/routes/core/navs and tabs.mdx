@@ -1,0 +1,43 @@
+import {Nav, NavItem} from "solid-bootstrap-core"
+import Example from "../../components/Example";
+import GithubSource from "../../components/GithubSource";
+
+<GithubSource name="core/navs and tabs.mdx" />
+# Navs and tabs (core)
+
+<div class="lead">
+  Create flexible navigation elements like tabs, navbars, and menus.
+</div>
+
+<div class="row gy-5 pt-3">
+
+  <Example title="Basic example">
+    <Example.Preview>
+      <Nav activeKey="#">
+        <NavItem href="#">Active</NavItem>
+        <NavItem eventKey="link-1">Link</NavItem>
+        <NavItem eventKey="link-2">Link</NavItem>
+        <NavItem eventKey="disabled" disabled>Disabled</NavItem>
+      </Nav>
+    </Example.Preview>
+    <Example.Code>
+      ```tsx
+      <Nav activeKey="#">
+        <NavItem href="#">Active</NavItem>
+        <NavItem eventKey="link-1">Link</NavItem>
+        <NavItem eventKey="link-2">Link</NavItem>
+        <NavItem eventKey="disabled" disabled>Disabled</NavItem>
+      </Nav>
+      ```
+    </Example.Code>
+  </Example>
+
+</div>
+
+### Accessibility
+
+In the context of a `Tabs` component the `Nav` and `NavItem`s will contextually
+apply the correct ARIA roles, as well as implement the required keyboard navigation.
+
+
+...more docs to come
