@@ -1,3 +1,7 @@
+## 2023-07-11 - (1.0.14)
+
+- [Fix: Special pagination buttons not reactive #33](https://github.com/solid-libs/solid-bootstrap/issues/33)
+
 ## 2022-12-22 - (1.0.13)
 
 - [Fix: Modal content is not reactive #26](https://github.com/solid-libs/solid-bootstrap/issues/26)
