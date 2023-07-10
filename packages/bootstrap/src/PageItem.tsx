@@ -55,10 +55,11 @@ const PageItem: BsPrefixRefForwardingComponent<"li", PageItemProps> = (p: PageIt
 export default PageItem;
 
 function createButton(name: string, defaultValue: JSX.Element, label = name) {
-  function Button({children, ...props}: PageItemProps) {
+  function Button(props: PageItemProps) {
+    const [_, rest] = splitProps(props, ["children"]);
     return (
-      <PageItem {...props}>
-        <span aria-hidden="true">{children || defaultValue}</span>
+      <PageItem {...rest}>
+        <span aria-hidden="true">{props.children || defaultValue}</span>
         <span class="visually-hidden">{label}</span>
       </PageItem>
     );
