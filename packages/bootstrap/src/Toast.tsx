@@ -1,4 +1,13 @@
-import {createEffect, createMemo, JSX, mergeProps, onCleanup, splitProps} from "solid-js";
+import {
+  createEffect,
+  createMemo,
+  getOwner,
+  JSX,
+  mergeProps,
+  onCleanup,
+  runWithOwner,
+  splitProps,
+} from "solid-js";
 import classNames from "./classnames";
 
 import ToastFade from "./ToastFade";
@@ -8,7 +17,6 @@ import {useBootstrapPrefix} from "./ThemeProvider";
 import ToastContext from "./ToastContext";
 import {BsPrefixProps, BsPrefixRefForwardingComponent} from "./helpers";
 import {Variant} from "./types";
-import {Dynamic} from "solid-js/web";
 
 export interface ToastProps extends BsPrefixProps, JSX.HTMLAttributes<HTMLDivElement> {
   animation?: boolean;
@@ -41,6 +49,7 @@ const Toast: BsPrefixRefForwardingComponent<"div", ToastProps> = (p: ToastProps)
     "bg",
   ]);
   const bsPrefix = useBootstrapPrefix(local.bsPrefix, "toast");
+  const owner = getOwner()!;
 
   // We use refs for these, because we don't want to restart the autohide
   // timer in case these values change.
@@ -82,20 +91,21 @@ const Toast: BsPrefixRefForwardingComponent<"div", ToastProps> = (p: ToastProps)
   const hasAnimation = !!(local.transition! && local.animation);
   const Transition = local.transition!;
 
-  const ToastInner = () => (
-    <div
-      {...props}
-      class={classNames(
-        bsPrefix,
-        local.class,
-        local.bg && `bg-${local.bg}`,
-        !hasAnimation && (local.show ? "show" : "hide"),
-      )}
-      role="alert"
-      aria-live="assertive"
-      aria-atomic="true"
-    />
-  );
+  const ToastInner = () =>
+    runWithOwner(owner, () => (
+      <div
+        {...props}
+        class={classNames(
+          bsPrefix,
+          local.class,
+          local.bg && `bg-${local.bg}`,
+          !hasAnimation && (local.show ? "show" : "hide"),
+        )}
+        role="alert"
+        aria-live="assertive"
+        aria-atomic="true"
+      />
+    ));
 
   return (
     <ToastContext.Provider value={toastContext}>
