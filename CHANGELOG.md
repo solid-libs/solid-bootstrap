@@ -1,3 +1,7 @@
+## 2023-10-02 - (1.0.15)
+
+- [Fix: toast messages can't be changed #35](https://github.com/solid-libs/solid-bootstrap/issues/35)
+
 ## 2023-07-11 - (1.0.14)
 
 - [Fix: Special pagination buttons not reactive #33](https://github.com/solid-libs/solid-bootstrap/issues/33)
