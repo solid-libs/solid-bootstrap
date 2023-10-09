@@ -2,15 +2,14 @@ import usePopper, {Offset, Placement, UsePopperOptions, UsePopperState} from "./
 import useRootClose, {RootCloseOptions} from "./useRootClose";
 import mergeOptionsWithPopperConfig from "./mergeOptionsWithPopperConfig";
 import {
-  batch,
   children,
   createComputed,
   createEffect,
   createMemo,
   createSignal,
+  getOwner,
   JSX,
-  mergeProps,
-  onCleanup,
+  runWithOwner,
   Show,
 } from "solid-js";
 import {createStore, reconcile} from "solid-js/store";
@@ -128,6 +127,7 @@ export const Overlay = (props: OverlayProps) => {
   const [rootElement, attachRef] = createSignal<HTMLElement>();
   const [arrowElement, attachArrowRef] = createSignal<Element>();
   const [exited, setExited] = createSignal(!props.show);
+  const owner = getOwner()!;
 
   const container = useWaitForDOMRef({
     get ref() {
@@ -206,9 +206,16 @@ export const Overlay = (props: OverlayProps) => {
   }));
 
   const resolvedChildren = children(() => props.children as JSX.Element);
-  const InnerChild = () => <>
-    {(resolvedChildren() as unknown as OverlayProps["children"])(wrapperProps, arrowProps, metadata)}
-  </>;
+  const InnerChild = () =>
+    runWithOwner(owner, () => (
+      <>
+        {(resolvedChildren() as unknown as OverlayProps["children"])(
+          wrapperProps,
+          arrowProps,
+          metadata,
+        )}
+      </>
+    ));
 
   let Transition: TransitionComponent | undefined;
   return (

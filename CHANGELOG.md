@@ -1,3 +1,7 @@
+## 2023-10-10 - (1.0.16)
+
+- [Fix: Overlay/Popover content is not reactive #36](https://github.com/solid-libs/solid-bootstrap/issues/36)
+
 ## 2023-10-02 - (1.0.15)
 
 - [Fix: toast messages can't be changed #35](https://github.com/solid-libs/solid-bootstrap/issues/35)
