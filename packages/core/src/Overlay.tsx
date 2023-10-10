@@ -3,7 +3,6 @@ import useRootClose, {RootCloseOptions} from "./useRootClose";
 import mergeOptionsWithPopperConfig from "./mergeOptionsWithPopperConfig";
 import {
   children,
-  createComputed,
   createEffect,
   createMemo,
   createSignal,
@@ -139,7 +138,7 @@ export const Overlay = (props: OverlayProps) => {
   const popperVisible = createMemo(() => !!(props.show || (props.transition && !exited())));
 
   /** sync popper options with props */
-  createComputed(() => {
+  createEffect(() => {
     setPopperOptions(
       reconcile(
         mergeOptionsWithPopperConfig({
@@ -158,10 +157,10 @@ export const Overlay = (props: OverlayProps) => {
 
   const popper = usePopper(props.target, rootElement, popperOptions);
 
-  createComputed(() => {
+  createEffect(() => {
     if (props.show) {
-      if (exited()) setExited(false);
-    } else if (!props.transition && !exited()) {
+      setExited(false);
+    } else if (!props.transition) {
       setExited(true);
     }
   });
@@ -206,16 +205,14 @@ export const Overlay = (props: OverlayProps) => {
   }));
 
   const resolvedChildren = children(() => props.children as JSX.Element);
-  const InnerChild = () =>
-    runWithOwner(owner, () => (
-      <>
-        {(resolvedChildren() as unknown as OverlayProps["children"])(
-          wrapperProps,
-          arrowProps,
-          metadata,
-        )}
-      </>
-    ));
+  const InnerChild = () => {
+    const child = (resolvedChildren() as unknown as OverlayProps["children"])(
+      wrapperProps,
+      arrowProps,
+      metadata,
+    );
+    return runWithOwner(owner, () => <>{child}</>);
+  };
 
   let Transition: TransitionComponent | undefined;
   return (
