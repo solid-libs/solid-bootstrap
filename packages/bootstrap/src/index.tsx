@@ -80,7 +80,7 @@ export {default as OffcanvasHeader} from "./OffcanvasHeader";
 export {default as OffcanvasTitle} from "./OffcanvasTitle";
 export {default as OffcanvasToggling} from "./OffcanvasToggling";
 export {default as Overlay} from "./Overlay";
-export {default as OverlayContext} from "./OverlayContext";
+export {OverlayContext} from "solid-bootstrap-core";
 export {default as OverlayTrigger} from "./OverlayTrigger";
 export {default as PageItem} from "./PageItem";
 export {default as Pagination} from "./Pagination";

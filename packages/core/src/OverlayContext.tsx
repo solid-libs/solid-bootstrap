@@ -1,5 +1,5 @@
 import {createContext} from "solid-js";
-import {OverlayArrowProps, OverlayInjectedProps, OverlayMetadata} from "solid-bootstrap-core";
+import {OverlayArrowProps, OverlayInjectedProps, OverlayMetadata} from "./Overlay";
 
 export interface OverlayContextType {
   wrapperProps: OverlayInjectedProps;

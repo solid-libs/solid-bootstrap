@@ -1,20 +1,12 @@
 import usePopper, {Offset, Placement, UsePopperOptions, UsePopperState} from "./usePopper";
 import useRootClose, {RootCloseOptions} from "./useRootClose";
 import mergeOptionsWithPopperConfig from "./mergeOptionsWithPopperConfig";
-import {
-  children,
-  createEffect,
-  createMemo,
-  createSignal,
-  getOwner,
-  JSX,
-  runWithOwner,
-  Show,
-} from "solid-js";
+import {createEffect, createMemo, createSignal, getOwner, JSX, runWithOwner, Show} from "solid-js";
 import {createStore, reconcile} from "solid-js/store";
 import {TransitionCallbacks, TransitionComponent} from "solid-react-transition";
 import {Portal} from "solid-js/web";
 import useWaitForDOMRef, {DOMContainer} from "./useWaitForDOMRef";
+import OverlayContext from "./OverlayContext";
 
 export interface OverlayArrowProps extends Record<string, any> {
   ref: (e: HTMLElement) => void;
@@ -49,6 +41,8 @@ export interface OverlayProps extends TransitionCallbacks {
    * A convenience shortcut to setting `popperConfig.modfiers.offset`
    */
   offset?: Offset;
+
+  children: JSX.Element;
 
   /**
    * Control how much space there is between the edge of the boundary element and overlay.
@@ -107,15 +101,6 @@ export interface OverlayProps extends TransitionCallbacks {
    * Specify event for toggling overlay
    */
   rootCloseEvent?: RootCloseOptions["clickTrigger"];
-
-  /**
-   * A render prop that returns an overlay element.
-   */
-  children: (
-    wrapperProps: () => OverlayInjectedProps,
-    arrowProps: () => Partial<OverlayArrowProps>,
-    meta: () => OverlayMetadata,
-  ) => JSX.Element;
 }
 
 /**
@@ -204,16 +189,24 @@ export const Overlay = (props: OverlayProps) => {
     show: !!props.show,
   }));
 
-  const resolvedChildren = children(() => props.children as JSX.Element);
-  const InnerChild = () => {
-    const child = (resolvedChildren() as unknown as OverlayProps["children"])(
-      wrapperProps,
-      arrowProps,
-      metadata,
-    );
-    return runWithOwner(owner, () => <>{child}</>);
-  };
-
+  const InnerChild = () =>
+    runWithOwner(owner, () => (
+      <OverlayContext.Provider
+        value={{
+          get wrapperProps() {
+            return wrapperProps();
+          },
+          get arrowProps() {
+            return arrowProps();
+          },
+          get metadata() {
+            return metadata();
+          },
+        }}
+      >
+        {props.children}
+      </OverlayContext.Provider>
+    ));
   let Transition: TransitionComponent | undefined;
   return (
     <Show when={container() && popperVisible()}>

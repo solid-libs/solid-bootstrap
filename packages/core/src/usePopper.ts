@@ -1,6 +1,6 @@
 import * as Popper from "@popperjs/core";
 import {Accessor, createEffect, createMemo, createSignal, on} from "solid-js";
-import {DeepReadonly} from "solid-js/store";
+import {createStore, DeepReadonly, reconcile} from "solid-js/store";
 import {createPopper} from "./popper";
 
 const disabledApplyStylesModifier = {
@@ -116,7 +116,7 @@ export function usePopper(
     }),
   );
 
-  const [popperState, setPopperState] = createSignal<UsePopperState>({
+  const [popperState, setPopperState] = createStore<UsePopperState>({
     placement: options.placement ?? "bottom",
     get update() {
       return update();
@@ -145,13 +145,18 @@ export function usePopper(
         attributes[element] = state.attributes[element];
       });
 
-      setPopperState((s) => ({
-        ...s,
-        state,
-        styles,
-        attributes,
-        placement: state.placement,
-      }));
+      setPopperState(
+        reconcile(
+          {
+            ...popperState,
+            state,
+            styles,
+            attributes,
+            placement: state.placement,
+          },
+          {merge: true},
+        ),
+      );
     },
   };
 
@@ -187,16 +192,21 @@ export function usePopper(
       if (popperInstance()) {
         popperInstance()!.destroy();
         setPopperInstance(undefined);
-        setPopperState((s) => ({
-          ...s,
-          attributes: {},
-          styles: {popper: {}},
-        }));
+        setPopperState(
+          reconcile(
+            {
+              ...popperState,
+              attributes: {},
+              styles: {popper: {}},
+            },
+            {merge: true},
+          ),
+        );
       }
     }
   });
 
-  return popperState;
+  return () => popperState;
 }
 
 export default usePopper;

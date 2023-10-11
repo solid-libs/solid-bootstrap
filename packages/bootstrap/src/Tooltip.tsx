@@ -1,10 +1,9 @@
 import {JSX, mergeProps, splitProps, useContext} from "solid-js";
 import classNames from "./classnames";
-import {OverlayArrowProps, OverlayInjectedProps} from "solid-bootstrap-core";
+import {OverlayArrowProps, OverlayContext} from "solid-bootstrap-core";
 import {useBootstrapPrefix} from "./ThemeProvider";
 import {Placement} from "./types";
 import {BsPrefixProps} from "./helpers";
-import OverlayContext from "./OverlayContext";
 
 export interface TooltipProps extends JSX.HTMLAttributes<HTMLDivElement>, BsPrefixProps {
   placement?: Placement;

@@ -1,3 +1,9 @@
+## 2023-10-11 - (1.0.18)
+
+- [Fix: Overlay/Popup hangs Chrome browser tab #37 (take 2)](https://github.com/solid-libs/solid-bootstrap/issues/37)
+
+  > Note this required a breaking change for the Core Overlay component. Intead of taking a render prop for children, children is now a normal JSX.Element and the overlay properties are made available via OverlayContext. I don't expect many people were using this component directly, but if you were, you'll need to update your code.
+
 ## 2023-10-11 - (1.0.17)
 
 - [Fix: Overlay/Popup hangs Chrome browser tab #37](https://github.com/solid-libs/solid-bootstrap/issues/37)

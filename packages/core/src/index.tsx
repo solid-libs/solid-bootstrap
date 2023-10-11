@@ -11,6 +11,7 @@ export {default as Nav} from "./Nav";
 export {default as NavItem, useNavItem} from "./NavItem";
 export {default as NoopTransition} from "./NoopTransition";
 export {default as Overlay} from "./Overlay";
+export {default as OverlayContext} from "./OverlayContext";
 export {default as SelectableContext} from "./SelectableContext";
 export {default as useRootClose} from "./useRootClose";
 export {default as TabPanel} from "./TabPanel";
