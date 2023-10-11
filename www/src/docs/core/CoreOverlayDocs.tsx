@@ -1,5 +1,5 @@
-import {Component, createSignal} from "solid-js";
-import {Overlay} from "solid-bootstrap-core";
+import {Component, createSignal, useContext} from "solid-js";
+import {Overlay, OverlayContext} from "solid-bootstrap-core";
 import GithubSource from "../GithubSource";
 
 const PLACEMENTS = ["top", "right", "bottom", "left"];
@@ -52,12 +52,15 @@ export const CoreOverlayDocs: Component = () => {
           flip
         >
           {/* Render overlay (tooltip) with props from popperjs */}
-          {(wrapperProps, arrowProps) => (
-            <div class="tooltip bs-tooltip-auto show" {...wrapperProps()}>
-              <div class="tooltip-arrow" {...arrowProps()}></div>
-              <div class="tooltip-inner">I am a overlay!</div>
-            </div>
-          )}
+          {() => {
+            const context = useContext(OverlayContext);
+            return (
+              <div class="tooltip bs-tooltip-auto show" {...context?.wrapperProps}>
+                <div class="tooltip-arrow" {...context?.arrowProps}></div>
+                <div class="tooltip-inner">I am a overlay!</div>
+              </div>
+            );
+          }}
         </Overlay>
       </div>
     </div>
