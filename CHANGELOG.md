@@ -1,3 +1,7 @@
+## 2023-10-24 - (1.0.19)
+
+- [Fix: Modals don't support SSR #39](https://github.com/solid-libs/solid-bootstrap/issues/39)
+
 ## 2023-10-11 - (1.0.18)
 
 - [Fix: Overlay/Popup hangs Chrome browser tab #37 (take 2)](https://github.com/solid-libs/solid-bootstrap/issues/37)

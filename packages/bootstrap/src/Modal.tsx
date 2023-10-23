@@ -139,7 +139,9 @@ const Modal: BsPrefixRefForwardingComponent<"div", ModalProps> = (p: ModalProps)
   };
 
   onCleanup(() => {
-    removeEventListener(window as any, "resize", handleWindowResize);
+    if (!isServer) {
+      removeEventListener(window as any, "resize", handleWindowResize);
+    }
     removeStaticModalAnimationRef?.();
   });
 
