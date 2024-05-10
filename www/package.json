@@ -1,6 +1,6 @@
 {
   "name": "solid-bootstrap-docs",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "description": "",
   "scripts": {
     "start": "vite",

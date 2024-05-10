@@ -5,7 +5,9 @@ import {
   JSX,
   mergeProps,
   onCleanup,
+  Owner,
   runWithOwner,
+  Show,
   splitProps,
 } from "solid-js";
 import classNames from "./classnames";
@@ -49,7 +51,7 @@ const Toast: BsPrefixRefForwardingComponent<"div", ToastProps> = (p: ToastProps)
     "bg",
   ]);
   const bsPrefix = useBootstrapPrefix(local.bsPrefix, "toast");
-  const owner = getOwner()!;
+  let owner: Owner;
 
   // We use refs for these, because we don't want to restart the autohide
   // timer in case these values change.
@@ -109,13 +111,16 @@ const Toast: BsPrefixRefForwardingComponent<"div", ToastProps> = (p: ToastProps)
 
   return (
     <ToastContext.Provider value={toastContext}>
-      {hasAnimation && local.transition ? (
-        <Transition appear in={local.show} unmountOnExit>
-          <ToastInner />
-        </Transition>
-      ) : (
-        <ToastInner />
-      )}
+      {() => {
+        owner = getOwner()!;
+        return (
+          <Show when={hasAnimation && local.transition} fallback={<ToastInner />}>
+            <Transition appear in={local.show} unmountOnExit>
+              <ToastInner />
+            </Transition>
+          </Show>
+        );
+      }}
     </ToastContext.Provider>
   );
 };

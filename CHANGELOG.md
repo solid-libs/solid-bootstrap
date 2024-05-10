@@ -1,3 +1,7 @@
+## 2024-05-11 - (1.0.20)
+
+- [Fix: Toasts don't fire the onClose #43](https://github.com/solid-libs/solid-bootstrap/issues/43)
+
 ## 2023-10-24 - (1.0.19)
 
 - [Fix: Modals don't support SSR #39](https://github.com/solid-libs/solid-bootstrap/issues/39)

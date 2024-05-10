@@ -4,9 +4,6 @@ export interface ToastContextType {
   onClose?: (e?: MouseEvent | KeyboardEvent) => void;
 }
 
-const ToastContext = createContext<ToastContextType>({
-  // eslint-disable-next-line @typescript-eslint/no-empty-function
-  onClose() {},
-});
+const ToastContext = createContext<ToastContextType>();
 
 export default ToastContext;
