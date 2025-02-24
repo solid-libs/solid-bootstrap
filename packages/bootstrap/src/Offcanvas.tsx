@@ -1,4 +1,4 @@
-import {mergeProps, splitProps, useContext} from "solid-js";
+import {children, mergeProps, splitProps, useContext} from "solid-js";
 import classNames from "./classnames";
 import {
   Modal as BaseModal,
@@ -121,22 +121,26 @@ const Offcanvas: BsPrefixRefForwardingComponent<"div", OffcanvasProps> = (p: Off
 
   const renderBackdrop = (backdropProps: RenderModalBackdropProps) => (
     <div {...backdropProps} class={classNames(`${bsPrefix}-backdrop`, local.backdropClass)}>
-      {props.children}
+      {/* {props.children} */}
     </div>
   );
 
-  const renderDialog = (dialogProps: RenderModalDialogProps) => (
-    <div
-      // @ts-ignore
-      role="dialog"
-      {...dialogProps}
-      {...props}
-      class={classNames(local.class, bsPrefix, `${bsPrefix}-${local.placement}`)}
-      aria-labelledby={local["aria-labelledby"]}
-    >
-      {local.children}
-    </div>
-  );
+  let child: ReturnType<typeof children>;
+  const renderDialog = (dialogProps: RenderModalDialogProps) => {
+    if (!child) child = children(() => local.children);
+    return (
+      <div
+        // @ts-ignore
+        role="dialog"
+        {...dialogProps}
+        {...props}
+        class={classNames(local.class, bsPrefix, `${bsPrefix}-${local.placement}`)}
+        aria-labelledby={local["aria-labelledby"]}
+      >
+        {child}
+      </div>
+    );
+  };
 
   return (
     <ModalContext.Provider value={modalContext}>
