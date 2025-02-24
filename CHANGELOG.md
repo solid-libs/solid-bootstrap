@@ -1,3 +1,7 @@
+## 2025-02-24 - (1.0.21)
+
+- [Fix: Offcanvas component doesn't unmount when dismissed. #45](https://github.com/solid-libs/solid-bootstrap/issues/45)
+
 ## 2024-05-11 - (1.0.20)
 
 - [Fix: Toasts don't fire the onClose #43](https://github.com/solid-libs/solid-bootstrap/issues/43)
